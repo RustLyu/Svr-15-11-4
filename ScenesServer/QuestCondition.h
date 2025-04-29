@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestCondition.h  $
  * \author	
  * \date	
- * \brief	½Å±¾´¥·¢Ìõ¼ş
+ * \brief	è„šæœ¬è§¦å‘æ¡ä»¶
  * 
  */
  
@@ -21,9 +21,9 @@
 
 namespace Op {
 	/**
-	 * \brief ±äÁ¿´óĞ¡ÅĞ¶¨
+	 * \brief å˜é‡å¤§å°åˆ¤å®š
 	 *
-	 * ÅĞ¶ÏÒ»¸ö±äÁ¿ÊÇ·ñ´óÓÚ¸ø¶¨Öµ
+	 * åˆ¤æ–­ä¸€ä¸ªå˜é‡æ˜¯å¦å¤§äºç»™å®šå€¼
 	 *
 	 */
 	template <typename T>
@@ -37,11 +37,11 @@ namespace Op {
 		typedef T value_type;
 		
 		/**     
-		 * \brief ÅĞ¶Ï¸ø¶¨±äÁ¿ÊÇ·ñ´óÓÚ²âÊÔÖµ
+		 * \brief åˆ¤æ–­ç»™å®šå˜é‡æ˜¯å¦å¤§äºæµ‹è¯•å€¼
 		 *
-		 * \param value: ´ıÅĞ¶Ï±äÁ¿
-		 * \param condition: ²âÊÔÖµ
-		 * \return ´ıÅĞ¶Ï±äÁ¿´óÓÚ²âÊÔÖµ·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \param value: å¾…åˆ¤æ–­å˜é‡
+		 * \param condition: æµ‹è¯•å€¼
+		 * \return å¾…åˆ¤æ–­å˜é‡å¤§äºæµ‹è¯•å€¼è¿”å›true,å¦åˆ™è¿”å›false
 		 */     		
 		bool operator() (T value, T condition) const
 		{
@@ -56,9 +56,9 @@ namespace Op {
 	};
 	
 	/**
-	 * \brief ±äÁ¿´óĞ¡ÅĞ¶¨
+	 * \brief å˜é‡å¤§å°åˆ¤å®š
 	 *
-	 * ÅĞ¶ÏÒ»¸ö±äÁ¿ÊÇ·ñĞ¡ÓÚ¸ø¶¨Öµ
+	 * åˆ¤æ–­ä¸€ä¸ªå˜é‡æ˜¯å¦å°äºç»™å®šå€¼
 	 *
 	 */
 	template <typename T>
@@ -72,11 +72,11 @@ namespace Op {
 		typedef T value_type;
 		
 		/**     
-		 * \brief ÅĞ¶Ï¸ø¶¨±äÁ¿ÊÇ·ñĞ¡ÓÚ²âÊÔÖµ
+		 * \brief åˆ¤æ–­ç»™å®šå˜é‡æ˜¯å¦å°äºæµ‹è¯•å€¼
 		 *
-		 * \param value: ´ıÅĞ¶Ï±äÁ¿
-		 * \param condition: ²âÊÔÖµ
-		 * \return ´ıÅĞ¶Ï±äÁ¿Ğ¡ÓÚ²âÊÔÖµ·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \param value: å¾…åˆ¤æ–­å˜é‡
+		 * \param condition: æµ‹è¯•å€¼
+		 * \return å¾…åˆ¤æ–­å˜é‡å°äºæµ‹è¯•å€¼è¿”å›true,å¦åˆ™è¿”å›false
 		 */     		
 		bool operator() (T value, T condition) const
 		{
@@ -91,9 +91,9 @@ namespace Op {
 	};
 	
 	/**
-	 * \brief ±äÁ¿´óĞ¡ÅĞ¶¨
+	 * \brief å˜é‡å¤§å°åˆ¤å®š
 	 *
-	 * ÅĞ¶ÏÒ»¸ö±äÁ¿ÊÇ·ñµÈÓÚ¸ø¶¨Öµ
+	 * åˆ¤æ–­ä¸€ä¸ªå˜é‡æ˜¯å¦ç­‰äºç»™å®šå€¼
 	 *
 	 */
 	template <typename T>
@@ -107,11 +107,11 @@ namespace Op {
 		typedef T value_type;
 		
 		/**     
-		 * \brief ÅĞ¶Ï¸ø¶¨±äÁ¿ÊÇ·ñµÈÓÚ²âÊÔÖµ
+		 * \brief åˆ¤æ–­ç»™å®šå˜é‡æ˜¯å¦ç­‰äºæµ‹è¯•å€¼
 		 *
-		 * \param value: ´ıÅĞ¶Ï±äÁ¿
-		 * \param condition: ²âÊÔÖµ
-		 * \return ´ıÅĞ¶Ï±äÁ¿µÈÓÚ²âÊÔÖµ·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \param value: å¾…åˆ¤æ–­å˜é‡
+		 * \param condition: æµ‹è¯•å€¼
+		 * \return å¾…åˆ¤æ–­å˜é‡ç­‰äºæµ‹è¯•å€¼è¿”å›true,å¦åˆ™è¿”å›false
 		 */     		
 		bool operator() (T value, T condition) const
 		{
@@ -127,9 +127,9 @@ namespace Op {
 	};
 	
 	/**
-	 * \brief ±äÁ¿´óĞ¡ÅĞ¶¨
+	 * \brief å˜é‡å¤§å°åˆ¤å®š
 	 *
-	 * ÅĞ¶ÏÒ»¸ö±äÁ¿²»Í¬ÓÚ¸ø¶¨Öµ
+	 * åˆ¤æ–­ä¸€ä¸ªå˜é‡ä¸åŒäºç»™å®šå€¼
 	 *
 	 */
 	template <typename T>
@@ -143,11 +143,11 @@ namespace Op {
 		typedef T value_type;
 		
 		/**     
-		 * \brief ÅĞ¶Ï¸ø¶¨±äÁ¿ÊÇ·ñ²»µÈÓÚ²âÊÔÖµ
+		 * \brief åˆ¤æ–­ç»™å®šå˜é‡æ˜¯å¦ä¸ç­‰äºæµ‹è¯•å€¼
 		 *
-		 * \param value: ´ıÅĞ¶Ï±äÁ¿
-		 * \param condition: ²âÊÔÖµ
-		 * \return ´ıÅĞ¶Ï±äÁ¿²»µÈÓÚ²âÊÔÖµ·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \param value: å¾…åˆ¤æ–­å˜é‡
+		 * \param condition: æµ‹è¯•å€¼
+		 * \return å¾…åˆ¤æ–­å˜é‡ä¸ç­‰äºæµ‹è¯•å€¼è¿”å›true,å¦åˆ™è¿”å›false
 		 */     		
 		bool operator() (T value, T condition) const
 		{
@@ -164,9 +164,9 @@ namespace Op {
 }
 
 /**
- * \brief ´¥·¢Ìõ¼ş»ùÀà
+ * \brief è§¦å‘æ¡ä»¶åŸºç±»
  *
- * ¸ÃÀà¶¨ÒåÁË½Å±¾´¥·¢Ìõ¼şµÄ½Ó¿Ú¡£
+ * è¯¥ç±»å®šä¹‰äº†è„šæœ¬è§¦å‘æ¡ä»¶çš„æ¥å£ã€‚
  *
  */	
 class Condition
@@ -177,7 +177,7 @@ public:
 	virtual bool is_valid (const SceneUser* user, const Vars* vars) const;
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~Condition() { }
@@ -189,20 +189,20 @@ protected:
 };
 
 /**
- * \brief ×é¶Ó´¥·¢Ìõ¼ş»ùÀà
+ * \brief ç»„é˜Ÿè§¦å‘æ¡ä»¶åŸºç±»
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚ×é¶ÓÈÎÎñµÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºç»„é˜Ÿä»»åŠ¡çš„æ”¯æŒ
  *
  */	
 class TeamCondition : public Condition
 {
 public:
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	TeamCondition(Parse& p)
 	{ 
@@ -210,7 +210,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~TeamCondition() { }
@@ -224,9 +224,9 @@ private:
 };
 
 /**
- * \brief ±äÁ¿Ìõ¼ş
+ * \brief å˜é‡æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞÓĞ¹Ø±äÁ¿µÄÌõ¼şÅĞ¶¨µÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­æœ‰å…³å˜é‡çš„æ¡ä»¶åˆ¤å®šçš„æ”¯æŒ
  *
  */
 template <typename Operation>
@@ -236,11 +236,11 @@ public:
 	typedef typename Operation::value_type value_type;
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	VarCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -250,7 +250,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~VarCondition()
@@ -258,13 +258,13 @@ public:
 
 	
 	/**     
-	 * \brief  ±äÁ¿ÅĞ¶¨
+	 * \brief  å˜é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨Ä³¸ö±äÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šæŸä¸ªå˜é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid (const SceneUser* user, const Vars* vars) const
 	{
@@ -289,9 +289,9 @@ private:
 };
 
 /**
- * \brief ÓÃ»§±äÁ¿Ìõ¼ş
+ * \brief ç”¨æˆ·å˜é‡æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞÓĞ¹ØÓÃ»§±äÁ¿µÄÌõ¼şÅĞ¶¨µÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­æœ‰å…³ç”¨æˆ·å˜é‡çš„æ¡ä»¶åˆ¤å®šçš„æ”¯æŒ
  *
  */
 template <typename Operation>
@@ -301,11 +301,11 @@ public:
 	typedef typename Operation::value_type value_type;
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	UserVarCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -315,20 +315,20 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~UserVarCondition()
 	{ }
 
 	/**     
-	 * \brief  ÓÃ»§±äÁ¿ÅĞ¶¨
+	 * \brief  ç”¨æˆ·å˜é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨Ä³¸öÓÃ»§±äÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šæŸä¸ªç”¨æˆ·å˜é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid (const SceneUser* user, const Vars* vars) const
 	{
@@ -352,9 +352,9 @@ private:
 };
 
 /**
- * \brief È«¾Ö±äÁ¿Ìõ¼ş
+ * \brief å…¨å±€å˜é‡æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞÓĞ¹ØÈ«¾Ö±äÁ¿µÄÌõ¼şÅĞ¶¨µÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­æœ‰å…³å…¨å±€å˜é‡çš„æ¡ä»¶åˆ¤å®šçš„æ”¯æŒ
  *
  */
 template <typename Operation>
@@ -364,11 +364,11 @@ public:
 	typedef typename Operation::value_type value_type;
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	GlobalCondition(Parse& p)
 	{ 
@@ -378,20 +378,20 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~GlobalCondition()
 	{ }
 
 	/**     
-	 * \brief  ²ÎÊı¼ì²é
+	 * \brief  å‚æ•°æ£€æŸ¥
 	 *
-	 * ÖØÔØÁËcheck_argsº¯Êı,¸ÃÌõ¼ş²»ĞèÒªÓÃ»§ĞÅÏ¢
+	 * é‡è½½äº†check_argså‡½æ•°,è¯¥æ¡ä»¶ä¸éœ€è¦ç”¨æˆ·ä¿¡æ¯
 	 *      
 	 * \param user: NULL
-	 * \param vars: ±äÁ¿ĞÅÏ¢
-	 * \return ±äÁ¿ÓĞĞ§·µ»Øtrue,·ñÔò·µ»Øfalse
+	 * \param vars: å˜é‡ä¿¡æ¯
+	 * \return å˜é‡æœ‰æ•ˆè¿”å›true,å¦åˆ™è¿”å›false
 	 */ 	
 	bool check_args(const SceneUser* user, const Vars* vars) const
 	{
@@ -401,13 +401,13 @@ public:
 	}
 
 	/**     
-	 * \brief  È«¾Ö±äÁ¿ÅĞ¶¨
+	 * \brief  å…¨å±€å˜é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨Ä³¸öÈ«¾Ö±äÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šæŸä¸ªå…¨å±€å˜é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
 	 * \param user: NULL
-	 * \param vars: ±äÁ¿ĞÅÏ¢
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param vars: å˜é‡ä¿¡æ¯
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid (const SceneUser* user, const Vars* vars) const
 	{
@@ -510,9 +510,9 @@ public:
 };
 
 /**
- * \brief ¼¼ÄÜÊÇ·ñÑ§Ï°Ìõ¼ş
+ * \brief æŠ€èƒ½æ˜¯å¦å­¦ä¹ æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§ÊÇ·ñÑ§Ï°¼¼ÄÜ
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­¦ä¹ æŠ€èƒ½
  *
  */
 template <typename Operation>
@@ -522,11 +522,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	HaveSkillCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -534,20 +534,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~HaveSkillCondition()
 	{ }
 	
 	/**     
-	 * \brief  ¼¼ÄÜ¸öÊıÅĞ¶¨
+	 * \brief  æŠ€èƒ½ä¸ªæ•°åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§µÄ¼¼ÄÜÊıÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·çš„æŠ€èƒ½æ•°é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -562,9 +562,9 @@ private:
 
 
 /**
- * \brief ¼ì²éÍæ¼ÒĞÔ±ğ
+ * \brief æ£€æŸ¥ç©å®¶æ€§åˆ«
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§µÄĞÔ±ğ
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·çš„æ€§åˆ«
  *
  */
 template <typename Operation>
@@ -574,11 +574,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	CheckSexCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -586,20 +586,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~CheckSexCondition()
 	{ }
 	
 	/**     
-	 * \brief  ¼¼ÄÜ¸öÊıÅĞ¶¨
+	 * \brief  æŠ€èƒ½ä¸ªæ•°åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§µÄ¼¼ÄÜÊıÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·çš„æŠ€èƒ½æ•°é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -607,19 +607,19 @@ public:
 		int sex = 0;
 		switch(user->charbase.type)
 		{
-			case PROFESSION_1:		//ÏÀ¿Í
-			case PROFESSION_3:		//¼ıÏÀ
-			case PROFESSION_5:		//ÌìÊ¦
-			case PROFESSION_7:		//·¨Ê¦
+			case PROFESSION_1:		//ä¾ å®¢
+			case PROFESSION_3:		//ç®­ä¾ 
+			case PROFESSION_5:		//å¤©å¸ˆ
+			case PROFESSION_7:		//æ³•å¸ˆ
 				sex = 1;
 				break;
-			case PROFESSION_2:		//ÏÀÅ®
-			case PROFESSION_4:		//¼ıÁé
-			case PROFESSION_6:		//ÃÀÅ®
-			case PROFESSION_8:		//ÏÉÅ®
+			case PROFESSION_2:		//ä¾ å¥³
+			case PROFESSION_4:		//ç®­çµ
+			case PROFESSION_6:		//ç¾å¥³
+			case PROFESSION_8:		//ä»™å¥³
 				sex = 0;
 				break;
-			case PROFESSION_NONE:	//ÎŞÒµ
+			case PROFESSION_NONE:	//æ— ä¸š
 			default:
 				break;
 		}
@@ -631,9 +631,9 @@ private:
 };
 
 /**
- * \brief µÈ¼¶Ìõ¼ş
+ * \brief ç­‰çº§æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§µÈ¼¶ÊÇ·ñ´óÓÚ,Ğ¡ÓÚ,µÈÓÚ»ò²»µÈÓÚÄ³¸öÖµµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·ç­‰çº§æ˜¯å¦å¤§äº,å°äº,ç­‰äºæˆ–ä¸ç­‰äºæŸä¸ªå€¼çš„æ¥å£
  *
  */
 template <typename Operation>
@@ -643,11 +643,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	LevelCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -655,20 +655,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~LevelCondition()
 	{ }
 	
 	/**     
-	 * \brief  µÈ¼¶ÅĞ¶¨
+	 * \brief  ç­‰çº§åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§µÄµÈ¼¶ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·çš„ç­‰çº§æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -682,9 +682,9 @@ private:
 
 
 /**
- * \brief ¼Ò×åÌõ¼ş
+ * \brief å®¶æ—æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§¼Ò×åIDÊÇ·ñ´óÓÚ,Ğ¡ÓÚ,µÈÓÚ»ò²»µÈÓÚÄ³¸öÖµµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·å®¶æ—IDæ˜¯å¦å¤§äº,å°äº,ç­‰äºæˆ–ä¸ç­‰äºæŸä¸ªå€¼çš„æ¥å£
  *
  */
 template <typename Operation>
@@ -694,11 +694,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	SeptIDCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -706,20 +706,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~SeptIDCondition()
 	{ }
 	
 	/**     
-	 * \brief  ¼Ò×åÅĞ¶¨
+	 * \brief  å®¶æ—åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§µÄ¼Ò×åIDÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·çš„å®¶æ—IDæ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -732,9 +732,9 @@ private:
 };
 
 /**
- * \brief °ï»áÌõ¼ş
+ * \brief å¸®ä¼šæ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§¼Ò×åIDÊÇ·ñ´óÓÚ,Ğ¡ÓÚ,µÈÓÚ»ò²»µÈÓÚÄ³¸öÖµµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·å®¶æ—IDæ˜¯å¦å¤§äº,å°äº,ç­‰äºæˆ–ä¸ç­‰äºæŸä¸ªå€¼çš„æ¥å£
  *
  */
 template <typename Operation>
@@ -744,11 +744,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	UnionIDCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -756,20 +756,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~UnionIDCondition()
 	{ }
 	
 	/**     
-	 * \brief  °ï»áÅĞ¶¨
+	 * \brief  å¸®ä¼šåˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§µÄ¼Ò×åIDÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·çš„å®¶æ—IDæ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -784,9 +784,9 @@ private:
 #include "Chat.h"
 
 /**
- * \brief ½ğÇ®Ìõ¼ş
+ * \brief é‡‘é’±æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§°ü¹üÖĞ½ğÇ®ÊıÁ¿ÊÇ·ñ´óÓÚ,Ğ¡ÓÚ,µÈÓÚ»ò²»µÈÓÚÄ³¸öÖµµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·åŒ…è£¹ä¸­é‡‘é’±æ•°é‡æ˜¯å¦å¤§äº,å°äº,ç­‰äºæˆ–ä¸ç­‰äºæŸä¸ªå€¼çš„æ¥å£
  *
  */
 template <typename Operation>
@@ -794,11 +794,11 @@ class GoldCondition : public TeamCondition
 {
 public:	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	GoldCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -806,20 +806,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~GoldCondition()
 	{ }
 
 	/**     
-	 * \brief  ½ğÇ®ÅĞ¶¨
+	 * \brief  é‡‘é’±åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§°ü¹üÖĞµÄ½ğÇ®ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·åŒ…è£¹ä¸­çš„é‡‘é’±æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -831,7 +831,7 @@ public:
 
 		//shouldn't be exist, NB CEHUA
 		//if (op.name() == "Great" && number < (DWORD)_condition) {
-			//Channel::sendSys(const_cast<SceneUser*>(user), Cmd::INFO_TYPE_FAIL, "½ğÇ®²»×ã");
+			//Channel::sendSys(const_cast<SceneUser*>(user), Cmd::INFO_TYPE_FAIL, "é‡‘é’±ä¸è¶³");
 		//}
 		
 		return op(number, _condition);
@@ -842,9 +842,9 @@ private:
 };
 
 /**
- * \brief ÎïÆ·Ìõ¼ş
+ * \brief ç‰©å“æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§°ü¹üÖĞµÄÌØ¶¨ÎïÆ·ÊıÁ¿ÊÇ·ñ´óÓÚ,Ğ¡ÓÚ,µÈÓÚ»ò²»µÈÓÚÄ³¸öÖµµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·åŒ…è£¹ä¸­çš„ç‰¹å®šç‰©å“æ•°é‡æ˜¯å¦å¤§äº,å°äº,ç­‰äºæˆ–ä¸ç­‰äºæŸä¸ªå€¼çš„æ¥å£
  *
  */
 class ItemCondition : public TeamCondition
@@ -853,11 +853,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ItemCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -867,20 +867,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~ItemCondition()
 	{ }
 
 	/**     
-	 * \brief  ÎïÆ·ÊıÁ¿ÅĞ¶¨
+	 * \brief  ç‰©å“æ•°é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§°ü¹ü¿Õ¼äµÄÄ³¸öÎïÆ·ÊıÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·åŒ…è£¹ç©ºé—´çš„æŸä¸ªç‰©å“æ•°é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	
 	bool check_valid(const SceneUser* user, const Vars* vars) const
@@ -895,9 +895,9 @@ private:
 };
 
 /**
- * \brief ¹ú¼ÒÌõ¼ş
+ * \brief å›½å®¶æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§ÊÇ·ñÊôÓÚÒ»¸ö¹ú¼ÒµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å±äºä¸€ä¸ªå›½å®¶çš„æ¥å£
  *
  */
 class NationCondition : public TeamCondition
@@ -906,11 +906,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	NationCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -918,20 +918,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~NationCondition()
 	{ }
 	
 	/**     
-	 * \brief  ¹ú¼ÒÅĞ¶¨
+	 * \brief  å›½å®¶åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÊôÓÚÄ³¸ö¹ú¼Ò
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦å±äºæŸä¸ªå›½å®¶
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -943,9 +943,9 @@ private:
 };
 
 /**
- * \brief ÊÇ·ñÔÚ±¾¹úÌõ¼ş
+ * \brief æ˜¯å¦åœ¨æœ¬å›½æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§ÊÇ·ñÔÚ±¾¹úµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·æ˜¯å¦åœ¨æœ¬å›½çš„æ¥å£
  *
  */
 class InNationCondition : public TeamCondition
@@ -954,11 +954,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	InNationCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -966,20 +966,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~InNationCondition()
 	{ }
 	
 	/**     
-	 * \brief  ¹ú¼ÒÅĞ¶¨
+	 * \brief  å›½å®¶åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÊôÓÚÄ³¸ö¹ú¼Ò
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦å±äºæŸä¸ªå›½å®¶
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -991,9 +991,9 @@ private:
 };
 
 /**
- * \brief °ï»áÌõ¼ş
+ * \brief å¸®ä¼šæ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§ÊÇ·ñÊôÓÚÄ³¸ö°ï»áµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å±äºæŸä¸ªå¸®ä¼šçš„æ¥å£
  *
  */
 class ConfraternityCondition : public TeamCondition
@@ -1002,11 +1002,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ConfraternityCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1014,20 +1014,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~ConfraternityCondition()
 	{ }
 	
 	/**     
-	 * \brief  °ï»áÅĞ¶¨
+	 * \brief  å¸®ä¼šåˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÊôÓÚÄ³¸ö°ï»á
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦å±äºæŸä¸ªå¸®ä¼š
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1039,9 +1039,9 @@ private:
 };
 
 /**
- * \brief Ö°ÒµÌõ¼ş
+ * \brief èŒä¸šæ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§ÊÇ·ñÊôÓÚÄ³¸öÖ°ÒµµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å±äºæŸä¸ªèŒä¸šçš„æ¥å£
  *
  */
 class ProfessionCondition : public TeamCondition
@@ -1050,11 +1050,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ProfessionCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1062,20 +1062,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~ProfessionCondition()
 	{ }
 	
 	/**     
-	 * \brief  Ö°ÒµÅĞ¶¨
+	 * \brief  èŒä¸šåˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§Ö°ÒµÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·èŒä¸šæ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1087,9 +1087,9 @@ private:
 };
 
 /**
- * \brief °ü¹ü¿Õ¼äÌõ¼ş
+ * \brief åŒ…è£¹ç©ºé—´æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§°ü¹üÖĞµÄ¿Õ¼äÊÇ·ñÄÜÈİÄÉÄ³¸öÎïÆ·µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·åŒ…è£¹ä¸­çš„ç©ºé—´æ˜¯å¦èƒ½å®¹çº³æŸä¸ªç‰©å“çš„æ¥å£
  *
  */
 class SpaceCondition : public TeamCondition
@@ -1098,11 +1098,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	SpaceCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1110,20 +1110,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~SpaceCondition()
 	{ }
 	
 	/**     
-	 * \brief  °ü¹ü¿Õ¼äÅĞ¶¨
+	 * \brief  åŒ…è£¹ç©ºé—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§°ü¹ü¿Õ¼äÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·åŒ…è£¹ç©ºé—´æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1131,7 +1131,7 @@ public:
 
 		if ( free >= _size) 	return true;
 
-		//Channel::sendSys(const_cast<SceneUser*>(user), Cmd::INFO_TYPE_FAIL, "°ü¹ü¿Õ¼ä²»×ã");
+		//Channel::sendSys(const_cast<SceneUser*>(user), Cmd::INFO_TYPE_FAIL, "åŒ…è£¹ç©ºé—´ä¸è¶³");
 		return false;
 	}
 
@@ -1140,9 +1140,9 @@ private:
 };
 
 /**
- * \brief ÊÇ·ñ³¬¹ıÈÎÎñÊ±¼äÒªÇó
+ * \brief æ˜¯å¦è¶…è¿‡ä»»åŠ¡æ—¶é—´è¦æ±‚
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÈÎÎñÊ±¼äÊÇ·ñÂú×ãÒªÇóµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ä»»åŠ¡æ—¶é—´æ˜¯å¦æ»¡è¶³è¦æ±‚çš„æ¥å£
  *
  */
 class TimeoutsCondition : public TeamCondition
@@ -1151,11 +1151,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	TimeoutsCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1165,20 +1165,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~TimeoutsCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÈÎÎñÊ±¼äÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šä»»åŠ¡æ—¶é—´æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1200,9 +1200,9 @@ private:
 };
 
 /**
- * \brief Ê±¼äÌõ¼ş
+ * \brief æ—¶é—´æ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÏµÍ³Ê±¼äÊÇ·ñÂú×ãÒªÇóµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç³»ç»Ÿæ—¶é—´æ˜¯å¦æ»¡è¶³è¦æ±‚çš„æ¥å£
  *
  */
 class TimerCondition : public Condition
@@ -1211,11 +1211,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	TimerCondition(Parse& p)
 	{ 
@@ -1229,20 +1229,20 @@ public:
 
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~TimerCondition()
 	{ }
 
 	/**     
-	 * \brief  ²ÎÊı¼ì²é
+	 * \brief  å‚æ•°æ£€æŸ¥
 	 *
-	 * ÖØÔØÁËcheck_argsº¯Êı,¸ÃÌõ¼ş²»ĞèÒªÓÃ»§¼°±äÁ¿ĞÅÏ¢
+	 * é‡è½½äº†check_argså‡½æ•°,è¯¥æ¡ä»¶ä¸éœ€è¦ç”¨æˆ·åŠå˜é‡ä¿¡æ¯
 	 *      
 	 * \param user: NULL
 	 * \param vars: NULL
-	 * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+	 * \return å½“å‰æ€»æ˜¯è¿”å›true
 	 */ 	
 	bool check_args(const SceneUser* user, const Vars* vars) const
 	{
@@ -1250,13 +1250,13 @@ public:
 	}
 
 	/**     
-	 * \brief  Ê±¼äÌõ¼şÅĞ¶¨
+	 * \brief  æ—¶é—´æ¡ä»¶åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÏµÍ³Ê±¼äÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç³»ç»Ÿæ—¶é—´æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
 	 * \param user: NULL
 	 * \param vars: NULL
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */   	
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1283,9 +1283,9 @@ private:
 };
 
 /**
- * \brief ×é¶ÓÌõ¼ş
+ * \brief ç»„é˜Ÿæ¡ä»¶
  *
- * ¸ÃÀàÌá¹©ÁËÅĞ¶ÏÓÃ»§¶ÓÎéÊÇ·ñÂú×ãÒªÇóµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ¤æ–­ç”¨æˆ·é˜Ÿä¼æ˜¯å¦æ»¡è¶³è¦æ±‚çš„æ¥å£
  *
  */
 class TeamedCondition : public Condition
@@ -1294,11 +1294,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	TeamedCondition(Parse& p) 
 	{ 
@@ -1308,7 +1308,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~TeamedCondition()
@@ -1328,11 +1328,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	IsGuardCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1340,20 +1340,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~IsGuardCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÈÎÎñÊ±¼äÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šä»»åŠ¡æ—¶é—´æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1370,11 +1370,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	FiveTypeCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1382,20 +1382,20 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~FiveTypeCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÈÎÎñÊ±¼äÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šä»»åŠ¡æ—¶é—´æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1412,11 +1412,11 @@ public:
 	typedef typename Operation::value_type value_type;
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	FiveLevelCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1424,7 +1424,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~FiveLevelCondition()
@@ -1432,13 +1432,13 @@ public:
 
 	
 	/**     
-	 * \brief  ±äÁ¿ÅĞ¶¨
+	 * \brief  å˜é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨Ä³¸ö±äÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šæŸä¸ªå˜é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid (const SceneUser* user, const Vars* vars) const
 	{
@@ -1458,11 +1458,11 @@ public:
 	typedef typename Operation::value_type value_type;
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	FamilyLevelCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1470,20 +1470,20 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~FamilyLevelCondition() { }
 
 	
 	/**     
-	 * \brief  ±äÁ¿ÅĞ¶¨
+	 * \brief  å˜é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨Ä³¸ö±äÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šæŸä¸ªå˜é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid (const SceneUser* user, const Vars* vars) const
 	{
@@ -1503,11 +1503,11 @@ public:
 	typedef typename Operation::value_type value_type;
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ReputeCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1515,7 +1515,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~ReputeCondition()
@@ -1523,13 +1523,13 @@ public:
 
 	
 	/**     
-	 * \brief  ±äÁ¿ÅĞ¶¨
+	 * \brief  å˜é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨Ä³¸ö±äÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šæŸä¸ªå˜é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid (const SceneUser* user, const Vars* vars) const
 	{
@@ -1549,11 +1549,11 @@ public:
 	typedef typename Operation::value_type value_type;
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ActionPointCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1561,7 +1561,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~ActionPointCondition()
@@ -1569,13 +1569,13 @@ public:
 
 	
 	/**     
-	 * \brief  ±äÁ¿ÅĞ¶¨
+	 * \brief  å˜é‡åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨Ä³¸ö±äÁ¿ÊÇ·ñÂú×ã½Å±¾ÒªÇó
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šæŸä¸ªå˜é‡æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid (const SceneUser* user, const Vars* vars) const
 	{
@@ -1594,11 +1594,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	HorseCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1606,20 +1606,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~HorseCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÓµÓĞËùĞèÂíÆ¥
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æ‰€éœ€é©¬åŒ¹
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1635,11 +1635,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	GradeCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1647,20 +1647,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~GradeCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÓµÓĞËùĞèÂíÆ¥
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æ‰€éœ€é©¬åŒ¹
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const
 	{
@@ -1680,11 +1680,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	MapCountryCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1693,20 +1693,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~MapCountryCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÓµÓĞËùĞèÂíÆ¥
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æ‰€éœ€é©¬åŒ¹
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const;
 private:
@@ -1720,11 +1720,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	HonorCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1732,20 +1732,20 @@ public:
  	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~HonorCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÓµÓĞËùĞèÂíÆ¥
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æ‰€éœ€é©¬åŒ¹
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const;
 private:
@@ -1758,11 +1758,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	MaxHonorCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1770,20 +1770,20 @@ public:
  	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~MaxHonorCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÓµÓĞËùĞèÂíÆ¥
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æ‰€éœ€é©¬åŒ¹
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const;
 private:
@@ -1796,11 +1796,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	SelfCountryCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1808,20 +1808,20 @@ public:
  	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~SelfCountryCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨ÓÃ»§ÊÇ·ñÓµÓĞËùĞèÂíÆ¥
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æ‰€éœ€é©¬åŒ¹
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const;
 private:
@@ -1834,11 +1834,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	CountryPowerCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1846,20 +1846,20 @@ public:
  	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~CountryPowerCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨¹ú¼ÒÇ¿Èõ
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šå›½å®¶å¼ºå¼±
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const;
 private:
@@ -1873,11 +1873,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	WeekCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1885,20 +1885,20 @@ public:
  	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~WeekCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨½ñÌìÊÇ·ñÊÇÒ»ĞÇÆÚÖĞÖ¸¶¨µÄÄÇ¼¸Ìì valueÖµÖĞÓÃ0-6Î»±íÊ¾Ò»ÖÜµÄ7Ìì
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šä»Šå¤©æ˜¯å¦æ˜¯ä¸€æ˜ŸæœŸä¸­æŒ‡å®šçš„é‚£å‡ å¤© valueå€¼ä¸­ç”¨0-6ä½è¡¨ç¤ºä¸€å‘¨çš„7å¤©
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const;
 private:
@@ -1912,11 +1912,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	CaptionCondition(Parse& p) : TeamCondition(p)
 	{ 
@@ -1924,20 +1924,20 @@ public:
  	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	virtual ~CaptionCondition()
 	{ }
 	
 	/**     
-	 * \brief  ÈÎÎñÊ±¼äÅĞ¶¨
+	 * \brief  ä»»åŠ¡æ—¶é—´åˆ¤å®š
 	 *
-	 * ÖØÔØÁËcheck_validº¯Êı,ÅĞ¶¨½ÇÉ«ÊÇ·ñ¹úÍõ»òÕß³ÇÖ÷
+	 * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šè§’è‰²æ˜¯å¦å›½ç‹æˆ–è€…åŸä¸»
 	 *      
-	 * \param user: ´¥·¢Ìõ¼şµÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return true±íÊ¾Âú×ãÌõ¼ş,false±íÊ¾²»Âú×ãÌõ¼ş
+	 * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
 	 */    
 	bool check_valid(const SceneUser* user, const Vars* vars) const;
 private:

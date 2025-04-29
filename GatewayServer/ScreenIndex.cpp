@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ScreenIndex.cpp  $
  * \author  
  * \date 
- * \brief ÆÁË÷Òı
+ * \brief å±ç´¢å¼•
  *
  * 
  */
@@ -13,13 +13,13 @@
 ScreenIndex::ScreenIndex(const DWORD x , const DWORD y):screenx(x),screeny(y),screenMax(x*y)
 {
 	const int adjust[9][2] = { {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, 0} };
-	//Ô¤ÏÈ½¨Á¢µØÍ¼¾ÅÆÁË÷Òı
+	//é¢„å…ˆå»ºç«‹åœ°å›¾ä¹å±ç´¢å¼•
 	for(DWORD j=0; j < screenMax ; j ++)
 	{
 		index[j];
 		int nScreenX = j % screenx;
 		int nScreenY = j / screenx;
-		//¼ÆËãÖÜÎ§¾ÅÆÁ
+		//è®¡ç®—å‘¨å›´ä¹å±
 		{
 			zPosIVector pv;
 			for(int i = 0; i < 9; i++) {
@@ -31,19 +31,19 @@ ScreenIndex::ScreenIndex(const DWORD x , const DWORD y):screenx(x),screeny(y),sc
 			}
 			ninescreen.insert(NineScreen_map_value_type(j,pv));
 		}
-		//¼ÆËãÕıÏò±ä»¯ÎåÆÁ»òÕßÈıÆÁ
+		//è®¡ç®—æ­£å‘å˜åŒ–äº”å±æˆ–è€…ä¸‰å±
 		for(int dir = 0; dir < 8; dir++)
 		{
 			int start, end;
 			zPosIVector pv;
 
 			if (1 == dir % 2) {
-				//Ğ±·½Ïò
+				//æ–œæ–¹å‘
 				start = 6;
 				end = 10;
 			}
 			else {
-				//Õı·½Ïò
+				//æ­£æ–¹å‘
 				start = 7;
 				end = 9;
 			}
@@ -56,19 +56,19 @@ ScreenIndex::ScreenIndex(const DWORD x , const DWORD y):screenx(x),screeny(y),sc
 			}
 			direct_screen[dir].insert(NineScreen_map_value_type(j,pv));
 		}
-		//¼ÆËã·´Ïò±ä»¯ÎåÆÁ»òÕßÈıÆÁ
+		//è®¡ç®—åå‘å˜åŒ–äº”å±æˆ–è€…ä¸‰å±
 		for(int dir = 0; dir < 8; dir++)
 		{
 			int start, end;
 			zPosIVector pv;
 
 			if (1 == dir % 2) {
-				//Ğ±·½Ïò
+				//æ–œæ–¹å‘
 				start = 2;
 				end = 6;
 			}
 			else {
-				//Õı·½Ïò
+				//æ­£æ–¹å‘
 				start = 3;
 				end = 5;
 			}
@@ -132,7 +132,7 @@ void ScreenIndex::sendCmdToNine(const DWORD posi, const void *pstrCmd, const int
 		/*
 		Cmd::t_NullCmd *ptNullCmd = (Cmd::t_NullCmd *)pstrCmd;
 		if(ptNullCmd->cmd != 6 && ptNullCmd->para !=20)
-		Zebra::logger->debug("%sÆÁË÷Òı%d,ÏûÏ¢:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
+		Zebra::logger->debug("%så±ç´¢å¼•%d,æ¶ˆæ¯:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
 		// */
 		execAllOfScreen(*it , exec);
 	}
@@ -148,7 +148,7 @@ void ScreenIndex::sendCmdToDirect(const zPosI posi, const int direct, const void
 		/*
 		Cmd::t_NullCmd *ptNullCmd = (Cmd::t_NullCmd *)pstrCmd;
 		if(ptNullCmd->cmd != 6 && ptNullCmd->para !=20)
-		Zebra::logger->debug("%sÆÁË÷Òı%d,ÏûÏ¢:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
+		Zebra::logger->debug("%så±ç´¢å¼•%d,æ¶ˆæ¯:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
 		// */
 		execAllOfScreen(*it , exec);
 	}
@@ -164,7 +164,7 @@ void ScreenIndex::sendCmdToReverseDirect(const zPosI posi, const int direct, con
 		/*
 		Cmd::t_NullCmd *ptNullCmd = (Cmd::t_NullCmd *)pstrCmd;
 		if(ptNullCmd->cmd != 6 && ptNullCmd->para !=20)
-		Zebra::logger->debug("%sÆÁË÷Òı%d,ÏûÏ¢:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
+		Zebra::logger->debug("%så±ç´¢å¼•%d,æ¶ˆæ¯:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
 		// */
 		execAllOfScreen(*it , exec);
 	}
@@ -222,7 +222,7 @@ void ScreenIndex::sendCmdToNineExceptMe(const DWORD posi, const DWORD exceptme_i
 		/*
 		Cmd::t_NullCmd *ptNullCmd = (Cmd::t_NullCmd *)pstrCmd;
 		if(ptNullCmd->cmd != 6 && ptNullCmd->para !=20)
-		Zebra::logger->debug("%sÆÁË÷Òı%d,ÏûÏ¢:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
+		Zebra::logger->debug("%så±ç´¢å¼•%d,æ¶ˆæ¯:(%d,%d)",__FUNCTION__,*it,ptNullCmd->cmd,ptNullCmd->para);
 		// */
 		execAllOfScreen(*it , exec);
 	}
@@ -232,20 +232,20 @@ bool ScreenIndex::refresh(GateUser *e, const DWORD newIndex)
 {
 	zRWLock_scope_wrlock scope_wrlock(wrlock);
 	if(e==NULL) return false;
-	//-2 ±íÊ¾É¾³ı×´Ì¬£¬²»¿ÉÒÔ±»³¡¾°Ìí¼Ó
-	//-1 ±íÊ¾µÈ´ıÌí¼Ó×´Ì¬
+	//-2 è¡¨ç¤ºåˆ é™¤çŠ¶æ€ï¼Œä¸å¯ä»¥è¢«åœºæ™¯æ·»åŠ 
+	//-1 è¡¨ç¤ºç­‰å¾…æ·»åŠ çŠ¶æ€
 	if(e->getIndexKey() == (DWORD)-2 && newIndex != (DWORD)-1) return false;
 
 	if(e->inserted)
 	{
-		//ÒÑ¾­¼ÓÈëµØÍ¼Ë÷Òı£¬Ö»ÊÇÔÚÆÁÖ®¼äÀ´»ØÇĞ»»
+		//å·²ç»åŠ å…¥åœ°å›¾ç´¢å¼•ï¼Œåªæ˜¯åœ¨å±ä¹‹é—´æ¥å›åˆ‡æ¢
 		bool ret=false;
 
 		SceneEntry_SET &pimi = index[e->getIndexKey()];
 		SceneEntry_SET::const_iterator it = pimi.find(e);
 		if (it != pimi.end())
 		{
-			//Zebra::logger->debug("[µØÍ¼Ë÷Òı]ÓÃ»§ÇĞ»»£º%s, %u, %u", e->name, e->getIndexKey(), newIndex);
+			//Zebra::logger->debug("[åœ°å›¾ç´¢å¼•]ç”¨æˆ·åˆ‡æ¢ï¼š%s, %u, %u", e->name, e->getIndexKey(), newIndex);
 			ret=true;
 			pimi.erase(it);
 			index[newIndex].insert(e);
@@ -256,19 +256,19 @@ bool ScreenIndex::refresh(GateUser *e, const DWORD newIndex)
 	}
 	else if (newIndex != (DWORD)-1)
 	{
-		//ÔÚÈ«¾ÖË÷ÒıÖĞÌí¼Ó
+		//åœ¨å…¨å±€ç´¢å¼•ä¸­æ·»åŠ 
 		if (all.insert(e).second)
 		{
-			//Zebra::logger->debug("[µØÍ¼Ë÷Òı]ÓÃ»§¼ÓÈë£º%s, %u, %u", e->name, e->getIndexKey(), newIndex);
-			//ĞÂ¼ÓÈëµØÍ¼Ë÷Òı
+			//Zebra::logger->debug("[åœ°å›¾ç´¢å¼•]ç”¨æˆ·åŠ å…¥ï¼š%s, %u, %u", e->name, e->getIndexKey(), newIndex);
+			//æ–°åŠ å…¥åœ°å›¾ç´¢å¼•
 			index[newIndex].insert(e);
 		}
 		//else
-		//	Zebra::logger->error("[µØÍ¼Ë÷Òı]ÓÃ»§¼ÓÈëÊ§°Ü£¬ÒÑ¾­ÔÚË÷ÒıÖĞ£º%s, %u, %u", e->name, e->getIndexKey(), newIndex);
+		//	Zebra::logger->error("[åœ°å›¾ç´¢å¼•]ç”¨æˆ·åŠ å…¥å¤±è´¥ï¼Œå·²ç»åœ¨ç´¢å¼•ä¸­ï¼š%s, %u, %u", e->name, e->getIndexKey(), newIndex);
 		e->inserted=true;
 	}
 	//else
-	//	Zebra::logger->debug("[µØÍ¼Ë÷Òı]ÓÃ»§ÉèÖÃ¿É¼ÓÈë×´Ì¬£º%s, %u, %u", e->name, e->getIndexKey(), newIndex);
+	//	Zebra::logger->debug("[åœ°å›¾ç´¢å¼•]ç”¨æˆ·è®¾ç½®å¯åŠ å…¥çŠ¶æ€ï¼š%s, %u, %u", e->name, e->getIndexKey(), newIndex);
 
 	e->setIndexKey(newIndex);
 	return e->inserted;
@@ -282,21 +282,21 @@ void ScreenIndex::removeGateUser(GateUser *e)
 	SceneEntry_SET::iterator it = all.find(e);
 	if (it != all.end())
 	{
-		//Zebra::logger->debug("[µØÍ¼Ë÷Òı]ÓÃ»§É¾³ı£º%s, %u", e->name, e->getIndexKey());
+		//Zebra::logger->debug("[åœ°å›¾ç´¢å¼•]ç”¨æˆ·åˆ é™¤ï¼š%s, %u", e->name, e->getIndexKey());
 		SceneEntry_SET &pimi = index[e->getIndexKey()];
 		e->setIndexKey((DWORD)-2);
-		//ÔÚÈ«¾ÖË÷ÒıÖĞÉ¾³ı
+		//åœ¨å…¨å±€ç´¢å¼•ä¸­åˆ é™¤
 		all.erase(it);
-		//ÔÚÆÁË÷ÒıÖĞÉ¾³ı
+		//åœ¨å±ç´¢å¼•ä¸­åˆ é™¤
 		pimi.erase(e);
 		e->inserted=false;
 	}
 }
 
 /**
- * \brief ÒÔÖĞĞÄÆÁ»ñÈ¡ÖÜÎ§9ÆÁµÄÆÁÄ»±àºÅ
- * \param posi ÖĞĞÄÆÁ
- * \param pv Êä³öµÄÆÁ±àºÅÏòÁ¿
+ * \brief ä»¥ä¸­å¿ƒå±è·å–å‘¨å›´9å±çš„å±å¹•ç¼–å·
+ * \param posi ä¸­å¿ƒå±
+ * \param pv è¾“å‡ºçš„å±ç¼–å·å‘é‡
  */
 const zPosIVector &ScreenIndex::getNineScreen(const zPosI &posi)
 {
@@ -305,15 +305,15 @@ const zPosIVector &ScreenIndex::getNineScreen(const zPosI &posi)
 	{
 		return iter->second;
 	}
-	//Èç¹û³öÏÖÒì³£·µ»Ø0±àºÅµÄÆÁË÷Òı
+	//å¦‚æœå‡ºç°å¼‚å¸¸è¿”å›0ç¼–å·çš„å±ç´¢å¼•
 	return ninescreen[(DWORD)-1];
 }
 
 /**
- * \brief ÒÔÖĞĞÄÆÁ»ñÈ¡ÏòÇ°µÄ3ÆÁ»òÕß5ÆÁµÄÆÁÄ»±àºÅ
- * \param posi ÖĞĞÄÆÁ
- * \param direct ·½Ïò
- * \return Êä³öµÄÆÁ±àºÅÏòÁ¿
+ * \brief ä»¥ä¸­å¿ƒå±è·å–å‘å‰çš„3å±æˆ–è€…5å±çš„å±å¹•ç¼–å·
+ * \param posi ä¸­å¿ƒå±
+ * \param direct æ–¹å‘
+ * \return è¾“å‡ºçš„å±ç¼–å·å‘é‡
  */
 const zPosIVector &ScreenIndex::getDirectScreen(const zPosI &posi, const int dir)
 {
@@ -322,15 +322,15 @@ const zPosIVector &ScreenIndex::getDirectScreen(const zPosI &posi, const int dir
 	{
 		return iter->second;
 	}
-	//Èç¹û³öÏÖÒì³£·µ»Ø0±àºÅµÄÆÁË÷Òı
+	//å¦‚æœå‡ºç°å¼‚å¸¸è¿”å›0ç¼–å·çš„å±ç´¢å¼•
 	return direct_screen[dir][(DWORD)-1];
 }
 
 /**
- * \brief ÒÔÖĞĞÄÆÁ»ñÈ¡ÏòºóµÄ3ÆÁ»òÕß5ÆÁµÄÆÁÄ»±àºÅ
- * \param posi ÖĞĞÄÆÁ
- * \param direct ·½Ïò
- * \return Êä³öµÄÆÁ±àºÅÏòÁ¿
+ * \brief ä»¥ä¸­å¿ƒå±è·å–å‘åçš„3å±æˆ–è€…5å±çš„å±å¹•ç¼–å·
+ * \param posi ä¸­å¿ƒå±
+ * \param direct æ–¹å‘
+ * \return è¾“å‡ºçš„å±ç¼–å·å‘é‡
  */
 const zPosIVector &ScreenIndex::getReverseDirectScreen(const zPosI &posi, const int dir)
 {
@@ -339,7 +339,7 @@ const zPosIVector &ScreenIndex::getReverseDirectScreen(const zPosI &posi, const 
 	{
 		return iter->second;
 	}
-	//Èç¹û³öÏÖÒì³£·µ»Ø0±àºÅµÄÆÁË÷Òı
+	//å¦‚æœå‡ºç°å¼‚å¸¸è¿”å›0ç¼–å·çš„å±ç´¢å¼•
 	return reversedirect_screen[dir][(DWORD)-1];
 }
 

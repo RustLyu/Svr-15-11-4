@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: RebuildObject.cpp  $
  * \author	
  * \date		
- * \brief		ĞÂÎïÆ·ºÏ³É£¬´òÔì£¬Éı¼¶£¬´ò¿×£¬ÏâÇ¶ÏµÍ³
+ * \brief		æ–°ç‰©å“åˆæˆï¼Œæ‰“é€ ï¼Œå‡çº§ï¼Œæ‰“å­”ï¼Œé•¶åµŒç³»ç»Ÿ
  * 
  */
 
@@ -22,14 +22,14 @@
 
 
 /**     
- * \brief NPC·ÃÎÊÑéÖ¤
+ * \brief NPCè®¿é—®éªŒè¯
  *      
- * ÑéÖ¤ÓÃ»§¶ÔNPC µÄ¶¯×÷ÊÇ·ñºÏ·¨
+ * éªŒè¯ç”¨æˆ·å¯¹NPC çš„åŠ¨ä½œæ˜¯å¦åˆæ³•
  
- * \param user:´ı¼ì²éµÄÓÃ»§
- * \param base: ÎïÆ·»ù±¾±í
- * \param action: ¶¯×÷ÀàĞÍ
- * \return ÑéÖ¤Í¨¹ı·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user:å¾…æ£€æŸ¥çš„ç”¨æˆ·
+ * \param base: ç‰©å“åŸºæœ¬è¡¨
+ * \param action: åŠ¨ä½œç±»å‹
+ * \return éªŒè¯é€šè¿‡è¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Base::check_npc(SceneUser& user, zObjectB* base, int action)
 {
@@ -47,19 +47,19 @@ bool Base::check_npc(SceneUser& user, zObjectB* base, int action)
 }
 
 /**     
- * \brief °ü¹ü¿Õ¼äÑéÖ¤
+ * \brief åŒ…è£¹ç©ºé—´éªŒè¯
  *      
- * ÑéÖ¤ÓÃ»§°ü¹üÖĞµÄÊ£Óà¿Õ¼äÊÇ·ñÂú×ãÒªÇó
+ * éªŒè¯ç”¨æˆ·åŒ…è£¹ä¸­çš„å‰©ä½™ç©ºé—´æ˜¯å¦æ»¡è¶³è¦æ±‚
  
- * \param user:´ı¼ì²éµÄÓÃ»§
- * \param w: ĞèÒª¿í¶È
- * \param h: ĞèÒª¸ß¶È
- * \return ÑéÖ¤Í¨¹ı·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user:å¾…æ£€æŸ¥çš„ç”¨æˆ·
+ * \param w: éœ€è¦å®½åº¦
+ * \param h: éœ€è¦é«˜åº¦
+ * \return éªŒè¯é€šè¿‡è¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Base::check_space(SceneUser& user, DWORD w, DWORD h)
 {	
 	if(user.packs.main.space() < 1)	{
-		Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "°ü¸¤¿Õ¼ä²»×ã");
+		Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "åŒ…è¢±ç©ºé—´ä¸è¶³");
 		return false;
 	}
 	
@@ -67,13 +67,13 @@ bool Base::check_space(SceneUser& user, DWORD w, DWORD h)
 }
 
 /**     
- * \brief É¾³ıÎïÆ·
+ * \brief åˆ é™¤ç‰©å“
  *      
- * ´ÓÓÃ»§°ü¹üÖĞÉ¾³ıÒ»¸öÎïÆ·
+ * ä»ç”¨æˆ·åŒ…è£¹ä¸­åˆ é™¤ä¸€ä¸ªç‰©å“
  
- * \param user:ÇëÇóµÄÓÃ»§
- * \param ob: ´ı É¾³ıÎïÆ·
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user:è¯·æ±‚çš„ç”¨æˆ·
+ * \param ob: å¾… åˆ é™¤ç‰©å“
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Base::remove_object(SceneUser& user, zObject* ob)
 {	
@@ -83,12 +83,12 @@ bool Base::remove_object(SceneUser& user, zObject* ob)
 }
 
 /**     
- * \brief  ·¢ËÍ°ü¹üÖĞÌí¼ÓÎïÆ·µÄÏûÏ¢¸øÓÃ»§
+ * \brief  å‘é€åŒ…è£¹ä¸­æ·»åŠ ç‰©å“çš„æ¶ˆæ¯ç»™ç”¨æˆ·
  
- * \param user:ÇëÇóµÄÓÃ»§
- * \param ob: Ìí¼ÓµÄÎïÆ·
- * \param add:Ìí¼ÓµÄÀàĞÍ
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user:è¯·æ±‚çš„ç”¨æˆ·
+ * \param ob: æ·»åŠ çš„ç‰©å“
+ * \param add:æ·»åŠ çš„ç±»å‹
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Base::add_object(SceneUser& user, zObject* ob, bool add)
 {
@@ -105,12 +105,12 @@ bool Base::add_object(SceneUser& user, zObject* ob, bool add)
 }
 
 /**     
- * \brief ·¢ËÍÎïÆ·¸ÄÔìµÄ½á¹û¸øÓÃ»§
+ * \brief å‘é€ç‰©å“æ”¹é€ çš„ç»“æœç»™ç”¨æˆ·
  *
- * \param user: ÇëÇóµÄÓÃ»§
- * \param status: ¸ÄÔì½á¹û
- * \param type: ¸ÄÔìÀàĞÍ
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param status: æ”¹é€ ç»“æœ
+ * \param type: æ”¹é€ ç±»å‹
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Base::response(SceneUser& user, int status, ReuildType type)
 {
@@ -135,10 +135,10 @@ void Base::refresh_pack(SceneUser& user, ObjectPack* pack)
 }
 
 /**     
- * \brief ÑéÖ¤ÎïÆ·ÊÇ·ñÄÜ´ò¿×
+ * \brief éªŒè¯ç‰©å“æ˜¯å¦èƒ½æ‰“å­”
  *
- * \param ob: ´ıÑéÖ¤ÎïÆ·
- * \return ÑéÖ¤³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param ob: å¾…éªŒè¯ç‰©å“
+ * \return éªŒè¯æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */	
 bool Hole::can_hole(zObject* ob)
 {
@@ -151,10 +151,10 @@ bool Hole::can_hole(zObject* ob)
 }
 
 /**     
- * \brief È¡µÃÎïÆ·ÉÏ¿ÉÓÃ¿× µÄÊıÁ¿
+ * \brief å–å¾—ç‰©å“ä¸Šå¯ç”¨å­” çš„æ•°é‡
  *
- * \param ob: ÎïÆ·
- * \return ¿ÉÓÃ¿×µÄÊıÁ¿
+ * \param ob: ç‰©å“
+ * \return å¯ç”¨å­”çš„æ•°é‡
  */	
 int Hole::get_empty_hole(zObject* ob)
 {
@@ -165,10 +165,10 @@ int Hole::get_empty_hole(zObject* ob)
 }
 
 /**     
- * \brief È¡µÃÎïÆ·ÉÏËùÓĞ¿× µÄÊıÁ¿
+ * \brief å–å¾—ç‰©å“ä¸Šæ‰€æœ‰å­” çš„æ•°é‡
  *
- * \param ob: ÎïÆ·
- * \return ËùÓĞ¿×µÄÊıÁ¿
+ * \param ob: ç‰©å“
+ * \return æ‰€æœ‰å­”çš„æ•°é‡
  */	
 int Hole::get_hole_num(zObject* ob)
 {
@@ -179,11 +179,11 @@ int Hole::get_hole_num(zObject* ob)
 }
 
 /**     
- * \brief ÔÚÎïÆ·ÉÏÔö¼Ó¿×
+ * \brief åœ¨ç‰©å“ä¸Šå¢åŠ å­”
  *
- * \param ob: ÎïÆ·
- * \param num:Ôö¼ÓµÄÊıÁ¿
- * \return ÎïÆ·ÉÏ¿×µÄÊıÄ¿
+ * \param ob: ç‰©å“
+ * \param num:å¢åŠ çš„æ•°é‡
+ * \return ç‰©å“ä¸Šå­”çš„æ•°ç›®
  */	
 int Hole::add_hole_num(zObject* ob, int num)
 {
@@ -196,11 +196,11 @@ int Hole::add_hole_num(zObject* ob, int num)
 }
 
 /**     
- * \brief ÔÚÎïÆ·ÉÏÖ¸¶¨Î»ÖÃÔö¼ÓÒ»¸ö¿×
+ * \brief åœ¨ç‰©å“ä¸ŠæŒ‡å®šä½ç½®å¢åŠ ä¸€ä¸ªå­”
  *
- * \param ob: ÎïÆ·
- * \param index:Ôö¼Ó¿× µÄÎ»ÖÃ
- * \return Ôö¼Ó¿×³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param ob: ç‰©å“
+ * \param index:å¢åŠ å­” çš„ä½ç½®
+ * \return å¢åŠ å­”æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Hole::add_hole(zObject* ob, int index)
 {
@@ -213,12 +213,12 @@ bool Hole::add_hole(zObject* ob, int index)
 }
 
 /**     
- * \brief ÔÚÎïÆ·ÉÏÖ¸¶¨¿×·ÅÖÃÒ»¸ö»êÆÇ
+ * \brief åœ¨ç‰©å“ä¸ŠæŒ‡å®šå­”æ”¾ç½®ä¸€ä¸ªé­‚é­„
  *
- * \param ob: ÎïÆ·
- * \param index:·ÅÖÃ µÄÎ»ÖÃ
- * \param id : ·ÅÖÃµÄ»êÆÇid
- * \return ·ÅÖÃ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param ob: ç‰©å“
+ * \param index:æ”¾ç½® çš„ä½ç½®
+ * \param id : æ”¾ç½®çš„é­‚é­„id
+ * \return æ”¾ç½®æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Hole::put_hole(zObject* ob, int index, int id)
 {
@@ -234,11 +234,11 @@ bool Hole::put_hole(zObject* ob, int index, int id)
 const int SoulStone::_ids[] = {/*680, */748, 749, 750, 751};
 
 /**     
- * \brief Ñ¡Ôñ»êÆÇÊ¯
+ * \brief é€‰æ‹©é­‚é­„çŸ³
  *
- * ÔÚËùÓĞ»êÆÇÊ¯ÖĞËæ»úÑ¡ÔñÒ»¸ö
+ * åœ¨æ‰€æœ‰é­‚é­„çŸ³ä¸­éšæœºé€‰æ‹©ä¸€ä¸ª
  *
- * \return »êÆÇÊ¯id
+ * \return é­‚é­„çŸ³id
  */
 int SoulStone::id(DWORD trait)
 {
@@ -297,9 +297,9 @@ int SoulStone::id(DWORD trait)
 }
 
 /**
- * \brief ÊÇ·ñ´æÔÚÊôĞÔ
- * \param value : ÊôĞÔÖµ
- * \return ´æÔÚÊôĞÔ·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief æ˜¯å¦å­˜åœ¨å±æ€§
+ * \param value : å±æ€§å€¼
+ * \return å­˜åœ¨å±æ€§è¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 template <typename T>
 bool EXIST_PROP(T& value)
@@ -328,34 +328,34 @@ bool SoulStone::assign(zObject* ob, int monster)
 		ob->data.mpleech.odds += zMisc::randBetween(soul->mpleech.odds.min, soul->mpleech.odds.max);
 		ob->data.mpleech.effect += zMisc::randBetween(soul->mpleech.effect.min, soul->mpleech.effect.max);
 	}
-	PROCESS_PROP( hptomp ) //×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
-		PROCESS_PROP( incgold ) //Ôö¼Ó½ğÇ®µôÂäx%
-		PROCESS_PROP( doublexp ) //x%Ë«±¶¾­Ñé		
-		PROCESS_PROP( mf ) //Ôö¼Óµô±¦ÂÊx%
-		PROCESS_PROP( poisondef ) //¿¹¶¾Ôö¼Ó
-		PROCESS_PROP( lulldef ) //¿¹Âé±ÔÔö¼Ó
-		PROCESS_PROP( reeldef ) //¿¹Ñ£ÔÎÔö¼Ó
-		PROCESS_PROP( evildef ) //¿¹ÊÉÄ§Ôö¼Ó
-		PROCESS_PROP( bitedef ) //¿¹ÊÉÁ¦Ôö¼Ó
-		PROCESS_PROP( chaosdef ) //¿¹»ìÂÒÔö¼Ó
-		PROCESS_PROP( colddef ) //¿¹±ù¶³Ôö¼Ó
-		PROCESS_PROP( petrifydef ) //¿¹Ê¯»¯Ôö¼Ó
-		PROCESS_PROP( blinddef ) //¿¹Ê§Ã÷Ôö¼Ó
-		PROCESS_PROP( stabledef ) //¿¹¶¨ÉíÔö¼Ó
-		PROCESS_PROP( slowdef ) //¿¹¼õËÙÔö¼Ó
-		PROCESS_PROP( luredef ) //¿¹ÓÕ»óÔö¼Ó
-		PROCESS_PROP( poison ) //ÖĞ¶¾Ôö¼Ó
-		PROCESS_PROP( lull ) //Âé±ÔÔö¼Ó
-		PROCESS_PROP( reel ) //Ñ£ÔÎÔö¼Ó
-		PROCESS_PROP( evil ) //ÊÉÄ§Ôö¼Ó
-		PROCESS_PROP( bite ) //ÊÉÁ¦Ôö¼Ó
-		PROCESS_PROP( chaos ) //»ìÂÒÔö¼Ó
-		PROCESS_PROP( cold ) //±ù¶³Ôö¼Ó
-		PROCESS_PROP( petrify ) //Ê¯»¯Ôö¼Ó
-		PROCESS_PROP( blind ) //Ê§Ã÷Ôö¼Ó
-		PROCESS_PROP( stable ) //¶¨ÉíÔö¼Ó
-		PROCESS_PROP( slow ) //¼õËÙÔö¼Ó
-		PROCESS_PROP( lure ) //ÓÕ»óÔö¼Ó
+	PROCESS_PROP( hptomp ) //è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
+		PROCESS_PROP( incgold ) //å¢åŠ é‡‘é’±æ‰è½x%
+		PROCESS_PROP( doublexp ) //x%åŒå€ç»éªŒ		
+		PROCESS_PROP( mf ) //å¢åŠ æ‰å®ç‡x%
+		PROCESS_PROP( poisondef ) //æŠ—æ¯’å¢åŠ 
+		PROCESS_PROP( lulldef ) //æŠ—éº»ç—¹å¢åŠ 
+		PROCESS_PROP( reeldef ) //æŠ—çœ©æ™•å¢åŠ 
+		PROCESS_PROP( evildef ) //æŠ—å™¬é­”å¢åŠ 
+		PROCESS_PROP( bitedef ) //æŠ—å™¬åŠ›å¢åŠ 
+		PROCESS_PROP( chaosdef ) //æŠ—æ··ä¹±å¢åŠ 
+		PROCESS_PROP( colddef ) //æŠ—å†°å†»å¢åŠ 
+		PROCESS_PROP( petrifydef ) //æŠ—çŸ³åŒ–å¢åŠ 
+		PROCESS_PROP( blinddef ) //æŠ—å¤±æ˜å¢åŠ 
+		PROCESS_PROP( stabledef ) //æŠ—å®šèº«å¢åŠ 
+		PROCESS_PROP( slowdef ) //æŠ—å‡é€Ÿå¢åŠ 
+		PROCESS_PROP( luredef ) //æŠ—è¯±æƒ‘å¢åŠ 
+		PROCESS_PROP( poison ) //ä¸­æ¯’å¢åŠ 
+		PROCESS_PROP( lull ) //éº»ç—¹å¢åŠ 
+		PROCESS_PROP( reel ) //çœ©æ™•å¢åŠ 
+		PROCESS_PROP( evil ) //å™¬é­”å¢åŠ 
+		PROCESS_PROP( bite ) //å™¬åŠ›å¢åŠ 
+		PROCESS_PROP( chaos ) //æ··ä¹±å¢åŠ 
+		PROCESS_PROP( cold ) //å†°å†»å¢åŠ 
+		PROCESS_PROP( petrify ) //çŸ³åŒ–å¢åŠ 
+		PROCESS_PROP( blind ) //å¤±æ˜å¢åŠ 
+		PROCESS_PROP( stable ) //å®šèº«å¢åŠ 
+		PROCESS_PROP( slow ) //å‡é€Ÿå¢åŠ 
+		PROCESS_PROP( lure ) //è¯±æƒ‘å¢åŠ 
 		PROCESS_PROP( str ) 
 		PROCESS_PROP( inte ) 
 		PROCESS_PROP( dex ) 
@@ -364,7 +364,7 @@ bool SoulStone::assign(zObject* ob, int monster)
 
 
 		/**
-		 * \brief ¿ÉÁ¯µÄÇåÓñĞÖ°¡,ÄãµÄ´úÂë¶¼±»¸ÉÁË°¡ nnd
+		 * \brief å¯æ€œçš„æ¸…ç‰å…„å•Š,ä½ çš„ä»£ç éƒ½è¢«å¹²äº†å•Š nnd
 		 */
 		/*
 		   do {
@@ -386,64 +386,64 @@ bool SoulStone::assign(zObject* ob, int monster)
 		   break;
 
 		   case 2:
-		   PROCESS_PROP( hptomp ) //×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
+		   PROCESS_PROP( hptomp ) //è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
 
 		   case 3:
-		   PROCESS_PROP( incgold ) //Ôö¼Ó½ğÇ®µôÂäx%
+		   PROCESS_PROP( incgold ) //å¢åŠ é‡‘é’±æ‰è½x%
 		   case 4:
-		   PROCESS_PROP( doublexp ) //x%Ë«±¶¾­Ñé		
+		   PROCESS_PROP( doublexp ) //x%åŒå€ç»éªŒ		
 		   case 5:
-		   PROCESS_PROP( mf ) //Ôö¼Óµô±¦ÂÊx%
+		   PROCESS_PROP( mf ) //å¢åŠ æ‰å®ç‡x%
 
 		   case 6:
-		   PROCESS_PROP( poisondef ) //¿¹¶¾Ôö¼Ó
+		   PROCESS_PROP( poisondef ) //æŠ—æ¯’å¢åŠ 
 		   case 7:
-		   PROCESS_PROP( lulldef ) //¿¹Âé±ÔÔö¼Ó
+		   PROCESS_PROP( lulldef ) //æŠ—éº»ç—¹å¢åŠ 
 		   case 8:
-		   PROCESS_PROP( reeldef ) //¿¹Ñ£ÔÎÔö¼Ó
+		   PROCESS_PROP( reeldef ) //æŠ—çœ©æ™•å¢åŠ 
 		   case 9:
-		   PROCESS_PROP( evildef ) //¿¹ÊÉÄ§Ôö¼Ó
+		   PROCESS_PROP( evildef ) //æŠ—å™¬é­”å¢åŠ 
 		   case 10:
-		   PROCESS_PROP( bitedef ) //¿¹ÊÉÁ¦Ôö¼Ó
+		   PROCESS_PROP( bitedef ) //æŠ—å™¬åŠ›å¢åŠ 
 		   case 11:
-		   PROCESS_PROP( chaosdef ) //¿¹»ìÂÒÔö¼Ó
+		   PROCESS_PROP( chaosdef ) //æŠ—æ··ä¹±å¢åŠ 
 		   case 12:
-		   PROCESS_PROP( colddef ) //¿¹±ù¶³Ôö¼Ó
+		   PROCESS_PROP( colddef ) //æŠ—å†°å†»å¢åŠ 
 		   case 13:
-		   PROCESS_PROP( petrifydef ) //¿¹Ê¯»¯Ôö¼Ó
+		   PROCESS_PROP( petrifydef ) //æŠ—çŸ³åŒ–å¢åŠ 
 		   case 14:
-		   PROCESS_PROP( blinddef ) //¿¹Ê§Ã÷Ôö¼Ó
+		   PROCESS_PROP( blinddef ) //æŠ—å¤±æ˜å¢åŠ 
 		   case 15:
-		   PROCESS_PROP( stabledef ) //¿¹¶¨ÉíÔö¼Ó
+		   PROCESS_PROP( stabledef ) //æŠ—å®šèº«å¢åŠ 
 		   case 16:
-		   PROCESS_PROP( slowdef ) //¿¹¼õËÙÔö¼Ó
+		   PROCESS_PROP( slowdef ) //æŠ—å‡é€Ÿå¢åŠ 
 		   case 17:
-		   PROCESS_PROP( luredef ) //¿¹ÓÕ»óÔö¼Ó
+		   PROCESS_PROP( luredef ) //æŠ—è¯±æƒ‘å¢åŠ 
 
 		   case 18:
-		   PROCESS_PROP( poison ) //ÖĞ¶¾Ôö¼Ó
+		   PROCESS_PROP( poison ) //ä¸­æ¯’å¢åŠ 
 		   case 19:
-		   PROCESS_PROP( lull ) //Âé±ÔÔö¼Ó
+		   PROCESS_PROP( lull ) //éº»ç—¹å¢åŠ 
 		   case 20:
-		   PROCESS_PROP( reel ) //Ñ£ÔÎÔö¼Ó
+		   PROCESS_PROP( reel ) //çœ©æ™•å¢åŠ 
 		   case 21:
-		   PROCESS_PROP( evil ) //ÊÉÄ§Ôö¼Ó
+		   PROCESS_PROP( evil ) //å™¬é­”å¢åŠ 
 		   case 22:
-		   PROCESS_PROP( bite ) //ÊÉÁ¦Ôö¼Ó
+		   PROCESS_PROP( bite ) //å™¬åŠ›å¢åŠ 
 		   case 23:
-		   PROCESS_PROP( chaos ) //»ìÂÒÔö¼Ó
+		   PROCESS_PROP( chaos ) //æ··ä¹±å¢åŠ 
 		   case 24:
-		   PROCESS_PROP( cold ) //±ù¶³Ôö¼Ó
+		   PROCESS_PROP( cold ) //å†°å†»å¢åŠ 
 		   case 25:
-		   PROCESS_PROP( petrify ) //Ê¯»¯Ôö¼Ó
+		   PROCESS_PROP( petrify ) //çŸ³åŒ–å¢åŠ 
 		   case 26:
-		   PROCESS_PROP( blind ) //Ê§Ã÷Ôö¼Ó
+		   PROCESS_PROP( blind ) //å¤±æ˜å¢åŠ 
 	case 27:
-		PROCESS_PROP( stable ) //¶¨ÉíÔö¼Ó
+		PROCESS_PROP( stable ) //å®šèº«å¢åŠ 
 	case 28:
-			PROCESS_PROP( slow ) //¼õËÙÔö¼Ó
+			PROCESS_PROP( slow ) //å‡é€Ÿå¢åŠ 
 	case 29:
-				PROCESS_PROP( lure ) //ÓÕ»óÔö¼Ó
+				PROCESS_PROP( lure ) //è¯±æƒ‘å¢åŠ 
 	case 30:
 					PROCESS_PROP( str ) 
 	case 31:
@@ -464,20 +464,20 @@ return true;
 }
 
 /**     
- * \brief »êÆÇÊ¯ºÏ³É
+ * \brief é­‚é­„çŸ³åˆæˆ
  *
- * \param user: ÇëÇóµÄÓÃ»§
- * \param first: µÚÒ»¿é»êÆÇÊ¯
- * \param second:µÚ¶ş¿é»êÆÇÊ¯
- * \param odds:ºÏ³É¼¸ÂÊ
- * \return ºÏ³É³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param first: ç¬¬ä¸€å—é­‚é­„çŸ³
+ * \param second:ç¬¬äºŒå—é­‚é­„çŸ³
+ * \param odds:åˆæˆå‡ ç‡
+ * \return åˆæˆæˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 zObject* SoulStone::compose(SceneUser& user, zObject* first, zObject* second, int odds)
 {	
 	if ( !zMisc::selectByPercent(odds) ) return false;
 	
 	/**
-	 * \brief ¸Ä±äÏâÇ¶Í¼Æ¬Ñ¡Ôñ·½Ê½
+	 * \brief æ”¹å˜é•¶åµŒå›¾ç‰‡é€‰æ‹©æ–¹å¼
 	 * whj
 	 *
 	 */
@@ -488,7 +488,7 @@ zObject* SoulStone::compose(SceneUser& user, zObject* first, zObject* second, in
 	
 	zObject *ob = zObject::create(base, 1, ++level);
 	if (ob) {
-		zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user.id,user.name,"»êÆÇºÏ³É",ob->base,ob->data.kind,ob->data.upgrade);
+		zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user.id,user.name,"é­‚é­„åˆæˆ",ob->base,ob->data.kind,ob->data.upgrade);
 		do_compose(first, second, ob);
 		
 		return ob;
@@ -498,12 +498,12 @@ zObject* SoulStone::compose(SceneUser& user, zObject* first, zObject* second, in
 }
 
 /**     
- * \brief »êÆÇÊ¯ÏâÇ¶
+ * \brief é­‚é­„çŸ³é•¶åµŒ
  *
- * \param user: ÇëÇóµÄÓÃ»§
- * \param dest: ´ıÏâÇ¶ÎïÆ·
- * \param src:ÓÃÀ´ÏâÇ¶µÄ»êÆÇÊ¯
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param dest: å¾…é•¶åµŒç‰©å“
+ * \param src:ç”¨æ¥é•¶åµŒçš„é­‚é­„çŸ³
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool SoulStone::enchance(SceneUser& user, zObject* dest, zObject* src)
 {
@@ -515,53 +515,53 @@ bool SoulStone::enchance(SceneUser& user, zObject* dest, zObject* src)
 #define COMPUTE(x) dest->data.x += src->data.x;
 
 /**     
- * \brief »êÆÇÊ¯ÏâÇ¶
+ * \brief é­‚é­„çŸ³é•¶åµŒ
  *
- * \param dest: ´ıÏâÇ¶ÎïÆ·
- * \param src:ÓÃÀ´ÏâÇ¶µÄ»êÆÇÊ¯
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param dest: å¾…é•¶åµŒç‰©å“
+ * \param src:ç”¨æ¥é•¶åµŒçš„é­‚é­„çŸ³
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool SoulStone::do_enchance(zObject* dest, zObject* src)
 {
 	dest->data.needlevel = std::max(dest->data.needlevel, src->data.needlevel);
 	
-	//sprintf(dest->data.strName, "ÏâÇ¶ÁË»êÆÇµÄ%s", dest->base->name);
+	//sprintf(dest->data.strName, "é•¶åµŒäº†é­‚é­„çš„%s", dest->base->name);
 	COMPUTE( hpleech.odds )
-	COMPUTE( hpleech.effect ) //x%ÎüÊÕÉúÃüÖµy,
+	COMPUTE( hpleech.effect ) //x%å¸æ”¶ç”Ÿå‘½å€¼y,
 	COMPUTE( mpleech.odds )
-	COMPUTE( mpleech.effect ) // x%ÎüÊÕ·¨ÊõÖµy
+	COMPUTE( mpleech.effect ) // x%å¸æ”¶æ³•æœ¯å€¼y
 	
-	COMPUTE( hptomp ) //×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
+	COMPUTE( hptomp ) //è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
 
-	COMPUTE( incgold ) //Ôö¼Ó½ğÇ®µôÂäx%
-	COMPUTE( doublexp ) //x%Ë«±¶¾­Ñé		
-	COMPUTE( mf ) //Ôö¼Óµô±¦ÂÊx%
+	COMPUTE( incgold ) //å¢åŠ é‡‘é’±æ‰è½x%
+	COMPUTE( doublexp ) //x%åŒå€ç»éªŒ		
+	COMPUTE( mf ) //å¢åŠ æ‰å®ç‡x%
 	
-	COMPUTE( poisondef ) //¿¹¶¾Ôö¼Ó
-	COMPUTE( lulldef ) //¿¹Âé±ÔÔö¼Ó
-	COMPUTE( reeldef ) //¿¹Ñ£ÔÎÔö¼Ó
-	COMPUTE( evildef ) //¿¹ÊÉÄ§Ôö¼Ó
-	COMPUTE( bitedef ) //¿¹ÊÉÁ¦Ôö¼Ó
-	COMPUTE( chaosdef ) //¿¹»ìÂÒÔö¼Ó
-	COMPUTE( colddef ) //¿¹±ù¶³Ôö¼Ó
-	COMPUTE( petrifydef ) //¿¹Ê¯»¯Ôö¼Ó
-	COMPUTE( blinddef ) //¿¹Ê§Ã÷Ôö¼Ó
-	COMPUTE( stabledef ) //¿¹¶¨ÉíÔö¼Ó
-	COMPUTE( slowdef ) //¿¹¼õËÙÔö¼Ó
-	COMPUTE( luredef ) //¿¹ÓÕ»óÔö¼Ó
+	COMPUTE( poisondef ) //æŠ—æ¯’å¢åŠ 
+	COMPUTE( lulldef ) //æŠ—éº»ç—¹å¢åŠ 
+	COMPUTE( reeldef ) //æŠ—çœ©æ™•å¢åŠ 
+	COMPUTE( evildef ) //æŠ—å™¬é­”å¢åŠ 
+	COMPUTE( bitedef ) //æŠ—å™¬åŠ›å¢åŠ 
+	COMPUTE( chaosdef ) //æŠ—æ··ä¹±å¢åŠ 
+	COMPUTE( colddef ) //æŠ—å†°å†»å¢åŠ 
+	COMPUTE( petrifydef ) //æŠ—çŸ³åŒ–å¢åŠ 
+	COMPUTE( blinddef ) //æŠ—å¤±æ˜å¢åŠ 
+	COMPUTE( stabledef ) //æŠ—å®šèº«å¢åŠ 
+	COMPUTE( slowdef ) //æŠ—å‡é€Ÿå¢åŠ 
+	COMPUTE( luredef ) //æŠ—è¯±æƒ‘å¢åŠ 
 
-	COMPUTE( poison ) //ÖĞ¶¾Ôö¼Ó
-	COMPUTE( lull ) //Âé±ÔÔö¼Ó
-	COMPUTE( reel ) //Ñ£ÔÎÔö¼Ó
-	COMPUTE( evil ) //ÊÉÄ§Ôö¼Ó
-	COMPUTE( bite ) //ÊÉÁ¦Ôö¼Ó
-	COMPUTE( chaos ) //»ìÂÒÔö¼Ó
-	COMPUTE( cold ) //±ù¶³Ôö¼Ó
-	COMPUTE( petrify ) //Ê¯»¯Ôö¼Ó
-	COMPUTE( blind ) //Ê§Ã÷Ôö¼Ó
-	COMPUTE( stable ) //¶¨ÉíÔö¼Ó
-	COMPUTE( slow ) //¼õËÙÔö¼Ó
-	COMPUTE( lure ) //ÓÕ»óÔö¼Ó
+	COMPUTE( poison ) //ä¸­æ¯’å¢åŠ 
+	COMPUTE( lull ) //éº»ç—¹å¢åŠ 
+	COMPUTE( reel ) //çœ©æ™•å¢åŠ 
+	COMPUTE( evil ) //å™¬é­”å¢åŠ 
+	COMPUTE( bite ) //å™¬åŠ›å¢åŠ 
+	COMPUTE( chaos ) //æ··ä¹±å¢åŠ 
+	COMPUTE( cold ) //å†°å†»å¢åŠ 
+	COMPUTE( petrify ) //çŸ³åŒ–å¢åŠ 
+	COMPUTE( blind ) //å¤±æ˜å¢åŠ 
+	COMPUTE( stable ) //å®šèº«å¢åŠ 
+	COMPUTE( slow ) //å‡é€Ÿå¢åŠ 
+	COMPUTE( lure ) //è¯±æƒ‘å¢åŠ 
 
 	COMPUTE( str )
 	COMPUTE( inte ) 
@@ -575,13 +575,13 @@ bool SoulStone::do_enchance(zObject* dest, zObject* src)
 #undef COMPUTE
 #define COMPUTE(x) additive(first->data.x, second->data.x, dest->data.x, level);
 /**     
- * \brief »êÆÇÊ¯ºÏ³É
+ * \brief é­‚é­„çŸ³åˆæˆ
  *
- * \param first: µÚÒ»¿é»êÆÇÊ¯
- * \param second:µÚ¶ş¿é»êÆÇÊ¯
- * \param dest:ĞÂÉú³ÉµÄ»êÆÇÊ¯
- * \param odds:ºÏ³É¼¸ÂÊ
- * \return ºÏ³É³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param first: ç¬¬ä¸€å—é­‚é­„çŸ³
+ * \param second:ç¬¬äºŒå—é­‚é­„çŸ³
+ * \param dest:æ–°ç”Ÿæˆçš„é­‚é­„çŸ³
+ * \param odds:åˆæˆå‡ ç‡
+ * \return åˆæˆæˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool SoulStone::do_compose(zObject* first, zObject* second, zObject* dest)
 {
@@ -590,41 +590,41 @@ bool SoulStone::do_compose(zObject* first, zObject* second, zObject* dest)
 	dest->data.needlevel = std::max(first->data.needlevel, second->data.needlevel);
 	
 	COMPUTE( hpleech.odds )
-	COMPUTE( hpleech.effect ) //x%ÎüÊÕÉúÃüÖµy,
+	COMPUTE( hpleech.effect ) //x%å¸æ”¶ç”Ÿå‘½å€¼y,
 	COMPUTE( mpleech.odds )
-	COMPUTE( mpleech.effect ) // x%ÎüÊÕ·¨ÊõÖµy
+	COMPUTE( mpleech.effect ) // x%å¸æ”¶æ³•æœ¯å€¼y
 	
-	COMPUTE( hptomp ) //×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
+	COMPUTE( hptomp ) //è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
 
-	COMPUTE( incgold ) //Ôö¼Ó½ğÇ®µôÂäx%
-	COMPUTE( doublexp ) //x%Ë«±¶¾­Ñé		
-	COMPUTE( mf ) //Ôö¼Óµô±¦ÂÊx%
+	COMPUTE( incgold ) //å¢åŠ é‡‘é’±æ‰è½x%
+	COMPUTE( doublexp ) //x%åŒå€ç»éªŒ		
+	COMPUTE( mf ) //å¢åŠ æ‰å®ç‡x%
 	
-	COMPUTE( poisondef ) //¿¹¶¾Ôö¼Ó
-	COMPUTE( lulldef ) //¿¹Âé±ÔÔö¼Ó
-	COMPUTE( reeldef ) //¿¹Ñ£ÔÎÔö¼Ó
-	COMPUTE( evildef ) //¿¹ÊÉÄ§Ôö¼Ó
-	COMPUTE( bitedef ) //¿¹ÊÉÁ¦Ôö¼Ó
-	COMPUTE( chaosdef ) //¿¹»ìÂÒÔö¼Ó
-	COMPUTE( colddef ) //¿¹±ù¶³Ôö¼Ó
-	COMPUTE( petrifydef ) //¿¹Ê¯»¯Ôö¼Ó
-	COMPUTE( blinddef ) //¿¹Ê§Ã÷Ôö¼Ó
-	COMPUTE( stabledef ) //¿¹¶¨ÉíÔö¼Ó
-	COMPUTE( slowdef ) //¿¹¼õËÙÔö¼Ó
-	COMPUTE( luredef ) //¿¹ÓÕ»óÔö¼Ó
+	COMPUTE( poisondef ) //æŠ—æ¯’å¢åŠ 
+	COMPUTE( lulldef ) //æŠ—éº»ç—¹å¢åŠ 
+	COMPUTE( reeldef ) //æŠ—çœ©æ™•å¢åŠ 
+	COMPUTE( evildef ) //æŠ—å™¬é­”å¢åŠ 
+	COMPUTE( bitedef ) //æŠ—å™¬åŠ›å¢åŠ 
+	COMPUTE( chaosdef ) //æŠ—æ··ä¹±å¢åŠ 
+	COMPUTE( colddef ) //æŠ—å†°å†»å¢åŠ 
+	COMPUTE( petrifydef ) //æŠ—çŸ³åŒ–å¢åŠ 
+	COMPUTE( blinddef ) //æŠ—å¤±æ˜å¢åŠ 
+	COMPUTE( stabledef ) //æŠ—å®šèº«å¢åŠ 
+	COMPUTE( slowdef ) //æŠ—å‡é€Ÿå¢åŠ 
+	COMPUTE( luredef ) //æŠ—è¯±æƒ‘å¢åŠ 
 
-	COMPUTE( poison ) //ÖĞ¶¾Ôö¼Ó
-	COMPUTE( lull ) //Âé±ÔÔö¼Ó
-	COMPUTE( reel ) //Ñ£ÔÎÔö¼Ó
-	COMPUTE( evil ) //ÊÉÄ§Ôö¼Ó
-	COMPUTE( bite ) //ÊÉÁ¦Ôö¼Ó
-	COMPUTE( chaos ) //»ìÂÒÔö¼Ó
-	COMPUTE( cold ) //±ù¶³Ôö¼Ó
-	COMPUTE( petrify ) //Ê¯»¯Ôö¼Ó
-	COMPUTE( blind ) //Ê§Ã÷Ôö¼Ó
-	COMPUTE( stable ) //¶¨ÉíÔö¼Ó
-	COMPUTE( slow ) //¼õËÙÔö¼Ó
-	COMPUTE( lure ) //ÓÕ»óÔö¼Ó
+	COMPUTE( poison ) //ä¸­æ¯’å¢åŠ 
+	COMPUTE( lull ) //éº»ç—¹å¢åŠ 
+	COMPUTE( reel ) //çœ©æ™•å¢åŠ 
+	COMPUTE( evil ) //å™¬é­”å¢åŠ 
+	COMPUTE( bite ) //å™¬åŠ›å¢åŠ 
+	COMPUTE( chaos ) //æ··ä¹±å¢åŠ 
+	COMPUTE( cold ) //å†°å†»å¢åŠ 
+	COMPUTE( petrify ) //çŸ³åŒ–å¢åŠ 
+	COMPUTE( blind ) //å¤±æ˜å¢åŠ 
+	COMPUTE( stable ) //å®šèº«å¢åŠ 
+	COMPUTE( slow ) //å‡é€Ÿå¢åŠ 
+	COMPUTE( lure ) //è¯±æƒ‘å¢åŠ 
 
 	COMPUTE( str )
 	COMPUTE( inte ) 
@@ -636,12 +636,12 @@ bool SoulStone::do_compose(zObject* first, zObject* second, zObject* dest)
 }
 
 /**     
- * \brief Éı¼¶ÎïÆ·
+ * \brief å‡çº§ç‰©å“
  *
- * \param user:Éı¼¶ÎïÆ·µÄÓÃ»§
- * \param ob: Éı¼¶ÎïÆ·
- * \param extra_odds: ¶îÍâ³É¹¦ÂÊ
- * \return Éı¼¶³É¹¦·µ»Øtrue,Ê§°Ü·µ»Øfalse
+ * \param user:å‡çº§ç‰©å“çš„ç”¨æˆ·
+ * \param ob: å‡çº§ç‰©å“
+ * \param extra_odds: é¢å¤–æˆåŠŸç‡
+ * \return å‡çº§æˆåŠŸè¿”å›true,å¤±è´¥è¿”å›false
  */
 bool Upgrade::upgrade(SceneUser& user, zObject* ob, int extra_odds)
 {
@@ -649,12 +649,12 @@ bool Upgrade::upgrade(SceneUser& user, zObject* ob, int extra_odds)
 	zUpgradeObjectB *base = upgradeobjectbm.get(ob->data.dwObjectID+100000*(ob->data.upgrade+1));
 	if(!base) return false;
 	
-	Zebra::logger->debug("Éı¼¶³É¹¦»úÂÊÎª%d", base->odds + extra_odds);
+	Zebra::logger->debug("å‡çº§æˆåŠŸæœºç‡ä¸º%d", base->odds + extra_odds);
 	if (zMisc::selectByPercent(base->odds + extra_odds)) {
 		do_upgrade(ob, base);
 		return true;
 	}else {
-		//8¼¶Éı9¼¶Ê§°Ü½µµ½0¼¶£¬ÆäËûÇé¿ö»¹ÊÇ½µ2¼¶
+		//8çº§å‡9çº§å¤±è´¥é™åˆ°0çº§ï¼Œå…¶ä»–æƒ…å†µè¿˜æ˜¯é™2çº§
 		int down = ob->data.upgrade >= 8?ob->data.upgrade:2;
 		for( int i=0;i<down;i++)
 		{
@@ -668,40 +668,40 @@ bool Upgrade::upgrade(SceneUser& user, zObject* ob, int extra_odds)
 #undef COMPUTE
 #define COMPUTE(x) ob->data.x += base->x;
 /**     
- * \brief ÌáÉıÎïÆ·µÈ¼¶
+ * \brief æå‡ç‰©å“ç­‰çº§
  *
- * \param ob: Éı¼¶ÎïÆ·
- * \param base: Éı¼¶ÊôĞÔ
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param ob: å‡çº§ç‰©å“
+ * \param base: å‡çº§å±æ€§
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Upgrade::do_upgrade(zObject* ob, zUpgradeObjectB* base)
 {
 	++ob->data.upgrade;
 	++ob->data.needlevel;
 	
-	COMPUTE( pdamage )				// ×îĞ¡¹¥»÷Á¦
-	COMPUTE( maxpdamage )			// ×î´ó¹¥»÷Á¦
-	COMPUTE( mdamage )			// ×îĞ¡·¨Êõ¹¥»÷Á¦
-	COMPUTE( maxmdamage )			// ×î´ó·¨Êõ¹¥»÷Á¦
+	COMPUTE( pdamage )				// æœ€å°æ”»å‡»åŠ›
+	COMPUTE( maxpdamage )			// æœ€å¤§æ”»å‡»åŠ›
+	COMPUTE( mdamage )			// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	COMPUTE( maxmdamage )			// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
 
-	COMPUTE( pdefence )			// Îï·À
-	COMPUTE( mdefence )				// Ä§·À
-	COMPUTE( maxhp )			// ×î´óÉúÃüÖµ
+	COMPUTE( pdefence )			// ç‰©é˜²
+	COMPUTE( mdefence )				// é­”é˜²
+	COMPUTE( maxhp )			// æœ€å¤§ç”Ÿå‘½å€¼
 	
 	return true;
 }
 
 #undef COMPUTE
 #define COMPUTE(x) ob->data.x -= base->x; \
-if ((SWORD)ob->data.x < 0) ob->data.x = 0; //¿¿¿¿¿¿£¬²»±ØÒªµÄÔ¤·À£¬À¬»øµÄ´úÂë£¬°×³ÕµÄ²ß»®£¬ÎŞÄÎµÄ³ÌĞò
+if ((SWORD)ob->data.x < 0) ob->data.x = 0; //é é é ï¼Œä¸å¿…è¦çš„é¢„é˜²ï¼Œåƒåœ¾çš„ä»£ç ï¼Œç™½ç—´çš„ç­–åˆ’ï¼Œæ— å¥ˆçš„ç¨‹åº
 
 
 /**     
- * \brief ½µµÍÎïÆ·µÈ¼¶
+ * \brief é™ä½ç‰©å“ç­‰çº§
  *
- * \param ob: Éı¼¶ÎïÆ·
- * \param base: Éı¼¶ÊôĞÔ
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param ob: å‡çº§ç‰©å“
+ * \param base: å‡çº§å±æ€§
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Upgrade::do_downgrade(zObject* ob, zUpgradeObjectB* base)
 {
@@ -710,14 +710,14 @@ bool Upgrade::do_downgrade(zObject* ob, zUpgradeObjectB* base)
 		--ob->data.upgrade;	
 		--ob->data.needlevel;
 		
-		COMPUTE( pdamage )				// ×îĞ¡¹¥»÷Á¦
-		COMPUTE( maxpdamage )			// ×î´ó¹¥»÷Á¦
-		COMPUTE( mdamage )			// ×îĞ¡·¨Êõ¹¥»÷Á¦
-		COMPUTE( maxmdamage )			// ×î´ó·¨Êõ¹¥»÷Á¦
+		COMPUTE( pdamage )				// æœ€å°æ”»å‡»åŠ›
+		COMPUTE( maxpdamage )			// æœ€å¤§æ”»å‡»åŠ›
+		COMPUTE( mdamage )			// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+		COMPUTE( maxmdamage )			// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
 	
-		COMPUTE( pdefence )			// Îï·À
-		COMPUTE( mdefence )				// Ä§·À
-		COMPUTE( maxhp )			// ×î´óÉúÃüÖµ
+		COMPUTE( pdefence )			// ç‰©é˜²
+		COMPUTE( mdefence )				// é­”é˜²
+		COMPUTE( maxhp )			// æœ€å¤§ç”Ÿå‘½å€¼
 	}
 	
 	return true;	
@@ -735,9 +735,9 @@ const int Decompose::_odds[] =
 const int Decompose::_items[] = {540, 548, 556, 562, 576, 577, 662, 663, 664, 666, 667, 668, 669, /*670, 671, 672, 673, 674, 675, 676, */ /*removed (TASK 731)*/677, 678, 679, 681, 683, 655, 685, 686, 0};
 
 /**     
- * \brief È¡µÃ·Ö½âµÄÎïÆ·ÀàĞÍ
+ * \brief å–å¾—åˆ†è§£çš„ç‰©å“ç±»å‹
  *
- * \return ·Ö½âµÄÎïÆ·ÀàĞÍ
+ * \return åˆ†è§£çš„ç‰©å“ç±»å‹
  */
 int Decompose::index() const
 {
@@ -755,9 +755,9 @@ int Decompose::index() const
 }
 
 /**     
- * \brief È¡µÃ·Ö½âÎïÆ·»ñµÃÔ­ÁÏµÄ¸ÅÂÊ
+ * \brief å–å¾—åˆ†è§£ç‰©å“è·å¾—åŸæ–™çš„æ¦‚ç‡
  *
- * \return »ñµÃÔ­ÁÏ¸ÅÂÊ
+ * \return è·å¾—åŸæ–™æ¦‚ç‡
  */
 int Decompose::chance() const
 {
@@ -776,9 +776,9 @@ int Decompose::chance() const
 }
 
 /**     
- * \brief ·Ö½âÎïÆ·ĞèÒªµÄ½ğÇ®ÊıÁ¿
+ * \brief åˆ†è§£ç‰©å“éœ€è¦çš„é‡‘é’±æ•°é‡
  *
- * \return ĞèÒª½ğÇ®ÊıÁ¿
+ * \return éœ€è¦é‡‘é’±æ•°é‡
  */
 int Decompose::gold() const
 {
@@ -797,10 +797,10 @@ int Decompose::gold() const
 }
 
 /**     
- * \brief ½±Àø¾­Ñé¸ø·Ö½âÎïÆ·µÄÓÃ»§
+ * \brief å¥–åŠ±ç»éªŒç»™åˆ†è§£ç‰©å“çš„ç”¨æˆ·
  *
- * \param user: ·Ö½âÎïÆ·µÄÓÃ»§
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user: åˆ†è§£ç‰©å“çš„ç”¨æˆ·
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Decompose::bonus_exp(SceneUser& user)
 {
@@ -833,10 +833,10 @@ bool Decompose::bonus_exp(SceneUser& user)
 }
 
 /**     
- * \brief ½±ÀøÔ­ÁÏ¸ø·Ö½âÎïÆ·µÄÓÃ»§
+ * \brief å¥–åŠ±åŸæ–™ç»™åˆ†è§£ç‰©å“çš„ç”¨æˆ·
  *
- * \param user: ·Ö½âÎïÆ·µÄÓÃ»§
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user: åˆ†è§£ç‰©å“çš„ç”¨æˆ·
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Decompose::bonus_items(SceneUser& user)
 {
@@ -892,7 +892,7 @@ bool Decompose::bonus_items(SceneUser& user)
 			if(index() == 3 && _ob->data.maker[0] && _ob->data.bind)
 			{
 				count =  zMisc::randBetween(1, it->number);
-				if (strstr(_ob->data.strName, "ÍêÃÀµÄ") != NULL)
+				if (strstr(_ob->data.strName, "å®Œç¾çš„") != NULL)
 				{
 					count = it->number/2;
 				}
@@ -906,7 +906,7 @@ bool Decompose::bonus_items(SceneUser& user)
 				if(index() == 3 && _ob->data.maker[0] && _ob->data.bind)
 				{
 					level = 2;
-					if (strstr(_ob->data.strName, "ÍêÃÀµÄ") != NULL)
+					if (strstr(_ob->data.strName, "å®Œç¾çš„") != NULL)
 					{
 						level = 3;
 					}
@@ -915,7 +915,7 @@ bool Decompose::bonus_items(SceneUser& user)
 				
 				/*
 				if (level > 1) {
-					//CPUÓ¦¸Ã¿ŞÁË£¬ NB CEHUA
+					//CPUåº”è¯¥å“­äº†ï¼Œ NB CEHUA
 					zObjectB* ob = objectbm.get(it->id);
 					if (ob && ob->level == 2) level = 1;
 				}
@@ -958,12 +958,12 @@ bool Decompose::bonus_items(SceneUser& user)
 }
 
 /**     
- * \brief É¾³ı±»·Ö½âÎïÆ·
+ * \brief åˆ é™¤è¢«åˆ†è§£ç‰©å“
  *
- * ´ÓÓÃ»§°ü¹üÖĞÉ¾³ı±»·Ö½âµÄÎïÆ·
+ * ä»ç”¨æˆ·åŒ…è£¹ä¸­åˆ é™¤è¢«åˆ†è§£çš„ç‰©å“
  *
- * \param user: ·Ö½âÎïÆ·µÄÓÃ»§
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user: åˆ†è§£ç‰©å“çš„ç”¨æˆ·
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool Decompose::remove_from(SceneUser& user)
 {
@@ -971,13 +971,13 @@ bool Decompose::remove_from(SceneUser& user)
 }
 
 /**     
- * \brief Ôù¼Ó¼¼ÄÜµã
+ * \brief èµ åŠ æŠ€èƒ½ç‚¹
  *
- * °´ÎïÆ·ĞèÒªµÈ¼¶Ôö¼ÓÓÃ»§´òÔì¼¼ÄÜµÄ¼¼ÄÜµã
+ * æŒ‰ç‰©å“éœ€è¦ç­‰çº§å¢åŠ ç”¨æˆ·æ‰“é€ æŠ€èƒ½çš„æŠ€èƒ½ç‚¹
  *
- * \param user: ´òÔìµÄÓÃ»§
- * \param ob: ´òÔìµÄÎïÆ·
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user: æ‰“é€ çš„ç”¨æˆ·
+ * \param ob: æ‰“é€ çš„ç‰©å“
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool EquipMaker::add_skill(SceneUser& user, zObjectB* ob)
 {
@@ -985,11 +985,11 @@ bool EquipMaker::add_skill(SceneUser& user, zObjectB* ob)
 }
 
 /**     
- * \brief Ôù¼Ó´òÔìÓÃ»§µÄ¾­ÑéÖµ
+ * \brief èµ åŠ æ‰“é€ ç”¨æˆ·çš„ç»éªŒå€¼
  *
- * \param user: ´òÔìµÄÓÃ»§
- * \param coefficient: ½±ÀøÏµÊı
- * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+ * \param user: æ‰“é€ çš„ç”¨æˆ·
+ * \param coefficient: å¥–åŠ±ç³»æ•°
+ * \return å½“å‰æ€»æ˜¯è¿”å›true
  */
 bool EquipMaker::add_exp(SceneUser& user, DWORD coefficient)
 {
@@ -1002,13 +1002,13 @@ bool EquipMaker::add_exp(SceneUser& user, DWORD coefficient)
 }
 
 /**     
- * \brief ¼¼ÄÜ¼ì²é
+ * \brief æŠ€èƒ½æ£€æŸ¥
  *
- * ¼ì²éÓÃ»§µÄ¼¼ÄÜÊÇ·ñÂú×ã´òÔì¸ÃÎïÆ·ÒªÇó
+ * æ£€æŸ¥ç”¨æˆ·çš„æŠ€èƒ½æ˜¯å¦æ»¡è¶³æ‰“é€ è¯¥ç‰©å“è¦æ±‚
  *
- * \param user: ´òÔìµÄÓÃ»§
- * \param ob: ´òÔìµÄÎïÆ·
- * \return Âú×ãÒªÇó·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: æ‰“é€ çš„ç”¨æˆ·
+ * \param ob: æ‰“é€ çš„ç‰©å“
+ * \return æ»¡è¶³è¦æ±‚è¿”å›true,å¦åˆ™è¿”å›false
  */
 bool EquipMaker::check_skill(SceneUser& user, zObjectB* ob)
 {
@@ -1022,21 +1022,21 @@ bool EquipMaker::check_skill(SceneUser& user, zObjectB* ob)
 }
 
 /**     
- * \brief ²ÄÁÏ¼ì²é
+ * \brief ææ–™æ£€æŸ¥
  *
- * ¼ì²éÓÃ»§°ü¹üÖĞµÄ²ÄÁÏÊÇ·ñÂú×ã´òÔì¸ÃÎïÆ·ÒªÇó
+ * æ£€æŸ¥ç”¨æˆ·åŒ…è£¹ä¸­çš„ææ–™æ˜¯å¦æ»¡è¶³æ‰“é€ è¯¥ç‰©å“è¦æ±‚
  *
- * \param ob: ´òÔìµÄÎïÆ·
- * \param list:²ÄÁÏÁĞ±í
+ * \param ob: æ‰“é€ çš„ç‰©å“
+ * \param list:ææ–™åˆ—è¡¨
  * \param is_resource: NOT USED YET
- * \return Âú×ãÒªÇó·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \return æ»¡è¶³è¦æ±‚è¿”å›true,å¦åˆ™è¿”å›false
  */
 bool EquipMaker::check_material(zObjectB* ob, const std::map<DWORD, DWORD>& list, bool is_resource)
 {
 	/*
 	for (zObjectB::material::stuffs_iterator it= ob->need_material.stuffs.begin(); it!=ob->need_material.stuffs.end(); ++it) 
 	{
-		Zebra::logger->debug("´òÔì%sĞèÒª²ÄÁÏ%d", ob->name,  it->id);
+		Zebra::logger->debug("æ‰“é€ %séœ€è¦ææ–™%d", ob->name,  it->id);
 	}
 	// */
 	
@@ -1092,15 +1092,15 @@ void  EquipMaker::pre_level_of_material(int id, int level)
 }
 
 /**     
- * \brief ¼ÆËã²ÄÁÏµÈ¼¶
+ * \brief è®¡ç®—ææ–™ç­‰çº§
  *
- * ¼ÆËã´òÔì²ÄÁÏµÄ×îÖÕµÈ¼¶
+ * è®¡ç®—æ‰“é€ ææ–™çš„æœ€ç»ˆç­‰çº§
  *
- * \param id: ²ÄÁÏid
- * \param num: ²ÄÁÏÊıÁ¿
- * \param level:²ÄÁÏµÈ¼¶
- * \param base: ²ÄÁÏĞÅÏ¢
- * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param id: ææ–™id
+ * \param num: ææ–™æ•°é‡
+ * \param level:ææ–™ç­‰çº§
+ * \param base: ææ–™ä¿¡æ¯
+ * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool EquipMaker::level_of_material(DWORD id, DWORD num, DWORD level, zObjectB* base)
 {
@@ -1122,7 +1122,7 @@ bool EquipMaker::level_of_material(DWORD id, DWORD num, DWORD level, zObjectB* b
 	float coff = 1.0;
 	zObjectB* ob = objectbm.get(it->id);
 	//if (ob && ob->level == 1) coff = 0.01;
-	//´òÔì¹«Ê½ĞŞ¸Ä
+	//æ‰“é€ å…¬å¼ä¿®æ”¹
 	if (ob && ob->level == 1) coff = 0.1;
 	
 	if ( ((int)id == _1_id && (int)level == _1_level) || ((int)id == _2_id && (int)level == _2_level) ) {
@@ -1139,10 +1139,10 @@ bool EquipMaker::level_of_material(DWORD id, DWORD num, DWORD level, zObjectB* b
 }
 
 /**     
- * \brief ´òÔì²ÄÁÏ
+ * \brief æ‰“é€ ææ–™
  *
- * \param base: ´òÔìÎïÆ·
- * \return ´òÔìµÄÎïÆ·
+ * \param base: æ‰“é€ ç‰©å“
+ * \return æ‰“é€ çš„ç‰©å“
  */
 zObject* EquipMaker::make_material(zObjectB* base)
 {	
@@ -1151,11 +1151,11 @@ zObject* EquipMaker::make_material(zObjectB* base)
 }
 
 /**     
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
- * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+ * åˆå§‹åŒ–ç›¸å…³å˜é‡
  *
- * param user : ÇëÇó´òÔìµÄÓÃ»§
+ * param user : è¯·æ±‚æ‰“é€ çš„ç”¨æˆ·
  *
  */   
 EquipMaker::EquipMaker(SceneUser* user) : _current(0), _base(0), _make(user?true:false), _need(0), _1_id(0), _1_level(0), _2_id(0), _2_level(0)
@@ -1165,10 +1165,10 @@ EquipMaker::EquipMaker(SceneUser* user) : _current(0), _base(0), _make(user?true
 }
 
 /**     
- * \brief ½±ÀøHole
+ * \brief å¥–åŠ±Hole
  *
- * \param ob: ´òÔìÎïÆ·
- * \return ÎŞ
+ * \param ob: æ‰“é€ ç‰©å“
+ * \return æ— 
  */
 void EquipMaker::bonus_hole(zObject* ob)
 {
@@ -1176,36 +1176,36 @@ void EquipMaker::bonus_hole(zObject* ob)
 	int bonus_hole = static_cast<int>(_odds.material_level -6);
 	if (bonus_hole>0) {
 		Hole::add_hole_num(ob, bonus_hole);
-		Zebra::logger->debug("²ÄÁÏµÈ¼¶(%f), ½±Àø¿×(%d)", _odds.material_level, bonus_hole);
+		Zebra::logger->debug("ææ–™ç­‰çº§(%f), å¥–åŠ±å­”(%d)", _odds.material_level, bonus_hole);
 	}
 }
 
 
 /**     
- * \brief ´òÔì×°±¸
+ * \brief æ‰“é€ è£…å¤‡
  *
- * \param user: ´òÔìÓÃ»§
- * \param base: ´òÔìÎïÆ·
- * \param flag: ÊÇ·ñÇ¿ÖÆÉú³É
- * \return ´òÔìµÄÎïÆ·
+ * \param user: æ‰“é€ ç”¨æˆ·
+ * \param base: æ‰“é€ ç‰©å“
+ * \param flag: æ˜¯å¦å¼ºåˆ¶ç”Ÿæˆ
+ * \return æ‰“é€ çš„ç‰©å“
  */
 zObject* EquipMaker::make(SceneUser* user, zObjectB* base, int flag)
 {	
 	_odds.material_level = _base?(_current/_base):0;	
 	if(user)
-		Zebra::logger->debug("[´òÔì]ÓÃ»§(%s)²ÄÁÏµÈ¼¶(%s:%.10f)", user?user->name:"", base->name, _odds.material_level);
+		Zebra::logger->debug("[æ‰“é€ ]ç”¨æˆ·(%s)ææ–™ç­‰çº§(%s:%.10f)", user?user->name:"", base->name, _odds.material_level);
 
 	int white = odds_of_white(base);
 
 	if(user)
-		Zebra::logger->debug("[´òÔì]ÓÃ»§(%s)Éú³É°×É«×°±¸¸ÅÂÊ(%s:%f\%)", user?user->name:"", base->name, white*1.0);
+		Zebra::logger->debug("[æ‰“é€ ]ç”¨æˆ·(%s)ç”Ÿæˆç™½è‰²è£…å¤‡æ¦‚ç‡(%s:%f\%)", user?user->name:"", base->name, white*1.0);
 	
 	if ( zMisc::selectByPercent(white) || flag ) {
 		zObject *ob = zObject::create(base, 1);
 		if (!ob) return NULL;
 		_need = ob->base->needlevel;
 		
-		//zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user->id,user->name,"´òÔì×°±¸");
+		//zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user->id,user->name,"æ‰“é€ è£…å¤‡");
 		assign(user, ob, base, false, flag);
 		
 		return ob;
@@ -1222,7 +1222,7 @@ void EquipMaker::assign(SceneUser* user, zObject* ob, zObjectB* base, bool drop,
 
 	int gold = odds_of_gold(base);
 	if(user)
-		Zebra::logger->debug("[´òÔì]ÓÃ»§(%s)Éú³É½ğÉ«×°±¸¸ÅÂÊ(%s:%f\%)", user?user->name:"", base->name, gold*0.01);
+		Zebra::logger->debug("[æ‰“é€ ]ç”¨æˆ·(%s)ç”Ÿæˆé‡‘è‰²è£…å¤‡æ¦‚ç‡(%s:%f\%)", user?user->name:"", base->name, gold*0.01);
 
 	int set = 0;
 	
@@ -1240,7 +1240,7 @@ void EquipMaker::assign(SceneUser* user, zObject* ob, zObjectB* base, bool drop,
 				index = count * 10 + 4;
 				if (index >= (int)ob->base->golds.size()) index -= 10;
 				if (index >= (int)ob->base->golds.size() || index < 0) index = 0;
-		//ÕâÑùµÄ¹«Ê½ÕæÊÇ²»·ş²»ĞĞ,NB CEHUA ....see task 686 from bugzilla
+		//è¿™æ ·çš„å…¬å¼çœŸæ˜¯ä¸æœä¸è¡Œ,NB CEHUA ....see task 686 from bugzilla
 		}else {	
 		index = zMisc::randBetween(0, base->golds.size()-1);			
 		}
@@ -1262,15 +1262,15 @@ void EquipMaker::assign(SceneUser* user, zObject* ob, zObjectB* base, bool drop,
 
 		if (!bob) {
 			if(user)
-				Zebra::logger->debug("[´òÔì]ÓÃ»§(%s)½ğÉ«×°±¸±íÖĞÕÒ²»µ½¶ÔÓ¦Êı¾İ%d(%d)", user?user->name:"", base->golds[index], index);
+				Zebra::logger->debug("[æ‰“é€ ]ç”¨æˆ·(%s)é‡‘è‰²è£…å¤‡è¡¨ä¸­æ‰¾ä¸åˆ°å¯¹åº”æ•°æ®%d(%d)", user?user->name:"", base->golds[index], index);
 			return;
 		}
 
-		if (!flag && user) strncpy(ob->data.maker, user->name, MAX_NAMESIZE);//´òÔìÕßÃû×Ö
+		if (!flag && user) strncpy(ob->data.maker, user->name, MAX_NAMESIZE);//æ‰“é€ è€…åå­—
 
 		int props = 0;
 		if (user) {
-			// :Ô­À´Éú³ÉÂÌÉ«×°±¸¸ÅÂÊ´óÓÚ3000%Ê±,¶ÔÌØÊâ×Ö¶ÎÊôĞÔÈ¡ÉÏÏŞ,ÏÖÔÚ¸ÅÂÊµ÷³É900%
+			// :åŸæ¥ç”Ÿæˆç»¿è‰²è£…å¤‡æ¦‚ç‡å¤§äº3000%æ—¶,å¯¹ç‰¹æ®Šå­—æ®µå±æ€§å–ä¸Šé™,ç°åœ¨æ¦‚ç‡è°ƒæˆ900%
 			/*
 			   if (holy > 3000*100) {
 			   props = 17;
@@ -1304,16 +1304,16 @@ void EquipMaker::assign(SceneUser* user, zObject* ob, zObjectB* base, bool drop,
 				bob1 = goldobjectbm.get(base->holys[i]);
 			if(bob1)
 			{
-				assign_color(bob1, ob, 2,props,base,drop/*, props*//*½ğÉ«×°Ò²²»×÷¸öÊıÏŞÖÆÁË,¿ÉÁ¯µÄÇëÓñĞÖµÜ*/);
+				assign_color(bob1, ob, 2,props,base,drop/*, props*//*é‡‘è‰²è£…ä¹Ÿä¸ä½œä¸ªæ•°é™åˆ¶äº†,å¯æ€œçš„è¯·ç‰å…„å¼Ÿ*/);
 			}
 			else
 			{
-				assign_color(bob, ob, 2,props,base,drop/*, props*//*½ğÉ«×°Ò²²»×÷¸öÊıÏŞÖÆÁË,¿ÉÁ¯µÄÇëÓñĞÖµÜ*/);
+				assign_color(bob, ob, 2,props,base,drop/*, props*//*é‡‘è‰²è£…ä¹Ÿä¸ä½œä¸ªæ•°é™åˆ¶äº†,å¯æ€œçš„è¯·ç‰å…„å¼Ÿ*/);
 			}
 		}
 		else
 		{
-			assign_color(bob, ob, 2,props,base,drop/*, props*//*½ğÉ«×°Ò²²»×÷¸öÊıÏŞÖÆÁË,¿ÉÁ¯µÄÇëÓñĞÖµÜ*/);
+			assign_color(bob, ob, 2,props,base,drop/*, props*//*é‡‘è‰²è£…ä¹Ÿä¸ä½œä¸ªæ•°é™åˆ¶äº†,å¯æ€œçš„è¯·ç‰å…„å¼Ÿ*/);
 		}
 
 		if (bob->golds.size() > 0) {
@@ -1328,10 +1328,10 @@ void EquipMaker::assign(SceneUser* user, zObject* ob, zObjectB* base, bool drop,
 			}
 		}
 		if(user)
-			Zebra::logger->debug("[´òÔì]ÓÃ»§(%s)ÉñÊ¥ÎïÆ·²úÉú¼¸ÂÊ%f\%", user?user->name:"", holy*0.01);
+			Zebra::logger->debug("[æ‰“é€ ]ç”¨æˆ·(%s)ç¥åœ£ç‰©å“äº§ç”Ÿå‡ ç‡%f\%", user?user->name:"", holy*0.01);
 
 		if(g_holy) {
-			assign_holy(ob, holy);// ÉñÊ¥×°±¸
+			assign_holy(ob, holy);// ç¥åœ£è£…å¤‡
 		}
 
 		set = bob->five.sleightValue;
@@ -1339,13 +1339,13 @@ void EquipMaker::assign(SceneUser* user, zObject* ob, zObjectB* base, bool drop,
 		}else {
 			int blue = odds_of_blue(base);
 			if(user)
-				Zebra::logger->debug("[´òÔì]ÓÃ»§(%s)Éú³ÉÀ¶É«×°±¸¸ÅÂÊ(%s:%f\%)", user?user->name:"", base->name, blue*0.01);
+				Zebra::logger->debug("[æ‰“é€ ]ç”¨æˆ·(%s)ç”Ÿæˆè“è‰²è£…å¤‡æ¦‚ç‡(%s:%f\%)", user?user->name:"", base->name, blue*0.01);
 
 			if (zMisc::selectByTenTh(blue) || (flag & 1) ) {
 				int index = zMisc::randBetween(0, base->blues.size()-1);			
 				zBlueObjectB *bob = blueobjectbm.get(base->blues[index]);
 				if (!bob) return;
-				if (!flag && user) strncpy(ob->data.maker, user->name, MAX_NAMESIZE);//´òÔìÕßÃû×Ö
+				if (!flag && user) strncpy(ob->data.maker, user->name, MAX_NAMESIZE);//æ‰“é€ è€…åå­—
 				assign_color(bob, ob, 1);
 
 				set = bob->five.sleightValue;
@@ -1353,7 +1353,7 @@ void EquipMaker::assign(SceneUser* user, zObject* ob, zObjectB* base, bool drop,
 		}
 
 		if(user)
-			Zebra::logger->debug("[´òÔì]ÓÃ»§(%s)Éú³ÉÎåĞĞÌ××°¸ÅÂÊ(%s:%f\%)", user?user->name:"", base->name, set*0.01);	
+			Zebra::logger->debug("[æ‰“é€ ]ç”¨æˆ·(%s)ç”Ÿæˆäº”è¡Œå¥—è£…æ¦‚ç‡(%s:%f\%)", user?user->name:"", base->name, set*0.01);	
 		if ( (ob->data.fivetype != FIVE_NONE && zMisc::selectByTenTh(set)) || (flag & 8) ) {
 			assign_set(ob);	
 		}
@@ -1379,10 +1379,10 @@ void EquipMaker::fix(zObject* ob)
 #undef COMPUTE
 #define COMPUTE(x) ob->data.x = static_cast<WORD>(ob->data.x*1.4);
 /**     
- * \brief ²úÉúÉñÊ¥×°±¸
+ * \brief äº§ç”Ÿç¥åœ£è£…å¤‡
  *
- * \param base: ´òÔìÎïÆ·
- * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param base: æ‰“é€ ç‰©å“
+ * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool EquipMaker::assign_holy(zObject* ob, int holy)
 {
@@ -1391,38 +1391,38 @@ bool EquipMaker::assign_holy(zObject* ob, int holy)
 	zHolyObjectB *bob = holyobjectbm.get(1001/*ob->base->holys[index]*/);
 	if (bob==NULL) return false;
 	
-	ob->data.kind |= 4;//ÉñÊ¥×°±¸,²Î¿´Object.h×¢ÊÍ
+	ob->data.kind |= 4;//ç¥åœ£è£…å¤‡,å‚çœ‹Object.hæ³¨é‡Š
 	ob->data.holy = bob->holy;
 	
 	int property = 1;
 
-	COMPUTE( maxhp )					// ×î´óÉúÃüÖµ
-	COMPUTE( maxmp )					// ×î´ó·¨ÊõÖµ
-	COMPUTE( maxsp )					// ×î´óÌåÁ¦Öµ
+	COMPUTE( maxhp )					// æœ€å¤§ç”Ÿå‘½å€¼
+	COMPUTE( maxmp )					// æœ€å¤§æ³•æœ¯å€¼
+	COMPUTE( maxsp )					// æœ€å¤§ä½“åŠ›å€¼
 
-	COMPUTE( pdamage )				// ×îĞ¡¹¥»÷Á¦
-	COMPUTE( maxpdamage )			// ×î´ó¹¥»÷Á¦
-	COMPUTE( mdamage )				// ×îĞ¡·¨Êõ¹¥»÷Á¦
-	COMPUTE( maxmdamage )			// ×î´ó·¨Êõ¹¥»÷Á¦
+	COMPUTE( pdamage )				// æœ€å°æ”»å‡»åŠ›
+	COMPUTE( maxpdamage )			// æœ€å¤§æ”»å‡»åŠ›
+	COMPUTE( mdamage )				// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	COMPUTE( maxmdamage )			// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
 
-	COMPUTE( pdefence )				// Îï·À
-	COMPUTE( mdefence )				// Ä§·À
+	COMPUTE( pdefence )				// ç‰©é˜²
+	COMPUTE( mdefence )				// é­”é˜²
 
-	COMPUTE_L( damage )		// Ôö¼ÓÉËº¦Öµx£¥
-	COMPUTE_L(	fivepoint )		// ÎåĞĞÊôĞÔÔö¼Ó
+	COMPUTE_L( damage )		// å¢åŠ ä¼¤å®³å€¼xï¼…
+	COMPUTE_L(	fivepoint )		// äº”è¡Œå±æ€§å¢åŠ 
 
-	COMPUTE_L( hpr )		// ÉúÃüÖµ»Ö¸´
-	COMPUTE_L( mpr )		// ·¨ÊõÖµ»Ö¸´
-	COMPUTE_L( spr )		// ÌåÁ¦Öµ»Ö¸´
+	COMPUTE_L( hpr )		// ç”Ÿå‘½å€¼æ¢å¤
+	COMPUTE_L( mpr )		// æ³•æœ¯å€¼æ¢å¤
+	COMPUTE_L( spr )		// ä½“åŠ›å€¼æ¢å¤
 
-	COMPUTE_L( akspeed )	// ¹¥»÷ËÙ¶È
-	COMPUTE_L( mvspeed )	// ÒÆ¶¯ËÙ¶È
+	COMPUTE_L( akspeed )	// æ”»å‡»é€Ÿåº¦
+	COMPUTE_L( mvspeed )	// ç§»åŠ¨é€Ÿåº¦
 	
-	COMPUTE_L( atrating )	// ÃüÖĞÂÊ
-	COMPUTE_L( akdodge )		// ÉÁ±ÜÂÊ
+	COMPUTE_L( atrating )	// å‘½ä¸­ç‡
+	COMPUTE_L( akdodge )		// é—ªé¿ç‡
 
-	COMPUTE_L( doublexp )	// %xË«±¶¾­Ñé
-	COMPUTE_L( mf )		//µô±¦ÂÊ
+	COMPUTE_L( doublexp )	// %xåŒå€ç»éªŒ
+	COMPUTE_L( mf )		//æ‰å®ç‡
 	
 	BONUS_SKILL	
 	BONUS_SKILLS
@@ -1437,10 +1437,10 @@ bool EquipMaker::assign_holy(zObject* ob, int holy)
 	break;
 	
 /**     
- * \brief ²úÉúÎåĞĞÌ××°
+ * \brief äº§ç”Ÿäº”è¡Œå¥—è£…
  *
- * \param base: ´òÔìÎïÆ·
- * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param base: æ‰“é€ ç‰©å“
+ * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool EquipMaker::assign_set(zObject* ob)
 {
@@ -1450,7 +1450,7 @@ bool EquipMaker::assign_set(zObject* ob)
 	zFiveSetB* prop = fivesetbm.get(base->mark);
 	if (!prop) return false;
 		
-	ob->data.kind |= 8;//ÎåĞĞÌ××°,²Î¿´Object.h×¢ÊÍ
+	ob->data.kind |= 8;//äº”è¡Œå¥—è£…,å‚çœ‹Object.hæ³¨é‡Š
 
 	for (zSetObjectB::iterator it=base->sets.begin(); it!=base->sets.end(); ++it) {
 		if (zMisc::selectByTenTh(it->odds)) {
@@ -1466,15 +1466,15 @@ bool EquipMaker::assign_set(zObject* ob)
 				switch (index)
 				{
 					case 0:
-						COMPUTE( dpdam ) //ÎïÀíÉËº¦¼õÉÙ%x
+						COMPUTE( dpdam ) //ç‰©ç†ä¼¤å®³å‡å°‘%x
 					case 1:
-						COMPUTE( dmdam ) //·¨ÊõÉËº¦¼õÉÙ%x
+						COMPUTE( dmdam ) //æ³•æœ¯ä¼¤å®³å‡å°‘%x
 					case 2:
-						COMPUTE( bdam ) //Ôö¼ÓÉËº¦x%
+						COMPUTE( bdam ) //å¢åŠ ä¼¤å®³x%
 					case 3:
-						COMPUTE( rdam ) //ÉËº¦·´Éä%x
+						COMPUTE( rdam ) //ä¼¤å®³åå°„%x
 					case 4:
-						COMPUTE( ignoredef ) //%xºöÊÓÄ¿±ê·ÀÓù
+						COMPUTE( ignoredef ) //%xå¿½è§†ç›®æ ‡é˜²å¾¡
 					default:
 						break;		
 				}
@@ -1489,11 +1489,11 @@ bool EquipMaker::assign_set(zObject* ob)
 }
 
 /**     
- * \brief ¼ÆËã´òÔìÊÇ·ÅÈëµÄ¼¸ÂÊ±¦Ê¯ÊÇ·ñºÏ·¨¼°¶ÔÓ¦µÄ¶îÍâ³É¹¦¼¸ÂÊ
+ * \brief è®¡ç®—æ‰“é€ æ˜¯æ”¾å…¥çš„å‡ ç‡å®çŸ³æ˜¯å¦åˆæ³•åŠå¯¹åº”çš„é¢å¤–æˆåŠŸå‡ ç‡
  *
- * \param kind: ´òÔì×°±¸ÀàĞÍ
- * \param id: ·ÅÈëµÄ¼¸ÂÊ±¦Ê¯
- * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param kind: æ‰“é€ è£…å¤‡ç±»å‹
+ * \param id: æ”¾å…¥çš„å‡ ç‡å®çŸ³
+ * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool EquipMaker::is_odds_gem(DWORD kind, DWORD id)
 {
@@ -1522,10 +1522,10 @@ bool EquipMaker::is_odds_gem(DWORD kind, DWORD id)
 }
 
 /**     
- * \brief Éú³É°×É«×°±¸¸ÅÂÊ
+ * \brief ç”Ÿæˆç™½è‰²è£…å¤‡æ¦‚ç‡
  *
- * \param ob: ´òÔìÎïÆ·
- * \return Éú³É¸ÅÂÊ
+ * \param ob: æ‰“é€ ç‰©å“
+ * \return ç”Ÿæˆæ¦‚ç‡
  */
 int EquipMaker::odds_of_white(const zObjectB* ob)
 {
@@ -1535,10 +1535,10 @@ int EquipMaker::odds_of_white(const zObjectB* ob)
 }
 
 /**     
- * \brief Éú³ÉÀ¶É«×°±¸¸ÅÂÊ
+ * \brief ç”Ÿæˆè“è‰²è£…å¤‡æ¦‚ç‡
  *
- * \param ob: ´òÔìÎïÆ·
- * \return Éú³É¸ÅÂÊ
+ * \param ob: æ‰“é€ ç‰©å“
+ * \return ç”Ÿæˆæ¦‚ç‡
  */
 int EquipMaker::odds_of_blue(const zObjectB* ob)
 {
@@ -1546,7 +1546,7 @@ int EquipMaker::odds_of_blue(const zObjectB* ob)
 	//if (_make) odds = static_cast<int>( pow(_odds.material_level, 5) + 0.1*ob->bluerating );
 	if (_make) {
 		odds = static_cast<int>( 100*pow(_odds.material_level+3, 3) /*+ 0.1*ob->bluerating*/ );
-		//ÓĞ¸öĞÔµÄ²ß»®¹«Ê½¡£¡£¡£
+		//æœ‰ä¸ªæ€§çš„ç­–åˆ’å…¬å¼ã€‚ã€‚ã€‚
 		//if (odds >= 9800) odds = 10000;
 		odds += 200;
 	}
@@ -1555,17 +1555,17 @@ int EquipMaker::odds_of_blue(const zObjectB* ob)
 }
 
 /**     
- * \brief Éú³É½ğÉ«×°±¸¸ÅÂÊ
+ * \brief ç”Ÿæˆé‡‘è‰²è£…å¤‡æ¦‚ç‡
  *
- * \param ob: ´òÔìÎïÆ·
- * \return Éú³É¸ÅÂÊ
+ * \param ob: æ‰“é€ ç‰©å“
+ * \return ç”Ÿæˆæ¦‚ç‡
  */
 int EquipMaker::odds_of_gold(const zObjectB* ob)
 {
 	int odds =  ob->goldrating;; 
 	if (_make) {
 		odds = static_cast<int>((4*pow(_odds.material_level, 7) /* + 0.1*ob->goldrating*/ ) );
-		//ÓĞ¸öĞÔµÄ²ß»®¹«Ê½¡£¡£¡£
+		//æœ‰ä¸ªæ€§çš„ç­–åˆ’å…¬å¼ã€‚ã€‚ã€‚
 		//if (odds >= 9800) odds = 10000;
 		odds += 200;
 	}
@@ -1574,17 +1574,17 @@ int EquipMaker::odds_of_gold(const zObjectB* ob)
 }
 
 /**     
- * \brief Éú³ÉÉñÊ¥×°±¸¸ÅÂÊ
+ * \brief ç”Ÿæˆç¥åœ£è£…å¤‡æ¦‚ç‡
  *
- * \param ob: ´òÔìÎïÆ·
- * \return Éú³É¸ÅÂÊ
+ * \param ob: æ‰“é€ ç‰©å“
+ * \return ç”Ÿæˆæ¦‚ç‡
  */
 int EquipMaker::odds_of_holy(int object)
 {
 	int odds = object;
 	if (_make) {
 		odds = static_cast<int>( 0.01*pow(_odds.material_level, 10) /* + object + 120 */ );
-		//ÓĞ¸öĞÔµÄ²ß»®¹«Ê½¡£¡£¡£
+		//æœ‰ä¸ªæ€§çš„ç­–åˆ’å…¬å¼ã€‚ã€‚ã€‚
 		//if (odds >= 9800) odds = 10000;
 		odds += 200;
 	}	
@@ -1593,10 +1593,10 @@ int EquipMaker::odds_of_holy(int object)
 }
 
 /**     
- * \brief ×°±¸Éú³ÉÊôĞÔ¸ÅÂÊ
+ * \brief è£…å¤‡ç”Ÿæˆå±æ€§æ¦‚ç‡
  *
- * \param ob: ´òÔìÎïÆ·
- * \return Éú³É¸ÅÂÊ
+ * \param ob: æ‰“é€ ç‰©å“
+ * \return ç”Ÿæˆæ¦‚ç‡
  */
 int EquipMaker::odds_of_property(int object, int property)
 {
@@ -1607,9 +1607,9 @@ int EquipMaker::odds_of_property(int object, int property)
 RebuildObject* RebuildObject::_instance = NULL;
 
 /**     
- * \brief  µ¥¼şÄ£Ê½,±£Ö¤ÎïÆ·¸ÄÔìÀàµÄÎ¨Ò»ÊµÀı
+ * \brief  å•ä»¶æ¨¡å¼,ä¿è¯ç‰©å“æ”¹é€ ç±»çš„å”¯ä¸€å®ä¾‹
  *
- * \return ÎïÆ·¸ÄÔìÀàµÄÎ¨Ò»ÊµÀı
+ * \return ç‰©å“æ”¹é€ ç±»çš„å”¯ä¸€å®ä¾‹
  */	
 RebuildObject& RebuildObject::instance()
 {
@@ -1619,11 +1619,11 @@ RebuildObject& RebuildObject::instance()
 }	
 
 /**     
- * \brief ºÏ³ÉÆÕÍ¨ÎïÆ·
+ * \brief åˆæˆæ™®é€šç‰©å“
  *
- * \param user: ÇëÇóºÏ³ÉµÄÓÃ»§
- * \param cmd: ºÏ³ÉÖ¸Áî
- * \return ºÏ³É³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚åˆæˆçš„ç”¨æˆ·
+ * \param cmd: åˆæˆæŒ‡ä»¤
+ * \return åˆæˆæˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool RebuildObject::compose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 {
@@ -1638,7 +1638,7 @@ bool RebuildObject::compose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	ObjectPack* pack = user.packs.equip.pack(EquipPack::R_MAKE);
 	if (command->location == 1) pack = user.packs.equip.pack(EquipPack::L_MAKE);
 	if (!pack || pack->object()->data.dur < 1 || user.tradeorder.in_trade(pack->object()) ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³ÉµÄ°ü¹ü²»´æÔÚ£¬Ê¹ÓÃ´ÎÊı²»¹»»òÔÚ½»Ò×ÖĞ", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆçš„åŒ…è£¹ä¸å­˜åœ¨ï¼Œä½¿ç”¨æ¬¡æ•°ä¸å¤Ÿæˆ–åœ¨äº¤æ˜“ä¸­", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;
 	}
 
@@ -1683,12 +1683,12 @@ bool RebuildObject::compose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	pack->execEvery(dc);
 	
 	if (!dc.can_compose || !dc.num ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³É²»¿ÉºÏ³ÉÎïÆ·", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆä¸å¯åˆæˆç‰©å“", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 
 	if ( command->per_num <3 || command->per_num > 5 || (dc.num % command->per_num) || (dc.num > command->per_num*dc.max_num) ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³ÉÎïÆ·ÊıÁ¿´íÎó", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆç‰©å“æ•°é‡é”™è¯¯", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;
 	}
 
@@ -1701,7 +1701,7 @@ bool RebuildObject::compose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 		return false;
 	}
 	
-	if ( user.packs.removeMoney(gold,"ÆÕÍ¨ºÏ³É") ) {
+	if ( user.packs.removeMoney(gold,"æ™®é€šåˆæˆ") ) {
 		Base::refresh_pack(user, pack);
 		
 //		pack->clear(&user);
@@ -1736,14 +1736,14 @@ bool RebuildObject::compose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 			o->data.pos = stObjectLocation(pack->type(), pack->id(), 0, Cmd::MAKECELLTYPE_EQUIP);
 			if (user.packs.addObject(o, false) ) {
 				Base::add_object(user, o);
-				zObject::logger(o->createid,o->data.qwThisID,o->base->name,o->data.dwNum,o->data.dwNum,1,0,NULL,user.id,user.name,"ÆÕÍ¨ºÏ³É",o->base,o->data.kind,o->data.upgrade);
+				zObject::logger(o->createid,o->data.qwThisID,o->base->name,o->data.dwNum,o->data.dwNum,1,0,NULL,user.id,user.name,"æ™®é€šåˆæˆ",o->base,o->data.kind,o->data.upgrade);
 				response(user, 0, COMPOSE);
 				return true;
 			}
 		}
 		
 		response(user, 1, COMPOSE);			
-		Zebra::logger->error("ÎªÓÃ»§(%d:%d:%s)Ìí¼ÓºÏ³ÉÎïÆ·Ê±Ê§°Ü", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->error("ä¸ºç”¨æˆ·(%d:%d:%s)æ·»åŠ åˆæˆç‰©å“æ—¶å¤±è´¥", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;
 	}
 	
@@ -1751,11 +1751,11 @@ bool RebuildObject::compose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 }
 
 /**     
- * \brief ºÏ³É»êÆÇÊ¯
+ * \brief åˆæˆé­‚é­„çŸ³
  *
- * \param user: ÇëÇóºÏ³ÉµÄÓÃ»§
- * \param cmd: ºÏ³ÉÖ¸Áî
- * \return ºÏ³É³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚åˆæˆçš„ç”¨æˆ·
+ * \param cmd: åˆæˆæŒ‡ä»¤
+ * \return åˆæˆæˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool RebuildObject::compose_soul_stone(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 {
@@ -1764,7 +1764,7 @@ bool RebuildObject::compose_soul_stone(SceneUser& user, const Cmd::stPropertyUse
 	ObjectPack* pack = user.packs.equip.pack(EquipPack::R_MAKE);
 	if (command->location == 1) pack = user.packs.equip.pack(EquipPack::L_MAKE);
 	if (!pack || pack->object()->data.dur < 1 || user.tradeorder.in_trade(pack->object()) ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³ÉµÄ°ü¹ü²»´æÔÚ£¬Ê¹ÓÃ´ÎÊı²»¹»»òÔÚ½»Ò×ÖĞ", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆçš„åŒ…è£¹ä¸å­˜åœ¨ï¼Œä½¿ç”¨æ¬¡æ•°ä¸å¤Ÿæˆ–åœ¨äº¤æ˜“ä¸­", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;
 	}
 
@@ -1821,14 +1821,14 @@ bool RebuildObject::compose_soul_stone(SceneUser& user, const Cmd::stPropertyUse
 	pack->execEvery(dc);
 
 	if (!dc.can_compose || !dc.stone_1 || !dc.stone_2 || !dc.num ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³É²»¿ÉºÏ³ÉÎïÆ·", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆä¸å¯åˆæˆç‰©å“", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 	
 	int level = std::max(dc.stone_1->data.upgrade, dc.stone_2->data.upgrade);
 	
 	if ( dc.level != level ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³É»êÆÇÊ¯Ê±Ê¹ÓÃ·Ç·¨±¦Ê¯", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆé­‚é­„çŸ³æ—¶ä½¿ç”¨éæ³•å®çŸ³", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 
@@ -1894,7 +1894,7 @@ bool RebuildObject::compose_soul_stone(SceneUser& user, const Cmd::stPropertyUse
 	pack->execEvery(dc);
 
 	if (!dc.can_compose || !dc.stone || !dc.c_ob ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)°ó¶¨×°±¸Ê±²Ù×÷·Ç·¨", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)ç»‘å®šè£…å¤‡æ—¶æ“ä½œéæ³•", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 	
@@ -1904,12 +1904,12 @@ bool RebuildObject::compose_soul_stone(SceneUser& user, const Cmd::stPropertyUse
 		return false;
 	}
 	
-	if ( user.packs.removeMoney(gold,"»êÆÇºÏ³É") ) {
+	if ( user.packs.removeMoney(gold,"é­‚é­„åˆæˆ") ) {
 		Base::refresh_pack(user, pack);
 		
 		dc.c_ob->data.bind = 1;
 		/**
-		 * \brief ÕâÀïµÄ·ÀÓù×°±¸¿ÉÄÜ³öÏÖ¹¥»÷Á¦,¹¥»÷×°±¸¿ÉÄÜ³öÏÖ·ÀÓùÁ¦,ÒÑ¾­¿É²ß»®È·ÈÏ¹ı,Èç¹û¸Ä,fuck²ß»®Ò»±²×Ó
+		 * \brief è¿™é‡Œçš„é˜²å¾¡è£…å¤‡å¯èƒ½å‡ºç°æ”»å‡»åŠ›,æ”»å‡»è£…å¤‡å¯èƒ½å‡ºç°é˜²å¾¡åŠ›,å·²ç»å¯ç­–åˆ’ç¡®è®¤è¿‡,å¦‚æœæ”¹,fuckç­–åˆ’ä¸€è¾ˆå­
 		 *
 		 */
 		switch(dc.c_ob->base->kind)
@@ -1993,7 +1993,7 @@ bool RebuildObject::compose_soul_stone(SceneUser& user, const Cmd::stPropertyUse
 						default:
 						break;
 					}
-					//°ó¶¨ÏÖÔÚ100%µÃµ½ÊôĞÔ
+					//ç»‘å®šç°åœ¨100%å¾—åˆ°å±æ€§
 					/*
 					   if ( zMisc::selectByPercent(75) ) 
 					   {
@@ -2084,11 +2084,11 @@ bool RebuildObject::compose_soul_stone(SceneUser& user, const Cmd::stPropertyUse
 }
 
 /**     
- * \brief Éı¼¶ÎïÆ·
+ * \brief å‡çº§ç‰©å“
  *
- * \param user: ÇëÇóÉı¼¶µÄÓÃ»§
- * \param cmd: Éı¼¶Ö¸Áî
- * \return Éı¼¶³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚å‡çº§çš„ç”¨æˆ·
+ * \param cmd: å‡çº§æŒ‡ä»¤
+ * \return å‡çº§æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool RebuildObject::upgrade(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 {
@@ -2097,7 +2097,7 @@ bool RebuildObject::upgrade(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	ObjectPack* pack = user.packs.equip.pack(EquipPack::R_MAKE);
 	if (command->location == 1) pack = user.packs.equip.pack(EquipPack::L_MAKE);
 	if (!pack || pack->object()->data.dur < 1 || user.tradeorder.in_trade(pack->object()) ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³ÉµÄ°ü¹ü²»´æÔÚ£¬Ê¹ÓÃ´ÎÊı²»¹»»òÔÚ½»Ò×ÖĞ", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆçš„åŒ…è£¹ä¸å­˜åœ¨ï¼Œä½¿ç”¨æ¬¡æ•°ä¸å¤Ÿæˆ–åœ¨äº¤æ˜“ä¸­", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;
 	}
 
@@ -2181,7 +2181,7 @@ bool RebuildObject::upgrade(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	pack->execEvery(dc);
 
 	if (!dc.can_compose()) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóÉı¼¶²»¿ÉÉı¼¶ÎïÆ·", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚å‡çº§ä¸å¯å‡çº§ç‰©å“", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 
@@ -2191,7 +2191,7 @@ bool RebuildObject::upgrade(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	if(uob)  {
 		need = uob->gold;
 	}else {
-		Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "¸ÃÎïÆ·²»¿ÉÉı¼¶");	
+		Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "è¯¥ç‰©å“ä¸å¯å‡çº§");	
 		return false;
 	}
 
@@ -2199,7 +2199,7 @@ bool RebuildObject::upgrade(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 		return false;
 	}
 	
-	if ( user.packs.removeMoney(need,"Éı¼¶") ) {
+	if ( user.packs.removeMoney(need,"å‡çº§") ) {
 		Base::refresh_pack(user, pack);
 		
 		bool ret = Upgrade::upgrade(user, dc.up_ob, dc.odds());
@@ -2213,7 +2213,7 @@ bool RebuildObject::upgrade(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 			ob->data.pos = stObjectLocation(pack->type(), pack->id(), 0, Cmd::MAKECELLTYPE_EQUIP);
 			
 			if (user.packs.addObject(ob, false)) {			
-				zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user.id,user.name,"Éı¼¶Éú³É",ob->base,ob->data.kind,ob->data.upgrade);
+				zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user.id,user.name,"å‡çº§ç”Ÿæˆ",ob->base,ob->data.kind,ob->data.upgrade);
 				Base::add_object(user, ob, false);
 				response(user, ret?0:1, UPGRADE);
 			}
@@ -2227,11 +2227,11 @@ bool RebuildObject::upgrade(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 
 
 /**     
- * \brief ×°±¸´ò¿×
+ * \brief è£…å¤‡æ‰“å­”
  *
- * \param user: ÇëÇó´ò¿×µÄÓÃ»§
- * \param cmd: ´ò¿×Ö¸Áî
- * \return ´ò¿×³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚æ‰“å­”çš„ç”¨æˆ·
+ * \param cmd: æ‰“å­”æŒ‡ä»¤
+ * \return æ‰“å­”æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool RebuildObject::hole(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 {
@@ -2239,7 +2239,7 @@ bool RebuildObject::hole(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 		
 	zObject *up_ob = user.packs.uom.getObjectByThisID(command->up_id);
 	if (!up_ob || !Hole::can_hole(up_ob)) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇó¶Ô²»ÄÜ´ò¿××°±¸´ò¿×", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚å¯¹ä¸èƒ½æ‰“å­”è£…å¤‡æ‰“å­”", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 	if (!check_npc(user, up_ob->base, NpcTrade::NPC_HOLE_OBJECT)) {
@@ -2248,13 +2248,13 @@ bool RebuildObject::hole(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	
 	zObject* ob = user.packs.uom.getObjectByID(command->gem_id, command->gem_level, true);
 	if (!ob || ob->data.dwObjectID != HOLE_SONTE_ID || Hole::get_hole_num(up_ob) == Hole::INVALID_NUM || ob->data.upgrade != (Hole::get_hole_num(up_ob)-1) ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)¶Ô×°±¸´ò¿×Ê±È±ÉÙ±¦Ê¯", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)å¯¹è£…å¤‡æ‰“å­”æ—¶ç¼ºå°‘å®çŸ³", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 
 	DWORD gold = HOLE_MONEY*(1 << ob->data.upgrade);
 
-	DWORD taxMoney = (DWORD)((gold*(user.scene->getTax())/100.0f)+0.5f); // Âò¶«Î÷ÊÕË°
+	DWORD taxMoney = (DWORD)((gold*(user.scene->getTax())/100.0f)+0.5f); // ä¹°ä¸œè¥¿æ”¶ç¨
 	gold = gold + taxMoney;
 	Cmd::Session::t_taxAddCountry_SceneSession send;
 	send.dwCountryID = user.scene->getCountryID();
@@ -2265,7 +2265,7 @@ bool RebuildObject::hole(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 		return false;
 	}
 	
-	if ( user.packs.removeMoney(gold,"´ò¿×") ) {
+	if ( user.packs.removeMoney(gold,"æ‰“å­”") ) {
 		Hole::add_hole(up_ob, ob->data.upgrade);
 		user.reduceObjectNum(command->gem_id, 1, command->gem_level);
 		add_object(user, up_ob, false);
@@ -2279,11 +2279,11 @@ bool RebuildObject::hole(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 }
 
 /**     
- * \brief ÏâÇ¶ÎïÆ·
+ * \brief é•¶åµŒç‰©å“
  *
- * \param user: ÇëÇóÏâÇ¶µÄÓÃ»§
- * \param cmd: ÏâÇ¶Ö¸Áî
- * \return ÏâÇ¶³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚é•¶åµŒçš„ç”¨æˆ·
+ * \param cmd: é•¶åµŒæŒ‡ä»¤
+ * \return é•¶åµŒæˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool RebuildObject::enchance(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 {
@@ -2292,7 +2292,7 @@ bool RebuildObject::enchance(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	ObjectPack* pack = user.packs.equip.pack(EquipPack::R_MAKE);
 	if (command->location == 1) pack = user.packs.equip.pack(EquipPack::L_MAKE);
 	if (!pack || pack->object()->data.dur < 1 || user.tradeorder.in_trade(pack->object()) ) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóºÏ³ÉµÄ°ü¹ü²»´æÔÚ£¬Ê¹ÓÃ´ÎÊı²»¹»»òÔÚ½»Ò×ÖĞ", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆæˆçš„åŒ…è£¹ä¸å­˜åœ¨ï¼Œä½¿ç”¨æ¬¡æ•°ä¸å¤Ÿæˆ–åœ¨äº¤æ˜“ä¸­", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;
 	}
 
@@ -2418,7 +2418,7 @@ bool RebuildObject::enchance(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	pack->execEvery(dc);
 
 	if (!dc.can_compose()) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇóÏâÇ¶²»¿ÉÏâÇ¶ÎïÆ·", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚é•¶åµŒä¸å¯é•¶åµŒç‰©å“", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;			
 	}
 
@@ -2428,7 +2428,7 @@ bool RebuildObject::enchance(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 		return false;
 	}
 	
-	if ( user.packs.removeMoney(gold,"ÏâÇ¶") ) {
+	if ( user.packs.removeMoney(gold,"é•¶åµŒ") ) {
 		Base::refresh_pack(user, pack);
 		
 		Hole::put_hole(dc.up_ob, dc.c_ob->data.upgrade, dc.s_ob->data.dwObjectID);
@@ -2452,11 +2452,11 @@ bool RebuildObject::enchance(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 }
 
 /**     
- * \brief ·Ö½âÎïÆ·
+ * \brief åˆ†è§£ç‰©å“
  *
- * \param user: ÇëÇó·Ö½âµÄÓÃ»§
- * \param cmd: ·Ö½âÖ¸Áî
- * \return ·Ö½â³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚åˆ†è§£çš„ç”¨æˆ·
+ * \param cmd: åˆ†è§£æŒ‡ä»¤
+ * \return åˆ†è§£æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool RebuildObject::decompose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 {
@@ -2464,7 +2464,7 @@ bool RebuildObject::decompose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd
 		
 	zObject *up_ob = user.packs.uom.getObjectByThisID(command->up_id);
 	if (!up_ob || up_ob->base->make != 1) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇó·Ö½â²»ÄÜ·Ö½â×°±¸", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚åˆ†è§£ä¸èƒ½åˆ†è§£è£…å¤‡", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;
 	}
 	
@@ -2478,14 +2478,14 @@ bool RebuildObject::decompose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd
 		return false;
 	}
 
-	// ÒÑ°ó¶¨µÄÎïÆ·ĞèÒªÑéÖ¤ÊÇ·ñÒÑÊÜ±£»¤
+	// å·²ç»‘å®šçš„ç‰©å“éœ€è¦éªŒè¯æ˜¯å¦å·²å—ä¿æŠ¤
 	if (up_ob->data.bind && user.isSafety(Cmd::SAFE_SPLIT_OBJECT)) return false;
 
 	Decompose decompose(up_ob);
 
 	DWORD gold = decompose.gold();
 
-	DWORD taxMoney = (DWORD)((gold*(user.scene->getTax())/100.0f)+0.5f); // Âò¶«Î÷ÊÕË°
+	DWORD taxMoney = (DWORD)((gold*(user.scene->getTax())/100.0f)+0.5f); // ä¹°ä¸œè¥¿æ”¶ç¨
 	gold = gold + taxMoney;
 	Cmd::Session::t_taxAddCountry_SceneSession send;
 	send.dwCountryID = user.scene->getCountryID();
@@ -2496,7 +2496,7 @@ bool RebuildObject::decompose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd
 		return false;
 	}
 	
-	if ( user.packs.removeMoney(gold,"·Ö½â") ) {
+	if ( user.packs.removeMoney(gold,"åˆ†è§£") ) {
 		decompose.bonus_exp(user);
 	//	if (up_ob->data.maker[0] ) {
 			decompose.bonus_items(user);
@@ -2512,11 +2512,11 @@ bool RebuildObject::decompose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd
 
 
 /**     
- * \brief ´òÔìÎïÆ·
+ * \brief æ‰“é€ ç‰©å“
  *
- * \param user: ÇëÇó´òÔìµÄÓÃ»§
- * \param cmd: ´òÔìÖ¸Áî
- * \return ´òÔì³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚æ‰“é€ çš„ç”¨æˆ·
+ * \param cmd: æ‰“é€ æŒ‡ä»¤
+ * \return æ‰“é€ æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 {
@@ -2524,7 +2524,7 @@ bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 
 	zObjectB *up_ob = objectbm.get(command->up_id);
 	if (!check_npc(user, up_ob, NpcTrade::NPC_MAKE_OBJECT)) {
-		Zebra::logger->debug("ÓÃ»§%s´òÔì%sÊ§°Ü,¿ÉÄÜÊÇnpctradeÌîĞ´ÓĞÎÊÌâ",user.name,up_ob->name);
+		Zebra::logger->debug("ç”¨æˆ·%sæ‰“é€ %så¤±è´¥,å¯èƒ½æ˜¯npctradeå¡«å†™æœ‰é—®é¢˜",user.name,up_ob->name);
 		return false;
 	}
 	
@@ -2532,10 +2532,10 @@ bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	{
 		if (!CountryTechM::getMe().canProduce(user.charbase.country, up_ob->kind, up_ob->needlevel))
 		{
-			Zebra::logger->debug("ÓÃ»§(%d:%d:%s)´òÔìÊ§°Ü£¬µ±Ç°¿Æ¼¼µÈ¼¶²»ÄÜ´òÔì¸ÃÎïÆ·", 
+			Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)æ‰“é€ å¤±è´¥ï¼Œå½“å‰ç§‘æŠ€ç­‰çº§ä¸èƒ½æ‰“é€ è¯¥ç‰©å“", 
 					user.charbase.accid, user.charbase.id, user.charbase.name);
 
-			Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "¹ú¼Ò¿Æ¼¼µÈ¼¶²»¹»£¬²»ÄÜ´òÔì¸ÃµÈ¼¶µÄ×°±¸");
+			Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "å›½å®¶ç§‘æŠ€ç­‰çº§ä¸å¤Ÿï¼Œä¸èƒ½æ‰“é€ è¯¥ç­‰çº§çš„è£…å¤‡");
 			return false;
 		}
 	}
@@ -2543,13 +2543,13 @@ bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	if (up_ob->needlevel>=80) {
 		if ((int)user.charbase.exploit<(5*exploit_arg))
 		{
-			Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "¹¦Ñ«Öµ²»×ã5µã£¬²»ÄÜ½øĞĞ´òÔì");
+			Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "åŠŸå‹‹å€¼ä¸è¶³5ç‚¹ï¼Œä¸èƒ½è¿›è¡Œæ‰“é€ ");
 			return false;
 		}
 	}
 	
 	if (!up_ob || up_ob->make != 1) {
-		Zebra::logger->debug("ÓÃ»§(%d:%d:%s)ÇëÇó´òÔì²»¿É´òÔìÎïÆ·", user.charbase.accid, user.charbase.id, user.charbase.name);
+		Zebra::logger->debug("ç”¨æˆ·(%d:%d:%s)è¯·æ±‚æ‰“é€ ä¸å¯æ‰“é€ ç‰©å“", user.charbase.accid, user.charbase.id, user.charbase.name);
 		return false;	
 	}
 	
@@ -2560,7 +2560,7 @@ bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	
 	DWORD dwGold = up_ob->need_material.gold;
 
-	DWORD taxMoney = (DWORD)((dwGold*(user.scene->getTax())/100.0f)+0.5f); // Âò¶«Î÷ÊÕË°
+	DWORD taxMoney = (DWORD)((dwGold*(user.scene->getTax())/100.0f)+0.5f); // ä¹°ä¸œè¥¿æ”¶ç¨
 	dwGold = dwGold + taxMoney;
 	Cmd::Session::t_taxAddCountry_SceneSession send;
 	send.dwCountryID = user.scene->getCountryID();
@@ -2607,7 +2607,7 @@ bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 		user.reduceObjectNum(command->list[count].gem_id, command->list[count].gem_num, command->list[count].gem_level);
 	}	
 
-	user.packs.removeMoney(dwGold,"´òÔì");
+	user.packs.removeMoney(dwGold,"æ‰“é€ ");
 
 	zObject *ob = NULL;
 	if (up_ob->kind == ItemType_Resource) {
@@ -2617,7 +2617,7 @@ bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 	}
 
 	if(ob && user.packs.addObject(ob, true, AUTO_PACK)) {
-		zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user.id,user.name,"´òÔìÉú³É",ob->base,ob->data.kind,ob->data.upgrade);
+		zObject::logger(ob->createid,ob->data.qwThisID,ob->data.strName,ob->data.dwNum,ob->data.dwNum,1,0,NULL,user.id,user.name,"æ‰“é€ ç”Ÿæˆ",ob->base,ob->data.kind,ob->data.upgrade);
 	 	make.add_skill(user, up_ob);
 		
 		add_object(user, ob);
@@ -2651,7 +2651,7 @@ bool RebuildObject::make(SceneUser& user, const Cmd::stPropertyUserCmd* cmd)
 			Cmd::stAddUserMapScreenUserCmd cmd;
 			user.full_t_MapUserData(cmd.data);
 			user.sendCmdToMe(&cmd,sizeof(cmd));				     
-			Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "´òÔì80¼¶ÒÔÉÏ×°±¸£¬¼õÈ¥5µã¹¦Ñ«Öµ");
+			Channel::sendSys(&user, Cmd::INFO_TYPE_FAIL, "æ‰“é€ 80çº§ä»¥ä¸Šè£…å¤‡ï¼Œå‡å»5ç‚¹åŠŸå‹‹å€¼");
 		}
 		return true;
 	}

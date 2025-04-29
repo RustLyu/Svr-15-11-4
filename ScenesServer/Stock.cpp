@@ -1,4 +1,4 @@
-#include "SceneUser.h"
+ï»¿#include "SceneUser.h"
 #include "BillCommand.h"
 
 
@@ -16,7 +16,7 @@ bool SceneUser::doStockCmd(const Cmd::stStockSceneUserCmd *ptCmd,unsigned int cm
 				stTransferFundStockSaveUserCmd *rev = (stTransferFundStockSaveUserCmd *)ptCmd;
 				if(!this->packs.checkGold(rev->dwGold) || !this->packs.checkMoney(rev->dwMoney))
 				{
-					Zebra::logger->debug("%s(%d)¹ÉÆ±³åÖµÊ±·¢ÏÖ½ð¶î²»¹»,¿ÉÄÜÊÇÍâ¹Ò",this->name,this->id);
+					Zebra::logger->debug("%s(%d)è‚¡ç¥¨å†²å€¼æ—¶å‘çŽ°é‡‘é¢ä¸å¤Ÿ,å¯èƒ½æ˜¯å¤–æŒ‚",this->name,this->id);
 				}
 				else
 				{
@@ -36,7 +36,7 @@ bool SceneUser::stockSave(DWORD mon, DWORD go)
 	bool bret=false;
 	if(mon)
 	{
-		if(this->packs.removeMoney(mon,"¹ÉÆ±³åÖµ"))
+		if(this->packs.removeMoney(mon,"è‚¡ç¥¨å†²å€¼"))
 		{
 			realmon=mon;
 			bret=true;
@@ -44,7 +44,7 @@ bool SceneUser::stockSave(DWORD mon, DWORD go)
 	}
 	if((!mon && !bret && go) ||(mon && bret && go))
 	{
-		if(this->packs.removeGold(go,"¹ÉÆ±³åÖµ",false))
+		if(this->packs.removeGold(go,"è‚¡ç¥¨å†²å€¼",false))
 		{
 			realgo=go;
 			bret=true;
@@ -56,11 +56,11 @@ bool SceneUser::stockSave(DWORD mon, DWORD go)
 		save.dwMoney=realmon;
 		save.dwGold=realgo;
 		this->sendSceneCmdToBill(&save,sizeof(save));
-		Zebra::logger->debug("%s(%d)¹ÉÆ±³åÖµ³É¹¦,½ð±Ò:%d,Òø±Ò:%d",this->name,this->id,go,mon);
+		Zebra::logger->debug("%s(%d)è‚¡ç¥¨å†²å€¼æˆåŠŸ,é‡‘å¸:%d,é“¶å¸:%d",this->name,this->id,go,mon);
 	}
 	else
 	{
-		Zebra::logger->debug("%s(%d)¹ÉÆ±³åÖµÊ§°Ü,½ð±Ò:%d,Òø±Ò:%d",this->name,this->id,go,mon);
+		Zebra::logger->debug("%s(%d)è‚¡ç¥¨å†²å€¼å¤±è´¥,é‡‘å¸:%d,é“¶å¸:%d",this->name,this->id,go,mon);
 	}
 	return bret;
 }

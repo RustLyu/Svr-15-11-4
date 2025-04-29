@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionClient.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåSession·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰SessionæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
  */
 
@@ -17,7 +17,7 @@
 #include "SessionCommand.h"
 
 /**
- * \brief ¶¨ÒåSession·şÎñÆ÷Á¬½Ó¿Í»§¶ËÀà
+ * \brief å®šä¹‰SessionæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯ç±»
  *
  */
 class SessionClient : public zTCPBufferClient

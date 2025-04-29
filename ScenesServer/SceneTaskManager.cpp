@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneTaskManager.cpp  $
  * \author 
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -21,10 +21,10 @@
 SceneTaskManager *SceneTaskManager::instance = NULL;
 
 /**
- * \brief ÏòÈİÆ÷ÖĞÌí¼ÓÒ»¸ö×ÓÁ¬½Ó
+ * \brief å‘å®¹å™¨ä¸­æ·»åŠ ä¸€ä¸ªå­è¿æ¥
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool SceneTaskManager::uniqueAdd(SceneTask *task)
 {
@@ -65,10 +65,10 @@ bool SceneTaskManager::uniqueAdd(SceneTask *task)
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÉ¾³ıÒ»¸ö×ÓÁ¬½Ó
+ * \brief ä»å®¹å™¨ä¸­åˆ é™¤ä¸€ä¸ªå­è¿æ¥
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return É¾³ıÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
  */
 bool SceneTaskManager::uniqueRemove(SceneTask *task)
 {
@@ -112,10 +112,10 @@ bool SceneTaskManager::uniqueRemove(SceneTask *task)
 }
 
 /**
- * \brief ´Ó×ÓÁ¬½ÓÈİÆ÷ÖĞ¸ù¾İ·şÎñÆ÷±àºÅ»ñÈ¡Ò»¸öÁ¬½ÓÈÎÎñ
+ * \brief ä»å­è¿æ¥å®¹å™¨ä¸­æ ¹æ®æœåŠ¡å™¨ç¼–å·è·å–ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * \param wdServerID ·şÎñÆ÷±àºÅ
- * \return ×ÓÁ¬½ÓÈÎÎñ
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
+ * \return å­è¿æ¥ä»»åŠ¡
  */
 SceneTask *SceneTaskManager::uniqueGet(WORD wdServerID)
 {

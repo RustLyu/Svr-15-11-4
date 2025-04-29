@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneSkill.cpp $
  * \author  
  * \date 
- * \brief ÊµÏÖ¼¼ÄÜÃüÁîµÄ´¦Àí
+ * \brief å®ç°æŠ€èƒ½å‘½ä»¤çš„å¤„ç†
  *
  */
 #include "SceneUser.h"
@@ -54,11 +54,11 @@ struct TeamSkillExec : public TeamMemExec
 	}
 };
 /**
-  * \brief Ìí¼ÓÍæ¼Ò¼¼ÄÜ
+  * \brief æ·»åŠ ç©å®¶æŠ€èƒ½
   *
-  * \param rev Ìí¼Ó¼¼ÄÜÃüÁî
+  * \param rev æ·»åŠ æŠ€èƒ½å‘½ä»¤
   *
-  * \return Ìí¼Ó³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
+  * \return æ·»åŠ æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
   *
   */
 bool SceneUser::addSkillData(const Cmd::stAddUserSkillPropertyUserCmd *rev)
@@ -66,18 +66,18 @@ bool SceneUser::addSkillData(const Cmd::stAddUserSkillPropertyUserCmd *rev)
 	zSkill::create(this , rev->dwSkillID , rev->wdLevel) ;
 	charbase.skillpoint --;
 
-	//Ë¢ĞÂÓÃ»§Êı¾İ
+	//åˆ·æ–°ç”¨æˆ·æ•°æ®
 	Cmd::stMainUserDataUserCmd ret;
 	full_t_MainUserData(ret.data);
 	sendCmdToMe(&ret , sizeof(ret));
 	return true;
 }
 /**
-  * \brief É¾³ıÍæ¼Ò¼¼ÄÜ
+  * \brief åˆ é™¤ç©å®¶æŠ€èƒ½
   *
-  * \param rev É¾³ı¼¼ÄÜÃüÁî
+  * \param rev åˆ é™¤æŠ€èƒ½å‘½ä»¤
   *
-  * \return É¾³ı³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
+  * \return åˆ é™¤æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
   *
   */
 bool SceneUser::removeSkill(const Cmd::stRemoveUserSkillPropertyUserCmd *rev)
@@ -89,24 +89,24 @@ bool SceneUser::removeSkill(const Cmd::stRemoveUserSkillPropertyUserCmd *rev)
 	}
 	usm.removeSkill(skill);
 
-	//Ë¢ĞÂÓÃ»§Êı¾İ
+	//åˆ·æ–°ç”¨æˆ·æ•°æ®
 	Cmd::stMainUserDataUserCmd  userinfo;
 	full_t_MainUserData(userinfo.data);
 	sendCmdToMe(&userinfo,sizeof(userinfo));
 	return true;
 }
 /**
-  * \brief ¸üĞÂÍæ¼Ò¼¼ÄÜ
+  * \brief æ›´æ–°ç©å®¶æŠ€èƒ½
   *
-  * \param dwSkillID ¼¼ÄÜID
-  * \param needSkillPoint ËùĞè¼¼ÄÜµã
+  * \param dwSkillID æŠ€èƒ½ID
+  * \param needSkillPoint æ‰€éœ€æŠ€èƒ½ç‚¹
   *
-  * \return ¸üĞÂ³É¹¦·µ»ØTRUE,·ñÔò·µ»ØFALSE
+  * \return æ›´æ–°æˆåŠŸè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
   *
   */
 bool SceneUser::upgradeSkill(DWORD dwSkillID ,bool needSkillPoint)
 {
-// ËûÃÇËµÕó·¨ÊéÓÖÒª¼¼ÄÜµãÁË£¬²»ÊÇÎÒ²»Ã÷°×ÊÇ²ß»®±äÌ«¿ì
+// ä»–ä»¬è¯´é˜µæ³•ä¹¦åˆè¦æŠ€èƒ½ç‚¹äº†ï¼Œä¸æ˜¯æˆ‘ä¸æ˜ç™½æ˜¯ç­–åˆ’å˜å¤ªå¿«
 //	switch(dwSkillID)
 //	{
 //		case 554:
@@ -144,7 +144,7 @@ bool SceneUser::upgradeSkill(DWORD dwSkillID ,bool needSkillPoint)
 		sendCmdToMe(&ret , sizeof(ret));
 
 		this->setupCharBase();
-		//Ë¢ĞÂÓÃ»§Êı¾İ
+		//åˆ·æ–°ç”¨æˆ·æ•°æ®
 		Cmd::stMainUserDataUserCmd ret_1;
 		full_t_MainUserData(ret_1.data);
 		sendCmdToMe(&ret_1 , sizeof(ret_1));
@@ -185,7 +185,7 @@ bool SceneUser::upgradeSkill(DWORD dwSkillID ,bool needSkillPoint)
 		return false;
 	}
 #ifdef _DEBUGLOG
-	Zebra::logger->error("¼¼ÄÜÉı¼¶¼ì²éÇ°Ìá¼¼ÄÜµãÊı µ±Ç°µã[%u] ĞèÒªµã[%u] µ±Ç°BASE¼¼ÄÜµÈ¼¶[%u] dwSkillID=[%u]", this->usm.getPointInTree(skill->base->kind, skill->base->subkind), skill->base->needpoint, skill->base->level, dwSkillID);
+	Zebra::logger->error("æŠ€èƒ½å‡çº§æ£€æŸ¥å‰ææŠ€èƒ½ç‚¹æ•° å½“å‰ç‚¹[%u] éœ€è¦ç‚¹[%u] å½“å‰BASEæŠ€èƒ½ç­‰çº§[%u] dwSkillID=[%u]", this->usm.getPointInTree(skill->base->kind, skill->base->subkind), skill->base->needpoint, skill->base->level, dwSkillID);
 #endif
 
 	if ((int)charbase.skillpoint - 1 >=0)
@@ -212,7 +212,7 @@ bool SceneUser::upgradeSkill(DWORD dwSkillID ,bool needSkillPoint)
 	ret.dwMaxExperience = 0;
 	sendCmdToMe(&ret , sizeof(ret));
 	
-	//Ë¢ĞÂÓÃ»§Êı¾İ
+	//åˆ·æ–°ç”¨æˆ·æ•°æ®
 	Cmd::stMainUserDataUserCmd ret_1;
 	full_t_MainUserData(ret_1.data);
 	sendCmdToMe(&ret_1 , sizeof(ret_1));

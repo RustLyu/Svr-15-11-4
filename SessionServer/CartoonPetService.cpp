@@ -1,4 +1,4 @@
-
+ï»¿
 #include "CartoonPetService.h"
 #include "zDBConnPool.h"
 #include "SessionServer.h"
@@ -53,7 +53,7 @@ CartoonPetService::CartoonPetService()
 {
 	repairData();
 	if (!loadAllFromDB())
-		Zebra::logger->error("[³èÎï]¼ÓÔØÌæÉí³èÎïÊ§°Ü");
+		Zebra::logger->error("[å® ç‰©]åŠ è½½æ›¿èº«å® ç‰©å¤±è´¥");
 
 	group = 0;
 }
@@ -110,7 +110,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 					}
 				}
 				*/
-				Zebra::logger->trace("[×Ô¶¯ĞŞÀí]%s(%u) %s×Ô¶¯ĞŞÀí", cartoonPetList[rev->cartoonID].masterName, cartoonPetList[rev->cartoonID].masterID, rev->repair?"´ò¿ª":"¹Ø±Õ");
+				Zebra::logger->trace("[è‡ªåŠ¨ä¿®ç†]%s(%u) %sè‡ªåŠ¨ä¿®ç†", cartoonPetList[rev->cartoonID].masterName, cartoonPetList[rev->cartoonID].masterID, rev->repair?"æ‰“å¼€":"å…³é—­");
 				return true;
 			}
 			break;
@@ -126,7 +126,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 						|| Cmd::CARTOON_STATE_WAITING==cartoonPetList[rev->cartoonID].state
 						|| Cmd::CARTOON_STATE_ADOPTED==cartoonPetList[rev->cartoonID].state)
 				{
-					Zebra::logger->error("[³èÎï]%s(%u) ÌáÈ¡±¦±¦¾­ÑéÊ§°Ü cartoondID=%u addExp=%u state=%u"
+					Zebra::logger->error("[å® ç‰©]%s(%u) æå–å®å®ç»éªŒå¤±è´¥ cartoondID=%u addExp=%u state=%u"
 							,pUser->name, pUser->id, rev->cartoonID
 							, cartoonPetList[rev->cartoonID].addExp, cartoonPetList[rev->cartoonID].state);
 					return false;
@@ -136,7 +136,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				cartoonPetList[rev->cartoonID].addExp = 0;
 				if (!writeDB(rev->cartoonID, cartoonPetList[rev->cartoonID]))
 				{
-					Zebra::logger->error("[³èÎï]%s(%u) ÌáÈ¡³èÎï¾­ÑéÊ§°Ü cartoonID=%u addExp=%u", pUser->name, pUser->id, rev->cartoonID, rev->num);
+					Zebra::logger->error("[å® ç‰©]%s(%u) æå–å® ç‰©ç»éªŒå¤±è´¥ cartoonID=%u addExp=%u", pUser->name, pUser->id, rev->cartoonID, rev->num);
 					cartoonPetList[rev->cartoonID].addExp = rev->num;
 					return false;
 				}
@@ -156,7 +156,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle) 
 				{                       
-					Zebra::logger->error("[³èÎï]PARA_CARTOON_SALE:µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					Zebra::logger->error("[å® ç‰©]PARA_CARTOON_SALE:å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return false;
 				}
 
@@ -186,7 +186,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle) 
 				{                       
-					Zebra::logger->error("[³èÎï]PARA_CARTOON_BUY:µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					Zebra::logger->error("[å® ç‰©]PARA_CARTOON_BUY:å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return false;
 				}
 
@@ -200,16 +200,16 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				SAFE_DELETE_VEC(dataList);
 				if (retcode>=1)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄ³èÎïÌ«¶àÁË");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„å® ç‰©å¤ªå¤šäº†");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 				*/
 				if (cartoonPetMap[pUser->id].size()>=2)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄ³èÎïÌ«¶àÁË");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„å® ç‰©å¤ªå¤šäº†");
 					SessionService::dbConnPool->putHandle(handle);
-					Zebra::logger->trace("[³èÎï]¼ì²âµ½ %s ÖØ¸´¹ºÂò³èÎï£¬¶ªÊ§Òø×Ó %u ÎÄ", pUser->name, rev->data.npcID==9005?5000:1000);
+					Zebra::logger->trace("[å® ç‰©]æ£€æµ‹åˆ° %s é‡å¤è´­ä¹°å® ç‰©ï¼Œä¸¢å¤±é“¶å­ %u æ–‡", pUser->name, rev->data.npcID==9005?5000:1000);
 					return true;
 				}
 
@@ -218,7 +218,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 
 				if ((DWORD)-1 == retcode)
 				{                       
-					Zebra::logger->error("[³èÎï]PARA_CARTOON_BUY: Ìí¼ÓÊı¾İ¿âÊ§°Ü retcode=%d" , retcode);
+					Zebra::logger->error("[å® ç‰©]PARA_CARTOON_BUY: æ·»åŠ æ•°æ®åº“å¤±è´¥ retcode=%d" , retcode);
 					return false;
 				}
 
@@ -226,14 +226,14 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				modifyList.insert(retcode);
 				cartoonPetMap[pUser->id].insert(retcode);
 
-				//Í¨Öª³¡¾°
+				//é€šçŸ¥åœºæ™¯
 				t_addCartoon_SceneSession ret;
 				ret.userID = pUser->id;
 				ret.cartoonID = retcode;
 				ret.data = rev->data;
 				pUser->scene->sendCmd(&ret, sizeof(t_addCartoon_SceneSession));
 
-				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Äã¹ºÂòÁËÒ»Ö»ÌæÉí±¦±¦£¬Ëü¿ÉÒÔ°ïÖúÄã»ñµÃ¸ü¶àµÄ¾­Ñé");
+				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ è´­ä¹°äº†ä¸€åªæ›¿èº«å®å®ï¼Œå®ƒå¯ä»¥å¸®åŠ©ä½ è·å¾—æ›´å¤šçš„ç»éªŒ");
 				return true;
 			}
 			break;
@@ -246,7 +246,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 			break;
 		case PARA_CARTOON_SAVE:
 			{
-				//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[³èÎï]PARA_CARTOON_SAVE" , 32);
+				//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[å® ç‰©]PARA_CARTOON_SAVE" , 32);
 				//FunctionTimes times(102,"PARA_CARTOON_SAVE");
 				t_saveCartoon_SceneSession *rev = (t_saveCartoon_SceneSession *)cmd;
 
@@ -270,7 +270,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 						if (cartoonPetList[rev->cartoonID].state!=CARTOON_STATE_ADOPTED
 								|| strncmp(cartoonPetList[rev->cartoonID].adopter, rev->userName, MAX_NAMESIZE))
 						{
-							Zebra::logger->error("[³èÎï]±£´æÖ¸Áî±»¶ªÆú cartoonID=%u state=%u saveType=%u", rev->cartoonID, cartoonPetList[rev->cartoonID].state, rev->type);
+							Zebra::logger->error("[å® ç‰©]ä¿å­˜æŒ‡ä»¤è¢«ä¸¢å¼ƒ cartoonID=%u state=%u saveType=%u", rev->cartoonID, cartoonPetList[rev->cartoonID].state, rev->type);
 							return false;
 						}
 
@@ -286,7 +286,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 
 				modifyList.insert(rev->cartoonID);
 				if (rev->type!=SAVE_TYPE_SYN && rev->type!=SAVE_TYPE_TIMETICK)
-					Zebra::logger->debug("[³èÎï]±£´æ³èÎï %s(%u) addExp=%u time=%u saveType=%u state=%u level=%u userName=%s", rev->data.masterName, rev->cartoonID, cartoonPetList[rev->cartoonID].addExp, rev->data.time, rev->type, cartoonPetList[rev->cartoonID].state, cartoonPetList[rev->cartoonID].lv, rev->userName);
+					Zebra::logger->debug("[å® ç‰©]ä¿å­˜å® ç‰© %s(%u) addExp=%u time=%u saveType=%u state=%u level=%u userName=%s", rev->data.masterName, rev->cartoonID, cartoonPetList[rev->cartoonID].addExp, rev->data.time, rev->type, cartoonPetList[rev->cartoonID].state, cartoonPetList[rev->cartoonID].lv, rev->userName);
 
 				UserSession * pMaster = UserSessionManager::getInstance()->getUserByID(rev->data.masterID);
 				switch (rev->type)
@@ -376,7 +376,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 			break;
 		case PARA_CARTOON_ADOPT:
 			{
-					//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[³èÎï]PARA_CARTOON_ADOPT" , 32);
+					//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[å® ç‰©]PARA_CARTOON_ADOPT" , 32);
 					//FunctionTimes times(103,"PARA_CARTOON_ADOPT");
 #ifdef _XWL_DEBUG
 				//zThread::msleep(5000);
@@ -389,26 +389,26 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 					return true;
 
 				Cmd::t_CartoonData cd = cartoonPetList[rev->cartoonID];
-				if (cd.state==Cmd::CARTOON_STATE_ADOPTED)//¾À´í£¬±ê¼ÇÎª±»ÊÕÑøÈ´ÕÒ²»µ½ÁìÑøÈËÊ±¿ÉÒÔ¼ÌĞø
+				if (cd.state==Cmd::CARTOON_STATE_ADOPTED)//çº é”™ï¼Œæ ‡è®°ä¸ºè¢«æ”¶å…»å´æ‰¾ä¸åˆ°é¢†å…»äººæ—¶å¯ä»¥ç»§ç»­
 				{
 					UserSession * adopter = UserSessionManager::getInstance()->getUserSessionByName(cd.adopter);
 					if (adopter && adopter!=pUser) return false;
 				}
 				if (cd.state!=Cmd::CARTOON_STATE_WAITING)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Õâ¸ö±¦±¦Ä¿Ç°²»ÔÚµÈ´ı×´Ì¬£¬¿ÉÄÜÒÑ¾­±»ÈËÁìÑøÁË");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¿™ä¸ªå®å®ç›®å‰ä¸åœ¨ç­‰å¾…çŠ¶æ€ï¼Œå¯èƒ½å·²ç»è¢«äººé¢†å…»äº†");
 					return true;
 				}
 
 				UserSession * pMaster = UserSessionManager::getInstance()->getUserByID(cd.masterID);
-				//¼ì²éÊıÁ¿
+				//æ£€æŸ¥æ•°é‡
 				if (adoptedPetMap[pUser->name].end()!=adoptedPetMap[pUser->name].find(rev->cartoonID)) return true;
 				if (adoptedPetMap[pUser->name].size()>=5)
 				{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄÁìÑøÊıÁ¿ÒÑÂú£¬²»ÄÜ¼ÌĞø");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„é¢†å…»æ•°é‡å·²æ»¡ï¼Œä¸èƒ½ç»§ç»­");
 						return true;
 				}
-				//¼ì²éÊÇ²»ÊÇÒÑ¾­ÓĞ³èÎï±»ÊÕÑøÁË
+				//æ£€æŸ¥æ˜¯ä¸æ˜¯å·²ç»æœ‰å® ç‰©è¢«æ”¶å…»äº†
 				if (pMaster)
 				{
 						for (__gnu_cxx::hash_set<DWORD>::iterator it=cartoonPetMap[pMaster->id].begin(); it!=cartoonPetMap[pMaster->id].end(); it++)
@@ -429,7 +429,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 							&& it->second.state!=Cmd::CARTOON_STATE_PUTAWAY
 							&& it->second.state!=Cmd::CARTOON_STATE_FOLLOW)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Õâ¸ö±¦±¦ÏÖÔÚ²»ÄÜÁìÑø");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¿™ä¸ªå®å®ç°åœ¨ä¸èƒ½é¢†å…»");
 						return true;
 					}
 
@@ -439,7 +439,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 						adopterCount++;
 						if (adopterCount>=5)
 						{
-							pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄÁìÑøÊıÁ¿ÒÑÂú£¬²»ÄÜ¼ÌĞø");
+							pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„é¢†å…»æ•°é‡å·²æ»¡ï¼Œä¸èƒ½ç»§ç»­");
 							return true;
 						}
 					}
@@ -447,12 +447,12 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				*/
 
 				bool isMyFriendOrFamily = false;
-				//ÊÇ·ñºÃÓÑ
+				//æ˜¯å¦å¥½å‹
 				CRelation * pRelation = pUser->relationManager.getRelationByID(cd.masterID);
 				if (pRelation && pRelation->type!=Cmd::RELATION_TYPE_BAD
 						&& pRelation->type!=Cmd::RELATION_TYPE_ENEMY)
 					isMyFriendOrFamily = true;
-				//ÊÇ·ñ¼Ò×å³ÉÔ±
+				//æ˜¯å¦å®¶æ—æˆå‘˜
 				if (!isMyFriendOrFamily)
 				{
 					CSeptMember * pMember = CSeptM::getMe().getMemberByName(cd.masterName);
@@ -462,11 +462,11 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 
 				if (!isMyFriendOrFamily)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÁìÑøÊ§°Ü£¬Äã²»ÊÇ¼Ò×å³ÉÔ±»òºÃÓÑ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "é¢†å…»å¤±è´¥ï¼Œä½ ä¸æ˜¯å®¶æ—æˆå‘˜æˆ–å¥½å‹");
 					return true;
 				}
 
-				//±£´æ
+				//ä¿å­˜
 				cartoonPetList[rev->cartoonID].state = Cmd::CARTOON_STATE_ADOPTED;
 				strncpy(cartoonPetList[rev->cartoonID].adopter, pUser->name, MAX_NAMESIZE);
 				modifyList.insert(rev->cartoonID);
@@ -482,20 +482,20 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 					send.data = cartoonPetList[rev->cartoonID];
 					pMaster->scene->sendCmd(&send, sizeof(send));
 
-					rev->masterState = 1;//Ö÷ÈËÔÚÏß£¬³èÎïÊÍ·Å3±¶¾­Ñé
+					rev->masterState = 1;//ä¸»äººåœ¨çº¿ï¼Œå® ç‰©é‡Šæ”¾3å€ç»éªŒ
 				}
 
-				//Í¨ÖªºÃÓÑºÍ¼Ò×å
+				//é€šçŸ¥å¥½å‹å’Œå®¶æ—
 				Cmd::stRemoveWaitingCartoonCmd rc;
 				rc.cartoonID = rev->cartoonID;
 				sendCmdToItsFriendAndFamily(cd.masterID, cd.masterName, &rc, sizeof(rc), pUser->name);
 
-				//Ìí¼Ó
+				//æ·»åŠ 
 				rev->data = cartoonPetList[rev->cartoonID];
 				rev->data.addExp = 0;
 				pUser->scene->sendCmd(rev, cmdLen);
 
-				Zebra::logger->debug("[³èÎï]%s ÁìÑøÁË %s µÄÌæÉí³èÎï %s(%u)", pUser->name, cd.masterName, cd.name, rev->cartoonID);
+				Zebra::logger->debug("[å® ç‰©]%s é¢†å…»äº† %s çš„æ›¿èº«å® ç‰© %s(%u)", pUser->name, cd.masterName, cd.name, rev->cartoonID);
 
 				return true;
 			}
@@ -533,7 +533,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 					}
 					else
 					{
-						//¾À´í£¬±»ÁìÑøµ«ÊÇÕÒ²»µ½ÁìÑøÈËÊ±¿ÉÒÔ¼ÌĞø
+						//çº é”™ï¼Œè¢«é¢†å…»ä½†æ˜¯æ‰¾ä¸åˆ°é¢†å…»äººæ—¶å¯ä»¥ç»§ç»­
 						cartoonPetList[ld.cartoonID].state=Cmd::CARTOON_STATE_WAITING;
 						bzero(cartoonPetList[ld.cartoonID].adopter, MAX_NAMESIZE);
 						adoptedPetMap[ld.data.adopter].erase(ld.cartoonID);
@@ -615,7 +615,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 
 				if (cartoonPetList.find(rev->cartoonID)==cartoonPetList.end())
 				{
-					Zebra::logger->error("[³èÎï]¸ø³èÎï³äÖµÊ±ÕÒ²»µ½³èÎï cartoonID=%u time=%u", rev->cartoonID, rev->time);
+					Zebra::logger->error("[å® ç‰©]ç»™å® ç‰©å……å€¼æ—¶æ‰¾ä¸åˆ°å® ç‰© cartoonID=%u time=%u", rev->cartoonID, rev->time);
 					return false;
 				}
 
@@ -648,7 +648,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 
 				if (!writeDB(rev->cartoonID, cartoonPetList[rev->cartoonID]))
 				{
-					Zebra::logger->error("[³èÎï]%s ¸ø³èÎï³äÖµĞ´Êı¾İ¿âÊ§°Ü cartoonID=%u time=%u", cartoonPetList[rev->cartoonID].masterName, rev->cartoonID, rev->time);
+					Zebra::logger->error("[å® ç‰©]%s ç»™å® ç‰©å……å€¼å†™æ•°æ®åº“å¤±è´¥ cartoonID=%u time=%u", cartoonPetList[rev->cartoonID].masterName, rev->cartoonID, rev->time);
 					return false;
 				}
 
@@ -663,7 +663,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 					pMaster->scene->sendCmd(&ac, sizeof(ac));
 					*/
 
-					pMaster->sendSysChat(Cmd::INFO_TYPE_GAME, "ÄúÎª %s ³äÖµ %uĞ¡Ê±%u·Ö%uÃë ³É¹¦", cartoonPetList[rev->cartoonID].name, rev->time/3600, (rev->time%3600)/60, rev->time%60);
+					pMaster->sendSysChat(Cmd::INFO_TYPE_GAME, "æ‚¨ä¸º %s å……å€¼ %uå°æ—¶%uåˆ†%uç§’ æˆåŠŸ", cartoonPetList[rev->cartoonID].name, rev->time/3600, (rev->time%3600)/60, rev->time%60);
 				}
 
 				if (cartoonPetList[rev->cartoonID].state==CARTOON_STATE_WAITING)
@@ -674,7 +674,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 					sendCmdToItsFriendAndFamily(rev->masterID, add.masterName, &add, sizeof(add));
 				}
 
-				Zebra::logger->trace("[³èÎï]%s ¸ø³èÎï %s(%u) ³äÖµ %u Ãë",cartoonPetList[rev->cartoonID].masterName, cartoonPetList[rev->cartoonID].name, rev->cartoonID, rev->time);
+				Zebra::logger->trace("[å® ç‰©]%s ç»™å® ç‰© %s(%u) å……å€¼ %u ç§’",cartoonPetList[rev->cartoonID].masterName, cartoonPetList[rev->cartoonID].name, rev->cartoonID, rev->time);
 				return true;
 			}
 			break;
@@ -685,7 +685,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 
 				if (cartoonPetList.find(rev->cartoonID)==cartoonPetList.end())
 				{
-					Zebra::logger->error("[³èÎï]Î¯ÍĞÁìÑø³èÎïÊ±ÕÒ²»µ½³èÎï cartoonID=%u", rev->cartoonID);
+					Zebra::logger->error("[å® ç‰©]å§”æ‰˜é¢†å…»å® ç‰©æ—¶æ‰¾ä¸åˆ°å® ç‰© cartoonID=%u", rev->cartoonID);
 					return false;
 				}
 
@@ -695,7 +695,7 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				if (!pUser)
 				{
 					if (pMaster)
-						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½²»ÔÚÏß");
+						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åœ¨çº¿");
 					return true;
 				}
 
@@ -703,12 +703,12 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 						&& cartoonPetList[rev->cartoonID].state!=CARTOON_STATE_WAITING)
 				{
 					if (pMaster)
-						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "³èÎï±ØĞëÔÚÊÕÆğ»òµÈ´ı×´Ì¬²Å¿ÉÒÔÎ¯ÍĞ");
+						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "å® ç‰©å¿…é¡»åœ¨æ”¶èµ·æˆ–ç­‰å¾…çŠ¶æ€æ‰å¯ä»¥å§”æ‰˜");
 					return true;
 				}
 
 				rev->userID = pUser->id;
-				if (pMaster)//ÕÒ²»µ½Ö÷ÈËÒ²¿ÉÒÔÎ¯ÍĞ
+				if (pMaster)//æ‰¾ä¸åˆ°ä¸»äººä¹Ÿå¯ä»¥å§”æ‰˜
 					strncpy(rev->name, pMaster->name, MAX_NAMESIZE);
 				else
 					bzero(rev->name, MAX_NAMESIZE);
@@ -736,14 +736,14 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				if (0==rev->ret)
 				{
 					if (pMaster)
-						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s ¾Ü¾øÁìÑøÄãµÄ³èÎï", pUser->name);
+						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s æ‹’ç»é¢†å…»ä½ çš„å® ç‰©", pUser->name);
 					return true;
 				}
 
 				if (2==rev->ret)
 				{
 					if (pMaster)
-						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s ²»ÄÜÔÙÁìÑøÁË", pUser->name);
+						pMaster->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s ä¸èƒ½å†é¢†å…»äº†", pUser->name);
 					return true;
 				}
 
@@ -753,18 +753,18 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 						pMaster->reqAdopter = 0;
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "³èÎïµÄÖ÷ÈËÒÑ¾­È¡ÏûÁËÁìÑøµÄÇëÇó");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å® ç‰©çš„ä¸»äººå·²ç»å–æ¶ˆäº†é¢†å…»çš„è¯·æ±‚");
 						return true;
 					}
 				}
 
 				if (cd.state==Cmd::CARTOON_STATE_ADOPTED)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Õâ¸ö³èÎïÒÑ¾­±»ÁìÑøÁË");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¿™ä¸ªå® ç‰©å·²ç»è¢«é¢†å…»äº†");
 					return true;
 				}
 
-				//¼ì²éÊÇ²»ÊÇÒÑ¾­ÓĞ³èÎï±»ÊÕÑøÁË
+				//æ£€æŸ¥æ˜¯ä¸æ˜¯å·²ç»æœ‰å® ç‰©è¢«æ”¶å…»äº†
 				if (pMaster)
 				{
 					for (std::set<DWORD>::iterator it=cartoonPetMap[pUser->id].begin(); it!=cartoonPetMap[pUser->id].end(); it++)
@@ -793,12 +793,12 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 				}
 
 				bool isMyFriendOrFamily = false;
-				//ÊÇ·ñºÃÓÑ
+				//æ˜¯å¦å¥½å‹
 				CRelation * pRelation = pUser->relationManager.getRelationByID(cd.masterID);
 				if (pRelation && pRelation->type!=Cmd::RELATION_TYPE_BAD
 						&& pRelation->type!=Cmd::RELATION_TYPE_ENEMY)
 					isMyFriendOrFamily = true;
-				//ÊÇ·ñ¼Ò×å³ÉÔ±
+				//æ˜¯å¦å®¶æ—æˆå‘˜
 				if (!isMyFriendOrFamily)
 				{
 					CSeptMember * pMember = CSeptM::getMe().getMemberByName(cd.masterName);
@@ -808,11 +808,11 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 
 				if (!isMyFriendOrFamily)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÁìÑøÊ§°Ü£¬Äã²»ÊÇ¼Ò×å³ÉÔ±»òºÃÓÑ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "é¢†å…»å¤±è´¥ï¼Œä½ ä¸æ˜¯å®¶æ—æˆå‘˜æˆ–å¥½å‹");
 					return true;
 				}
 
-				//±£´æ
+				//ä¿å­˜
 				cartoonPetList[rev->cartoonID].state = Cmd::CARTOON_STATE_ADOPTED;
 				strncpy(cartoonPetList[rev->cartoonID].adopter, pUser->name, MAX_NAMESIZE);
 				modifyList.insert(rev->cartoonID);
@@ -826,11 +826,11 @@ bool CartoonPetService::doCartoonCmd(const Cmd::Session::t_CartoonCmd *cmd, cons
 					send.data = cartoonPetList[rev->cartoonID];
 					pMaster->scene->sendCmd(&send, sizeof(send));
 
-					pMaster->sendSysChat(Cmd::INFO_TYPE_GAME, "%s ÁìÑøÁËÄãµÄ³èÎï %s", pUser->name, cd.name);
-					//rev->masterState = 1;//Ö÷ÈËÔÚÏß£¬³èÎïÊÍ·Å3±¶¾­Ñé
+					pMaster->sendSysChat(Cmd::INFO_TYPE_GAME, "%s é¢†å…»äº†ä½ çš„å® ç‰© %s", pUser->name, cd.name);
+					//rev->masterState = 1;//ä¸»äººåœ¨çº¿ï¼Œå® ç‰©é‡Šæ”¾3å€ç»éªŒ
 				}
 
-				//Ìí¼Ó
+				//æ·»åŠ 
 				t_adoptCartoon_SceneSession ac;
 				ac.userID = pUser->id;
 				ac.cartoonID = rev->cartoonID;
@@ -854,7 +854,7 @@ bool CartoonPetService::writeDB(DWORD cartoonID, Cmd::t_CartoonData& data)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[³èÎï]writeDB: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[å® ç‰©]writeDB: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return false;
 	}
 	char where[128];
@@ -871,7 +871,7 @@ bool CartoonPetService::writeDB(DWORD cartoonID, Cmd::t_CartoonData& data)
 void CartoonPetService::loadFromDB(DWORD masterID)
 {
 	//FunctionTimes times(100,__FUNCTION__);
-	//FunctionTime func_alltime(10000,__PRETTY_FUNCTION__,"[³èÎï]loadFromDB" , 32);
+	//FunctionTime func_alltime(10000,__PRETTY_FUNCTION__,"[å® ç‰©]loadFromDB" , 32);
 
 	if (0==cartoonPetMap[masterID].size()) return;
 
@@ -910,11 +910,11 @@ void CartoonPetService::loadFromDB(DWORD masterID)
 void CartoonPetService::checkAdoptable(DWORD id)
 {
 	//FunctionTimes times(101,__FUNCTION__);
-	//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[³èÎï]checkAdoptable" , 32);
+	//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[å® ç‰©]checkAdoptable" , 32);
 	UserSession * pUser = UserSessionManager::getInstance()->getUserByID(id);
 	if (!pUser) return;
 
-	//¼ì²éºÃÓÑ
+	//æ£€æŸ¥å¥½å‹
 	for (__gnu_cxx::hash_set<DWORD>::iterator it=waitingList.begin(); it!=waitingList.end(); it++)
 	{
 		if (cartoonPetList[*it].state==Cmd::CARTOON_STATE_WAITING)
@@ -939,14 +939,14 @@ void CartoonPetService::checkAdoptable(DWORD id)
 			}
 		}
 		else
-			Zebra::logger->error("[³èÎï]µÈ´ıÁĞ±íÖĞ³èÎï×´Ì¬´íÎó cartoonID=%u master=%s", *it, cartoonPetList[*it].masterName);
+			Zebra::logger->error("[å® ç‰©]ç­‰å¾…åˆ—è¡¨ä¸­å® ç‰©çŠ¶æ€é”™è¯¯ cartoonID=%u master=%s", *it, cartoonPetList[*it].masterName);
 	}
 }
 
 void CartoonPetService::sendCmdToItsFriendAndFamily(DWORD id, const char * name, const void *cmd, DWORD len, const char * except)
 {
 	//FunctionTimes times(31,__FUNCTION__);
-	//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[³èÎï]sendCmdToItsFriendAndFamily" , 32);
+	//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[å® ç‰©]sendCmdToItsFriendAndFamily" , 32);
 	UserSession * pMaster = UserSessionManager::getInstance()->getUserByID(id);
 	if (pMaster)
 		pMaster->relationManager.sendCmdToMyFriendExcept(cmd, len, true, except);
@@ -955,7 +955,7 @@ void CartoonPetService::sendCmdToItsFriendAndFamily(DWORD id, const char * name,
 		connHandleID handle = SessionService::dbConnPool->getHandle();
 		if ((connHandleID)-1 == handle)
 		{               
-			Zebra::logger->error("[³èÎï]sendCmdToItsFriendAndFamily: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+			Zebra::logger->error("[å® ç‰©]sendCmdToItsFriendAndFamily: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 			return;
 		}
 		char where[128];
@@ -985,7 +985,7 @@ void CartoonPetService::sendCmdToItsFriendAndFamily(DWORD id, const char * name,
 
 				pUser = UserSessionManager::getInstance()->getUserByID(dataList[i].relationID);
 				if (!pUser) continue;
-				if (0==strncmp(pUser->name, except, MAX_NAMESIZE)) continue;//²»·¢¸øÀıÍâÕß
+				if (0==strncmp(pUser->name, except, MAX_NAMESIZE)) continue;//ä¸å‘ç»™ä¾‹å¤–è€…
 
 				pUser->sendCmdToMe(cmd, len);
 			}                               
@@ -1050,7 +1050,7 @@ void CartoonPetService::userLevelUp(DWORD userID, DWORD level)
 }
 
 /*
- * \brief Æô¶¯Ê±£¬ĞŞ¸´¿ÉÄÜÒòÎª³¡¾°µ±»úÒıÆğµÄÊı¾İ´íÎó
+ * \brief å¯åŠ¨æ—¶ï¼Œä¿®å¤å¯èƒ½å› ä¸ºåœºæ™¯å½“æœºå¼•èµ·çš„æ•°æ®é”™è¯¯
  *
  */
 void CartoonPetService::repairData()
@@ -1059,7 +1059,7 @@ void CartoonPetService::repairData()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[³èÎï]repairData: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[å® ç‰©]repairData: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 	char where[128];
@@ -1077,17 +1077,17 @@ void CartoonPetService::repairData()
 }
 
 /*
- * \brief Íæ¼ÒÉ¾ºÅÊ±É¾³ıËùÓĞ³èÎï
+ * \brief ç©å®¶åˆ å·æ—¶åˆ é™¤æ‰€æœ‰å® ç‰©
  *
  */
 void CartoonPetService::delPetRecordByID(DWORD masterID)
 {
-	//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[³èÎï]delPetRecordByID" , 32);
+	//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"[å® ç‰©]delPetRecordByID" , 32);
 	//FunctionTimes times(29,__FUNCTION__);
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[³èÎï]delPetRecordByID: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[å® ç‰©]delPetRecordByID: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 	char where[128];
@@ -1124,7 +1124,7 @@ void CartoonPetService::delPetRecordByID(DWORD masterID)
 						send.cartoonID = temp->first;
 						pAdopter->scene->sendCmd(&send, sizeof(send));
 
-						pAdopter->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô²»Æğ£¬ÄãµÄÅóÓÑ %s É¾ºÅÁË", temp->second.masterName);
+						pAdopter->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹ä¸èµ·ï¼Œä½ çš„æœ‹å‹ %s åˆ å·äº†", temp->second.masterName);
 
 						adoptedPetMap[temp->second.adopter].erase(temp->first);
 					}
@@ -1135,10 +1135,10 @@ void CartoonPetService::delPetRecordByID(DWORD masterID)
 			count++;
 		}
 	}                               
-	Zebra::logger->trace("[³èÎï]Íæ¼ÒÉ¾ºÅ£¬É¾³ıËùÓĞ³èÎï masterID=%u", masterID);
+	Zebra::logger->trace("[å® ç‰©]ç©å®¶åˆ å·ï¼Œåˆ é™¤æ‰€æœ‰å® ç‰© masterID=%u", masterID);
 }
 /*
- * \brief ´ÓÊı¾İ¿â¼ÓÔØËùÓĞÌæÉí³èÎïµÄÊı¾İ
+ * \brief ä»æ•°æ®åº“åŠ è½½æ‰€æœ‰æ›¿èº«å® ç‰©çš„æ•°æ®
  *
  */
 bool CartoonPetService::loadAllFromDB()
@@ -1147,7 +1147,7 @@ bool CartoonPetService::loadAllFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[³èÎï]loadAllFromDB: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[å® ç‰©]loadAllFromDB: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return false;
 	}
 	char where[128];
@@ -1171,14 +1171,14 @@ bool CartoonPetService::loadAllFromDB()
 		}                               
 		SAFE_DELETE_VEC(dataList);
 
-		Zebra::logger->info("[³èÎï]¼ÓÔØ %u ¸öÌæÉí³èÎïĞÅÏ¢³É¹¦", retcode);
+		Zebra::logger->info("[å® ç‰©]åŠ è½½ %u ä¸ªæ›¿èº«å® ç‰©ä¿¡æ¯æˆåŠŸ", retcode);
 	}
 	return true;
 }
 
 /*
- * \brief ¶¨Ê±±£´æÊı¾İ
- * \param group ÊÇ·ñ·Ö×é±£´æ£¬²»·Ö×é¾ÍÈ«±£´æ
+ * \brief å®šæ—¶ä¿å­˜æ•°æ®
+ * \param group æ˜¯å¦åˆ†ç»„ä¿å­˜ï¼Œä¸åˆ†ç»„å°±å…¨ä¿å­˜
  *
  */
 DWORD CartoonPetService::writeAllToDB(bool groupflag)
@@ -1198,9 +1198,9 @@ DWORD CartoonPetService::writeAllToDB(bool groupflag)
 #ifdef _XWL_DEBUG
 	if (ret)
 		if (groupflag)
-			Zebra::logger->debug("[³èÎï]±£´æ %u ÌõÌæÉí³èÎï¼ÇÂ¼ group=%u", ret, group);
+			Zebra::logger->debug("[å® ç‰©]ä¿å­˜ %u æ¡æ›¿èº«å® ç‰©è®°å½• group=%u", ret, group);
 		else
-			Zebra::logger->debug("[³èÎï]±£´æ %u ÌõÌæÉí³èÎï¼ÇÂ¼", ret);
+			Zebra::logger->debug("[å® ç‰©]ä¿å­˜ %u æ¡æ›¿èº«å® ç‰©è®°å½•", ret);
 #endif
 	return ret;
 }
@@ -1233,5 +1233,5 @@ void CartoonPetService::userOnline(UserSession * pUser)
 		}
 		adoptedPetMap[pUser->name].clear();
 
-		Zebra::logger->error("[³èÎï]%s ÉÏÏß£¬ĞŞ¸´ %u Ö»³èÎïµÄ×´Ì¬", pUser->name, adoptedPetMap[pUser->name].size());
+		Zebra::logger->error("[å® ç‰©]%s ä¸Šçº¿ï¼Œä¿®å¤ %u åªå® ç‰©çš„çŠ¶æ€", pUser->name, adoptedPetMap[pUser->name].size());
 }

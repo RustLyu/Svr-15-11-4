@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleregClientManager.cpp  $
  * \author  
  * \date 
- * \brief ¶¨Òå½ÇÉ«Ãû³ÆÎ¨Ò»ĞÔÑéÖ¤·şÎñÁ¬½ÓµÄ¿Í»§¶Ë¹ÜÀíÈİÆ÷
+ * \brief å®šä¹‰è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡è¿æ¥çš„å®¢æˆ·ç«¯ç®¡ç†å®¹å™¨
  */
 
 
@@ -14,12 +14,12 @@
 #include "zXMLParser.h"
 
 /**
- * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+ * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
  */
 RoleregClientManager *RoleregClientManager::instance = NULL;
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  */
 RoleregClientManager::RoleregClientManager()
 {
@@ -27,7 +27,7 @@ RoleregClientManager::RoleregClientManager()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 RoleregClientManager::~RoleregClientManager()
 {
@@ -35,8 +35,8 @@ RoleregClientManager::~RoleregClientManager()
 }
 
 /**
- * \brief ³õÊ¼»¯¹ÜÀíÆ÷
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–ç®¡ç†å™¨
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool RoleregClientManager::init()
 {
@@ -48,7 +48,7 @@ bool RoleregClientManager::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["loginServerListFile"]))
 	{
-		Zebra::logger->error("¼ÓÔØÍ³Ò»ÓÃ»§Æ½Ì¨RoleregServerÁĞ±íÎÄ¼ş %s Ê§°Ü", Zebra::global["loginServerListFile"].c_str());
+		Zebra::logger->error("åŠ è½½ç»Ÿä¸€ç”¨æˆ·å¹³å°RoleregServeråˆ—è¡¨æ–‡ä»¶ %s å¤±è´¥", Zebra::global["loginServerListFile"].c_str());
 		return false;
 	}
 	xmlNodePtr root = xml.getRootNode("Zebra");
@@ -83,13 +83,13 @@ bool RoleregClientManager::init()
 		}
 	}
 
-	Zebra::logger->info("¼ÓÔØÍ³Ò»ÓÃ»§Æ½Ì¨RoleregServerÁĞ±íÎÄ¼ş³É¹¦");
+	Zebra::logger->info("åŠ è½½ç»Ÿä¸€ç”¨æˆ·å¹³å°RoleregServeråˆ—è¡¨æ–‡ä»¶æˆåŠŸ");
 	return true;
 }
 
 /**
- * \brief ÖÜÆÚ¼ä¸ô½øĞĞÁ¬½ÓµÄ¶ÏÏßÖØÁ¬¹¤×÷
- * \param ct µ±Ç°Ê±¼ä
+ * \brief å‘¨æœŸé—´éš”è¿›è¡Œè¿æ¥çš„æ–­çº¿é‡è¿å·¥ä½œ
+ * \param ct å½“å‰æ—¶é—´
  */
 void RoleregClientManager::timeAction(const zTime &ct)
 {
@@ -102,8 +102,8 @@ void RoleregClientManager::timeAction(const zTime &ct)
 }
 
 /**
- * \brief ÏòÈİÆ÷ÖĞÌí¼ÓÒÑ¾­³É¹¦µÄÁ¬½Ó
- * \param roleregClient ´ıÌí¼ÓµÄÁ¬½Ó
+ * \brief å‘å®¹å™¨ä¸­æ·»åŠ å·²ç»æˆåŠŸçš„è¿æ¥
+ * \param roleregClient å¾…æ·»åŠ çš„è¿æ¥
  */
 void RoleregClientManager::add(RoleregClient *roleregClient)
 {
@@ -119,8 +119,8 @@ void RoleregClientManager::add(RoleregClient *roleregClient)
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÒÆ³ı¶Ï¿ªµÄÁ¬½Ó
- * \param roleregClient ´ıÒÆ³ıµÄÁ¬½Ó
+ * \brief ä»å®¹å™¨ä¸­ç§»é™¤æ–­å¼€çš„è¿æ¥
+ * \param roleregClient å¾…ç§»é™¤çš„è¿æ¥
  */
 void RoleregClientManager::remove(RoleregClient *roleregClient)
 {
@@ -136,9 +136,9 @@ void RoleregClientManager::remove(RoleregClient *roleregClient)
 }
 
 /**
- * \brief Ïò³É¹¦µÄËùÓĞÁ¬½Ó¹ã²¥Ö¸Áî
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen ´ı¹ã²¥Ö¸ÁîµÄ³¤¶È
+ * \brief å‘æˆåŠŸçš„æ‰€æœ‰è¿æ¥å¹¿æ’­æŒ‡ä»¤
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å¹¿æ’­æŒ‡ä»¤çš„é•¿åº¦
  */
 bool RoleregClientManager::broadcastOne(const void *pstrCmd, int nCmdLen)
 {

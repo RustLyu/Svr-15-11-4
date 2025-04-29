@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zDatabaseManager.h  $
  * \author  
  * \date 
- * \brief ÓÎÏ·»ù±¾Êý¾Ý¹ÜÀíÆ÷ ÉùÃ÷
+ * \brief æ¸¸æˆåŸºæœ¬æ•°æ®ç®¡ç†å™¨ å£°æ˜Ž
  */
 
 #ifndef _ZDATABASEMANAGER_H_
@@ -87,13 +87,13 @@ class  zDataBM:public zDataManager
 				o=new data();
 				if(o==NULL)
 				{
-					Zebra::logger->fatal("ÎÞ·¨·ÖÅäÄÚ´æ");
+					Zebra::logger->fatal("æ— æ³•åˆ†é…å†…å­˜");
 					return false;
 				}
 				o->fill(base);
 				if(!zDataManager::addEntry(o))
 				{
-					Zebra::logger->fatal("Ìí¼ÓEntry´íÎó(%ld)(id=%ld, name=%s)" , base.dwField0,o->id, o->name);
+					Zebra::logger->fatal("æ·»åŠ Entryé”™è¯¯(%ld)(id=%ld, name=%s)" , base.dwField0,o->id, o->name);
 					SAFE_DELETE(o);
 					return false;
 				}
@@ -101,7 +101,7 @@ class  zDataBM:public zDataManager
 			else
 			{
 				o->fill(base);
-				//ÖØÐÂµ÷ÕûÃû×ÖhashÖÐµÄÎ»ÖÃ£¬ÕâÑù¼´Ê¹Ãû³Æ¸Ä±äÒ²¿ÉÒÔ²éÑ¯µ½
+				//é‡æ–°è°ƒæ•´åå­—hashä¸­çš„ä½ç½®ï¼Œè¿™æ ·å³ä½¿åç§°æ”¹å˜ä¹Ÿå¯ä»¥æŸ¥è¯¢åˆ°
 				zMultiEntryName::remove((zEntry * &)o);
 				zMultiEntryName::push((zEntry * &)o);
 			}
@@ -142,7 +142,7 @@ class  zDataBM:public zDataManager
 						}
 						else
 						{
-							Zebra::logger->error("¶Áµ½Î´Öª´óÐ¡½á¹¹£¬ÎÄ¼þ%s¿ÉÄÜËð»µ",filename);
+							Zebra::logger->error("è¯»åˆ°æœªçŸ¥å¤§å°ç»“æž„ï¼Œæ–‡ä»¶%så¯èƒ½æŸå",filename);
 							break;
 						}
 						if(feof(fp)) break;
@@ -152,18 +152,18 @@ class  zDataBM:public zDataManager
 				}
 				else
 				{
-					Zebra::logger->error("¶ÁÈ¡¼ÇÂ¼¸öÊýÊ§°Ü");
+					Zebra::logger->error("è¯»å–è®°å½•ä¸ªæ•°å¤±è´¥");
 				}
 				fclose(fp);
 			}
 			else
 			{
-				Zebra::logger->error("´ò¿ªÎÄ¼þÊ§°Ü %s",filename);
+				Zebra::logger->error("æ‰“å¼€æ–‡ä»¶å¤±è´¥ %s",filename);
 			}
 			if(ret)
-				Zebra::logger->info("Ë¢ÐÂ»ù±¾±í³É¹¦ %s", filename);
+				Zebra::logger->info("åˆ·æ–°åŸºæœ¬è¡¨æˆåŠŸ %s", filename);
 			else
-				Zebra::logger->error("Ë¢ÐÂ»ù±¾±íÊ§°Ü %s", filename);
+				Zebra::logger->error("åˆ·æ–°åŸºæœ¬è¡¨å¤±è´¥ %s", filename);
 			return ret;
 		}
 

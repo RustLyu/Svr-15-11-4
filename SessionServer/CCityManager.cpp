@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CCityManager.cpp  $
  * \author  
  * \date 
- * \brief ³ÇÊĞ¹ÜÀíÆ÷
+ * \brief åŸå¸‚ç®¡ç†å™¨
  *
  * 
  */
@@ -19,8 +19,8 @@
 #include "CDare.h"
 
 /**
- * \brief ³ÇÊĞ¹ÜÀíÆ÷³õÊ¼»¯
- * \return true ³õÊ¼»¯³É¹¦ false³õÊ¼»¯Ê§°Ü
+ * \brief åŸå¸‚ç®¡ç†å™¨åˆå§‹åŒ–
+ * \return true åˆå§‹åŒ–æˆåŠŸ falseåˆå§‹åŒ–å¤±è´¥
  */
 bool CCityM::init()
 {
@@ -28,7 +28,7 @@ bool CCityM::init()
 }
 
 /**
- * \brief Îö¹¹¹ÜÀíÆ÷
+ * \brief ææ„ç®¡ç†å™¨
  */
 void CCityM::destroyMe()
 {
@@ -44,8 +44,8 @@ CCityM::CCityM()
 }
 
 /**
- * \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÕù¶áÄ¿±ê¼ÇÂ¼
- * \return true ¼ÓÔØ³É¹¦
+ * \brief ä»æ•°æ®åº“ä¸­åŠ è½½äº‰å¤ºç›®æ ‡è®°å½•
+ * \return true åŠ è½½æˆåŠŸ
  */
 bool CCityM::load()
 {
@@ -58,7 +58,7 @@ bool CCityM::load()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 
@@ -85,11 +85,11 @@ bool CCityM::load()
 					pCity->init(rec);
 
 					if (CUnionM::getMe().getUnionByID(pCity->dwUnionID) == NULL)
-					{//Èç¹ûÓµÓĞÕß
+					{//å¦‚æœæ‹¥æœ‰è€…
 						pCity->dwUnionID = 0;
 						pCity->isAward = 0;
 						pCity->dwGold = 50000; 
-						Zebra::logger->trace("°ï»áÒÑ²»´æÔÚ£¬³ÇÊĞ¹éÊôÇå¿Õ");
+						Zebra::logger->trace("å¸®ä¼šå·²ä¸å­˜åœ¨ï¼ŒåŸå¸‚å½’å±æ¸…ç©º");
 					}
 				}
 
@@ -102,7 +102,7 @@ bool CCityM::load()
 	}
 	else
 	{
-		Zebra::logger->error("³ÇÊĞÊı¾İ¼ÓÔØÊ§°Ü£¬CITY±í²»´æÔÚ");
+		Zebra::logger->error("åŸå¸‚æ•°æ®åŠ è½½å¤±è´¥ï¼ŒCITYè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -129,11 +129,11 @@ bool CCityM::addNewCity(Cmd::Session::t_UnionCity_Dare_SceneSession* pCmd)
 		
 		if (pCity->dwCountry == PUBLIC_COUNTRY || pCity->dwCityID == KING_CITY_ID) 
 		{
-			pCity->dwGold = 50000; // Íõ³Ç5¶§ ÖĞÁ¢³ÇÊĞ5¶§
+			pCity->dwGold = 50000; // ç‹åŸ5é”­ ä¸­ç«‹åŸå¸‚5é”­
 		}
 		else
 		{
-			pCity->dwGold = 20000; // 2¶§
+			pCity->dwGold = 20000; // 2é”­
 		}
 
 		pCity->dwUnionID = pCmd->dwFromUnionID;
@@ -255,14 +255,14 @@ void CCityM::timer()
 	{
 		//if (tv1.tm_hour >21 && tv1.tm_min>30)
 		if ((timValue-citys[i]->isAward) > 24*60*60)
-		{//µ±ÌìµÄÇ®±»Ë¢ĞÂºó£¬ÖÃÎªtrue
+		{//å½“å¤©çš„é’±è¢«åˆ·æ–°åï¼Œç½®ä¸ºtrue
 			if (citys[i]->dwCountry == PUBLIC_COUNTRY || citys[i]->dwCityID == KING_CITY_ID) 
 			{
-				citys[i]->dwGold = 50000; // Íõ³Ç5¶§ ÖĞÁ¢³ÇÊĞ5¶§
+				citys[i]->dwGold = 50000; // ç‹åŸ5é”­ ä¸­ç«‹åŸå¸‚5é”­
 			}
 			else
 			{
-				citys[i]->dwGold = 20000; // 2¶§
+				citys[i]->dwGold = 20000; // 2é”­
 			}
 			
 			citys[i]->isAward = timValue;
@@ -271,20 +271,20 @@ void CCityM::timer()
 	}
 
 	if (tv1.tm_hour>last_fulltime && tv1.tm_min == 0)
-	{// Õûµã·¢ËÍÍ¨Öª
+	{// æ•´ç‚¹å‘é€é€šçŸ¥
 		rwlock.rdlock();
 		for(vIterator = citys.begin(); vIterator!=citys.end(); vIterator++)
 		{
 			if ((*vIterator)->dareSize()>0)
 			{
 				CUnionM::getMe().sendUnionNotify((*vIterator)->dwUnionID, 
-						"Çë×¢Òâ:19:30·Ö, ¿ªÊ¼°ï»á¶á³ÇÕ½");
+						"è¯·æ³¨æ„:19:30åˆ†, å¼€å§‹å¸®ä¼šå¤ºåŸæˆ˜");
 
 				for (DareSet::iterator pos = (*vIterator)->vDareList.begin(); 
 						pos!=(*vIterator)->vDareList.end(); ++pos)	
 				{		
 					CUnionM::getMe().sendUnionNotify(*pos, 
-							"Çë×¢Òâ:19:30·Ö, ¿ªÊ¼°ï»á¶á³ÇÕ½");
+							"è¯·æ³¨æ„:19:30åˆ†, å¼€å§‹å¸®ä¼šå¤ºåŸæˆ˜");
 				}
 			}
 		}
@@ -309,13 +309,13 @@ void CCityM::timer()
 				if ((*vIterator)->dareSize()>0)
 				{
 					CUnionM::getMe().sendUnionNotify((*vIterator)->dwUnionID, 
-							"Çë×¢Òâ:10·Öºó, ¿ªÊ¼°ï»á¶á³ÇÕ½");
+							"è¯·æ³¨æ„:10åˆ†å, å¼€å§‹å¸®ä¼šå¤ºåŸæˆ˜");
 					
 					for (DareSet::iterator pos = (*vIterator)->vDareList.begin(); 
 							pos!=(*vIterator)->vDareList.end(); ++pos)	
 					{		
 						CUnionM::getMe().sendUnionNotify(*pos, 
-								"Çë×¢Òâ:10·Öºó, ¿ªÊ¼°ï»á¶á³ÇÕ½");
+								"è¯·æ³¨æ„:10åˆ†å, å¼€å§‹å¸®ä¼šå¤ºåŸæˆ˜");
 					}
 				}
 			}
@@ -325,7 +325,7 @@ void CCityM::timer()
 
 	if (tv1.tm_hour==20 && tv1.tm_min>=30 && tv1.tm_min<33)
 	{       
-		//½»Õ½½áÊø
+		//äº¤æˆ˜ç»“æŸ
 		//this->endDare();
 		isBeging = false;
 	}	
@@ -341,19 +341,19 @@ void   CCityM::awardTaxGold(UserSession *pUser)
 		{
 			if (pUnion->master->id != pUser->id)
 			{
-				if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Ö»ÓĞ°ïÖ÷²ÅÄÜÁìÈ¡Ë°½ğ");
+				if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "åªæœ‰å¸®ä¸»æ‰èƒ½é¢†å–ç¨é‡‘");
 				return;
 			}
 		}
 		else
 		{
-			if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Ö»ÓĞ°ïÖ÷²ÅÄÜÁìÈ¡Ë°½ğ");
+			if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "åªæœ‰å¸®ä¸»æ‰èƒ½é¢†å–ç¨é‡‘");
 			return;
 		}
 	}
 	else
 	{
-		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "°ï»á²»´æÔÚ");
+		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "å¸®ä¼šä¸å­˜åœ¨");
 		return;
 	}
 	
@@ -373,21 +373,21 @@ void   CCityM::awardTaxGold(UserSession *pUser)
 			if (pUser->scene) 
 			{
 				pUser->scene->sendCmd(&send, sizeof(Cmd::Session::t_dareGold_SceneSession));
-				Zebra::logger->trace("½ÇÉ« %s ÁìÈ¡ÁË³ÇÊĞË°½ğ%uÎÄ", pUser->name, pCity->dwGold);
+				Zebra::logger->trace("è§’è‰² %s é¢†å–äº†åŸå¸‚ç¨é‡‘%uæ–‡", pUser->name, pCity->dwGold);
 			}
 
-			if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÁìÈ¡Ë°½ğ %d ÎÄ", pCity->dwGold);
+			if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "é¢†å–ç¨é‡‘ %d æ–‡", pCity->dwGold);
 			pCity->dwGold = 0;
 			pCity->writeDatabase();
 		}
 		else
 		{
-			if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "½ñÌìµÄË°½ğÄúÒÑÁìÈ¡");
+			if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä»Šå¤©çš„ç¨é‡‘æ‚¨å·²é¢†å–");
 		}
 	}
 	else
 	{
-		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÄúÃ»ÓµÓĞ³ÇÊĞ£¬²»ÄÜÁìÈ¡Ë°½ğ");
+		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ‚¨æ²¡æ‹¥æœ‰åŸå¸‚ï¼Œä¸èƒ½é¢†å–ç¨é‡‘");
 	}
 
 	rwlock.unlock();
@@ -405,7 +405,7 @@ void CCityM::beginDare()
 		}
 		else
 		{
-			Zebra::logger->trace("[¶ÔÕ½]: (UNION_CITY_DARE, %d,%d) ½ñÌìÎŞ¶ÔÕ½", 
+			Zebra::logger->trace("[å¯¹æˆ˜]: (UNION_CITY_DARE, %d,%d) ä»Šå¤©æ— å¯¹æˆ˜", 
 					(*vIterator)->dwCountry, (*vIterator)->dwCityID);
 		}
 		
@@ -447,11 +447,11 @@ bool   CCityM::isCastellan(UserSession* pUser)
 	CUnion* pUnion = CUnionM::getMe().getUnionByID(pUser->unionid);
 	if (pUnion)
 	{
-		// TODO:ÅĞ¶ÏÊÇ·ñÊÇ³ÇÖ÷
+		// TODO:åˆ¤æ–­æ˜¯å¦æ˜¯åŸä¸»
 		if (pUnion->master && pUnion->master->id == pUser->id)  
-		{//ÊÇ°ïÖ÷
+		{//æ˜¯å¸®ä¸»
 			if (CCityM::getMe().findByUnionID(pUnion->id) !=NULL)
-			{//ÊÇ³ÇÖ÷
+			{//æ˜¯åŸä¸»
 				ret = true;
 			}
 		}
@@ -520,7 +520,7 @@ void CCity::init(Record* rec)
 }
 
 /** 
- * \brief ¸üĞÂÊı¾İ¿â¼ÇÂ¼
+ * \brief æ›´æ–°æ•°æ®åº“è®°å½•
  * \author zjw
  */   
 void CCity::writeDatabase()
@@ -561,7 +561,7 @@ void CCity::writeDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 
@@ -575,7 +575,7 @@ void CCity::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("³ÇÊĞÊı¾İ¼ÓÔØÊ§°Ü£¬CITY±í²»´æÔÚ");
+		Zebra::logger->error("åŸå¸‚æ•°æ®åŠ è½½å¤±è´¥ï¼ŒCITYè¡¨ä¸å­˜åœ¨");
 		return;
 	}
 }
@@ -598,7 +598,7 @@ bool CCity::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -610,7 +610,7 @@ bool CCity::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("³ÇÊĞÊı¾İ¼ÓÔØÊ§°Ü£¬CITY±í²»´æÔÚ");
+		Zebra::logger->error("åŸå¸‚æ•°æ®åŠ è½½å¤±è´¥ï¼ŒCITYè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -641,7 +641,7 @@ bool CCity::changeCatcher(UserSession* pUser)
 			send.dwUserID = pUser->id;
 			pUser->scene->sendCmd(&send, sizeof(send));
 
-			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Äú±»³ÇÖ÷ÈÎÃüÎª²¶Í·");
+			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ‚¨è¢«åŸä¸»ä»»å‘½ä¸ºæ•å¤´");
 		}
 	}
 
@@ -681,7 +681,7 @@ bool CCity::changeUnion(DWORD unionid)
 
 	this->dwUnionID = unionid;
 	this->isAward = time(NULL);
-	this->dwGold = 20000; // 2¶§
+	this->dwGold = 20000; // 2é”­
 	this->writeDatabase();
 
 	rwlock.unlock();
@@ -689,15 +689,15 @@ bool CCity::changeUnion(DWORD unionid)
 	if (pSrcUnion)	
 	{
 		pSrcUnion->update_all_data();
-		if (pDestUnion) pSrcUnion->sendUnionNotify("³ÇÊĞËùÓĞÈ¨ÒÑ±» %s »ñµÃ", pDestUnion->name);
+		if (pDestUnion) pSrcUnion->sendUnionNotify("åŸå¸‚æ‰€æœ‰æƒå·²è¢« %s è·å¾—", pDestUnion->name);
 	}
 	
 	if (pDestUnion) 
 	{
 		pDestUnion->update_all_data();
-		pDestUnion->sendUnionNotify("¹ó°ïÒÑ»ñµÃ³ÇÊĞËùÓĞÈ¨");
+		pDestUnion->sendUnionNotify("è´µå¸®å·²è·å¾—åŸå¸‚æ‰€æœ‰æƒ");
 
-		if (pScene) SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, pDestUnion->dwCountryID, "%s °ï»á»ñµÃ %s ËùÓĞÈ¨", pDestUnion->name, pScene->name);
+		if (pScene) SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, pDestUnion->dwCountryID, "%s å¸®ä¼šè·å¾— %s æ‰€æœ‰æƒ", pDestUnion->name, pScene->name);
 	}
 
 	CCityM::getMe().refreshUnion(this->dwCountry, this->dwCityID);
@@ -727,13 +727,13 @@ bool CCity::abandonCity()
 	if (pSrcUnion)	
 	{
 		pSrcUnion->update_all_data();
-		pSrcUnion->sendUnionNotify("³ÇÊĞËùÓĞÈ¨ÒÑ±»·ÅÆú");
+		pSrcUnion->sendUnionNotify("åŸå¸‚æ‰€æœ‰æƒå·²è¢«æ”¾å¼ƒ");
 	}
 	
 	SceneSession* pScene =pScene = SceneSessionManager::getInstance()->
 		getSceneByID((this->dwCountry<<16)+this->dwCityID);
 
-	if (pScene) SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, this->dwCountry, "%s °ï»á·ÅÆú %s ËùÓĞÈ¨", 
+	if (pScene) SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, this->dwCountry, "%s å¸®ä¼šæ”¾å¼ƒ %s æ‰€æœ‰æƒ", 
 			pSrcUnion->name, pScene->name);
 
 	CCityM::getMe().refreshUnion(this->dwCountry, this->dwCityID);
@@ -784,7 +784,7 @@ void CCity::beginDare()
 
 		if (pDefUnion == NULL)
 		{
-			Zebra::logger->trace("[¶ÔÕ½]: ³ÇÊĞ:%d ÓµÓĞ°ï»áÒÑ²»´æÔÚ£¬È¡µô¶ÔÕ½", this->dwCityID);
+			Zebra::logger->trace("[å¯¹æˆ˜]: åŸå¸‚:%d æ‹¥æœ‰å¸®ä¼šå·²ä¸å­˜åœ¨ï¼Œå–æ‰å¯¹æˆ˜", this->dwCityID);
 			if (this->dareSize()>0)
 			{
 				DareSet::iterator pos= vDareList.begin();
@@ -801,13 +801,13 @@ void CCity::beginDare()
 			if (pAttUnion)
 			{
 				dare_list.push_back(*pos);
-				Zebra::logger->trace("[¶ÔÕ½]: °ï»á¶á³ÇÕ½ÔÚ %s Óë %s Ö®¼ä¾ÙĞĞ", 
+				Zebra::logger->trace("[å¯¹æˆ˜]: å¸®ä¼šå¤ºåŸæˆ˜åœ¨ %s ä¸ %s ä¹‹é—´ä¸¾è¡Œ", 
 						pAttUnion->name, pDefUnion->name);
-				pAttUnion->sendUnionNotify("°ï»á¶á³ÇÕ½¿ªÊ¼£¬ÇëÍ¨¹ıÓ¡ÊÒ¹ÜÀíÔ±½øÈëÓ¡ÊÒ");
+				pAttUnion->sendUnionNotify("å¸®ä¼šå¤ºåŸæˆ˜å¼€å§‹ï¼Œè¯·é€šè¿‡å°å®¤ç®¡ç†å‘˜è¿›å…¥å°å®¤");
 			}
 		}
 		
-		pDefUnion->sendUnionNotify("°ï»á¶á³ÇÕ½¿ªÊ¼£¬ÇëÍ¨¹ıÓ¡ÊÒ¹ÜÀíÔ±½øÈëÓ¡ÊÒ");
+		pDefUnion->sendUnionNotify("å¸®ä¼šå¤ºåŸæˆ˜å¼€å§‹ï¼Œè¯·é€šè¿‡å°å®¤ç®¡ç†å‘˜è¿›å…¥å°å®¤");
 		
 		Cmd::Session::t_createDare_SceneSession pCmd;
 

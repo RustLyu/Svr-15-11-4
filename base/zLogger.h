@@ -1,12 +1,12 @@
-/**
+﻿/**
  * \file
  * \version  $Id: zLogger.h  $
  * \author  
  * \date 
  * 
- * \brief Zebra�µ���־ϵͳ�����ļ�
+ * \brief Zebra新的日志系统声明文件
  *
- * ���ļ��Ƕ�����������<code>zLogger::zLevel</code>,<code>zLogger</code>,<code>zLogger::zLoggerLocalFileAppender</code>
+ * 本文件是定义了三个类<code>zLogger::zLevel</code>,<code>zLogger</code>,<code>zLogger::zLoggerLocalFileAppender</code>
  */
 
 #ifndef _ZLOGGER_H_
@@ -24,18 +24,18 @@ using namespace log4cxx::helpers;
 
 /**
  * \def MSGBUF_MAX
- * \brief Zebra��־ϵͳ����������־���� 
+ * \brief Zebra日志系统定义的最大日志长度 
  */
 #define MSGBUF_MAX 4096
 
 /**
- * \brief Zebra��Ŀ����־�࣬��Log4cxx���������ġ�
+ * \brief Zebra项目的日志类，以Log4cxx基础构建的。
  *
- * Ŀǰʵ��������д��־��ʽ��������̨�������ļ���Syslogϵͳ��Syslog�ĵȼ�Ϊuser��
+ * 目前实现了三种写日志方式，即控制台、本地文件和Syslog系统。Syslog的等级为user。
  *
- * Ĭ����־������#DEBUG
+ * 默认日志级别是#DEBUG
  *
- * ����Ϊ�̰߳�ȫ�ࡣ
+ * 此类为线程安全类。
  */
 
 namespace log4cxx
@@ -94,22 +94,22 @@ class zLogger
 {
 	public:
 		/**
-		 * \brief zLevel�����˼�����־�ȼ�
+		 * \brief zLevel声明了几个日志等级
 		 *
-		 * ������log4cxx�ṩ�ı�׼��־�ȼ���Ϊ��־�ȼ��⣬���Զ�������Ϸ��־�ȼ�.
+		 * 除了用log4cxx提供的标准日志等级作为日志等级外，还自定义了游戏日志等级.
 		 *
-		 * ������־�ȼ���ϵΪ #OFF> #FATAL> #ERROR> #WARN> #INFO> #DEBUG> #ALL
+		 * 程序日志等级关系为 #OFF> #FATAL> #ERROR> #WARN> #INFO> #DEBUG> #ALL
 		 *
-		 * ��Ϸ��־�ȼ���ϵΪ #ALARM> #IFFY> #TRACE> #GBUG
+		 * 游戏日志等级关系为 #ALARM> #IFFY> #TRACE> #GBUG
 		 *
-		 * ��Ϸ��־�ȼ��������־�ȼ���ϵ: #ALARM=#ERROR, #IFFY=#WARN, #TRACE=#INFO, #GBUG=#DEBUG
+		 * 游戏日志等级与程序日志等级关系: #ALARM=#ERROR, #IFFY=#WARN, #TRACE=#INFO, #GBUG=#DEBUG
 		 */
 //			class zLevel
 //			{
 //				friend class zLogger;
 //				private:
 			/**
-			 * \brief Zebra��Ŀ��֧����־�ȼ����ֶ���
+			 * \brief Zebra项目所支持日志等级数字定义
 			 */
 //				enum zLevelInt
 //				{
@@ -129,65 +129,65 @@ class zLogger
 
 //				public:
 			/**
-			 * \brief ��zLogger�ȼ�����ΪOFF��������#forceLog���������򲻻�����κ���־
+			 * \brief 当zLogger等级设置为OFF，除了用#forceLog函数，否则不会输出任何日志
 //				 */
 //				static const zLevel * OFF;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪFATAL��ֻ���FATAL�ȼ�����־
+			 * \brief 当zLogger等级设置为FATAL，只输出FATAL等级的日志
 			 *
-			 * �������������Ѿ��޷��ṩ�����ķ����ܡ�
+			 * 程序致命错误，已经无法提供正常的服务功能。
 			 */
 //				static const zLevel * FATAL;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪERROR��ֻ������ڵ��ڴ˵ȼ�����־
+			 * \brief 当zLogger等级设置为ERROR，只输出大于等于此等级的日志
 			 *
-			 * ���󣬿��ܲ����ṩĳ�ַ��񣬵����Ա�֤������ȷ���С�
+			 * 错误，可能不能提供某种服务，但可以保证程序正确运行。
 			 */
 //				static const zLevel * ERROR;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪALARM����ERRORͬһ����
+			 * \brief 当zLogger等级设置为ALARM，与ERROR同一级别
 			 *
-			 * ��������Ϸ���ݷ������󣬱����⵽����ң���Ϸ�����쳣�ȵȡ���ERRORͬһ����
+			 * 报警，游戏数据发生错误，比如检测到有外挂，游戏数据异常等等。与ERROR同一级别。
 			 */
 //				static const zLevel * ALARM;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪWARN��ֻ������ڵ��ڴ˵ȼ�����־
+			 * \brief 当zLogger等级设置为WARN，只输出大于等于此等级的日志
 			 *
-			 * ���棬ĳЩ�ط���Ҫ����ע�⣬����û�������ļ�����������Ĭ��ѡ�����ʹ�á�
+			 * 警告，某些地方需要引起注意，比如没有配置文件，但程序用默认选项可以使用。
 			 */
 //				static const zLevel * WARN;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪIFFY��
+			 * \brief 当zLogger等级设置为IFFY。
 			 *
-			 * ���ɵģ���Ҫ׷���һЩ��Ϸ���ݣ�����˵һ���䶯�����ݳ���ĳ�ַ�Χ����WARNͬһ����
+			 * 可疑的，需要追查的一些游戏数据，比如说一个变动的数据超出某种范围。与WARN同一级别。
 			 */
 //				static const zLevel * IFFY;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪINFO��ֻ������ڵ��ڴ˵ȼ�����־
+			 * \brief 当zLogger等级设置为INFO，只输出大于等于此等级的日志
 			 *
-			 * ��Ϣ���ṩһ����Ϣ��¼��������һЩ����״̬�ļ�¼��
+			 * 信息，提供一般信息记录，多用于一些程序状态的记录。
 			 */
 //				static const zLevel * INFO;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪTRACE
+			 * \brief 当zLogger等级设置为TRACE
 			 *
-			 * 	��Ϸ���٣�����Ҫ��Ϸ�����еĹؼ����ݸ��٣������պ�������⡣
+			 * 	游戏跟踪，几乎要游戏中所有的关键数据跟踪，便于日后查找问题。
 			 *
-			 * 	�����ɫ������PK������������ٵȵ���Ϸ�¼�����INFOͬһ����
+			 * 	比如角色升级，PK死亡，任务跟踪等等游戏事件。与INFO同一级别。
 			 */
 //				static const zLevel * TRACE;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪDEBUG��������еȼ�����־
+			 * \brief 当zLogger等级设置为DEBUG，输出所有等级的日志
 			 */
 //				static const zLevel * DEBUG;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪGBUG
+			 * \brief 当zLogger等级设置为GBUG
 			 *
-			 * �����õ���Ϸ���ݡ���DEBUGͬһ����
+			 * 调试用的游戏数据。与DEBUG同一级别。
 			 */
 //				static const zLevel * GBUG;
 			/**
-			 * \brief ��zLogger�ȼ�����ΪALL��������еȼ�����־
+			 * \brief 当zLogger等级设置为ALL，输出所有等级的日志
 //				 */
 //				static const zLevel * ALL;
 //			};
@@ -221,15 +221,15 @@ class zLogger
 
 	private:
 		/**
-		 * \brief ����ֻΪ��������ȷ��ʱ��д�ļ���,����log4cxx::DailyRollingFileAppender�̳�ʵ�ֵ�
+		 * \brief 本类只为了能以正确的时间写文件名,而从log4cxx::DailyRollingFileAppender继承实现的
 		 *
-		 * ������#setTimeZone�������ع���#activateOptions����,�������÷���μ�log4cxx�ֲ�
+		 * 增加了#setTimeZone函数和重构了#activateOptions函数,其他的用法请参见log4cxx手册
 		 */
 //			class zLoggerLocalFileAppender:public DailyRollingFileAppender
 //			{
 //				private:
 				/**
-				 * \brief д��־�ļ������õ�ʱ��
+				 * \brief 写日志文件名所用的时区
 				 */
 //					static log4cxx::helpers::TimeZonePtr tz;
 //				public:

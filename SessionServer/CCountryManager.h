@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CCountryManager.h  $
  * \author  
  * \date 
- * \brief ¹ú¼Ò¹ÜÀíÆ÷
+ * \brief å›½å®¶ç®¡ç†å™¨
  *
  * 
  */
@@ -23,39 +23,39 @@ class UserSession;
 class SessionTask;
 enum
 {
-	SILK_TECH=1,	// '²¼ÁÏÀà·ş×°'
-	SKIN_TECH=2,	// 'Æ¤¼×Àà·ş×°'
-	LORICAE_TECH=3, 	// 'îø¼×Àà·ş×°'
-	SWORD_TECH=4, 	// 'µ¶¶ÜÀà'
-	BOW_TECH=5, 	// '¹­Àà'
-	WAND_TECH=6, 	// '¹÷Àà'
-	STAFF_TECH=7, 	// 'ÕÈÀà'
-	FAN_TECH=8, 	// 'ÉÈÀà'
-	NECKLACE_TECH=9, 	// 'ÏîÁ´Àà'
-	FINGER_TECH=10, 	// '½äÖ¸Àà'
-	CUFF_TECH=11, 	// '»¤ÍóÀà'
-	GIRDLE_TECH=12, 	// 'Ñü´øÀà'
-	SHOES_TECH=13, 	// 'Ğ¬×ÓÀà'
-	ARMET_TECH=14, 	// 'Í·¿øÀà'
+	SILK_TECH=1,	// 'å¸ƒæ–™ç±»æœè£…'
+	SKIN_TECH=2,	// 'çš®ç”²ç±»æœè£…'
+	LORICAE_TECH=3, 	// 'é“ ç”²ç±»æœè£…'
+	SWORD_TECH=4, 	// 'åˆ€ç›¾ç±»'
+	BOW_TECH=5, 	// 'å¼“ç±»'
+	WAND_TECH=6, 	// 'æ£ç±»'
+	STAFF_TECH=7, 	// 'æ–ç±»'
+	FAN_TECH=8, 	// 'æ‰‡ç±»'
+	NECKLACE_TECH=9, 	// 'é¡¹é“¾ç±»'
+	FINGER_TECH=10, 	// 'æˆ’æŒ‡ç±»'
+	CUFF_TECH=11, 	// 'æŠ¤è…•ç±»'
+	GIRDLE_TECH=12, 	// 'è…°å¸¦ç±»'
+	SHOES_TECH=13, 	// 'é‹å­ç±»'
+	ARMET_TECH=14, 	// 'å¤´ç›”ç±»'
 };
 
-const int TECH_MAX_NUM = 15; // ¿Æ¼¼µÄ×î´óÊıÄ¿
-const int COUNTRY_MATERIAL = 0; // ¹ú¼Ò²Ö¿âÖĞµÄÎï×Ê
-const int COUNTRY_STOCK = 1;	// ¹ú¼Ò²Ö¿âÖĞµÄÔ­ÁÏ 
-const int COUNTRY_MONEY = 2; // ¹ú¼Ò²Ö¿âÖĞµÄÒøÁ½
-const int COUNTRY_ALLY_NPC_HORTATION_MONEY = 40 * 10000; // 40 ¶§
-const int COUNTRY_ALLY_NPC_HORTATION_MATERIAL = 1000; // 1000¸öµ¥Î»µÄÎï×Ê
-const DWORD NEUTRAL_COUNTRY_ID = 6; // ÖĞÁ¢¹úID
+const int TECH_MAX_NUM = 15; // ç§‘æŠ€çš„æœ€å¤§æ•°ç›®
+const int COUNTRY_MATERIAL = 0; // å›½å®¶ä»“åº“ä¸­çš„ç‰©èµ„
+const int COUNTRY_STOCK = 1;	// å›½å®¶ä»“åº“ä¸­çš„åŸæ–™ 
+const int COUNTRY_MONEY = 2; // å›½å®¶ä»“åº“ä¸­çš„é“¶ä¸¤
+const int COUNTRY_ALLY_NPC_HORTATION_MONEY = 40 * 10000; // 40 é”­
+const int COUNTRY_ALLY_NPC_HORTATION_MATERIAL = 1000; // 1000ä¸ªå•ä½çš„ç‰©èµ„
+const DWORD NEUTRAL_COUNTRY_ID = 6; // ä¸­ç«‹å›½ID
 
 class CTech
 {
 	public:
 		enum 
 		{
-			INIT_TECH,	// ³õÊ¼×´Ì¬
-			WAIT_TECH,	// Í¶Æ±Ñ¡³öµÄ¿Æ¼¼£¬µÈ´ı¹úÍõÑ¡Ôñ¹ÙÔ±
-			ACTIVE_TECH,    // ÕıÔÚ½øĞĞÉı¼¶
-			FINISH_TECH,	// ÒÑ¾­Íê³ÉÉı¼¶£¬¿ÉÒÔ´òÔìÏàÓ¦×°±¸(°üÀ¨µÈ¼¶´óÓÚ0µÄËùÓĞ×´Ì¬µÄ¿Æ¼¼)
+			INIT_TECH,	// åˆå§‹çŠ¶æ€
+			WAIT_TECH,	// æŠ•ç¥¨é€‰å‡ºçš„ç§‘æŠ€ï¼Œç­‰å¾…å›½ç‹é€‰æ‹©å®˜å‘˜
+			ACTIVE_TECH,    // æ­£åœ¨è¿›è¡Œå‡çº§
+			FINISH_TECH,	// å·²ç»å®Œæˆå‡çº§ï¼Œå¯ä»¥æ‰“é€ ç›¸åº”è£…å¤‡(åŒ…æ‹¬ç­‰çº§å¤§äº0çš„æ‰€æœ‰çŠ¶æ€çš„ç§‘æŠ€)
 		};
 		
 		CTech();
@@ -123,18 +123,18 @@ class CCountry
 			dwAnnoyWin = 0;
 			dwAnnoyFail = 0;
 			dwStar	 = 0;
-			dwTax = 0;	///Ë°ÂÊ
-			qwGold = 0;	///¹ú¿â
+			dwTax = 0;	///ç¨ç‡
+			qwGold = 0;	///å›½åº“
 			isBeging = false;
-			qwSilk	=	0;	// Ë¿Ïß
-			qwOre	=	0;	// ¿óÊ¯
-			qwBowlder	=	0;	// ÓñÊ¯
-			qwWood	=	0;	// Ä¾²Ä
-			qwCoat	=	0;	// Æ¤Ã«
-			qwHerbal	=	0;	// ²İÒ©
-			qwMaterial	=	0; // Îï×Ê
-			qwStock		=	0; // Ô­ÁÏ
-			forbidTalk	=	0; //½ûÑÔ
+			qwSilk	=	0;	// ä¸çº¿
+			qwOre	=	0;	// çŸ¿çŸ³
+			qwBowlder	=	0;	// ç‰çŸ³
+			qwWood	=	0;	// æœ¨æ
+			qwCoat	=	0;	// çš®æ¯›
+			qwHerbal	=	0;	// è‰è¯
+			qwMaterial	=	0; // ç‰©èµ„
+			qwStock		=	0; // åŸæ–™
+			forbidTalk	=	0; //ç¦è¨€
 			winner_exp = 0;
 			winner_time = 0;
 			bzero(note, sizeof(note));
@@ -163,11 +163,11 @@ class CCountry
 		bool changeKing(UserSession* pUser);
 		bool changeEmperor(DWORD dwCountryID);
 		void updateKing(UserSession* pUser);
-		bool changeDiplomat(UserSession* pUser);// ¸Ä±äÍâ½»¹Ù
-		bool cancelDiplomat(); // °ÕÃâÍâ½»¹Ù
+		bool changeDiplomat(UserSession* pUser);// æ”¹å˜å¤–äº¤å®˜
+		bool cancelDiplomat(); // ç½¢å…å¤–äº¤å®˜
 		
-		bool changeCatcher(UserSession* pUser);// ¸Ä±ä²¶Í·
-		bool cancelCatcher(); // °ÕÃâÍâ½»¹Ù
+		bool changeCatcher(UserSession* pUser);// æ”¹å˜æ•å¤´
+		bool cancelCatcher(); // ç½¢å…å¤–äº¤å®˜
 
 		void beginDare();
 		void beginAntiDare(DWORD dwAttCountry);
@@ -176,61 +176,61 @@ class CCountry
 
 		void addTaxMoney(QWORD qwTaxMoney);
 		
-		/// ¿ªÊ¼½øĞĞ¿Æ¼¼Í¶Æ±
+		/// å¼€å§‹è¿›è¡Œç§‘æŠ€æŠ•ç¥¨
 		void beginTechVote();
 
 		DWORD dwID;
 		DWORD dwKingUnionID;
-		DWORD dwDareTime;	// ÉÏ´Î·¢ÆğÌôÕ½µÄÊ±¼ä
-		DWORD dwLastDareTime;   // ÉÏ´Î½ÓÊÜÌôÕ½µÄÊ±¼ä
-		DWORD dwLastDailyMoney; // »ÊµÛÉÏ´ÎÁìÈ¡5D½±ÀøµÄÊ±¼ä
+		DWORD dwDareTime;	// ä¸Šæ¬¡å‘èµ·æŒ‘æˆ˜çš„æ—¶é—´
+		DWORD dwLastDareTime;   // ä¸Šæ¬¡æ¥å—æŒ‘æˆ˜çš„æ—¶é—´
+		DWORD dwLastDailyMoney; // çš‡å¸ä¸Šæ¬¡é¢†å–5Då¥–åŠ±çš„æ—¶é—´
 		DWORD dwDareCountryID;
 		bool  isBeging;
 
-		char  name[MAX_NAMESIZE+1]; // ¹ú¼ÒÃû³Æ
-		char  kingName[MAX_NAMESIZE+1]; // ¹úÍõÃû³Æ
-		char  diplomatName[MAX_NAMESIZE+1]; // Íâ½»¹ÙÃû³Æ
-		char  catcherName[MAX_NAMESIZE+1]; // ²¶Í·Ãû³Æ
+		char  name[MAX_NAMESIZE+1]; // å›½å®¶åç§°
+		char  kingName[MAX_NAMESIZE+1]; // å›½ç‹åç§°
+		char  diplomatName[MAX_NAMESIZE+1]; // å¤–äº¤å®˜åç§°
+		char  catcherName[MAX_NAMESIZE+1]; // æ•å¤´åç§°
 		
 		DWORD dwFormalWin;
 		DWORD dwFormalFail;
 		DWORD dwAnnoyWin;
 		DWORD dwAnnoyFail;
 		DWORD dwStar;
-		DWORD dwTax;	///Ë°ÂÊ
-		QWORD qwGold;	///¹ú¿â
-		QWORD qwSilk;	// Ë¿Ïß
-		QWORD qwOre;	// ¿óÊ¯
-		QWORD qwBowlder;	// ÓñÊ¯
-		QWORD qwWood;	// Ä¾²Ä
-		QWORD qwCoat;	// Æ¤Ã«
-		QWORD qwHerbal;	// ²İÒ©
-		QWORD qwMaterial; // Îï×Ê
-		QWORD qwStock;	// Ô­ÁÏ
-		DWORD forbidTalk; //¹úÍõ½ûÑÔ
-		DWORD sendPrison; //¹úÍõ¹Ø¼àÓü
-		DWORD gen_level; //´ó½«¾üµÄµÈ¼¶
-		DWORD gen_exp; //´ó½«¾üµÄ¾­Ñé
-		DWORD gen_maxexp; //´ó½«¾üµÄ×î´ó¾­Ñé
-		DWORD gen_refreshTime;//´ó½«¾ü¸´»îµÄÊ±¼ä
-		DWORD calltimes;	//ÁîÅÆÊ¹ÓÃ´ÎÊı
-		DWORD kingtime;		//¹úÍõÔÚÎ»Ê±¼ä(Ğ¡Ê±)
+		DWORD dwTax;	///ç¨ç‡
+		QWORD qwGold;	///å›½åº“
+		QWORD qwSilk;	// ä¸çº¿
+		QWORD qwOre;	// çŸ¿çŸ³
+		QWORD qwBowlder;	// ç‰çŸ³
+		QWORD qwWood;	// æœ¨æ
+		QWORD qwCoat;	// çš®æ¯›
+		QWORD qwHerbal;	// è‰è¯
+		QWORD qwMaterial; // ç‰©èµ„
+		QWORD qwStock;	// åŸæ–™
+		DWORD forbidTalk; //å›½ç‹ç¦è¨€
+		DWORD sendPrison; //å›½ç‹å…³ç›‘ç‹±
+		DWORD gen_level; //å¤§å°†å†›çš„ç­‰çº§
+		DWORD gen_exp; //å¤§å°†å†›çš„ç»éªŒ
+		DWORD gen_maxexp; //å¤§å°†å†›çš„æœ€å¤§ç»éªŒ
+		DWORD gen_refreshTime;//å¤§å°†å†›å¤æ´»çš„æ—¶é—´
+		DWORD calltimes;	//ä»¤ç‰Œä½¿ç”¨æ¬¡æ•°
+		DWORD kingtime;		//å›½ç‹åœ¨ä½æ—¶é—´(å°æ—¶)
 
 		char note[256];
 
-		void  changeStar(int star); // ¸Ä±äÁ¿
+		void  changeStar(int star); // æ”¹å˜é‡
 		DWORD getStar();
 
-		/// ¸Ä±äÖ¸¶¨ÀàĞÍÎï×ÊµÄ°Ù·Ö±È£¬0ÎªÆÕÍ¨Îï×Ê£¬1Ô­ÁÏ,2ÎªÒø×Ó
-		/// ·µ»ØÖµÎª£¬¾ßÌåµÄ¸Ä±äÖµ
+		/// æ”¹å˜æŒ‡å®šç±»å‹ç‰©èµ„çš„ç™¾åˆ†æ¯”ï¼Œ0ä¸ºæ™®é€šç‰©èµ„ï¼Œ1åŸæ–™,2ä¸ºé“¶å­
+		/// è¿”å›å€¼ä¸ºï¼Œå…·ä½“çš„æ”¹å˜å€¼
 		int changeMaterialByPer(int type, float per);
-		// ¸Ä±äÖ¸¶¨ÀàĞÍÎï×ÊµÄÊıÖµ
+		// æ”¹å˜æŒ‡å®šç±»å‹ç‰©èµ„çš„æ•°å€¼
 		void  changeMaterial(int type, int value);
-		// µÃµ½Ö¸¶¨ÀàĞÍµÄÎï×Ê
+		// å¾—åˆ°æŒ‡å®šç±»å‹çš„ç‰©èµ„
 		QWORD getMaterial(int type);
 		void swapMaterialByPer(CCountry* pToCountry, float per);
 
-		/// ¿Æ¼¼Ë÷Òı
+		/// ç§‘æŠ€ç´¢å¼•
 		typedef std::map<DWORD, CTech*> CTechMap;
 		CTechMap techIndex;
 		CTech* getTech(DWORD dwType);
@@ -294,7 +294,7 @@ class CCountryM : public Singleton<CCountryM>
 			virtual void exec(CCountry *)=0;
 			virtual ~countryCallback(){};
 		};
-		void execEveryCountry(countryCallback &);//²»°üÀ¨ÎŞ¹ú¼®¹ú¼Ò
+		void execEveryCountry(countryCallback &);//ä¸åŒ…æ‹¬æ— å›½ç±å›½å®¶
 		void userOnline(UserSession * pUser);
 		void refreshTax();
 		void refreshTech(SessionTask* scene, DWORD dwCounryID);

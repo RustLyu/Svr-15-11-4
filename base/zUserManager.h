@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zUserManager.h  $
  * \author  
  * \date 
- * \brief ½ÇÉ«¹ÜÀíÆ÷¶¨Òå
+ * \brief è§’è‰²ç®¡ç†å™¨å®šä¹‰
  */
 
 #ifndef _USERMANAGER_H_
@@ -13,28 +13,28 @@
 #include "zEntryManager.h"
 
 /**
- * \brief ½ÇÉ«¹ÜÀíÆ÷
+ * \brief è§’è‰²ç®¡ç†å™¨
  *
- * ÊµÏÖÁËID¡¢ÁÙÊ±IDºÍÃû×ÖµÄË÷Òı,ËùÒÔÕâĞ©Öµ²»ÄÜÖØ¸´
+ * å®ç°äº†IDã€ä¸´æ—¶IDå’Œåå­—çš„ç´¢å¼•,æ‰€ä»¥è¿™äº›å€¼ä¸èƒ½é‡å¤
  */
 class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 {
 	protected:
 		/**
-		 * \brief ¹ÜÀíÆ÷·ÃÎÊ»¥³âËø
+		 * \brief ç®¡ç†å™¨è®¿é—®äº’æ–¥é”
 		 */
 		zRWLock rwlock;
 
 	public:
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		zUserManager()
 		{
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		virtual ~zUserManager()
 		{
@@ -42,9 +42,9 @@ class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief ¸ù¾İ½ÇÉ«Ãû×ÖµÃµ½½ÇÉ«
-		 * \param name ½ÇÉ«Ãû×Ö
-		 * \return ½ÇÉ«Ö¸Õë,Èç¹û·µ»ØNULL±íÊ¾Ã»ÕÒµ½½ÇÉ«
+		 * \brief æ ¹æ®è§’è‰²åå­—å¾—åˆ°è§’è‰²
+		 * \param name è§’è‰²åå­—
+		 * \return è§’è‰²æŒ‡é’ˆ,å¦‚æœè¿”å›NULLè¡¨ç¤ºæ²¡æ‰¾åˆ°è§’è‰²
 		 */
 		zUser * getUserByName( const char * name)
 		{
@@ -55,9 +55,9 @@ class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief ¸ù¾İ½ÇÉ«IDµÃµ½½ÇÉ«
-		 * \param id ½ÇÉ«ID
-		 * \return ½ÇÉ«Ö¸Õë,Èç¹û·µ»ØNULL±íÊ¾Ã»ÕÒµ½½ÇÉ«
+		 * \brief æ ¹æ®è§’è‰²IDå¾—åˆ°è§’è‰²
+		 * \param id è§’è‰²ID
+		 * \return è§’è‰²æŒ‡é’ˆ,å¦‚æœè¿”å›NULLè¡¨ç¤ºæ²¡æ‰¾åˆ°è§’è‰²
 		 */
 		zUser * getUserByID( DWORD id)
 		{
@@ -68,9 +68,9 @@ class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief ¸ù¾İ½ÇÉ«ÁÙÊ±IDµÃµ½½ÇÉ«
-		 * \param tempid ½ÇÉ«ÁÙÊ±ID
-		 * \return ½ÇÉ«Ö¸Õë,Èç¹û·µ»ØNULL±íÊ¾Ã»ÕÒµ½½ÇÉ«
+		 * \brief æ ¹æ®è§’è‰²ä¸´æ—¶IDå¾—åˆ°è§’è‰²
+		 * \param tempid è§’è‰²ä¸´æ—¶ID
+		 * \return è§’è‰²æŒ‡é’ˆ,å¦‚æœè¿”å›NULLè¡¨ç¤ºæ²¡æ‰¾åˆ°è§’è‰²
 		 */
 		zUser * getUserByTempID( DWORD tempid)
 		{
@@ -81,9 +81,9 @@ class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief Ìí¼Ó½ÇÉ«
-		 * \param user ½ÇÉ«
-		 * \return Ìí¼ÓÊÇ·ñ³É¹¦
+		 * \brief æ·»åŠ è§’è‰²
+		 * \param user è§’è‰²
+		 * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
 		 */
 		bool addUser(zSceneEntry *user)
 		{
@@ -95,8 +95,8 @@ class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief ÒÆ³ö½ÇÉ«
-		 * \param user ½ÇÉ«
+		 * \brief ç§»å‡ºè§’è‰²
+		 * \param user è§’è‰²
 		 */
 		void removeUser(zSceneEntry *user)
 		{
@@ -107,8 +107,8 @@ class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief ÒÆ³ö·ûºÏÌõ¼şµÄ½ÇÉ«
-		 * \param pred Ìõ¼ş¶ÏÑÔ
+		 * \brief ç§»å‡ºç¬¦åˆæ¡ä»¶çš„è§’è‰²
+		 * \param pred æ¡ä»¶æ–­è¨€
 		 */
 		template <class YourUserEntry>
 		void removeUser_if(removeEntry_Pred<YourUserEntry> &pred)
@@ -119,8 +119,8 @@ class zUserManager:public zEntryManager< zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief ¶ÔÃ¿¸öÓÃ»§Ö´ĞĞ
-		 * \param exec Ö´ĞĞ½Ó¿Ú
+		 * \brief å¯¹æ¯ä¸ªç”¨æˆ·æ‰§è¡Œ
+		 * \param exec æ‰§è¡Œæ¥å£
 		 */
 		template <class YourUserEntry>
 		bool execEveryUser(execEntry<YourUserEntry> &exec)

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: DBAccessClientManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍ³Ò»ÓÃ»§Æ½Ì¨ÕËºÅ¹ÜÀí¿Í»§Á¬½ÓµÄ¹ÜÀíÆ÷
+ * \brief å®ç°ç»Ÿä¸€ç”¨æˆ·å¹³å°è´¦å·ç®¡ç†å®¢æˆ·è¿æ¥çš„ç®¡ç†å™¨
  */
 
 #include <algorithm>
@@ -37,7 +37,7 @@ bool DBAccessClientManager::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["dbAccessServerListFile"]))
 	{
-		Zebra::logger->error("¼ÓÔØÍ³Ò»ÓÃ»§Æ½Ì¨ÓÃ»§Êı¾İ·ÃÎÊÖĞ¼ä¼ş·şÎñÆ÷ÁĞ±í %s Ê§°Ü", Zebra::global["dbAccessServerListFile"].c_str());
+		Zebra::logger->error("åŠ è½½ç»Ÿä¸€ç”¨æˆ·å¹³å°ç”¨æˆ·æ•°æ®è®¿é—®ä¸­é—´ä»¶æœåŠ¡å™¨åˆ—è¡¨ %s å¤±è´¥", Zebra::global["dbAccessServerListFile"].c_str());
 		return false;
 	}
 	xmlNodePtr root = xml.getRootNode("DBAccessServerList");
@@ -62,7 +62,7 @@ bool DBAccessClientManager::init()
 		}
 	}
 
-	Zebra::logger->info("¼ÓÔØÍ³Ò»ÓÃ»§Æ½Ì¨ÓÃ»§Êı¾İ·ÃÎÊÖĞ¼ä¼ş·şÎñÆ÷ÁĞ±í³É¹¦");
+	Zebra::logger->info("åŠ è½½ç»Ÿä¸€ç”¨æˆ·å¹³å°ç”¨æˆ·æ•°æ®è®¿é—®ä¸­é—´ä»¶æœåŠ¡å™¨åˆ—è¡¨æˆåŠŸ");
 	return true;
 }
 

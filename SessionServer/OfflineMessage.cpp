@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: OfflineMessage.cpp  $
  * \author  
  * \date 
- * \brief ÀëÏßÏûÏ¢¹ÜÀíÀàÊµÏÖ
+ * \brief ç¦»çº¿æ¶ˆæ¯ç®¡ç†ç±»å®ç°
  *
  */
 
@@ -30,9 +30,9 @@ struct ltstring
 };
 
 /**
- * \brief ³õÊ¼»¯ÀëÏßÁÄÌìÏµÍ³£¬É¾³ıËùÓĞÀëÏßĞÅÏ¢£¬
+ * \brief åˆå§‹åŒ–ç¦»çº¿èŠå¤©ç³»ç»Ÿï¼Œåˆ é™¤æ‰€æœ‰ç¦»çº¿ä¿¡æ¯ï¼Œ
  * \author fqnewman
- * \return Ê§°Ü·µ»Øfalse,³É¹¦·µ»Øtrue
+ * \return å¤±è´¥è¿”å›false,æˆåŠŸè¿”å›true
  */
 bool COfflineMessage::init()
 {
@@ -51,26 +51,26 @@ bool COfflineMessage::init()
 	{
 		if (!zMisc::rmDirTree(rootpath.c_str()))
 		{
-			Zebra::logger->error("³õÊ¼»¯É¾³ıÀëÏßÏûÏ¢Ä¿Â¼[%s]Ê§°Ü",rootpath.c_str());
+			Zebra::logger->error("åˆå§‹åŒ–åˆ é™¤ç¦»çº¿æ¶ˆæ¯ç›®å½•[%s]å¤±è´¥",rootpath.c_str());
 			return false;
 		}
 	}
 
 	if (mkdir(rootpath.c_str(), FILEPOWER)!=0)
 	{
-		Zebra::logger->error("³õÊ¼»¯½¨Á¢ÀëÏßÏûÏ¢Ä¿Â¼Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–å»ºç«‹ç¦»çº¿æ¶ˆæ¯ç›®å½•å¤±è´¥");
 		return false;
 	}
 	return true;
 }
 
 /**
- * \brief Ğ´ÈëÀëÏßÏûÏ¢
+ * \brief å†™å…¥ç¦»çº¿æ¶ˆæ¯
  *
- * \param type:	ÏûÏ¢ÀàĞÍ
- * \param id:	½ÇÉ«ID
- * \param ptNullCmd: ÏûÏ¢ÃüÁî
- * \param cmdLen:	ÏûÏ¢³¤¶È
+ * \param type:	æ¶ˆæ¯ç±»å‹
+ * \param id:	è§’è‰²ID
+ * \param ptNullCmd: æ¶ˆæ¯å‘½ä»¤
+ * \param cmdLen:	æ¶ˆæ¯é•¿åº¦
  *
  * \author fqnewman
  */
@@ -83,7 +83,7 @@ void COfflineMessage::writeOfflineMessage(const BYTE &type, const DWORD &id, con
 
 	if (access(myPath.c_str(), F_OK) != 0)
 	{
-		mkdir(myPath.c_str(), FILEPOWER);   /// ½¨Á¢ÕÊºÅÄ¿Â¼
+		mkdir(myPath.c_str(), FILEPOWER);   /// å»ºç«‹å¸å·ç›®å½•
 	}
 
 	sprintf(buf,"/%u",ptNullCmd->byCmd);
@@ -91,7 +91,7 @@ void COfflineMessage::writeOfflineMessage(const BYTE &type, const DWORD &id, con
 
 	if (access(myPath.c_str(), F_OK) != 0)
 	{
-		mkdir(myPath.c_str(), FILEPOWER);  /// ½¨Á¢ÏûÏ¢·ÖÀàÄ¿Â¼
+		mkdir(myPath.c_str(), FILEPOWER);  /// å»ºç«‹æ¶ˆæ¯åˆ†ç±»ç›®å½•
 	}
 
 	sprintf(buf,"/%u",ptNullCmd->byParam);
@@ -99,7 +99,7 @@ void COfflineMessage::writeOfflineMessage(const BYTE &type, const DWORD &id, con
 
 	if (access(myPath.c_str(), F_OK) != 0)
 	{
-		mkdir(myPath.c_str(), FILEPOWER);  /// ½¨Á¢ÏûÏ¢ºÅÄ¿Â¼
+		mkdir(myPath.c_str(), FILEPOWER);  /// å»ºç«‹æ¶ˆæ¯å·ç›®å½•
 	}
 
 	sprintf(buf,"/%u",type);
@@ -107,9 +107,9 @@ void COfflineMessage::writeOfflineMessage(const BYTE &type, const DWORD &id, con
 
 	if (access(myPath.c_str(), F_OK) != 0)
 	{
-		mkdir(myPath.c_str(), FILEPOWER);  /// ½¨Á¢×Ô¶¨ÒåÀàĞÍÄ¿Â¼
+		mkdir(myPath.c_str(), FILEPOWER);  /// å»ºç«‹è‡ªå®šä¹‰ç±»å‹ç›®å½•
 	}
-/// ¿ªÊ¼¼ì²éÎÄ¼şÊıÄ¿
+/// å¼€å§‹æ£€æŸ¥æ–‡ä»¶æ•°ç›®
 	struct dirent *record;
 	DIR* tDir = opendir(myPath.c_str());
 	if (tDir != NULL)
@@ -123,7 +123,7 @@ void COfflineMessage::writeOfflineMessage(const BYTE &type, const DWORD &id, con
 		}
 		closedir(tDir);
 	}
-	while(filelist.size()>= MAX_MESSAGE_NUMBER) /// Èç¹û±£´æÏûÏ¢ÊıÄ¿³¬¹ıÄ³ÀàĞÍÏûÏ¢ÊıÄ¿£¬ÔòÉ¾³ıÀÏµÄ¼ÇÂ¼ÒÔ±£³ÖÖ¸¶¨µÄÊıÁ¿
+	while(filelist.size()>= MAX_MESSAGE_NUMBER) /// å¦‚æœä¿å­˜æ¶ˆæ¯æ•°ç›®è¶…è¿‡æŸç±»å‹æ¶ˆæ¯æ•°ç›®ï¼Œåˆ™åˆ é™¤è€çš„è®°å½•ä»¥ä¿æŒæŒ‡å®šçš„æ•°é‡
 	{
 		unlink(filelist.begin()->c_str());
 		filelist.erase(filelist.begin());
@@ -134,9 +134,9 @@ void COfflineMessage::writeOfflineMessage(const BYTE &type, const DWORD &id, con
 		sprintf(buf,"/%lu",ctv.sec());
 	}while(access(std::string(myPath+buf).c_str(), F_OK) == 0);
     
-	myPath = myPath+buf;  // ×îÖÕµÄÂ·¾¶ÎÄ¼şÃû
+	myPath = myPath+buf;  // æœ€ç»ˆçš„è·¯å¾„æ–‡ä»¶å
 
-//	Zebra::logger->debug("Ğ´ÈëÒ»¸öĞÂµÄÀëÏßÏûÏ¢[%s]",myPath.c_str());
+//	Zebra::logger->debug("å†™å…¥ä¸€ä¸ªæ–°çš„ç¦»çº¿æ¶ˆæ¯[%s]",myPath.c_str());
 	int fd;
 
 	if ((int)-1 != (fd = open(myPath.c_str(), O_CREAT|O_WRONLY, FILEPOWER)))
@@ -146,13 +146,13 @@ void COfflineMessage::writeOfflineMessage(const BYTE &type, const DWORD &id, con
 	}
 	else
 	{
-		Zebra::logger->error("ÎŞ·¨Ğ´Èë½ÇÉ«[%u]µÄÀëÏßÏûÏ¢",id);
+		Zebra::logger->error("æ— æ³•å†™å…¥è§’è‰²[%u]çš„ç¦»çº¿æ¶ˆæ¯",id);
 	}
 }
 
 /**
- * \brief ÉÏÏßµÄ½ÇÉ«²éÕÒ×Ô¼ºµÄÀëÏßÏûÏ¢
- * \param pUser:	ÉÏÏßµÄ½ÇÉ«
+ * \brief ä¸Šçº¿çš„è§’è‰²æŸ¥æ‰¾è‡ªå·±çš„ç¦»çº¿æ¶ˆæ¯
+ * \param pUser:	ä¸Šçº¿çš„è§’è‰²
  * \author: fqnewman
  */
 void COfflineMessage::getOfflineMessage(const UserSession *pUser)
@@ -164,9 +164,9 @@ void COfflineMessage::getOfflineMessage(const UserSession *pUser)
 }
 
 /**
- * \brief ´ÓÖ¸¶¨Â·¾¶¿ªÊ¼²éÕÒ±¾²ã¼«Æä×ÓÄ¿Â¼ÖĞµÄÀëÏßÏûÏ¢²¢·¢ËÍ
- * \param pUser:	½ÇÉ«
- * \param path:	Â·¾¶
+ * \brief ä»æŒ‡å®šè·¯å¾„å¼€å§‹æŸ¥æ‰¾æœ¬å±‚æå…¶å­ç›®å½•ä¸­çš„ç¦»çº¿æ¶ˆæ¯å¹¶å‘é€
+ * \param pUser:	è§’è‰²
+ * \param path:	è·¯å¾„
  * \author fqnewman
  */
 void COfflineMessage::getOfflineMessageSetAndSend(const UserSession *pUser, std::string path)
@@ -207,7 +207,7 @@ void COfflineMessage::getOfflineMessageSetAndSend(const UserSession *pUser, std:
 		}
 		else
 		{
-			Zebra::logger->error("ÎŞ·¨¶ÁÈ¡½ÇÉ«[%s]µÄÀëÏßÏûÏ¢",pUser->name);
+			Zebra::logger->error("æ— æ³•è¯»å–è§’è‰²[%s]çš„ç¦»çº¿æ¶ˆæ¯",pUser->name);
 		}
 		unlink(tIterator->c_str());
 	}

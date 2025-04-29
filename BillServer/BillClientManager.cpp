@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillClientManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍ³Ò»ÓÃ»§Æ½Ì¨¿Í»§¶ËÁ¬½ÓµÄ¹ÜÀíÈİÆ÷
+ * \brief å®ç°ç»Ÿä¸€ç”¨æˆ·å¹³å°å®¢æˆ·ç«¯è¿æ¥çš„ç®¡ç†å®¹å™¨
  */
 
 
@@ -21,14 +21,14 @@ zLogger *BillClientManager::tlogger = NULL;
 int		BillClientManager::source = -1;
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  */
 BillClientManager::BillClientManager() : billClientPool(NULL), actionTimer(), maxID(0)
 {
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 BillClientManager::~BillClientManager()
 {
@@ -36,9 +36,9 @@ BillClientManager::~BillClientManager()
 }
 
 /**
- * \brief ³õÊ¼»¯¹ÜÀíÆ÷
- * \param bc ¼Æ·Ñ»Øµ÷º¯Êı
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–ç®¡ç†å™¨
+ * \param bc è®¡è´¹å›è°ƒå‡½æ•°
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool BillClientManager::init(const std::string &confile, const std::string &tradelog, BillCallback &bc)
 {
@@ -53,7 +53,7 @@ bool BillClientManager::init(const std::string &confile, const std::string &trad
 	zXMLParser xml;
 	if (!xml.initFile(confile))
 	{
-		Zebra::logger->error("¼ÓÔØÍ³Ò»ÓÃ»§Æ½Ì¨¼Æ·Ñ·şÎñÆ÷ÁĞ±íÎÄ¼ş %s Ê§°Ü", confile.c_str());
+		Zebra::logger->error("åŠ è½½ç»Ÿä¸€ç”¨æˆ·å¹³å°è®¡è´¹æœåŠ¡å™¨åˆ—è¡¨æ–‡ä»¶ %s å¤±è´¥", confile.c_str());
 		return false;
 	}
 	xmlNodePtr root = xml.getRootNode("Zebra");
@@ -103,11 +103,11 @@ bool BillClientManager::init(const std::string &confile, const std::string &trad
 		}
 	}
 
-	//³õÊ¼»¯½»Ò×¼ÇÂ¼µÄlog
+	//åˆå§‹åŒ–äº¤æ˜“è®°å½•çš„log
 	BillClientManager::tlogger = new zLogger("ClientTrade");
-	//ÉèÖÃ½»Ò×ÈÕÖ¾¼¶±ğdebug
+	//è®¾ç½®äº¤æ˜“æ—¥å¿—çº§åˆ«debug
 	BillClientManager::tlogger->setLevel("debug");
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != tradelog)
 		BillClientManager::tlogger->addLocalFileLog(tradelog);
 
@@ -117,8 +117,8 @@ bool BillClientManager::init(const std::string &confile, const std::string &trad
 }
 
 /**
- * \brief ÖÜÆÚ¼ä¸ô½øĞĞÁ¬½ÓµÄ¶ÏÏßÖØÁ¬¹¤×÷
- * \param ct µ±Ç°Ê±¼ä
+ * \brief å‘¨æœŸé—´éš”è¿›è¡Œè¿æ¥çš„æ–­çº¿é‡è¿å·¥ä½œ
+ * \param ct å½“å‰æ—¶é—´
  */
 void BillClientManager::timeAction(const zTime &ct)
 {
@@ -131,8 +131,8 @@ void BillClientManager::timeAction(const zTime &ct)
 }
 
 /**
- * \brief ÏòÈİÆ÷ÖĞÌí¼ÓÒÑ¾­³É¹¦µÄÁ¬½Ó
- * \param billClient ´ıÌí¼ÓµÄÁ¬½Ó
+ * \brief å‘å®¹å™¨ä¸­æ·»åŠ å·²ç»æˆåŠŸçš„è¿æ¥
+ * \param billClient å¾…æ·»åŠ çš„è¿æ¥
  */
 void BillClientManager::add(BillClient *billClient)
 {
@@ -145,8 +145,8 @@ void BillClientManager::add(BillClient *billClient)
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÒÆ³ı¶Ï¿ªµÄÁ¬½Ó
- * \param billClient ´ıÒÆ³ıµÄÁ¬½Ó
+ * \brief ä»å®¹å™¨ä¸­ç§»é™¤æ–­å¼€çš„è¿æ¥
+ * \param billClient å¾…ç§»é™¤çš„è¿æ¥
  */
 void BillClientManager::remove(BillClient *billClient)
 {

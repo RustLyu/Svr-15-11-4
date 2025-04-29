@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSceneEntry.h  $
  * \author  
  * \date 
- * \brief ³¡¾°ÉÏÎï¼ş¶¨Òå
+ * \brief åœºæ™¯ä¸Šç‰©ä»¶å®šä¹‰
  */
 
 #ifndef _ZSCENEENTRY_H_
@@ -16,22 +16,22 @@
 
 #pragma pack(1)
 /**
- * \brief ÓÃÓÚÆ«ÒÆ¼ÆËãµÄ×ø±êÖµ
+ * \brief ç”¨äºåç§»è®¡ç®—çš„åæ ‡å€¼
  */
 struct zAdjust
 {
-	int x;		/**< ºá×ø±ê*/
-	int y;		/**< ×İ×ø±ê*/
+	int x;		/**< æ¨ªåæ ‡*/
+	int y;		/**< çºµåæ ‡*/
 };
 /**
- * \brief ³¡¾°×ø±ê
+ * \brief åœºæ™¯åæ ‡
  */
 struct zPos
 {
-	DWORD x;		/**< ºá×ø±ê*/
-	DWORD y;		/**< ×İ×ø±ê*/
+	DWORD x;		/**< æ¨ªåæ ‡*/
+	DWORD y;		/**< çºµåæ ‡*/
 	/**
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 */
 	zPos()
@@ -40,7 +40,7 @@ struct zPos
 		y = 0;
 	}
 	/**
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 */
 	zPos(const DWORD x, const DWORD y)
@@ -49,7 +49,7 @@ struct zPos
 		this->y = y;
 	}
 	/**
-	 * \brief ¿½±´¹¹Ôìº¯Êı
+	 * \brief æ‹·è´æ„é€ å‡½æ•°
 	 *
 	 */
 	zPos(const zPos &pos)
@@ -58,7 +58,7 @@ struct zPos
 		y = pos.y;
 	}
 	/**
-	 * \brief ¸³Öµ²Ù×÷·ûºÅ
+	 * \brief èµ‹å€¼æ“ä½œç¬¦å·
 	 *
 	 */
 	zPos & operator= (const zPos &pos)
@@ -68,7 +68,7 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ+ÔËËã·ûºÅ
+	 * \brief é‡è½½+è¿ç®—ç¬¦å·
 	 *
 	 */
 	const zPos & operator+ (const zPos &pos)
@@ -78,8 +78,8 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ+ÔËËã·ûºÅ
-	 * ¶Ô×ø±ê½øĞĞĞŞÕı
+	 * \brief é‡è½½+è¿ç®—ç¬¦å·
+	 * å¯¹åæ ‡è¿›è¡Œä¿®æ­£
 	 */
 	const zPos & operator+ (const zAdjust &adjust)
 	{
@@ -88,7 +88,7 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ+=ÔËËã·ûºÅ
+	 * \brief é‡è½½+=è¿ç®—ç¬¦å·
 	 *
 	 */
 	const zPos & operator+= (const zPos &pos)
@@ -98,8 +98,8 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ+=ÔËËã·ûºÅ
-	 * ¶Ô×ø±ê½øĞĞĞŞÕı
+	 * \brief é‡è½½+=è¿ç®—ç¬¦å·
+	 * å¯¹åæ ‡è¿›è¡Œä¿®æ­£
 	 */
 	const zPos & operator+= (const zAdjust &adjust)
 	{
@@ -108,7 +108,7 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ-ÔËËã·ûºÅ
+	 * \brief é‡è½½-è¿ç®—ç¬¦å·
 	 *
 	 */
 	const zPos & operator- (const zPos &pos)
@@ -118,8 +118,8 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ-ÔËËã·ûºÅ
-	 * ¶Ô×ø±ê½øĞĞĞŞÕı
+	 * \brief é‡è½½-è¿ç®—ç¬¦å·
+	 * å¯¹åæ ‡è¿›è¡Œä¿®æ­£
 	 */
 	const zPos & operator- (const zAdjust &adjust)
 	{
@@ -128,7 +128,7 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ-=ÔËËã·ûºÅ
+	 * \brief é‡è½½-=è¿ç®—ç¬¦å·
 	 *
 	 */
 	const zPos & operator-= (const zPos &pos)
@@ -138,8 +138,8 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ-=ÔËËã·ûºÅ
-	 * ¶Ô×ø±ê½øĞĞĞŞÕı
+	 * \brief é‡è½½-=è¿ç®—ç¬¦å·
+	 * å¯¹åæ ‡è¿›è¡Œä¿®æ­£
 	 */
 	const zPos & operator-= (const zAdjust &adjust)
 	{
@@ -148,7 +148,7 @@ struct zPos
 		return *this;
 	}
 	/**
-	 * \brief ÖØÔØ==Âß¼­ÔËËã·ûºÅ
+	 * \brief é‡è½½==é€»è¾‘è¿ç®—ç¬¦å·
 	 *
 	 */
 	const bool operator== (const zPos &pos) const
@@ -156,7 +156,7 @@ struct zPos
 		return (x == pos.x && y == pos.y);
 	}
 	/**
-	 * \brief ÖØÔØ>Âß¼­ÔËËã·ûºÅ
+	 * \brief é‡è½½>é€»è¾‘è¿ç®—ç¬¦å·
 	 *
 	 */
 	const bool operator> (const zPos &pos) const
@@ -164,7 +164,7 @@ struct zPos
 		return (x > pos.x && y > pos.y);
 	}
 	/**
-	 * \brief ÖØÔØ>=Âß¼­ÔËËã·ûºÅ
+	 * \brief é‡è½½>=é€»è¾‘è¿ç®—ç¬¦å·
 	 *
 	 */
 	const bool operator>= (const zPos &pos) const
@@ -172,7 +172,7 @@ struct zPos
 		return (x >= pos.x && y >= pos.y);
 	}
 	/**
-	 * \brief ÖØÔØ<Âß¼­ÔËËã·ûºÅ
+	 * \brief é‡è½½<é€»è¾‘è¿ç®—ç¬¦å·
 	 *
 	 */
 	const bool operator< (const zPos &pos) const
@@ -180,7 +180,7 @@ struct zPos
 		return (x < pos.x && y < pos.y);
 	}
 	/**
-	 * \brief ÖØÔØ<=Âß¼­ÔËËã·ûºÅ
+	 * \brief é‡è½½<=é€»è¾‘è¿ç®—ç¬¦å·
 	 *
 	 */
 	const bool operator<= (const zPos &pos) const
@@ -188,9 +188,9 @@ struct zPos
 		return (x <= pos.x && y <= pos.y);
 	}
 	/**
-	 * \brief ÒÔ×ÔÉíÎªÖĞĞÄµã£¬»ñÈ¡µ½ÁíÍâÒ»¸ö×ø±êµÄ·½Ïò
-	 * \param pos ÁíÍâÒ»¸ö×ø±êµã
-	 * \return ·½Ïò
+	 * \brief ä»¥è‡ªèº«ä¸ºä¸­å¿ƒç‚¹ï¼Œè·å–åˆ°å¦å¤–ä¸€ä¸ªåæ ‡çš„æ–¹å‘
+	 * \param pos å¦å¤–ä¸€ä¸ªåæ ‡ç‚¹
+	 * \return æ–¹å‘
 	 */
 	const int getDirect(const zPos &pos) const
 	{
@@ -232,19 +232,19 @@ struct zPos
 	}
 };
 /**
- * \brief °ëÆÁ×ø±ê
+ * \brief åŠå±åæ ‡
  *
  */
 const zPos zPosHalfScreen(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 #pragma pack()
 
 /**
- * \brief ³¡¾°ÆÁ×ø±ê
+ * \brief åœºæ™¯å±åæ ‡
  */
 typedef DWORD zPosI;
 
 /**
- * \brief ´æ·ÅÆÁ±àºÅµÄÏòÁ¿
+ * \brief å­˜æ”¾å±ç¼–å·çš„å‘é‡
  *
  */
 //#ifdef _POOL_ALLOC_
@@ -259,44 +259,44 @@ typedef std::list<WORD, __gnu_cxx::__pool_alloc<WORD> > SceneEntryStateList;
 
 class zSceneEntryIndex;
 /**
- * \brief ³¡¾°ÉÏÎï¼ş£¬±ÈÈçÈËÎï,NPC,½¨Öş£¬µØÉÏÎïÆ·µÈ
+ * \brief åœºæ™¯ä¸Šç‰©ä»¶ï¼Œæ¯”å¦‚äººç‰©,NPC,å»ºç­‘ï¼Œåœ°ä¸Šç‰©å“ç­‰
  *
- * ×÷ÓÃÓĞÁ½¸ö
+ * ä½œç”¨æœ‰ä¸¤ä¸ª
  *
- * 1.½¨Á¢ÆÁË÷Òı
- * 2.¶¨Òå×èµ²
+ * 1.å»ºç«‹å±ç´¢å¼•
+ * 2.å®šä¹‰é˜»æŒ¡
  */
 struct zSceneEntry:public zEntry
 {
 	friend class zSceneEntryIndex;
 	public:
 	/**
-	 * \brief Îï¼şÀàĞÍ
+	 * \brief ç‰©ä»¶ç±»å‹
 	 */
 	enum SceneEntryType
 	{
-		SceneEntry_Player,	/**< Íæ¼Ò½ÇÉ«*/
+		SceneEntry_Player,	/**< ç©å®¶è§’è‰²*/
 		SceneEntry_NPC,		/**< NPC*/
-		SceneEntry_Build,	/**< ½¨Öş*/
-		SceneEntry_Object,	/**< µØÉÏÎïÆ·*/
-		SceneEntry_Pet,		/**< ³èÎï*/
+		SceneEntry_Build,	/**< å»ºç­‘*/
+		SceneEntry_Object,	/**< åœ°ä¸Šç‰©å“*/
+		SceneEntry_Pet,		/**< å® ç‰©*/
 		SceneEntry_MAX
 	};
 	/**
-	 * \brief Îï¼ş×´Ì¬
+	 * \brief ç‰©ä»¶çŠ¶æ€
 	 *
 	 */
 	enum SceneEntryState
 	{
-		SceneEntry_Normal,		/**< ÆÕÍ¨×´Ì¬ */
-		SceneEntry_Death,		/**< ËÀÍö×´Ì¬ */
-		SceneEntry_Hide			/**< Òş²Ø×´Ì¬ */
+		SceneEntry_Normal,		/**< æ™®é€šçŠ¶æ€ */
+		SceneEntry_Death,		/**< æ­»äº¡çŠ¶æ€ */
+		SceneEntry_Hide			/**< éšè—çŠ¶æ€ */
 	};
 	/**
-	 * \brief ×ø±ê×ª»¯
-	 * \param screenWH µØÍ¼¿íºÍ¸ß
-	 * \param pos Ô´×ø±ê
-	 * \param posi Ä¿µÄ×ø±ê
+	 * \brief åæ ‡è½¬åŒ–
+	 * \param screenWH åœ°å›¾å®½å’Œé«˜
+	 * \param pos æºåæ ‡
+	 * \param posi ç›®çš„åæ ‡
 	 */
 	static void zPos2zPosI(const zPos &screenWH, const zPos &pos, zPosI &posi)
 	{
@@ -304,7 +304,7 @@ struct zSceneEntry:public zEntry
 	}
 	protected:
 		/**
-	 	 * \brief ¹¹Ôìº¯Êı
+	 	 * \brief æ„é€ å‡½æ•°
 	 	 */
 		zSceneEntry(SceneEntryType type, const SceneEntryState state = SceneEntry_Normal):sceneentrytype(type),sceneentrystate(state)
 		{
@@ -314,15 +314,15 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-	 	 * \brief ×ø±ê
+	 	 * \brief åæ ‡
 	 	 */
 		zPos pos;
 		/**
-	 	 * \brief ÆÁ×ø±ê
+	 	 * \brief å±åæ ‡
 	 	 */
 		zPosI posi;
 		/**
-		 * \brief ·½Ïò
+		 * \brief æ–¹å‘
 		 *
 		 */
 		BYTE dir;
@@ -332,24 +332,24 @@ struct zSceneEntry:public zEntry
 
 	private:
 		/**
-	 	 * \brief Îï¼şÀàĞÍ
+	 	 * \brief ç‰©ä»¶ç±»å‹
 	 	 */
 		const SceneEntryType sceneentrytype;
 		/**
-		 * \brief Îï¼ş×´Ì¬
+		 * \brief ç‰©ä»¶çŠ¶æ€
 		 *
 		 */
 		SceneEntryState sceneentrystate;
 		/**
-	 	 * \brief Îï¼şÊÇ·ñÔÚ³¡¾°ÉÏ
+	 	 * \brief ç‰©ä»¶æ˜¯å¦åœ¨åœºæ™¯ä¸Š
 	 	 */
 		bool inserted;
 
 		/**
-	 	 * \brief ÉèÖÃÎï¼ş×ø±ê
-		 * \param screenWH ³¡¾°µÄ¿í¸ß
-		 * \param newPos Îï¼şµÄĞÂ×ø±ê
-		 * \return ×ø±ê³¬³ö³¡¾°¿í¸ß·µ»Øfalse,·ñÔò·µ»Øtrue
+	 	 * \brief è®¾ç½®ç‰©ä»¶åæ ‡
+		 * \param screenWH åœºæ™¯çš„å®½é«˜
+		 * \param newPos ç‰©ä»¶çš„æ–°åæ ‡
+		 * \return åæ ‡è¶…å‡ºåœºæ™¯å®½é«˜è¿”å›false,å¦åˆ™è¿”å›true
 	 	 */
 		bool setPos(const zPos &screenWH,const zPos &newPos)
 		{
@@ -365,18 +365,18 @@ struct zSceneEntry:public zEntry
 
 	private:
 		/**
-		 * \brief Îï¼ş×´Ì¬£¬ÓëÄ§·¨µÈÏà¹ØµÄ
-		 * ÕâÖÖ×´Ì¬ÊÇÍâ¹Û¿ÉÒÔ±íÏÖµÄ£¬´øÉÏÄ³ÖÖ×´Ì¬¿Í»§¶Ë¾Í¿ÉÒÔÒÔÒ»ÖÖ·½Ê½À´±íÏÖ
-		 * ÏêÏ¸µÄ×´Ì¬²Î¼ûCommand.hÖĞ
+		 * \brief ç‰©ä»¶çŠ¶æ€ï¼Œä¸é­”æ³•ç­‰ç›¸å…³çš„
+		 * è¿™ç§çŠ¶æ€æ˜¯å¤–è§‚å¯ä»¥è¡¨ç°çš„ï¼Œå¸¦ä¸ŠæŸç§çŠ¶æ€å®¢æˆ·ç«¯å°±å¯ä»¥ä»¥ä¸€ç§æ–¹å¼æ¥è¡¨ç°
+		 * è¯¦ç»†çš„çŠ¶æ€å‚è§Command.hä¸­
 		 */
 		BYTE byState[(Cmd::MAX_STATE + 7) / 8];
 	protected:
 		SceneEntryStateList stateList;
 	public:
 		/**
-	 	 * \brief Ìî³äÎï¼ş×´Ì¬
-		 * \param state Ìî³äÎ»ÖÃ
-		 * \return ×´Ì¬¸öÊı
+	 	 * \brief å¡«å……ç‰©ä»¶çŠ¶æ€
+		 * \param state å¡«å……ä½ç½®
+		 * \return çŠ¶æ€ä¸ªæ•°
 	 	 */
 		inline BYTE full_UState(WORD *state)
 		{
@@ -390,8 +390,8 @@ struct zSceneEntry:public zEntry
 			return ret;
 		}
 		/**
-	 	 * \brief Ìî³äÎï¼şËùÓĞ×´Ì¬
-		 * \param state Ìî³äÎ»ÖÃ
+	 	 * \brief å¡«å……ç‰©ä»¶æ‰€æœ‰çŠ¶æ€
+		 * \param state å¡«å……ä½ç½®
 	 	 */
 		inline void full_all_UState(void *state)
 		{
@@ -399,8 +399,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-	 	 * \brief µÃµ½Îï¼ş×ø±ê
-		 * \return Îï¼ş×ø±ê
+	 	 * \brief å¾—åˆ°ç‰©ä»¶åæ ‡
+		 * \return ç‰©ä»¶åæ ‡
 	 	 */
 		inline const zPos &getPos() const
 		{
@@ -408,8 +408,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-	 	 * \brief µÃµ½Îï¼ş¸Õ²ÅµÄ×ø±ê
-		 * \return Îï¼ş×ø±ê
+	 	 * \brief å¾—åˆ°ç‰©ä»¶åˆšæ‰çš„åæ ‡
+		 * \return ç‰©ä»¶åæ ‡
 	 	 */
 		inline const zPos &getOldPos1() const
 		{
@@ -417,8 +417,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-	 	 * \brief µÃµ½Îï¼ş¸Õ²ÅµÄ×ø±ê
-		 * \return Îï¼ş×ø±ê
+	 	 * \brief å¾—åˆ°ç‰©ä»¶åˆšæ‰çš„åæ ‡
+		 * \return ç‰©ä»¶åæ ‡
 	 	 */
 		inline const zPos &getOldPos2() const
 		{
@@ -426,16 +426,16 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-	 	 * \brief µÃµ½Îï¼şÆÁ×ø±ê
-		 * \return Îï¼şÆÁ×ø±ê
+	 	 * \brief å¾—åˆ°ç‰©ä»¶å±åæ ‡
+		 * \return ç‰©ä»¶å±åæ ‡
 	 	 */
 		inline const zPosI &getPosI() const
 		{ 
 			return posi;
 		}
 		/**
-	 	 * \brief ²âÊÔÎï¼şÊÇ·ñÔÚ³¡¾°ÖĞ
-		 * \return Îï¼şÔÚ³¡¾°ÖĞ·µ»Øtrue,·ñÔò·µ»Øfalse
+	 	 * \brief æµ‹è¯•ç‰©ä»¶æ˜¯å¦åœ¨åœºæ™¯ä¸­
+		 * \return ç‰©ä»¶åœ¨åœºæ™¯ä¸­è¿”å›true,å¦åˆ™è¿”å›false
 	 	 */
 		inline bool hasInScene() const
 		{ 
@@ -443,8 +443,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-	 	 * \brief µÃµ½Îï¼şÀàĞÍ
-		 * \return Îï¼şÀàĞÍ
+	 	 * \brief å¾—åˆ°ç‰©ä»¶ç±»å‹
+		 * \return ç‰©ä»¶ç±»å‹
 	 	 */
 		inline const SceneEntryType & getType() const
 		{
@@ -452,8 +452,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-		 * \brief »ñÈ¡Îï¼ş×´Ì¬
-		 * \return ×´Ì¬
+		 * \brief è·å–ç‰©ä»¶çŠ¶æ€
+		 * \return çŠ¶æ€
 		 */
 		inline const SceneEntryState & getState() const
 		{
@@ -461,8 +461,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-		 * \brief ÉèÖÃÎï¼ş×´Ì¬
-		 * \param state ĞèÒªÉèÖÃµÄ×´Ì¬
+		 * \brief è®¾ç½®ç‰©ä»¶çŠ¶æ€
+		 * \param state éœ€è¦è®¾ç½®çš„çŠ¶æ€
 		 */
 		void setState(const SceneEntryState & state)
 		{
@@ -470,8 +470,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-		 * \brief »ñÈ¡·½Ïò
-		 * \return ·½Ïò
+		 * \brief è·å–æ–¹å‘
+		 * \return æ–¹å‘
 		 */
 		inline const BYTE getDir() const
 		{
@@ -479,8 +479,8 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-		 * \brief ÉèÖÃ·½Ïò
-		 * \param dir ·½Ïò
+		 * \brief è®¾ç½®æ–¹å‘
+		 * \param dir æ–¹å‘
 		 */
 		void setDir(const BYTE dir)
 		{
@@ -488,9 +488,9 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-		 * \brief ¼ì²éÄ³ÖÖ×´Ì¬ÊÇ·ñÉèÖÃ
-		 * \param state ´ı¼ì²éµÄ×´Ì¬
-		 * \return ÕâÖÖ×´Ì¬ÊÇ·ñÒÑ¾­ÉèÖÃ
+		 * \brief æ£€æŸ¥æŸç§çŠ¶æ€æ˜¯å¦è®¾ç½®
+		 * \param state å¾…æ£€æŸ¥çš„çŠ¶æ€
+		 * \return è¿™ç§çŠ¶æ€æ˜¯å¦å·²ç»è®¾ç½®
 		 */
 		inline bool issetUState(const int state) const
 		{
@@ -498,9 +498,9 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-		 * \brief ÉèÖÃÄ³ÖÖ×´Ì¬
-		 * \param state ´ıÉèÖÃµÄ×´Ì¬
-		 * \return Èç¹ûÒÑ¾­ÉèÖÃ¸Ã×´Ì¬·µ»Øfalse,·ñÔò·µ»Øtrue
+		 * \brief è®¾ç½®æŸç§çŠ¶æ€
+		 * \param state å¾…è®¾ç½®çš„çŠ¶æ€
+		 * \return å¦‚æœå·²ç»è®¾ç½®è¯¥çŠ¶æ€è¿”å›false,å¦åˆ™è¿”å›true
 		 */
 		inline bool setUState(const int state)
 		{
@@ -514,9 +514,9 @@ struct zSceneEntry:public zEntry
 		}
 
 		/**
-		 * \brief Çå³ıÄ³ÖÖ×´Ì¬
-		 * \param state ´ıÇå³ıµÄ×´Ì¬
-		 * \return Èç¹ûÒÑ¾­ÉèÖÃ¸Ã×´Ì¬·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief æ¸…é™¤æŸç§çŠ¶æ€
+		 * \param state å¾…æ¸…é™¤çš„çŠ¶æ€
+		 * \return å¦‚æœå·²ç»è®¾ç½®è¯¥çŠ¶æ€è¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		inline bool clearUState(const int state)
 		{

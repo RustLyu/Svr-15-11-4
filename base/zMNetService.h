@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zMNetService.h  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍøÂç·şÎñÆ÷µÄ¿ò¼Ü´úÂë
+ * \brief å®ç°ç½‘ç»œæœåŠ¡å™¨çš„æ¡†æ¶ä»£ç 
  *
- * Õâ¸öÀà±È½ÏÍ¨ÓÃÒ»µã£¬ÔÙ´´½¨±È½ÏÒ»°ãµÄÍøÂç·şÎñÆ÷³ÌĞòµÄÊ±ºòÊÇ±È½ÏÓĞÓÃ
+ * è¿™ä¸ªç±»æ¯”è¾ƒé€šç”¨ä¸€ç‚¹ï¼Œå†åˆ›å»ºæ¯”è¾ƒä¸€èˆ¬çš„ç½‘ç»œæœåŠ¡å™¨ç¨‹åºçš„æ—¶å€™æ˜¯æ¯”è¾ƒæœ‰ç”¨
  * 
  */
 
@@ -22,8 +22,8 @@
 #include "zMTCPServer.h"
 
 /**
- * \brief ÍøÂç·şÎñÆ÷Àà
- * ÊµÏÖÁËÍøÂç·şÎñÆ÷¿ò¼Ü´úÂë£¬Õâ¸öÀà±È½ÏÍ¨ÓÃÒ»µã
+ * \brief ç½‘ç»œæœåŠ¡å™¨ç±»
+ * å®ç°äº†ç½‘ç»œæœåŠ¡å™¨æ¡†æ¶ä»£ç ï¼Œè¿™ä¸ªç±»æ¯”è¾ƒé€šç”¨ä¸€ç‚¹
  */
 class zMNetService : public zService
 {
@@ -31,23 +31,23 @@ class zMNetService : public zService
 	public:
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 */
 		virtual ~zMNetService() { instance = NULL; };
 
 		/**
-		 * \brief ¸ù¾İµÃµ½µÄTCP/IPÁ¬½Ó»ñÈ¡Ò»¸öÁ¬½ÓÈÎÎñ
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param srcPort ÓÉÓÚ·şÎñÆ÷°ó¶¨ÁË¶à¸ö¶Ë¿Ú£¬Õâ¸ö²ÎÊıÖ¸¶¨Á¬½ÓÀ´×ÔÄÇ¸ö°ó¶¨¶Ë¿Ú
-		 * \return ĞÂ½¨Á¢µÄÁ¬½ÓÈÎÎñ
+		 * \brief æ ¹æ®å¾—åˆ°çš„TCP/IPè¿æ¥è·å–ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param srcPort ç”±äºæœåŠ¡å™¨ç»‘å®šäº†å¤šä¸ªç«¯å£ï¼Œè¿™ä¸ªå‚æ•°æŒ‡å®šè¿æ¥æ¥è‡ªé‚£ä¸ªç»‘å®šç«¯å£
+		 * \return æ–°å»ºç«‹çš„è¿æ¥ä»»åŠ¡
 		 */
 		virtual void newTCPTask(const int sock, const unsigned short srcPort) = 0;
 
 		/**
-		 * \brief °ó¶¨·şÎñµ½Ä³¸ö¶Ë¿Ú
-		 * \param name ´ı°ó¶¨¶Ë¿ÚÃû³Æ
-		 * \param port ´ı°ó¶¨µÄ¶Ë¿Ú
-		 * \return °ó¶¨ÊÇ·ñ³É¹¦
+		 * \brief ç»‘å®šæœåŠ¡åˆ°æŸä¸ªç«¯å£
+		 * \param name å¾…ç»‘å®šç«¯å£åç§°
+		 * \param port å¾…ç»‘å®šçš„ç«¯å£
+		 * \return ç»‘å®šæ˜¯å¦æˆåŠŸ
 		 */
 		bool bind(const std::string &name, const unsigned short port)
 		{
@@ -60,9 +60,9 @@ class zMNetService : public zService
 	protected:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * ÊÜ±£»¤µÄ¹¹Ôìº¯Êı£¬ÊµÏÖÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàÊµÀı
-		 * \param name Ãû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * å—ä¿æŠ¤çš„æ„é€ å‡½æ•°ï¼Œå®ç°äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»å®ä¾‹
+		 * \param name åç§°
 		 */
 		zMNetService(const std::string &name) : zService(name)
 		{
@@ -78,9 +78,9 @@ class zMNetService : public zService
 
 	private:
 
-		static zMNetService *instance;		/**< ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë£¬°üÀ¨ÅÉÉúÀà£¬³õÊ¼»¯Îª¿ÕÖ¸Õë */
-		std::string serviceName;			/**< ÍøÂç·şÎñÆ÷Ãû³Æ */
-		zMTCPServer *tcpServer;				/**< TCP·şÎñÆ÷ÊµÀıÖ¸Õë */
+		static zMNetService *instance;		/**< ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆï¼ŒåŒ…æ‹¬æ´¾ç”Ÿç±»ï¼Œåˆå§‹åŒ–ä¸ºç©ºæŒ‡é’ˆ */
+		std::string serviceName;			/**< ç½‘ç»œæœåŠ¡å™¨åç§° */
+		zMTCPServer *tcpServer;				/**< TCPæœåŠ¡å™¨å®ä¾‹æŒ‡é’ˆ */
 
 };
 

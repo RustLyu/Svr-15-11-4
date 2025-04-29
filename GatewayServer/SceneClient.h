@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneClient.h  $
  * \author 
  * \date 
- * \brief ¶¨Òå³¡¾°·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰åœºæ™¯æœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  * 
  */
 
@@ -24,7 +24,7 @@
 #include "SceneClientManager.h"
 
 /**
- * \brief ¶¨Òå³¡¾°·şÎñÆ÷Á¬½Ó¿Í»§¶ËÀà
+ * \brief å®šä¹‰åœºæ™¯æœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯ç±»
  **/
 class SceneClient : public zTCPClientTask
 {
@@ -41,7 +41,7 @@ class SceneClient : public zTCPClientTask
 			};
 		~SceneClient()
 		{
-			Zebra::logger->debug("SceneClientÎö¹¹");
+			Zebra::logger->debug("SceneClientææ„");
 		}
 
 		int checkRebound();
@@ -74,7 +74,7 @@ class SceneClient : public zTCPClientTask
 	private:
 
 		/**
-		 * \brief Íø¹ØÆÁË÷Òı
+		 * \brief ç½‘å…³å±ç´¢å¼•
 		 *
 		 *
 		 * \param 
@@ -82,7 +82,7 @@ class SceneClient : public zTCPClientTask
 		 */
 		MapIndex mapIndex;
 		/**
-		 * \brief ·şÎñÆ÷±àºÅ
+		 * \brief æœåŠ¡å™¨ç¼–å·
 		 *
 		 */
 		WORD wdServerID;
@@ -92,7 +92,7 @@ class SceneClient : public zTCPClientTask
 };
 #if 0
 /**
- * \brief ¶¨Òå³¡¾°·şÎñÆ÷Á¬½Ó¿Í»§¶ËÀà
+ * \brief å®šä¹‰åœºæ™¯æœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯ç±»
  *
  */
 class SceneClient : public zTCPBufferClient
@@ -101,10 +101,10 @@ class SceneClient : public zTCPBufferClient
 	public:
 		
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * \param name Ãû³Æ
-		 * \param serverEntry ³¡¾°·şÎñÆ÷ĞÅÏ¢
+		 * \param name åç§°
+		 * \param serverEntry åœºæ™¯æœåŠ¡å™¨ä¿¡æ¯
 		 */
 		SceneClient( const std::string &name,const Cmd::Super::ServerEntry *serverEntry)
 			: zTCPBufferClient(name, serverEntry->pstrExtIP, serverEntry->wdExtPort, false, 8000)
@@ -114,16 +114,16 @@ class SceneClient : public zTCPBufferClient
 
 		~SceneClient()
 		{
-			Zebra::logger->debug("SceneClientÎö¹¹");
+			Zebra::logger->debug("SceneClientææ„");
 		}
 		bool connectToSceneServer();
 		void run();
 		bool msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 
 		/**
-		 * \brief »ñÈ¡³¡¾°·şÎñÆ÷µÄ±àºÅ
+		 * \brief è·å–åœºæ™¯æœåŠ¡å™¨çš„ç¼–å·
 		 *
-		 * \return ³¡¾°·şÎñÆ÷±àºÅ
+		 * \return åœºæ™¯æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getServerID() const
 		{
@@ -149,7 +149,7 @@ class SceneClient : public zTCPBufferClient
 	private:
 
 		/**
-		 * \brief Íø¹ØÆÁË÷Òı
+		 * \brief ç½‘å…³å±ç´¢å¼•
 		 *
 		 *
 		 * \param 
@@ -157,7 +157,7 @@ class SceneClient : public zTCPBufferClient
 		 */
 		MapIndex mapIndex;
 		/**
-		 * \brief ·şÎñÆ÷±àºÅ
+		 * \brief æœåŠ¡å™¨ç¼–å·
 		 *
 		 */
 		WORD wdServerID;
@@ -165,7 +165,7 @@ class SceneClient : public zTCPBufferClient
 };
 
 /**
- * \brief ³¡¾°·şÎñÆ÷Á¬½Ó¹ÜÀíÆ÷
+ * \brief åœºæ™¯æœåŠ¡å™¨è¿æ¥ç®¡ç†å™¨
  *
  */
 class SceneClientManager
@@ -174,15 +174,15 @@ class SceneClientManager
 	public:
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~SceneClientManager() {};
 
 		/**
-		 * \brief »ñÈ¡¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * \return ¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \return ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 */
 		static SceneClientManager &getInstance()
 		{
@@ -193,7 +193,7 @@ class SceneClientManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -209,24 +209,24 @@ class SceneClientManager
 	private:
 
 		/**
-		 * \brief ³¡¾°·şÎñÆ÷Á¬½Ó¹ÜÀíÆ÷Î¨Ò»ÊµÀıÖ¸Õë
+		 * \brief åœºæ™¯æœåŠ¡å™¨è¿æ¥ç®¡ç†å™¨å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static SceneClientManager *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		SceneClientManager() {};
 
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;
 		/**
-		 * \brief ³¡¾°·şÎñÆ÷Á¬½ÓÈİÆ÷
+		 * \brief åœºæ™¯æœåŠ¡å™¨è¿æ¥å®¹å™¨
 		 *
 		 */
 		std::vector<SceneClient *> sceneClients;

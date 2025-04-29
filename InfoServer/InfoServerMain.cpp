@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <ext/numeric>
 
@@ -19,7 +19,7 @@
 
 
 /**
- * \brief 命令行参数
+ * \brief 鍛戒护琛屽弬鏁?
  */
 static struct argp_option dbaccess_options[] =
 {
@@ -31,11 +31,11 @@ static struct argp_option dbaccess_options[] =
 
 
 /**
- * \brief 命令行参数解析器
- * \param key 参数缩写
- * \param arg 参数值
- * \param state 参数状态
- * \return 返回错误代码
+ * \brief 鍛戒护琛屽弬鏁拌В鏋愬櫒
+ * \param key 鍙傛暟缂╁啓
+ * \param arg 鍙傛暟鍊?
+ * \param state 鍙傛暟鐘舵€?
+ * \return 杩斿洖閿欒浠ｇ爜
  */
 static error_t dbaccess_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -64,49 +64,49 @@ static error_t dbaccess_parse_opt(int key, char *arg, struct argp_state *state)
 
 
 /**
- * \brief 简短描述信息
+ * \brief 绠€鐭弿杩颁俊鎭?
  */
-static char dbaccess_doc[] = "\nInfoServer\n" "\t信息集中服务器。";
+static char dbaccess_doc[] = "\nInfoServer\n" "\t淇℃伅闆嗕腑鏈嶅姟鍣ㄣ€?;
 
 /**
- * \brief 程序的版本信息
+ * \brief 绋嬪簭鐨勭増鏈俊鎭?
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild version   :\t" _S(BUILD_STRING);
 
 
 /**
- * \brief 主程序入口
- * \param argc 参数个数
- * \param argv 参数列表
- * \return 运行结果
+ * \brief 涓荤▼搴忓叆鍙?
+ * \param argc 鍙傛暟涓暟
+ * \param argv 鍙傛暟鍒楄〃
+ * \return 杩愯缁撴灉
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("InfoServer");
 
-	//设置缺省参数
+	//璁剧疆缂虹渷鍙傛暟
 	Zebra::global["bindport"] = "9903";
 	Zebra::global["logfilename"] = "/tmp/infoserver.log";
 	Zebra::global["dbCount"] = "16";
 	Zebra::global["tableCount"] = "16";
 
-	//解析配置文件参数
+	//瑙ｆ瀽閰嶇疆鏂囦欢鍙傛暟
 	InfoConfile sc;
 	if (!sc.parse("InfoServer"))
 		return EXIT_FAILURE;
 
-	//解析命令行参数
+	//瑙ｆ瀽鍛戒护琛屽弬鏁?
 	zArg::getArg()->add(dbaccess_options, dbaccess_parse_opt, 0, dbaccess_doc);
 	zArg::getArg()->parse(argc, argv);
 
-	//设置日志级别
+	//璁剧疆鏃ュ織绾у埆
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//设置写本地日志文件
+	//璁剧疆鍐欐湰鍦版棩蹇楁枃浠?
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//是否以后台进程的方式运行
+	//鏄惁浠ュ悗鍙拌繘绋嬬殑鏂瑰紡杩愯
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();

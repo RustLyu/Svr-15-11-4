@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoServer.cpp $
  * \author  
  * \date 
- * \brief ĞÅÏ¢¼¯ÖĞ·şÎñÆ÷
+ * \brief ä¿¡æ¯é›†ä¸­æœåŠ¡å™¨
  */
  
 #include <iostream>
@@ -30,25 +30,25 @@ DBAccessService * DBAccessService::instance = NULL;
 CmdThread 	* DBAccessService::pCmdThread = NULL;
 
 //time_t CmdThread::delta = 10;
-static InfoContainer pContainer;//È«¾ÖÈİÆ÷
+static InfoContainer pContainer;//å…¨å±€å®¹å™¨
 /*
 void CmdThread::run()
 {
 	using namespace Cmd::Info;
-	time_t st=tm.sec();//CmdThreadÏß³Ì´´½¨µÄÊ±¼ä
+	time_t st=tm.sec();//CmdThreadçº¿ç¨‹åˆ›å»ºçš„æ—¶é—´
 	time_t sp=tn.sec();
 	while(!isFinal())
 	{
 		tm.now();
 		tn.now();
-		if ((tm.sec() - st) == delta)//10ÃëÖÓÒ»´ÎµÄ·şÎñÆ÷ĞÅÏ¢Í³¼Æ
+		if ((tm.sec() - st) == delta)//10ç§’é’Ÿä¸€æ¬¡çš„æœåŠ¡å™¨ä¿¡æ¯ç»Ÿè®¡
 		{
 			t_Request_ServerInfo ptCmd;
 			ptCmd.rTimestamp = time(NULL);
 			pContainer.broadcast(&ptCmd, sizeof(ptCmd));
 			st = tm.sec();
 		}
-		if ((tm.sec() - sp) == delta*6)//Ò»·ÖÖÓÒ»´ÎµÄÔÚÏßÈËÊıÍ³¼Æ
+		if ((tm.sec() - sp) == delta*6)//ä¸€åˆ†é’Ÿä¸€æ¬¡çš„åœ¨çº¿äººæ•°ç»Ÿè®¡
 		{
 			t_Request_OnlineNum psCmd;
 			psCmd.rTimestamp = time(NULL);
@@ -66,11 +66,11 @@ bool DBAccessService::init()
 	if (NULL == dbConnPool
 			|| !dbConnPool->putURL(0, Zebra::global["mysql"].c_str(), false))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü %s", Zebra::global["mysql"].c_str());
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥ %s", Zebra::global["mysql"].c_str());
 		return false;
 	}
 	
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -99,11 +99,11 @@ void InfoService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	DBAccessTask *tcpTask = new DBAccessTask(taskPool, sock, addr, &pContainer);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
@@ -117,7 +117,7 @@ void InfoService::final()
 */
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  */
 static struct argp_option dbaccess_options[] =
 {
@@ -129,11 +129,11 @@ static struct argp_option dbaccess_options[] =
 
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t dbaccess_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -162,18 +162,18 @@ static error_t dbaccess_parse_opt(int key, char *arg, struct argp_state *state)
 
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  */
-static char dbaccess_doc[] = "\nDBAccessServer\n" "\tĞÅÏ¢¼¯ÖĞ·şÎñÆ÷¡£";
+static char dbaccess_doc[] = "\nDBAccessServer\n" "\tä¿¡æ¯é›†ä¸­æœåŠ¡å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild version   :\t" _S(BUILD_STRING);
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  */
 class DBInfoConfile : public zConfile
 {
@@ -205,7 +205,7 @@ class DBInfoConfile : public zConfile
 
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş,ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶,ä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  
 void InfoService::reloadConfig()
 {
@@ -214,37 +214,37 @@ void InfoService::reloadConfig()
 }
 */
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \brief ä¸»ç¨‹åºå…¥å£
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("DBAccessServer");
 
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["bindport"] = "9903";
 	Zebra::global["logfilename"] = "/tmp/dbaccessserver.log";
 	Zebra::global["dbCount"] = "16";
 	Zebra::global["tableCount"] = "16";
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	InfoConfile sc;
 	if (!sc.parse("DBAccessServer"))
 		return EXIT_FAILURE;
 
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(dbaccess_options, dbaccess_parse_opt, 0, dbaccess_doc);
 	zArg::getArg()->parse(argc, argv);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();

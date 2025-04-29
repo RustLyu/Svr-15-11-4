@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryInfo.cpp $
  * \author 
@@ -27,11 +27,11 @@
 
 
 /**
- * \brief ¸ù¾Ý¹ú¼ÒidµÃµ½¹ú¼ÒÐÅÏ¢
+ * \brief æ ¹æ®å›½å®¶idå¾—åˆ°å›½å®¶ä¿¡æ¯
  *
  *
- * \param country_id: ¹ú¼Òid
- * \return ¹ú¼ÒÐÅÏ¢
+ * \param country_id: å›½å®¶id
+ * \return å›½å®¶ä¿¡æ¯
  */
 CountryInfo::Info *CountryInfo::getInfo(unsigned int country_id)
 {
@@ -45,9 +45,9 @@ CountryInfo::Info *CountryInfo::getInfo(unsigned int country_id)
 	return NULL;
 }
 /**
- * \brief ´ÓÅäÖÃÎÄ¼þÖÐ¶ÁÈ¡¹ú¼ÒÐÅÏ¢
+ * \brief ä»Žé…ç½®æ–‡ä»¶ä¸­è¯»å–å›½å®¶ä¿¡æ¯
  *
- * \return ¶ÁÈ¡ÊÇ·ñ³É¹¦
+ * \return è¯»å–æ˜¯å¦æˆåŠŸ
  */
 bool CountryInfo::reload()
 {
@@ -73,18 +73,18 @@ bool CountryInfo::reload()
 					parser.getNodePropStr(subnode , "name" , info.name , sizeof(info.name));
 					parser.getNodePropNum(subnode , "mapID" , &info.mapid , sizeof(info.mapid));
 					parser.getNodePropNum(subnode , "function" , &info.function , sizeof(info.function));
-					Zebra::logger->info("ÖØÐÂ¶ÁÈ¡¹ú¼ÒÃû³Æ(%u , %s , %u , %u)" , info.id , info.name ,info.mapid ,info.function);
+					Zebra::logger->info("é‡æ–°è¯»å–å›½å®¶åç§°(%u , %s , %u , %u)" , info.id , info.name ,info.mapid ,info.function);
 					CountryMap_iter iter = country_dic.find(info.id);
 					if(iter !=country_dic.end())
 					{
-							Zebra::logger->debug("reload¹ú¼Ò×Öµä³É¹¦%s",info.name);
+							Zebra::logger->debug("reloadå›½å®¶å­—å…¸æˆåŠŸ%s",info.name);
 						iter->second.function=info.function;
 					}
 					for(StrVec_iterator iter_1 = country_info.begin() ; iter_1 != country_info.end() ; iter_1 ++)
 					{
 						if(info.id == (*iter_1).countryid)
 						{
-							Zebra::logger->debug("reload¹ú¼ÒÐÅÏ¢³É¹¦%s",info.name);
+							Zebra::logger->debug("reloadå›½å®¶ä¿¡æ¯æˆåŠŸ%s",info.name);
 							(*iter_1).function=info.function;
 							break;
 						}
@@ -97,9 +97,9 @@ bool CountryInfo::reload()
 	return true;
 }
 /**
- * \brief ´ÓÅäÖÃÎÄ¼þÖÐ¶ÁÈ¡¹ú¼ÒÐÅÏ¢
+ * \brief ä»Žé…ç½®æ–‡ä»¶ä¸­è¯»å–å›½å®¶ä¿¡æ¯
  *
- * \return ¶ÁÈ¡ÊÇ·ñ³É¹¦
+ * \return è¯»å–æ˜¯å¦æˆåŠŸ
  */
 bool CountryInfo::init()
 {
@@ -126,7 +126,7 @@ bool CountryInfo::init()
 					parser.getNodePropStr(subnode , "name" , info.name , sizeof(info.name));
 					parser.getNodePropStr(subnode , "fileName" , info.filename , sizeof(info.filename));
 					parser.getNodePropNum(subnode , "backto" , &info.backto , sizeof(info.backto));
-					Zebra::logger->info("¼ÓÔØµØÍ¼Ãû³Æ(%u , %s , %s , %u)",info.id,info.name, info.filename , info.backto);
+					Zebra::logger->info("åŠ è½½åœ°å›¾åç§°(%u , %s , %s , %u)",info.id,info.name, info.filename , info.backto);
 					map_dic.insert(MapMap_value_type(info.id , info));
 				}
 				subnode = parser.getNextNode(subnode, NULL);
@@ -146,7 +146,7 @@ bool CountryInfo::init()
 					parser.getNodePropStr(subnode , "name" , info.name , sizeof(info.name));
 					parser.getNodePropNum(subnode , "mapID" , &info.mapid , sizeof(info.mapid));
 					parser.getNodePropNum(subnode , "function" , &info.function , sizeof(info.function));
-					Zebra::logger->info("¼ÓÔØ¹ú¼ÒÃû³Æ(%u , %s , %u , %u)" , info.id , info.name ,info.mapid ,info.function);
+					Zebra::logger->info("åŠ è½½å›½å®¶åç§°(%u , %s , %u , %u)" , info.id , info.name ,info.mapid ,info.function);
 					country_dic.insert(CountryMap_value_type(info.id , info));
 					Info info_1;
 					info_1.countryid = info.id;
@@ -157,11 +157,11 @@ bool CountryInfo::init()
 						MapMap_iter map_iter = map_dic.find(info.mapid);
 						if(map_iter == map_dic.end())
 						{
-							Zebra::logger->error("µÃµ½µØÍ¼Ãû³ÆÊ§°Ü");
+							Zebra::logger->error("å¾—åˆ°åœ°å›¾åç§°å¤±è´¥");
 							continue;
 						}
 						inited = true;
-						info_1.mapname = info_1.countryname + "¡¤" + map_iter->second.name;
+						info_1.mapname = info_1.countryname + "Â·" + map_iter->second.name;
 					}
 					country_info.push_back(info_1);
 					Zebra::logger->debug("country_info.size()=%d",country_info.size());
@@ -174,7 +174,7 @@ bool CountryInfo::init()
 	{
 		for(StrVec_iterator iter = country_info.begin() ; iter != country_info.end() ; iter++)
 		{
-			Zebra::logger->info("¶ÁÈ¡¹ú¼ÒÐÅÏ¢:%s(%d),%s" , 
+			Zebra::logger->info("è¯»å–å›½å®¶ä¿¡æ¯:%s(%d),%s" , 
 					(*iter).countryname.c_str() , (*iter).countryid , (*iter).mapname.c_str());
 		}
 	}
@@ -182,9 +182,9 @@ bool CountryInfo::init()
 }
 
 /**
- * \brief ÉèÖÃ¹ú¼ÒÅÅÐò
+ * \brief è®¾ç½®å›½å®¶æŽ’åº
  *
- * \param ptCmd ÅÅÐòÖ¸Áî
+ * \param ptCmd æŽ’åºæŒ‡ä»¤
  */
 void CountryInfo::setCountryOrder(Cmd::Session::CountrOrder *ptCmd)
 {
@@ -197,11 +197,11 @@ void CountryInfo::setCountryOrder(Cmd::Session::CountrOrder *ptCmd)
 	mutex.unlock(); 
 }
 /**
- * \brief µÃµ½ËùÓÐ¹ú¼ÒÃû³Æ
+ * \brief å¾—åˆ°æ‰€æœ‰å›½å®¶åç§°
  *
  *
- * \param buf:Êä³ö¹ú¼ÒÃû³ÆµÄbuf
- * \return ¶ÁÈ¡µ½µÄ¹ú¼ÒÊýÁ¿
+ * \param buf:è¾“å‡ºå›½å®¶åç§°çš„buf
+ * \return è¯»å–åˆ°çš„å›½å®¶æ•°é‡
  */
 int CountryInfo::getAll(char *buf)
 {
@@ -225,7 +225,7 @@ int CountryInfo::getAll(char *buf)
 		}
 		if(ok)
 		{
-			//Èç¹ûÕâ¸ö¹ú¼Ò¿ÉÒÔ×¢²á
+			//å¦‚æžœè¿™ä¸ªå›½å®¶å¯ä»¥æ³¨å†Œ
 			//if(!((*iter).function & 0x1))
 			//{
 				info[size].id = (*iter).countryid;
@@ -242,7 +242,7 @@ int CountryInfo::getAll(char *buf)
 		{
 			if((*iter).countryid == country_order[i])
 			{
-				//Èç¹ûÕâ¸ö¹ú¼Ò¿ÉÒÔ×¢²á
+				//å¦‚æžœè¿™ä¸ªå›½å®¶å¯ä»¥æ³¨å†Œ
 				//if(!((*iter).function & 0x1))
 				//{
 					info[size].id = (*iter).countryid;
@@ -259,33 +259,33 @@ int CountryInfo::getAll(char *buf)
 	return size;
 }
 /**
- * \brief µÃµ½¹ú¼ÒÊýÁ¿
+ * \brief å¾—åˆ°å›½å®¶æ•°é‡
  *
- * \return ¹ú¼Ò×ÜÊý
+ * \return å›½å®¶æ€»æ•°
  */
 int CountryInfo::getCountrySize()
 {
 	return country_info.size();
 }
 /**
- * \brief ¸ù¾ÝhashºóµÄmapidµÃµ½ÅäÖÃÎÄ¼þÖÐ±¾ÉíµÄmapid
+ * \brief æ ¹æ®hashåŽçš„mapidå¾—åˆ°é…ç½®æ–‡ä»¶ä¸­æœ¬èº«çš„mapid
  *
- * \param map_id: hashºóµÄmapid
- * \return ÅäÖÃÎÄ¼þÖÐµÄmapid
+ * \param map_id: hashåŽçš„mapid
+ * \return é…ç½®æ–‡ä»¶ä¸­çš„mapid
  */
 unsigned int CountryInfo::getRealMapID(unsigned int map_id)
 {
 	return map_id & 0x0000FFFF;
 }
 /**
- * \brief ¸ü¾ßhashºóµÄµØÍ¼Ãû³ÆµÃµ½ÅäÖÃÎÄ¼þÖÐµÄµØÍ¼Ãû³Æ
+ * \brief æ›´å…·hashåŽçš„åœ°å›¾åç§°å¾—åˆ°é…ç½®æ–‡ä»¶ä¸­çš„åœ°å›¾åç§°
  *
- * \param name: hashºóµÄµØÍ¼Ãû³Æ
- * \return ÅäÖÃÎÄ¼þÖÐµÄµØÍ¼Ãû³Æ
+ * \param name: hashåŽçš„åœ°å›¾åç§°
+ * \return é…ç½®æ–‡ä»¶ä¸­çš„åœ°å›¾åç§°
  */
 const char *CountryInfo::getRealMapName(const char *name)
 {
-	const char *real = strstr(name , "¡¤");
+	const char *real = strstr(name , "Â·");
 	if( real != NULL)
 	{
 		return real + 2;
@@ -296,11 +296,11 @@ const char *CountryInfo::getRealMapName(const char *name)
 	}
 }
 /**
- * \brief ¼ì²é¹ú¼ÒidÊÇ·ñºÏ·¨
+ * \brief æ£€æŸ¥å›½å®¶idæ˜¯å¦åˆæ³•
  *
  *
- * \param country_id:¹ú¼Òid
- * \return Èç¹û´æÔÚ¸Ã¹ú¼Òid·µ»Ø¹ú¼Òid,·ñÔò·µ»Ø-1
+ * \param country_id:å›½å®¶id
+ * \return å¦‚æžœå­˜åœ¨è¯¥å›½å®¶idè¿”å›žå›½å®¶id,å¦åˆ™è¿”å›ž-1
  */
 unsigned int CountryInfo::getCountryID(unsigned int country_id)
 {
@@ -312,11 +312,11 @@ unsigned int CountryInfo::getCountryID(unsigned int country_id)
 	return (DWORD)-1;
 }
 /**
- * \brief ¸ù¾Ý¹ú¼ÒidµÃµ½¹ú¼ÒÃû³Æ
+ * \brief æ ¹æ®å›½å®¶idå¾—åˆ°å›½å®¶åç§°
  *
  *
- * \param country_id:¹ú¼Òid
- * \return ÕÒµ½·µ»Ø¹ú¼ÒÃû³Æ·ñÔò·µ»Ø""
+ * \param country_id:å›½å®¶id
+ * \return æ‰¾åˆ°è¿”å›žå›½å®¶åç§°å¦åˆ™è¿”å›ž""
  */
 std::string CountryInfo::getCountryName(unsigned int country_id)
 {
@@ -328,11 +328,11 @@ std::string CountryInfo::getCountryName(unsigned int country_id)
 	return "";
 }
 /**
- * \brief ¸ü¾ß¹ú¼ÒidµÃµ½¸Ã¹ú¼Ò³öÉúµØmapµÄÃû³Æ
+ * \brief æ›´å…·å›½å®¶idå¾—åˆ°è¯¥å›½å®¶å‡ºç”Ÿåœ°mapçš„åç§°
  *
  *
- * \param country_id:¹ú¼ÒÃû³Æ
- * \return ³öÉúµØµØÍ¼Ãû³Æ
+ * \param country_id:å›½å®¶åç§°
+ * \return å‡ºç”Ÿåœ°åœ°å›¾åç§°
  */
 std::string CountryInfo::getMapName(unsigned int country_id)
 {
@@ -345,9 +345,9 @@ std::string CountryInfo::getMapName(unsigned int country_id)
 }
 
 /**
- * \brief ¸ù¾Ý¹ú¼ÒidµÃµ½¸Ã¹ú¼ÒÊÇ·ñÔÊÐíµÇÂ½
- * \param country_id:¹ú¼ÒÃû³Æ
- * \return trueÔÊÐí false²»ÔÊÐí
+ * \brief æ ¹æ®å›½å®¶idå¾—åˆ°è¯¥å›½å®¶æ˜¯å¦å…è®¸ç™»é™†
+ * \param country_id:å›½å®¶åç§°
+ * \return trueå…è®¸ falseä¸å…è®¸
  */
 bool CountryInfo::isEnableLogin(unsigned int country_id)
 {
@@ -360,9 +360,9 @@ bool CountryInfo::isEnableLogin(unsigned int country_id)
 }
 
 /**
- * \brief ¸ù¾Ý¹ú¼ÒidµÃµ½¸Ã¹ú¼ÒÊÇ·ñÔÊÐí×¢²á
- * \param country_id:¹ú¼ÒÃû³Æ
- * \return trueÔÊÐí false²»ÔÊÐí
+ * \brief æ ¹æ®å›½å®¶idå¾—åˆ°è¯¥å›½å®¶æ˜¯å¦å…è®¸æ³¨å†Œ
+ * \param country_id:å›½å®¶åç§°
+ * \return trueå…è®¸ falseä¸å…è®¸
  */
 bool CountryInfo::isEnableRegister(unsigned int country_id)
 {
@@ -375,8 +375,8 @@ bool CountryInfo::isEnableRegister(unsigned int country_id)
 }
 
 /**
- * \brief ¸ù¾Ý¹ú¼ÒID´¦Àí¶Ô¹ú¼ÒfunctionµÄ×´Ì¬±ä¸ü
- * \param country_id:¹ú¼ÒÃû³Æ
+ * \brief æ ¹æ®å›½å®¶IDå¤„ç†å¯¹å›½å®¶functionçš„çŠ¶æ€å˜æ›´
+ * \param country_id:å›½å®¶åç§°
  */
 void CountryInfo::processChange(GateUser *pUser, Cmd::Scene::t_ChangeCountryStatus *rev)
 {
@@ -431,8 +431,8 @@ void CountryInfo::processChange(GateUser *pUser, Cmd::Scene::t_ChangeCountryStat
 
 					if (pUser)
 					{
-						sprintf((char*)send.pstrChat, "¹ú¼Ò:%s ID:%u ×¢²á:%s µÇÂ¼:%s", 
-						(*iter).countryname.c_str(), (*iter).countryid, (((*iter).function&0x1)==0)?"¿ª":"¹Ø", (((*iter).function&0x2)==0)?"¿ª":"¹Ø");
+						sprintf((char*)send.pstrChat, "å›½å®¶:%s ID:%u æ³¨å†Œ:%s ç™»å½•:%s", 
+						(*iter).countryname.c_str(), (*iter).countryid, (((*iter).function&0x1)==0)?"å¼€":"å…³", (((*iter).function&0x2)==0)?"å¼€":"å…³");
 						pUser->sendCmd(&send, sizeof(send));
 					}
 				}

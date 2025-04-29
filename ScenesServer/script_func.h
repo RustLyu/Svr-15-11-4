@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: script_func.h  $
  * \author	
  * \date	
- * \brief	½Å±¾¸¨Öúº¯Êı
+ * \brief	è„šæœ¬è¾…åŠ©å‡½æ•°
  * 
  */
 
@@ -43,7 +43,7 @@ void refresh_quest(int id);
 
 
 
-/** brief Ìá¹©¶Ô½Å±¾ÖĞÈ«¾Ö±äÁ¿µÄÖ§³Ö
+/** brief æä¾›å¯¹è„šæœ¬ä¸­å…¨å±€å˜é‡çš„æ”¯æŒ
 	
 */
 class GlobalVars

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zXMLParser.cpp  $
  * \author  
  * \date 
- * \brief zXMLParserÀàÊµÏÖÎÄ¼ş
+ * \brief zXMLParserç±»å®ç°æ–‡ä»¶
  *
  * 
  */
@@ -24,7 +24,7 @@ void finalLibXML2()
 }
 
 /**
- * \brief ¹¹ÔìzXMLParser
+ * \brief æ„é€ zXMLParser
  */
 zXMLParser::zXMLParser()
 {
@@ -32,9 +32,9 @@ zXMLParser::zXMLParser()
 }
 
 /**
- * \brief zXMLParserµÄÎö¹¹º¯Êı
+ * \brief zXMLParserçš„ææ„å‡½æ•°
  *
- * »ØÊÕ·ÖÅäµÄ¿Õ¼ä£¬¹Ø±Õ´ò¿ªÎÄ¼şµÈ
+ * å›æ”¶åˆ†é…çš„ç©ºé—´ï¼Œå…³é—­æ‰“å¼€æ–‡ä»¶ç­‰
  */
 zXMLParser::~zXMLParser()
 {
@@ -42,11 +42,11 @@ zXMLParser::~zXMLParser()
 }
 
 /**
- * \brief ³õÊ¼»¯Òª½âÎöµÄxmlÎÄ¼ş
+ * \brief åˆå§‹åŒ–è¦è§£æçš„xmlæ–‡ä»¶
  *
  * 
- * \param xmlFile ÎÄ¼şÂ·¾¶£¬¾ø¶Ô»òÕßÏà¶ÔµÄ¡£
- * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse¡£ 
+ * \param xmlFile æ–‡ä»¶è·¯å¾„ï¼Œç»å¯¹æˆ–è€…ç›¸å¯¹çš„ã€‚
+ * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›falseã€‚ 
  */
 bool zXMLParser::initFile(const std::string &xmlFile)
 {
@@ -54,9 +54,9 @@ bool zXMLParser::initFile(const std::string &xmlFile)
 }
 
 /**
- * \brief ³õÊ¼»¯Òª½âÎöµÄxmlÎÄ¼ş
- * \param xmlFile ÎÄ¼şÂ·¾¶£¬¾ø¶Ô»òÕßÏà¶ÔµÄ¡£
- * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse¡£ 
+ * \brief åˆå§‹åŒ–è¦è§£æçš„xmlæ–‡ä»¶
+ * \param xmlFile æ–‡ä»¶è·¯å¾„ï¼Œç»å¯¹æˆ–è€…ç›¸å¯¹çš„ã€‚
+ * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›falseã€‚ 
  */
 bool zXMLParser::initFile(const char *xmlFile)
 {
@@ -67,11 +67,11 @@ bool zXMLParser::initFile(const char *xmlFile)
 }
 
 /**
- * \brief ³õÊ¼»¯Òª½âÎöµÄXML×Ö·û´®
+ * \brief åˆå§‹åŒ–è¦è§£æçš„XMLå­—ç¬¦ä¸²
  *
  *
- * \param xmlStr ±»³õÊ¼»¯µÄxml×Ö·û´®¡£
- * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse¡£
+ * \param xmlStr è¢«åˆå§‹åŒ–çš„xmlå­—ç¬¦ä¸²ã€‚
+ * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›falseã€‚
  */
 bool zXMLParser::initStr(const std::string &xmlStr)
 {
@@ -79,11 +79,11 @@ bool zXMLParser::initStr(const std::string &xmlStr)
 }
 
 /**
- * \brief ³õÊ¼»¯Òª½âÎöµÄXML×Ö·û´®
+ * \brief åˆå§‹åŒ–è¦è§£æçš„XMLå­—ç¬¦ä¸²
  *
  *
- * \param xmlStr ±»³õÊ¼»¯µÄxml×Ö·û´®¡£
- * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse¡£
+ * \param xmlStr è¢«åˆå§‹åŒ–çš„xmlå­—ç¬¦ä¸²ã€‚
+ * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›falseã€‚
  */
 bool zXMLParser::initStr(const char *xmlStr)
 {
@@ -94,8 +94,8 @@ bool zXMLParser::initStr(const char *xmlStr)
 }
 
 /**
- * \brief ³õÊ¼»¯XML
- * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse¡£
+ * \brief åˆå§‹åŒ–XML
+ * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›falseã€‚
  */
 bool zXMLParser::init()
 {
@@ -105,7 +105,7 @@ bool zXMLParser::init()
 }
 
 /**
- * \brief ÊÍ·Å±»½âÎöµÄxmlÎÄµµ 
+ * \brief é‡Šæ”¾è¢«è§£æçš„xmlæ–‡æ¡£ 
  *
  *
  */
@@ -119,10 +119,10 @@ void zXMLParser::final()
 }
 
 /**
- * \brief dump³öXMLÎÄµµ
- * \param s ÎÄµµ´æ·ÅÎ»ÖÃ
- * \param format Êä³öÊ±ºòÊÇ·ñ¸ñÊ½»¯ÎÄµµ
- * \return ·µ»Øs
+ * \brief dumpå‡ºXMLæ–‡æ¡£
+ * \param s æ–‡æ¡£å­˜æ”¾ä½ç½®
+ * \param format è¾“å‡ºæ—¶å€™æ˜¯å¦æ ¼å¼åŒ–æ–‡æ¡£
+ * \return è¿”å›s
  */
 std::string & zXMLParser::dump(std::string & s, bool format)
 {
@@ -142,11 +142,11 @@ std::string & zXMLParser::dump(std::string & s, bool format)
 }
 
 /**
- * \brief dump³öÄ³¸ö½Úµã
- * \param dumpNode Òª±»DumpµÄ½Úµã
- * \param s ÎÄµµ´æ·ÅÎ»ÖÃ
- * \param head ÊÇ·ñÌí¼ÓxmlÎÄ¼şÍ·.Ä¬ÈÏtrue
- * \return ·µ»Øs
+ * \brief dumpå‡ºæŸä¸ªèŠ‚ç‚¹
+ * \param dumpNode è¦è¢«Dumpçš„èŠ‚ç‚¹
+ * \param s æ–‡æ¡£å­˜æ”¾ä½ç½®
+ * \param head æ˜¯å¦æ·»åŠ xmlæ–‡ä»¶å¤´.é»˜è®¤true
+ * \return è¿”å›s
  */
 std::string & zXMLParser::dump(xmlNodePtr dumpNode,std::string & s ,bool head)
 {
@@ -174,17 +174,17 @@ std::string & zXMLParser::dump(xmlNodePtr dumpNode,std::string & s ,bool head)
 }
 
 /**
- * \brief µÃµ½xmlÎÄµµµÄ¸ù½Úµã
- * \param rootName ¸ù½ÚµãµÄÃû×Ö¡£
- * \return ·µ»Ø¸ù½ÚµãÖ¸Õë,·µ»ØNULLÊ§°Ü¡£
+ * \brief å¾—åˆ°xmlæ–‡æ¡£çš„æ ¹èŠ‚ç‚¹
+ * \param rootName æ ¹èŠ‚ç‚¹çš„åå­—ã€‚
+ * \return è¿”å›æ ¹èŠ‚ç‚¹æŒ‡é’ˆ,è¿”å›NULLå¤±è´¥ã€‚
  */
 xmlNodePtr zXMLParser::getRootNode(const char *rootName)
 {
 	if(doc == NULL) return NULL;
 
-	//µÃµ½¸ù½Úµã
+	//å¾—åˆ°æ ¹èŠ‚ç‚¹
 	xmlNodePtr cur = xmlDocGetRootElement(doc);
-	//×¼±¸ÆğÊ¼½Úµã
+	//å‡†å¤‡èµ·å§‹èŠ‚ç‚¹
 	if(rootName!=NULL)
 		while (cur != NULL && xmlStrcmp(cur->name, (const xmlChar *) rootName))
 			cur = cur->next;
@@ -192,12 +192,12 @@ xmlNodePtr zXMLParser::getRootNode(const char *rootName)
 }
 
 /**
- * \brief µÃµ½Ä³¸ö½ÚµãµÄ×Ó½Úµã
+ * \brief å¾—åˆ°æŸä¸ªèŠ‚ç‚¹çš„å­èŠ‚ç‚¹
  *
  *
- * \param parent ¸¸½Úµã
- * \param childName ×Ó½ÚµãµÄÃû³Æ£¬Èç¹ûÎªNULL£¬½«»áµÃµ½µÚÒ»¸ö×Ó½Úµã¡£
- * \return ×Ó½ÚµãÖ¸Õë£¬·µ»ØNULLÊ§°Ü»òÕßÃ»ÓĞÏàÓ¦µÄ½Úµã¡£
+ * \param parent çˆ¶èŠ‚ç‚¹
+ * \param childName å­èŠ‚ç‚¹çš„åç§°ï¼Œå¦‚æœä¸ºNULLï¼Œå°†ä¼šå¾—åˆ°ç¬¬ä¸€ä¸ªå­èŠ‚ç‚¹ã€‚
+ * \return å­èŠ‚ç‚¹æŒ‡é’ˆï¼Œè¿”å›NULLå¤±è´¥æˆ–è€…æ²¡æœ‰ç›¸åº”çš„èŠ‚ç‚¹ã€‚
  */
 xmlNodePtr zXMLParser::getChildNode(const xmlNodePtr parent, const char *childName)
 {
@@ -220,12 +220,12 @@ xmlNodePtr zXMLParser::getChildNode(const xmlNodePtr parent, const char *childNa
 }
 
 /**
- * \brief µÃµ½ÏÂÒ»¸ö½Úµã
+ * \brief å¾—åˆ°ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
  *
  *
- * \param node µ±Ç°½Úµã
- * \param nextName ÏÂÒ»¸ö½ÚµãµÄÃû×Ö£¬Èç¹ûÎªNULL£¬½«»áµÃµ½ÏàÁÚµÄÏÂÒ»¸ö½Úµã¡£
- * \return ÏÂÒ»¸ö½ÚµãÖ¸Õë£¬·µ»ØNULLÊ§°Ü»òÕßÃ»ÓĞÏàÓ¦µÄ½Úµã¡£
+ * \param node å½“å‰èŠ‚ç‚¹
+ * \param nextName ä¸‹ä¸€ä¸ªèŠ‚ç‚¹çš„åå­—ï¼Œå¦‚æœä¸ºNULLï¼Œå°†ä¼šå¾—åˆ°ç›¸é‚»çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹ã€‚
+ * \return ä¸‹ä¸€ä¸ªèŠ‚ç‚¹æŒ‡é’ˆï¼Œè¿”å›NULLå¤±è´¥æˆ–è€…æ²¡æœ‰ç›¸åº”çš„èŠ‚ç‚¹ã€‚
  */
 xmlNodePtr zXMLParser::getNextNode(const xmlNodePtr node,const char *nextName)
 {
@@ -247,12 +247,12 @@ xmlNodePtr zXMLParser::getNextNode(const xmlNodePtr node,const char *nextName)
 }
 
 /**
- * \brief Í³¼Æ×Ó½ÚµãµÄÊıÁ¿
+ * \brief ç»Ÿè®¡å­èŠ‚ç‚¹çš„æ•°é‡
  *
  *
- * \param parent ±»Í³¼ÆµÄ¸¸½Úµã
- * \param childName ±»Í³¼Æ×Ó½ÚµãµÄÃû×Ö£¬Èç¹ûÎªNULL£¬Í³¼ÆËùÓĞ×Ó½ÚµãµÄÊıÁ¿
- * \return ×Ó½ÚµãµÄÊıÁ¿
+ * \param parent è¢«ç»Ÿè®¡çš„çˆ¶èŠ‚ç‚¹
+ * \param childName è¢«ç»Ÿè®¡å­èŠ‚ç‚¹çš„åå­—ï¼Œå¦‚æœä¸ºNULLï¼Œç»Ÿè®¡æ‰€æœ‰å­èŠ‚ç‚¹çš„æ•°é‡
+ * \return å­èŠ‚ç‚¹çš„æ•°é‡
  */
 unsigned int zXMLParser::getChildNodeNum(const xmlNodePtr parent, const char *childName)
 {
@@ -275,9 +275,9 @@ unsigned int zXMLParser::getChildNodeNum(const xmlNodePtr parent, const char *ch
 }
 
 /**
- * \brief ÎªxmlÎÄµµÌí¼ÓÒ»¸ö¸ù½Úµã
- * \param rootName ¸ù½ÚµãÃû³Æ
- * \return Ìí¼Ó½ÚµãÒÔºó£¬·µ»Ø½ÚµãÖ¸Õë
+ * \brief ä¸ºxmlæ–‡æ¡£æ·»åŠ ä¸€ä¸ªæ ¹èŠ‚ç‚¹
+ * \param rootName æ ¹èŠ‚ç‚¹åç§°
+ * \return æ·»åŠ èŠ‚ç‚¹ä»¥åï¼Œè¿”å›èŠ‚ç‚¹æŒ‡é’ˆ
  */
 xmlNodePtr zXMLParser::newRootNode(const char *rootName)
 {
@@ -290,11 +290,11 @@ xmlNodePtr zXMLParser::newRootNode(const char *rootName)
 }
 
 /**
- * \brief ÔÚÒ»¸ö½ÚµãÏÂÃæÌí¼Ó×Ó½Úµã
- * \param parent ¸¸½Úµã
- * \param childName ×Ó½ÚµãÃû³Æ
- * \param content ×Ó½ÚµãÄÚÈİ
- * \return ·µ»ØÌí¼Ó½ÚµãµÄÖ¸Õë
+ * \brief åœ¨ä¸€ä¸ªèŠ‚ç‚¹ä¸‹é¢æ·»åŠ å­èŠ‚ç‚¹
+ * \param parent çˆ¶èŠ‚ç‚¹
+ * \param childName å­èŠ‚ç‚¹åç§°
+ * \param content å­èŠ‚ç‚¹å†…å®¹
+ * \return è¿”å›æ·»åŠ èŠ‚ç‚¹çš„æŒ‡é’ˆ
  */
 xmlNodePtr zXMLParser::newChildNode(const xmlNodePtr parent, const char *childName, const char *content)
 {
@@ -313,14 +313,14 @@ bool zXMLParser::newNodeProp(const xmlNodePtr node,const char *propName,const ch
 }
 
 /**
- * \brief µÃµ½½ÚµãÊôĞÔ£¬²¢×ª»¯³ÉÊı×Ö
+ * \brief å¾—åˆ°èŠ‚ç‚¹å±æ€§ï¼Œå¹¶è½¬åŒ–æˆæ•°å­—
  *
  *
- * \param node ¶ÔÏó½Úµã
- * \param propName ÒªµÃµ½µÄÊôĞÔÃû³Æ
- * \param prop ·µ»Ø½á¹ûµÄ´æ´¢Î»ÖÃÖ¸Õë
- * \param propSize propµÄ¿Õ¼ä´óĞ¡
- * \return  ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param node å¯¹è±¡èŠ‚ç‚¹
+ * \param propName è¦å¾—åˆ°çš„å±æ€§åç§°
+ * \param prop è¿”å›ç»“æœçš„å­˜å‚¨ä½ç½®æŒ‡é’ˆ
+ * \param propSize propçš„ç©ºé—´å¤§å°
+ * \return  æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool zXMLParser::getNodePropNum(const xmlNodePtr node,const char *propName,void *prop, const int propSize)
 {
@@ -351,14 +351,14 @@ bool zXMLParser::getNodePropNum(const xmlNodePtr node,const char *propName,void 
 }
 
 /**
- * \brief µÃµ½½ÚµãÊôĞÔ
+ * \brief å¾—åˆ°èŠ‚ç‚¹å±æ€§
  *
  *
- * \param node ¶ÔÏó½Úµã
- * \param propName ÒªµÃµ½µÄÊôĞÔÃû³Æ
- * \param prop ·µ»Ø½á¹ûµÄ´æ´¢Î»ÖÃÖ¸Õë
- * \param propSize propµÄ¿Õ¼ä´óĞ¡
- * \return  ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param node å¯¹è±¡èŠ‚ç‚¹
+ * \param propName è¦å¾—åˆ°çš„å±æ€§åç§°
+ * \param prop è¿”å›ç»“æœçš„å­˜å‚¨ä½ç½®æŒ‡é’ˆ
+ * \param propSize propçš„ç©ºé—´å¤§å°
+ * \return  æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool zXMLParser::getNodePropStr(const xmlNodePtr node,const char *propName,void *prop,int propSize)
 {
@@ -379,13 +379,13 @@ bool zXMLParser::getNodePropStr(const xmlNodePtr node,const char *propName,void 
 }
 
 /**
- * \brief µÃµ½½ÚµãÊôĞÔ
+ * \brief å¾—åˆ°èŠ‚ç‚¹å±æ€§
  *
  *
- * \param node ¶ÔÏó½Úµã
- * \param propName ÒªµÃµ½µÄÊôĞÔÃû³Æ
- * \param prop ·µ»Ø½á¹ûµÄ´æ´¢Î»ÖÃ
- * \return  ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param node å¯¹è±¡èŠ‚ç‚¹
+ * \param propName è¦å¾—åˆ°çš„å±æ€§åç§°
+ * \param prop è¿”å›ç»“æœçš„å­˜å‚¨ä½ç½®
+ * \return  æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool zXMLParser::getNodePropStr(const xmlNodePtr node,const char *propName,std::string &prop)
 {
@@ -405,13 +405,13 @@ bool zXMLParser::getNodePropStr(const xmlNodePtr node,const char *propName,std::
 }
 
 /**
- * \brief µÃµ½½ÚµãÄÚÈİ£¬²¢×ª»¯³ÉÊı×Ö
+ * \brief å¾—åˆ°èŠ‚ç‚¹å†…å®¹ï¼Œå¹¶è½¬åŒ–æˆæ•°å­—
  *
  *
- * \param node ¶ÔÏó½Úµã
- * \param content ·µ»Ø½á¹ûµÄ´æ´¢Î»ÖÃÖ¸Õë
- * \param contentSize contentµÄ¿Õ¼ä´óĞ¡
- * \return  ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param node å¯¹è±¡èŠ‚ç‚¹
+ * \param content è¿”å›ç»“æœçš„å­˜å‚¨ä½ç½®æŒ‡é’ˆ
+ * \param contentSize contentçš„ç©ºé—´å¤§å°
+ * \return  æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool zXMLParser::getNodeContentNum(const xmlNodePtr node,void *content, int contentSize)
 {
@@ -450,13 +450,13 @@ bool zXMLParser::getNodeContentNum(const xmlNodePtr node,void *content, int cont
 }
 
 /**
- * \brief µÃµ½½ÚµãÄÚÈİ
+ * \brief å¾—åˆ°èŠ‚ç‚¹å†…å®¹
  *
  *
- * \param node ¶ÔÏó½Úµã
- * \param content ·µ»Ø½á¹ûµÄ´æ´¢Î»ÖÃÖ¸Õë
- * \param contentSize contentµÄ¿Õ¼ä´óĞ¡
- * \return  ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param node å¯¹è±¡èŠ‚ç‚¹
+ * \param content è¿”å›ç»“æœçš„å­˜å‚¨ä½ç½®æŒ‡é’ˆ
+ * \param contentSize contentçš„ç©ºé—´å¤§å°
+ * \return  æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool zXMLParser::getNodeContentStr(const xmlNodePtr node,void *content, const int contentSize)
 {
@@ -485,12 +485,12 @@ bool zXMLParser::getNodeContentStr(const xmlNodePtr node,void *content, const in
 }
 
 /**
- * \brief µÃµ½½ÚµãÄÚÈİ
+ * \brief å¾—åˆ°èŠ‚ç‚¹å†…å®¹
  *
  *
- * \param node ¶ÔÏó½Úµã
- * \param content ·µ»Ø½á¹ûµÄ´æ´¢Î»ÖÃ
- * \return  ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param node å¯¹è±¡èŠ‚ç‚¹
+ * \param content è¿”å›ç»“æœçš„å­˜å‚¨ä½ç½®
+ * \return  æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool zXMLParser::getNodeContentStr(const xmlNodePtr node,std::string &content)
 {
@@ -565,8 +565,8 @@ bool zXMLParser::getNodeContentStr(const xmlNodePtr node,std::string &content,bo
         #endif
 }
 
-//×¼±¸ÊäÈëxml×Ö·û´®
-//·µ»ØÄÚ´æÖ¸Õë±ØĞëÊÖ¹¤ÊÍ·Å
+//å‡†å¤‡è¾“å…¥xmlå­—ç¬¦ä¸²
+//è¿”å›å†…å­˜æŒ‡é’ˆå¿…é¡»æ‰‹å·¥é‡Šæ”¾
 unsigned char* zXMLParser::charConv(unsigned char *in, const char *fromEncoding,const char * toEncoding)
 {
 	unsigned char *out;

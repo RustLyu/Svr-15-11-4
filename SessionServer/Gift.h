@@ -1,4 +1,4 @@
-#ifndef _GIFT_H_
+﻿#ifndef _GIFT_H_
 #define _GIFT_H_
 
 #include "zType.h"

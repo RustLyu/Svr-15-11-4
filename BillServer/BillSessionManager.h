@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillSessionManager.h  $
  * \author  
  * \date 
- * \brief ÈİÆ÷£¬ÓÃÓÚ±£´æ½ğ±Ò¶Ò»»µÄÏûÏ¢
+ * \brief å®¹å™¨ï¼Œç”¨äºä¿å­˜é‡‘å¸å…‘æ¢çš„æ¶ˆæ¯
  *
  * 
  */
@@ -25,21 +25,21 @@
 class BillTask;
 
 /**
- * \brief ½ÇÉ«µµ°¸¶ÁÈ¡Ğ´ÈëµÄ»á»°¼ÇÂ¼
+ * \brief è§’è‰²æ¡£æ¡ˆè¯»å–å†™å…¥çš„ä¼šè¯è®°å½•
  *
  */
 struct BillSession
 {
-	DWORD  accid;			/// ÕÊºÅ±àºÅ
-	DWORD  charid;			/// ½ÇÉ«±àºÅ
-	char   tid[Cmd::UserServer::SEQ_MAX_LENGTH+1];                     /// ½»Ò×Á÷Ë®ºÅ
-	char   account[Cmd::UserServer::ID_MAX_LENGTH+1];     /// ÕÊºÅ(ĞèÒª·¢ËÍ¸ø¼Ç·Ñ·şÎñÆ÷)
-	char   name[MAX_NAMESIZE+1];     /// ½ÇÉ«Ãû³Æ
-	DWORD point;                    /// ¿Û·ÑµãÊı
+	DWORD  accid;			/// å¸å·ç¼–å·
+	DWORD  charid;			/// è§’è‰²ç¼–å·
+	char   tid[Cmd::UserServer::SEQ_MAX_LENGTH+1];                     /// äº¤æ˜“æµæ°´å·
+	char   account[Cmd::UserServer::ID_MAX_LENGTH+1];     /// å¸å·(éœ€è¦å‘é€ç»™è®°è´¹æœåŠ¡å™¨)
+	char   name[MAX_NAMESIZE+1];     /// è§’è‰²åç§°
+	DWORD point;                    /// æ‰£è´¹ç‚¹æ•°
 
 
 	/**
-	 * \brief È±Ê¡¹¹Ôìº¯Êı
+	 * \brief ç¼ºçœæ„é€ å‡½æ•°
 	 *
 	 */
 	/*
@@ -73,7 +73,7 @@ class BillSessionManager
 	public:
 
 		/**
-		 * \brief Ä¬ÈÏÎö¹¹º¯Êı
+		 * \brief é»˜è®¤ææ„å‡½æ•°
 		 *
 		 */
 		~BillSessionManager()
@@ -82,9 +82,9 @@ class BillSessionManager
 		}
 
 		/**
-		 * \brief ·µ»ØÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è¿”å›ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * ÊµÏÖÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * å®ç°äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 *
 		 */
 		static BillSessionManager &getInstance()
@@ -96,7 +96,7 @@ class BillSessionManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -114,41 +114,41 @@ class BillSessionManager
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static BillSessionManager *instance;
 
 		/**
-		 * \brief Ä¬ÈÏ¹¹Ôìº¯Êı
+		 * \brief é»˜è®¤æ„é€ å‡½æ•°
 		 *
 		 */
 		BillSessionManager() {};
 
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef std::map<std::string, BillSession> BillSessionHashmap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef BillSessionHashmap::iterator BillSessionHashmap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef BillSessionHashmap::value_type BillSessionHashmap_pair;
 		
 		/**
-		 * \brief ´æ´¢ÔÚÏßÕÊºÅÁĞ±íĞÅÏ¢µÄÈİÆ÷
+		 * \brief å­˜å‚¨åœ¨çº¿å¸å·åˆ—è¡¨ä¿¡æ¯çš„å®¹å™¨
 		 *
 		 */
 		BillSessionHashmap sessionMap;
 		
 		/**
-		 * \brief »¥³â±äÁ¿
+		 * \brief äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;

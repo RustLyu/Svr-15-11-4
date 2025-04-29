@@ -1,4 +1,4 @@
-#ifndef _MINI_ROOM_H_
+﻿#ifndef _MINI_ROOM_H_
 #define _MINI_ROOM_H_
 
 #include "MiniUserCommand.h"
@@ -39,7 +39,7 @@ class MiniRoom
 		DWORD oneGameUserNum;
 		__gnu_cxx::hash_map<DWORD, MiniGame *> gameList;//id-game
 
-		std::set<MiniUser *> userList;// ���-״̬
+		std::set<MiniUser *> userList;// 玩家-状态
 
 		typedef __gnu_cxx::hash_map<DWORD, MiniGame *>::iterator game_iter;
 		typedef std::set<MiniUser *, Cmd::MiniUserState>::iterator user_iter;

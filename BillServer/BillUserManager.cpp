@@ -1,4 +1,4 @@
-#include "BillUserManager.h"
+ï»¿#include "BillUserManager.h"
 
 
 
@@ -39,12 +39,12 @@ void BillUserManager::update()
 		}
 		bool exec(BillUser *pUser)
 		{
-			//µÇÂ½³¬Ê±£¬É¾³ı
+			//ç™»é™†è¶…æ—¶ï¼Œåˆ é™¤
 			switch(pUser->loginTimeOut(current))
 			{
 				case BillUser::WAIT_LOGIN_TIMEOUT:
 					{
-						Zebra::logger->debug("µÇÂ½ĞÅÏ¢³¬Ê±£º%u, %u", pUser->id, pUser->tempid);
+						Zebra::logger->debug("ç™»é™†ä¿¡æ¯è¶…æ—¶ï¼š%u, %u", pUser->id, pUser->tempid);
 						_del_vec.push_back(pUser->id);
 					}
 					break;
@@ -87,7 +87,7 @@ void BillUserManager::removeUserByGatewayID(BillTask *task)
 		{
 			if(_gatewaytask == pUser->gatewaytask)
 			{
-				Zebra::logger->debug("Íø¹Ø¹Ø±Õ£¬Çå³ıµÇÂ½Êı¾İ£º%u, %u", pUser->id, pUser->tempid);
+				Zebra::logger->debug("ç½‘å…³å…³é—­ï¼Œæ¸…é™¤ç™»é™†æ•°æ®ï¼š%u, %u", pUser->id, pUser->tempid);
 				_del_vec.push_back(pUser->id);
 			}
 			return true;

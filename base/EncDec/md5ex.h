@@ -1,4 +1,4 @@
-#ifndef _MD5EX_H
+﻿#ifndef _MD5EX_H
 #define _MD5EX_H
 
 class Stream;

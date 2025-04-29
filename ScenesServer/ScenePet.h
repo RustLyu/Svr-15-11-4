@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ScenePet.h  $
  * \author 
- * \date 2005Äê07ÔÂ22ÈÕ 17Ê±45·Ö50Ãë CST
- * \brief ³èÎïÀà¶¨Òå
+ * \date 2005å¹´07æœˆ22æ—¥ 17æ—¶45åˆ†50ç§’ CST
+ * \brief å® ç‰©ç±»å®šä¹‰
  *
  * 
  */
@@ -52,22 +52,22 @@ class ScenePet : public SceneNpc
 		   static std::map<DWORD,petBonus> bonusTable;
 	*/
 
-	///Ö÷ÈË
+	///ä¸»äºº
 	//SceneEntryPk * master;
 	DWORD masterID;
 	DWORD masterType;
 
 	DWORD delCount;
 
-	///³èÎïÀàĞÍ
+	///å® ç‰©ç±»å‹
 	Cmd::petType type;
-	///³èÎïµÄĞĞ¶¯Ä£Ê½
+	///å® ç‰©çš„è¡ŒåŠ¨æ¨¡å¼
 	//WORD petAI;
 
-	///µÈ¼¶
+	///ç­‰çº§
 	//DWORD level;
 
-	///ÊÇ·ñÒòÎªÀëÖ÷ÈËÌ«Ô¶¶øÌáÉıÁËËÙ¶È
+	///æ˜¯å¦å› ä¸ºç¦»ä¸»äººå¤ªè¿œè€Œæå‡äº†é€Ÿåº¦
 	bool speedUpOffMaster;
 	int isUserMasterEnemy(SceneEntryPk *);
 public:
@@ -112,7 +112,7 @@ public:
 	bool isPkZone(SceneEntryPk *other=NULL);
 	bool recover();
 
-	//¸øGuardNpc¼Ì³ĞÓÃ
+	//ç»™GuardNpcç»§æ‰¿ç”¨
 	virtual void reset(){}
 	virtual void check(){};
 	virtual void on_death(SceneEntryPk* att){}

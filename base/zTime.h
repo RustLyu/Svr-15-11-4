@@ -1,9 +1,9 @@
-/**
+Ôªø/**
  * \file
  * \version  $Id: zTime.h 5751 z $
  * \author  
  * \date 
- * \brief  ±º‰∂®“Â
+ * \brief Êó∂Èó¥ÂÆö‰πâ
  *
  * 
  */
@@ -20,9 +20,9 @@
 #include "zMisc.h"
 
 /**
- * \brief ’Ê µ ±º‰¿‡,∂‘timevalΩ·ππºÚµ•∑‚◊∞,Ã·π©“ª–©≥£”√ ±º‰∫Ø ˝
- *  ±º‰æ´∂»æ´»∑µΩ∫¡√Î£¨
- * πÿ”⁄timeval«Îman gettimeofday
+ * \brief ÁúüÂÆûÊó∂Èó¥Á±ª,ÂØπtimevalÁªìÊûÑÁÆÄÂçïÂ∞ÅË£Ö,Êèê‰æõ‰∏Ä‰∫õÂ∏∏Áî®Êó∂Èó¥ÂáΩÊï∞
+ * Êó∂Èó¥Á≤æÂ∫¶Á≤æÁ°ÆÂà∞ÊØ´ÁßíÔºå
+ * ÂÖ≥‰∫étimevalËØ∑man gettimeofday
  */
 class zRTime
 {
@@ -30,15 +30,15 @@ class zRTime
 	private:
 
 		/**
-		 * \brief ’Ê µ ±º‰ªªÀ„Œ™∫¡√Î
+		 * \brief ÁúüÂÆûÊó∂Èó¥Êç¢ÁÆó‰∏∫ÊØ´Áßí
 		 *
 		 */
 		unsigned long long _msecs;
 
 		/**
-		 * \brief µ√µΩµ±«∞’Ê µ ±º‰
+		 * \brief ÂæóÂà∞ÂΩìÂâçÁúüÂÆûÊó∂Èó¥
 		 *
-		 * \return ’Ê µ ±º‰£¨µ•Œª∫¡√Î
+		 * \return ÁúüÂÆûÊó∂Èó¥ÔºåÂçï‰ΩçÊØ´Áßí
 		 */
 		unsigned long long _now()
 		{
@@ -52,8 +52,8 @@ class zRTime
 		}
 
 		/**
-		 * \brief µ√µΩµ±«∞’Ê µ ±º‰—”≥Ÿ∫Ûµƒ ±º‰
-		 * \param delay —”≥Ÿ£¨ø…“‘Œ™∏∫ ˝£¨µ•Œª∫¡√Î
+		 * \brief ÂæóÂà∞ÂΩìÂâçÁúüÂÆûÊó∂Èó¥Âª∂ËøüÂêéÁöÑÊó∂Èó¥
+		 * \param delay Âª∂ËøüÔºåÂèØ‰ª•‰∏∫Ë¥üÊï∞ÔºåÂçï‰ΩçÊØ´Áßí
 		 */
 		void nowByDelay(int delay)
 		{
@@ -64,9 +64,9 @@ class zRTime
 	public:
 
 		/**
-		 * \brief ππ‘Ï∫Ø ˝
+		 * \brief ÊûÑÈÄ†ÂáΩÊï∞
 		 *
-		 * \param delay œ‡∂‘”⁄œ÷‘⁄ ±º‰µƒ—” ±£¨µ•Œª∫¡√Î
+		 * \param delay Áõ∏ÂØπ‰∫éÁé∞Âú®Êó∂Èó¥ÁöÑÂª∂Êó∂ÔºåÂçï‰ΩçÊØ´Áßí
 		 */
 		zRTime(const int delay = 0)
 		{
@@ -74,9 +74,9 @@ class zRTime
 		}
 
 		/**
-		 * \brief øΩ±¥ππ‘Ï∫Ø ˝
+		 * \brief Êã∑Ë¥ùÊûÑÈÄ†ÂáΩÊï∞
 		 *
-		 * \param rt øΩ±¥µƒ“˝”√
+		 * \param rt Êã∑Ë¥ùÁöÑÂºïÁî®
 		 */
 		zRTime(const zRTime &rt)
 		{
@@ -84,7 +84,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ªÒ»°µ±«∞ ±º‰
+		 * \brief Ëé∑ÂèñÂΩìÂâçÊó∂Èó¥
 		 *
 		 */
 		void now()
@@ -93,9 +93,9 @@ class zRTime
 		}
 
 		/**
-		 * \brief ∑µªÿ√Î ˝
+		 * \brief ËøîÂõûÁßíÊï∞
 		 *
-		 * \return √Î ˝
+		 * \return ÁßíÊï∞
 		 */
 		unsigned long sec() const
 		{
@@ -103,9 +103,9 @@ class zRTime
 		}
 
 		/**
-		 * \brief ∑µªÿ∫¡√Î ˝
+		 * \brief ËøîÂõûÊØ´ÁßíÊï∞
 		 *
-		 * \return ∫¡√Î ˝
+		 * \return ÊØ´ÁßíÊï∞
 		 */
 		unsigned long msec() const
 		{
@@ -113,9 +113,9 @@ class zRTime
 		}
 
 		/**
-		 * \brief ∑µªÿ◊‹π≤µƒ∫¡√Î ˝
+		 * \brief ËøîÂõûÊÄªÂÖ±ÁöÑÊØ´ÁßíÊï∞
 		 *
-		 * \return ◊‹π≤µƒ∫¡√Î ˝
+		 * \return ÊÄªÂÖ±ÁöÑÊØ´ÁßíÊï∞
 		 */
 		unsigned long long msecs() const
 		{
@@ -123,9 +123,9 @@ class zRTime
 		}
 
 		/**
-		 * \brief ∑µªÿ◊‹π≤µƒ∫¡√Î ˝
+		 * \brief ËøîÂõûÊÄªÂÖ±ÁöÑÊØ´ÁßíÊï∞
 		 *
-		 * \return ◊‹π≤µƒ∫¡√Î ˝
+		 * \return ÊÄªÂÖ±ÁöÑÊØ´ÁßíÊï∞
 		 */
 		void setmsecs(unsigned long long data)
 		{
@@ -133,9 +133,9 @@ class zRTime
 		}
 
 		/**
-		 * \brief º”—”≥Ÿ∆´“∆¡ø
+		 * \brief Âä†Âª∂ËøüÂÅèÁßªÈáè
 		 *
-		 * \param delay —”≥Ÿ£¨ø…“‘Œ™∏∫ ˝£¨µ•Œª∫¡√Î
+		 * \param delay Âª∂ËøüÔºåÂèØ‰ª•‰∏∫Ë¥üÊï∞ÔºåÂçï‰ΩçÊØ´Áßí
 		 */
 		void addDelay(int delay)
 		{
@@ -143,10 +143,10 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿ‘ÿ=‘ÀÀ„∑˚∫≈
+		 * \brief ÈáçËΩΩ=ËøêÁÆóÁ¨¶Âè∑
 		 *
-		 * \param rt øΩ±¥µƒ“˝”√
-		 * \return ◊‘…Ì“˝”√
+		 * \param rt Êã∑Ë¥ùÁöÑÂºïÁî®
+		 * \return Ëá™Ë∫´ÂºïÁî®
 		 */
 		zRTime & operator= (const zRTime &rt)
 		{
@@ -155,7 +155,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿππ+≤Ÿ◊˜∑˚
+		 * \brief ÈáçÊûÑ+Êìç‰ΩúÁ¨¶
 		 *
 		 */
 		const zRTime & operator+ (const zRTime &rt)
@@ -165,7 +165,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿππ-≤Ÿ◊˜∑˚
+		 * \brief ÈáçÊûÑ-Êìç‰ΩúÁ¨¶
 		 *
 		 */
 		const zRTime & operator- (const zRTime &rt)
@@ -175,7 +175,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿππ>≤Ÿ◊˜∑˚£¨±»ΩœzRTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ>Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzRTimeÁªìÊûÑÂ§ßÂ∞è
 		 *
 		 */
 		bool operator > (const zRTime &rt) const
@@ -184,7 +184,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿππ>=≤Ÿ◊˜∑˚£¨±»ΩœzRTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ>=Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzRTimeÁªìÊûÑÂ§ßÂ∞è
 		 *
 		 */
 		bool operator >= (const zRTime &rt) const
@@ -193,7 +193,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿππ<≤Ÿ◊˜∑˚£¨±»ΩœzRTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ<Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzRTimeÁªìÊûÑÂ§ßÂ∞è
 		 *
 		 */
 		bool operator < (const zRTime &rt) const
@@ -202,7 +202,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿππ<=≤Ÿ◊˜∑˚£¨±»ΩœzRTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ<=Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzRTimeÁªìÊûÑÂ§ßÂ∞è
 		 *
 		 */
 		bool operator <= (const zRTime &rt) const
@@ -211,7 +211,7 @@ class zRTime
 		}
 
 		/**
-		 * \brief ÷ÿππ==≤Ÿ◊˜∑˚£¨±»ΩœzRTimeΩ·ππ «∑Òœ‡µ»
+		 * \brief ÈáçÊûÑ==Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzRTimeÁªìÊûÑÊòØÂê¶Áõ∏Á≠â
 		 *
 		 */
 		bool operator == (const zRTime &rt) const
@@ -220,9 +220,9 @@ class zRTime
 		}
 
 		/**
-		 * \brief º∆ ±∆˜œ˚ ≈µƒ ±º‰£¨µ•Œª∫¡√Î
-		 * \param rt µ±«∞ ±º‰
-		 * \return º∆ ±∆˜œ˚ ≈µƒ ±º‰£¨µ•Œª∫¡√Î
+		 * \brief ËÆ°Êó∂Âô®Ê∂àÈÄùÁöÑÊó∂Èó¥ÔºåÂçï‰ΩçÊØ´Áßí
+		 * \param rt ÂΩìÂâçÊó∂Èó¥
+		 * \return ËÆ°Êó∂Âô®Ê∂àÈÄùÁöÑÊó∂Èó¥ÔºåÂçï‰ΩçÊØ´Áßí
 		 */
 		unsigned long long elapse(const zRTime &rt) const
 		{
@@ -242,7 +242,7 @@ class zRTime
 };
 
 /**
- * \brief  ±º‰¿‡,∂‘struct tmΩ·ππºÚµ•∑‚◊∞
+ * \brief Êó∂Èó¥Á±ª,ÂØπstruct tmÁªìÊûÑÁÆÄÂçïÂ∞ÅË£Ö
  */
 
 class zTime
@@ -251,7 +251,7 @@ class zTime
 	public:
 
 		/**
-		 * \brief ππ‘Ï∫Ø ˝
+		 * \brief ÊûÑÈÄ†ÂáΩÊï∞
 		 */
 		zTime()
 		{
@@ -260,7 +260,7 @@ class zTime
 		}
 
 		/**
-		 * \brief øΩ±¥ππ‘Ï∫Ø ˝
+		 * \brief Êã∑Ë¥ùÊûÑÈÄ†ÂáΩÊï∞
 		 */
 		zTime(const zTime &ct)
 		{
@@ -269,7 +269,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ªÒ»°µ±«∞ ±º‰
+		 * \brief Ëé∑ÂèñÂΩìÂâçÊó∂Èó¥
 		 */
 		void now()
 		{
@@ -278,8 +278,8 @@ class zTime
 		}
 
 		/**
-		 * \brief ∑µªÿ¥Ê¥¢µƒ ±º‰
-		 * \return  ±º‰£¨√Î
+		 * \brief ËøîÂõûÂ≠òÂÇ®ÁöÑÊó∂Èó¥
+		 * \return Êó∂Èó¥ÔºåÁßí
 		 */
 		time_t sec() const
 		{
@@ -287,9 +287,9 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿ‘ÿ=‘ÀÀ„∑˚∫≈
-		 * \param rt øΩ±¥µƒ“˝”√
-		 * \return ◊‘…Ì“˝”√
+		 * \brief ÈáçËΩΩ=ËøêÁÆóÁ¨¶Âè∑
+		 * \param rt Êã∑Ë¥ùÁöÑÂºïÁî®
+		 * \return Ëá™Ë∫´ÂºïÁî®
 		 */
 		zTime & operator= (const zTime &rt)
 		{
@@ -298,7 +298,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ+≤Ÿ◊˜∑˚
+		 * \brief ÈáçÊûÑ+Êìç‰ΩúÁ¨¶
 		 */
 		const zTime & operator+ (const zTime &rt)
 		{
@@ -307,7 +307,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ-≤Ÿ◊˜∑˚
+		 * \brief ÈáçÊûÑ-Êìç‰ΩúÁ¨¶
 		 */
 		const zTime & operator- (const zTime &rt)
 		{
@@ -316,7 +316,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ-≤Ÿ◊˜∑˚
+		 * \brief ÈáçÊûÑ-Êìç‰ΩúÁ¨¶
 		 */
 		const zTime & operator-= (const time_t s)
 		{
@@ -325,7 +325,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ>≤Ÿ◊˜∑˚£¨±»ΩœzTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ>Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzTimeÁªìÊûÑÂ§ßÂ∞è
 		 */
 		bool operator > (const zTime &rt) const
 		{
@@ -333,7 +333,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ>=≤Ÿ◊˜∑˚£¨±»ΩœzTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ>=Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzTimeÁªìÊûÑÂ§ßÂ∞è
 		 */
 		bool operator >= (const zTime &rt) const
 		{
@@ -341,7 +341,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ<≤Ÿ◊˜∑˚£¨±»ΩœzTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ<Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzTimeÁªìÊûÑÂ§ßÂ∞è
 		 */
 		bool operator < (const zTime &rt) const
 		{
@@ -349,7 +349,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ<=≤Ÿ◊˜∑˚£¨±»ΩœzTimeΩ·ππ¥Û–°
+		 * \brief ÈáçÊûÑ<=Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzTimeÁªìÊûÑÂ§ßÂ∞è
 		 */
 		bool operator <= (const zTime &rt) const
 		{
@@ -357,7 +357,7 @@ class zTime
 		}
 
 		/**
-		 * \brief ÷ÿππ==≤Ÿ◊˜∑˚£¨±»ΩœzTimeΩ·ππ «∑Òœ‡µ»
+		 * \brief ÈáçÊûÑ==Êìç‰ΩúÁ¨¶ÔºåÊØîËæÉzTimeÁªìÊûÑÊòØÂê¶Áõ∏Á≠â
 		 */
 		bool operator == (const zTime &rt) const
 		{
@@ -365,9 +365,9 @@ class zTime
 		}
 
 		/**
-		 * \brief º∆ ±∆˜œ˚ ≈µƒ ±º‰£¨µ•Œª√Î
-		 * \param rt µ±«∞ ±º‰
-		 * \return º∆ ±∆˜œ˚ ≈µƒ ±º‰£¨µ•Œª√Î
+		 * \brief ËÆ°Êó∂Âô®Ê∂àÈÄùÁöÑÊó∂Èó¥ÔºåÂçï‰ΩçÁßí
+		 * \param rt ÂΩìÂâçÊó∂Èó¥
+		 * \return ËÆ°Êó∂Âô®Ê∂àÈÄùÁöÑÊó∂Èó¥ÔºåÂçï‰ΩçÁßí
 		 */
 		time_t elapse(const zTime &rt) const
 		{
@@ -378,8 +378,8 @@ class zTime
 		}
 
 		/**
-		 * \brief º∆ ±∆˜œ˚ ≈µƒ ±º‰£¨µ•Œª√Î
-		 * \return º∆ ±∆˜œ˚ ≈µƒ ±º‰£¨µ•Œª√Î
+		 * \brief ËÆ°Êó∂Âô®Ê∂àÈÄùÁöÑÊó∂Èó¥ÔºåÂçï‰ΩçÁßí
+		 * \return ËÆ°Êó∂Âô®Ê∂àÈÄùÁöÑÊó∂Èó¥ÔºåÂçï‰ΩçÁßí
 		 */
 		time_t elapse() const
 		{
@@ -388,7 +388,7 @@ class zTime
 		}
 
 		/**
-		 * \brief µ√µΩµ±«∞∑÷÷”£¨∑∂Œß0-59µ„
+		 * \brief ÂæóÂà∞ÂΩìÂâçÂàÜÈíüÔºåËåÉÂõ¥0-59ÁÇπ
 		 *
 		 * \return 
 		 */
@@ -398,7 +398,7 @@ class zTime
 		}
 	
 		/**
-		 * \brief µ√µΩµ±«∞∑÷÷”£¨∑∂Œß0-59µ„
+		 * \brief ÂæóÂà∞ÂΩìÂâçÂàÜÈíüÔºåËåÉÂõ¥0-59ÁÇπ
 		 *
 		 * \return 
 		 */
@@ -408,7 +408,7 @@ class zTime
 		}
 		
 		/**
-		 * \brief µ√µΩµ±«∞–° ±£¨∑∂Œß0-23µ„
+		 * \brief ÂæóÂà∞ÂΩìÂâçÂ∞èÊó∂ÔºåËåÉÂõ¥0-23ÁÇπ
 		 *
 		 * \return 
 		 */
@@ -418,7 +418,7 @@ class zTime
 		}
 		
 		/**
-		 * \brief µ√µΩÃÏ ˝£¨∑∂Œß1-31
+		 * \brief ÂæóÂà∞Â§©Êï∞ÔºåËåÉÂõ¥1-31
 		 *
 		 * \return 
 		 */
@@ -428,7 +428,7 @@ class zTime
 		}
 
 		/**
-		 * \brief µ√µΩµ±«∞–«∆⁄º∏£¨∑∂Œß1-7
+		 * \brief ÂæóÂà∞ÂΩìÂâçÊòüÊúüÂá†ÔºåËåÉÂõ¥1-7
 		 *
 		 * \return 
 		 */
@@ -438,7 +438,7 @@ class zTime
 		}
 
 		/**
-		 * \brief µ√µΩµ±«∞‘¬∑›£¨∑∂Œß1-12
+		 * \brief ÂæóÂà∞ÂΩìÂâçÊúà‰ªΩÔºåËåÉÂõ¥1-12
 		 *
 		 * \return 
 		 */
@@ -448,7 +448,7 @@ class zTime
 		}
 		
 		/**
-		 * \brief µ√µΩµ±«∞ƒÍ∑›
+		 * \brief ÂæóÂà∞ÂΩìÂâçÂπ¥‰ªΩ
 		 *
 		 * \return 
 		 */
@@ -460,12 +460,12 @@ class zTime
 	private:
 
 		/**
-		 * \brief ¥Ê¥¢ ±º‰£¨µ•Œª√Î
+		 * \brief Â≠òÂÇ®Êó∂Èó¥ÔºåÂçï‰ΩçÁßí
 		 */
 		time_t secs;
 		
 		/**
-		 * \brief tmΩ·ππ£¨∑Ω±„∑√Œ 
+		 * \brief tmÁªìÊûÑÔºåÊñπ‰æøËÆøÈóÆ
 		 */
 		struct tm tv;
 
@@ -503,7 +503,7 @@ class Timer
 		zRTime _timer;
 };
 
-// ±º‰º‰∏Ùæﬂ”–ÀÊª˙–‘
+//Êó∂Èó¥Èó¥ÈöîÂÖ∑ÊúâÈöèÊú∫ÊÄß
 class RandTimer
 {
 	public:
@@ -607,7 +607,7 @@ struct CmdAnalysis
 	zMutex _mutex;
 	Timer _log_timer;
 	char _disc[256];
-	bool _switch;//ø™πÿ
+	bool _switch;//ÂºÄÂÖ≥
 	void add(const BYTE &cmd, const BYTE &para , const DWORD &size)
 	{
 		if(!_switch)

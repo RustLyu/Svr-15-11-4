@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareSept.h $
  * \author  
  * \date 
- * \brief ¼Ò×åËæÒâÕ½
+ * \brief å®¶æ—éšæ„æˆ˜
  *
  * 
  */
@@ -20,7 +20,7 @@ class CDareSept : public CDare
 		virtual ~CDareSept();
 
 	public:		
-		// ÒÔÏÂÎªÉèÖÃ¶ÔÕ½×´Ì¬µÄ´¦Àí·½·¨¡£¶ÔÕ½×´Ì¬¾ßÌå²é¿´¶ÔÕ½ÏµÍ³×´Ì¬×ª»»Í¼
+		// ä»¥ä¸‹ä¸ºè®¾ç½®å¯¹æˆ˜çŠ¶æ€çš„å¤„ç†æ–¹æ³•ã€‚å¯¹æˆ˜çŠ¶æ€å…·ä½“æŸ¥çœ‹å¯¹æˆ˜ç³»ç»ŸçŠ¶æ€è½¬æ¢å›¾
 		virtual void setSecondID(DWORD dwID);
 		virtual void addFirstID(DWORD dwID);
 		virtual bool isInvalid();
@@ -35,13 +35,13 @@ class CDareSept : public CDare
  		virtual void notifyWarResult(int winner_type);
 
 		/**
-		 * \brief Õ½¶·¼Ó·Ö
+		 * \brief æˆ˜æ–—åŠ åˆ†
 		 *
-		 *  µ÷ÓÃÒ»´Î£¬¸øÏàÓ¦µÄÉç»áÍÅ¶Ó¼ÓÉÏPKÈËÊıÒ»ÈË¡£µÃ·Ö¹«Ê½ÈçÏÂ£º
+		 *  è°ƒç”¨ä¸€æ¬¡ï¼Œç»™ç›¸åº”çš„ç¤¾ä¼šå›¢é˜ŸåŠ ä¸ŠPKäººæ•°ä¸€äººã€‚å¾—åˆ†å…¬å¼å¦‚ä¸‹ï¼š
 		 *  grade = grade + user.level/10;
 		 *
-		 * \param pAtt ¹¥»÷·½
-		 * \param pDef ·ÀÊØ·½
+		 * \param pAtt æ”»å‡»æ–¹
+		 * \param pDef é˜²å®ˆæ–¹
 		 */
 		virtual void addGrade(UserSession* pAtt, UserSession* pDef);
 		virtual void timer();

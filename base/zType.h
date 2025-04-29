@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zType.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå»ù±¾ÀàĞÍ
+ * \brief å®šä¹‰åŸºæœ¬ç±»å‹
  *
  * 
  */
@@ -19,96 +19,96 @@
 #define SAFE_DELETE_VEC(x) { if (x) { delete [] (x); (x) = NULL; } }
 
 /**
- * \brief µ¥×Ö½ÚÎŞ·ûºÅÕûÊı
+ * \brief å•å­—èŠ‚æ— ç¬¦å·æ•´æ•°
  *
  */
 typedef unsigned char BYTE;
 
 /**
- * \brief Ë«×Ö½ÚÎŞ·ûºÅÕûÊı
+ * \brief åŒå­—èŠ‚æ— ç¬¦å·æ•´æ•°
  *
  */
 typedef unsigned short WORD;
 
 /**
- * \brief Ë«×Ö½Ú·ûºÅÕûÊı
+ * \brief åŒå­—èŠ‚ç¬¦å·æ•´æ•°
  *
  */
 typedef signed short SWORD;
 
 /**
- * \brief ËÄ×Ö½ÚÎŞ·ûºÅÕûÊı
+ * \brief å››å­—èŠ‚æ— ç¬¦å·æ•´æ•°
  *
  */
 typedef unsigned int DWORD;
 
 /**
- * \brief ËÄ×Ö½Ú·ûºÅÕûÊı
+ * \brief å››å­—èŠ‚ç¬¦å·æ•´æ•°
  *
  */
 typedef signed int SDWORD;
 
 /**
- * \brief °Ë×Ö½ÚÎŞ·ûºÅÕûÊı
+ * \brief å…«å­—èŠ‚æ— ç¬¦å·æ•´æ•°
  *
  */
 typedef unsigned long long QWORD;
 
 /**
- * \brief °Ë×Ö½Ú·ûºÅÕûÊı
+ * \brief å…«å­—èŠ‚ç¬¦å·æ•´æ•°
  *
  */
 typedef signed long long SQWORD;
 
 /**
- * \brief Ãû×ÖµÄ×î´ó³¤¶È
+ * \brief åå­—çš„æœ€å¤§é•¿åº¦
  */
 #define MAX_NAMESIZE 32
 
 /**
- * \brief ÕËºÅ×î´ó³¤¶È
+ * \brief è´¦å·æœ€å¤§é•¿åº¦
  */
 #define MAX_ACCNAMESIZE	48
 
 /**
- * \brief IPµØÖ·×î´ó³¤¶È
+ * \brief IPåœ°å€æœ€å¤§é•¿åº¦
  *
  */
 #define MAX_IP_LENGTH	16
 
 /**
- * \brief Íø¹Ø×î´óÈİÄÉÓÃ»§ÊıÄ¿
+ * \brief ç½‘å…³æœ€å¤§å®¹çº³ç”¨æˆ·æ•°ç›®
  *
  */
 #define MAX_GATEWAYUSER 4000	
 
 /**
- * \brief ÃÜÂë×î´ó³¤¶È
+ * \brief å¯†ç æœ€å¤§é•¿åº¦
  *
  */
 #define MAX_PASSWORD  16
 
 /**
- * \brief ÆÁ¿í
+ * \brief å±å®½
  */
 #define SCREEN_WIDTH 13
 
 /**
- * \brief ÆÁ¸ß
+ * \brief å±é«˜
  */
 #define SCREEN_HEIGHT 19
 
 /**
- * \brief Á¬½ÓÏß³Ì³ØµÄ×´Ì¬±ê¼ÇÎ»
+ * \brief è¿æ¥çº¿ç¨‹æ± çš„çŠ¶æ€æ ‡è®°ä½
  *
  */
 enum {
-	state_none		=	0,							/**< ¿ÕµÄ×´Ì¬ */
-	state_maintain	=	1 << 0,						/**< Î¬»¤ÖĞ£¬ÔİÊ±²»ÔÊĞí½¨Á¢ĞÂµÄÁ¬½Ó */
+	state_none		=	0,							/**< ç©ºçš„çŠ¶æ€ */
+	state_maintain	=	1 << 0,						/**< ç»´æŠ¤ä¸­ï¼Œæš‚æ—¶ä¸å…è®¸å»ºç«‹æ–°çš„è¿æ¥ */
 };
 
 /**
- * \brief Êı×ÖÃÜÂë
+ * \brief æ•°å­—å¯†ç 
  */
 #ifndef MAX_NUMPASSWORD
 #define MAX_NUMPASSWORD	32
@@ -116,25 +116,25 @@ enum {
 
 #pragma pack(1)
 /**
- * \brief ¶¨ÒåÓÎÏ·Çø
- * ¶ÔÓÎÏ·½øĞĞ·ÖÀà£¬È»ºóÔÚÍ¬ÖÖÓÎÏ·ÖĞÔÙ·ÖÇø
+ * \brief å®šä¹‰æ¸¸æˆåŒº
+ * å¯¹æ¸¸æˆè¿›è¡Œåˆ†ç±»ï¼Œç„¶ååœ¨åŒç§æ¸¸æˆä¸­å†åˆ†åŒº
  */
 struct GameZone_t
 {
 	union
 	{
 		/**
-		 * \brief Î¨Ò»±àºÅ
+		 * \brief å”¯ä¸€ç¼–å·
 		 */
 		DWORD id;
 		struct
 		{
 			/**
-			 * \brief ÓÎÏ··ÖÇø±àºÅ
+			 * \brief æ¸¸æˆåˆ†åŒºç¼–å·
 			 */
 			WORD zone;
 			/**
-			 * \brief ÓÎÏ·ÖÖÀà±àºÅ
+			 * \brief æ¸¸æˆç§ç±»ç¼–å·
 			 */
 			WORD game;
 		};
@@ -180,7 +180,7 @@ struct t_NewLoginSession
 		char account[48];
 	};
 	char passwd[MAX_PASSWORD];
-	DES_cblock des_key;//desÃÜÔ¿
+	DES_cblock des_key;//deså¯†é’¥
 	char client_ip[MAX_IP_LENGTH];
 	char numpasswd[MAX_NUMPASSWORD];
 

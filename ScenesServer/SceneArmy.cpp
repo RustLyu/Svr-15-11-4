@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneArmy.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ¹ú¼ÒÏà¹ØÖ¸ÁîµÄ´¦Àí
+ * \brief å®ç°å›½å®¶ç›¸å…³æŒ‡ä»¤çš„å¤„ç†
  *
  * 
  */
@@ -17,12 +17,12 @@
 #include "SceneManager.h"
 
 /**
- * \brief Ö´ĞĞ¾ü¶ÓÏà¹ØÃüÁî
+ * \brief æ‰§è¡Œå†›é˜Ÿç›¸å…³å‘½ä»¤
  *
  *
- * \param rev ÌôÕ½Ö¸Áî
- * \param cmdLen ÏûÏ¢³¤¶È
- * \return ÊÇ·ñ³É¹¦
+ * \param rev æŒ‘æˆ˜æŒ‡ä»¤
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneUser::doArmyCmd(const Cmd::stArmyUserCmd *rev,unsigned int cmdLen)
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillTaskManager.cpp  $
  * \author  
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -17,10 +17,10 @@
 BillTaskManager *BillTaskManager::instance = NULL;
 
 /**
- * \brief ÏòÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷ÖĞÌí¼ÓÒ»¸ö×ÓÁ¬½ÓÈÎÎñ
+ * \brief å‘å”¯ä¸€æ€§éªŒè¯å®¹å™¨ä¸­æ·»åŠ ä¸€ä¸ªå­è¿æ¥ä»»åŠ¡
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return Ìí¼ÓÁ¬½ÓÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ è¿æ¥æ˜¯å¦æˆåŠŸ
  */
 bool BillTaskManager::uniqueAdd(BillTask *task)
 {
@@ -39,10 +39,10 @@ bool BillTaskManager::uniqueAdd(BillTask *task)
 }
 
 /**
- * \brief ´ÓÎ¨Ò»ĞÔÈİÆ÷ÖĞÒÆ³ıÒ»¸ö×ÓÁ¬½ÓÈÎÎñ
+ * \brief ä»å”¯ä¸€æ€§å®¹å™¨ä¸­ç§»é™¤ä¸€ä¸ªå­è¿æ¥ä»»åŠ¡
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return ÒÆ³ıÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return ç§»é™¤æ˜¯å¦æˆåŠŸ
  */
 bool BillTaskManager::uniqueRemove(BillTask *task)
 {
@@ -60,12 +60,12 @@ bool BillTaskManager::uniqueRemove(BillTask *task)
 }
 
 /**
- * \brief ¸ù¾İ·şÎñÆ÷±àºÅ¹ã²¥Ö¸Áî
+ * \brief æ ¹æ®æœåŠ¡å™¨ç¼–å·å¹¿æ’­æŒ‡ä»¤
  *
- * \param wdServerID ´ı¹ã²¥Ö¸ÁîµÄ·şÎñÆ÷±àºÅ
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param wdServerID å¾…å¹¿æ’­æŒ‡ä»¤çš„æœåŠ¡å™¨ç¼–å·
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool BillTaskManager::broadcastByID(const WORD wdServerID, const void *pstrCmd, int nCmdLen)
 {
@@ -82,10 +82,10 @@ bool BillTaskManager::broadcastByID(const WORD wdServerID, const void *pstrCmd, 
 }
 
 /**
- * \brief ¸ù¾İ·şÎñÆ÷±àºÅ²éÕÒtask
+ * \brief æ ¹æ®æœåŠ¡å™¨ç¼–å·æŸ¥æ‰¾task
  *
- * \param wdServerID ´ı²éÕÒµÄ·şÎñÆ÷±àºÅ
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param wdServerID å¾…æŸ¥æ‰¾çš„æœåŠ¡å™¨ç¼–å·
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 BillTask *BillTaskManager::getTaskByID(const WORD wdServerID)
 {

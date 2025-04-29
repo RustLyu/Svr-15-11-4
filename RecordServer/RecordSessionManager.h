@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordSessionManager.h  $
  * \author  
  * \date 
- * \brief ÈİÆ÷£¬ÓÃÓÚ±£Ö¤²»»á³öÏÖÖØ¸´µÇÂ½
+ * \brief å®¹å™¨ï¼Œç”¨äºä¿è¯ä¸ä¼šå‡ºç°é‡å¤ç™»é™†
  *
  * 
  */
@@ -19,18 +19,18 @@
 #include "zTime.h"
 
 /**
- * \brief ½ÇÉ«µµ°¸¶ÁÈ¡Ğ´ÈëµÄ»á»°¼ÇÂ¼
+ * \brief è§’è‰²æ¡£æ¡ˆè¯»å–å†™å…¥çš„ä¼šè¯è®°å½•
  *
  */
 struct RecordSession
 {
-	DWORD accid;			/// ÕÊºÅ
-	DWORD id;				/// ½ÇÉ«±àºÅ
-	WORD  wdServerID;		/// ·şÎñÆ÷±àºÅ
-	zTime lastsavetime;		/// ×îºóÒ»´Î´æµµÊ±¼ä
+	DWORD accid;			/// å¸å·
+	DWORD id;				/// è§’è‰²ç¼–å·
+	WORD  wdServerID;		/// æœåŠ¡å™¨ç¼–å·
+	zTime lastsavetime;		/// æœ€åä¸€æ¬¡å­˜æ¡£æ—¶é—´
 
 	/**
-	 * \brief È±Ê¡¹¹Ôìº¯Êı
+	 * \brief ç¼ºçœæ„é€ å‡½æ•°
 	 *
 	 */
 	RecordSession(const DWORD accid, const DWORD id, const WORD wdServerID) : lastsavetime()
@@ -41,7 +41,7 @@ struct RecordSession
 	}
 
 	/**
-	 * \brief ¿½±´¹¹Ôìº¯Êı
+	 * \brief æ‹·è´æ„é€ å‡½æ•°
 	 *
 	 */
 	RecordSession(const RecordSession& rs)
@@ -53,7 +53,7 @@ struct RecordSession
 	}
 
 	/**
-	 * \brief ¸³Öµ²Ù×÷·ûºÅ£¬Ã»ÓĞÊµÏÖ£¬½ûÓÃµôÁË
+	 * \brief èµ‹å€¼æ“ä½œç¬¦å·ï¼Œæ²¡æœ‰å®ç°ï¼Œç¦ç”¨æ‰äº†
 	 *
 	 */
 	RecordSession & operator= (const RecordSession &rs);
@@ -71,7 +71,7 @@ class RecordSessionManager
 	public:
 
 		/**
-		 * \brief Ä¬ÈÏÎö¹¹º¯Êı
+		 * \brief é»˜è®¤ææ„å‡½æ•°
 		 *
 		 */
 		~RecordSessionManager()
@@ -80,9 +80,9 @@ class RecordSessionManager
 		}
 
 		/**
-		 * \brief ·µ»ØÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è¿”å›ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * ÊµÏÖÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * å®ç°äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 *
 		 */
 		static RecordSessionManager &getInstance()
@@ -94,7 +94,7 @@ class RecordSessionManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -114,39 +114,39 @@ class RecordSessionManager
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static RecordSessionManager *instance;
 
 		/**
-		 * \brief Ä¬ÈÏ¹¹Ôìº¯Êı
+		 * \brief é»˜è®¤æ„é€ å‡½æ•°
 		 *
 		 */
 		RecordSessionManager() {};
 
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<DWORD, RecordSession> RecordSessionHashmap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef RecordSessionHashmap::iterator RecordSessionHashmap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef RecordSessionHashmap::value_type RecordSessionHashmap_pair;
 		/**
-		 * \brief ´æ´¢ÔÚÏßÕÊºÅÁĞ±íĞÅÏ¢µÄÈİÆ÷
+		 * \brief å­˜å‚¨åœ¨çº¿å¸å·åˆ—è¡¨ä¿¡æ¯çš„å®¹å™¨
 		 *
 		 */
 		RecordSessionHashmap sessionMap;
 		/**
-		 * \brief »¥³â±äÁ¿
+		 * \brief äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;

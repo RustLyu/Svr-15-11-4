@@ -1,4 +1,4 @@
-//#include "Skill.h"
+ï»¿//#include "Skill.h"
 #include "SkillManager.h"
 #include "SkillBase.h"
 #include "SceneUser.h"
@@ -24,15 +24,15 @@ class ItemObjectCompare:public UserObjectCompare
 		}
 };
 
-///ÉùÃ÷
+///å£°æ˜
 extern int getCharType(DWORD type);
 
-/// ÉùÃ÷¼¼ÄÜÎ¨Ò»ID,¶¨ÒåÈ¡Öµ·¶Î§
+/// å£°æ˜æŠ€èƒ½å”¯ä¸€ID,å®šä¹‰å–å€¼èŒƒå›´
 ///DWORD zSkill::uniqueID(1);
 
 /**
- * \brief ¼ì²é¼¼ÄÜÊÇ·ñ¿ÉÓÃ
- * \return true ±íÊ¾¿ÉÓÃ false ±íÊ¾¼¼ÄÜ²»¿ÉÓÃ
+ * \brief æ£€æŸ¥æŠ€èƒ½æ˜¯å¦å¯ç”¨
+ * \return true è¡¨ç¤ºå¯ç”¨ false è¡¨ç¤ºæŠ€èƒ½ä¸å¯ç”¨
  */
 bool zSkill::canUse()
 {
@@ -47,7 +47,7 @@ bool zSkill::canUse()
 }
 
 /**
- * \brief ÖØÉèÀäÈ´Ê±¼ä
+ * \brief é‡è®¾å†·å´æ—¶é—´
  */
 void zSkill::resetUseTime()
 {
@@ -56,7 +56,7 @@ void zSkill::resetUseTime()
 }
 
 /**
- * \brief Çå³ıÀäÈ´Ê±¼ä
+ * \brief æ¸…é™¤å†·å´æ—¶é—´
  */
 void zSkill::clearUseTime()
 {
@@ -65,7 +65,7 @@ void zSkill::clearUseTime()
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı£¬³õÊ¼»¯»ù±¾ÊôĞÔ
+ * \brief æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–åŸºæœ¬å±æ€§
  */
 zSkill::zSkill() : zEntry()
 {
@@ -82,9 +82,9 @@ zSkill::zSkill() : zEntry()
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñ¿ÉÉı¼¶
+ * \brief æ£€æŸ¥æ˜¯å¦å¯å‡çº§
  * \param pEntry
- * \return true ±íÊ¾¿ÉÒÔÉı¼¶¸Ã¼¼ÄÜ false±íÊ¾Éı¼¶Ìõ¼ş²»Âú×ã
+ * \return true è¡¨ç¤ºå¯ä»¥å‡çº§è¯¥æŠ€èƒ½ falseè¡¨ç¤ºå‡çº§æ¡ä»¶ä¸æ»¡è¶³
  */
 bool zSkill::canUpgrade(SceneEntryPk *pEntry)
 {
@@ -103,9 +103,9 @@ bool zSkill::canUpgrade(SceneEntryPk *pEntry)
 }
 
 /**
- * \brief ¼ì²éÏàÓ¦µÄ¼¼ÄÜÊéÊÇ·ñ´æÔÚ£¬Èç¹û´æÔÚÔòÉ¾³ı
- * \param nextbase ÊÇ·ñÈ¡ÏÂÒ»¼°µÄbase
- * \return true ¿ÉÒÔÑ§Ï°¸Ã¼¼ÄÜ false ²»ÄÜÑ§Ï°£¬Ã»ÓĞÊé
+ * \brief æ£€æŸ¥ç›¸åº”çš„æŠ€èƒ½ä¹¦æ˜¯å¦å­˜åœ¨ï¼Œå¦‚æœå­˜åœ¨åˆ™åˆ é™¤
+ * \param nextbase æ˜¯å¦å–ä¸‹ä¸€åŠçš„base
+ * \return true å¯ä»¥å­¦ä¹ è¯¥æŠ€èƒ½ false ä¸èƒ½å­¦ä¹ ï¼Œæ²¡æœ‰ä¹¦
  */
 bool zSkill::checkSkillBook(bool nextbase)
 {
@@ -128,7 +128,7 @@ bool zSkill::checkSkillBook(bool nextbase)
 		ItemObjectCompare found;
 		found.dwObjectID = checkbase->useBook;
 		SceneUser *pUser = ((SceneUser *)_entry);
-		zObject *itemobj = pUser->packs.uom.getObject(found);// ²éÕÒµÀ¾ß
+		zObject *itemobj = pUser->packs.uom.getObject(found);// æŸ¥æ‰¾é“å…·
 		if (itemobj)
 		{
 			Cmd::stRemoveObjectPropertyUserCmd send;
@@ -147,8 +147,8 @@ bool zSkill::checkSkillBook(bool nextbase)
 }
 
 /**
- * \brief ¼ì²é±¾¼¼ÄÜµÄÑ§Ï°Ìõ¼ş
- * \return false ²»¿ÉÒÔÑ§Ï° true ¿ÉÒÔÑ§Ï°
+ * \brief æ£€æŸ¥æœ¬æŠ€èƒ½çš„å­¦ä¹ æ¡ä»¶
+ * \return false ä¸å¯ä»¥å­¦ä¹  true å¯ä»¥å­¦ä¹ 
  */
 bool zSkill::checkSkillStudy(bool nextbase)
 {
@@ -229,9 +229,9 @@ bool zSkill::checkSkillStudy(bool nextbase)
 }
 
 /**
- * \brief ¸ù¾İ¼¼ÄÜ×Öµä³õÊ¼»¯±¾¼¼ÄÜ¶ÔÏó
- * \param pEntry µÈ´ı¼ÓÔØ¼¼ÄÜµÄ½ÇÉ«
- * \return false ³õÊ¼»¯Ê§°Ü true ³õÊ¼»¯³É¹¦
+ * \brief æ ¹æ®æŠ€èƒ½å­—å…¸åˆå§‹åŒ–æœ¬æŠ€èƒ½å¯¹è±¡
+ * \param pEntry ç­‰å¾…åŠ è½½æŠ€èƒ½çš„è§’è‰²
+ * \return false åˆå§‹åŒ–å¤±è´¥ true åˆå§‹åŒ–æˆåŠŸ
  */
 bool zSkill::setupSkillBase(SceneEntryPk *pEntry)
 {
@@ -255,11 +255,11 @@ bool zSkill::setupSkillBase(SceneEntryPk *pEntry)
 }
 
 /**
- * \brief µÚÒ»´ÎÑ§Ï°Ò»¸ö¼¼ÄÜµÄÊ±ºòÊ¹ÓÃ´Ë·½·¨´´½¨Ò»¸ö¼¼ÄÜ¶ÔÏó²¢Í¶ËÍµ½½ÇÉ«ÉíÉÏ
- * \param pEntry µÈ´ı¼ÓÔØ¼¼ÄÜµÄ½ÇÉ«
- * \param id ¼¼ÄÜid
- * \param level ¼¼ÄÜµÄ¼¶±ğ
- * \return Èç¹û³É¹¦¼ÓÔØÔò·µ»ØÕâ¸ö¼¼ÄÜ¶ÔÏó£¬·ñÔò·µ»ØNULL
+ * \brief ç¬¬ä¸€æ¬¡å­¦ä¹ ä¸€ä¸ªæŠ€èƒ½çš„æ—¶å€™ä½¿ç”¨æ­¤æ–¹æ³•åˆ›å»ºä¸€ä¸ªæŠ€èƒ½å¯¹è±¡å¹¶æŠ•é€åˆ°è§’è‰²èº«ä¸Š
+ * \param pEntry ç­‰å¾…åŠ è½½æŠ€èƒ½çš„è§’è‰²
+ * \param id æŠ€èƒ½id
+ * \param level æŠ€èƒ½çš„çº§åˆ«
+ * \return å¦‚æœæˆåŠŸåŠ è½½åˆ™è¿”å›è¿™ä¸ªæŠ€èƒ½å¯¹è±¡ï¼Œå¦åˆ™è¿”å›NULL
  */
 zSkill *zSkill::create(SceneEntryPk *pEntry , DWORD id , DWORD level)
 {
@@ -286,12 +286,12 @@ zSkill *zSkill::create(SceneEntryPk *pEntry , DWORD id , DWORD level)
 	/*
 	if(ret->tempid == uniqueID.invalid())
 	{
-		Zebra::logger->debug("zSkill::create():ÎŞ·¨·ÖÅäÓĞĞ§µÄtempid");
+		Zebra::logger->debug("zSkill::create():æ— æ³•åˆ†é…æœ‰æ•ˆçš„tempid");
 		SAFE_DELETE(ret);
 		return NULL;
 	}
 	// */
-	//TODO Ìî³äÊı¾İ
+	//TODO å¡«å……æ•°æ®
 	ret->data.skillid = basebm->skillid;
 	strncpy(ret->name , basebm->name , MAX_NAMESIZE);
 	ret->data.level = basebm->level;
@@ -321,7 +321,7 @@ zSkill *zSkill::create(SceneEntryPk *pEntry , DWORD id , DWORD level)
 
 	if(!pEntry->addSkillToMe(ret))
 	{
-		Zebra::logger->debug("zSkill::create():ÎŞ·¨½«ĞÂ¼¼ÄÜ¼Óµ½½ÇÉ«ÉíÉÏ");
+		Zebra::logger->debug("zSkill::create():æ— æ³•å°†æ–°æŠ€èƒ½åŠ åˆ°è§’è‰²èº«ä¸Š");
 		SAFE_DELETE(ret);
 		return NULL;
 	}
@@ -335,11 +335,11 @@ zSkill *zSkill::create(SceneEntryPk *pEntry , DWORD id , DWORD level)
 }
 
 /**
- * \brief ´´½¨ÁÙÊ±¼¼ÄÜ¶ÔÏó²¢·µ»Ø
- * \param pEntry µÈ´ı»ñÈ¡¼¼ÄÜµÄ½ÇÉ«
- * \param id ¼¼ÄÜid
- * \param level ¼¼ÄÜµÄ¼¶±ğ
- * \return Èç¹û³É¹¦¼ÓÔØÔò·µ»ØÕâ¸ö¼¼ÄÜ¶ÔÏó£¬·ñÔò·µ»ØNULL
+ * \brief åˆ›å»ºä¸´æ—¶æŠ€èƒ½å¯¹è±¡å¹¶è¿”å›
+ * \param pEntry ç­‰å¾…è·å–æŠ€èƒ½çš„è§’è‰²
+ * \param id æŠ€èƒ½id
+ * \param level æŠ€èƒ½çš„çº§åˆ«
+ * \return å¦‚æœæˆåŠŸåŠ è½½åˆ™è¿”å›è¿™ä¸ªæŠ€èƒ½å¯¹è±¡ï¼Œå¦åˆ™è¿”å›NULL
  */
 zSkill *zSkill::createTempSkill(SceneEntryPk *pEntry , DWORD id , DWORD level)
 {
@@ -363,7 +363,7 @@ zSkill *zSkill::createTempSkill(SceneEntryPk *pEntry , DWORD id , DWORD level)
 	//	ret->tempid = ++uniqueID;
 	//}
 
-	//TODO Ìî³äÊı¾İ
+	//TODO å¡«å……æ•°æ®
 	ret->data.skillid = basebm->skillid;
 	strncpy(ret->name , basebm->name , MAX_NAMESIZE);
 	ret->data.level = basebm->level;
@@ -374,10 +374,10 @@ zSkill *zSkill::createTempSkill(SceneEntryPk *pEntry , DWORD id , DWORD level)
 }
 
 /**
- * \brief ¼ÓÔØÒ»¸ö¼¼ÄÜµ½½ÇÉ«ÉíÉÏ
- * \param pEntry µÈ´ı¼ÓÔØ¼¼ÄÜµÄ½ÇÉ«
- * \param s ĞèÒª¼ÓÔØµÄ´æµµ
- * \return Èç¹û³É¹¦¼ÓÔØÔò·µ»ØÕâ¸ö¼¼ÄÜ¶ÔÏó£¬·ñÔò·µ»ØNULL
+ * \brief åŠ è½½ä¸€ä¸ªæŠ€èƒ½åˆ°è§’è‰²èº«ä¸Š
+ * \param pEntry ç­‰å¾…åŠ è½½æŠ€èƒ½çš„è§’è‰²
+ * \param s éœ€è¦åŠ è½½çš„å­˜æ¡£
+ * \return å¦‚æœæˆåŠŸåŠ è½½åˆ™è¿”å›è¿™ä¸ªæŠ€èƒ½å¯¹è±¡ï¼Œå¦åˆ™è¿”å›NULL
  */
 zSkill *zSkill::load(SceneEntryPk *pEntry , const SaveSkill *s)
 {
@@ -440,7 +440,7 @@ zSkill *zSkill::load(SceneEntryPk *pEntry , const SaveSkill *s)
 }
 
 /**
- * \brief Ë¢ĞÂ¼¼ÄÜ£¬Ö÷ÒªÓÃÓÚÎäÆ÷¸ü»»¶Ô¼¼ÄÜµÇ»ùÔì³ÉµÄÓ°Ïì
+ * \brief åˆ·æ–°æŠ€èƒ½ï¼Œä¸»è¦ç”¨äºæ­¦å™¨æ›´æ¢å¯¹æŠ€èƒ½ç™»åŸºé€ æˆçš„å½±å“
  */
 void zSkill::refresh(bool ignoredirty)
 {
@@ -468,8 +468,8 @@ void zSkill::refresh(bool ignoredirty)
 
 
 /**
- * \brief »ñÈ¡¼¼ÄÜ´æµµÊı¾İ
-  * \return ture £¨ÎŞÁÄÒªÕâ¸ö·µ»ØÖµ×öÊ²Ã´£©
+ * \brief è·å–æŠ€èƒ½å­˜æ¡£æ•°æ®
+  * \return ture ï¼ˆæ— èŠè¦è¿™ä¸ªè¿”å›å€¼åšä»€ä¹ˆï¼‰
  */
 bool zSkill::getSaveData(SaveSkill *save)
 {
@@ -486,7 +486,7 @@ bool zSkill::getSaveData(SaveSkill *save)
 
 
 /**
- * \brief Îö¹¹´¦Àí
+ * \brief ææ„å¤„ç†
   */
 
 zSkill::~zSkill()
@@ -513,8 +513,8 @@ const zSkillB *zSkill::getNewBase()
 }
 
 /**
- * \brief Ö´ĞĞÒ»¸öÓÀ¾Ã±»¶¯²Ù×÷
- * \author Íõº£¾ü£¬fqnewman 
+ * \brief æ‰§è¡Œä¸€ä¸ªæ°¸ä¹…è¢«åŠ¨æ“ä½œ
+ * \author ç‹æµ·å†›ï¼Œfqnewman 
  */
 void zSkill::doPassivenessSkill()
 {
@@ -531,11 +531,11 @@ void zSkill::doPassivenessSkill()
 }
 
 /**
- * \brief  ´¥·¢Ò»¸ö¼¼ÄÜ
- * \param  rev ±¾´ÎÊÕµ½µÄ¿Í»§¶ËÏûÏ¢
- * \param cmdLen ÏûÏ¢³¤¶È
- * \author Íõº£¾ü£¬fqnewman 
- * \return true ¼¼ÄÜÊ¹ÓÃ³É¹¦ false ¼¼ÄÜÊ¹ÓÃÊ§°Ü
+ * \brief  è§¦å‘ä¸€ä¸ªæŠ€èƒ½
+ * \param  rev æœ¬æ¬¡æ”¶åˆ°çš„å®¢æˆ·ç«¯æ¶ˆæ¯
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \author ç‹æµ·å†›ï¼Œfqnewman 
+ * \return true æŠ€èƒ½ä½¿ç”¨æˆåŠŸ false æŠ€èƒ½ä½¿ç”¨å¤±è´¥
  */
 bool zSkill::action(const Cmd::stAttackMagicUserCmd *rev, const unsigned int cmdLen)
 {
@@ -544,16 +544,16 @@ bool zSkill::action(const Cmd::stAttackMagicUserCmd *rev, const unsigned int cmd
 		actionbase = getNewBase();
 		curRevCmd = rev;
 		curRevCmdLen = cmdLen;
-		// ÏûºÄ
-		if (this->istemp||_entry->needWeapon(curRevCmd->wdMagicType)) // ¼ì²éÊ©·Å¼¼ÄÜÊÇ·ñĞèÒªÎäÆ÷
+		// æ¶ˆè€—
+		if (this->istemp||_entry->needWeapon(curRevCmd->wdMagicType)) // æ£€æŸ¥æ–½æ”¾æŠ€èƒ½æ˜¯å¦éœ€è¦æ­¦å™¨
 		{
 			if (actionbase->ride==0) 
 			{
 				if (_entry->checkMountHorse()) return false;
 			}
-			if(_entry->checkSkillCost(actionbase))	// ¼ÆËã×ÔÉí¸÷ÖÖÏûºÄ
+			if(_entry->checkSkillCost(actionbase))	// è®¡ç®—è‡ªèº«å„ç§æ¶ˆè€—
 			{
-				if (_entry->checkPercent())	// ÅĞ¶Ï¼¼ÄÜÊ©·Å³É¹¦µÄ¼¸ÂÊ
+				if (_entry->checkPercent())	// åˆ¤æ–­æŠ€èƒ½æ–½æ”¾æˆåŠŸçš„å‡ ç‡
 				{
 					std::vector<SkillStatus>::const_iterator iter;
 					if (_entry->checkReduce(actionbase->objcost,actionbase->objnum))
@@ -561,8 +561,8 @@ bool zSkill::action(const Cmd::stAttackMagicUserCmd *rev, const unsigned int cmd
 						showMagicToAll();
 						switch(rev->wdMagicType)
 						{
-							case 226: // Ê³Ê¬Êõ
-							case 319: // Ê¬±©Êõ
+							case 226: // é£Ÿå°¸æœ¯
+							case 319: // å°¸æš´æœ¯
 								{
 									SceneNpc *pNpc = SceneNpcManager::getMe().getNpcByTempID(rev->dwDefenceTempID);
 									if (pNpc)
@@ -591,7 +591,7 @@ bool zSkill::action(const Cmd::stAttackMagicUserCmd *rev, const unsigned int cmd
 						_entry->doSkillCost(actionbase);
 						for(iter  = actionbase->skillStatus.begin(); iter != actionbase->skillStatus.end(); iter ++)
 						{
-							// ´¦ÀíÒÀÀµÏûºÄÎïÆ·ĞÍ¼¼ÄÜ¶ÔÎïÆ·µÄÏûºÄ,Ä¿Ç°´Ë½Ó¿ÚÎ´ÆôÓÃ£¬Á½¸ö²ÎÊı·Ö±ğÊÇÎïÆ·IDºÍÏûºÄÊıÁ¿
+							// å¤„ç†ä¾èµ–æ¶ˆè€—ç‰©å“å‹æŠ€èƒ½å¯¹ç‰©å“çš„æ¶ˆè€—,ç›®å‰æ­¤æ¥å£æœªå¯ç”¨ï¼Œä¸¤ä¸ªå‚æ•°åˆ†åˆ«æ˜¯ç‰©å“IDå’Œæ¶ˆè€—æ•°é‡
 							{
 								SkillStatus *pSkillStatus = (SkillStatus *)&*iter;
 								doOperation(pSkillStatus);
@@ -606,15 +606,15 @@ bool zSkill::action(const Cmd::stAttackMagicUserCmd *rev, const unsigned int cmd
 	}
 	else
 	{
-		Zebra::logger->error("Ñ§Ï°µÄ¼¼ÄÜÖĞ_entryÖ¸ÕëÎª¿Õ");
+		Zebra::logger->error("å­¦ä¹ çš„æŠ€èƒ½ä¸­_entryæŒ‡é’ˆä¸ºç©º");
 	}
 	return false;
 }
 
 /**
- * \brief Õ¹Ê¾Ä§·¨Ğ§¹û
- * \author Íõº£¾ü£¬fqnewman
- * \return Èç¹ûÊÇ·µ»Øtrue±íÊ¾¿ÉÒÔ¼ÌĞø´¦Àí¹¥»÷¹¥»÷¹ı³Ì·ñÔòfalse±íÊ¾·µ»Ø
+ * \brief å±•ç¤ºé­”æ³•æ•ˆæœ
+ * \author ç‹æµ·å†›ï¼Œfqnewman
+ * \return å¦‚æœæ˜¯è¿”å›trueè¡¨ç¤ºå¯ä»¥ç»§ç»­å¤„ç†æ”»å‡»æ”»å‡»è¿‡ç¨‹å¦åˆ™falseè¡¨ç¤ºè¿”å›
  */
 bool zSkill::showMagicToAll()
 {
@@ -626,7 +626,7 @@ bool zSkill::showMagicToAll()
 }
 
 /**
- * \brief ±éÀú£¬²éÕÒÔÚÓĞĞ§·¶Î§ÄÚµÄµã
+ * \brief éå†ï¼ŒæŸ¥æ‰¾åœ¨æœ‰æ•ˆèŒƒå›´å†…çš„ç‚¹
  *
 struct GetMagicPosExec : public MagicPosExec
 {
@@ -634,7 +634,7 @@ struct GetMagicPosExec : public MagicPosExec
 	//~GetMaigcPosExec(){}
 	bool exec(zPos &pos)
 	{
-		//¼ì²é·¶Î§ÓĞĞ§
+		//æ£€æŸ¥èŒƒå›´æœ‰æ•ˆ
 		if(!scene->zPosValidate(pos))
 		{
 			return false;
@@ -649,7 +649,7 @@ struct GetMagicPosExec : public MagicPosExec
 */
 
 /**
- * \brief  ±éÀú½á¹¹£¬ÓÃÀ´¸ø×é¶ÓÖĞËùÓĞ¶ÓÔ±¹ã²¥ÏûÏ¢
+ * \brief  éå†ç»“æ„ï¼Œç”¨æ¥ç»™ç»„é˜Ÿä¸­æ‰€æœ‰é˜Ÿå‘˜å¹¿æ’­æ¶ˆæ¯
  */
 struct SendStatusToTeamExec : public TeamMemExec
 {
@@ -657,9 +657,9 @@ struct SendStatusToTeamExec : public TeamMemExec
 	SceneUser * _user;
 	const SkillStatus *_skillStatus;
 	/**
-	 * \brief  ¹¹Ôì³õÊ¼»¯ÊôĞÔ
-	 * \param  data ÏûÏ¢Ìå
-	 * \param  dataLen ÏûÏ¢³¤¶È
+	 * \brief  æ„é€ åˆå§‹åŒ–å±æ€§
+	 * \param  data æ¶ˆæ¯ä½“
+	 * \param  dataLen æ¶ˆæ¯é•¿åº¦
 	 */
 	SendStatusToTeamExec(SceneUser *pUser , const SkillStatus *pSkillStatus)
 	{
@@ -668,9 +668,9 @@ struct SendStatusToTeamExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  »Øµ÷·½·¨
-	 * \param  member ³ÉÔ±
-	 * \return false ÖÕÖ¹±éÀú true ¼ÌĞø±éÀú
+	 * \brief  å›è°ƒæ–¹æ³•
+	 * \param  member æˆå‘˜
+	 * \return false ç»ˆæ­¢éå† true ç»§ç»­éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -688,17 +688,17 @@ struct SendStatusToTeamExec : public TeamMemExec
 };
 
 /**
- * \brief Ö´ĞĞÒ»¸ö¼¼ÄÜ²Ù×÷£¨Ò»¸ö²Ù×÷°üº¬Èô¸É¸ö¼¼ÄÜ×´Ì¬£¬²Ù×÷ÓĞ²»Í¬µÄÄ¿±ê¶ÔÏóºÍ·¶Î§µÈ£©
- * \author Íõº£¾ü£¬fqnewman 
+ * \brief æ‰§è¡Œä¸€ä¸ªæŠ€èƒ½æ“ä½œï¼ˆä¸€ä¸ªæ“ä½œåŒ…å«è‹¥å¹²ä¸ªæŠ€èƒ½çŠ¶æ€ï¼Œæ“ä½œæœ‰ä¸åŒçš„ç›®æ ‡å¯¹è±¡å’ŒèŒƒå›´ç­‰ï¼‰
+ * \author ç‹æµ·å†›ï¼Œfqnewman 
  */
 void zSkill::doOperation(const SkillStatus *pSkillStatus)
 {
-	_entry->carrier.status	= pSkillStatus;			// Ò»¸ö¼¼ÄÜ²Ù×÷
-	//_entry->carrier.skilltype = base->usetype;	// ¼¼ÄÜÊ¹ÓÃÀàĞÍ
-	//_entry->carrier.skillID	= id;				// ¼¼ÄÜID
-	_entry->carrier.skillbase = actionbase;				// ¼¼ÄÜ×Öµä
-	_entry->carrier.revCmd	= *curRevCmd;			// ±£´æ±¾´ÎÊÕµ½µÄ¹¥»÷ÏûÏ¢
-	_entry->carrier.attacker	= _entry;			// ¹¥»÷ÕßµÄÖ¸Õë
+	_entry->carrier.status	= pSkillStatus;			// ä¸€ä¸ªæŠ€èƒ½æ“ä½œ
+	//_entry->carrier.skilltype = base->usetype;	// æŠ€èƒ½ä½¿ç”¨ç±»å‹
+	//_entry->carrier.skillID	= id;				// æŠ€èƒ½ID
+	_entry->carrier.skillbase = actionbase;				// æŠ€èƒ½å­—å…¸
+	_entry->carrier.revCmd	= *curRevCmd;			// ä¿å­˜æœ¬æ¬¡æ”¶åˆ°çš„æ”»å‡»æ¶ˆæ¯
+	_entry->carrier.attacker	= _entry;			// æ”»å‡»è€…çš„æŒ‡é’ˆ
 
 
 	WORD wdTarget = pSkillStatus->target;
@@ -708,7 +708,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 		{
 			//ScenePk::attackUserCmdToNine(curRevCmd , _entry);
 		}
-		wdTarget&=(0xff & (~(1))); // Çå³ı±íÊ¾×Ô¼ºµÄÎ»£¬Èç¹ûÖ»¶Ô×Ô¼ºÊ©·¨ÄÇÃ´wdTarget½«Îª0
+		wdTarget&=(0xff & (~(1))); // æ¸…é™¤è¡¨ç¤ºè‡ªå·±çš„ä½ï¼Œå¦‚æœåªå¯¹è‡ªå·±æ–½æ³•é‚£ä¹ˆwdTargetå°†ä¸º0
 	}
 
 	_entry->pkValue.damagebonus = actionbase->damnum;
@@ -716,11 +716,11 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 	pScene = _entry->scene;
 	if (wdTarget)
 	{
-		if (1 == pSkillStatus->range) // 1¾İËµ±íÊ¾µ¥¸ñ£¬ËùÒÔ×öÎªµ¥¹¥µÄÅĞ¶Ï±êÖ¾
+		if (1 == pSkillStatus->range) // 1æ®è¯´è¡¨ç¤ºå•æ ¼ï¼Œæ‰€ä»¥åšä¸ºå•æ”»çš„åˆ¤æ–­æ ‡å¿—
 		{
 			switch(curRevCmd->byAttackType)
 			{
-				case Cmd::ATTACKTYPE_N2U:	/// Npc¹¥»÷ÓÃ»§
+				case Cmd::ATTACKTYPE_N2U:	/// Npcæ”»å‡»ç”¨æˆ·
 					{
 						//if(!_entry->isPkZone()) return;
 						/*if(_entry->tempid == curRevCmd->dwDefenceTempID)
@@ -746,14 +746,14 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 							{
 								if (pDef->getTopMaster()&&pDef->getTopMaster()->getType() == zSceneEntry::SceneEntry_Player)
 								{
-									if (!(pDef->isPkZone(_entry) && _entry->isPkZone(pDef))) // ĞÂ¼Ó&&this->isPkZone(pDef)
+									if (!(pDef->isPkZone(_entry) && _entry->isPkZone(pDef))) // æ–°åŠ &&this->isPkZone(pDef)
 									{
 										ScenePk::attackFailToMe(curRevCmd , _entry);
 										return;
 									}
 								}
 
-								if (_entry->isEnemy(pDef, _entry->getType() == zSceneEntry::SceneEntry_Player)&& // ÅĞ¶ÏµĞÈËÓÑºÍ¼ì²éPKÄ£Ê½ÊÇÒ»¸ö·½·¨£¬ËùÒÔÖ»ÒªÅĞ¶ÏÒ»´Î¾ÍOKÁË
+								if (_entry->isEnemy(pDef, _entry->getType() == zSceneEntry::SceneEntry_Player)&& // åˆ¤æ–­æ•Œäººå‹å’Œæ£€æŸ¥PKæ¨¡å¼æ˜¯ä¸€ä¸ªæ–¹æ³•ï¼Œæ‰€ä»¥åªè¦åˆ¤æ–­ä¸€æ¬¡å°±OKäº†
 									_entry->checkMagicFlyRoute(pDef,pSkillStatus->mode))
 								{
 									if (pDef->skillStatusM.putOperationToMe(_entry->carrier))
@@ -766,7 +766,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						}
 					}
 					break;
-				case Cmd::ATTACKTYPE_U2U:	/// ÓÃ»§¹¥»÷ÓÃ»§
+				case Cmd::ATTACKTYPE_U2U:	/// ç”¨æˆ·æ”»å‡»ç”¨æˆ·
 					{
 						//if(!_entry->isPkZone()) return;
 						/*if(_entry->tempid == curRevCmd->dwDefenceTempID)
@@ -790,8 +790,8 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 							}
 							if (wdTarget&TARGET_ENEMY)
 							{
-								if (_entry->isEnemy(pDef, _entry->getType() == zSceneEntry::SceneEntry_Player)&& // ÅĞ¶ÏµĞÈËÓÑºÍ¼ì²éPKÄ£Ê½ÊÇÒ»¸ö·½·¨£¬ËùÒÔÖ»ÒªÅĞ¶ÏÒ»´Î¾ÍOKÁË
-									pDef->isPkZone(_entry)&&_entry->isPkZone(pDef)&&//ĞÂ¼Ó _entry->isPkZone(pDef)
+								if (_entry->isEnemy(pDef, _entry->getType() == zSceneEntry::SceneEntry_Player)&& // åˆ¤æ–­æ•Œäººå‹å’Œæ£€æŸ¥PKæ¨¡å¼æ˜¯ä¸€ä¸ªæ–¹æ³•ï¼Œæ‰€ä»¥åªè¦åˆ¤æ–­ä¸€æ¬¡å°±OKäº†
+									pDef->isPkZone(_entry)&&_entry->isPkZone(pDef)&&//æ–°åŠ  _entry->isPkZone(pDef)
 									_entry->checkMagicFlyRoute(pDef,pSkillStatus->mode))
 								{
 									if (pDef->skillStatusM.putOperationToMe(_entry->carrier))
@@ -808,7 +808,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						}
 					}
 					break;
-				case Cmd::ATTACKTYPE_U2N:	/// ÓÃ»§¹¥»÷Npc
+				case Cmd::ATTACKTYPE_U2N:	/// ç”¨æˆ·æ”»å‡»Npc
 					{
 						SceneNpc *pNpc = SceneNpcManager::getMe().getNpcByTempID(curRevCmd->dwDefenceTempID);
 						if (pNpc)
@@ -839,14 +839,14 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 							{
 								if (pNpc->getTopMaster()&&pNpc->getTopMaster()->getType() == zSceneEntry::SceneEntry_Player)
 								{
-									if (!(pNpc->isPkZone(_entry) && _entry->isPkZone(pNpc))) // ĞÂ¼Ó&&this->isPkZone(pDef)
+									if (!(pNpc->isPkZone(_entry) && _entry->isPkZone(pNpc))) // æ–°åŠ &&this->isPkZone(pDef)
 									{
 										ScenePk::attackFailToMe(curRevCmd , _entry);
 										return;
 									}
 								}
 
-								if (_entry->isEnemy(pNpc)&& // ÅĞ¶ÏµĞÈËÓÑºÍ¼ì²éPKÄ£Ê½ÊÇÒ»¸ö·½·¨£¬ËùÒÔÖ»ÒªÅĞ¶ÏÒ»´Î¾ÍOKÁË
+								if (_entry->isEnemy(pNpc)&& // åˆ¤æ–­æ•Œäººå‹å’Œæ£€æŸ¥PKæ¨¡å¼æ˜¯ä¸€ä¸ªæ–¹æ³•ï¼Œæ‰€ä»¥åªè¦åˆ¤æ–­ä¸€æ¬¡å°±OKäº†
 									_entry->checkMagicFlyRoute(pNpc,pSkillStatus->mode))
 								{
 									if (pNpc->skillStatusM.putOperationToMe(_entry->carrier))
@@ -863,7 +863,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						}
 					}
 					break;
-				case Cmd::ATTACKTYPE_N2N:	/// Npc¹¥»÷Npc
+				case Cmd::ATTACKTYPE_N2N:	/// Npcæ”»å‡»Npc
 					{
 						SceneNpc *pNpc = SceneNpcManager::getMe().getNpcByTempID(curRevCmd->dwDefenceTempID);
 						if (pNpc)
@@ -901,14 +901,14 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 									pNpc->getTopMaster() &&
 									pNpc->getTopMaster()->getType() == zSceneEntry::SceneEntry_Player)
 								{
-									if (!(pNpc->isPkZone(_entry) && _entry->isPkZone(pNpc))) // ĞÂ¼Ó&&this->isPkZone(pDef)
+									if (!(pNpc->isPkZone(_entry) && _entry->isPkZone(pNpc))) // æ–°åŠ &&this->isPkZone(pDef)
 									{
 										ScenePk::attackFailToMe(curRevCmd , _entry);
 										return;
 									}
 								}
 
-								if (_entry->isEnemy(pNpc)&& // ÅĞ¶ÏµĞÈËÓÑºÍ¼ì²éPKÄ£Ê½ÊÇÒ»¸ö·½·¨£¬ËùÒÔÖ»ÒªÅĞ¶ÏÒ»´Î¾ÍOKÁË
+								if (_entry->isEnemy(pNpc)&& // åˆ¤æ–­æ•Œäººå‹å’Œæ£€æŸ¥PKæ¨¡å¼æ˜¯ä¸€ä¸ªæ–¹æ³•ï¼Œæ‰€ä»¥åªè¦åˆ¤æ–­ä¸€æ¬¡å°±OKäº†
 									_entry->checkMagicFlyRoute(pNpc,pSkillStatus->mode))
 								{
 									if (pNpc->skillStatusM.putOperationToMe(_entry->carrier))
@@ -921,7 +921,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						}
 					}
 					break;
-				case Cmd::ATTACKTYPE_U2P:	/// ÓÃ»§¹¥»÷µã
+				case Cmd::ATTACKTYPE_U2P:	/// ç”¨æˆ·æ”»å‡»ç‚¹
 					{
 						zPos pd;
 						DWORD num =0;
@@ -934,7 +934,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						return;
 					}
 					break;
-				case Cmd::ATTACKTYPE_U2B:	/// ÓÃ»§¹¥»÷½¨Öş
+				case Cmd::ATTACKTYPE_U2B:	/// ç”¨æˆ·æ”»å‡»å»ºç­‘
 				default:
 					{
 						//if(!ScenePk::attackUserCmdToNine(curRevCmd , _entry))
@@ -955,8 +955,8 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 			{
 				switch(curRevCmd->byAttackType)
 				{
-					case Cmd::ATTACKTYPE_N2U:	/// Npc¹¥»÷ÓÃ»§
-					case Cmd::ATTACKTYPE_U2U:	/// Npc¹¥»÷ÓÃ»§
+					case Cmd::ATTACKTYPE_N2U:	/// Npcæ”»å‡»ç”¨æˆ·
+					case Cmd::ATTACKTYPE_U2U:	/// Npcæ”»å‡»ç”¨æˆ·
 						{
 							SceneUser *pDef = pScene->getUserByTempID(curRevCmd->dwDefenceTempID);
 							if (pDef)
@@ -970,8 +970,8 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 							}
 						}
 						break;
-					case Cmd::ATTACKTYPE_N2N:	/// Npc¹¥»÷ÓÃ»§
-					case Cmd::ATTACKTYPE_U2N:	/// Npc¹¥»÷ÓÃ»§
+					case Cmd::ATTACKTYPE_N2N:	/// Npcæ”»å‡»ç”¨æˆ·
+					case Cmd::ATTACKTYPE_U2N:	/// Npcæ”»å‡»ç”¨æˆ·
 						{
 							SceneNpc *pNpc = SceneNpcManager::getMe().getNpcByTempID(curRevCmd->dwDefenceTempID);
 							if (pNpc)
@@ -1008,9 +1008,9 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						byDir = curRevCmd->byDirect;
 						_entry->setDir(byDir);
 #ifdef _DEBUGLOG 
-						Channel::sendSys(_entry->tempid,Cmd::INFO_TYPE_GAME,"ÖĞĞÄµãÀàĞÍ£ºÊó±ê£¨%u,%u) ·½Ïò:%u",center.x,center.y,byDir);
+						Channel::sendSys(_entry->tempid,Cmd::INFO_TYPE_GAME,"ä¸­å¿ƒç‚¹ç±»å‹ï¼šé¼ æ ‡ï¼ˆ%u,%u) æ–¹å‘:%u",center.x,center.y,byDir);
 #endif
-						// debugÌáÊ¾
+						// debugæç¤º
 					}
 					break;
 				case SKILL_CENTER_TYPE_SELF:
@@ -1020,13 +1020,13 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						byDir = curRevCmd->byDirect;//_entry->getDir();
 						_entry->setDir(byDir);
 #ifdef	_DEBUGLOG 
-						Channel::sendSys(_entry->tempid,Cmd::INFO_TYPE_GAME,"ÖĞĞÄµãÀàĞÍ£º×ÔÉí£¨%u,%u) ·½Ïò:%u",center.x,center.y,byDir);
+						Channel::sendSys(_entry->tempid,Cmd::INFO_TYPE_GAME,"ä¸­å¿ƒç‚¹ç±»å‹ï¼šè‡ªèº«ï¼ˆ%u,%u) æ–¹å‘:%u",center.x,center.y,byDir);
 #endif
 					}
 					break;
 				default:
 #ifdef _DEBUGLOG 
-					Channel::sendSys(_entry->tempid,Cmd::INFO_TYPE_GAME,"ÖĞĞÄµãÀàĞÍ£ºÌîĞ´´íÎóÇë²éÖ¤");
+					Channel::sendSys(_entry->tempid,Cmd::INFO_TYPE_GAME,"ä¸­å¿ƒç‚¹ç±»å‹ï¼šå¡«å†™é”™è¯¯è¯·æŸ¥è¯");
 #endif
 					break;
 			}
@@ -1038,13 +1038,13 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						DWORD tempLen = sizeof(struct Cmd::stAttackMagicUserCmd);
 						DWORD itemNum = 0;
 #ifdef _DEBUGLOG
-						Zebra::logger->error("!!!---¿Í»§¶Ë·¢¹ıÀ´µÄ¹¥»÷Ö¸ÁîÔ­Ê¼³¤¶È[%u] µ±Ç°³¤¶È[%u]", tempLen, curRevCmdLen);
+						Zebra::logger->error("!!!---å®¢æˆ·ç«¯å‘è¿‡æ¥çš„æ”»å‡»æŒ‡ä»¤åŸå§‹é•¿åº¦[%u] å½“å‰é•¿åº¦[%u]", tempLen, curRevCmdLen);
 #endif
 						if (curRevCmdLen>tempLen)
 						{
 							itemNum = (curRevCmdLen-tempLen)/sizeof(DWORD);
 #ifdef _DEBUGLOG
-							Zebra::logger->error("!!!---¿Í»§¶Ë·¢¹ıÀ´µÄ¹¥»÷ÁĞ±íÊıÄ¿[%u]", itemNum);
+							Zebra::logger->error("!!!---å®¢æˆ·ç«¯å‘è¿‡æ¥çš„æ”»å‡»åˆ—è¡¨æ•°ç›®[%u]", itemNum);
 #endif
 							if (itemNum >5) itemNum=5;
 							for (DWORD i=0; i<itemNum; i++)
@@ -1052,7 +1052,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 								SceneNpc *pNpc=NULL;
 								SceneUser *pUser=NULL;
 #ifdef _DEBUGLOG
-								Zebra::logger->error("!!!---¿Í»§¶Ë·¢¹ıÀ´µÄ±»¹¥»÷ÁÙÊ±×ø±ê[%u]", curRevCmd->dwTempIDList[i]);
+								Zebra::logger->error("!!!---å®¢æˆ·ç«¯å‘è¿‡æ¥çš„è¢«æ”»å‡»ä¸´æ—¶åæ ‡[%u]", curRevCmd->dwTempIDList[i]);
 #endif
 								if ((pNpc=_entry->scene->getNpcByTempID(curRevCmd->dwTempIDList[i]))!=NULL)
 								{
@@ -1068,10 +1068,10 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 								pd.y= (curRevCmd->dwTempIDList[i]&0xff);
 */		
 #ifdef _DEBUGLOG
-								Zebra::logger->error("!!!---¿Í»§¶Ë·¢¹ıÀ´µÄ¹¥»÷×ø±ê[%u][x=%u,y=%u]", curRevCmd->dwTempIDList[i], pd.x, pd.y);
+								Zebra::logger->error("!!!---å®¢æˆ·ç«¯å‘è¿‡æ¥çš„æ”»å‡»åæ ‡[%u][x=%u,y=%u]", curRevCmd->dwTempIDList[i], pd.x, pd.y);
 #endif
 
-//-¼¼ÄÜ·¶Î§²âÊÔ
+//-æŠ€èƒ½èŒƒå›´æµ‹è¯•
 #ifdef _DEBUGLOG
 								zObjectB *base = objectbm.get(501);
 								if (base)
@@ -1093,7 +1093,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 						for(zPosVector::iterator iter = range.begin(); iter != range.end() ; iter ++)
 						{
 							pd = *iter;
-//-¼¼ÄÜ·¶Î§²âÊÔ
+//-æŠ€èƒ½èŒƒå›´æµ‹è¯•
 #ifdef _DEBUGLOG
 							zObjectB *base = objectbm.get(585);
 							if (base)
@@ -1134,7 +1134,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 							count++;
 							if (count>20) break;
 							pd = *iter;
-//-¼¼ÄÜ·¶Î§²âÊÔ
+//-æŠ€èƒ½èŒƒå›´æµ‹è¯•
 #ifdef _DEBUGLOG
 							zObjectB *base = objectbm.get(585);
 							if (base)
@@ -1161,7 +1161,7 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 							SWORD rangDamageBonus=0;
 							pd = iter->getAbsolutePos(center , byDir);
 							rangDamageBonus = (*iter).w;
-//-¼¼ÄÜ·¶Î§²âÊÔ
+//-æŠ€èƒ½èŒƒå›´æµ‹è¯•
 #ifdef _DEBUGLOG
 							zObjectB *base = objectbm.get(585);
 							if (base)
@@ -1186,18 +1186,18 @@ void zSkill::doOperation(const SkillStatus *pSkillStatus)
 }
 
 /**
- * \brief Í¶ËÍ²Ù×÷µ½Ä¿±ê¶ÔÏóÉíÉÏ
- * \param pSkillStatus ²Ù×÷
- * \param pd ×ø±êµã
- * \author Íõº£¾ü£¬fqnewman
- * \return Èç¹ûÊÇ·µ»Øtrue±íÊ¾¿ÉÒÔ¼ÌĞø´¦Àí¹¥»÷¹¥»÷¹ı³Ì·ñÔòfalse±íÊ¾·µ»Ø
+ * \brief æŠ•é€æ“ä½œåˆ°ç›®æ ‡å¯¹è±¡èº«ä¸Š
+ * \param pSkillStatus æ“ä½œ
+ * \param pd åæ ‡ç‚¹
+ * \author ç‹æµ·å†›ï¼Œfqnewman
+ * \return å¦‚æœæ˜¯è¿”å›trueè¡¨ç¤ºå¯ä»¥ç»§ç»­å¤„ç†æ”»å‡»æ”»å‡»è¿‡ç¨‹å¦åˆ™falseè¡¨ç¤ºè¿”å›
  */
 bool zSkill::findAttackTarget(const SkillStatus *pSkillStatus, zPos &pd, DWORD &count, SWORD rangDamageBonus)
 {
 	WORD wdTarget = pSkillStatus->target;
 	Scene *pScene = _entry->scene;
 
-	//¼ì²é·¶Î§ÓĞĞ§
+	//æ£€æŸ¥èŒƒå›´æœ‰æ•ˆ
 	if(!pScene->zPosValidate(pd))
 	{
 		return true;
@@ -1231,7 +1231,7 @@ bool zSkill::findAttackTarget(const SkillStatus *pSkillStatus, zPos &pd, DWORD &
 		{
 			if (_entry->getTopMaster()&&_entry->getTopMaster()->getType() == zSceneEntry::SceneEntry_Player)
 			{
-				if (!(pFindUser->isPkZone(_entry) && _entry->isPkZone(pFindUser))) // ĞÂ¼Ó&&this->isPkZone(pDef)
+				if (!(pFindUser->isPkZone(_entry) && _entry->isPkZone(pFindUser))) // æ–°åŠ &&this->isPkZone(pDef)
 				{
 					return true;
 				}
@@ -1308,7 +1308,7 @@ bool zSkill::findAttackTarget(const SkillStatus *pSkillStatus, zPos &pd, DWORD &
 					pFindNpc->getTopMaster() &&
 					pFindNpc->getTopMaster()->getType() == zSceneEntry::SceneEntry_Player)
 				{
-					if (!(pFindNpc->isPkZone(_entry) && _entry->isPkZone(pFindNpc))) // ĞÂ¼Ó&&this->isPkZone(pDef)
+					if (!(pFindNpc->isPkZone(_entry) && _entry->isPkZone(pFindNpc))) // æ–°åŠ &&this->isPkZone(pDef)
 					{
 						return true;
 					}

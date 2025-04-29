@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneCommand.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå³¡¾°·şÎñÆ÷Ïà¹ØÖ¸Áî
+ * \brief å®šä¹‰åœºæ™¯æœåŠ¡å™¨ç›¸å…³æŒ‡ä»¤
  *
  */
 
@@ -28,7 +28,7 @@ namespace Cmd
 
 
 		//////////////////////////////////////////////////////////////
-		/// µÇÂ½³¡¾°·şÎñÆ÷Ö¸Áî
+		/// ç™»é™†åœºæ™¯æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		const BYTE PARA_LOGIN = 1;
 		struct t_LoginScene : t_NullCmd
@@ -66,9 +66,9 @@ namespace Cmd
 		const BYTE PARA_LOGIN_UNREG_OK = 4;
 		struct t_Unreg_LoginScene_Ok : t_NullCmd
 		{
-			DWORD type;						/// Ğ¶ÔØÀàĞÍ
+			DWORD type;						/// å¸è½½ç±»å‹
 			DWORD accid;
-			DWORD id;						/// ½ÇÉ«
+			DWORD id;						/// è§’è‰²
 			t_Unreg_LoginScene_Ok()
 				: t_NullCmd(CMD_LOGIN, PARA_LOGIN_UNREG_OK) {};
 		};
@@ -82,9 +82,9 @@ namespace Cmd
 		const BYTE PARA_CHANGE_COUNTRY_STATE = 5;
 		struct t_ChangeCountryStatus : t_NullCmd
 		{
-			BYTE  oper;							/// ²Ù×÷ÀàĞÍ
-			WORD  country;						/// Ğ¶ÔØÀàĞÍ
-			DWORD dwUserID;						/// ²Ù×÷ÕßµÄ½ÇÉ«ID
+			BYTE  oper;							/// æ“ä½œç±»å‹
+			WORD  country;						/// å¸è½½ç±»å‹
+			DWORD dwUserID;						/// æ“ä½œè€…çš„è§’è‰²ID
 			t_ChangeCountryStatus()
 				: t_NullCmd(CMD_LOGIN, PARA_CHANGE_COUNTRY_STATE) {};
 		};
@@ -96,28 +96,28 @@ namespace Cmd
 		const BYTE PARA_CHANGE_VERIFY_VERSION = 6;
 		struct t_ChangeVerifyVersion : t_NullCmd
 		{
-			BYTE  oper;							/// ²Ù×÷ÀàĞÍ
-			DWORD versionCode;					/// °æ±¾Ğ£ÑéÂë
-			DWORD dwUserID;						/// ²Ù×÷ÕßµÄ½ÇÉ«ID
+			BYTE  oper;							/// æ“ä½œç±»å‹
+			DWORD versionCode;					/// ç‰ˆæœ¬æ ¡éªŒç 
+			DWORD dwUserID;						/// æ“ä½œè€…çš„è§’è‰²ID
 			t_ChangeVerifyVersion()
 				: t_NullCmd(CMD_LOGIN, PARA_CHANGE_VERIFY_VERSION) {};
 		};
 		//////////////////////////////////////////////////////////////
-		/// µÇÂ½³¡¾°·şÎñÆ÷Ö¸Áî
+		/// ç™»é™†åœºæ™¯æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		
 		//////////////////////////////////////////////////////////////
-		/// ³¡¾°·şÎñÆ÷Ö¸Áî
+		/// åœºæ™¯æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		
 		//////////////////////////////////////////////////////////////
-		/// ³¡¾°·şÎñÆ÷Ö¸Áî
+		/// åœºæ™¯æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		const BYTE PARA_QUERY_ACCOUNT = 1;
 		struct t_Query_AccountScene : t_NullCmd
 		{
-			char  dwDestID;      // ±»²éÑ¯ÕßID
-			DWORD dwUserID;                // ²éÑ¯ÕßID
+			char  dwDestID;      // è¢«æŸ¥è¯¢è€…ID
+			DWORD dwUserID;                // æŸ¥è¯¢è€…ID
 			t_Query_AccountScene()
 				: t_NullCmd(CMD_SCENE, PARA_QUERY_ACCOUNT) {};
 		};
@@ -125,13 +125,13 @@ namespace Cmd
 		const BYTE PARA_COUNTRY_AND_SCENE = 2;
 		struct t_countryAndScene_GateScene : t_NullCmd
 		{
-			DWORD userID;//Íæ¼ÒID
-			DWORD countryID;      //¹ú¼ÒID
-			DWORD sceneID;                // ³¡¾°ID
+			DWORD userID;//ç©å®¶ID
+			DWORD countryID;      //å›½å®¶ID
+			DWORD sceneID;                // åœºæ™¯ID
 			t_countryAndScene_GateScene()
 				: t_NullCmd(CMD_SCENE, PARA_COUNTRY_AND_SCENE) {};
 		};
-		/// ÓÃ»§Î¬»¤Íø¹ØÆÁË÷ÒıÖ¸Áî
+		/// ç”¨æˆ·ç»´æŠ¤ç½‘å…³å±ç´¢å¼•æŒ‡ä»¤
 		const BYTE PARA_FRESH_SCREENINDEX = 3;
 		struct t_fresh_ScreenIndex : t_NullCmd
 		{
@@ -149,10 +149,10 @@ namespace Cmd
 		struct MapIndexXY
 		{
 			DWORD maptempid;
-			DWORD mapx;	// ¿í¶àÉÙÆÁ
-			DWORD mapy; // ¸ß¶àÉÙÆÁ
+			DWORD mapx;	// å®½å¤šå°‘å±
+			DWORD mapy; // é«˜å¤šå°‘å±
 		};
-		/// Ìí¼ÓÍø¹ØµØÍ¼Ë÷Òı
+		/// æ·»åŠ ç½‘å…³åœ°å›¾ç´¢å¼•
 		const BYTE PARA_FRESH_MAPINDEX = 4;
 		struct t_fresh_MapIndex : t_NullCmd
 		{
@@ -163,7 +163,7 @@ namespace Cmd
 				{
 				};
 		};
-		/// É¾³ıÍø¹ØµØÍ¼Ë÷Òı
+		/// åˆ é™¤ç½‘å…³åœ°å›¾ç´¢å¼•
 		const BYTE PARA_REMOVE_MAPINDEX = 5;
 		struct t_Remove_MapIndex : t_NullCmd
 		{
@@ -175,7 +175,7 @@ namespace Cmd
 				};
 		};
 
-		///ÌßµôÍø¹ØÉÏµÄÍæ¼Ò
+		///è¸¢æ‰ç½‘å…³ä¸Šçš„ç©å®¶
 		const BYTE PARA_KICK_USER = 6;
 		struct t_kickUser_GateScene : t_NullCmd
 		{
@@ -188,7 +188,7 @@ namespace Cmd
 					accid = 0;
 				}
 		};
-		const BYTE PARA_SCENE_SYS_SETTING = 7;  //ÏµÍ³ÉèÖÃ
+		const BYTE PARA_SCENE_SYS_SETTING = 7;  //ç³»ç»Ÿè®¾ç½®
 		struct t_sysSetting_GateScene : t_NullCmd
 		{
 			BYTE name[MAX_NAMESIZE];
@@ -200,13 +200,13 @@ namespace Cmd
 		};
 
 
-		///·şÎñÏµÍ³¿ØÖÆÖ¸Áî
+		///æœåŠ¡ç³»ç»Ÿæ§åˆ¶æŒ‡ä»¤
 		enum
 		{
-			SERVICE_STOP,//Í£Ö¹·şÎñ
-			SERVICE_START,//Æô¶¯·şÎñ
+			SERVICE_STOP,//åœæ­¢æœåŠ¡
+			SERVICE_START,//å¯åŠ¨æœåŠ¡
 		};
-		//½ğ±ÒÏµÍ³¿ØÖÆ
+		//é‡‘å¸ç³»ç»Ÿæ§åˆ¶
 		const BYTE PARA_SERVICE_GOLD = 8;
 		struct t_ServiceGold_GateScene : t_NullCmd
 		{
@@ -216,7 +216,7 @@ namespace Cmd
 				}
 			BYTE byType;
 		};
-		//¹ÉÆ±ÏµÍ³¿ØÖÆÖ¸Áî
+		//è‚¡ç¥¨ç³»ç»Ÿæ§åˆ¶æŒ‡ä»¤
 		const BYTE PARA_SERVICE_STOCK = 9;
 		struct t_ServiceStock_GateScene : t_NullCmd
 		{
@@ -226,7 +226,7 @@ namespace Cmd
 				}
 			BYTE byType;
 		};
-		//µ÷ÕûÍø¹ØsleepÊ±¼ä
+		//è°ƒæ•´ç½‘å…³sleepæ—¶é—´
 		const BYTE PARA_USLEEP_TIME = 10;
 		struct t_Usleep_GateScene : t_NullCmd
 		{
@@ -240,9 +240,9 @@ namespace Cmd
 			DWORD uclient;
 		};
 		//////////////////////////////////////////////////////////////
-		/// ³¡¾°·şÎñÆ÷×ª·¢Ö¸Áî
+		/// åœºæ™¯æœåŠ¡å™¨è½¬å‘æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
-		// Íø¹Øµ½9ÆÁÓÃ»§
+		// ç½‘å…³åˆ°9å±ç”¨æˆ·
 		const BYTE PARA_FORWARD_NINE = 1;
 		struct t_Nine_ForwardScene : t_NullCmd
 		{
@@ -254,7 +254,7 @@ namespace Cmd
 				: t_NullCmd(CMD_FORWARD, PARA_FORWARD_NINE) {};
 		};
 		
-		// Íø¹Øµ½ÕıÏò5ÆÁ»òÕß3ÆÁÓÃ»§
+		// ç½‘å…³åˆ°æ­£å‘5å±æˆ–è€…3å±ç”¨æˆ·
 		const BYTE PARA_FORWARD_NINE_DIR = 2;
 		struct t_Nine_dir_ForwardScene : t_NullCmd
 		{
@@ -267,7 +267,7 @@ namespace Cmd
 				: t_NullCmd(CMD_FORWARD, PARA_FORWARD_NINE_DIR) {};
 		};
 		
-		// Íø¹Øµ½·´Ïò5ÆÁ»òÕß3ÆÁÓÃ»§
+		// ç½‘å…³åˆ°åå‘5å±æˆ–è€…3å±ç”¨æˆ·
 		const BYTE PARA_FORWARD_NINE_RDIR = 3;
 		struct t_Nine_rdir_ForwardScene : t_NullCmd
 		{
@@ -280,7 +280,7 @@ namespace Cmd
 				: t_NullCmd(CMD_FORWARD, PARA_FORWARD_NINE_RDIR) {};
 		};
 		
-		//Íø¹Øµ½ÓÃ»§
+		//ç½‘å…³åˆ°ç”¨æˆ·
 		const BYTE PARA_FORWARD_USER = 4;
 		struct t_User_ForwardScene : t_NullCmd
 		{
@@ -304,7 +304,7 @@ namespace Cmd
 			//void init() { cmd=CMD_FORWARD;para=PARA_FORWARD_SCENE;};
 		};
 
-		//Íø¹Øµ½ÓÃ»§
+		//ç½‘å…³åˆ°ç”¨æˆ·
 		const BYTE PARA_FORWARD_MAP = 6;
 		struct t_User_ForwardMap : t_NullCmd
 		{
@@ -327,7 +327,7 @@ namespace Cmd
 			//void init() { cmd=CMD_FORWARD;para=PARA_FORWARD_SCENE;};
 		};
 
-		///³¡¾°Ä£ÄâÓÃ»§·¢ËÍÏûÏ¢µ½Bill
+		///åœºæ™¯æ¨¡æ‹Ÿç”¨æˆ·å‘é€æ¶ˆæ¯åˆ°Bill
 		const BYTE PARA_FORWARD_SCENE_TO_BILL = 8;
 		struct t_Scene_ForwardSceneToBill : t_NullCmd
 		{
@@ -339,7 +339,7 @@ namespace Cmd
 				: t_NullCmd(CMD_FORWARD, PARA_FORWARD_SCENE_TO_BILL) {};
 			//void init() { cmd=CMD_FORWARD;para=PARA_FORWARD_SCENE;};
 		};
-		/// ·¢ËÍ³¡¾°ÓÃ»§µÄÏûÏ¢µ½Bill
+		/// å‘é€åœºæ™¯ç”¨æˆ·çš„æ¶ˆæ¯åˆ°Bill
 		const BYTE PARA_FORWARD_SCENEUSER_TO_BILL = 9;
 		struct t_Scene_ForwardSceneUserToBill : t_NullCmd
 		{
@@ -351,7 +351,7 @@ namespace Cmd
 				: t_NullCmd(CMD_FORWARD, PARA_FORWARD_SCENEUSER_TO_BILL) {};
 			//void init() { cmd=CMD_FORWARD;para=PARA_FORWARD_SCENE;};
 		};
-		///·¢ËÍµ½³ıXXÖ®ÍâµÄÆÁÓÃ»§
+		///å‘é€åˆ°é™¤XXä¹‹å¤–çš„å±ç”¨æˆ·
 		const BYTE PARA_FORWARD_NINE_EXCEPTME = 10;
 		struct t_Nine_ExceptMe_ForwardScene : t_NullCmd
 		{
@@ -364,11 +364,11 @@ namespace Cmd
 				: t_NullCmd(CMD_FORWARD, PARA_FORWARD_NINE_EXCEPTME) {};
 		};
 		//////////////////////////////////////////////////////////////
-		/// ³¡¾°·şÎñÆ÷×ª·¢Ö¸Áî
+		/// åœºæ™¯æœåŠ¡å™¨è½¬å‘æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 
 		//////////////////////////////////////////////////////////////
-		/// ³¡¾°·şÎñÆ÷×ª·¢µ½BillµÄÖ¸Áî
+		/// åœºæ™¯æœåŠ¡å™¨è½¬å‘åˆ°Billçš„æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		const BYTE PARA_REQUEST_BILL = 1;
 		struct t_Request_Bill : t_NullCmd
@@ -388,7 +388,7 @@ namespace Cmd
 		struct t_Request_RedeemGold : t_NullCmd
 		{
 			DWORD dwUserID;
-			DWORD dwNum;	//ĞèÒª¶Ò»»µÄµãÊı
+			DWORD dwNum;	//éœ€è¦å…‘æ¢çš„ç‚¹æ•°
 			t_Request_RedeemGold()
 				: t_NullCmd(CMD_SCENE_GATE_BILL, PARA_REQUEST_REDEEM_GOLD) {};
 		};
@@ -402,7 +402,7 @@ namespace Cmd
 
 
 		/*
-		///¹ÉÆ±Ì×ÏÖ
+		///è‚¡ç¥¨å¥—ç°
 		const BYTE PARA_STOCK_FETCH = 5;
 		struct t_Stock_Fetch : t_NullCmd
 		{
@@ -412,7 +412,7 @@ namespace Cmd
 			t_Stock_Fetch()
 				: t_NullCmd(CMD_SOTCK, PARA_STOCK_FETCH) {};
 		};
-		///¹ÉÆ±³åÖµ
+		///è‚¡ç¥¨å†²å€¼
 		const BYTE PARA_STOCK_SAVE = 6;
 		struct t_Stock_Save : t_NullCmd
 		{
@@ -424,7 +424,7 @@ namespace Cmd
 		};
 		// */
 		//////////////////////////////////////////////////////////////
-		/// ³¡¾°·şÎñÆ÷×ª·¢µ½BillµÄÖ¸Áî
+		/// åœºæ™¯æœåŠ¡å™¨è½¬å‘åˆ°Billçš„æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 	};
 

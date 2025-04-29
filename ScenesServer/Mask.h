@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: Mask.h  $
  * \author	
  * \date	2005-04-13
- * \brief	ÃÉÃæÏµÍ³
+ * \brief	è’™é¢ç³»ç»Ÿ
  * 
  */
  
@@ -16,7 +16,7 @@ class zObject;
 class SceneUser;
 
 /**
- * \brief ÃÉÃæÀà
+ * \brief è’™é¢ç±»
  *
  */
 class Mask
@@ -55,9 +55,9 @@ private:
 	zRTime _last;
 	bool _drop;
 	
-	/// ÃÉÃæÎïÆ·
+	/// è’™é¢ç‰©å“
 	zObject* _mask;
-	/// ÃÉÃæÓÃ»§
+	/// è’™é¢ç”¨æˆ·
 	SceneUser* _user;
 };
 

@@ -1,12 +1,12 @@
-#include "SkillManager.h"
+ï»¿#include "SkillManager.h"
 #include "Zebra.h"
 #include "zMisc.h"
 
 
 /**
- * \brief  »ñÈ¡ÁÙÊ±id
- * \param  tempid ÁÙÊ±id
- * \return »ñÈ¡³É¹¦
+ * \brief  è·å–ä¸´æ—¶id
+ * \param  tempid ä¸´æ—¶id
+ * \return è·å–æˆåŠŸ
  */
 bool SkillManager::getUniqeID(DWORD &tempid)
 {
@@ -14,22 +14,22 @@ bool SkillManager::getUniqeID(DWORD &tempid)
 }
 
 /**
- * \brief  ½«Ê¹ÓÃÍê±ÏµÄÁÙÊ±idÊÍ·Å
- * \param  tempid Ê¹ÓÃÍê±ÏµÄÁÙÊ±id
+ * \brief  å°†ä½¿ç”¨å®Œæ¯•çš„ä¸´æ—¶idé‡Šæ”¾
+ * \param  tempid ä½¿ç”¨å®Œæ¯•çš„ä¸´æ—¶id
   */
 void SkillManager::putUniqeID(const DWORD &tempid)
 {
 }
 
 /**
- * \brief  ¹¹Ôìº¯Êı
+ * \brief  æ„é€ å‡½æ•°
  */
 UserSkillM::UserSkillM()
 {
 }
 
 /**
- * \brief  Îö¹¹´¦Àí£¬Çå³ıËùÓĞµÄ¼¼ÄÜ¶ÔÏó
+ * \brief  ææ„å¤„ç†ï¼Œæ¸…é™¤æ‰€æœ‰çš„æŠ€èƒ½å¯¹è±¡
    */
 UserSkillM::~UserSkillM()
 {
@@ -41,9 +41,9 @@ UserSkillM::~UserSkillM()
 }
 
 /**
- * \brief  ¸ù¾İÁÙÊ±id»ñÈ¡¼¼ÄÜ¶ÔÏó
- * \param  id ÁÙÊ±id
- * \return ¼¼ÄÜ¶ÔÏó
+ * \brief  æ ¹æ®ä¸´æ—¶idè·å–æŠ€èƒ½å¯¹è±¡
+ * \param  id ä¸´æ—¶id
+ * \return æŠ€èƒ½å¯¹è±¡
  */
 zSkill *UserSkillM::getSkillByTempID(DWORD id)
 {
@@ -51,8 +51,8 @@ zSkill *UserSkillM::getSkillByTempID(DWORD id)
 }
 
 /**
- * \brief  ¸ù¾İÁÙÊ±id É¾³ı¼¼ÄÜ¶ÔÏó
- * \param  id ÁÙÊ±id
+ * \brief  æ ¹æ®ä¸´æ—¶id åˆ é™¤æŠ€èƒ½å¯¹è±¡
+ * \param  id ä¸´æ—¶id
   */
 void UserSkillM::removeSkillByTempID(DWORD id)
 {
@@ -62,8 +62,8 @@ void UserSkillM::removeSkillByTempID(DWORD id)
 }
 
 /**
- * \brief  ´Ó¹ÜÀíÆ÷ÖĞÉ¾³ıÖ¸¶¨µÄ¼¼ÄÜ¶ÔÏó
- * \param  s ±»É¾³ıµÄ¼¼ÄÜ¶ÔÏó
+ * \brief  ä»ç®¡ç†å™¨ä¸­åˆ é™¤æŒ‡å®šçš„æŠ€èƒ½å¯¹è±¡
+ * \param  s è¢«åˆ é™¤çš„æŠ€èƒ½å¯¹è±¡
  */
 void UserSkillM::removeSkill(zSkill *s)
 {
@@ -71,9 +71,9 @@ void UserSkillM::removeSkill(zSkill *s)
 }
 
 /**
- * \brief  Ôö¼ÓÒ»¸ö¼¼ÄÜ¶ÔÏóµ½¹ÜÀíÆ÷ÖĞ
- * \param  s ¼¼ÄÜ¶ÔÏó
- * \return true Ôö¼Ó³É¹¦ false Ôö¼ÓÊ§°Ü
+ * \brief  å¢åŠ ä¸€ä¸ªæŠ€èƒ½å¯¹è±¡åˆ°ç®¡ç†å™¨ä¸­
+ * \param  s æŠ€èƒ½å¯¹è±¡
+ * \return true å¢åŠ æˆåŠŸ false å¢åŠ å¤±è´¥
  */
 bool UserSkillM::addSkill(zSkill *s)
 {
@@ -83,13 +83,13 @@ bool UserSkillM::addSkill(zSkill *s)
 		zSkill *ret = (zSkill *)getEntryByTempID(s->id);
 		if(ret)
 		{
-			Zebra::logger->debug("¼¼ÄÜIDÖØ¸´(%ld)" , s->id);
+			Zebra::logger->debug("æŠ€èƒ½IDé‡å¤(%ld)" , s->id);
 		}
 
 		bret = addEntry((zSkill *)s);
 		if(!bret)
 		{
-			Zebra::logger->fatal("Ìí¼Ó¼¼ÄÜ±íÊ§°Ü");
+			Zebra::logger->fatal("æ·»åŠ æŠ€èƒ½è¡¨å¤±è´¥");
 		}
 	}
 
@@ -97,8 +97,8 @@ bool UserSkillM::addSkill(zSkill *s)
 }
 
 /**
- * \brief  ¸ù¾İ¼¼ÄÜid²éÕÒ¶ÔÓ¦µÄ¼¼ÄÜ¶ÔÏó
-  * \return ¼¼ÄÜ¶ÔÏó
+ * \brief  æ ¹æ®æŠ€èƒ½idæŸ¥æ‰¾å¯¹åº”çš„æŠ€èƒ½å¯¹è±¡
+  * \return æŠ€èƒ½å¯¹è±¡
  */
 zSkill *UserSkillM::findSkill(DWORD skillid)
 {
@@ -116,10 +116,10 @@ zSkill *UserSkillM::findSkill(DWORD skillid)
 }
 
 /**
- * \brief  ¸ù¾İ¼¼ÄÜid²éÕÒ¶ÔÓ¦µÄ¼¼ÄÜ¶ÔÏó
- * \param myKind ¼¼ÄÜÏµ±ğ
- * \param mySubkind ¼¼ÄÜÊ÷±ğ
- * \return ±¾Ê÷Í¶ÈëµÄ¼¼ÄÜµãÊı
+ * \brief  æ ¹æ®æŠ€èƒ½idæŸ¥æ‰¾å¯¹åº”çš„æŠ€èƒ½å¯¹è±¡
+ * \param myKind æŠ€èƒ½ç³»åˆ«
+ * \param mySubkind æŠ€èƒ½æ ‘åˆ«
+ * \return æœ¬æ ‘æŠ•å…¥çš„æŠ€èƒ½ç‚¹æ•°
  */
 DWORD UserSkillM::getPointInTree(DWORD myKind, DWORD mySubkind)
 {
@@ -128,18 +128,18 @@ DWORD UserSkillM::getPointInTree(DWORD myKind, DWORD mySubkind)
 	for(zEntryTempID::hashmap::iterator it=zEntryTempID::ets.begin();it!=zEntryTempID::ets.end();it++)
 	{
 		s = (zSkill *)it->second;
-		if ((s->base->subkind == 1)&&(s->base->kind == myKind)) num+=s->base->level; //Ôö¼Ó»ù´¡ÏµµãÊı
+		if ((s->base->subkind == 1)&&(s->base->kind == myKind)) num+=s->base->level; //å¢åŠ åŸºç¡€ç³»ç‚¹æ•°
 		if ((s->base->subkind !=1)&&(s->base->subkind == mySubkind)&&(s->base->kind == myKind)) num+=s->base->level;
 	}
 #ifdef _DEBUGLOG
-	Zebra::logger->info("[¼¼ÄÜµãÊı]%u", num);
+	Zebra::logger->info("[æŠ€èƒ½ç‚¹æ•°]%u", num);
 #endif 
 	return num;
 }
 
 /**
- * \brief  »Øµ÷±éÀú¸ÃÓÃ»§ËùÓĞµÄ¼¼ÄÜ¶ÔÏó
- * \param  exec »Øµ÷º¯Êı
+ * \brief  å›è°ƒéå†è¯¥ç”¨æˆ·æ‰€æœ‰çš„æŠ€èƒ½å¯¹è±¡
+ * \param  exec å›è°ƒå‡½æ•°
  */
 void UserSkillM::execEvery(UserSkillExec &exec)
 {
@@ -151,7 +151,7 @@ void UserSkillM::execEvery(UserSkillExec &exec)
 }
 
 /**
- * \brief  ÖØÉè¸ÃÓÃ»§ËùÓĞµÄ¼¼ÄÜÀäÈ´Ê±¼ä
+ * \brief  é‡è®¾è¯¥ç”¨æˆ·æ‰€æœ‰çš„æŠ€èƒ½å†·å´æ—¶é—´
  */
 void UserSkillM::resetAllUseTime()
 {
@@ -164,7 +164,7 @@ void UserSkillM::resetAllUseTime()
 }
 
 /**
- * \brief  Çå³ı¸ÃÓÃ»§ËùÓĞµÄ¼¼ÄÜÀäÈ´Ê±¼ä
+ * \brief  æ¸…é™¤è¯¥ç”¨æˆ·æ‰€æœ‰çš„æŠ€èƒ½å†·å´æ—¶é—´
  */
 void UserSkillM::clearAllUseTime()
 {
@@ -178,7 +178,7 @@ void UserSkillM::clearAllUseTime()
 }
 
 /**
- * \brief  Ë¢ĞÂ¼¼ÄÜ(ÎäÆ÷ÌáÉı¼¼ÄÜµÈ¼¶¡£¡£¡£¡£¡£)
+ * \brief  åˆ·æ–°æŠ€èƒ½(æ­¦å™¨æå‡æŠ€èƒ½ç­‰çº§ã€‚ã€‚ã€‚ã€‚ã€‚)
  */
 void UserSkillM::refresh()
 {
@@ -201,8 +201,8 @@ int UserSkillM::size() const
 }
 
 /**
- * \brief  ¸ù¾İ¼¼ÄÜid²éÕÒ¶ÔÓ¦µÄ¼¼ÄÜ¶ÔÏó²¢É¾³ı
-  * \return ¼¼ÄÜ¶ÔÏó
+ * \brief  æ ¹æ®æŠ€èƒ½idæŸ¥æ‰¾å¯¹åº”çš„æŠ€èƒ½å¯¹è±¡å¹¶åˆ é™¤
+  * \return æŠ€èƒ½å¯¹è±¡
  */
 void UserSkillM::clearskill(DWORD skillid)
 {

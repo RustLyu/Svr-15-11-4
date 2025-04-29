@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Scene.cpp  $
  * \author  
  * \date 
- * \brief ³¡¾°ÀàµÄÊµÏÖ
+ * \brief åœºæ™¯ç±»çš„å®ç°
  *
  * 
  */
@@ -33,7 +33,7 @@
 #include "RebuildObject.h"
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */
 Scene::Scene(): _one_sec(1)
@@ -61,7 +61,7 @@ Scene::Scene(): _one_sec(1)
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 Scene::~Scene()
@@ -79,8 +79,8 @@ void Scene::freshGateScreenIndex(SceneUser *pUser, const DWORD screen)
 }
 
 /**
- * \brief »ñÈ¡µØÍ¼ËùÊô¹ú¼ÒÃû×Ö
- * \return µØÍ¼ËùÊô¹ú¼ÒÃû×Ö
+ * \brief è·å–åœ°å›¾æ‰€å±å›½å®¶åå­—
+ * \return åœ°å›¾æ‰€å±å›½å®¶åå­—
  */
 const char * Scene::getCountryName() const
 {
@@ -88,10 +88,10 @@ const char * Scene::getCountryName() const
 }
 
 /**
- * \brief Îª¶ªÎïÆ·²éÕÒÒ»¸ö¿ÕÓàµã
- * \param pos ÖĞĞÄµã
- * \param findedPos ²éÕÒµ½µÄµã
- * \return ²éÕÒÊÇ·ñ³É¹¦
+ * \brief ä¸ºä¸¢ç‰©å“æŸ¥æ‰¾ä¸€ä¸ªç©ºä½™ç‚¹
+ * \param pos ä¸­å¿ƒç‚¹
+ * \param findedPos æŸ¥æ‰¾åˆ°çš„ç‚¹
+ * \return æŸ¥æ‰¾æ˜¯å¦æˆåŠŸ
  */
 bool Scene::findPosForObject(const zPos &pos, zPos &findedPos)
 {
@@ -114,10 +114,10 @@ bool Scene::findPosForObject(const zPos &pos, zPos &findedPos)
 }
 
 /**
- * \brief ÎªÈËÎï²éÕÒÒ»¸ö¿ÕÓàµã
- * \param pos ÖĞĞÄµã
- * \param findedPos ²éÕÒµ½µÄµã
- * \return ²éÕÒÊÇ·ñ³É¹¦
+ * \brief ä¸ºäººç‰©æŸ¥æ‰¾ä¸€ä¸ªç©ºä½™ç‚¹
+ * \param pos ä¸­å¿ƒç‚¹
+ * \param findedPos æŸ¥æ‰¾åˆ°çš„ç‚¹
+ * \return æŸ¥æ‰¾æ˜¯å¦æˆåŠŸ
  */
 bool Scene::findPosForUser(const zPos &pos, zPos &findedPos)
 {
@@ -141,11 +141,11 @@ bool Scene::findPosForUser(const zPos &pos, zPos &findedPos)
 }
 
 /**
- * \brief ¸ù¾İ×ø±ê£¬»ñÈ¡Õ¾ÔÚÕâ¸ö×ø±êµãÉÏÃæµÄÈËÎï
- * \param pos ×ø±êµã
- * \param bState ÊÇ·ñÏŞ¶¨ÕÒµ½µÄÍæ¼ÒµÄ×´Ì¬
- * \param byState Íæ¼ÒµÄ×´Ì¬
- * \return Íæ¼Ò
+ * \brief æ ¹æ®åæ ‡ï¼Œè·å–ç«™åœ¨è¿™ä¸ªåæ ‡ç‚¹ä¸Šé¢çš„äººç‰©
+ * \param pos åæ ‡ç‚¹
+ * \param bState æ˜¯å¦é™å®šæ‰¾åˆ°çš„ç©å®¶çš„çŠ¶æ€
+ * \param byState ç©å®¶çš„çŠ¶æ€
+ * \return ç©å®¶
  */
 SceneUser *Scene::getSceneUserByPos(const zPos &pos, const bool bState, const zSceneEntry::SceneEntryState byState)
 {
@@ -153,11 +153,11 @@ SceneUser *Scene::getSceneUserByPos(const zPos &pos, const bool bState, const zS
 }
 
 /**
-  * \brief Í¨¹ıÍæ¼ÒID»ñÈ¡³¡¾°¶ÔÏó
+  * \brief é€šè¿‡ç©å®¶IDè·å–åœºæ™¯å¯¹è±¡
   *
-  * \param userid Íæ¼ÒID
+  * \param userid ç©å®¶ID
   *
-  * \return Íæ¼ÒÊµÀı
+  * \return ç©å®¶å®ä¾‹
   *
   */
 SceneUser *Scene::getUserByID(DWORD userid)
@@ -171,11 +171,11 @@ SceneUser *Scene::getUserByID(DWORD userid)
 }
 
 /**
- * \brief ¸ù¾İÁÙÊ±idµÃµ½Íæ¼ÒÖ¸Õë
+ * \brief æ ¹æ®ä¸´æ—¶idå¾—åˆ°ç©å®¶æŒ‡é’ˆ
  *
  *
- * \param usertempid Íæ¼ÒÁÙÊ±id
- * \return Íæ¼ÒÖ¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param usertempid ç©å®¶ä¸´æ—¶id
+ * \return ç©å®¶æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneUser *Scene::getUserByTempID(DWORD usertempid)
 {
@@ -188,11 +188,11 @@ SceneUser *Scene::getUserByTempID(DWORD usertempid)
 }
 
 /**
- * \brief ¸ù¾İÃû×ÖµÃµ½Íæ¼ÒÖ¸Õë
+ * \brief æ ¹æ®åå­—å¾—åˆ°ç©å®¶æŒ‡é’ˆ
  *
  *
- * \param username Íæ¼ÒÃû×Ö
- * \return Íæ¼ÒÖ¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param username ç©å®¶åå­—
+ * \return ç©å®¶æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneUser *Scene::getUserByName(const char *username)
 {
@@ -205,10 +205,10 @@ SceneUser *Scene::getUserByName(const char *username)
 }
 
 /**
- * \brief ¸ù¾İ×ø±ê£¬»ñÈ¡Õ¾ÔÚÕâ¸ö×ø±êµãÉÏÃæµÄNpc
- * \param pos ×ø±êµã
- * \param bState ÊÇ·ñÏŞ¶¨npcËù´¦µÄ×´Ì¬
- * \param byState npcµÄËù´¦µÄ×´Ì¬
+ * \brief æ ¹æ®åæ ‡ï¼Œè·å–ç«™åœ¨è¿™ä¸ªåæ ‡ç‚¹ä¸Šé¢çš„Npc
+ * \param pos åæ ‡ç‚¹
+ * \param bState æ˜¯å¦é™å®šnpcæ‰€å¤„çš„çŠ¶æ€
+ * \param byState npcçš„æ‰€å¤„çš„çŠ¶æ€
  * \return Npc
  */
 SceneNpc *Scene::getSceneNpcByPos(const zPos &pos, const bool bState, const zSceneEntry::SceneEntryState byState)
@@ -217,11 +217,11 @@ SceneNpc *Scene::getSceneNpcByPos(const zPos &pos, const bool bState, const zSce
 }
 
 /**
- * \brief ¸ù¾İÁÙÊ±idµÃµ½NPCÖ¸Õë
+ * \brief æ ¹æ®ä¸´æ—¶idå¾—åˆ°NPCæŒ‡é’ˆ
  *
  *
- * \param npctempid Íæ¼ÒÁÙÊ±id
- * \return NPCÖ¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param npctempid ç©å®¶ä¸´æ—¶id
+ * \return NPCæŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneNpc *Scene::getNpcByTempID(DWORD npctempid)
 {
@@ -239,9 +239,9 @@ struct AICallback : public zSceneEntryCallBack
 	MonkeyNpcs delNpc;
 	AICallback(const zRTime &ctv) : ctv(ctv) {}
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÈ«²¿ÊÇnpc
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œå…¨éƒ¨æ˜¯npc
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -258,13 +258,13 @@ struct GetAffectScreen : public zSceneEntryCallBack
 {
 	DWORD group;
 	/**
-	 * \brief ¹¹Ôìº¯Êı
-	 * \param scene ³¡¾°
+	 * \brief æ„é€ å‡½æ•°
+	 * \param scene åœºæ™¯
 	 */
 	GetAffectScreen(DWORD g) :group(g) {};
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -284,9 +284,9 @@ bool Scene::SceneEntryAction(const zRTime& ctv, const DWORD group)
 	////FunctionTimes(0,__FUNCTION__);
 	if(_one_sec(ctv))
 	{
-		//¹¥³Ç
+		//æ”»åŸ
 		processRush();
-		//¸üĞÂµØ±íÎïÆ·
+		//æ›´æ–°åœ°è¡¨ç‰©å“
 		updateSceneObject();
 		if(this->getRealMapID() == 190 && userCount)
 		{
@@ -306,7 +306,7 @@ bool Scene::SceneEntryAction(const zRTime& ctv, const DWORD group)
 		}
 	}
 
-	//Ê×ÏÈÊÕ¼¯ÊÜÓ°ÏìµÄÆÁ±àºÅ£¬¶ÔµØÍ¼ÉÏËùÓĞµÄ½ÇÉ«»Ö¸´
+	//é¦–å…ˆæ”¶é›†å—å½±å“çš„å±ç¼–å·ï¼Œå¯¹åœ°å›¾ä¸Šæ‰€æœ‰çš„è§’è‰²æ¢å¤
 	GetAffectScreen affectScreen(group);
 	execAllOfScene(zSceneEntry::SceneEntry_Player, affectScreen);
 	if(userCount>400)
@@ -315,23 +315,23 @@ bool Scene::SceneEntryAction(const zRTime& ctv, const DWORD group)
 	}
 	AICallback callback(ctv);
 	execAllOfEffectNpcScreen(group,callback);
-	//»ØÊÕ´ıÉ¾³ıµÄnpc
+	//å›æ”¶å¾…åˆ é™¤çš„npc
 	if (!callback.delNpc.empty())
 	{
-		//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"»ØÊÕ¶¯Ì¬npcĞèÒªµÄÊ±¼ä" , 32);
+		//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"å›æ”¶åŠ¨æ€npcéœ€è¦çš„æ—¶é—´" , 32);
 		for(MonkeyNpcs::iterator it=callback.delNpc.begin();it!=callback.delNpc.end();++it)
 		{
 			SceneNpc *npc = *it;
 
-			//Í¨Öª¿Í»§¶ËÉ¾³ıNPC
+			//é€šçŸ¥å®¢æˆ·ç«¯åˆ é™¤NPC
 			Cmd::stRemoveMapNpcMapScreenUserCmd removeMapNpc;
 			removeMapNpc.dwMapNpcDataPosition = npc->tempid;
 			sendCmdToNine(npc->getPosI(), &removeMapNpc, sizeof(removeMapNpc));
-			//´ÓµØÍ¼ºÍ¹ÜÀíÆ÷ÖĞÉ¾³ıÕâ¸öNPC
+			//ä»åœ°å›¾å’Œç®¡ç†å™¨ä¸­åˆ é™¤è¿™ä¸ªNPC
 			removeNpc(npc);
 			SceneNpcManager::getMe().removeSceneNpc(npc);
 			SceneNpcManager::getMe().removeSpecialNpc(npc);
-			//Zebra::logger->trace("%s, É¾³ınpc %s(%u)", __FUNCTION__, npc->name, npc->tempid);
+			//Zebra::logger->trace("%s, åˆ é™¤npc %s(%u)", __FUNCTION__, npc->name, npc->tempid);
 			SAFE_DELETE(npc);
 		}
 	}
@@ -346,9 +346,9 @@ bool Scene::SceneEntryAction(const zRTime& ctv, const DWORD group)
 }
 
 /**
- * \brief ¸ù¾İ×ø±ê£¬»ñÈ¡Õ¾ÔÚÕâ¸ö×ø±êµãÉÏÃæµÄÎïÆ·
- * \param pos ×ø±êµã
- * \return ÎïÆ·
+ * \brief æ ¹æ®åæ ‡ï¼Œè·å–ç«™åœ¨è¿™ä¸ªåæ ‡ç‚¹ä¸Šé¢çš„ç‰©å“
+ * \param pos åæ ‡ç‚¹
+ * \return ç‰©å“
  */
 zSceneObject *Scene::getSceneObjectByPos(const zPos &pos)
 {
@@ -356,8 +356,8 @@ zSceneObject *Scene::getSceneObjectByPos(const zPos &pos)
 }
 
 /**
- * \brief ÔÚµØÍ¼ÉÏÃæÒÆ³ıÄ³Ò»¸öÎïÆ·
- * \param so µØÍ¼ÎïÆ·
+ * \brief åœ¨åœ°å›¾ä¸Šé¢ç§»é™¤æŸä¸€ä¸ªç‰©å“
+ * \param so åœ°å›¾ç‰©å“
  */
 void Scene::removeObject(zSceneObject *so)
 {
@@ -368,8 +368,8 @@ void Scene::removeObject(zSceneObject *so)
 }
 
 /**
- * \brief ÔÚµØÍ¼ÉÏÃæÒÆ³ıÄ³Ò»¸öNpc
- * \param sn µØÍ¼Npc
+ * \brief åœ¨åœ°å›¾ä¸Šé¢ç§»é™¤æŸä¸€ä¸ªNpc
+ * \param sn åœ°å›¾Npc
  */
 void Scene::removeNpc(SceneNpc *sn)
 {
@@ -381,10 +381,10 @@ void Scene::removeNpc(SceneNpc *sn)
 }
 
 /**
- * \brief ¼ì²é×ø±êËùÔÚÇøÓòµÄÀàĞÍ
- * \param pos ´ı¼ì²éµÄ×ø±ê
- * \param type ĞèÒª¼ì²éµÄÇøÓòÀàĞÍ
- * \return ÊÇ·ñ³É¹¦
+ * \brief æ£€æŸ¥åæ ‡æ‰€åœ¨åŒºåŸŸçš„ç±»å‹
+ * \param pos å¾…æ£€æŸ¥çš„åæ ‡
+ * \param type éœ€è¦æ£€æŸ¥çš„åŒºåŸŸç±»å‹
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Scene::checkZoneType(const zPos &pos, const int type) const
 {
@@ -400,9 +400,9 @@ bool Scene::checkZoneType(const zPos &pos, const int type) const
 }
 
 /**
- * \brief »ñµÃ×ø±êËùÔÚÇøÓòµÄÀàĞÍ
- * \param pos ´ı¼ì²éµÄ×ø±ê
- * \return ÇøÓòÀàĞÍ
+ * \brief è·å¾—åæ ‡æ‰€åœ¨åŒºåŸŸçš„ç±»å‹
+ * \param pos å¾…æ£€æŸ¥çš„åæ ‡
+ * \return åŒºåŸŸç±»å‹
  */
 int Scene::getZoneType(const zPos &pos) const
 {
@@ -418,10 +418,10 @@ int Scene::getZoneType(const zPos &pos) const
 }
 
 /**
- * \brief ÔÚµØÍ¼Ö¸¶¨ÀàĞÍµÄÇøÓòÀïÃæËæ»ú²úÉú×ø±ê
- * \param type ÇøÓòÀàĞÍ
- * \param pos ²úÉúµÄ×ø±ê
- * \return ÊÇ·ñ³É¹¦
+ * \brief åœ¨åœ°å›¾æŒ‡å®šç±»å‹çš„åŒºåŸŸé‡Œé¢éšæœºäº§ç”Ÿåæ ‡
+ * \param type åŒºåŸŸç±»å‹
+ * \param pos äº§ç”Ÿçš„åæ ‡
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Scene::randzPosByZoneType(const int type, zPos &pos) const
 {
@@ -453,13 +453,13 @@ bool Scene::randzPosByZoneType(const int type, zPos &pos) const
 
 
 /**
- * \brief Íæ¼ÒÇĞ»»µØÍ¼
+ * \brief ç©å®¶åˆ‡æ¢åœ°å›¾
  *
  *
- * \param pUser Íæ¼ÒÖ¸Õë
- * \param deathBackto ÊÇ·ñÊÇËÀÍö»Ø³Ç
- * \param ignoreWar ºöÂÔÌø×ªÖĞµÄ¹úÕ½´¦Àí²¿·Ö
- * \return 0 Ìø³¡¾°Ê§°Ü£¬1 ÔÚ±¾·şÌø³¡¾°£¬ 2¿ç·şÌø³¡¾°
+ * \param pUser ç©å®¶æŒ‡é’ˆ
+ * \param deathBackto æ˜¯å¦æ˜¯æ­»äº¡å›åŸ
+ * \param ignoreWar å¿½ç•¥è·³è½¬ä¸­çš„å›½æˆ˜å¤„ç†éƒ¨åˆ†
+ * \return 0 è·³åœºæ™¯å¤±è´¥ï¼Œ1 åœ¨æœ¬æœè·³åœºæ™¯ï¼Œ 2è·¨æœè·³åœºæ™¯
  */
 int Scene::changeMap(SceneUser *pUser , bool deathBackto, bool ignoreWar)
 {
@@ -468,7 +468,7 @@ int Scene::changeMap(SceneUser *pUser , bool deathBackto, bool ignoreWar)
 		return 0;
 	}
 	//TODO
-	//ÔÚ±ğµÄµØÍ¼Ñ°ÕÒÖØÉúµØ
+	//åœ¨åˆ«çš„åœ°å›¾å¯»æ‰¾é‡ç”Ÿåœ°
 	//Scene *toscene=SceneManager::getInstance().getSceneByName(backtoMapName);
 	Scene *toscene=NULL;
 
@@ -600,14 +600,14 @@ int Scene::changeMap(SceneUser *pUser , bool deathBackto, bool ignoreWar)
 				country_iter != SceneManager::getInstance().country_info.end())
 		{
 			mapname = country_iter->second.name;
-			mapname+= "¡¤";
+			mapname+= "Â·";
 			mapname+= map_iter->second.name;
 			strncpy(pUser->wait_gomap_name,mapname.c_str(),MAX_NAMESIZE);
-			Zebra::logger->debug("ÔÚ±ğµÄ³¡¾°Ñ°ÕÒÖØÉúµØ,µØÍ¼Ãû³Æ:%s",pUser->wait_gomap_name);
+			Zebra::logger->debug("åœ¨åˆ«çš„åœºæ™¯å¯»æ‰¾é‡ç”Ÿåœ°,åœ°å›¾åç§°:%s",pUser->wait_gomap_name);
 		}
 		else
 		{
-			Zebra::logger->debug("ÔÚ±ğµÄ³¡¾°Ñ°ÕÒÖØÉúµØ,µØÍ¼ID:%d",cmd.map_id);
+			Zebra::logger->debug("åœ¨åˆ«çš„åœºæ™¯å¯»æ‰¾é‡ç”Ÿåœ°,åœ°å›¾ID:%d",cmd.map_id);
 		}
 		return 2;
 	}
@@ -616,11 +616,11 @@ int Scene::changeMap(SceneUser *pUser , bool deathBackto, bool ignoreWar)
 }
 
 /**
- * \brief ÔÚµØÍ¼Ö¸¶¨ÀàĞÍµÄÇøÓòÀïÃæËæ»ú²úÉú×ø±ê
- * \param type ÇøÓòÀàĞÍ
- * \param pos ²úÉúµÄ×ø±ê
- * \param orign Ô­Ê¼×ø±ê,ÓÃÀ´ÕÒ×î½ü±¾ÀàĞÍÇøÓò
- * \return ÊÇ·ñ³É¹¦
+ * \brief åœ¨åœ°å›¾æŒ‡å®šç±»å‹çš„åŒºåŸŸé‡Œé¢éšæœºäº§ç”Ÿåæ ‡
+ * \param type åŒºåŸŸç±»å‹
+ * \param pos äº§ç”Ÿçš„åæ ‡
+ * \param orign åŸå§‹åæ ‡,ç”¨æ¥æ‰¾æœ€è¿‘æœ¬ç±»å‹åŒºåŸŸ
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Scene::randzPosByZoneType(const int type, zPos &pos , const zPos orign)
 {
@@ -648,15 +648,15 @@ bool Scene::randzPosByZoneType(const int type, zPos &pos , const zPos orign)
 }
 
 /**
- * \brief ÔÚÄ³Î»ÖÃÒ»¶¨·¶Î§ÄÚËæ»úÕÒÒ»µã
- * ÖØÊÔ10´Î£¬10´ÎÄÚÕÒ²»µ½Ôò·ÅÆú·µ»Øfalse
+ * \brief åœ¨æŸä½ç½®ä¸€å®šèŒƒå›´å†…éšæœºæ‰¾ä¸€ç‚¹
+ * é‡è¯•10æ¬¡ï¼Œ10æ¬¡å†…æ‰¾ä¸åˆ°åˆ™æ”¾å¼ƒè¿”å›false
  *
  *
- * \param center ÖĞĞÄÎ»ÖÃ
- * \param pos ·µ»ØÕÒµ½µÄÎ»ÖÃ
- * \param rectx ·¶Î§¿í
- * \param recty ·¶Î§¸ß
- * \return ²éÕÒÊÇ·ñ³É¹¦
+ * \param center ä¸­å¿ƒä½ç½®
+ * \param pos è¿”å›æ‰¾åˆ°çš„ä½ç½®
+ * \param rectx èŒƒå›´å®½
+ * \param recty èŒƒå›´é«˜
+ * \return æŸ¥æ‰¾æ˜¯å¦æˆåŠŸ
  */
 bool Scene::randzPosOnRect(const zPos &center , zPos &pos , WORD rectx , WORD recty) const
 {
@@ -679,7 +679,7 @@ bool Scene::randzPosOnRect(const zPos &center , zPos &pos , WORD rectx , WORD re
 }
 
 /**
- * \brief Çå³ıµØÍ¼£¬ÊÍ·ÅµØÍ¼×ÊÔ´
+ * \brief æ¸…é™¤åœ°å›¾ï¼Œé‡Šæ”¾åœ°å›¾èµ„æº
  *
  */
 void Scene::final()
@@ -693,15 +693,15 @@ void Scene::final()
 }
 
 /**
- * \brief ³õÊ¼»¯µØÍ¼
- * \param countryid ¹ú¼Òid
- * \param mapid µØÍ¼id
+ * \brief åˆå§‹åŒ–åœ°å›¾
+ * \param countryid å›½å®¶id
+ * \param mapid åœ°å›¾id
  */
 bool Scene::init(DWORD countryid , DWORD mapid)
 {
 	if(inited)
 	{
-		Zebra::logger->error("ÖØ¸´³õÊ¼»¯");
+		Zebra::logger->error("é‡å¤åˆå§‹åŒ–");
 		return inited;
 	}
 	//std::string s;
@@ -716,18 +716,18 @@ bool Scene::init(DWORD countryid , DWORD mapid)
 	SceneManager::MapMap_iter map_iter = SceneManager::getInstance().map_info.find(mapid);
 	if(map_iter == SceneManager::getInstance().map_info.end())
 	{
-		Zebra::logger->error("µÃµ½µØÍ¼Ãû³ÆÊ§°Ü");
+		Zebra::logger->error("å¾—åˆ°åœ°å›¾åç§°å¤±è´¥");
 		return inited;
 	}
 	SceneManager::CountryMap_iter country_iter = SceneManager::getInstance().country_info.find(countryid);
 	if(country_iter == SceneManager::getInstance().country_info.end())
 	{
-		Zebra::logger->error("µÃµ½¹ú¼ÒĞÅÏ¢Ê§°Ü");
+		Zebra::logger->error("å¾—åˆ°å›½å®¶ä¿¡æ¯å¤±è´¥");
 		return inited;
 	}
 
 	mapname = country_iter->second.name;
-	mapname+= "¡¤";
+	mapname+= "Â·";
 	mapname+= map_iter->second.name;
 	strncpy(this->name,mapname.c_str(),MAX_NAMESIZE);
 	char temp[20];
@@ -743,33 +743,33 @@ bool Scene::init(DWORD countryid , DWORD mapid)
 	this->exprate = map_iter->second.exprate/100.0f;
 	 
 
-	//Èç¹û¸ÃµØÍ¼Ã»ÓĞÖØÉúµã
+	//å¦‚æœè¯¥åœ°å›¾æ²¡æœ‰é‡ç”Ÿç‚¹
 	if(map_iter->second.backto)
 	{
 		this->backtoMapID = (country_iter->second.id << 16) + map_iter->second.backto;
 	}
-	//Íâ¹úÈËÀ´µ½±¾¹úµÄÖØÉúµØÍ¼
+	//å¤–å›½äººæ¥åˆ°æœ¬å›½çš„é‡ç”Ÿåœ°å›¾
 	if(map_iter->second.foreignbackto)
 	{
 		this->foreignerBacktoMapID = /*(country_iter->second.id << 16) + */map_iter->second.foreignbackto;
 	}
-	//ÔÚ¹«¹²¹úËÀÍöÖØÉúµØÍ¼
+	//åœ¨å…¬å…±å›½æ­»äº¡é‡ç”Ÿåœ°å›¾
 	if(map_iter->second.commoncountrybackto)
 	{
 		this->commonCountryBacktoMapID = /*(country_iter->second.id << 16) + */map_iter->second.commoncountrybackto;
 	}
-	//ÎŞ¹ú¼ÒÈËÔÚÍâ¹úËÀÍöÖØÉúµØÍ¼
+	//æ— å›½å®¶äººåœ¨å¤–å›½æ­»äº¡é‡ç”Ÿåœ°å›¾
 	if(map_iter->second.commonuserbackto)
 	{
 		this->commonUserBacktoMapID = /*(country_iter->second.id << 16) + */map_iter->second.commonuserbackto;
 	}
-	//Èç¹û¸ÃµØÍ¼²»ÊÇÖ÷³Ç
+	//å¦‚æœè¯¥åœ°å›¾ä¸æ˜¯ä¸»åŸ
 	if(map_iter->second.backtoCity)
 	{
 		this->backtoCityMapID = (country_iter->second.id << 16) + map_iter->second.backtoCity;
 	}
 
-	/// ¹úÕ½Õ½³¡ËÀÍöºó£¬¹¥·½ËÀÍöÖØÉúµØ
+	/// å›½æˆ˜æˆ˜åœºæ­»äº¡åï¼Œæ”»æ–¹æ­»äº¡é‡ç”Ÿåœ°
 	if (map_iter->second.countrydarebackto)
 	{
 		this->countryDareBackToMapID = map_iter->second.countrydarebackto;
@@ -784,7 +784,7 @@ bool Scene::init(DWORD countryid , DWORD mapid)
 		this->pklevel = map_iter->second.pklevel;
 	}
 	
-	//Èç¹û¸ÃµØÍ¼²»ÊÇ¹úÕ½Ä¿µÄµØ
+	//å¦‚æœè¯¥åœ°å›¾ä¸æ˜¯å›½æˆ˜ç›®çš„åœ°
 	if(map_iter->second.backtodare)
 	{
 		this->backtoDareMapID = map_iter->second.backtodare;
@@ -795,7 +795,7 @@ bool Scene::init(DWORD countryid , DWORD mapid)
 	screenMax=screenx*screeny;
 	setSceneWH(sceneWH, screenx, screeny, screenMax);
 
-	//Ô¤ÏÈ½¨Á¢µØÍ¼·Ç×èµ²µãË÷Òı
+	//é¢„å…ˆå»ºç«‹åœ°å›¾éé˜»æŒ¡ç‚¹ç´¢å¼•
 	{
 		zPos tempPos;
 		for(tempPos.x = 0; tempPos.x < sceneWH.x; tempPos.x++)
@@ -819,12 +819,12 @@ bool Scene::init(DWORD countryid , DWORD mapid)
 		initRegion(zone.region, zone.pos, zone.width, zone.height);
 	}
 
-	//´Ó½Å±¾ÎÄ¼şÀïÈ¡µÃ¹²Ïí½Å±¾idºÍnpcidµÄ¶ÔÓ¦
+	//ä»è„šæœ¬æ–‡ä»¶é‡Œå–å¾—å…±äº«è„šæœ¬idå’Œnpcidçš„å¯¹åº”
 	std::map<int,int> scriptMap;
 	zXMLParser xp;
 	if (!xp.initFile(Zebra::global["mapdir"] + "NpcAIScript.xml"))
 	{
-		Zebra::logger->error("²»ÄÜ¶ÁÈ¡npc½Å±¾ÎÄ¼ş %s", (Zebra::global["mapdir"] + "NpcAIScript.xml").c_str());
+		Zebra::logger->error("ä¸èƒ½è¯»å–npcè„šæœ¬æ–‡ä»¶ %s", (Zebra::global["mapdir"] + "NpcAIScript.xml").c_str());
 	}
 	xmlNodePtr infoNode = xp.getRootNode("info");
 	if (infoNode)
@@ -832,11 +832,11 @@ bool Scene::init(DWORD countryid , DWORD mapid)
 		xmlNodePtr scriptNode = xp.getChildNode(infoNode, NULL);
 		while (scriptNode)
 		{
-			int shared;//ÊÇ·ñ¹²Ïí½Å±¾
+			int shared;//æ˜¯å¦å…±äº«è„šæœ¬
 			xp.getNodePropNum(scriptNode, "shared", &shared, sizeof(shared));
 			if (shared)
 			{
-				int sID;//½Å±¾id
+				int sID;//è„šæœ¬id
 				int nID;//npcid
 				xp.getNodePropNum(scriptNode, "id", &sID, sizeof(sID));
 				xp.getNodePropNum(scriptNode, "npcid", &nID, sizeof(nID));
@@ -857,32 +857,32 @@ bool Scene::init(DWORD countryid , DWORD mapid)
 				// */
 		initRegion(define->region, define->pos, define->width, define->height);
 		
-		//¼ì²éÊÇ·ñÓĞ¹²Ïí½Å±¾
+		//æ£€æŸ¥æ˜¯å¦æœ‰å…±äº«è„šæœ¬
 		if ((0==define->scriptID)&&(scriptMap.end()!=scriptMap.find(define->id)))
 		{
 			define->scriptID = scriptMap[define->id];
-			//Zebra::logger->debug("¸ø %u ÉèÖÃ¹²Ïí½Å±¾ %u ºÅ", define->id, define->scriptID);
+			//Zebra::logger->debug("ç»™ %u è®¾ç½®å…±äº«è„šæœ¬ %u å·", define->id, define->scriptID);
 		}
 		
 		if (!initByNpcDefine(define))
 		{
-			Zebra::logger->debug("³õÊ¼»¯NPCÊ§°Ü");
+			Zebra::logger->debug("åˆå§‹åŒ–NPCå¤±è´¥");
 			return false;
 		}
 	}
 
-	countryTax = 0; ///½«±¾µØÍ¼µÄ¹ú¼ÒË°ÂÊ³õÊ¼»¯³É0£»
+	countryTax = 0; ///å°†æœ¬åœ°å›¾çš„å›½å®¶ç¨ç‡åˆå§‹åŒ–æˆ0ï¼›
 	inited=true;
 	return inited;
 }
 
 /**
- * \brief ³õÊ¼»¯Ò»¸ö¾ØĞÎ·¶Î§£¬½¨Á¢¿ÉÒÆ¶¯µãË÷Òı
- * \param reg Ò»¸ö¾ØĞÎ·¶Î§
- * \param pos ¾ØĞÎ·¶Î§µÄ×óÉÏµã×ø±ê
- * \param width ¾ØĞÎ·¶Î§µÄ¿í
- * \param height ¾ØĞÎ·¶Î§µÄ¸ß
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–ä¸€ä¸ªçŸ©å½¢èŒƒå›´ï¼Œå»ºç«‹å¯ç§»åŠ¨ç‚¹ç´¢å¼•
+ * \param reg ä¸€ä¸ªçŸ©å½¢èŒƒå›´
+ * \param pos çŸ©å½¢èŒƒå›´çš„å·¦ä¸Šç‚¹åæ ‡
+ * \param width çŸ©å½¢èŒƒå›´çš„å®½
+ * \param height çŸ©å½¢èŒƒå›´çš„é«˜
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 void Scene::initRegion(zRegion &reg, const zPos &pos, const WORD width, const WORD height)
 {
@@ -904,10 +904,10 @@ void Scene::initRegion(zRegion &reg, const zPos &pos, const WORD width, const WO
 }
 
 /**
- * \brief ÔÚÒ»¸ö¾ØĞÎ·¶Î§ÄÚËæ»ú»ñÈ¡Ò»¸ö×ø±ê
- * \param reg Ò»¸ö¾ØĞÎ·¶Î§
- * \param pos Êä³ö×ø±ê
- * \return »ñÈ¡×ø±êÊÇ·ñ³É¹¦
+ * \brief åœ¨ä¸€ä¸ªçŸ©å½¢èŒƒå›´å†…éšæœºè·å–ä¸€ä¸ªåæ ‡
+ * \param reg ä¸€ä¸ªçŸ©å½¢èŒƒå›´
+ * \param pos è¾“å‡ºåæ ‡
+ * \return è·å–åæ ‡æ˜¯å¦æˆåŠŸ
  */
 bool Scene::randPosByRegion(const zPosIndex &index, zPos &pos) const
 {
@@ -926,9 +926,9 @@ bool Scene::randPosByRegion(const zPosIndex &index, zPos &pos) const
 }
 
 /**
- * \brief ³õÊ¼»¯Ò»¸öNpc
- * \param sceneNpc ĞèÒª³õÊ¼»¯µÄNpc
- * \param init_region Npc³õÊ¼×ø±ê·¶Î§
+ * \brief åˆå§‹åŒ–ä¸€ä¸ªNpc
+ * \param sceneNpc éœ€è¦åˆå§‹åŒ–çš„Npc
+ * \param init_region Npcåˆå§‹åæ ‡èŒƒå›´
  */
 void Scene::initNpc(SceneNpc *sceneNpc, zRegion *init_region, zPos myPos)
 {
@@ -943,7 +943,7 @@ void Scene::initNpc(SceneNpc *sceneNpc, zRegion *init_region, zPos myPos)
 			if(randPosByRegion(init_region == NULL ? sceneNpc->define->region.index : init_region->index, pos))
 				refreshNpc(sceneNpc,pos);
 			//else
-			//	Zebra::logger->debug("%s ²éÕÒ¿Õ¸ñÊ§°Ü %s:(%u,%u)", sceneNpc->name, name, pos.x, pos.y);
+			//	Zebra::logger->debug("%s æŸ¥æ‰¾ç©ºæ ¼å¤±è´¥ %s:(%u,%u)", sceneNpc->name, name, pos.x, pos.y);
 		}
 	}
 	else
@@ -951,15 +951,15 @@ void Scene::initNpc(SceneNpc *sceneNpc, zRegion *init_region, zPos myPos)
 		if(randPosByRegion(init_region == NULL ? sceneNpc->define->region.index : init_region->index, pos))
 			refreshNpc(sceneNpc,pos);
 		//else
-		//	Zebra::logger->debug("%s ²éÕÒ¿Õ¸ñÊ§°Ü %s:(%u,%u)", sceneNpc->name, name, pos.x, pos.y);
+		//	Zebra::logger->debug("%s æŸ¥æ‰¾ç©ºæ ¼å¤±è´¥ %s:(%u,%u)", sceneNpc->name, name, pos.x, pos.y);
 	}
 }
 
 /**
- * \brief Ë¢ĞÂµØÍ¼ÉÏµÄNPC×ø±ê,Ã»ÓĞ¾ÍÌí¼Ó,²¢ÇÒÇå³ıÏÈÇ°µÄ×èµ²
- * \param sceneNpc ĞèÒªË¢ĞÂµÄNpc
- * \param pos Ë¢ĞÂµÄ×ø±ê
- * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \brief åˆ·æ–°åœ°å›¾ä¸Šçš„NPCåæ ‡,æ²¡æœ‰å°±æ·»åŠ ,å¹¶ä¸”æ¸…é™¤å…ˆå‰çš„é˜»æŒ¡
+ * \param sceneNpc éœ€è¦åˆ·æ–°çš„Npc
+ * \param pos åˆ·æ–°çš„åæ ‡
+ * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Scene::refreshNpc(SceneNpc *sceneNpc,const zPos & pos)
 {
@@ -969,7 +969,7 @@ bool Scene::refreshNpc(SceneNpc *sceneNpc,const zPos & pos)
 		bool newnpc=sceneNpc->hasInScene();
 		if(sceneNpc->define->initstate == zSceneEntry::SceneEntry_Normal)
 		{
-			//³õÊ¼»¯ÎªÆÕÍ¨×´Ì¬
+			//åˆå§‹åŒ–ä¸ºæ™®é€šçŠ¶æ€
 			if (refresh(sceneNpc, pos))
 			{
 				switch (sceneNpc->npc->kind)
@@ -980,9 +980,9 @@ bool Scene::refreshNpc(SceneNpc *sceneNpc,const zPos & pos)
 						break;
 					default:
 						{
-							//²éÕÒ·Ç×èµ²µã³É¹¦
+							//æŸ¥æ‰¾éé˜»æŒ¡ç‚¹æˆåŠŸ
 							setBlock(pos);
-							//Çå³ıÒÔÇ°×èµ²
+							//æ¸…é™¤ä»¥å‰é˜»æŒ¡
 							if(!newnpc) clearBlock(oldPos);
 						}
 						break;
@@ -993,10 +993,10 @@ bool Scene::refreshNpc(SceneNpc *sceneNpc,const zPos & pos)
 		}
 		else
 		{
-			//³õÊ¼»¯ÎªÒş²Ø×´Ì¬
+			//åˆå§‹åŒ–ä¸ºéšè—çŠ¶æ€
 			if(refresh(sceneNpc, pos))
 			{
-				//Çå³ıÒÔÇ°×èµ²
+				//æ¸…é™¤ä»¥å‰é˜»æŒ¡
 				if(!newnpc) clearBlock(oldPos);
 				return true;
 			}
@@ -1006,13 +1006,13 @@ bool Scene::refreshNpc(SceneNpc *sceneNpc,const zPos & pos)
 }
 
 /**
- * \brief ÕÙ»½npc
- * ÕÙ»½µÄ¶¼ÊÇ¶¯Ì¬npc£¬ĞèÒªÊÖ¶¯É¾³ı
+ * \brief å¬å”¤npc
+ * å¬å”¤çš„éƒ½æ˜¯åŠ¨æ€npcï¼Œéœ€è¦æ‰‹åŠ¨åˆ é™¤
  *
- * \param define npc¶¨Òå
- * \param pos Ä¿±êÎ»ÖÃ
- * \param base npc»ù±¾ĞÅÏ¢
- * \return ÕÙ»½³önpcµÄÊıÁ¿
+ * \param define npcå®šä¹‰
+ * \param pos ç›®æ ‡ä½ç½®
+ * \param base npcåŸºæœ¬ä¿¡æ¯
+ * \return å¬å”¤å‡ºnpcçš„æ•°é‡
  */
 int Scene::summonNpc(const t_NpcDefine &define, const zPos &pos, zNpcB *base)
 {
@@ -1044,22 +1044,22 @@ int Scene::summonNpc(const t_NpcDefine &define, const zPos &pos, zNpcB *base)
 			}
 			else
 			{
-				Zebra::logger->fatal("%s:SceneNpc·ÖÅäÄÚ´æÊ§°Ü", __FUNCTION__);
+				Zebra::logger->fatal("%s:SceneNpcåˆ†é…å†…å­˜å¤±è´¥", __FUNCTION__);
 				SAFE_DELETE(pDefine);
 			}
 		}
 		else
 		{
-			Zebra::logger->fatal("%s:t_NpcDefine·ÖÅäÄÚ´æÊ§°Ü", __FUNCTION__);
+			Zebra::logger->fatal("%s:t_NpcDefineåˆ†é…å†…å­˜å¤±è´¥", __FUNCTION__);
 		}
 	}
 	return count;
 }
 
 /**
- * \brief ¸ù¾İ¶¨Òå³õÊ¼»¯ËùÓĞµÄNpc
- * \param pDefine Npc¶¨ÒåÊı¾İ
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief æ ¹æ®å®šä¹‰åˆå§‹åŒ–æ‰€æœ‰çš„Npc
+ * \param pDefine Npcå®šä¹‰æ•°æ®
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool Scene::initByNpcDefine(const t_NpcDefine *pDefine)
 {
@@ -1114,8 +1114,8 @@ bool Scene::initByNpcDefine(const t_NpcDefine *pDefine)
 }
 
 /**
- * \brief Ìí¼ÓÌø×ªµã
- * \return Ìí¼ÓÌø×ªµãÊÇ·ñ³É¹¦
+ * \brief æ·»åŠ è·³è½¬ç‚¹
+ * \return æ·»åŠ è·³è½¬ç‚¹æ˜¯å¦æˆåŠŸ
  */
 bool Scene::initWayPoint(zXMLParser *parser,const xmlNodePtr node , DWORD countryid)
 {
@@ -1130,23 +1130,23 @@ bool Scene::initWayPoint(zXMLParser *parser,const xmlNodePtr node , DWORD countr
 }
 
 /**
- * \brief ¶ÁÈ¡µØÍ¼ÒÔ¼°ÆäÅäÖÃÎÄ¼ş
+ * \brief è¯»å–åœ°å›¾ä»¥åŠå…¶é…ç½®æ–‡ä»¶
  *
  * 
- * \return ¶ÁÈ¡ÊÇ·ñ³É¹¦
+ * \return è¯»å–æ˜¯å¦æˆåŠŸ
  */
 bool Scene::loadMapFile()
 {
 	if (!LoadMap((Zebra::global["mapdir"] + getRealFileName()+".mps").c_str(),allTiles,sceneWH.x,sceneWH.y))
 	{
-		Zebra::logger->error("¼ÓÔØ %s Ê§°Ü",(Zebra::global["mapdir"] + getRealFileName()+".mps").c_str());
+		Zebra::logger->error("åŠ è½½ %s å¤±è´¥",(Zebra::global["mapdir"] + getRealFileName()+".mps").c_str());
 		return false;
 	}
 
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["mapdir"] + getRealFileName()+".xml"))
 	{
-		Zebra::logger->error("²»ÄÜ¶ÁÈ¡³¡¾°ÅäÖÃÎÄ¼ş %s", (Zebra::global["mapdir"] + getRealFileName()+".xml").c_str());
+		Zebra::logger->error("ä¸èƒ½è¯»å–åœºæ™¯é…ç½®æ–‡ä»¶ %s", (Zebra::global["mapdir"] + getRealFileName()+".xml").c_str());
 		return false;
 	}
 
@@ -1243,14 +1243,14 @@ bool Scene::loadMapFile()
 				else
 				{
 					if(strlen(define.name)!=0)
-						Zebra::logger->warn("»ù±¾Êı¾İ±í¸ñÖĞÃ»ÓĞÕâ¸öNpc %s", define.name);
+						Zebra::logger->warn("åŸºæœ¬æ•°æ®è¡¨æ ¼ä¸­æ²¡æœ‰è¿™ä¸ªNpc %s", define.name);
 				}
 			}
 			else if (strcmp((char *)node->name, "waypoint") == 0)
 			{
 				if(!initWayPoint(&xml,node,countryID))
 				{
-					Zebra::logger->error("½âÎöÌø×ªµã´íÎó");
+					Zebra::logger->error("è§£æè·³è½¬ç‚¹é”™è¯¯");
 					return false;
 				}
 			}
@@ -1324,7 +1324,7 @@ bool Scene::loadMapFile()
 	}
 	else
 	{
-		Zebra::logger->warn("¼ÓÔØµØÍ¼ÅäÖÃ%sÊ§°Ü", (Zebra::global["mapdir"] + fileName+".xml").c_str());
+		Zebra::logger->warn("åŠ è½½åœ°å›¾é…ç½®%så¤±è´¥", (Zebra::global["mapdir"] + fileName+".xml").c_str());
 		return false;
 	}
 
@@ -1332,18 +1332,18 @@ bool Scene::loadMapFile()
 }
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½µØÍ¼ÆÁË÷ÒıÖĞËùÓĞÍæ¼ÒµÄ»Øµ÷º¯Êı
+ * \brief å‘é€æŒ‡ä»¤åˆ°åœ°å›¾å±ç´¢å¼•ä¸­æ‰€æœ‰ç©å®¶çš„å›è°ƒå‡½æ•°
  *
  */
 struct SceneSendToEveryOne : public zSceneEntryCallBack
 {
-	const void *cmd;		/// ´ı·¢ËÍµÄÖ¸Áî
-	const int len;	/// ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
+	const void *cmd;		/// å¾…å‘é€çš„æŒ‡ä»¤
+	const int len;	/// å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
 	SceneSendToEveryOne(const void *cmd, const int len) : cmd(cmd), len(len) {};
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œæ˜¯ç©å®¶
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -1353,11 +1353,11 @@ struct SceneSendToEveryOne : public zSceneEntryCallBack
 };
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½±¾µØÍ¼µÄËùÓĞÓÃ»§
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ³¤¶È
- * \param locker ²Ù×÷¹ı³ÌÖĞÊÇ·ñ¶ÔµØÍ¼Ë÷Òı½øĞĞ¼ÓËø²Ù×÷
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief å‘é€æŒ‡ä»¤åˆ°æœ¬åœ°å›¾çš„æ‰€æœ‰ç”¨æˆ·
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„é•¿åº¦
+ * \param locker æ“ä½œè¿‡ç¨‹ä¸­æ˜¯å¦å¯¹åœ°å›¾ç´¢å¼•è¿›è¡ŒåŠ é”æ“ä½œ
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::sendCmdToScene(const void *pstrCmd, const int nCmdLen)
 {
@@ -1372,16 +1372,16 @@ bool Scene::sendCmdToScene(const void *pstrCmd, const int nCmdLen)
 	return true;
 }
 /**
- * \brief ·¢ËÍÖ¸Áîµ½Ä³Ò»ÆÁÖÜÎ§¹²¾ÅÆÁµÄËùÓĞÓÃ»§
- * \param posi ÖĞĞÄÆÁ
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ³¤¶È
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief å‘é€æŒ‡ä»¤åˆ°æŸä¸€å±å‘¨å›´å…±ä¹å±çš„æ‰€æœ‰ç”¨æˆ·
+ * \param posi ä¸­å¿ƒå±
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„é•¿åº¦
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::sendCmdToNine(const zPosI posi, const void *pstrCmd, const int nCmdLen)
 {
 #if 1
-	/// whj Íø¹Ø·¢ËÍ9ÆÁ²âÊÔ
+	/// whj ç½‘å…³å‘é€9å±æµ‹è¯•
 	BYTE buf[zSocket::MAX_DATASIZE];
 	Cmd::Scene::t_Nine_ForwardScene *sendCmd=(Cmd::Scene::t_Nine_ForwardScene *)buf;
 	constructInPlace(sendCmd);
@@ -1405,18 +1405,18 @@ bool Scene::sendCmdToNine(const zPosI posi, const void *pstrCmd, const int nCmdL
 
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½µØÍ¼ÆÁË÷ÒıÖĞËùÓĞÍæ¼ÒµÄ»Øµ÷º¯Êı
+ * \brief å‘é€æŒ‡ä»¤åˆ°åœ°å›¾å±ç´¢å¼•ä¸­æ‰€æœ‰ç©å®¶çš„å›è°ƒå‡½æ•°
  *
  */
 struct SceneSendToWatchTrap : public zSceneEntryCallBack
 {
-	const void *cmd;		/// ´ı·¢ËÍµÄÖ¸Áî
-	const int len;	/// ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
+	const void *cmd;		/// å¾…å‘é€çš„æŒ‡ä»¤
+	const int len;	/// å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
 	SceneSendToWatchTrap(const void *cmd, const int len) : cmd(cmd), len(len) {};
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œæ˜¯ç©å®¶
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -1425,11 +1425,11 @@ struct SceneSendToWatchTrap : public zSceneEntryCallBack
 	}
 };
 /**
- * \brief ·¢ËÍÖ¸Áîµ½Ä³Ò»ÆÁÖÜÎ§¹²¾ÅÆÁµÄËùÓĞ¾ßÓĞÏİÚåÕì²ìÄÜÁ¦µÄÓÃ»§
- * \param posi ÖĞĞÄÆÁ
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ³¤¶È
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief å‘é€æŒ‡ä»¤åˆ°æŸä¸€å±å‘¨å›´å…±ä¹å±çš„æ‰€æœ‰å…·æœ‰é™·é˜±ä¾¦å¯Ÿèƒ½åŠ›çš„ç”¨æˆ·
+ * \param posi ä¸­å¿ƒå±
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„é•¿åº¦
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::sendCmdToWatchTrap(const zPosI posi, const void *pstrCmd, const int nCmdLen)
 {
@@ -1444,18 +1444,18 @@ bool Scene::sendCmdToWatchTrap(const zPosI posi, const void *pstrCmd, const int 
 }
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½µØÍ¼ÆÁË÷ÒıÖĞËùÓĞÍæ¼ÒµÄ»Øµ÷º¯Êı
+ * \brief å‘é€æŒ‡ä»¤åˆ°åœ°å›¾å±ç´¢å¼•ä¸­æ‰€æœ‰ç©å®¶çš„å›è°ƒå‡½æ•°
  *
  */
 struct SceneSendToUnWatchTrap : public zSceneEntryCallBack
 {
-	const void *cmd;		/// ´ı·¢ËÍµÄÖ¸Áî
-	const int len;	/// ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
+	const void *cmd;		/// å¾…å‘é€çš„æŒ‡ä»¤
+	const int len;	/// å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
 	SceneSendToUnWatchTrap(const void *cmd, const int len) : cmd(cmd), len(len) {};
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œæ˜¯ç©å®¶
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -1464,11 +1464,11 @@ struct SceneSendToUnWatchTrap : public zSceneEntryCallBack
 	}
 };
 /**
- * \brief ·¢ËÍÖ¸Áîµ½Ä³Ò»ÆÁÖÜÎ§¹²¾ÅÆÁµÄËùÓĞ¾ßÓĞÏİÚåÕì²ìÄÜÁ¦µÄÓÃ»§
- * \param posi ÖĞĞÄÆÁ
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ³¤¶È
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief å‘é€æŒ‡ä»¤åˆ°æŸä¸€å±å‘¨å›´å…±ä¹å±çš„æ‰€æœ‰å…·æœ‰é™·é˜±ä¾¦å¯Ÿèƒ½åŠ›çš„ç”¨æˆ·
+ * \param posi ä¸­å¿ƒå±
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„é•¿åº¦
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::sendCmdToNineUnWatch(const zPosI posi, const void *pstrCmd, const int nCmdLen)
 {
@@ -1483,22 +1483,22 @@ bool Scene::sendCmdToNineUnWatch(const zPosI posi, const void *pstrCmd, const in
 }
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½µØÍ¼ÆÁË÷ÒıÖĞËùÓĞÍæ¼ÒµÄ»Øµ÷º¯Êı
+ * \brief å‘é€æŒ‡ä»¤åˆ°åœ°å›¾å±ç´¢å¼•ä¸­æ‰€æœ‰ç©å®¶çš„å›è°ƒå‡½æ•°
  *
  */
 
 struct findPosInNine : public zSceneEntryCallBack
 {
-	const zPos &_pos;		///Ê©·¨ÕßÖĞĞÄ×ø±ê
-	zPosVector &_range;	///×ø±êµãÁĞ±í
+	const zPos &_pos;		///æ–½æ³•è€…ä¸­å¿ƒåæ ‡
+	zPosVector &_range;	///åæ ‡ç‚¹åˆ—è¡¨
 	findPosInNine(const zPos &pos, zPosVector &range) : _pos(pos), _range(range)
 	{
 		_range.reserve( 9 * SCREEN_WIDTH * SCREEN_HEIGHT);
 	}
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œæ˜¯ç©å®¶
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -1511,9 +1511,9 @@ struct findPosInNine : public zSceneEntryCallBack
 };
 
 /**
- * \brief ²éÕÒ¾ÅÆÁÄÚµÄËùÓĞ½ÇÉ«µÄ×ø±ê
- * \param posi ÖĞĞÄÆÁ
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief æŸ¥æ‰¾ä¹å±å†…çš„æ‰€æœ‰è§’è‰²çš„åæ ‡
+ * \param posi ä¸­å¿ƒå±
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::findEntryPosInNine(const zPos &vpos, zPosI vposi, zPosVector &range)
 {
@@ -1528,9 +1528,9 @@ bool Scene::findEntryPosInNine(const zPos &vpos, zPosI vposi, zPosVector &range)
 }
 
 /**
- * \brief ²éÕÒ¾ÅÆÁÄÚµÄËùÓĞ½ÇÉ«»òNPCµÄ×ø±ê
- * \param posi ÖĞĞÄÆÁ
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief æŸ¥æ‰¾ä¹å±å†…çš„æ‰€æœ‰è§’è‰²æˆ–NPCçš„åæ ‡
+ * \param posi ä¸­å¿ƒå±
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::findEntryPosInOne(const zPos &vpos, zPosI vposi, zPosVector &range)
 {
@@ -1545,19 +1545,19 @@ bool Scene::findEntryPosInOne(const zPos &vpos, zPosI vposi, zPosVector &range)
 }
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½µØÍ¼ÆÁË÷ÒıÖĞËùÓĞÍæ¼ÒµÄ»Øµ÷º¯Êı
+ * \brief å‘é€æŒ‡ä»¤åˆ°åœ°å›¾å±ç´¢å¼•ä¸­æ‰€æœ‰ç©å®¶çš„å›è°ƒå‡½æ•°
  *
  */
 struct SendToEveryOneExceptMe : public zSceneEntryCallBack
 {
 	const zSceneEntry *me;
-	const void *cmd;		/// ´ı·¢ËÍµÄÖ¸Áî
-	const int len;	/// ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
+	const void *cmd;		/// å¾…å‘é€çš„æŒ‡ä»¤
+	const int len;	/// å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
 	SendToEveryOneExceptMe(const zSceneEntry *pEntry, const void *cmd, const int len) : me(pEntry), cmd(cmd), len(len){};
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œæ˜¯ç©å®¶
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -1567,17 +1567,17 @@ struct SendToEveryOneExceptMe : public zSceneEntryCallBack
 };
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½Ä³Ò»ÆÁÖÜÎ§¹²¾ÅÆÁµÄËùÓĞÓÃ»§£¬³ıÁË¶ÔÏó±¾Éí
- * \param pEntry ¶ÔÏó±¾Éí
- * \param posi ÖĞĞÄÆÁ
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ³¤¶È
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief å‘é€æŒ‡ä»¤åˆ°æŸä¸€å±å‘¨å›´å…±ä¹å±çš„æ‰€æœ‰ç”¨æˆ·ï¼Œé™¤äº†å¯¹è±¡æœ¬èº«
+ * \param pEntry å¯¹è±¡æœ¬èº«
+ * \param posi ä¸­å¿ƒå±
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„é•¿åº¦
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::sendCmdToNineExceptMe(zSceneEntry *pEntry, const zPosI posi, const void *pstrCmd, const int nCmdLen)
 {
 #if 1
-	/// whj Íø¹Ø·¢ËÍ9ÆÁ²âÊÔ
+	/// whj ç½‘å…³å‘é€9å±æµ‹è¯•
 	BYTE buf[zSocket::MAX_DATASIZE];
 	Cmd::Scene::t_Nine_ExceptMe_ForwardScene *sendCmd=(Cmd::Scene::t_Nine_ExceptMe_ForwardScene *)buf;
 	constructInPlace(sendCmd);
@@ -1601,12 +1601,12 @@ bool Scene::sendCmdToNineExceptMe(zSceneEntry *pEntry, const zPosI posi, const v
 }
 
 /**
- * \brief ¹ã²¥Ö¸Áîµ½ÕıÏò3ÆÁ»òÕß5ÆÁµÄËùÓĞÓÃ»§
- * \param posi ÖĞĞÄÆÁ
- * \param direct ·½Ïò
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ³¤¶È
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief å¹¿æ’­æŒ‡ä»¤åˆ°æ­£å‘3å±æˆ–è€…5å±çš„æ‰€æœ‰ç”¨æˆ·
+ * \param posi ä¸­å¿ƒå±
+ * \param direct æ–¹å‘
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„é•¿åº¦
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::sendCmdToDirect(const zPosI posi, const int direct, const void *pstrCmd, const int nCmdLen)
 {
@@ -1634,12 +1634,12 @@ bool Scene::sendCmdToDirect(const zPosI posi, const int direct, const void *pstr
 }
 
 /**
- * \brief ¹ã²¥Ö¸Áîµ½·´Ïò3ÆÁ»òÕß5ÆÁµÄËùÓĞÓÃ»§
- * \param posi ÖĞĞÄÆÁ
- * \param direct ·½Ïò
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ³¤¶È
- * \return ¹ã²¥Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief å¹¿æ’­æŒ‡ä»¤åˆ°åå‘3å±æˆ–è€…5å±çš„æ‰€æœ‰ç”¨æˆ·
+ * \param posi ä¸­å¿ƒå±
+ * \param direct æ–¹å‘
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„é•¿åº¦
+ * \return å¹¿æ’­æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool Scene::sendCmdToReverseDirect(const zPosI posi, const int direct, const void *pstrCmd, const int nCmdLen)
 {
@@ -1667,8 +1667,8 @@ bool Scene::sendCmdToReverseDirect(const zPosI posi, const int direct, const voi
 }
 
 /**
- * \brief ÔÚµØÍ¼ÉÏÃæÒÆ³ıÍæ¼Ò
- * \param so Íæ¼Ò
+ * \brief åœ¨åœ°å›¾ä¸Šé¢ç§»é™¤ç©å®¶
+ * \param so ç©å®¶
  */
 void Scene::removeUser(SceneUser *so)
 {
@@ -1680,11 +1680,11 @@ void Scene::removeUser(SceneUser *so)
 }
 
 /**
- * \brief °ÑÎïÆ·Ìí¼Óµ½µØÉÏ£¬²¢Í¨ÖªÖÜÎ§9ÆÁµÄÍæ¼Ò
- * \param ob ÎïÆ·
- * \param pos ×ø±ê
- * \param dwID ÎïÆ·µÄÖ÷ÈË
- * \return Ìí¼ÓÎïÆ·ÊÇ·ñ³É¹¦
+ * \brief æŠŠç‰©å“æ·»åŠ åˆ°åœ°ä¸Šï¼Œå¹¶é€šçŸ¥å‘¨å›´9å±çš„ç©å®¶
+ * \param ob ç‰©å“
+ * \param pos åæ ‡
+ * \param dwID ç‰©å“çš„ä¸»äºº
+ * \return æ·»åŠ ç‰©å“æ˜¯å¦æˆåŠŸ
  */
 bool Scene::addObject(zObject *ob,const zPos &pos,const unsigned long overdue_msecs,const unsigned long dwID, int protime)
 {
@@ -1704,7 +1704,7 @@ bool Scene::addObject(zObject *ob,const zPos &pos,const unsigned long overdue_ms
 		{
 			if (refresh(so, findedPos))
 			{
-				//ÉèÖÃ±£»¤
+				//è®¾ç½®ä¿æŠ¤
 				if(dwID)
 					so->setOwner(dwID, protime);
 				zPos2zPosI(findedPos, posi);
@@ -1759,13 +1759,13 @@ bool Scene::addObject(zObject *ob,const zPos &pos,const unsigned long overdue_ms
 }
 
 /**
- * \brief °ÑÎïÆ·Ìí¼Óµ½µØÉÏ£¬²¢Í¨ÖªÖÜÎ§9ÆÁµÄÍæ¼Ò
- * \param ob ĞèÒªÌí¼ÓµÄÎïÆ·µÄ»ù±¾Êı¾İ
- * \param num ÎïÆ·ÊıÁ¿
- * \param pos ×ø±ê
- * \param dwID ÎïÆ·µÄÖ÷ÈË
- * \param npc_id  »êÆÇÊ¯¶ÔÓ¦µÄnpc id
- * \return Ìí¼ÓÎïÆ·ÊÇ·ñ³É¹¦
+ * \brief æŠŠç‰©å“æ·»åŠ åˆ°åœ°ä¸Šï¼Œå¹¶é€šçŸ¥å‘¨å›´9å±çš„ç©å®¶
+ * \param ob éœ€è¦æ·»åŠ çš„ç‰©å“çš„åŸºæœ¬æ•°æ®
+ * \param num ç‰©å“æ•°é‡
+ * \param pos åæ ‡
+ * \param dwID ç‰©å“çš„ä¸»äºº
+ * \param npc_id  é­‚é­„çŸ³å¯¹åº”çš„npc id
+ * \return æ·»åŠ ç‰©å“æ˜¯å¦æˆåŠŸ
  */
 bool Scene::addObject(zObjectB *ob, const int num, const zPos &pos,const unsigned long dwID, int npc_id)
 {
@@ -1773,7 +1773,7 @@ bool Scene::addObject(zObjectB *ob, const int num, const zPos &pos,const unsigne
 	zObject *o = zObject::create(ob,num);
 	if (o)
 	{
-		//µôÂäÎïÆ·Ò²¿ÉÄÜ²úÉú·Ç°×É«×°±¸
+		//æ‰è½ç‰©å“ä¹Ÿå¯èƒ½äº§ç”Ÿéç™½è‰²è£…å¤‡
 		//o->found(NULL,true);
 		EquipMaker maker(NULL);
 		maker.assign(NULL, o, o->base,true);
@@ -1787,7 +1787,7 @@ bool Scene::addObject(zObjectB *ob, const int num, const zPos &pos,const unsigne
 
 		if (addObject(o, pos, 0, dwID, protime))
 		{
-			zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,1,0,NULL,this->id,this->name,"³¡¾°Éú³É",o->base,o->data.kind,o->data.upgrade);
+			zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,1,0,NULL,this->id,this->name,"åœºæ™¯ç”Ÿæˆ",o->base,o->data.kind,o->data.upgrade);
 			retval = true;
 		}
 		//removed by lqy, addobject will clean this object auto
@@ -1800,12 +1800,12 @@ bool Scene::addObject(zObjectB *ob, const int num, const zPos &pos,const unsigne
 }
 
 /**
- * \brief ÄæÊ±Õë×ªÈ¦
- * \param side °ë¾¶
- * \param X ³õÊ¼×ø±êX
- * \param Y ³õÊ¼×ø±êY
- * \param CX Éú³É×ø±êX
- * \param CY Éú³É×ø±êY
+ * \brief é€†æ—¶é’ˆè½¬åœˆ
+ * \param side åŠå¾„
+ * \param X åˆå§‹åæ ‡X
+ * \param Y åˆå§‹åæ ‡Y
+ * \param CX ç”Ÿæˆåæ ‡X
+ * \param CY ç”Ÿæˆåæ ‡Y
  */
 void Scene::runCircle_anti_clockwise(
 		const int side,
@@ -1816,10 +1816,10 @@ void Scene::runCircle_anti_clockwise(
 {
 	if (CX + side == X)
 	{
-		//×ó±ßÏßÉÏ
+		//å·¦è¾¹çº¿ä¸Š
 		if (Y + side == CY)
 		{
-			//×óÏÂ¶¥µã
+			//å·¦ä¸‹é¡¶ç‚¹
 			CX++;
 		}
 		else
@@ -1829,10 +1829,10 @@ void Scene::runCircle_anti_clockwise(
 	}
 	else if (Y + side == CY)
 	{
-		//ÏÂ±ßÏßÉÏ
+		//ä¸‹è¾¹çº¿ä¸Š
 		if (X + side == CX)
 		{
-			//ÓÒÏÂ¶¥µã
+			//å³ä¸‹é¡¶ç‚¹
 			CY--;
 		}
 		else
@@ -1842,10 +1842,10 @@ void Scene::runCircle_anti_clockwise(
 	}
 	else if (X + side == CX)
 	{
-		//ÓÒ±ßÏßÉÏ
+		//å³è¾¹çº¿ä¸Š
 		if (CY + side == Y)
 		{
-			//ÓÒÉÏ¶¥µã
+			//å³ä¸Šé¡¶ç‚¹
 			CX--;
 		}
 		else
@@ -1855,10 +1855,10 @@ void Scene::runCircle_anti_clockwise(
 	}
 	else if (CY + side == Y)
 	{
-		//ÉÏÃæÏßÉÏ
+		//ä¸Šé¢çº¿ä¸Š
 		if (CX + side == X)
 		{
-			//×óÉÏ¶¥µã
+			//å·¦ä¸Šé¡¶ç‚¹
 			CY++;
 		}
 		else
@@ -1867,16 +1867,16 @@ void Scene::runCircle_anti_clockwise(
 		}
 	}
 	else
-		Zebra::logger->trace("Scene::runCircle_anti_clockwise(): ´íÎóµÄ²ÎÊı side=%u, X=%u Y=%u CX=%u CY=%u", side, X, Y, CX, CY);
+		Zebra::logger->trace("Scene::runCircle_anti_clockwise(): é”™è¯¯çš„å‚æ•° side=%u, X=%u Y=%u CX=%u CY=%u", side, X, Y, CX, CY);
 }
 
 /**
- * \brief Ë³Ê±Õë×ªÈ¦
- * \param side °ë¾¶
- * \param X ³õÊ¼×ø±êX
- * \param Y ³õÊ¼×ø±êY
- * \param CX Éú³É×ø±êX
- * \param CY Éú³É×ø±êY
+ * \brief é¡ºæ—¶é’ˆè½¬åœˆ
+ * \param side åŠå¾„
+ * \param X åˆå§‹åæ ‡X
+ * \param Y åˆå§‹åæ ‡Y
+ * \param CX ç”Ÿæˆåæ ‡X
+ * \param CY ç”Ÿæˆåæ ‡Y
  */
 void Scene::runCircle_clockwise(
 		const int side,
@@ -1887,10 +1887,10 @@ void Scene::runCircle_clockwise(
 {
 	if (CX + side == X)
 	{
-		//×ó±ßÏßÉÏ
+		//å·¦è¾¹çº¿ä¸Š
 		if (CY + side == Y)
 		{
-			//×óÉÏ¶¥µã
+			//å·¦ä¸Šé¡¶ç‚¹
 			CX++;
 		}
 		else
@@ -1900,10 +1900,10 @@ void Scene::runCircle_clockwise(
 	}
 	else if (Y + side == CY)
 	{
-		//ÏÂ±ßÏßÉÏ
+		//ä¸‹è¾¹çº¿ä¸Š
 		if (CX + side == X)
 		{
-			//×óÏÂ¶¥µã
+			//å·¦ä¸‹é¡¶ç‚¹
 			CY--;
 		}
 		else
@@ -1913,10 +1913,10 @@ void Scene::runCircle_clockwise(
 	}
 	else if (X + side == CX)
 	{
-		//ÓÒ±ßÏßÉÏ
+		//å³è¾¹çº¿ä¸Š
 		if (Y + side == CY)
 		{
-			//ÓÒÏÂ¶¥µã
+			//å³ä¸‹é¡¶ç‚¹
 			CX--;
 		}
 		else
@@ -1926,10 +1926,10 @@ void Scene::runCircle_clockwise(
 	}
 	else if (CY + side == Y)
 	{
-		//ÉÏÃæÏßÉÏ
+		//ä¸Šé¢çº¿ä¸Š
 		if (CX + side == X)
 		{
-			//ÓÒÉÏ¶¥µã
+			//å³ä¸Šé¡¶ç‚¹
 			CY++;
 		}
 		else
@@ -1938,14 +1938,14 @@ void Scene::runCircle_clockwise(
 		}
 	}
 	else
-		Zebra::logger->trace("Scene::runCircle_clockwise(): ´íÎóµÄ²ÎÊı side=%u, X=%u Y=%u CX=%u CY=%u", side, X, Y, CX, CY);
+		Zebra::logger->trace("Scene::runCircle_clockwise(): é”™è¯¯çš„å‚æ•° side=%u, X=%u Y=%u CX=%u CY=%u", side, X, Y, CX, CY);
 }
 
 /**
- * \brief ÕÒ³öÒ»¸ö×ø±êÖ¸¶¨·½ÏòÉÏµÄÏàÁÚÎ»ÖÃ
- * \param dir ·½Ïò
- * \param orgPos ³õÊ¼×ø±ê
- * \return ÕÒµ½µÄ×ø±ê
+ * \brief æ‰¾å‡ºä¸€ä¸ªåæ ‡æŒ‡å®šæ–¹å‘ä¸Šçš„ç›¸é‚»ä½ç½®
+ * \param dir æ–¹å‘
+ * \param orgPos åˆå§‹åæ ‡
+ * \return æ‰¾åˆ°çš„åæ ‡
  */
 void Scene::getNextPos(const zPos &orgPos, const int dir, zPos &newPos) const
 {
@@ -1986,13 +1986,13 @@ void Scene::getNextPos(const zPos &orgPos, const int dir, zPos &newPos) const
 }
 
 /**
- * \brief ÒÔsideÎª°ë¾¶£¬ÒÔorgPosÎªÔ­µã£¬ÕÒµØÍ¼Î»ÖÃ
- * \param side °ë¾¶
- * \param direct ·½Ïò
- * \param orgPos ³õÊ¼×ø±ê
- * \param clockwise Ë³Ê±Õë»¹ÊÇÄæÊ±Õë
- * \param crtPos µÃµ½µÄ×ø±ê
- * \return ²éÕÒÊÇ·ñ³É¹¦
+ * \brief ä»¥sideä¸ºåŠå¾„ï¼Œä»¥orgPosä¸ºåŸç‚¹ï¼Œæ‰¾åœ°å›¾ä½ç½®
+ * \param side åŠå¾„
+ * \param direct æ–¹å‘
+ * \param orgPos åˆå§‹åæ ‡
+ * \param clockwise é¡ºæ—¶é’ˆè¿˜æ˜¯é€†æ—¶é’ˆ
+ * \param crtPos å¾—åˆ°çš„åæ ‡
+ * \return æŸ¥æ‰¾æ˜¯å¦æˆåŠŸ
  */
 bool Scene::getNextPos(
 		int &side,
@@ -2003,7 +2003,7 @@ bool Scene::getNextPos(
 {
 	const int walk_adjust[][2]= { {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, 0} };
 
-	//¼ì²éÖĞĞÄµãÊÇ·ñ³¬³öµØÍ¼±ß½ç
+	//æ£€æŸ¥ä¸­å¿ƒç‚¹æ˜¯å¦è¶…å‡ºåœ°å›¾è¾¹ç•Œ
 	if (!zPosValidate(orgPos))
 	{
 		crtPos.x = 0;
@@ -2013,7 +2013,7 @@ bool Scene::getNextPos(
 	}
 
 	do {
-		//µ½ÖÕµã
+		//åˆ°ç»ˆç‚¹
 		if (side == 0)
 		{
 			side++;
@@ -2022,35 +2022,35 @@ bool Scene::getNextPos(
 		}
 		else
 		{
-			//×ªÈ¦
+			//è½¬åœˆ
 			if (clockwise == 1)
 			{
-				//ÄæÊ±Õë
+				//é€†æ—¶é’ˆ
 				runCircle_anti_clockwise(side, orgPos.x, orgPos.y, crtPos.x, crtPos.y);
 			}
 			else if (clockwise == -1)
 			{
-				//Ë³Ê±Õë
+				//é¡ºæ—¶é’ˆ
 				runCircle_clockwise(side, orgPos.x, orgPos.y, crtPos.x, crtPos.y);
 			}
 			else
 			{
-				Zebra::logger->trace("Scene::getNextPos(): ´íÎóµÄ²ÎÊı clockwise=%u", clockwise);
+				Zebra::logger->trace("Scene::getNextPos(): é”™è¯¯çš„å‚æ•° clockwise=%u", clockwise);
 
-				//°´ÕÕË³Ê±Õë´¦Àí
+				//æŒ‰ç…§é¡ºæ—¶é’ˆå¤„ç†
 				runCircle_clockwise(side, orgPos.x, orgPos.y, crtPos.x, crtPos.y);
 			}
 			if ((crtPos.x == orgPos.x + walk_adjust[direct][0] * side
 						&& crtPos.y == orgPos.y + walk_adjust[direct][1] * side))
 			{
-				//ÈÆ°ë¾¶Ò»ÖÜÍê±Ï
+				//ç»•åŠå¾„ä¸€å‘¨å®Œæ¯•
 				side++;
 				crtPos.x = orgPos.x + walk_adjust[direct][0] * side;
 				crtPos.y = orgPos.y + walk_adjust[direct][1] * side;
 			}
 		}
 
-		//±ß½ç¼ì²é
+		//è¾¹ç•Œæ£€æŸ¥
 		if ((crtPos.x & 0x80000000) == 0 
 				&& (crtPos.y & 0x80000000) == 0
 				&& zPosValidate(crtPos))
@@ -2059,8 +2059,8 @@ bool Scene::getNextPos(
 		}
 		else
 		{
-			//Ìø¹ı³¬³ö±ß½çµÄµã
-			Zebra::logger->error("ÖĞĞÄµã(%u, %u), ³¬³ö±ß½çµã(%u, %u)", orgPos.x, orgPos.y, crtPos.x, crtPos.y);
+			//è·³è¿‡è¶…å‡ºè¾¹ç•Œçš„ç‚¹
+			Zebra::logger->error("ä¸­å¿ƒç‚¹(%u, %u), è¶…å‡ºè¾¹ç•Œç‚¹(%u, %u)", orgPos.x, orgPos.y, crtPos.x, crtPos.y);
 		}
 	} while(true);
 
@@ -2068,13 +2068,13 @@ bool Scene::getNextPos(
 }
 
 /**
- * \brief ¸üĞÂµØÍ¼ÎïÆ·µÄ»Øµ÷º¯Êı
+ * \brief æ›´æ–°åœ°å›¾ç‰©å“çš„å›è°ƒå‡½æ•°
  *
  */
 struct UpdateSceneObjectCallBack : public zSceneEntryCallBack
 {
 	/**
-	 * \brief ³¡¾°Ö¸Õë
+	 * \brief åœºæ™¯æŒ‡é’ˆ
 	 *
 	 */
 	Scene *scene;
@@ -2086,14 +2086,14 @@ struct UpdateSceneObjectCallBack : public zSceneEntryCallBack
 
 	set delObject;
 	/**
-	 * \brief ¹¹Ôìº¯Êı
-	 * \param scene ³¡¾°
+	 * \brief æ„é€ å‡½æ•°
+	 * \param scene åœºæ™¯
 	 */
 	UpdateSceneObjectCallBack(Scene *scene) : scene(scene) {};
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÈ«²¿ÊÇµØÍ¼ÎïÆ·
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œå…¨éƒ¨æ˜¯åœ°å›¾ç‰©å“
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -2130,11 +2130,11 @@ struct UpdateSceneObjectCallBack : public zSceneEntryCallBack
 			zSceneObject *so = *it;
 			zObject *o = so->getObject();
 			if (o)
-				zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,0,0,NULL,0,NULL,"³¡¾°»ØÊÕ",NULL,0,0);
+				zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,0,0,NULL,0,NULL,"åœºæ™¯å›æ”¶",NULL,0,0);
 			re.dwMapObjectTempID=so->id;
 			scene->sendCmdToNine(so->getPosI(),&re,sizeof(re));
 
-			//Êµ¼ÊÉ¾³ıÎïÆ·
+			//å®é™…åˆ é™¤ç‰©å“
 			scene->removeObject(so);
 			SAFE_DELETE(so);
 		}
@@ -2142,7 +2142,7 @@ struct UpdateSceneObjectCallBack : public zSceneEntryCallBack
 };
 
 /**
- * \brief ¸üĞÂµØÍ¼ÉÏÃæµÄÎïÆ·£¬ÀıÈç¸üĞÂÎïÆ·±£»¤ÊôĞÔ¡¢ÎïÆ·ÏûÊ§µÈ
+ * \brief æ›´æ–°åœ°å›¾ä¸Šé¢çš„ç‰©å“ï¼Œä¾‹å¦‚æ›´æ–°ç‰©å“ä¿æŠ¤å±æ€§ã€ç‰©å“æ¶ˆå¤±ç­‰
  *
  */
 void Scene::updateSceneObject()
@@ -2155,7 +2155,7 @@ void Scene::updateSceneObject()
 }
 
 /**
- * \brief É¾³ıµØÍ¼ÎïÆ·µÄ»Øµ÷º¯Êı
+ * \brief åˆ é™¤åœ°å›¾ç‰©å“çš„å›è°ƒå‡½æ•°
  */
 struct RemoveSceneObjectCallBack : public zSceneEntryCallBack
 {
@@ -2167,13 +2167,13 @@ struct RemoveSceneObjectCallBack : public zSceneEntryCallBack
 #endif	
 	set delObject;
 	/**
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 */
 	RemoveSceneObjectCallBack(Scene *scene) : scene(scene) {};
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÈ«²¿ÊÇµØÍ¼ÎïÆ·
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œå…¨éƒ¨æ˜¯åœ°å›¾ç‰©å“
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -2189,11 +2189,11 @@ struct RemoveSceneObjectCallBack : public zSceneEntryCallBack
 			zSceneObject *so = *it;
 			zObject *o = so->getObject();
 			if (o)
-				zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,0,0,NULL,0,NULL,"³¡¾°»ØÊÕ",NULL,0,0);
+				zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,0,0,NULL,0,NULL,"åœºæ™¯å›æ”¶",NULL,0,0);
 			re.dwMapObjectTempID=so->id;
 			scene->sendCmdToNine(so->getPosI(),&re,sizeof(re));
 
-			//Êµ¼ÊÉ¾³ıÎïÆ·
+			//å®é™…åˆ é™¤ç‰©å“
 			scene->removeObject(so);
 			SAFE_DELETE(so);
 		}
@@ -2201,7 +2201,7 @@ struct RemoveSceneObjectCallBack : public zSceneEntryCallBack
 };
 
 /**
- * \brief Ğ¶ÔØµØÍ¼Ê±Ğ¶ÔØËùÓĞµØÍ¼ÉÏµÃÎïÆ·
+ * \brief å¸è½½åœ°å›¾æ—¶å¸è½½æ‰€æœ‰åœ°å›¾ä¸Šå¾—ç‰©å“
  *
  */
 void Scene::removeSceneObjectInOneScene()
@@ -2213,7 +2213,7 @@ void Scene::removeSceneObjectInOneScene()
 }
 
 /**
- * \brief ±£´æ¾²Ì¬³¡¾°
+ * \brief ä¿å­˜é™æ€åœºæ™¯
  *
  *
  */
@@ -2223,10 +2223,10 @@ bool StaticScene::save()
 }
 
 /////////////////////////////////////
-// 	×ÓÀà¼Ì³Ğ
+// 	å­ç±»ç»§æ‰¿
 /////////////////////////////////////
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */
 StaticScene::StaticScene():Scene()
@@ -2234,7 +2234,7 @@ StaticScene::StaticScene():Scene()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  *
  */
@@ -2243,18 +2243,18 @@ StaticScene::~StaticScene()
 }
 
 /**
- * \brief ±£´æ¶¯Ì¬³¡¾°
+ * \brief ä¿å­˜åŠ¨æ€åœºæ™¯
  *
  *
  */
 bool GangScene::save()
 {
-	//TODO  ±£´æµ½Êı¾İ¿â
+	//TODO  ä¿å­˜åˆ°æ•°æ®åº“
 	return true;
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  *
  */
@@ -2263,7 +2263,7 @@ GangScene::GangScene():Scene()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  *
  */
@@ -2273,21 +2273,21 @@ GangScene::~GangScene()
 }
 
 /**
- * \brief Íù³¡¾°Ìí¼ÓÒ»¸ö¹¥³Ç¶ÔÏó
+ * \brief å¾€åœºæ™¯æ·»åŠ ä¸€ä¸ªæ”»åŸå¯¹è±¡
  *
  *
- * \param rush ¶ÔÏóÖ¸Õë
- * \return ÊÇ·ñÌí¼Ó³É¹¦
+ * \param rush å¯¹è±¡æŒ‡é’ˆ
+ * \return æ˜¯å¦æ·»åŠ æˆåŠŸ
  */
 bool Scene::addRush(Rush *rush)
 {
 	rushList.push_back(rush);
-	//Zebra::logger->debug("Ìí¼ÓRush , ³¡¾° %s ÓĞ %u ¸öRush", name, rushList.size());
+	//Zebra::logger->debug("æ·»åŠ Rush , åœºæ™¯ %s æœ‰ %u ä¸ªRush", name, rushList.size());
 	return true;
 }
 
 /**
- * \brief ±éÀú¼ì²é¹¥³ÇÊÇ·ñ½áÊø£¬½áÊøÔòÉ¾³ı¸Ã¶ÔÏó
+ * \brief éå†æ£€æŸ¥æ”»åŸæ˜¯å¦ç»“æŸï¼Œç»“æŸåˆ™åˆ é™¤è¯¥å¯¹è±¡
  *
  *
  */
@@ -2301,7 +2301,7 @@ void Scene::processRush()
 		if ((*it)->isEnd())
 		{
 			del.push_back((*it));
-			Zebra::logger->debug("%s É¾³ıRush %s", name, (*it)->rushName);
+			Zebra::logger->debug("%s åˆ é™¤Rush %s", name, (*it)->rushName);
 		}
 	}
 	if (!del.empty())
@@ -2312,18 +2312,18 @@ void Scene::processRush()
 			Rush *ru = *it;
 			SAFE_DELETE(ru);
 		}
-		//Zebra::logger->debug("É¾³ıRush , ³¡¾° %s ÓĞ %u ¸öRush", name, rushList.size());
+		//Zebra::logger->debug("åˆ é™¤Rush , åœºæ™¯ %s æœ‰ %u ä¸ªRush", name, rushList.size());
 	}
 
 	DWORD sec = SceneTimeTick::currentTime.sec();
-	//¹Ì¶¨Ë¢¹Ö
+	//å›ºå®šåˆ·æ€ª
 	if (fixedRush.id)
 	{
 		if (sec+30>=fixedRush.nextTime && sec<fixedRush.nextTime)
 		{
 			if (!rushList.empty())
 			{
-				Zebra::logger->debug("%s Çå³ıËùÓĞ¹ÖÎï¹¥³Ç", name);
+				Zebra::logger->debug("%s æ¸…é™¤æ‰€æœ‰æ€ªç‰©æ”»åŸ", name);
 				for (std::list<Rush *>::iterator it=rushList.begin(); it!=rushList.end(); it++)
 					(*it)->terminate();
 			}
@@ -2354,11 +2354,11 @@ void Scene::processRush()
 				{
 					fixedRush.nextTime = sec;
 					fixedRush.nextTime += rush->rushDelay+rush->lasttime+30;
-					Zebra::logger->error("%s ³õÊ¼»¯¹ÖÎï¹¥³Ç id=%u countryID=%u delay=%u", name, fixedRush.id, countryID, fixedRush.delay);
+					Zebra::logger->error("%s åˆå§‹åŒ–æ€ªç‰©æ”»åŸ id=%u countryID=%u delay=%u", name, fixedRush.id, countryID, fixedRush.delay);
 					return;
 				}
 				else
-					Zebra::logger->error("%s ³õÊ¼»¯¹ÖÎï¹¥³ÇÊ§°Ü id=%u countryID=%u delay=%u", name, fixedRush.id, countryID, fixedRush.delay);
+					Zebra::logger->error("%s åˆå§‹åŒ–æ€ªç‰©æ”»åŸå¤±è´¥ id=%u countryID=%u delay=%u", name, fixedRush.id, countryID, fixedRush.delay);
 
 				SAFE_DELETE(rush);
 				return;
@@ -2368,14 +2368,14 @@ void Scene::processRush()
 	/*
 
 	DWORD sec = SceneTimeTick::currentTime.sec();
-	//¹Ì¶¨Ë¢¹Ö
+	//å›ºå®šåˆ·æ€ª
 	if (nextRushTime && sec>=1145592000 && sec<=1146024000)
 	{
 		if (sec+30>=fixedRush.nextTime && sec<fixedRush.nextTime)
 		{
 			if (!rushList.empty())
 			{
-				Zebra::logger->debug("%s Çå³ıËùÓĞ¹ÖÎï¹¥³Ç", name);
+				Zebra::logger->debug("%s æ¸…é™¤æ‰€æœ‰æ€ªç‰©æ”»åŸ", name);
 				for (std::list<Rush *>::iterator it=rushList.begin(); it!=rushList.end(); it++)
 					(*it)->terminate();
 			}
@@ -2400,7 +2400,7 @@ void Scene::processRush()
 					return;
 				}
 				else
-					Zebra::logger->error("%s ³õÊ¼»¯¹ÖÎï¹¥³ÇÊ§°Ü id=%u countryID=%u", name, atoi(params["fixedRush"].c_str()), countryID);
+					Zebra::logger->error("%s åˆå§‹åŒ–æ€ªç‰©æ”»åŸå¤±è´¥ id=%u countryID=%u", name, atoi(params["fixedRush"].c_str()), countryID);
 
 				SAFE_DELETE(rush);
 				return;
@@ -2417,8 +2417,8 @@ bool Scene::checkUserLevel(SceneUser *pUser)
 	{
 		if (pUser->charbase.level < this->level)
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "%s²»¶ÔµÈ¼¶µÍÓÚ%d¼¶µÄÍæ¼Ò¿ª·Å£¡",this->name, this->level);
-			Zebra::logger->trace("[GOMAP]Íæ¼Ò%sµÈ¼¶²»¹»Ìøµ½µØÍ¼[%s]Ê§°Ü!" , pUser->name, this->name);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "%sä¸å¯¹ç­‰çº§ä½äº%dçº§çš„ç©å®¶å¼€æ”¾ï¼",this->name, this->level);
+			Zebra::logger->trace("[GOMAP]ç©å®¶%sç­‰çº§ä¸å¤Ÿè·³åˆ°åœ°å›¾[%s]å¤±è´¥!" , pUser->name, this->name);
 			return false;
 		}
 	}
@@ -2430,9 +2430,9 @@ struct SecGenCallback : public zSceneEntryCallBack
 {
 	SecGenCallback(){}
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÈ«²¿ÊÇnpc
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œå…¨éƒ¨æ˜¯npc
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -2441,7 +2441,7 @@ struct SecGenCallback : public zSceneEntryCallBack
 		{
 			npc->reliveTime = SceneTimeTick::currentTime;
 
-			Zebra::logger->debug("%s ¹úÕ½½áÊø£¬¸´»î½ûÎÀ¶Ó³¤(%u,%u)", npc->scene->name, npc->getPos().x, npc->getPos().y);
+			Zebra::logger->debug("%s å›½æˆ˜ç»“æŸï¼Œå¤æ´»ç¦å«é˜Ÿé•¿(%u,%u)", npc->scene->name, npc->getPos().x, npc->getPos().y);
 		}
 		return true;
 	}

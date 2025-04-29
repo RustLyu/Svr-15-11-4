@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneEntryPk.cpp  $
  * \author  
  * \date 
- * \brief PKÏà¹Ø±äÁ¿ºÍĞé·½·¨
+ * \brief PKç›¸å…³å˜é‡å’Œè™šæ–¹æ³•
  */
 
 #include "zSceneEntry.h"
@@ -21,14 +21,14 @@
 
 
 /**
- * \brief ½ÇÉ«PK¶¨ÒåÀà,ÓĞ´ıÀ©³ä
+ * \brief è§’è‰²PKå®šä¹‰ç±»,æœ‰å¾…æ‰©å……
  */
 bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd *rev, bool physics, SWORD rangDamageBonus)
 {
-	//ÉèÖÃÏÂ´Î×Ô¶¯»Ö¸´hpµÄËùĞèÒªµÄÊ±¼ä
+	//è®¾ç½®ä¸‹æ¬¡è‡ªåŠ¨æ¢å¤hpçš„æ‰€éœ€è¦çš„æ—¶é—´
 	pAtt->lastPkTime = 10;
 
-	if (rev->wdMagicType == SKILLNORMAL) this->skillValue.brappenddam = 0; //·Ç¹­¼ı¹¥»÷ÁÔÊÖÓ¡¼ÇËùÌá¹©µÄ¶øÍâÉËº¦Çå0
+	if (rev->wdMagicType == SKILLNORMAL) this->skillValue.brappenddam = 0; //éå¼“ç®­æ”»å‡»çŒæ‰‹å°è®°æ‰€æä¾›çš„è€Œå¤–ä¼¤å®³æ¸…0
 
 	if (pAtt->getType() == zSceneEntry::SceneEntry_Player &&
 		this->getType() == zSceneEntry::SceneEntry_Player)
@@ -45,8 +45,8 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 		return true;
 	}
 
-	//¼ÆËã¼¼ÄÜÉËº¦
-	//ÍêÈ«µ²×¡¹¥»÷
+	//è®¡ç®—æŠ€èƒ½ä¼¤å®³
+	//å®Œå…¨æŒ¡ä½æ”»å‡»
 	if(this->ignoreDam)
 	{
 		return true;
@@ -67,35 +67,35 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 	{
 		dwDam = (int)pAtt->pkValue.pdamage	- (this->pdeftozero?0:this->pkValue.pdefence);
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("¹¥»÷Õß[%s]---·ÀÓùÕß[%s]----------------------------------------------------------", pAtt->name, this->name);
-		Zebra::logger->debug("ÎïÀí¹¥»÷ÊıÖµ  =%d", (int)pAtt->pkValue.pdamage);
-		Zebra::logger->debug("ÎïÀí·ÀÓùÊıÖµ  =%d", (this->pdeftozero?0:this->pkValue.pdefence));
-		Zebra::logger->debug("ÎïÀíÉËº¦ÖµÎªdwDam=%d", dwDam);
+		Zebra::logger->debug("æ”»å‡»è€…[%s]---é˜²å¾¡è€…[%s]----------------------------------------------------------", pAtt->name, this->name);
+		Zebra::logger->debug("ç‰©ç†æ”»å‡»æ•°å€¼  =%d", (int)pAtt->pkValue.pdamage);
+		Zebra::logger->debug("ç‰©ç†é˜²å¾¡æ•°å€¼  =%d", (this->pdeftozero?0:this->pkValue.pdefence));
+		Zebra::logger->debug("ç‰©ç†ä¼¤å®³å€¼ä¸ºdwDam=%d", dwDam);
 #endif
 	}
 	else
 	{
 		dwDam = (int)pAtt->pkValue.mdamage	- (this->mdeftozero?0:this->pkValue.mdefence);
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("¹¥»÷Õß[%s]---·ÀÓùÕß[%s]----------------------------------------------------------", pAtt->name, this->name);
-		Zebra::logger->debug("·¨Êõ¹¥»÷ÊıÖµ  =%d", (int)pAtt->pkValue.mdamage);
-		Zebra::logger->debug("·¨Êõ·ÀÓùÊıÖµ  =%d", (this->mdeftozero?0:this->pkValue.mdefence));
-		Zebra::logger->debug("·¨ÊõÉËº¦ÖµÎª%d", dwDam);
+		Zebra::logger->debug("æ”»å‡»è€…[%s]---é˜²å¾¡è€…[%s]----------------------------------------------------------", pAtt->name, this->name);
+		Zebra::logger->debug("æ³•æœ¯æ”»å‡»æ•°å€¼  =%d", (int)pAtt->pkValue.mdamage);
+		Zebra::logger->debug("æ³•æœ¯é˜²å¾¡æ•°å€¼  =%d", (this->mdeftozero?0:this->pkValue.mdefence));
+		Zebra::logger->debug("æ³•æœ¯ä¼¤å®³å€¼ä¸º%d", dwDam);
 #endif
 	}
-	// dwDamSelf ±íÊ¾·´µ¯µÄÉËº¦  dwDamDef ±íÊ¾
+	// dwDamSelf è¡¨ç¤ºåå¼¹çš„ä¼¤å®³  dwDamDef è¡¨ç¤º
 	int dwDamSelf = 0 , dwDamDef = 0, dwReduce = dwDam>=0?0:dwDam;
 	if (dwDam<0) dwDam = 0;
 
-		// ¼¼ÄÜÔö¼ÓÉËº¦Öµ
-	// ¶Ô·ÀÓùÕßµÄÉËº¦ = ÉËº¦Öµ
+		// æŠ€èƒ½å¢åŠ ä¼¤å®³å€¼
+	// å¯¹é˜²å¾¡è€…çš„ä¼¤å®³ = ä¼¤å®³å€¼
 	dwDamDef += this->skillValue.dvalue;
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("¸ù¾İ¼¼ÄÜÔö¼ÓÉËº¦Öµ¼ÆËã³öÀ´µÄ½á¹ûÀÛ¼ÓÖµdwDamDef:%ld", dwDamDef);
+	Zebra::logger->debug("æ ¹æ®æŠ€èƒ½å¢åŠ ä¼¤å®³å€¼è®¡ç®—å‡ºæ¥çš„ç»“æœç´¯åŠ å€¼dwDamDef:%ld", dwDamDef);
 #endif
 	dwDamDef += (int)(dwDam * ((this->skillValue.dvaluep>100?this->skillValue.dvaluep-100:0)/100.0f));
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("¸ù¾İ¼¼ÄÜÔö¼ÓÉËº¦ÂÊ¼ÆËã³öÀ´µÄ½á¹ûÀÛ¼ÓÖµdwDamDef:%ld", dwDamDef);
+	Zebra::logger->debug("æ ¹æ®æŠ€èƒ½å¢åŠ ä¼¤å®³ç‡è®¡ç®—å‡ºæ¥çš„ç»“æœç´¯åŠ å€¼dwDamDef:%ld", dwDamDef);
 #endif
 
 	pAtt->processAddDam(dwDam,dwDamDef,physics);
@@ -103,7 +103,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 
 	dwDamDef +=dwDam+dwReduce; // 
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("ÖĞ¼äÖµdwDamDef:%d", dwDamDef);
+	Zebra::logger->debug("ä¸­é—´å€¼dwDamDef:%d", dwDamDef);
 #endif
 
 	if(dwDamDef <0)
@@ -111,7 +111,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 		dwDamDef = 0;
 	}
 
-	//×îºó´¦Àí¼¼ÄÜµÄÖ±½ÓÉËº¦
+	//æœ€åå¤„ç†æŠ€èƒ½çš„ç›´æ¥ä¼¤å®³
 	WORD temp = pAtt->getDamageBonus();
 	if (temp>0)
 	{
@@ -128,11 +128,11 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 		dwDamDef = (int)(dwDamDef*((100-rangDamageBonus)/100.0f));
 	}
 
-	//¼ÓÉÏ¹¥»÷ÕßµÄ±»¶¯ÉËº¦
+	//åŠ ä¸Šæ”»å‡»è€…çš„è¢«åŠ¨ä¼¤å®³
 	dwDamDef +=pAtt->skillValue.passdam;
 
 	/*
-	//Õ½ÂíÔö¼ÓÉËº¦
+	//æˆ˜é©¬å¢åŠ ä¼¤å®³
 	if (pAtt->getType()==zSceneEntry::SceneEntry_Player && ((SceneUser *)pAtt)->horse.mount() && ((SceneUser *)pAtt)->horse.data.skills[0])
 	{
 		for (int i=0; i<4; i++)
@@ -143,7 +143,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 			}
 	}
 
-	//Õ½Âí¼õÉÙÉËº¦
+	//æˆ˜é©¬å‡å°‘ä¼¤å®³
 	if (getType()==zSceneEntry::SceneEntry_Player && ((SceneUser *)this)->horse.mount() && ((SceneUser *)this)->horse.data.skills[0])
 	{
 		for (int i=0; i<4; i++)
@@ -160,7 +160,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 
 	if (dwDamDef >0)
 	{
-		//¼ÆËãÉËº¦Ëæ»ú×ªÒÆ----------------------------
+		//è®¡ç®—ä¼¤å®³éšæœºè½¬ç§»----------------------------
 		if (skillValue.tsfdamp != 0)
 		{
 			DamagCallback callback(this);
@@ -171,7 +171,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 				dwDamDef -= temp;
 			}
 #ifdef _DEBUGLOG
-			Zebra::logger->debug("¸ù¾İËæ»ú×ªÒÆÉËº¦ÂÊ¿Û³ıºó¼ÆËã½á¹ûÖµdwDamDef:%d", dwDamDef);
+			Zebra::logger->debug("æ ¹æ®éšæœºè½¬ç§»ä¼¤å®³ç‡æ‰£é™¤åè®¡ç®—ç»“æœå€¼dwDamDef:%d", dwDamDef);
 #endif
 		}
 		//--------------------------------------------
@@ -198,10 +198,10 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 
 //	if ((getType() == zSceneEntry::SceneEntry_Player) && (pAtt->getType() == zSceneEntry::SceneEntry_Player))
 //	{
-//		dwDam=dwDam/2; // Î°´óµÄ²ß»®ÒªÇóµÄ,ÈË´òÈËµÄÊ±ºòÉËº¦¼õ°ë
+//		dwDam=dwDam/2; // ä¼Ÿå¤§çš„ç­–åˆ’è¦æ±‚çš„,äººæ‰“äººçš„æ—¶å€™ä¼¤å®³å‡åŠ
 //	}
 
-	//×¥ÂíµÄ¹Ì¶¨ÉËº¦
+	//æŠ“é©¬çš„å›ºå®šä¼¤å®³
 	if ((zSceneEntry::SceneEntry_NPC==getType()) && (NPC_TYPE_WILDHORSE==((SceneNpc *)this)->npc->kind))
 	{
 		if (zSceneEntry::SceneEntry_Player==pAtt->getType())
@@ -256,7 +256,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 		pAtt->leech(dwDamDef);
 	}
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("×îÖÕÖµdwDamDef:%ld", dwDamDef);
+	Zebra::logger->debug("æœ€ç»ˆå€¼dwDamDef:%ld", dwDamDef);
 #endif	
 
 	if (pAtt->getType() == zSceneEntry::SceneEntry_Player && this->getType() == zSceneEntry::SceneEntry_Player)
@@ -264,27 +264,27 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 		dwDamDef += zMisc::randBetween(0,pAtt->getLevel()/2);
 	}
 
-	if (pAtt->blazeflag&&pAtt->skillValue.blazeappend>0) // Ìá¸ß»ğÑæÏµ·¨ÊõÉËº¦
+	if (pAtt->blazeflag&&pAtt->skillValue.blazeappend>0) // æé«˜ç«ç„°ç³»æ³•æœ¯ä¼¤å®³
 	{
 		dwDamDef = (int)(dwDamDef*(1+pAtt->skillValue.blazeappend/1000.0f));
 	}
-	else if (pAtt->blazeflag&&pAtt->skillValue.pblazeappend>0) // Ìá¸ß»ğÑæÏµ·¨ÊõÉËº¦
+	else if (pAtt->blazeflag&&pAtt->skillValue.pblazeappend>0) // æé«˜ç«ç„°ç³»æ³•æœ¯ä¼¤å®³
 	{
 		dwDamDef = (int)(dwDamDef*(1+pAtt->skillValue.pblazeappend/1000.0f));
 	}
-	else if (pAtt->levinflag&&pAtt->skillValue.levinappend>0) // Ìá¸ßÀ×µçÏµ·¨ÊõÉËº¦
+	else if (pAtt->levinflag&&pAtt->skillValue.levinappend>0) // æé«˜é›·ç”µç³»æ³•æœ¯ä¼¤å®³
 	{
 		dwDamDef = (int)(dwDamDef*(1+pAtt->skillValue.levinappend/1000.0f));
 	}
-	else if (pAtt->levinflag&&pAtt->skillValue.plevinappend>0) // Ìá¸ßÀ×µçÏµ·¨ÊõÉËº¦
+	else if (pAtt->levinflag&&pAtt->skillValue.plevinappend>0) // æé«˜é›·ç”µç³»æ³•æœ¯ä¼¤å®³
 	{
 		dwDamDef = (int)(dwDamDef*(1+pAtt->skillValue.plevinappend/1000.0f));
 	}
-	else if (pAtt->trapflag&&pAtt->skillValue.trapappend>0) // Ìá¸ßÏİÚåÏµ·¨ÊõÉËº¦
+	else if (pAtt->trapflag&&pAtt->skillValue.trapappend>0) // æé«˜é™·é˜±ç³»æ³•æœ¯ä¼¤å®³
 	{
 		dwDamDef = (int)(dwDamDef*(1+pAtt->skillValue.trapappend/1000.0f));
 	}
-	else if (pAtt->iceflag&&pAtt->skillValue.iceappend>0) // Ìá¸ßÏİÚåÏµ·¨ÊõÉËº¦
+	else if (pAtt->iceflag&&pAtt->skillValue.iceappend>0) // æé«˜é™·é˜±ç³»æ³•æœ¯ä¼¤å®³
 	{
 		dwDamDef = (int)(dwDamDef*(1+pAtt->skillValue.iceappend/1000.0f));
 	}
@@ -312,7 +312,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 	dwDamDef += this->skillValue.appenddam + this->skillValue.brappenddam;
 
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("¼¼ÄÜ¼Ó¶îÍâÉËº¦appenddam:%d ÁÔÊÖÓ¡¼Ç¶îÍâÉËº¦%d", this->skillValue.appenddam, this->skillValue.brappenddam);
+		Zebra::logger->debug("æŠ€èƒ½åŠ é¢å¤–ä¼¤å®³appenddam:%d çŒæ‰‹å°è®°é¢å¤–ä¼¤å®³%d", this->skillValue.appenddam, this->skillValue.brappenddam);
 #endif
 
 	SWORD wdHP=0;
@@ -347,7 +347,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 	{
 		if (this->liquidState)
 		{
-			this->skillStatusM.clearRecoveryElement(248);  ///Çå³ıÒºÌ¬×´Ì¬¡£
+			this->skillStatusM.clearRecoveryElement(248);  ///æ¸…é™¤æ¶²æ€çŠ¶æ€ã€‚
 		}
 		else if (this->resist==0 || !zMisc::selectByPercent(this->resist))
 		{
@@ -406,20 +406,20 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 			ScenePk::checkProtect(a, p);
 		}
 		/*
-		else if (pMaster->getType()==zSceneEntry::SceneEntry_NPC)//¹¥»÷ÎÀ±ø
+		else if (pMaster->getType()==zSceneEntry::SceneEntry_NPC)//æ”»å‡»å«å…µ
 		{
 			SceneNpc * p = (SceneNpc *)pMaster;
 			if ((p->aif&AIF_ATK_REDNAME)||(p->npc->kind==NPC_TYPE_GUARD))
 			{
 				a->reSendMyMapData();
-				Channel::sendSys(a, Cmd::INFO_TYPE_GAME, "Äã¹¥»÷ÁË %s ,Á½·ÖÖÓÄÚËùÓĞÍæ¼Ò¿ÉÒÔ¶ÔÄãÕıµ±¹¥»÷", p->name);
+				Channel::sendSys(a, Cmd::INFO_TYPE_GAME, "ä½ æ”»å‡»äº† %s ,ä¸¤åˆ†é’Ÿå†…æ‰€æœ‰ç©å®¶å¯ä»¥å¯¹ä½ æ­£å½“æ”»å‡»", p->name);
 			}
 		}
 		*/
 	}
 
 	/*
-	//ÆïÂí»÷Âä
+	//éª‘é©¬å‡»è½
 	if (getType()==zSceneEntry::SceneEntry_Player)
 	{
 		if (((SceneUser *)this)->horse.mount())
@@ -450,7 +450,7 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 					//a->full_t_MapUserData(send.data);
 					//a->scene->sendCmdToNine(a->getPosI(),&send,sizeof(send) , false);
 					
-					Channel::sendSys(a, Cmd::INFO_TYPE_GAME, "Äã¹¥»÷ÁË %s ,Á½·ÖÖÓÄÚËùÓĞÍæ¼Ò¿ÉÒÔ¶ÔÄãÕıµ±¹¥»÷", name);
+					Channel::sendSys(a, Cmd::INFO_TYPE_GAME, "ä½ æ”»å‡»äº† %s ,ä¸¤åˆ†é’Ÿå†…æ‰€æœ‰ç©å®¶å¯ä»¥å¯¹ä½ æ­£å½“æ”»å‡»", name);
 				}
 			}
 		}
@@ -459,11 +459,11 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 
 	if (this->hideme)
 	{
-		this->skillStatusM.clearRecoveryElement(241);  ///Çå³ıÒşÉí×´Ì¬¡£
+		this->skillStatusM.clearRecoveryElement(241);  ///æ¸…é™¤éšèº«çŠ¶æ€ã€‚
 	}
 	if (this->icebox)
 	{
-		this->skillStatusM.clearRecoveryElement(245);  ///±ùÁé¹ñ×´Ì¬¡£
+		this->skillStatusM.clearRecoveryElement(245);  ///å†°çµæŸœçŠ¶æ€ã€‚
 	}
 
 	if ((pAtt->getState() != zSceneEntry::SceneEntry_Death)&&(pAtt->dietodam >0))
@@ -497,11 +497,11 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 	if (!this->processDeath(pAtt))
 	{
 /*		pAtt->attackTarget = this;
-		///»¹»î×Å£¬ÉèÖÃ¶ÔÊÖ
+		///è¿˜æ´»ç€ï¼Œè®¾ç½®å¯¹æ‰‹
 		*
 		if (0==curTargetID)
 		{
-			//Zebra::logger->debug("%s ±» %s ¹¥»÷£¬½øÈëÕ½¶·", name, pAtt->name);
+			//Zebra::logger->debug("%s è¢« %s æ”»å‡»ï¼Œè¿›å…¥æˆ˜æ–—", name, pAtt->name);
 			curTargetID = pAtt->tempid;
 			curTargetType = pAtt->getType();
 		}
@@ -607,36 +607,36 @@ bool SceneEntryPk::AttackMe(SceneEntryPk *pAtt, const Cmd::stAttackMagicUserCmd 
 }
 
 /**
- * \brief ¼ì²éÄ§·¨·ÉĞĞÂ·ÏßÊÇ·ñÓĞ×èµ²
+ * \brief æ£€æŸ¥é­”æ³•é£è¡Œè·¯çº¿æ˜¯å¦æœ‰é˜»æŒ¡
  *
  *
- * \param pTarget ¹¥»÷Ä¿±ê
- * \param ¹¥»÷ÀàĞÍ
- * \return ÊÇ·ñ¿ÉË³Àû¹¥»÷
+ * \param pTarget æ”»å‡»ç›®æ ‡
+ * \param æ”»å‡»ç±»å‹
+ * \return æ˜¯å¦å¯é¡ºåˆ©æ”»å‡»
  */
 bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 {
 	switch(aType)
 	{
-		case 0: // ½üÉí
+		case 0: // è¿‘èº«
 			{
 				if(abs(this->pos.x - pTarget->getPos().x) > 1 || abs(this->pos.y - pTarget->getPos().y) > 1)
 				{
 #ifdef	_DEBUGLOG 
-					Zebra::logger->debug("³¬³ö¹¥»÷·¶Î§(%s(%ld) x¼ä¾à=%u y¼ä¾à=%u)" , this->name , this->id ,abs(this->pos.x - pTarget->getPos().x),abs(this->pos.y - pTarget->getPos().y));
-					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"´©Ô½·½Ê½£º½üÉí");
+					Zebra::logger->debug("è¶…å‡ºæ”»å‡»èŒƒå›´(%s(%ld) xé—´è·=%u yé—´è·=%u)" , this->name , this->id ,abs(this->pos.x - pTarget->getPos().x),abs(this->pos.y - pTarget->getPos().y));
+					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"ç©¿è¶Šæ–¹å¼ï¼šè¿‘èº«");
 #endif
 					if(abs(this->pos.x - pTarget->getOldPos1().x) > 1 || abs(this->pos.y - pTarget->getOldPos1().y) > 1)
 					{
 #ifdef	_DEBUGLOG 
-					Zebra::logger->debug("³¬³ö¹¥»÷·¶Î§(%s(%ld) oldx¼ä¾à=%u oldy¼ä¾à=%u)" , this->name , this->id ,abs(this->pos.x - pTarget->getOldPos1().x),abs(this->pos.y - pTarget->getOldPos1().y));
-					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"´©Ô½·½Ê½£º½üÉí");
+					Zebra::logger->debug("è¶…å‡ºæ”»å‡»èŒƒå›´(%s(%ld) oldxé—´è·=%u oldyé—´è·=%u)" , this->name , this->id ,abs(this->pos.x - pTarget->getOldPos1().x),abs(this->pos.y - pTarget->getOldPos1().y));
+					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"ç©¿è¶Šæ–¹å¼ï¼šè¿‘èº«");
 #endif
 						if(abs(this->pos.x - pTarget->getOldPos2().x) > 1 || abs(this->pos.y - pTarget->getOldPos2().y) > 1)
 						{
 #ifdef	_DEBUGLOG 
-					Zebra::logger->debug("³¬³ö¹¥»÷·¶Î§(%s(%ld) oldx¼ä¾à=%u oldy¼ä¾à=%u)" , this->name , this->id ,abs(this->pos.x - pTarget->getOldPos2().x),abs(this->pos.y - pTarget->getOldPos2().y));
-					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"´©Ô½·½Ê½£º½üÉí");
+					Zebra::logger->debug("è¶…å‡ºæ”»å‡»èŒƒå›´(%s(%ld) oldxé—´è·=%u oldyé—´è·=%u)" , this->name , this->id ,abs(this->pos.x - pTarget->getOldPos2().x),abs(this->pos.y - pTarget->getOldPos2().y));
+					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"ç©¿è¶Šæ–¹å¼ï¼šè¿‘èº«");
 #endif
 							return false;
 						}
@@ -644,10 +644,10 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 				}
 			}
 			break;
-		case 1: // ·ÉĞĞ
+		case 1: // é£è¡Œ
 			{
 #ifdef	_DEBUGLOG 
-					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"´©Ô½·½Ê½£º·ÉĞĞ");
+					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"ç©¿è¶Šæ–¹å¼ï¼šé£è¡Œ");
 #endif
 
 					zPos pos1 = this->pos;
@@ -659,12 +659,12 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 					float ftB=0.0f;
 					if (pos1.x == pos2.x)
 					{
-						// TILE_MAGIC_BLOCK ×èµ²µãÀàĞÍ
+						// TILE_MAGIC_BLOCK é˜»æŒ¡ç‚¹ç±»å‹
 						// 
 						if (pos1.y> pos2.y)
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½1£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼1ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif
 							zPos pos;
 							pos.x = pos1.x;
@@ -672,7 +672,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 							{
 								pos.y = i;
 #ifdef _DEBUGLOG
-								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"¼ì²éµÄ×ø±êµã£¨x=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"ÓĞ×èµ²":"ÎŞ×èµ²");
+								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ£€æŸ¥çš„åæ ‡ç‚¹ï¼ˆx=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"æœ‰é˜»æŒ¡":"æ— é˜»æŒ¡");
 #endif
 								if (this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)) return false;
 							}
@@ -680,7 +680,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						else
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½2£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼2ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif
 							zPos pos;
 							pos.x = pos1.x;
@@ -688,7 +688,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 							{
 								pos.y = i;
 #ifdef _DEBUGLOG
-								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"¼ì²éµÄ×ø±êµã£¨x=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"ÓĞ×èµ²":"ÎŞ×èµ²");
+								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ£€æŸ¥çš„åæ ‡ç‚¹ï¼ˆx=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"æœ‰é˜»æŒ¡":"æ— é˜»æŒ¡");
 #endif
 								if (this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)) return false;
 							}
@@ -700,7 +700,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						if (pos1.x> pos2.x)
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½3£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼3ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif
 							zPos pos;
 							pos.y = pos1.y;
@@ -708,7 +708,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 							{
 								pos.x = i;
 #ifdef _DEBUGLOG
-								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"¼ì²éµÄ×ø±êµã£¨x=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"ÓĞ×èµ²":"ÎŞ×èµ²");
+								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ£€æŸ¥çš„åæ ‡ç‚¹ï¼ˆx=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"æœ‰é˜»æŒ¡":"æ— é˜»æŒ¡");
 #endif
 								if (this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)) return false;
 							}
@@ -716,7 +716,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						else
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½4£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼4ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif
 							zPos pos;
 							pos.y = pos1.y;
@@ -724,7 +724,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 							{
 								pos.x = i;
 #ifdef _DEBUGLOG
-								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"¼ì²éµÄ×ø±êµã£¨x=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"ÓĞ×èµ²":"ÎŞ×èµ²");
+								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ£€æŸ¥çš„åæ ‡ç‚¹ï¼ˆx=%u,y=%u) %s",pos.x,pos.y,this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)?"æœ‰é˜»æŒ¡":"æ— é˜»æŒ¡");
 #endif
 								if (this->scene->checkBlock(pos, TILE_MAGIC_BLOCK)) return false;
 							}
@@ -738,7 +738,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						if (pos1.x> pos2.x)
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½5£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼5ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif 
 							ftA =(float)((float)pos1.y-(float)pos2.y)/(float)((float)pos1.x-(float)pos2.x);
 							ftB = (float)pos1.y - (float)ftA*(float)pos1.x;
@@ -755,7 +755,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						else
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½6£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼6ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif 
 							ftA =(float)((float)pos1.y-(float)pos2.y)/(float)((float)pos1.x-(float)pos2.x);
 							ftB = (float)pos1.y - (float)(ftA*(float)pos1.x);
@@ -772,7 +772,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						if (pos1.y> pos2.y)
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½7£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼7ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif 
 							ftA =(float)((float)pos1.y-(float)pos2.y)/(float)((float)pos1.x-(float)pos2.x);
 							ftB = (float)pos1.y - (float)ftA*(float)pos1.x;
@@ -789,7 +789,7 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						else
 						{
 #ifdef _DEBUGLOG
-							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"·½Ê½8£º£¨x=%u,y=%u)£¨x=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
+							Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ–¹å¼8ï¼šï¼ˆx=%u,y=%u)ï¼ˆx=%u,y=%u)",pos1.x,pos1.y,pos2.x,pos2.y);
 #endif 
 							ftA =(float)((float)pos1.y-(float)pos2.y)/(float)((float)pos1.x-(float)pos2.x);
 							ftB = (float)pos1.y - (float)(ftA*(float)pos1.x);
@@ -807,35 +807,35 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 						for(vIterator = posSet.begin(); vIterator != posSet.end(); vIterator++)
 						{
 #ifdef _DEBUGLOG
-								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"¼ì²éµÄ×ø±êµã£¨x=%u,y=%u) %s",vIterator->x,vIterator->y,this->scene->checkBlock(*vIterator, TILE_MAGIC_BLOCK)?"ÓĞ×èµ²":"ÎŞ×èµ²");
+								Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"æ£€æŸ¥çš„åæ ‡ç‚¹ï¼ˆx=%u,y=%u) %s",vIterator->x,vIterator->y,this->scene->checkBlock(*vIterator, TILE_MAGIC_BLOCK)?"æœ‰é˜»æŒ¡":"æ— é˜»æŒ¡");
 #endif
 							if (this->scene->checkBlock(*vIterator, TILE_MAGIC_BLOCK)) return false;
 						}
 					}
 			}
 			break;
-		case 2: // Ö±´ï
+		case 2: // ç›´è¾¾
 			{
 #ifdef	_DEBUGLOG 
-					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"´©Ô½·½Ê½£ºÖ±´ï");
+					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"ç©¿è¶Šæ–¹å¼ï¼šç›´è¾¾");
 #endif
 			}
 			break;
-		case 3: //ÎŞÌõ¼şÖ±´ï
+		case 3: //æ— æ¡ä»¶ç›´è¾¾
 			{
 				return true;
 			}
 		default:
 			{
-				Zebra::logger->debug("(%s , %ld)È±ÉÙ¹¥»÷ÀàĞÍ" , this->name , this->tempid);
+				Zebra::logger->debug("(%s , %ld)ç¼ºå°‘æ”»å‡»ç±»å‹" , this->name , this->tempid);
 #ifdef	_DEBUGLOG 
-					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"´©Ô½·½Ê½£ºÎŞĞ§ÀàĞÍ");
+					Channel::sendSys(tempid,Cmd::INFO_TYPE_GAME,"ç©¿è¶Šæ–¹å¼ï¼šæ— æ•ˆç±»å‹");
 #endif
 				return false;
 			}
 			break;
 	}
-	//³¬³öÒ»ÆÁ
+	//è¶…å‡ºä¸€å±
 	if(!this->scene->zPosShortRange(this->getPos() , pTarget->getPos() , 11, 11))//SCREEN_WIDTH , SCREEN_HEIGHT))
 	{
 		return false;
@@ -844,9 +844,9 @@ bool SceneEntryPk::checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType)
 }
 
 /**
- * \brief ¼ì²énpc»òÍæ¼ÒÊÇ·ñºìÃû
+ * \brief æ£€æŸ¥npcæˆ–ç©å®¶æ˜¯å¦çº¢å
  *
- * \return ÊÇ·ñºìÃû
+ * \return æ˜¯å¦çº¢å
 bool SceneEntryPk::isRedNamed()
 {
 	switch (getType())
@@ -871,9 +871,9 @@ bool SceneEntryPk::isRedNamed()
  */
 
 /**
- * \brief µÃµ½µ±Ç°µÄhp
+ * \brief å¾—åˆ°å½“å‰çš„hp
  *
- * \return µ±Ç°µÄhp
+ * \return å½“å‰çš„hp
  */
 DWORD SceneEntryPk::getHp()
 {
@@ -891,9 +891,9 @@ DWORD SceneEntryPk::getHp()
 }
 
 /**
- * \brief µÃµ½×î´óhp
+ * \brief å¾—åˆ°æœ€å¤§hp
  *
- * \return ×î´óµÄhp
+ * \return æœ€å¤§çš„hp
  */
 DWORD SceneEntryPk::getMaxHp()
 {
@@ -911,9 +911,9 @@ DWORD SceneEntryPk::getMaxHp()
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñÔÚÕ½¶·×´Ì¬
+ * \brief æ£€æŸ¥æ˜¯å¦åœ¨æˆ˜æ–—çŠ¶æ€
  *
- * \return ÊÇ·ñÔÚÕ½¶·×´Ì¬
+ * \return æ˜¯å¦åœ¨æˆ˜æ–—çŠ¶æ€
  */
 bool SceneEntryPk::isFighting()
 {
@@ -933,10 +933,10 @@ bool SceneEntryPk::isFighting()
 }
 
 /**
- * \brief ÉèÖÃÍÑÀëÕ½¶·µÄÊ±¼ä
+ * \brief è®¾ç½®è„±ç¦»æˆ˜æ–—çš„æ—¶é—´
  *
- * \param ct ¿ªÊ¼¼ÆÊ±µÄÊ±¼ä
- * \param delay ½áÊøµÄÊ±¼äÑÓ³Ù
+ * \param ct å¼€å§‹è®¡æ—¶çš„æ—¶é—´
+ * \param delay ç»“æŸçš„æ—¶é—´å»¶è¿Ÿ
  * \return 
  */
 void SceneEntryPk::setEndBattleTime(const zRTime &ct, int delay)
@@ -946,11 +946,11 @@ void SceneEntryPk::setEndBattleTime(const zRTime &ct, int delay)
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñÒÑµ½ÍÑÀëÕ½¶·µÄÊ±¼ä
+ * \brief æ£€æŸ¥æ˜¯å¦å·²åˆ°è„±ç¦»æˆ˜æ–—çš„æ—¶é—´
  *
  *
- * \param ct ÓÃÓÚ±È½ÏµÄÊ±¼ä
- * \return ÊÇ·ñµ½Ê±¼ä
+ * \param ct ç”¨äºæ¯”è¾ƒçš„æ—¶é—´
+ * \return æ˜¯å¦åˆ°æ—¶é—´
  */
 bool SceneEntryPk::checkEndBattleTime(const zRTime &ct)
 {
@@ -958,7 +958,7 @@ bool SceneEntryPk::checkEndBattleTime(const zRTime &ct)
 }
 
 /**
- * \brief ÍÑÀëÕ½¶·
+ * \brief è„±ç¦»æˆ˜æ–—
  *
  */
 void SceneEntryPk::leaveBattle()
@@ -984,12 +984,12 @@ void SceneEntryPk::leaveBattle()
 	clearDefTarget();
 	setEndBattleTime(SceneTimeTick::currentTime, 0);
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("%s ÍÑÀëÕ½¶·", name);
+	//Zebra::logger->debug("%s è„±ç¦»æˆ˜æ–—", name);
 #endif
 }
 
 /**
- * \brief ´¦ÀíËÀÍö
+ * \brief å¤„ç†æ­»äº¡
  *
  */
 bool SceneEntryPk::processDeath(SceneEntryPk *pAtt)
@@ -999,9 +999,9 @@ bool SceneEntryPk::processDeath(SceneEntryPk *pAtt)
 }
 
 /**
- * \brief ²éÕÒÕıÔÚÕ½¶·µÄ¶ÔÊÖ
+ * \brief æŸ¥æ‰¾æ­£åœ¨æˆ˜æ–—çš„å¯¹æ‰‹
  *
- * \return ¶ÔÊÖÖ¸Õë
+ * \return å¯¹æ‰‹æŒ‡é’ˆ
  */
 SceneEntryPk * SceneEntryPk::getCurTarget()
 {       
@@ -1017,9 +1017,9 @@ SceneEntryPk * SceneEntryPk::getCurTarget()
 }
 
 /**
- * \brief ²éÕÒÕıÔÚ¹¥»÷×Ô¼ºµÄ¶ÔÊÖ
+ * \brief æŸ¥æ‰¾æ­£åœ¨æ”»å‡»è‡ªå·±çš„å¯¹æ‰‹
  *
- * \return ¶ÔÊÖÖ¸Õë
+ * \return å¯¹æ‰‹æŒ‡é’ˆ
  */
 SceneEntryPk * SceneEntryPk::getDefTarget()
 {       
@@ -1035,17 +1035,17 @@ SceneEntryPk * SceneEntryPk::getDefTarget()
 }
 
 /**
- * \brief ÉèÖÃµ±Ç°µÄÄ¿±ê
+ * \brief è®¾ç½®å½“å‰çš„ç›®æ ‡
  *
  *
- * \param tempid ¶ÔÊÖµÄtempid
- * \param type ¶ÔÊÖµÄÀàĞÍ
- * \param force Ç¿ÖÆÉèÖÃÄ¿±ê
+ * \param tempid å¯¹æ‰‹çš„tempid
+ * \param type å¯¹æ‰‹çš„ç±»å‹
+ * \param force å¼ºåˆ¶è®¾ç½®ç›®æ ‡
  * \return 
  */
 bool SceneEntryPk::setCurTarget(DWORD tempid, DWORD type, bool force)
 {
-	if (tempid==this->tempid) return false;//²»ÉèÖÃ×Ô¼º
+	if (tempid==this->tempid) return false;//ä¸è®¾ç½®è‡ªå·±
 
 	SceneEntryPk * def = NULL;
 	if (zSceneEntry::SceneEntry_Player==type)
@@ -1059,44 +1059,44 @@ bool SceneEntryPk::setCurTarget(DWORD tempid, DWORD type, bool force)
 	curTargetType = type;
 	setEndBattleTime(SceneTimeTick::currentTime, 10*1000);
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("%s ÉèÖÃ¹¥»÷¶ÔÏó %u", name, tempid);
+	//Zebra::logger->debug("%s è®¾ç½®æ”»å‡»å¯¹è±¡ %u", name, tempid);
 #endif
 	return true;
 }
 
 
 /**
- * \brief ÉèÖÃµ±Ç°µÄÄ¿±ê
+ * \brief è®¾ç½®å½“å‰çš„ç›®æ ‡
  *
  *
- * \param target ¶ÔÊÖµÄÖ¸Õë
- * \param force Ç¿ÖÆÉèÖÃÄ¿±ê
+ * \param target å¯¹æ‰‹çš„æŒ‡é’ˆ
+ * \param force å¼ºåˆ¶è®¾ç½®ç›®æ ‡
  * \return 
  */
 bool SceneEntryPk::setCurTarget(SceneEntryPk * target, bool force)
 {
-	if (target==this) return false;//²»ÉèÖÃ×Ô¼º
-	if (!isEnemy(target)) return false;//²»ÉèÖÃÅóÓÑ
+	if (target==this) return false;//ä¸è®¾ç½®è‡ªå·±
+	if (!isEnemy(target)) return false;//ä¸è®¾ç½®æœ‹å‹
 
 	curTargetID = target->tempid;
 	curTargetType = target->getType();
 	setEndBattleTime(SceneTimeTick::currentTime, 10*1000);
-	//Zebra::logger->debug("%s ÉèÖÃ¹¥»÷¶ÔÏó %s", name, target->name);
+	//Zebra::logger->debug("%s è®¾ç½®æ”»å‡»å¯¹è±¡ %s", name, target->name);
 	return true;
 }
 
 /**
- * \brief ÉèÖÃµ±Ç°µÄ·ÀÓùÄ¿±ê
+ * \brief è®¾ç½®å½“å‰çš„é˜²å¾¡ç›®æ ‡
  *
  *
- * \param tempid ¶ÔÊÖµÄtempid
- * \param type ¶ÔÊÖµÄÀàĞÍ
- * \param force Ç¿ÖÆÉèÖÃÄ¿±ê
+ * \param tempid å¯¹æ‰‹çš„tempid
+ * \param type å¯¹æ‰‹çš„ç±»å‹
+ * \param force å¼ºåˆ¶è®¾ç½®ç›®æ ‡
  * \return 
  */
 bool SceneEntryPk::setDefTarget(DWORD tempid, DWORD type, bool force)
 {
-	if (tempid==this->tempid) return false;//²»ÉèÖÃ×Ô¼º
+	if (tempid==this->tempid) return false;//ä¸è®¾ç½®è‡ªå·±
 
 	SceneEntryPk * def = NULL;
 	if (zSceneEntry::SceneEntry_Player==type)
@@ -1110,50 +1110,50 @@ bool SceneEntryPk::setDefTarget(DWORD tempid, DWORD type, bool force)
 	defTargetType = type;
 	setEndBattleTime(SceneTimeTick::currentTime, 10*1000);
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("%s ÉèÖÃ·ÀÓù¶ÔÏó %u", name, tempid);
+	//Zebra::logger->debug("%s è®¾ç½®é˜²å¾¡å¯¹è±¡ %u", name, tempid);
 #endif
 	return true;
 }
 
 /**
- * \brief ÉèÖÃµ±Ç°µÄ·ÀÓùÄ¿±ê
+ * \brief è®¾ç½®å½“å‰çš„é˜²å¾¡ç›®æ ‡
  *
  *
- * \param target ¶ÔÊÖµÄÖ¸Õë
- * \param force Ç¿ÖÆÉèÖÃÄ¿±ê
+ * \param target å¯¹æ‰‹çš„æŒ‡é’ˆ
+ * \param force å¼ºåˆ¶è®¾ç½®ç›®æ ‡
  * \return 
  */
 bool SceneEntryPk::setDefTarget(SceneEntryPk * target, bool force)
 {
-	if (target==this) return false;//²»ÉèÖÃ×Ô¼º
-	if (!isEnemy(target)) return false;//²»ÉèÖÃÅóÓÑ
+	if (target==this) return false;//ä¸è®¾ç½®è‡ªå·±
+	if (!isEnemy(target)) return false;//ä¸è®¾ç½®æœ‹å‹
 
 	defTargetID = target->tempid;
 	defTargetType = target->getType();
 	setEndBattleTime(SceneTimeTick::currentTime, 10*1000);
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("%s ÉèÖÃ·ÀÓù¶ÔÏó %s", name, target->name);
+	//Zebra::logger->debug("%s è®¾ç½®é˜²å¾¡å¯¹è±¡ %s", name, target->name);
 #endif
 	return true;
 }
 
 /**
- * \brief È¡Ïûµ±Ç°µÄ·ÀÓùÄ¿±ê
+ * \brief å–æ¶ˆå½“å‰çš„é˜²å¾¡ç›®æ ‡
  */
 void SceneEntryPk::clearDefTarget()
 {
 	defTargetID = 0;
 	defTargetType = 0;
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("%s Çå³ı·ÀÓùÄ¿±ê", name);
+	//Zebra::logger->debug("%s æ¸…é™¤é˜²å¾¡ç›®æ ‡", name);
 #endif
 }
 
 /**
- * \brief ¸ø³èÎïÉı¼¶
- * »»µôÔ­À´µÄ³èÎï
+ * \brief ç»™å® ç‰©å‡çº§
+ * æ¢æ‰åŸæ¥çš„å® ç‰©
  *
- * \param up ÒªÉı¼¶µÄ³èÎï
+ * \param up è¦å‡çº§çš„å® ç‰©
  */
 void SceneEntryPk::petLevelUp(ScenePet * up)
 {
@@ -1161,7 +1161,7 @@ void SceneEntryPk::petLevelUp(ScenePet * up)
 	if (Cmd::PET_TYPE_GUARDNPC==up->getPetType()
 			|| Cmd::PET_TYPE_RIDE==up->getPetType()) return;
 
-	//³èÎï×î¸ßµÈ¼¶=Ö÷ÈË¼¼ÄÜµÈ¼¶+2
+	//å® ç‰©æœ€é«˜ç­‰çº§=ä¸»äººæŠ€èƒ½ç­‰çº§+2
 	int maxlv = 2;
 	zSkill *s = usm.findSkill(up->npc->soulrate);
 	if (s) maxlv = s->actionbase->level+2;
@@ -1187,7 +1187,7 @@ void SceneEntryPk::petLevelUp(ScenePet * up)
 }
 
 /**
- * \brief Ïò9ÆÁ·¢ËÍ³èÎïĞÅÏ¢
+ * \brief å‘9å±å‘é€å® ç‰©ä¿¡æ¯
  *
  */
 void SceneEntryPk::sendPetDataToNine()
@@ -1199,12 +1199,12 @@ void SceneEntryPk::sendPetDataToNine()
 }
 
 /**
- * \brief Ôì³ÉÖ±½ÓÉËº¦
- * \param pAtt ¹¥»÷Õß
- * \param dam ÉËº¦
- * \param notify ÊÇ·ñÍ¨Öª¿Í»§¶Ë
+ * \brief é€ æˆç›´æ¥ä¼¤å®³
+ * \param pAtt æ”»å‡»è€…
+ * \param dam ä¼¤å®³
+ * \param notify æ˜¯å¦é€šçŸ¥å®¢æˆ·ç«¯
  * \author fqnewman
- * \return ÉËº¦Öµ
+ * \return ä¼¤å®³å€¼
  */
 SWORD SceneEntryPk::directDamage(SceneEntryPk *pAtt, const SDWORD &dam, bool notify)
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.cpp  $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êý
+ * \brief æ—¶é—´å›žè°ƒå‡½æ•°
  *
  * 
  */

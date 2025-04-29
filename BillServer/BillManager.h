@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillManager.h  $
  * \author  
  * \date 
- * \brief ÕËºÅ¹ÜÀí£¬¼ÇÂ¼Ò»¸öÇøÖĞËùÓĞÒÑ¾­µÇÂ½µÄÕËºÅ
+ * \brief è´¦å·ç®¡ç†ï¼Œè®°å½•ä¸€ä¸ªåŒºä¸­æ‰€æœ‰å·²ç»ç™»é™†çš„è´¦å·
  *
  * 
  */
@@ -21,30 +21,30 @@
 
 #pragma pack(1)
 /**
- * \brief ÕËºÅĞÅÏ¢
+ * \brief è´¦å·ä¿¡æ¯
  *
  */
 struct BillInfo
 {
-	DWORD accid;			    /**< ÕËºÅ±àºÅ */
-	DWORD loginTempID;		    /**< µÇÂ½ÁÙÊ±±àºÅ */
+	DWORD accid;			    /**< è´¦å·ç¼–å· */
+	DWORD loginTempID;		    /**< ç™»é™†ä¸´æ—¶ç¼–å· */
 
-	WORD wdGatewayID;		/**< µÇÂ½µÄÍø¹Ø±àºÅ */
+	WORD wdGatewayID;		/**< ç™»é™†çš„ç½‘å…³ç¼–å· */
 
-	double gold;		/**< ½ğ±ÒÊıÁ¿ */
-	DWORD vip_time;		/**< vipµ½ÆÚÊ±¼ä */
+	double gold;		/**< é‡‘å¸æ•°é‡ */
+	DWORD vip_time;		/**< vipåˆ°æœŸæ—¶é—´ */
 
 	enum
 	{
-		WAIT_LOGIN,			/**< µÈ´ıÍ¨¹ıµÇÂ½ÑéÖ¤µÄ¿Í»§¶ËµÇÂ½Íø¹Ø·şÎñÆ÷ */
-		CONF_LOGIN			/**< µÇÂ½Íø¹Ø·şÎñÆ÷ÑéÖ¤ÒÑ¾­³É¹¦ */
+		WAIT_LOGIN,			/**< ç­‰å¾…é€šè¿‡ç™»é™†éªŒè¯çš„å®¢æˆ·ç«¯ç™»é™†ç½‘å…³æœåŠ¡å™¨ */
+		CONF_LOGIN			/**< ç™»é™†ç½‘å…³æœåŠ¡å™¨éªŒè¯å·²ç»æˆåŠŸ */
 	}
-	state;					/**< »á»°×´Ì¬ */
-	zTime timestamp;		/**< Ê±¼ä´Á */
+	state;					/**< ä¼šè¯çŠ¶æ€ */
+	zTime timestamp;		/**< æ—¶é—´æˆ³ */
 	char client_ip[MAX_IP_LENGTH];
 
 	/**
-	 * \brief È±Ê¡¹¹Ôìº¯Êı
+	 * \brief ç¼ºçœæ„é€ å‡½æ•°
 	 *
 	 */
 	BillInfo() : timestamp()
@@ -57,7 +57,7 @@ struct BillInfo
 	}
 	
 	/**
-	 * \brief ¿½±´¹¹Ôìº¯Êı
+	 * \brief æ‹·è´æ„é€ å‡½æ•°
 	 *
 	 */
 	BillInfo(const BillInfo &ai)
@@ -73,7 +73,7 @@ struct BillInfo
 	}
 
 	/**
-	 * \brief ¸³Öµ²Ù×÷·ûºÅ
+	 * \brief èµ‹å€¼æ“ä½œç¬¦å·
 	 *
 	 */
 	BillInfo & operator= (const BillInfo &ai)
@@ -92,9 +92,9 @@ struct BillInfo
 #pragma pack()
 
 /**
- * \brief ÕËºÅĞÅÏ¢¹ÜÀíÈİÆ÷
+ * \brief è´¦å·ä¿¡æ¯ç®¡ç†å®¹å™¨
  *
- * ±£ÁôÁËÒ»¸öÇøÖĞËùÓĞÔÚÏßÕËºÅÁĞ±í
+ * ä¿ç•™äº†ä¸€ä¸ªåŒºä¸­æ‰€æœ‰åœ¨çº¿è´¦å·åˆ—è¡¨
  *
  */
 class BillManager
@@ -103,21 +103,21 @@ class BillManager
 	public:
 
 		/**
-		 * \brief »á»°³¬Ê±Ê±¼ä
-		 * µ¥Î»£¬Ãë
+		 * \brief ä¼šè¯è¶…æ—¶æ—¶é—´
+		 * å•ä½ï¼Œç§’
 		 */
 		static const int session_timeout_value = 10;
 
 		/**
-		 * \brief È±Ê¡Îö¹¹º¯Êı
+		 * \brief ç¼ºçœææ„å‡½æ•°
 		 *
 		 */
 		~BillManager() {};
 
 		/**
-		 * \brief ·µ»ØÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è¿”å›ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * \return ÀàµÄÎ¨Ò»ÊµÀı
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static BillManager &getInstance()
 		{
@@ -128,7 +128,7 @@ class BillManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -150,40 +150,40 @@ class BillManager
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static BillManager *instance;
 
 		/**
-		 * \brief È±Ê¡¹¹Ôìº¯Êı
+		 * \brief ç¼ºçœæ„é€ å‡½æ•°
 		 *
 		 */
 		BillManager() {};
 
 		/**
-		 * \brief ÕËºÅ¹ÜÀíÈİÆ÷ÀàĞÍ
+		 * \brief è´¦å·ç®¡ç†å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<DWORD, BillInfo> BillInfoMap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µÄµü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨çš„è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef BillInfoMap::iterator BillInfoMap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µÄ¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨çš„é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef BillInfoMap::value_type BillInfoMap_pair;
 
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;
 		/**
-		 * \brief ÕËºÅ¹ÜÀíÈİÆ÷
+		 * \brief è´¦å·ç®¡ç†å®¹å™¨
 		 *
 		 */
 		BillInfoMap infoMap;

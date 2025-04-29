@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TempArchive.h  $
  * \author  
  * \date 
- * \brief ÁÙÊ±µµ°¸´æ´¢
+ * \brief ä¸´æ—¶æ¡£æ¡ˆå­˜å‚¨
  *
  * 
  */
@@ -22,7 +22,7 @@
 struct zMutex;
 class zRTime;
 /**
- * \brief ÁÙÊ±µµ°¸Êı¾İ½á¹¹
+ * \brief ä¸´æ—¶æ¡£æ¡ˆæ•°æ®ç»“æ„
  *
  */
 struct TempArchive 
@@ -40,7 +40,7 @@ struct TempArchive
 };
 
 /**
- * \brief ÁÙÊ±µµ°¸¹ÜÀíÆ÷
+ * \brief ä¸´æ—¶æ¡£æ¡ˆç®¡ç†å™¨
  *
  */
 class GlobalTempArchiveIndex//:private zEntryManager< zEntryID >

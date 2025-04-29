@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.cpp  $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  *
  * 
  */
@@ -76,7 +76,7 @@ bool SuperTimeTick::readTime()
 	connHandleID handle = SuperService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ´ÓÊı¾İ¿âÁ¬½Ó³Ø»ñÈ¡Á¬½Ó¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½ä»æ•°æ®åº“è¿æ¥æ± è·å–è¿æ¥å¥æŸ„");
 		return false;
 	}
 
@@ -84,7 +84,7 @@ bool SuperTimeTick::readTime()
 	if ((unsigned int)-1 == retcode)
 	{
 		SuperService::dbConnPool->putHandle(handle);
-		Zebra::logger->error("¶ÁÈ¡ÓÎÏ·Ê±¼ä´íÎó");
+		Zebra::logger->error("è¯»å–æ¸¸æˆæ—¶é—´é”™è¯¯");
 		return false;
 	}
 
@@ -95,13 +95,13 @@ bool SuperTimeTick::readTime()
 		if ((unsigned int)-1 == retcode)
 		{
 			SuperService::dbConnPool->putHandle(handle);
-			Zebra::logger->error("³õÊ¼»¯ÓÎÏ·Ê±¼ä´íÎó");
+			Zebra::logger->error("åˆå§‹åŒ–æ¸¸æˆæ—¶é—´é”™è¯¯");
 			return false;
 		}
 	}
 	SuperService::dbConnPool->putHandle(handle);
 
-	Zebra::logger->debug("¶ÁÈ¡ÓÎÏ·Ê±¼ä³É¹¦");
+	Zebra::logger->debug("è¯»å–æ¸¸æˆæ—¶é—´æˆåŠŸ");
 	Zebra::qwGameTime = qwStartGameTime;
 	startTime.now();
 
@@ -113,7 +113,7 @@ bool SuperTimeTick::saveTime()
 	connHandleID handle = SuperService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ´ÓÊı¾İ¿âÁ¬½Ó³Ø»ñÈ¡Á¬½Ó¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½ä»æ•°æ®åº“è¿æ¥æ± è·å–è¿æ¥å¥æŸ„");
 		return false;
 	}
 
@@ -122,11 +122,11 @@ bool SuperTimeTick::saveTime()
 
 	if (1 == retcode)
 	{
-		Zebra::logger->debug("±£´æÓÎÏ·Ê±¼ä³É¹¦");
+		Zebra::logger->debug("ä¿å­˜æ¸¸æˆæ—¶é—´æˆåŠŸ");
 	}
 	else
 	{
-		Zebra::logger->error("±£´æÓÎÏ·Ê±¼äÊ§°Ü");
+		Zebra::logger->error("ä¿å­˜æ¸¸æˆæ—¶é—´å¤±è´¥");
 	}
 
 	return true;

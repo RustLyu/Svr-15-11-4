@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zService.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ·şÎñÆ÷¿ò¼ÜÀà
+ * \brief å®ç°æœåŠ¡å™¨æ¡†æ¶ç±»
  *
  * 
  */
@@ -25,27 +25,27 @@
 #include "Zebra.h"
 
 /**
- * \brief CTRL + CµÈĞÅºÅµÄ´¦Àíº¯Êı£¬½áÊø³ÌĞò
+ * \brief CTRL + Cç­‰ä¿¡å·çš„å¤„ç†å‡½æ•°ï¼Œç»“æŸç¨‹åº
  *
- * \param signum ĞÅºÅ±àºÅ
+ * \param signum ä¿¡å·ç¼–å·
  */
 static void ctrlcHandler(int signum)
 {
 	Zebra::logger->trace("ctrlcHandler");
-	//Èç¹ûÃ»ÓĞ³õÊ¼»¯zServiceÊµÀı£¬±íÊ¾³ö´í
+	//å¦‚æœæ²¡æœ‰åˆå§‹åŒ–zServiceå®ä¾‹ï¼Œè¡¨ç¤ºå‡ºé”™
 	zService *instance = zService::serviceInstance();
 	instance->Terminate();
 }
 
 /**
- * \brief HUPĞÅºÅ´¦Àíº¯Êı
+ * \brief HUPä¿¡å·å¤„ç†å‡½æ•°
  *
- * \param signum ĞÅºÅ±àºÅ
+ * \param signum ä¿¡å·ç¼–å·
  */
 static void hupHandler(int signum)
 {
 	Zebra::logger->trace("hupHandler");
-	//Èç¹ûÃ»ÓĞ³õÊ¼»¯zServiceÊµÀı£¬±íÊ¾³ö´í
+	//å¦‚æœæ²¡æœ‰åˆå§‹åŒ–zServiceå®ä¾‹ï¼Œè¡¨ç¤ºå‡ºé”™
 	zService *instance = zService::serviceInstance();
 	instance->reloadConfig();
 }
@@ -53,14 +53,14 @@ static void hupHandler(int signum)
 zService *zService::serviceInst = NULL;
 
 /**
- * \brief ³õÊ¼»¯·şÎñÆ÷³ÌĞò£¬×ÓÀàĞèÒªÊµÏÖÕâ¸öº¯Êı
+ * \brief åˆå§‹åŒ–æœåŠ¡å™¨ç¨‹åºï¼Œå­ç±»éœ€è¦å®ç°è¿™ä¸ªå‡½æ•°
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool zService::init()
 {
 	Zebra::logger->trace("zService::init");
-	//´æ´¢»·¾³±äÁ¿
+	//å­˜å‚¨ç¯å¢ƒå˜é‡
 	int i = 0;
 	while(environ[i])
 	{
@@ -72,7 +72,7 @@ bool zService::init()
 	}
 	//env.dump(std::cout);
 
-	//ÉèÖÃĞÅºÅ´¦Àí
+	//è®¾ç½®ä¿¡å·å¤„ç†
 	struct sigaction sig;
 
 	sig.sa_handler = ctrlcHandler;
@@ -87,7 +87,7 @@ bool zService::init()
 	sig.sa_handler = SIG_IGN;
 	sigaction(SIGPIPE, &sig, NULL);
 
-	//³õÊ¼»¯Ëæ»úÊı
+	//åˆå§‹åŒ–éšæœºæ•°
 	srand(time(NULL));
 	Zebra::seedp = time(NULL);
 	
@@ -95,16 +95,16 @@ bool zService::init()
 }
 
 /**
- * \brief ·şÎñ³ÌĞò¿ò¼ÜµÄÖ÷º¯Êı
+ * \brief æœåŠ¡ç¨‹åºæ¡†æ¶çš„ä¸»å‡½æ•°
  */
 void zService::main()
 {
 	Zebra::logger->trace("zService::main");
-	//³õÊ¼»¯³ÌĞò£¬²¢È·ÈÏ·şÎñÆ÷Æô¶¯³É¹¦
+	//åˆå§‹åŒ–ç¨‹åºï¼Œå¹¶ç¡®è®¤æœåŠ¡å™¨å¯åŠ¨æˆåŠŸ
 	if (init()
 	&& validate())
 	{
-		//ÔËĞĞÖ÷»Øµ÷Ïß³Ì
+		//è¿è¡Œä¸»å›è°ƒçº¿ç¨‹
 		while(!isTerminate())
 		{
 			if (!serviceCallback())
@@ -114,7 +114,7 @@ void zService::main()
 		}
 	}
 
-	//½áÊø³ÌĞò£¬ÊÍ·ÅÏàÓ¦µÄ×ÊÔ´
+	//ç»“æŸç¨‹åºï¼Œé‡Šæ”¾ç›¸åº”çš„èµ„æº
 	final();
 }
 

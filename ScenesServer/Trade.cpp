@@ -1,4 +1,4 @@
-#include "SceneUser.h"
+ï»¿#include "SceneUser.h"
 #include "Scene.h"
 #include "Chat.h"
 #include "SceneNpc.h"
@@ -130,15 +130,15 @@ void TradeOrder::reset()
 		Cmd::stCancelTradeUserCmd cancel;
 		cancel.dwUserTempID = _target->tempid;
 		_target->sendCmdToMe(&cancel, sizeof(cancel));
-		Channel::sendSys(_target, Cmd::INFO_TYPE_FAIL, "½»Ò×±»È¡Ïû");
+		Channel::sendSys(_target, Cmd::INFO_TYPE_FAIL, "äº¤æ˜“è¢«å–æ¶ˆ");
 		
-		Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%sÈ¡ÏûÓë%sµÄ½»Ò×", _me->name, _target->name);
+		Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%så–æ¶ˆä¸%sçš„äº¤æ˜“", _me->name, _target->name);
 	}
 	else
 	{
 		if(_targetid)
 		{
-			Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%sÈ¡ÏûÓë%dµÄ½»Ò×,µ«Õâ¸öÈËÒÑ¾­²»ÔÚÁË", _me->name, _targetid);
+			Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%så–æ¶ˆä¸%dçš„äº¤æ˜“,ä½†è¿™ä¸ªäººå·²ç»ä¸åœ¨äº†", _me->name, _targetid);
 		}
 	}
 
@@ -146,7 +146,7 @@ void TradeOrder::reset()
 
 void TradeOrder::cancel()
 {	
-//	Channel::sendSys(_me, Cmd::INFO_TYPE_FAIL, "½»Ò×±»È¡Ïû");
+//	Channel::sendSys(_me, Cmd::INFO_TYPE_FAIL, "äº¤æ˜“è¢«å–æ¶ˆ");
 	
 	Cmd::stCancelTradeUserCmd cancel;
 	cancel.dwUserTempID = _me->tempid;
@@ -186,7 +186,7 @@ void TradeOrder::trade()
 */
 		if (_target->packs.addObject(it->second, true, AUTO_PACK)) {
 			zObject::logger(it->second->createid,it->second->data.qwThisID,it->second->data.strName,it->second->data.dwNum,it->second->data.dwNum,0,_me->id,_me->name,_target->id,_target->name,"trade_ok",NULL,0,0);
-			Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]ÓÃ»§%s½»Ò×%s¸ø%s³É¹¦", _me->name, it->second->data.strName, _target->name);
+			Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]ç”¨æˆ·%säº¤æ˜“%sç»™%sæˆåŠŸ", _me->name, it->second->data.strName, _target->name);
 
 			Cmd::stAddObjectPropertyUserCmd ret;
 			ret.byActionType = Cmd::EQUIPACTION_OBTAIN;
@@ -194,7 +194,7 @@ void TradeOrder::trade()
 			_target->sendCmdToMe(&ret, sizeof(ret));
 		}else {
 			zObject::logger(it->second->createid,it->second->data.qwThisID,it->second->data.strName,it->second->data.dwNum,0,0,_me->id,_me->name,_target->id,_target->name,"trade_err",it->second->base,it->second->data.kind,it->second->data.upgrade);
-			Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]ÓÃ»§%s½»Ò×%s¸ø%sÊ§°Ü", _me->name, it->second->data.strName, _target->name);
+			Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]ç”¨æˆ·%säº¤æ˜“%sç»™%så¤±è´¥", _me->name, it->second->data.strName, _target->name);
 		}
 	}
 
@@ -222,9 +222,9 @@ void TradeOrder::trade()
 	}
 */
 	if (_money) {
-		_me->packs.removeMoney(_money,"½»Ò×");
-		_target->packs.addMoney(_money,"½»Ò×");
-		Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]ÓÃ»§%s½»Ò×Òø×Ó%d¸ø%s", _me->name, _money, _target->name);
+		_me->packs.removeMoney(_money,"äº¤æ˜“");
+		_target->packs.addMoney(_money,"äº¤æ˜“");
+		Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]ç”¨æˆ·%säº¤æ˜“é“¶å­%dç»™%s", _me->name, _money, _target->name);
 	}
 }
 
@@ -276,7 +276,7 @@ bool TradeOrder::hasCommit()
 
 void TradeOrder::finish()
 {
-	if (_me->name[0] && _targetid) Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%sµÄ½»Ò××´Ì¬Íê³É", _me->name);
+	if (_me->name[0] && _targetid) Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%sçš„äº¤æ˜“çŠ¶æ€å®Œæˆ", _me->name);
 	_targetid=0; 
 	_target = NULL;
 	_money = 0;
@@ -295,13 +295,13 @@ void TradeOrder::clear()
 void TradeOrder::add_money(DWORD money)
 {
 	_money = money;
-	Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]ÓÃ»§%s¶Ô%s¸ü¸Ä½»Ò×Òø×ÓÊıÁ¿(%d)", _me->name, _target->name, money);
+	Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]ç”¨æˆ·%så¯¹%sæ›´æ”¹äº¤æ˜“é“¶å­æ•°é‡(%d)", _me->name, _target->name, money);
 }
 
 void TradeOrder::add(zObject* ob)
 {
 	_items[ob->data.qwThisID] = ob;
-	Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]ÓÃ»§%s¶Ô%sÌí¼Ó½»Ò×ÎïÆ·%s(%d)" , _me->name, _target->name, ob->data.strName, ob->data.qwThisID);	
+	Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]ç”¨æˆ·%så¯¹%sæ·»åŠ äº¤æ˜“ç‰©å“%s(%d)" , _me->name, _target->name, ob->data.strName, ob->data.qwThisID);	
 }
 
 
@@ -309,7 +309,7 @@ void TradeOrder::remove(DWORD id)
 {
 	std::map<DWORD, zObject*>::iterator it = _items.find(id);
 	if (it != _items.end()) {
-		Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]ÓÃ»§%s¶Ô%sÉ¾³ı½»Ò×ÎïÆ·%s(%d)" , _me->name, _target->name, it->second->data.strName, it->second->data.qwThisID);	
+		Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]ç”¨æˆ·%så¯¹%såˆ é™¤äº¤æ˜“ç‰©å“%s(%d)" , _me->name, _target->name, it->second->data.strName, it->second->data.qwThisID);	
 		_items.erase(it);
 	}
 }
@@ -470,7 +470,7 @@ bool SceneUser::do_trade_rs_cmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdL
 
 	SceneUser *target = scene->getUserByTempID(cmd->temp_id);
 	if (!target || target->privatestore.step() != PrivateStore::BEGIN) {
-		Zebra::logger->debug("%s(%ld)ÇëÇó¹ºÂò°ÚÌ¯ÎïÆ·µÄÓÃ»§²»´æÔÚ»òÕßÃ»ÓĞ°ÚÌ¯", name, id);
+		Zebra::logger->debug("%s(%ld)è¯·æ±‚è´­ä¹°æ‘†æ‘Šç‰©å“çš„ç”¨æˆ·ä¸å­˜åœ¨æˆ–è€…æ²¡æœ‰æ‘†æ‘Š", name, id);
 		return true;
 	}
 	if ( abs(pos.x- target->getPos().x) > (SCREEN_WIDTH ) || abs(pos.y-target->getPos().y) > (SCREEN_HEIGHT))  {
@@ -480,27 +480,27 @@ bool SceneUser::do_trade_rs_cmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdL
 	PrivateStore::SellInfo* sf = target->privatestore.sell_ob(cmd->object_id);
 
 	if (!sf  || !sf->object() ) {
-		Zebra::logger->debug("%s(%ld)ÇëÇó¹ºÂò°ÚÌ¯ÎïÆ·²»´æÔÚ", name, id);
+		Zebra::logger->debug("%s(%ld)è¯·æ±‚è´­ä¹°æ‘†æ‘Šç‰©å“ä¸å­˜åœ¨", name, id);
 		return true;
 	}
 
 	if (packs.uom.space(this) < 1) {
-		return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "°ü¹ü¿Õ¼ä²»×ã");
+		return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "åŒ…è£¹ç©ºé—´ä¸è¶³");
 	}
 
 	if (packs.checkMoney(sf->money()) && target->packs.removeObject(sf->object(), true, false) ) //notify but not delete) 
 	{
 		packs.addObject(sf->object(), true, AUTO_PACK);
 		//notify client about add
-		zObject::logger(sf->object()->createid,sf->object()->data.qwThisID,sf->object()->data.strName,sf->object()->data.dwNum,sf->object()->data.dwNum,0,target->id,target->name,this->id,this->name,"°ÚÌ¯",NULL,0,0);
+		zObject::logger(sf->object()->createid,sf->object()->data.qwThisID,sf->object()->data.strName,sf->object()->data.dwNum,sf->object()->data.dwNum,0,target->id,target->name,this->id,this->name,"æ‘†æ‘Š",NULL,0,0);
 		Cmd::stAddObjectPropertyUserCmd ret1;
 		ret1.byActionType = Cmd::EQUIPACTION_OBTAIN;
 		bcopy(&(sf->object()->data), &ret1.object, sizeof(t_Object));
 		sendCmdToMe(&ret1, sizeof(ret1));
 
 		//compute money
-		target->packs.addMoney(sf->money(),"°ÚÌ¯");				
-		packs.removeMoney(sf->money(),"°ÚÌ¯");
+		target->packs.addMoney(sf->money(),"æ‘†æ‘Š");				
+		packs.removeMoney(sf->money(),"æ‘†æ‘Š");
 
 		//clear from list
 		target->privatestore.remove(cmd->object_id);
@@ -514,12 +514,12 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 	using namespace Cmd;
 	switch(rev->byParam)
 	{
-		/// ÁìÔùÆ·Æ·¾«ÖÂÉı¼¶±¦Ê¯
+		/// é¢†èµ å“å“ç²¾è‡´å‡çº§å®çŸ³
 		case GOLD_GIVE_USERCMD_PARAMETER:
 			{
-				Zebra::logger->debug("ÊÕµ½Ö¸Áî");
+				Zebra::logger->debug("æ”¶åˆ°æŒ‡ä»¤");
 				stGoldGiveTradeUserCmd *rett = ( Cmd::stGoldGiveTradeUserCmd * )rev;
-				Zebra::logger->debug("%dÊÇÊÕµ½µÄÀàĞÍ",rett->type);
+				Zebra::logger->debug("%dæ˜¯æ”¶åˆ°çš„ç±»å‹",rett->type);
 				if(rett->type == STORN)
 				{
 					if(this->charbase.goldgive == 0 && this->Card_num>0)
@@ -542,7 +542,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 								zObject *o = zObject::create(base, 1);
 								if(o)
 								{
-									zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,1,1,0,NULL,this->id,this->name,"ÔùÆ·",o->base,o->data.kind,o->data.upgrade);
+									zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,1,1,0,NULL,this->id,this->name,"èµ å“",o->base,o->data.kind,o->data.upgrade);
 									packs.addObject(o, true, AUTO_PACK);
 									this->charbase.goldgive--;
 								//	if(this->charbase.goldgive > 70)
@@ -563,7 +563,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						}
 						else
 						{
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãµÄ°ü¹üÒÑÂú£¬ÁìÈ¡¾«ÖÂÉı¼¶±¦Ê¯Ê§°Ü");
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ çš„åŒ…è£¹å·²æ»¡ï¼Œé¢†å–ç²¾è‡´å‡çº§å®çŸ³å¤±è´¥");
 						}
 					}
 				}
@@ -608,7 +608,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
                                                         	zObject *o = zObject::create(base,50,0);
                                                         	if(o)
                                                         	{
-                                                                	zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,1,1,0,NULL,this->id,this->name,"ÔùÆ·",o->base,o->data.kind,o->data.upgrade);
+                                                                	zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,1,1,0,NULL,this->id,this->name,"èµ å“",o->base,o->data.kind,o->data.upgrade);
                                                                 	packs.addObject(o, true, AUTO_PACK);
                                                                 	this->Give_MatarialNum--;
 									if(this->Give_MatarialNum > 6)
@@ -629,7 +629,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
                                         	}
 						else
 						{	
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãµÄ°ü¹üÒÑÂú£¬ÁìÈ¡²ÄÁÏÔùÆ·Ê§°Ü");
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ çš„åŒ…è£¹å·²æ»¡ï¼Œé¢†å–ææ–™èµ å“å¤±è´¥");
 						}
 					}
 				}
@@ -647,7 +647,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 			}
 			break;
 
-/*		////ÁìÔùÆ· ²ÄÁÏ
+/*		////é¢†èµ å“ ææ–™
 		case MATARIAL_GIVE_USERCMD_PARAMETER:
 			{
                                 if(this->Give_MatarialNum)
@@ -661,7 +661,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
                                                         if(o)
                                                         {
                                                                 zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data
-.dwNum,1,1,0,NULL,this->id,this->name,"ÔùÆ·",o->base,o->data.kind,o->data.upgrade);
+.dwNum,1,1,0,NULL,this->id,this->name,"èµ å“",o->base,o->data.kind,o->data.upgrade);
                                                                 packs.addObject(o, true, AUTO_PACK);
                                                                 this->Give_MatarialNum--;
                                                                 Cmd::stAddObjectPropertyUserCmd ret1;
@@ -673,7 +673,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
                                         }
                                         else
                                         {
-                                                Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãµÄ°ü¹üÒÑÂú£¬ÁìÈ¡¾«ÖÂÉı¼¶±¦Ê¯Ê§°Ü");
+                                                Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ çš„åŒ…è£¹å·²æ»¡ï¼Œé¢†å–ç²¾è‡´å‡çº§å®çŸ³å¤±è´¥");
                                         }
                                 }
                                 return true;
@@ -697,7 +697,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				{
 					if(request->dwAnswerTempID==tempid)
 					{
-						Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)Ïò×Ô¼ºÇëÇó½»Ò×",name,id);
+						Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)å‘è‡ªå·±è¯·æ±‚äº¤æ˜“",name,id);
 						return true;
 					}
 					SceneUser *pAnswer=scene->getUserByTempID(request->dwAnswerTempID);
@@ -705,22 +705,22 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					{
 						if (!isset_state(pAnswer->sysSetting , USER_SETTING_TRADE))
 						{
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½½»Ò×Î´¿ªÆô");
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹äº¤æ˜“æœªå¼€å¯");
 							return true;
 						}
 
 						if ( abs(pos.x- pAnswer->getPos().x) > (SCREEN_WIDTH >> 1) || abs(pos.y-pAnswer->getPos().y) > (SCREEN_HEIGHT >> 1))  {
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL,  "¾àÀëÌ«Ô¶£¬²»ÄÜ½»Ò×!");	
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL,  "è·ç¦»å¤ªè¿œï¼Œä¸èƒ½äº¤æ˜“!");	
 							return true;
 						}
  	
 						if (mask.is_masking() || pAnswer->mask.is_masking()) {
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÃÉÃæÈË²»¿É½»Ò× !");	
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "è’™é¢äººä¸å¯äº¤æ˜“ !");	
 							return true;
 						}
 
 						//mask.on_trade();
-						Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)ÇëÇó%s(%ld)½»Ò×",name,id,pAnswer->name,pAnswer->id);
+						Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)è¯·æ±‚%s(%ld)äº¤æ˜“",name,id,pAnswer->name,pAnswer->id);
 						if( pAnswer->tradeorder.canRequest())
 						{
 							tradeorder.ready(pAnswer);
@@ -733,13 +733,13 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 							return true;
 						}
 						else
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½²»ÄÜ½»Ò×½ÓÊÜÄãµÄÇëÇó",name);
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸èƒ½äº¤æ˜“æ¥å—ä½ çš„è¯·æ±‚",name);
 					}
 					else
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½²»ÔÚ!");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åœ¨!");
 				}
 				else
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)²»ÄÜÇëÇó½»Ò×Ê±ÇëÇó½»Ò×",name,id);
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)ä¸èƒ½è¯·æ±‚äº¤æ˜“æ—¶è¯·æ±‚äº¤æ˜“",name,id);
 				return true;
 			}
 			break;
@@ -752,17 +752,17 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					if(!pAsker)
 					{
 						tradeorder.finish();
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½²»ÔÚÁË");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åœ¨äº†");
 						return true;
 					}
 
 					if ( abs(pos.x- pAsker->getPos().x) > (SCREEN_WIDTH >> 1) || abs(pos.y-pAsker->getPos().y) > (SCREEN_HEIGHT >> 1))  {
 						tradeorder.cancel();
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL,  "¾àÀëÌ«Ô¶£¬²»ÄÜ½»Ò×!");	
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL,  "è·ç¦»å¤ªè¿œï¼Œä¸èƒ½äº¤æ˜“!");	
 						return true;
 					}
 
-					Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)Ó¦´ğ%s(%ld)µÄ½»Ò×",name,id,pAsker->name,pAsker->id);
+					Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)åº”ç­”%s(%ld)çš„äº¤æ˜“",name,id,pAsker->name,pAsker->id);
 					if(pAsker->tradeorder.canAnswer() && pAsker->tradeorder.target()==this)
 					{
 						if(answer->byAgree)
@@ -777,7 +777,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 							pAsker->sendCmdToMe(&begin,sizeof(begin));
 							sendCmdToMe(&begin,sizeof(begin));
 
-							// ·¢ËÍÏÖÓĞÎïÆ·µ½¶Ô·½
+							// å‘é€ç°æœ‰ç‰©å“åˆ°å¯¹æ–¹
 							//packs.trademyself->sendAllToAnother();
 							//pAsker->packs.trademyself->sendAllToAnother();
 						}
@@ -785,14 +785,14 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						{
 							tradeorder.finish();
 							pAsker->tradeorder.finish();
-							Channel::sendSys(pAsker, Cmd::INFO_TYPE_FAIL, "¶Ô·½²»Í¬ÒâºÍÄã½»Ò×");
+							Channel::sendSys(pAsker, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åŒæ„å’Œä½ äº¤æ˜“");
 						}
 					}
 					else
-						Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)½»Ò×Ó¦´ğÁíÒ»¸öÓÃ»§",name,id);
+						Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)äº¤æ˜“åº”ç­”å¦ä¸€ä¸ªç”¨æˆ·",name,id);
 				}
 				else
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)²»ÄÜÓ¦´ğ½»Ò×Ê±Ó¦´ğ½»Ò×",name,id);
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)ä¸èƒ½åº”ç­”äº¤æ˜“æ—¶åº”ç­”äº¤æ˜“",name,id);
 				return true;
 			}
 			break;
@@ -819,9 +819,9 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 								cancel.dwUserTempID=tempid;
 								sendCmdToMe(&cancel,sizeof(cancel));
 								pAnother->sendCmdToMe(&cancel,sizeof(cancel));
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "%s°ü¹üÒÑÂú»òÒø×Ó²»×ã£¬½»Ò×Ê§°Ü", 
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "%såŒ…è£¹å·²æ»¡æˆ–é“¶å­ä¸è¶³ï¼Œäº¤æ˜“å¤±è´¥", 
 									tradeorder.can_trade()?name:pAnother->name);
-								Channel::sendSys(pAnother, Cmd::INFO_TYPE_FAIL, "%s°ü¹üÒÑÂú»òÒø×Ó²»×ã£¬½»Ò×Ê§°Ü", 
+								Channel::sendSys(pAnother, Cmd::INFO_TYPE_FAIL, "%såŒ…è£¹å·²æ»¡æˆ–é“¶å­ä¸è¶³ï¼Œäº¤æ˜“å¤±è´¥", 
 									tradeorder.can_trade()?name:pAnother->name);
 							}
 							pAnother->tradeorder.finish();
@@ -838,14 +838,14 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					else
 					{
 						tradeorder.finish();
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½²»ÔÚÁË");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åœ¨äº†");
 						stCancelTradeUserCmd cancel;
 						cancel.dwUserTempID=tempid;
 						sendCmdToMe(&cancel,sizeof(cancel));
 					}
 				}
 				else
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)²»ÄÜÈ·¶¨½»Ò×Ê±È·¶¨½»Ò×",name,id);
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)ä¸èƒ½ç¡®å®šäº¤æ˜“æ—¶ç¡®å®šäº¤æ˜“",name,id);
 				return true;
 			}
 			break;
@@ -874,28 +874,28 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					return true;
 				}
 				if (cmd->x > TradeOrder::WIDTH || cmd->y > TradeOrder::HEIGHT) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)ÇëÇó½»Ò×µÄÎïÆ·×ø±ê·Ç·¨",name,id);	
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)è¯·æ±‚äº¤æ˜“çš„ç‰©å“åæ ‡éæ³•",name,id);	
 					return true;	
 				}
 
 				zObject* ob = packs.uom.getObjectByThisID(cmd->object.qwThisID);
 				if (!ob) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)ÇëÇó½»Ò×µÄÎïÆ·²»´æÔÚ",name,id);	
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)è¯·æ±‚äº¤æ˜“çš„ç‰©å“ä¸å­˜åœ¨",name,id);	
 					return true;
 				}
 
 				if (ob->base->kind == ItemType_Money && cmd->object.dwNum > ob->data.dwNum  ){
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)ÇëÇó½»Ò×µÄÎïÆ·ÊıÁ¿·Ç·¨",name,id);	
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)è¯·æ±‚äº¤æ˜“çš„ç‰©å“æ•°é‡éæ³•",name,id);	
 					return true;
 				}
 
 				if (ob->data.bind || ob->data.dwObjectID == 800 || ob->base->kind == ItemType_Quest) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)ÓÃ»§ÊÔÍ¼½»Ò×²»ÄÜ½»Ò×µÄÎïÆ·",name,id);						
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)ç”¨æˆ·è¯•å›¾äº¤æ˜“ä¸èƒ½äº¤æ˜“çš„ç‰©å“",name,id);						
 					return true;
 				}
 
 				if (ob->data.pos.loc() != Cmd::OBJECTCELLTYPE_COMMON) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------>Íæ¼Ò]%s(%ld)ÓÃ»§ÊÔÍ¼½»Ò×²»ÔÚÖ÷°ü¹üÖĞµÄÎïÆ·",name,id);
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------>ç©å®¶]%s(%ld)ç”¨æˆ·è¯•å›¾äº¤æ˜“ä¸åœ¨ä¸»åŒ…è£¹ä¸­çš„ç‰©å“",name,id);
 					return true;
 				}
 					
@@ -954,13 +954,13 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				SceneNpc *sceneNpc = SceneNpcManager::getMe().getNpcByTempID( ptCmd->dwNpcTempID);
 				if (sceneNpc && this->canVisitNpc(sceneNpc))/*( (sceneNpc->id>=5000&&sceneNpc->id<=6000)  || (sceneNpc->scene && (sceneNpc->scene->getCountryID() == charbase.country || changeface)) ) */
 				{
-					//TODO ¼ì²éNpcÊÇ·ñÔÚÍ¬Ò»¸ö³¡¾°£¬²¢ÇÒ¼ì²é¾àÀë
+					//TODO æ£€æŸ¥Npcæ˜¯å¦åœ¨åŒä¸€ä¸ªåœºæ™¯ï¼Œå¹¶ä¸”æ£€æŸ¥è·ç¦»
 					OnVisit event(sceneNpc->id);
 					EventTable::instance().execute(*this, event);
 					int status;
 					int len = quest_list.get_menu(cmd->menuTxt, status);
 					
-					//Zebra::logger->debug("TODO ¼ì²éNpc(%lu)ÊÇ·ñÔÚÍ¬Ò»¸ö³¡¾°£¬²¢ÇÒ¼ì²é¾àÀë",sceneNpc->id);
+					//Zebra::logger->debug("TODO æ£€æŸ¥Npc(%lu)æ˜¯å¦åœ¨åŒä¸€ä¸ªåœºæ™¯ï¼Œå¹¶ä¸”æ£€æŸ¥è·ç¦»",sceneNpc->id);
 					if(sceneNpc->scene && sceneNpc->scene == this->scene && 
 							this->scene->zPosShortRange(this->getPos(),sceneNpc->getPos() , SCREEN_WIDTH , SCREEN_HEIGHT))
 					{		
@@ -979,12 +979,12 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					}
 					else
 					{
-						Zebra::logger->trace("ÓÃ»§%s(%d)¼ì²éNpc(%lu)¾àÀë²»ºÏ·¨(%u,%d,%d),(%u,%d,%d)",this->name,this->id,sceneNpc->id,this->scene->id,this->getPos().x,this->getPos().y,sceneNpc->scene->id,sceneNpc->getPos().x,sceneNpc->getPos().y);
+						Zebra::logger->trace("ç”¨æˆ·%s(%d)æ£€æŸ¥Npc(%lu)è·ç¦»ä¸åˆæ³•(%u,%d,%d),(%u,%d,%d)",this->name,this->id,sceneNpc->id,this->scene->id,this->getPos().x,this->getPos().y,sceneNpc->scene->id,sceneNpc->getPos().x,sceneNpc->getPos().y);
 					}
-//					Zebra::logger->debug("¶¯Ì¬²Ëµ¥(%s)", cmd->menuTxt);
+//					Zebra::logger->debug("åŠ¨æ€èœå•(%s)", cmd->menuTxt);
 				}
 				else
-					Zebra::logger->error("%s(%d)·ÃÎÊ²»ÄÜ·ÃÎÊµÄNpc",this->name,this->id);
+					Zebra::logger->error("%s(%d)è®¿é—®ä¸èƒ½è®¿é—®çš„Npc",this->name,this->id);
 
 				sendCmdToMe(cmd, sizeof(stVisitNpcTradeUserCmd) + strlen(cmd->menuTxt));
 
@@ -996,7 +996,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				stBuyObjectNpcTradeUserCmd *ptCmd=(stBuyObjectNpcTradeUserCmd *)rev;
 				zObjectB *base = objectbm.get(ptCmd->dwObjectID);
 				ptCmd->itemLevel = 0;
-				///Èç¹ûĞèÒªÓÃ½ğ±Ò»òÕß»ı·ÖÂò
+				///å¦‚æœéœ€è¦ç”¨é‡‘å¸æˆ–è€…ç§¯åˆ†ä¹°
 				if(base)
 				{
 					if(base->cointype & eBuyGold || base->cointype & eBuyTicket)
@@ -1009,7 +1009,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				SceneNpc * n = SceneNpcManager::getMe().getNpcByTempID(npc_dwNpcTempID);
 				if (!n)
 				{
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------ÉÌµê]%s ½»Ò×Ê±£¬ÕÒ²»µ½¸Ãnpc tempID=%u", name, npc_dwNpcTempID);
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------å•†åº—]%s äº¤æ˜“æ—¶ï¼Œæ‰¾ä¸åˆ°è¯¥npc tempID=%u", name, npc_dwNpcTempID);
 					return true;
 				}
 
@@ -1020,7 +1020,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					{
 						DWORD price = (DWORD )(this->getGoodnessPrice(base->price , true)+0.99f);
 						if (this->scene->getCountryID() == PUBLIC_COUNTRY)
-						{//ÔÚ¹«¹²¹úÂò¶«Î÷£¬¼Û¸ñÉÏÕÇ10%
+						{//åœ¨å…¬å…±å›½ä¹°ä¸œè¥¿ï¼Œä»·æ ¼ä¸Šæ¶¨10%
 							price = price + (DWORD)(price*0.1);
 						}
 
@@ -1048,11 +1048,11 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					//	if (base->kind == ItemType_HORSE && charbase.level<30)
 						if (base->kind == ItemType_HORSE && charbase.level<2)
 						{
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äã»¹Ã»Âú30¼¶£¬²»ÄÜ¹ºÂòÂíÆ¥");
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ è¿˜æ²¡æ»¡30çº§ï¼Œä¸èƒ½è´­ä¹°é©¬åŒ¹");
 							return true;
 						}
 
-						DWORD taxMoney = (DWORD)((price*ptCmd->dwNum*n->scene->getTax()/100.0f)+0.5f); // Âò¶«Î÷ÊÕË°
+						DWORD taxMoney = (DWORD)((price*ptCmd->dwNum*n->scene->getTax()/100.0f)+0.5f); // ä¹°ä¸œè¥¿æ”¶ç¨
 
 						if((base->kind == ItemType_DoubleExp && this->charbase.honor >= need) ||
 							(base->kind == ItemType_HORSE && packs.checkMoney(need))||
@@ -1070,13 +1070,13 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 							{
 								if (base->kind == ItemType_HORSE) {
 									if (horse.horse()) {
-										return Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄãÒÑ¾­ÓĞÂíÁË!");
+										return Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ å·²ç»æœ‰é©¬äº†!");
 									}
 
-									//DWORD taxMoney = (DWORD)((need*n->scene->getTax()/100.0f)+0.5f); // Âò¶«Î÷ÊÕË°
+									//DWORD taxMoney = (DWORD)((need*n->scene->getTax()/100.0f)+0.5f); // ä¹°ä¸œè¥¿æ”¶ç¨
 									//need = need + taxMoney;
 
-									if (packs.removeMoney(need,"Âò¶«Î÷")) {
+									if (packs.removeMoney(need,"ä¹°ä¸œè¥¿")) {
 										horse.horse(base->id);
 
 										/*
@@ -1086,10 +1086,10 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 										sessionClient->sendCmd(&send, sizeof(send));
 										// */
 
-										Channel::sendSys(this , Cmd::INFO_TYPE_GAME, "ÄãµÃµ½Ò»Æ¥ÔæºìÂí");
-										Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s,%u)ÂòÂí(%d)»¨·ÑÒø×Ó%d",name , id ,base->id, need);
+										Channel::sendSys(this , Cmd::INFO_TYPE_GAME, "ä½ å¾—åˆ°ä¸€åŒ¹æ£çº¢é©¬");
+										Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s,%u)ä¹°é©¬(%d)èŠ±è´¹é“¶å­%d",name , id ,base->id, need);
 									}else {
-										Zebra::logger->fatal("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s)ÂòÂíÊ±Òø×Ó¼ÆËã´íÎó!", name);
+										Zebra::logger->fatal("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s)ä¹°é©¬æ—¶é“¶å­è®¡ç®—é”™è¯¯!", name);
 									}
 									return true;
 								}
@@ -1099,16 +1099,16 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 									if ((dayssize==0 && charbase.level<20)
 										||(dayssize==1 && charbase.level<40))
 										//||(dayssize==2 && charbase.level<80))
-										return Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄãµÄµÈ¼¶²»¹»ÂòÏÂÒ»¸ö´¢ÎïÏä!");
+										return Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ çš„ç­‰çº§ä¸å¤Ÿä¹°ä¸‹ä¸€ä¸ªå‚¨ç‰©ç®±!");
 									if (dayssize>1)
-										return Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÒÑ¾­ÂòÁËÁ½¸ö´¢ÎïÏäÁË£¬ÎŞ·¨ÔÙ¹ºÂò!");
+										return Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "å·²ç»ä¹°äº†ä¸¤ä¸ªå‚¨ç‰©ç®±äº†ï¼Œæ— æ³•å†è´­ä¹°!");
 
-									//DWORD taxMoney = (DWORD)((need*n->scene->getTax()/100.0f)+0.5f); // Âò¶«Î÷ÊÕË°
+									//DWORD taxMoney = (DWORD)((need*n->scene->getTax()/100.0f)+0.5f); // ä¹°ä¸œè¥¿æ”¶ç¨
 									//need = need + taxMoney;
 
-									if (packs.removeMoney(need,"Âò¶«Î÷") ) {
-										Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s,%u)Âò´¢ÎïÏä»¨·ÑÒø×Ó%d",name , id , need);
-										Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, need,"Âò´¢ÎïÏä»¨·ÑÒø×Ó");
+									if (packs.removeMoney(need,"ä¹°ä¸œè¥¿") ) {
+										Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s,%u)ä¹°å‚¨ç‰©ç®±èŠ±è´¹é“¶å­%d",name , id , need);
+										Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, need,"ä¹°å‚¨ç‰©ç®±èŠ±è´¹é“¶å­");
 
 										/*
 										Cmd::Session::t_taxAddCountry_SceneSession send;
@@ -1119,10 +1119,10 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 
 										packs.store.days.push_back(base->durability);
 										packs.store.notify(this);
-										//¼ì²éÊÇ·ñĞèÒªÔùËÍµÚÈı¸ö°ü¹ü
+										//æ£€æŸ¥æ˜¯å¦éœ€è¦èµ é€ç¬¬ä¸‰ä¸ªåŒ…è£¹
 										//packs.store.goldstore(this);
 									}else {
-										Zebra::logger->fatal("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s)Âò´¢ÎïÏäÊ±Òø×Ó¼ÆËã´íÎó!", name);
+										Zebra::logger->fatal("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s)ä¹°å‚¨ç‰©ç®±æ—¶é“¶å­è®¡ç®—é”™è¯¯!", name);
 									}
 									return true;
 								}
@@ -1155,7 +1155,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 
 										if (packs.addObject(o, true, AUTO_PACK)) {
 											free = o->data.dwNum;
-											//Èç¹ûÊÇË«±¶¾­ÑéµÀ¾ßºÍÈÙÓşµÀ¾ßĞèÒª°ó¶¨
+											//å¦‚æœæ˜¯åŒå€ç»éªŒé“å…·å’Œè£èª‰é“å…·éœ€è¦ç»‘å®š
 											o->checkBind();
 											Cmd::stAddObjectPropertyUserCmd status;
 											status.byActionType = Cmd::EQUIPACTION_OBTAIN;
@@ -1173,59 +1173,59 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 											this->charbase.honor -= price*count;
 											if((int)this->charbase.honor <0)
 											{
-												Zebra::logger->fatal("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s)Âò%sÊ±ÈÙÓşµãÊı¼ÆËã´íÎó!",name, o->base->name);
+												Zebra::logger->fatal("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s)ä¹°%sæ—¶è£èª‰ç‚¹æ•°è®¡ç®—é”™è¯¯!",name, o->base->name);
 												this->charbase.honor=0;
 											}
 											Cmd::stMainUserDataUserCmd  userinfo;
 											full_t_MainUserData(userinfo.data);
 											sendCmdToMe(&userinfo,sizeof(userinfo));
-											zObject::logger(0,0,"ÈÙÓşÖµ",this->charbase.honor,price*count,0,this->id,this->name,0,NULL,"Âò¶«Î÷¿Û³ıÈÙÓşÖµ",NULL,0,0);
+											zObject::logger(0,0,"è£èª‰å€¼",this->charbase.honor,price*count,0,this->id,this->name,0,NULL,"ä¹°ä¸œè¥¿æ‰£é™¤è£èª‰å€¼",NULL,0,0);
 											zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,count,1,n->id,n->name,this->id,this->name,"buy_npc",o->base,o->data.kind,o->data.upgrade);
-											Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"µÃµ½ÎïÆ· %s(%d)¸ö , »¨·ÑÈÙÓşµãÊı%u",o->name , count, price*count);
-											Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s,%u)Âò%s(%d)¸ö»¨·ÑÈÙÓşµã%d",name , id , o->name , count , price*count);
+											Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¾—åˆ°ç‰©å“ %s(%d)ä¸ª , èŠ±è´¹è£èª‰ç‚¹æ•°%u",o->name , count, price*count);
+											Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s,%u)ä¹°%s(%d)ä¸ªèŠ±è´¹è£èª‰ç‚¹%d",name , id , o->name , count , price*count);
 										}
 										else 
 										{
-											DWORD taxMoney = (DWORD)((price*count*n->scene->getTax()/100.0f)+0.5f); // Âò¶«Î÷ÊÕË°
+											DWORD taxMoney = (DWORD)((price*count*n->scene->getTax()/100.0f)+0.5f); // ä¹°ä¸œè¥¿æ”¶ç¨
 
-											if (!packs.removeMoney(price*count+taxMoney,"Âò¶«Î÷")) {
-												Zebra::logger->fatal("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s)Âò%sÊ±Òø×Ó¼ÆËã´íÎó!", name, o->base->name);
+											if (!packs.removeMoney(price*count+taxMoney,"ä¹°ä¸œè¥¿")) {
+												Zebra::logger->fatal("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s)ä¹°%sæ—¶é“¶å­è®¡ç®—é”™è¯¯!", name, o->base->name);
 											}
 											Cmd::Session::t_taxAddCountry_SceneSession send;
 											send.dwCountryID = n->scene->getCountryID();
 											send.qwTaxMoney = taxMoney;
 											sessionClient->sendCmd(&send, sizeof(send));
 											zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,count,1,n->id,n->name,this->id,this->name,"buy_npc",o->base,o->data.kind,o->data.upgrade);
-											Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, price*count+taxMoney,"µÃµ½ÎïÆ· %s(%d)¸ö , »¨·ÑÒø×Ó",o->name , count);
-											Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s,%u)Âò%s(%d)¸ö»¨·ÑÒø×Ó%d",name , id , o->name , count , price*count+taxMoney);
+											Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, price*count+taxMoney,"å¾—åˆ°ç‰©å“ %s(%d)ä¸ª , èŠ±è´¹é“¶å­",o->name , count);
+											Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s,%u)ä¹°%s(%d)ä¸ªèŠ±è´¹é“¶å­%d",name , id , o->name , count , price*count+taxMoney);
 										}
 									} 
 
 									if (!free) { //package is full
-										//Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄãµÄ°ü¹üÒÑÂú");
+										//Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ çš„åŒ…è£¹å·²æ»¡");
 										zObject::destroy(o);
 									}									
 
 								}
 							}
 							else
-								Zebra::logger->error("[½»Ò×:Íæ¼Ò<------ÉÌµê]²»ÄÜÔÚÕâÀïÂòÕâÑùÎïÆ· %u, %u, %s", npc_dwNpcDataID, base->id, base->name);
+								Zebra::logger->error("[äº¤æ˜“:ç©å®¶<------å•†åº—]ä¸èƒ½åœ¨è¿™é‡Œä¹°è¿™æ ·ç‰©å“ %u, %u, %s", npc_dwNpcDataID, base->id, base->name);
 						}
 						else
 						{
 							if(base->kind == ItemType_DoubleExp)
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãµÄÈÙÓşµãÊı²»¹»ÂòÕâ¼şÎïÆ·");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ çš„è£èª‰ç‚¹æ•°ä¸å¤Ÿä¹°è¿™ä»¶ç‰©å“");
 							}
 							else
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãµÄÒø×Ó²»¹»ÂòÕâ¼şÎïÆ·");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ çš„é“¶å­ä¸å¤Ÿä¹°è¿™ä»¶ç‰©å“");
 							}
 						}
 					}
 				}
 				else
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "±¾ÈË²»Óë´óÄ§Í·½»Ò×");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æœ¬äººä¸ä¸å¤§é­”å¤´äº¤æ˜“");
 				return true;
 			}
 			break;
@@ -1237,7 +1237,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				{
 					if(this->getGoodnessState() != Cmd::GOODNESS_6)
 					{
-						//½»Ò×´¦Àí
+						//äº¤æ˜“å¤„ç†
 						if(tradeorder.hasBegin() && tradeorder.in_trade(srcobj))
 						{
 							return true;
@@ -1245,11 +1245,11 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 
 
 						if (mask.is_use(srcobj)) {
-							return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ÇëÏÈ½â³ı¸ÃÃÉÃæ½í!");
+							return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "è¯·å…ˆè§£é™¤è¯¥è’™é¢å·¾!");
 						}
 
 						if (srcobj->base->kind == ItemType_Quest) {
-							return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ÈÎÎñÎïÆ·²»¿ÉÂòÂô");
+							return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ä»»åŠ¡ç‰©å“ä¸å¯ä¹°å–");
 						};
 						NpcTrade::NpcItem item;
 						item.id = srcobj->data.dwObjectID;
@@ -1259,7 +1259,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						item.action = NpcTrade::NPC_SELL_OBJECT;
 						if (NpcTrade::getInstance().verifyNpcAction(npc_dwNpcDataID, item))
 						{
-							// Âô¶«Î÷ÒªÊÕÇ®
+							// å–ä¸œè¥¿è¦æ”¶é’±
 							if(srcobj->data.price>0)
 							{
 								DWORD price = 0;
@@ -1271,28 +1271,28 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 										real_price = (DWORD)(((float)((srcobj->data.dur+49)/50.0f)/((srcobj->base->durability+49)/50.0f)) * 4000.0f);
 									}
 								}
-								else if(srcobj->base->id == 685) //Ä§Á¦Ö®Ô´
+								else if(srcobj->base->id == 685) //é­”åŠ›ä¹‹æº
 								{
 									if(srcobj->base->durability)
 									{
 										real_price = (DWORD)(((float)((srcobj->data.dur+49)/50.0f)/((srcobj->base->durability+49)/50.0f)) * 4000.0f);
 									}
 								}
-								else if(srcobj->base->id == 882) // ÁúÖ®Ä§Á¦
+								else if(srcobj->base->id == 882) // é¾™ä¹‹é­”åŠ›
 								{
 									if(srcobj->base->durability)
 									{
 										real_price = (DWORD)(((float)((srcobj->data.dur+49)/50.0f)/((srcobj->base->durability+49)/50.0f)) * 20000.0f);
 									}
 								}
-								else if(srcobj->base->id == 760) //Ï´Ëè±¦Öé
+								else if(srcobj->base->id == 760) //æ´—é«“å®ç 
 								{
 									//if(srcobj->base->durability)
 									//{
 										real_price = (DWORD)(((float)((srcobj->data.dur+49)/50.0f)/((srcobj->base->durability+49)/50.0f)) * 200000.0f);
 									//}
 								}
-								else if(srcobj->base->id == 761) // Ò×½î±¦Öé
+								else if(srcobj->base->id == 761) // æ˜“ç­‹å®ç 
 								{
 									//if(srcobj->base->durability)
 									//{
@@ -1334,13 +1334,13 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 										}
 									}
 								}
-								Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, real_price, "Âô%sµÃµ½Òø×Ó", srcobj->name );
-								Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>ÉÌµê]ÓÃ»§(%s,%u)Âô%sµÃµ½Òø×Ó%d", name, id, srcobj->name, real_price);
-								packs.addMoney(real_price,"Âô¶«Î÷");
+								Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, real_price, "å–%så¾—åˆ°é“¶å­", srcobj->name );
+								Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>å•†åº—]ç”¨æˆ·(%s,%u)å–%så¾—åˆ°é“¶å­%d", name, id, srcobj->name, real_price);
+								packs.addMoney(real_price,"å–ä¸œè¥¿");
 							}
 
 							if (srcobj->data.exp && srcobj->base->kind != ItemType_Pack ) {
-								Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>ÉÌµê]%s(%u) Âô×°±¸Ôö¼Ó¾­Ñé %u", name, id, srcobj->data.exp);
+								Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>å•†åº—]%s(%u) å–è£…å¤‡å¢åŠ ç»éªŒ %u", name, id, srcobj->data.exp);
 								addExp(srcobj->data.exp);
 							}
 
@@ -1361,13 +1361,13 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						}
 						else
 						{
-							Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>ÉÌµê]²»ÄÜÔÚÕâÀïÂôÕâÑùÎïÆ· %u, %u, %s",
+							Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>å•†åº—]ä¸èƒ½åœ¨è¿™é‡Œå–è¿™æ ·ç‰©å“ %u, %u, %s",
 									npc_dwNpcDataID, srcobj->data.dwObjectID, srcobj->data.strName);
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô²»Æğ£¬Ğ¡µê²»ÊÕ¹º%s",srcobj->base->name);
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹ä¸èµ·ï¼Œå°åº—ä¸æ”¶è´­%s",srcobj->base->name);
 						}
 					}
 					else
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "±¾ÈË²»Óë´óÄ§Í·½»Ò×");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æœ¬äººä¸ä¸å¤§é­”å¤´äº¤æ˜“");
 				}
 				return true;
 			}
@@ -1376,28 +1376,28 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 			{
 				stSellHorseNpcTradeUserCmd *ptCmd=(stSellHorseNpcTradeUserCmd *)rev;
 
-				//·ÅÖğ
+				//æ”¾é€
 				if (ptCmd->action) { 
 					if (horse.horse()) {
 						horse.mount(false);
 						horse.putAway();
 						horse.horse(0);
-						Zebra::logger->trace("[ÂôÂí]%s ·ÅÖğÁËËûµÄÂí", name);
+						Zebra::logger->trace("[å–é©¬]%s æ”¾é€äº†ä»–çš„é©¬", name);
 					}
 
 					return true;
 				}
 
-				//Âô
+				//å–
 				if(this->getGoodnessState() != Cmd::GOODNESS_6)
 				{
 					if(!horse.horse()) {
-						return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äã»¹Ã»ÓĞÂíÆ¥£¬ÂôÊ²Ã´Âí?");
+						return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ è¿˜æ²¡æœ‰é©¬åŒ¹ï¼Œå–ä»€ä¹ˆé©¬?");
 					}
 
 					zObjectB *base = objectbm.get(horse.horse());
 					if (!base) {
-						Zebra::logger->warn("[ÂôÂí]ÓÃ»§ÂíÆ¥ÔÚµÀ¾ß±íÖĞ²»´æÔÚ,Çë¼ì²éµÀ¾ß»ù±¾±í!");
+						Zebra::logger->warn("[å–é©¬]ç”¨æˆ·é©¬åŒ¹åœ¨é“å…·è¡¨ä¸­ä¸å­˜åœ¨,è¯·æ£€æŸ¥é“å…·åŸºæœ¬è¡¨!");
 						return true;
 					}
 					NpcTrade::NpcItem item;
@@ -1410,9 +1410,9 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						if(base->price>0)	{
 							DWORD price = (DWORD)(getGoodnessPrice(base->price,false)*0.5f + 0.99f);
 							char info[MAX_CHATINFO];
-							sprintf(info, "Âô%sµÃµ½Òø×Ó", base->name);
-							Zebra::logger->trace("[ÂôÂí]ÓÃ»§(%s,%u)Âô%sµÃµ½Òø×Ó%d", name, id, base->name, price);
-							packs.addMoney(price,"Âô¶«Î÷", info);
+							sprintf(info, "å–%så¾—åˆ°é“¶å­", base->name);
+							Zebra::logger->trace("[å–é©¬]ç”¨æˆ·(%s,%u)å–%så¾—åˆ°é“¶å­%d", name, id, base->name, price);
+							packs.addMoney(price,"å–ä¸œè¥¿", info);
 						}
 
 						horse.putAway();
@@ -1421,10 +1421,10 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						horse.horse(0);
 						
 					}else {
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô²»Æğ£¬Ğ¡µê²»ÊÕ¹º%s", base->name);
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹ä¸èµ·ï¼Œå°åº—ä¸æ”¶è´­%s", base->name);
 					}
 				}
-				else Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "±¾ÈË²»Óë´óÄ§Í·½»Ò×");
+				else Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æœ¬äººä¸ä¸å¤§é­”å¤´äº¤æ˜“");
 				return true;
 			}
 			break;		
@@ -1449,7 +1449,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					RepairCost cost;
 					packs.equip.execEvery(cost);
 					price = zObject::RepairMoney2RepairGold(cost.cost());
-					//¼Û¸ñÎª0Ê±¾Ü¾øĞŞÀï
+					//ä»·æ ¼ä¸º0æ—¶æ‹’ç»ä¿®é‡Œ
 					if(!price)
 					{
 						return true;
@@ -1457,7 +1457,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					
 					//test money
 					if (!packs.checkGold(price)) {
-						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ÄãµÄ½ğ×Ó²»×ã£¬²»ÄÜÈ«²¿ĞŞÀí!");
+						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ä½ çš„é‡‘å­ä¸è¶³ï¼Œä¸èƒ½å…¨éƒ¨ä¿®ç†!");
 					}
 	
 					//repair equip
@@ -1474,7 +1474,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 	
 					//test money
 					if (!packs.checkGold(price)) {
-						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ÄãµÄ½ğ×Ó×Ó²»×ã£¬²»ÄÜĞŞÀíÕâ¼şÎïÆ·!");
+						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ä½ çš„é‡‘å­å­ä¸è¶³ï¼Œä¸èƒ½ä¿®ç†è¿™ä»¶ç‰©å“!");
 					}
 	
 					ob->data.dur = ob->data.maxdur;	
@@ -1485,9 +1485,9 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					sendCmdToMe(&ret , sizeof(ret));
 				}
 
-				if (!packs.removeGold(price,"ĞŞÀí")) 
+				if (!packs.removeGold(price,"ä¿®ç†")) 
 				{
-					Zebra::logger->fatal("ÓÃ»§(%s)ĞŞÀí×°±¸Ê±½ğ×Ó×Ó¼ÆËã´íÎó!", name);
+					Zebra::logger->fatal("ç”¨æˆ·(%s)ä¿®ç†è£…å¤‡æ—¶é‡‘å­å­è®¡ç®—é”™è¯¯!", name);
 				}
 			}
 			break;
@@ -1516,7 +1516,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					if (!ob || !ob->base->recast) return true;					
 
 					//repair equip
-					//Ã¿´ÎĞŞ¸´Á½µã×î´óÄÍ¾Ã,Í¬Ê±Ôö¼Óµ±Ç°ÄÍ¾ÃÖÁ×î´óÄÍ¾Ã
+					//æ¯æ¬¡ä¿®å¤ä¸¤ç‚¹æœ€å¤§è€ä¹…,åŒæ—¶å¢åŠ å½“å‰è€ä¹…è‡³æœ€å¤§è€ä¹…
 					ob->data.maxdur += 100;
 					if(ob->data.maxdur > ob->base->durability)
 					{
@@ -1540,7 +1540,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					RepairCost cost;
 					packs.equip.execEvery(cost);
 					price = cost.cost();
-					//¼Û¸ñÎª0Ê±¾Ü¾øĞŞÀï
+					//ä»·æ ¼ä¸º0æ—¶æ‹’ç»ä¿®é‡Œ
 					if(!price)
 					{
 						return true;
@@ -1548,7 +1548,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					
 					//test money
 					if (!packs.checkMoney(price)) {
-						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ÄãµÄÒø×Ó²»×ã£¬²»ÄÜÈ«²¿ĞŞÀí!");
+						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ä½ çš„é“¶å­ä¸è¶³ï¼Œä¸èƒ½å…¨éƒ¨ä¿®ç†!");
 					}
 	
 					//repair equip
@@ -1570,11 +1570,11 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					//test money
 					if (!packs.checkMoney(price)) 
 					{
-						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ÄãµÄÒø×Ó²»×ã£¬²»ÄÜĞŞÀíÕâ¼şÎïÆ·!");
+						return Channel::sendSys(this,  Cmd::INFO_TYPE_FAIL, "ä½ çš„é“¶å­ä¸è¶³ï¼Œä¸èƒ½ä¿®ç†è¿™ä»¶ç‰©å“!");
 					}
 	
 					//repair equip
-					//ÎäÆ÷£¬¶Ü£¬Ã±×Ó£¬ÒÂ·ş£¬»¤Íó£¬Ñü´ø£¬Ñ¥×Ó£¬½äÖ¸£¬ÊÖïí£¬ÏîÁ´ĞèÒªÏûºÄ×î´óÄÍ¾Ã
+					//æ­¦å™¨ï¼Œç›¾ï¼Œå¸½å­ï¼Œè¡£æœï¼ŒæŠ¤è…•ï¼Œè…°å¸¦ï¼Œé´å­ï¼Œæˆ’æŒ‡ï¼Œæ‰‹é•¯ï¼Œé¡¹é“¾éœ€è¦æ¶ˆè€—æœ€å¤§è€ä¹…
 					/*
 					switch(ob->base->kind)
 					{
@@ -1598,7 +1598,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						case ItemType_Fing:
 						case ItemType_FashionBody:
 							{
-								//ÏûºÄ×î´óÄÍ¾Ã¹«Ê½
+								//æ¶ˆè€—æœ€å¤§è€ä¹…å…¬å¼
 								DWORD reduce = ((DWORD)((((float)(ob->data.maxdur-ob->data.dur))/ob->base->durability)*10)+1)*5;
 								if(reduce > ob->data.maxdur)
 								{
@@ -1622,13 +1622,13 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					sendCmdToMe(&ret , sizeof(ret));
 				}
 
-				if (!packs.removeMoney(price,"ĞŞÀí")) 
+				if (!packs.removeMoney(price,"ä¿®ç†")) 
 				{
-					Zebra::logger->fatal("ÓÃ»§(%s)ĞŞÀí×°±¸Ê±Òø×Ó¼ÆËã´íÎó!", name);
+					Zebra::logger->fatal("ç”¨æˆ·(%s)ä¿®ç†è£…å¤‡æ—¶é“¶å­è®¡ç®—é”™è¯¯!", name);
 				}
 				/*
 				else {
-					Zebra::logger->trace("[ĞŞÀí×°±¸]ÓÃ»§(%s)ĞŞÀí×°±¸»¨·ÑÒø×Ó(%d)",name, price);
+					Zebra::logger->trace("[ä¿®ç†è£…å¤‡]ç”¨æˆ·(%s)ä¿®ç†è£…å¤‡èŠ±è´¹é“¶å­(%d)",name, price);
 				}
 				// */
 			}
@@ -1637,7 +1637,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 		case START_SELL_USERCMD_PARAMETER:
 			if (this->charbase.level <20)
 			{
-				Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "µÈ¼¶µÍÓÚ20£¬²»ÄÜ°ÚÌ¯!");
+				Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç­‰çº§ä½äº20ï¼Œä¸èƒ½æ‘†æ‘Š!");
 				return true;
 			}
 			if (this->isSitdown())
@@ -1647,7 +1647,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 			if (privatestore.step() == PrivateStore::NONE) {
 /*
 				if (!scene->checkZoneType(getPos(), ZoneTypeDef::ZONE_PRIVATE_STORE)) {
-					return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÕâÀï²»ÄÜ°ÚÌ¯!");
+					return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "è¿™é‡Œä¸èƒ½æ‘†æ‘Š!");
 				}
 */
 				Cmd::stCanSellTradeUserCmd cmd;
@@ -1660,7 +1660,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				cmd.status = 0;
 				sendCmdToMe(&cmd, sizeof(cmd));
 				privatestore.step(PrivateStore::START, this);
-				Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]ÓÃ»§(%s)ÇëÇó¿ªÊ¼°ÚÌ¯", name);
+				Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]ç”¨æˆ·(%s)è¯·æ±‚å¼€å§‹æ‘†æ‘Š", name);
 				return true;
 			}
 			if (privatestore.step() == PrivateStore::START) {
@@ -1668,7 +1668,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				horse.mount(false, false);
 				privatestore.step(PrivateStore::BEGIN, this);
 				sendMeToNine();
-				Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]ÓÃ»§(%s)¿ªÊ¼°ÚÌ¯", name);
+				Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]ç”¨æˆ·(%s)å¼€å§‹æ‘†æ‘Š", name);
 				return true;
 			}
 			break;
@@ -1676,7 +1676,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 			{
 				//FunctionTimes times(22,"FINISH_SELL_USERCMD_PARAMETER");
 				privatestore.step(PrivateStore::NONE, this);
-				Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]ÓÃ»§(%s)Íê³É°ÚÌ¯", name);
+				Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]ç”¨æˆ·(%s)å®Œæˆæ‘†æ‘Š", name);
 				sendMeToNine();
 			}
 			break;
@@ -1689,33 +1689,33 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 						return true;
 					}
 					if (cmd->list[i].x > PrivateStore::WIDTH || cmd->list[i].y > PrivateStore::HEIGHT) {
-						Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÇëÇó°ÚÌ¯µÄÎïÆ·×ø±ê·Ç·¨",name,id);	
+						Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)è¯·æ±‚æ‘†æ‘Šçš„ç‰©å“åæ ‡éæ³•",name,id);	
 						return true;	
 					}
 
 					zObject* ob = packs.uom.getObjectByThisID(cmd->list[i].qwThisID);
 					if (!ob) {
-						Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÇëÇó°ÚÌ¯µÄÎïÆ·²»´æÔÚ",name,id);	
+						Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)è¯·æ±‚æ‘†æ‘Šçš„ç‰©å“ä¸å­˜åœ¨",name,id);	
 						return true;
 					}
 
 					if (mask.is_use(ob)) {
-						return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ÇëÏÈ½â³ı¸ÃÃÉÃæ½í!");
+						return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "è¯·å…ˆè§£é™¤è¯¥è’™é¢å·¾!");
 					}
 
 					if (ob->data.bind || ob->data.dwObjectID == 800 || ob->base->kind == ItemType_Quest) {
-						Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÓÃ»§ÊÔÍ¼Ê¹ÓÃ²»ÄÜ°ÚÌ¯µÄÎïÆ·",name,id);						
+						Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)ç”¨æˆ·è¯•å›¾ä½¿ç”¨ä¸èƒ½æ‘†æ‘Šçš„ç‰©å“",name,id);						
 						return true;
 					}
 
 
 					if (ob->data.pos.loc() != Cmd::OBJECTCELLTYPE_COMMON && ob->data.pos.loc()!=Cmd::OBJECTCELLTYPE_PACKAGE) {
-						Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÓÃ»§ÊÔÍ¼°ÚÌ¯²»ÔÚÖ÷¸±°ü¹üÖĞµÄÎïÆ·",name,id);
+						Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)ç”¨æˆ·è¯•å›¾æ‘†æ‘Šä¸åœ¨ä¸»å‰¯åŒ…è£¹ä¸­çš„ç‰©å“",name,id);
 						return true;
 					}
 
 					privatestore.add(ob, cmd->list[i].price, cmd->list[i].x, cmd->list[i].y);
-					Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]ÓÃ»§%sÌí¼Ó°ÚÌ¯ÎïÆ·%s(%d)" , name, ob->data.strName, ob->data.qwThisID);
+					Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]ç”¨æˆ·%sæ·»åŠ æ‘†æ‘Šç‰©å“%s(%d)" , name, ob->data.strName, ob->data.qwThisID);
 				}
 			}
 			break;
@@ -1726,39 +1726,39 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					return true;
 				}
 				if (cmd->x > PrivateStore::WIDTH || cmd->y > PrivateStore::HEIGHT) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÇëÇó°ÚÌ¯µÄÎïÆ·×ø±ê·Ç·¨",name,id);	
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)è¯·æ±‚æ‘†æ‘Šçš„ç‰©å“åæ ‡éæ³•",name,id);	
 					return true;	
 				}
 
 				zObject* ob = packs.uom.getObjectByThisID(cmd->object.qwThisID);
 				if (!ob) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÇëÇó°ÚÌ¯µÄÎïÆ·²»´æÔÚ",name,id);	
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)è¯·æ±‚æ‘†æ‘Šçš„ç‰©å“ä¸å­˜åœ¨",name,id);	
 					return true;
 				}
 
 	/*
 				if (ob->base->kind == ItemType_Money && cmd->object.dwNum > ob->data.dwNum  ){
-					Zebra::logger->debug("%s(%ld)ÇëÇó½»Ò×µÄÎïÆ·ÊıÁ¿·Ç·¨",name,id);	
+					Zebra::logger->debug("%s(%ld)è¯·æ±‚äº¤æ˜“çš„ç‰©å“æ•°é‡éæ³•",name,id);	
 					return true;
 				}
 	*/
 				if (mask.is_use(ob)) {
-					return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ÇëÏÈ½â³ı¸ÃÃÉÃæ½í!");
+					return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "è¯·å…ˆè§£é™¤è¯¥è’™é¢å·¾!");
 				}
 
 				if (ob->data.bind || ob->data.dwObjectID == 800 || ob->base->kind == ItemType_Quest) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÓÃ»§ÊÔÍ¼Ê¹ÓÃ²»ÄÜ°ÚÌ¯µÄÎïÆ·",name,id);						
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)ç”¨æˆ·è¯•å›¾ä½¿ç”¨ä¸èƒ½æ‘†æ‘Šçš„ç‰©å“",name,id);						
 					return true;
 				}
 	
 
 				if (ob->data.pos.loc() != Cmd::OBJECTCELLTYPE_COMMON && ob->data.pos.loc()!=Cmd::OBJECTCELLTYPE_PACKAGE) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]%s(%ld)ÓÃ»§ÊÔÍ¼°ÚÌ¯²»ÔÚÖ÷¸±°ü¹üÖĞµÄÎïÆ·",name,id);
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]%s(%ld)ç”¨æˆ·è¯•å›¾æ‘†æ‘Šä¸åœ¨ä¸»å‰¯åŒ…è£¹ä¸­çš„ç‰©å“",name,id);
 					return true;
 				}
 
 				privatestore.add(ob, cmd->price, cmd->x, cmd->y);
-				Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]ÓÃ»§%sÌí¼Ó°ÚÌ¯ÎïÆ·%s(%d)" , name, ob->data.strName, ob->data.qwThisID);
+				Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]ç”¨æˆ·%sæ·»åŠ æ‘†æ‘Šç‰©å“%s(%d)" , name, ob->data.strName, ob->data.qwThisID);
 			}
 			break;
 		case REMOVE_OBJECT_SELL_USERCMD_PARAMETER:
@@ -1773,7 +1773,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				//just for trace, it's very ugly
 				zObject* ob = packs.uom.getObjectByThisID(cmd->object_id);
 				if (ob) {
-					Zebra::logger->trace("[½»Ò×:Íæ¼Ò------>°ÚÌ¯]ÓÃ»§%sÒÆ³ı°ÚÌ¯ÎïÆ·%s(%d)" , name, ob->data.strName, ob->data.qwThisID);
+					Zebra::logger->trace("[äº¤æ˜“:ç©å®¶------>æ‘†æ‘Š]ç”¨æˆ·%sç§»é™¤æ‘†æ‘Šç‰©å“%s(%d)" , name, ob->data.strName, ob->data.qwThisID);
 				}
 				
 			}
@@ -1783,13 +1783,13 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 				stRequestSellInfoUserCmd *cmd=(stRequestSellInfoUserCmd *)rev;
 
 				if(cmd->temp_id == tempid) {
-					//Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------°ÚÌ¯]%s(%ld)ÇëÇó×Ô¼ºµÄ°ÚÌ¯ĞÅÏ¢", name, id);
+					//Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------æ‘†æ‘Š]%s(%ld)è¯·æ±‚è‡ªå·±çš„æ‘†æ‘Šä¿¡æ¯", name, id);
 					return true;
 				}
 				
 				SceneUser *target = scene->getUserByTempID(cmd->temp_id);
 				if (!target || target->privatestore.step() != PrivateStore::BEGIN) {
-					Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------°ÚÌ¯]%s(%ld)ÇëÇó°ÚÌ¯ĞÅÏ¢µÄÓÃ»§²»´æÔÚ»òÕßÃ»ÓĞ°ÚÌ¯", name, id);
+					Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------æ‘†æ‘Š]%s(%ld)è¯·æ±‚æ‘†æ‘Šä¿¡æ¯çš„ç”¨æˆ·ä¸å­˜åœ¨æˆ–è€…æ²¡æœ‰æ‘†æ‘Š", name, id);
 					return true;
 				}
 
@@ -1797,7 +1797,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					return true;
 				}
 
-				//Zebra::logger->trace("[½»Ò×:Íæ¼Ò<------°ÚÌ¯]%s(%ld)ÇëÇó%s(%ld)°ÚÌ¯ĞÅÏ¢", name, id, target->name, target->id);
+				//Zebra::logger->trace("[äº¤æ˜“:ç©å®¶<------æ‘†æ‘Š]%s(%ld)è¯·æ±‚%s(%ld)æ‘†æ‘Šä¿¡æ¯", name, id, target->name, target->id);
 				target->privatestore.show(this);
 			}
 			break;
@@ -1818,7 +1818,7 @@ bool SceneUser::doTradeCmd(const Cmd::stTradeUserCmd *rev,unsigned int cmdLen)
 					return true;
 				}
 
-				return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÃÜÂë´íÎó£¬²»ÄÜĞŞ¸ÄÃÜÂë!")
+				return Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯†ç é”™è¯¯ï¼Œä¸èƒ½ä¿®æ”¹å¯†ç !")
 			}
 			*/
 			break;
@@ -1853,7 +1853,7 @@ bool RepairEquipUseGold::exec(zObject* ob)
 bool RepairEquip::exec(zObject* ob)
 {
 	if (!ob || !ob->base->recast || !ob->data.maxdur) return true;
-	//ÎäÆ÷£¬¶Ü£¬Ã±×Ó£¬ÒÂ·ş£¬»¤Íó£¬Ñü´ø£¬Ñ¥×Ó£¬½äÖ¸£¬ÊÖïí£¬ÏîÁ´ĞèÒªÏûºÄ×î´óÄÍ¾Ã
+	//æ­¦å™¨ï¼Œç›¾ï¼Œå¸½å­ï¼Œè¡£æœï¼ŒæŠ¤è…•ï¼Œè…°å¸¦ï¼Œé´å­ï¼Œæˆ’æŒ‡ï¼Œæ‰‹é•¯ï¼Œé¡¹é“¾éœ€è¦æ¶ˆè€—æœ€å¤§è€ä¹…
 	/*
 	switch(ob->base->kind)
 	{
@@ -1877,7 +1877,7 @@ bool RepairEquip::exec(zObject* ob)
 		case ItemType_Fing:
 		case ItemType_FashionBody:
 			{
-				//ÏûºÄ×î´óÄÍ¾Ã¹«Ê½
+				//æ¶ˆè€—æœ€å¤§è€ä¹…å…¬å¼
 				DWORD reduce = ((DWORD)((((float)(ob->data.maxdur-ob->data.dur))/ob->base->durability)*10)+1)*5;
 				if(reduce > ob->data.maxdur)
 				{

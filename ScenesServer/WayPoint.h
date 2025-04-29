@@ -1,21 +1,21 @@
-#ifndef _WAYPOINT_H_
+ï»¿#ifndef _WAYPOINT_H_
 #define _WAYPOINT_H_
 #include "zSceneEntry.h"
 #include "zXMLParser.h"
 
 /**
- * \brief µã½á¹¹
+ * \brief ç‚¹ç»“æ„
  */
 struct Point
 {
-	/// Ãû³Æ
+	/// åç§°
 	char name[MAX_NAMESIZE];
 
-	/// Î»ÖÃ
+	/// ä½ç½®
 	zPos pos;
 
 	/**
-	 * \brief ¹¹Ôìº¯Êı³õÊ¼»¯
+	 * \brief æ„é€ å‡½æ•°åˆå§‹åŒ–
 	 */
 	Point() : pos()
 	{
@@ -23,8 +23,8 @@ struct Point
 	}
 
 	/**
-	 * \brief ¿½±´¹¹Ôì
-	 * \param point µã
+	 * \brief æ‹·è´æ„é€ 
+	 * \param point ç‚¹
 	 */
 	Point(const Point &point)
 	{
@@ -33,8 +33,8 @@ struct Point
 	}
 
 	/**
-	 * \brief ÖØÔØ²Ù×÷·û£¬¿½±´µã
-	 * \param point ±»¿½±´µÄµã
+	 * \brief é‡è½½æ“ä½œç¬¦ï¼Œæ‹·è´ç‚¹
+	 * \param point è¢«æ‹·è´çš„ç‚¹
 	 */
 	Point & operator= (const Point &point)
 	{
@@ -47,22 +47,22 @@ struct Point
 class WayPointM;
 
 /**
- * \brief ´«µã¶¨Òå
+ * \brief ä¼ ç‚¹å®šä¹‰
  */
 struct WayPoint
 {
 	friend class WayPointM;
 	private:
 
-		/// Ä¿µÄ×ø±êµã¼¯ºÏ
+		/// ç›®çš„åæ ‡ç‚¹é›†åˆ
 		std::vector<Point> dest;
 
-		/// Ä¿µÄ×ø±êµãÊıÄ¿
+		/// ç›®çš„åæ ‡ç‚¹æ•°ç›®
 		WORD destC;
 	public:
-		/// ´«ËÍ×ø±êµã¼¯ºÏ
+		/// ä¼ é€åæ ‡ç‚¹é›†åˆ
 		std::vector<zPos> point;
-		/// ´«ËÍ×ø±êµãÊıÄ¿
+		/// ä¼ é€åæ ‡ç‚¹æ•°ç›®
 		WORD pointC;
 
 		bool init(zXMLParser *parser,const xmlNodePtr node , DWORD countryid);
@@ -74,7 +74,7 @@ struct WayPoint
 class WayPointM
 {
 	private:
-		/// ´«µã¼¯ºÏ
+		/// ä¼ ç‚¹é›†åˆ
 		std::vector<WayPoint> wps;
 	public:
 		bool addWayPoint(const WayPoint &wp);

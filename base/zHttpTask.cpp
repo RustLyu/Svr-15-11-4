@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zHttpTask.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊµÏÖÇáÁ¿¼¶(lightweight)µÄhttp·şÎñ¿ò¼Ü
+ * \brief å®šä¹‰å®ç°è½»é‡çº§(lightweight)çš„httpæœåŠ¡æ¡†æ¶
  */
 
 
@@ -20,10 +20,10 @@
 #include "Zebra.h"
 
 /**
- * \brief ÏòÌ×½Ó¿Ú·¢ËÍÖ¸Áî
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \brief å‘å¥—æ¥å£å‘é€æŒ‡ä»¤
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool zHttpTask::sendCmd(const void *pstrCmd, int nCmdLen)
 {

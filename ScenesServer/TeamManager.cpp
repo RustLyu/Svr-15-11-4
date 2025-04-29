@@ -1,4 +1,4 @@
-
+ï»¿
 #include "SceneUser.h"
 #include "Scene.h"
 #include "TeamManager.h"
@@ -6,21 +6,21 @@
 #include "SessionClient.h"
 
 /**
- * \brief  ±éÀú×é¶Ó½«Ö¸¶¨ĞÂÔö¶ÓÔ±userµÄÊı¾İ·¢ËÍ¸ø¶ÓÎéËùÓĞ³ÉÔ±µÄ¿Í»§¶Ë
+ * \brief  éå†ç»„é˜Ÿå°†æŒ‡å®šæ–°å¢é˜Ÿå‘˜userçš„æ•°æ®å‘é€ç»™é˜Ÿä¼æ‰€æœ‰æˆå‘˜çš„å®¢æˆ·ç«¯
  */
 struct SendTeamDataExec : public TeamMemExec
 {
 
-	/// ¶Ó³¤
+	/// é˜Ÿé•¿
 	SceneUser *leader;
 
-	/// Ôö¼Ó×é¶Ó³ÉÔ±ÏûÏ¢¶¨Òå
+	/// å¢åŠ ç»„é˜Ÿæˆå‘˜æ¶ˆæ¯å®šä¹‰
 	Cmd::stFreshTeamMemberUserCmd ret;
 
 	/**
-	 * \brief  ¹¹Ôìº¯Êı³õÊ¼»¯³õÊ¼»¯½«Òª·¢ËÍµÄÏûÏ¢
-	 * \param  l ¶Ó³¤µÄÖ¸Õë
-	 * \param  user ĞÂÔö¶ÓÔ±µÄ¶ÔÏóÖ¸Õë
+	 * \brief  æ„é€ å‡½æ•°åˆå§‹åŒ–åˆå§‹åŒ–å°†è¦å‘é€çš„æ¶ˆæ¯
+	 * \param  l é˜Ÿé•¿çš„æŒ‡é’ˆ
+	 * \param  user æ–°å¢é˜Ÿå‘˜çš„å¯¹è±¡æŒ‡é’ˆ
 	 * \return 
 	 */
 	SendTeamDataExec(SceneUser * l , SceneUser *user)
@@ -34,9 +34,9 @@ struct SendTeamDataExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  »Øµ÷·½·¨
-	 * \param  member ±éÀú³ÉÔ±
-	 * \return false ´¦ÀíÖÕÖ¹ true ´¦Àí¼ÌĞø
+	 * \brief  å›è°ƒæ–¹æ³•
+	 * \param  member éå†æˆå‘˜
+	 * \return false å¤„ç†ç»ˆæ­¢ true å¤„ç†ç»§ç»­
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -53,9 +53,9 @@ struct SendTeamDataExec : public TeamMemExec
 };
 
 /**
- * \brief  ·¢ËÍ×é¶ÓÖ¸¶¨³ÉÔ±Êı¾İ
- * \param  leader ¶Ó³¤
- * \param  user ¶ÓÔ±
+ * \brief  å‘é€ç»„é˜ŸæŒ‡å®šæˆå‘˜æ•°æ®
+ * \param  leader é˜Ÿé•¿
+ * \param  user é˜Ÿå‘˜
  */
 void TeamManager::sendtoTeamCharData(SceneUser *leader , SceneUser *user)
 {
@@ -67,8 +67,8 @@ void TeamManager::sendtoTeamCharData(SceneUser *leader , SceneUser *user)
 }
 
 /**
- * \brief  ·¢ËÍ×é¶ÓÖ¸¶¨³ÉÔ±Êı¾İ
- * \param  user ĞèÒª·¢ËÍµÄ³ÉÔ±¶ÔÏó
+ * \brief  å‘é€ç»„é˜ŸæŒ‡å®šæˆå‘˜æ•°æ®
+ * \param  user éœ€è¦å‘é€çš„æˆå‘˜å¯¹è±¡
  */
 void TeamManager::sendtoTeamCharData(SceneUser *user)
 {
@@ -83,20 +83,20 @@ void TeamManager::sendtoTeamCharData(SceneUser *user)
 }
 
 /**
- * \brief  ±éÀú½á¹¹£¬ÓÃÀ´¸ø×é¶ÓÖĞËùÓĞ¶ÓÔ±¹ã²¥ÏûÏ¢
+ * \brief  éå†ç»“æ„ï¼Œç”¨æ¥ç»™ç»„é˜Ÿä¸­æ‰€æœ‰é˜Ÿå‘˜å¹¿æ’­æ¶ˆæ¯
  */
 struct SendCmdExec : public TeamMemExec
 {
-	/// ĞèÒª¹ã²¥µÄÏûÏ¢
+	/// éœ€è¦å¹¿æ’­çš„æ¶ˆæ¯
 	void *cmd;
 
-	/// ÏûÏ¢³¤¶È
+	/// æ¶ˆæ¯é•¿åº¦
 	DWORD cmdLen;
 
 	/**
-	 * \brief  ¹¹Ôì³õÊ¼»¯ÊôĞÔ
-	 * \param  data ÏûÏ¢Ìå
-	 * \param  dataLen ÏûÏ¢³¤¶È
+	 * \brief  æ„é€ åˆå§‹åŒ–å±æ€§
+	 * \param  data æ¶ˆæ¯ä½“
+	 * \param  dataLen æ¶ˆæ¯é•¿åº¦
 	 */
 	SendCmdExec(void *data , DWORD dataLen)
 	{
@@ -105,9 +105,9 @@ struct SendCmdExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  »Øµ÷·½·¨
-	 * \param  member ³ÉÔ±
-	 * \return false ÖÕÖ¹±éÀú true ¼ÌĞø±éÀú
+	 * \brief  å›è°ƒæ–¹æ³•
+	 * \param  member æˆå‘˜
+	 * \return false ç»ˆæ­¢éå† true ç»§ç»­éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -123,10 +123,10 @@ struct SendCmdExec : public TeamMemExec
 };
 
 /**
- * \brief  ·¢ËÍÏûÏ¢¸ø×é¶Ó
- * \param  user   ÏûÏ¢·¢ËÍÕß
- * \param  cmd    ÏûÏ¢Ìå
- * \param  cmdLen ÏûÏ¢³¤¶È
+ * \brief  å‘é€æ¶ˆæ¯ç»™ç»„é˜Ÿ
+ * \param  user   æ¶ˆæ¯å‘é€è€…
+ * \param  cmd    æ¶ˆæ¯ä½“
+ * \param  cmdLen æ¶ˆæ¯é•¿åº¦
  */
 void TeamManager::sendCmdToTeam(SceneUser *user , void *cmd , DWORD cmdLen)
 {
@@ -142,7 +142,7 @@ void TeamManager::sendCmdToTeam(SceneUser *user , void *cmd , DWORD cmdLen)
 }
 
 /**
- * \brief  ÓÃÀ´¼ì²éËùÓĞ¶ÓÔ±ÊÇ·ñ¶¼ÔÚÒ»ÆÁÄÚ
+ * \brief  ç”¨æ¥æ£€æŸ¥æ‰€æœ‰é˜Ÿå‘˜æ˜¯å¦éƒ½åœ¨ä¸€å±å†…
  */
 struct CheckAllInOneScreenExec : public TeamMemExec
 {
@@ -150,9 +150,9 @@ struct CheckAllInOneScreenExec : public TeamMemExec
 	SceneUser *leader;
 
 	/**
-	 * \brief  ¹¹Ôì³õÊ¼»¯ÊôĞÔ
-	 * \param  data ÏûÏ¢Ìå
-	 * \param  dataLen ÏûÏ¢³¤¶È
+	 * \brief  æ„é€ åˆå§‹åŒ–å±æ€§
+	 * \param  data æ¶ˆæ¯ä½“
+	 * \param  dataLen æ¶ˆæ¯é•¿åº¦
 	 */
 	CheckAllInOneScreenExec(SceneUser *pUser)
 	{
@@ -161,9 +161,9 @@ struct CheckAllInOneScreenExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  »Øµ÷·½·¨
-	 * \param  member ³ÉÔ±
-	 * \return false ÖÕÖ¹±éÀú true ¼ÌĞø±éÀú
+	 * \brief  å›è°ƒæ–¹æ³•
+	 * \param  member æˆå‘˜
+	 * \return false ç»ˆæ­¢éå† true ç»§ç»­éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -208,7 +208,7 @@ bool TeamManager::canPutSkill()
 				{
 					if (SceneTimeTick::currentTime.msecs() > giveuptime.msecs())
 					{
-						giveupstatus = false;///½«×´Ì¬³õÊ¼»¯»ØÈ¥¡£
+						giveupstatus = false;///å°†çŠ¶æ€åˆå§‹åŒ–å›å»ã€‚
 						return false;
 					}
 					else
@@ -226,26 +226,26 @@ bool TeamManager::canPutSkill()
 }
 
 /**
- * \brief   Ôö¼ÓÒ»¸öĞÂµÄ¶ÓÔ±´¦Àí
+ * \brief   å¢åŠ ä¸€ä¸ªæ–°çš„é˜Ÿå‘˜å¤„ç†
  */
 struct AddNewMemberExec : public TeamMemExec
 {
-	/// ¶Ó³¤
+	/// é˜Ÿé•¿
 	SceneUser *leader;
 
-	/// ĞÂ³ÉÔ±
+	/// æ–°æˆå‘˜
 	SceneUser *nm;
 
-	/// ¶ÓÔ±ĞÂÔöÏûÏ¢ÊµÀı1
+	/// é˜Ÿå‘˜æ–°å¢æ¶ˆæ¯å®ä¾‹1
 	Cmd::stAddTeamMemberUserCmd ret_1;
 
-	/// ¶ÓÔ±ĞÂÔöÏûÏ¢ÊµÀı2
+	/// é˜Ÿå‘˜æ–°å¢æ¶ˆæ¯å®ä¾‹2
 	Cmd::stAddTeamMemberUserCmd ret_2;
 
 	/**
-	 * \brief  ¹¹Ôì³õÊ¼»¯ÏûÏ¢ÊµÀı
-	 * \param  u ¶Ó³¤½ÇÉ«¶ÔÏó
-	 * \param n ĞÂÔö¶ÓÔ±½ÇÉ«¶ÔÏó
+	 * \brief  æ„é€ åˆå§‹åŒ–æ¶ˆæ¯å®ä¾‹
+	 * \param  u é˜Ÿé•¿è§’è‰²å¯¹è±¡
+	 * \param n æ–°å¢é˜Ÿå‘˜è§’è‰²å¯¹è±¡
 	 */
 	AddNewMemberExec(SceneUser *u , SceneUser *n)
 	{
@@ -264,9 +264,9 @@ struct AddNewMemberExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  »Øµ÷·½·¨½«ĞÂ³ÉÔ±·¢ËÍ¸øÃ¿¸ö¶ÓÔ±£¬½«Ã¿¸ö¶ÓÔ±·¢ËÍ¸øĞÂ³ÉÔ±
-	 * \param  member ¶ÓÔ±
-	 * \return false ÖÕÖ¹±éÀú true ¼ÌĞø±éÀú
+	 * \brief  å›è°ƒæ–¹æ³•å°†æ–°æˆå‘˜å‘é€ç»™æ¯ä¸ªé˜Ÿå‘˜ï¼Œå°†æ¯ä¸ªé˜Ÿå‘˜å‘é€ç»™æ–°æˆå‘˜
+	 * \param  member é˜Ÿå‘˜
+	 * \return false ç»ˆæ­¢éå† true ç»§ç»­éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -292,9 +292,9 @@ struct AddNewMemberExec : public TeamMemExec
 			ret_1.data.wdFace = pUser->charbase.face;
 			strncpy(ret_1.data.pstrName , pUser->name , MAX_NAMESIZE);
 			pUser->sendCmdToMe(&ret_2 , sizeof(ret_2));
-			Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%s¼ÓÈë¶ÓÎé" , ret_2.data.pstrName);
+			Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%såŠ å…¥é˜Ÿä¼" , ret_2.data.pstrName);
 			nm->sendCmdToMe(&ret_1 , sizeof(ret_1));
-			//Zebra::logger->debug("¶ÓÎé(%ld)·¢³öÌí¼Ó¶ÓÔ±Ö¸Áî(%s , %ld)" , ret_2.dwTeamID , nm->name , nm->id);
+			//Zebra::logger->debug("é˜Ÿä¼(%ld)å‘å‡ºæ·»åŠ é˜Ÿå‘˜æŒ‡ä»¤(%s , %ld)" , ret_2.dwTeamID , nm->name , nm->id);
 			return true;
 		}
 		return true;
@@ -302,9 +302,9 @@ struct AddNewMemberExec : public TeamMemExec
 };
 
 /**
- * \brief  ÅĞ¶Ï½ÇÉ«ÊÇ·ñÊÇ×Ô¼ºµÄ¶ÓÓÑ
- * \param  pUser ±»ÅĞ¶Ï¶ÔÏó
- * \return true ÊÇ false ·ñ
+ * \brief  åˆ¤æ–­è§’è‰²æ˜¯å¦æ˜¯è‡ªå·±çš„é˜Ÿå‹
+ * \param  pUser è¢«åˆ¤æ–­å¯¹è±¡
+ * \return true æ˜¯ false å¦
  */
 bool TeamManager::IsOurTeam(SceneUser *pUser)
 {
@@ -319,9 +319,9 @@ bool TeamManager::IsOurTeam(SceneUser *pUser)
 }
 
 /**
- * \brief  ÅĞ¶Ï½ÇÉ«ÊÇ·ñÊÇ×Ô¼ºµÄ¶ÓÓÑ
- * \param  dwID ±»ÅĞ¶Ï¶ÔÏóµÄid
- * \return true ÊÇ false ·ñ
+ * \brief  åˆ¤æ–­è§’è‰²æ˜¯å¦æ˜¯è‡ªå·±çš„é˜Ÿå‹
+ * \param  dwID è¢«åˆ¤æ–­å¯¹è±¡çš„id
+ * \return true æ˜¯ false å¦
  */
 bool TeamManager::IsOurTeam(DWORD dwID)
 {
@@ -335,9 +335,9 @@ bool TeamManager::IsOurTeam(DWORD dwID)
 }
 
 /**
- * \brief  ´´½¨Ò»¸öĞÂµÄ¶ÓÎé£¬²úÉúÒ»¸ö¶Ó³¤
- * \param  pUser ×¼¶Ó³¤
- * \return true ³É¹¦ false Ê§°Ü
+ * \brief  åˆ›å»ºä¸€ä¸ªæ–°çš„é˜Ÿä¼ï¼Œäº§ç”Ÿä¸€ä¸ªé˜Ÿé•¿
+ * \param  pUser å‡†é˜Ÿé•¿
+ * \return true æˆåŠŸ false å¤±è´¥
  */
 bool TeamManager::addNewLeader(SceneUser *pUser)
 {
@@ -346,7 +346,7 @@ bool TeamManager::addNewLeader(SceneUser *pUser)
 		/*		
 				if(addNewMember(pUser , pUser))
 				{
-				Zebra::logger->debug("²úÉú¶ÓÎé%ld,×é³¤(%s , %ld)" , pUser->tempid , pUser->name , pUser->id);
+				Zebra::logger->debug("äº§ç”Ÿé˜Ÿä¼%ld,ç»„é•¿(%s , %ld)" , pUser->tempid , pUser->name , pUser->id);
 				return true;
 				}
 		// */
@@ -366,16 +366,16 @@ bool TeamManager::addNewLeader(SceneUser *pUser)
 			pUser->sendCmdToMe(&ret , sizeof(ret));
 			if(pUser->team_mode == Cmd::TEAM_HONOR)
 			{
-				Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%sÒÔÈÙÓşÄ£Ê½×é½¨¶ÓÎé" , ret.data.pstrName);
+				Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%sä»¥è£èª‰æ¨¡å¼ç»„å»ºé˜Ÿä¼" , ret.data.pstrName);
 			}
 			else
 			{
-				Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%sÒÔÆÕÍ¨Ä£Ê½×é½¨¶ÓÎé" , ret.data.pstrName);
+				Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%sä»¥æ™®é€šæ¨¡å¼ç»„å»ºé˜Ÿä¼" , ret.data.pstrName);
 			}
-			//Zebra::logger->trace("²úÉú¶ÓÎé%ld,×é³¤(%s , %ld)" , pUser->tempid , pUser->name , pUser->id);
+			//Zebra::logger->trace("äº§ç”Ÿé˜Ÿä¼%ld,ç»„é•¿(%s , %ld)" , pUser->tempid , pUser->name , pUser->id);
 
 			pUser->reSendMyMapData();
-			//session¶ÓÎé
+			//sessioné˜Ÿä¼
 			addMemberToSession(pUser->id , pUser->id);
 			return true;
 		}
@@ -384,10 +384,10 @@ bool TeamManager::addNewLeader(SceneUser *pUser)
 }
 
 /**
- * \brief  Ôö¼ÓÒ»¸öĞÂµÄ¶ÓÔ±
- * \param  pUser ×¼¶ÓÔ±
- * \param  rev ×é¶ÓÑûÇëÓ¦´ğÏûÏ¢
- * \return true ¼ÓÈë³É¹¦ false ¼ÓÈëÊ§°Ü
+ * \brief  å¢åŠ ä¸€ä¸ªæ–°çš„é˜Ÿå‘˜
+ * \param  pUser å‡†é˜Ÿå‘˜
+ * \param  rev ç»„é˜Ÿé‚€è¯·åº”ç­”æ¶ˆæ¯
+ * \return true åŠ å…¥æˆåŠŸ false åŠ å…¥å¤±è´¥
  */
 bool TeamManager::addNewMember(SceneUser *pUser , Cmd::stAnswerTeamUserCmd *rev)
 {
@@ -428,10 +428,10 @@ bool TeamManager::addNewMember(SceneUser *pUser , Cmd::stAnswerTeamUserCmd *rev)
 }
 
 /**
- * \brief  Ôö¼ÓÒ»¸öĞÂµÄ¶ÓÔ±
- * \param  leader ¶Ó³¤
- * \param  pUser ×¼¶ÓÔ±
- * \return true Ôö¼Ó³É¹¦  false Ôö¼ÓÊ§°Ü
+ * \brief  å¢åŠ ä¸€ä¸ªæ–°çš„é˜Ÿå‘˜
+ * \param  leader é˜Ÿé•¿
+ * \param  pUser å‡†é˜Ÿå‘˜
+ * \return true å¢åŠ æˆåŠŸ  false å¢åŠ å¤±è´¥
  */
 bool TeamManager::addNewMember(SceneUser *leader , SceneUser *pUser)
 {
@@ -442,7 +442,7 @@ bool TeamManager::addNewMember(SceneUser *leader , SceneUser *pUser)
 	}
 
 	pUser->team.setLeader(leader->tempid);
-	///Zebra::logger->debug("¶ÓÔ±(%u)¼ÓÈë¶ÓÎé:%u",pUser->tempid , leader->tempid);
+	///Zebra::logger->debug("é˜Ÿå‘˜(%u)åŠ å…¥é˜Ÿä¼:%u",pUser->tempid , leader->tempid);
 	AddNewMemberExec add(leader , pUser);
 	if(addMemberByTempID(leader , pUser->tempid))
 	{
@@ -470,7 +470,7 @@ bool TeamManager::addNewMember(SceneUser *leader , SceneUser *pUser)
 }
 
 /**
- * \brief »ñÈ¡¶ÓÎéÈËÊı
+ * \brief è·å–é˜Ÿä¼äººæ•°
  */
 int TeamManager::getSize()
 {
@@ -493,9 +493,9 @@ int TeamManager::getSize()
 }
 
 /**
- * \brief  É¾³ı×é¶Ó
- * \param  pUser ¶Ó³¤
- * \param  tempid ¶Ó³¤µÄÁÙÊ±id
+ * \brief  åˆ é™¤ç»„é˜Ÿ
+ * \param  pUser é˜Ÿé•¿
+ * \param  tempid é˜Ÿé•¿çš„ä¸´æ—¶id
  */
 void TeamManager::removeTeam(SceneUser *pUser , DWORD tempid)
 {
@@ -508,19 +508,19 @@ void TeamManager::removeTeam(SceneUser *pUser , DWORD tempid)
 }
 
 /**
- * \brief  ¶ÓÎé½âÉ¢±éÀú´¦ÀíÃ¿¸ö¶ÓÔ±µÄÍË³öÊÂÒË
+ * \brief  é˜Ÿä¼è§£æ•£éå†å¤„ç†æ¯ä¸ªé˜Ÿå‘˜çš„é€€å‡ºäº‹å®œ
  */
 struct DeleteTeamExec : public TeamMemExec
 {
-	/// ¶Ó³¤
+	/// é˜Ÿé•¿
 	SceneUser *leader;
 
-	/// É¾³ı×é¶ÓÏûÏ¢
+	/// åˆ é™¤ç»„é˜Ÿæ¶ˆæ¯
 	Cmd::stRemoveTeamUserCmd ret;
 
 	/**
-	 * \brief  ¹¹Ôì³õÊ¼»¯
-	 * \param  u ¶Ó³¤
+	 * \brief  æ„é€ åˆå§‹åŒ–
+	 * \param  u é˜Ÿé•¿
 	 */
 	DeleteTeamExec(SceneUser *u)
 	{
@@ -528,9 +528,9 @@ struct DeleteTeamExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  »Øµ÷·½·¨£¬·¢ËÍ¶ÓÎé½âÉ¢ÏûÏ¢¸øÃ¿¸ö³ÉÔ±
-	 * \param  member ¶ÓÔ±
-	 * \return true ¼ÌĞø±éÀú false ÖÕÖ¹±éÀú
+	 * \brief  å›è°ƒæ–¹æ³•ï¼Œå‘é€é˜Ÿä¼è§£æ•£æ¶ˆæ¯ç»™æ¯ä¸ªæˆå‘˜
+	 * \param  member é˜Ÿå‘˜
+	 * \return true ç»§ç»­éå† false ç»ˆæ­¢éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -538,11 +538,11 @@ struct DeleteTeamExec : public TeamMemExec
 						getUserByTempID(member.tempid);
 		if(pUser)
 		{
-			//FunctionTimes times(100,"¶ÓÎé½âÉ¢");
+			//FunctionTimes times(100,"é˜Ÿä¼è§£æ•£");
 			pUser->team.setLeader(0);
 			pUser->sendCmdToMe(&ret , sizeof(ret));
 			pUser->reSendMyMapData();
-			Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "¶ÓÎé½âÉ¢");
+			Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "é˜Ÿä¼è§£æ•£");
 		}
 		return true;
 	}
@@ -550,36 +550,36 @@ struct DeleteTeamExec : public TeamMemExec
 };
 
 /**
- * \brief  É¾³ı×é¶Ó
- * \param  leader ¶Ó³¤
+ * \brief  åˆ é™¤ç»„é˜Ÿ
+ * \param  leader é˜Ÿé•¿
  */
 void TeamManager::deleteTeam(SceneUser *leader)
 {
-	//Çå³ı¶ÓÎé±êÖ¾
+	//æ¸…é™¤é˜Ÿä¼æ ‡å¿—
 	setLeader(0);
 	DeleteTeamExec del(leader);
 	team.execEvery(del);
 	team.Clear();
-	// Session¶ÓÎé
+	// Sessioné˜Ÿä¼
 	delMemberToSession(leader->id ,leader->id);
 }
 
 /**
- * \brief  É¾³ı³ÉÔ±±éÀúÍ¨ÖªËùÓĞ¶ÓÎé³ÉÔ±
+ * \brief  åˆ é™¤æˆå‘˜éå†é€šçŸ¥æ‰€æœ‰é˜Ÿä¼æˆå‘˜
  */
 struct RemoveMemberExec : public TeamMemExec
 {
-	/// ¶Ó³¤
+	/// é˜Ÿé•¿
 	SceneUser *leader;
 
-	/// É¾³ı³ÉÔ±ÏûÏ¢
+	/// åˆ é™¤æˆå‘˜æ¶ˆæ¯
 	Cmd::stRemoveTeamMemberUserCmd ret;
 
 
 	/**
-	 * \brief  ¹¹Ôìº¯Êı³õÊ¼»¯³ÉÔ±É¾³ıÏûÏ¢
-	 * \param  u ¶Ó³¤
-	 * \param  rem  ¶ÓÔ±É¾³ıÍ¨ÖªÏûÏ¢
+	 * \brief  æ„é€ å‡½æ•°åˆå§‹åŒ–æˆå‘˜åˆ é™¤æ¶ˆæ¯
+	 * \param  u é˜Ÿé•¿
+	 * \param  rem  é˜Ÿå‘˜åˆ é™¤é€šçŸ¥æ¶ˆæ¯
 	 */
 	RemoveMemberExec(SceneUser *u , const Cmd::stRemoveTeamMemberUserCmd *rem)
 	{
@@ -590,9 +590,9 @@ struct RemoveMemberExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  »Øµ÷·½·¨Í¨ÖªËùÓĞ¶ÓÔ±ÓĞ³ÉÔ±Àë¿ª
-	 * \param  member ¶ÓÔ±
-	 * \return true ¼ÌĞø±éÀú false ÖÕÖ¹±éÀú
+	 * \brief  å›è°ƒæ–¹æ³•é€šçŸ¥æ‰€æœ‰é˜Ÿå‘˜æœ‰æˆå‘˜ç¦»å¼€
+	 * \param  member é˜Ÿå‘˜
+	 * \return true ç»§ç»­éå† false ç»ˆæ­¢éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -601,7 +601,7 @@ struct RemoveMemberExec : public TeamMemExec
 		if(pUser)
 		{
 			pUser->sendCmdToMe(&ret , sizeof(ret));
-			//Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%sÀë¿ª¶ÓÎé" , ret.pstrName);
+			//Channel::sendSys(pUser , Cmd::INFO_TYPE_GAME, "%sç¦»å¼€é˜Ÿä¼" , ret.pstrName);
 		}
 		return true;
 	}
@@ -609,9 +609,9 @@ struct RemoveMemberExec : public TeamMemExec
 };
 
 /**
- * \brief  ÔÚ¶ÓÎéÖĞÌßÈË
- * \param  pUser ¶Ó³¤
- * \param rev ¶ÓÔ±É¾³ıÏûÏ¢
+ * \brief  åœ¨é˜Ÿä¼ä¸­è¸¢äºº
+ * \param  pUser é˜Ÿé•¿
+ * \param rev é˜Ÿå‘˜åˆ é™¤æ¶ˆæ¯
  */
 void TeamManager::kickoutMember(SceneUser *pUser , Cmd::stRemoveTeamMemberUserCmd *rev)
 {
@@ -627,16 +627,16 @@ void TeamManager::kickoutMember(SceneUser *pUser , Cmd::stRemoveTeamMemberUserCm
 		{
 			u->team.setLeader(0);
 			u->reSendMyMapData();
-			// Session¶ÓÎé
+			// Sessioné˜Ÿä¼
 			delMemberToSession(pUser->id ,u->id);
 		}
 	}
 }
 
 /**
- * \brief  ÏìÓ¦ÏûÏ¢É¾³ı¶ÓÎé³ÉÔ±
- * \param  pUser ±»É¾³ıµÄ³ÉÔ±
- * \param  rev É¾³ı¶ÓÎé³ÉÔ±ÏûÏ¢
+ * \brief  å“åº”æ¶ˆæ¯åˆ é™¤é˜Ÿä¼æˆå‘˜
+ * \param  pUser è¢«åˆ é™¤çš„æˆå‘˜
+ * \param  rev åˆ é™¤é˜Ÿä¼æˆå‘˜æ¶ˆæ¯
  */
 void TeamManager::removeMember(SceneUser *pUser , Cmd::stRemoveTeamMemberUserCmd *rev)
 {
@@ -653,32 +653,32 @@ void TeamManager::removeMember(SceneUser *pUser , Cmd::stRemoveTeamMemberUserCmd
 			//FunctionTimes times(101,__FUNCTION__);
 			u->team.setLeader(0);
 			u->reSendMyMapData();
-			// Session¶ÓÎé
+			// Sessioné˜Ÿä¼
 			delMemberToSession(pUser->id ,u->id);
 		}
 	}
 }
 
 /**
- * \brief  É¾³ı¶ÓÎé³ÉÔ±
- * \param  pUser ¶Ó³¤
- * \param  mem ±»É¾³ı³ÉÔ±
+ * \brief  åˆ é™¤é˜Ÿä¼æˆå‘˜
+ * \param  pUser é˜Ÿé•¿
+ * \param  mem è¢«åˆ é™¤æˆå‘˜
  */
 void TeamManager::removeMember(SceneUser *pUser , SceneUser *mem)
 {
-	//TODO É¾³ı¶ÓÓÑ
+	//TODO åˆ é™¤é˜Ÿå‹
 	Cmd::stRemoveTeamMemberUserCmd ret;
 	ret.dwTeamID = pUser->tempid;
 	//strncpy(ret.pstrName , mem->name , MAX_NAMESIZE);
 	ret.dwTempID=mem->tempid;
 	removeMember(pUser , &ret);
-	// Session¶ÓÎé
+	// Sessioné˜Ÿä¼
 	delMemberToSession(pUser->id ,mem->id);
 }				
 
 /**
- * \brief  ±éÀú
- * \param  callback »Øµ÷·½·¨
+ * \brief  éå†
+ * \param  callback å›è°ƒæ–¹æ³•
  */
 void TeamManager::execEveryOne(TeamMemExec &callback)
 {
@@ -686,9 +686,9 @@ void TeamManager::execEveryOne(TeamMemExec &callback)
 }
 
 /**
- * \brief  ±éÀú³ıÁËÌØ¶¨³ÉÔ±ÒÔÍâµÄËùÓĞ¶ÓÔ±
- * \param  callback »Øµ÷·½·¨
- * \param  tempid ±»ÅÅ³ı¶ÓÔ±µÄ id
+ * \brief  éå†é™¤äº†ç‰¹å®šæˆå‘˜ä»¥å¤–çš„æ‰€æœ‰é˜Ÿå‘˜
+ * \param  callback å›è°ƒæ–¹æ³•
+ * \param  tempid è¢«æ’é™¤é˜Ÿå‘˜çš„ id
  */
 void TeamManager::execEveryOneExceptMe(TeamMemExec &callback , DWORD tempid)
 {
@@ -696,18 +696,18 @@ void TeamManager::execEveryOneExceptMe(TeamMemExec &callback , DWORD tempid)
 }
 
 /**
- * \brief  ¸ù¾İidÔö¼ÓÒ»¸öĞÂµÄ³ÉÔ±
- * \param  pUser ½ÇÉ«Ö¸Õë£¬ÎŞÌØ¶¨ÒªÇó
- * \param  id ĞÂÔö³ÉÔ±µÄ id
- * \return true Ôö¼Ó³É¹¦ false Ôö¼ÓÊ§°Ü
+ * \brief  æ ¹æ®idå¢åŠ ä¸€ä¸ªæ–°çš„æˆå‘˜
+ * \param  pUser è§’è‰²æŒ‡é’ˆï¼Œæ— ç‰¹å®šè¦æ±‚
+ * \param  id æ–°å¢æˆå‘˜çš„ id
+ * \return true å¢åŠ æˆåŠŸ false å¢åŠ å¤±è´¥
  */
 bool TeamManager::addMemberByID(SceneUser *pUser , DWORD id)
 {
-	//ÔÚµØ²ã×öÅĞ¶Ï
+	//åœ¨åœ°å±‚åšåˆ¤æ–­
 	/*
 	if(IsFull())
 	{
-		//TODO ÌáÊ¾Âú
+		//TODO æç¤ºæ»¡
 		return false;
 	}
 	// */
@@ -726,34 +726,34 @@ bool TeamManager::addMemberByID(SceneUser *pUser , DWORD id)
 }
 
 /**
- * \brief  ±éÀú¼ì²éÀëÏß³ÉÔ±×´Ì¬£¬Î´ÀëÏß³ÉÔ±¼ÆËãÀëÏßÊ±¼ä£¬³¬¹ı¹æ¶¨Ê±¼äµÄÀëÏß³ÉÔ±´Ó¶ÓÎéÖĞÉ¾³ı
+ * \brief  éå†æ£€æŸ¥ç¦»çº¿æˆå‘˜çŠ¶æ€ï¼Œæœªç¦»çº¿æˆå‘˜è®¡ç®—ç¦»çº¿æ—¶é—´ï¼Œè¶…è¿‡è§„å®šæ—¶é—´çš„ç¦»çº¿æˆå‘˜ä»é˜Ÿä¼ä¸­åˆ é™¤
  */
 struct CheckOfflineExec : public TeamMemExec
 {
-	/// ¶Ó³¤
+	/// é˜Ÿé•¿
 	SceneUser *leader;
 
-	/// ÀàĞÍ¶¨Òå
+	/// ç±»å‹å®šä¹‰
 	typedef std::vector<Cmd::stRemoveTeamMemberUserCmd> Remove_vec;
 
-	/// ÀàĞÍ¶¨Òå
+	/// ç±»å‹å®šä¹‰
 	typedef Remove_vec::iterator Remove_vec_iterator;
 
-	/// Çå³ı¹ÜÀíÆ÷
+	/// æ¸…é™¤ç®¡ç†å™¨
 	Remove_vec del_vec;
 
-	/// ÀàĞÍ¶¨Òå
+	/// ç±»å‹å®šä¹‰
 	typedef std::vector<DWORD> Online_vec;
 
-	/// ¶¨Òåµü´úÖ¸Õë
+	/// å®šä¹‰è¿­ä»£æŒ‡é’ˆ
 	typedef Online_vec::iterator Online_vec_iterator;
 
-	/// ÖØĞÂÉÏÏß¹ÜÀíÆ÷
+	/// é‡æ–°ä¸Šçº¿ç®¡ç†å™¨
 	Online_vec add_vec;
 
 	/**
-	 * \brief  ¹¹Ôìº¯Êı³õÊ¼»¯ÊôĞÔ
-	 * \param  u ¶Ó³¤
+	 * \brief  æ„é€ å‡½æ•°åˆå§‹åŒ–å±æ€§
+	 * \param  u é˜Ÿé•¿
 	 */
 	CheckOfflineExec(SceneUser *u)
 	{
@@ -761,9 +761,9 @@ struct CheckOfflineExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  ±éÀú´¦ÀíÀëÏß³ÉÔ±
-	 * \param  member ³ÉÔ±
-	 * \return true ¼ÌĞø±éÀú false ÖÕÖ¹±éÀú
+	 * \brief  éå†å¤„ç†ç¦»çº¿æˆå‘˜
+	 * \param  member æˆå‘˜
+	 * \return true ç»§ç»­éå† false ç»ˆæ­¢éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -776,7 +776,7 @@ struct CheckOfflineExec : public TeamMemExec
 				add_vec.push_back(pUser->id);
 			}
 			/*
-			//¸Õ¸ÕÉÏÏß
+			//åˆšåˆšä¸Šçº¿
 			if(member.offtime != 0)
 			{
 			if(!pUser->team.IsTeamed())
@@ -792,7 +792,7 @@ struct CheckOfflineExec : public TeamMemExec
 			member.offtime += 10;
 			if(member.offtime >= 120)
 			{
-				//TODO É¾³ı¶ÓÓÑ
+				//TODO åˆ é™¤é˜Ÿå‹
 				Cmd::stRemoveTeamMemberUserCmd ret;
 				ret.dwTeamID = leader->tempid;
 				//strncpy(ret.pstrName , member.name , MAX_NAMESIZE);
@@ -805,8 +805,8 @@ struct CheckOfflineExec : public TeamMemExec
 };
 
 /**
- * \brief  ¼ì²éÀëÏß³ÉÔ±×´Ì¬£¬É¾³ı³¬Ê±µÄ£¬»Ö¸´ÉÏÏßµÄ
- * \param  pUser ¶Ó³¤
+ * \brief  æ£€æŸ¥ç¦»çº¿æˆå‘˜çŠ¶æ€ï¼Œåˆ é™¤è¶…æ—¶çš„ï¼Œæ¢å¤ä¸Šçº¿çš„
+ * \param  pUser é˜Ÿé•¿
  */
 void TeamManager::checkOffline(SceneUser *pUser)
 {
@@ -840,20 +840,20 @@ void TeamManager::checkOffline(SceneUser *pUser)
 }
 
 /**
- * \brief  ±éÀú½«¶ÓÎéÖĞËùÓĞµÄ³ÉÔ±×ªÒÆµ½ĞÂ¶Ó³¤ÃûÏÂ
+ * \brief  éå†å°†é˜Ÿä¼ä¸­æ‰€æœ‰çš„æˆå‘˜è½¬ç§»åˆ°æ–°é˜Ÿé•¿åä¸‹
  */
 struct ChangeLeaderExec : public TeamMemExec
 {
-	/// ÏÖÈÎ¶Ó³¤
+	/// ç°ä»»é˜Ÿé•¿
 	SceneUser *leader;
 
-	/// ĞÂ¶Ó³¤
+	/// æ–°é˜Ÿé•¿
 	SceneUser *newleader;
 
 	/**
-	 * \brief  ¹¹Ôì³õÊ¼»¯ÊôĞÔ
-	 * \param  u ÏÖÔÚÈÎ¶Ó³¤
-	 * \param  n Î´À´¶Ó³¤
+	 * \brief  æ„é€ åˆå§‹åŒ–å±æ€§
+	 * \param  u ç°åœ¨ä»»é˜Ÿé•¿
+	 * \param  n æœªæ¥é˜Ÿé•¿
 	 */
 	ChangeLeaderExec(SceneUser *u , SceneUser *n)
 	{
@@ -862,9 +862,9 @@ struct ChangeLeaderExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  ±éÀú½«ËùÓĞ¶ÓÔ±×ªÒÆµ½ĞÂ¶Ó³¤ÃûÏÂ
-	 * \param  member ³ÉÔ±
-	 * \return  true ¼ÌĞø±éÀú false ÖÕÖ¹±éÀú
+	 * \brief  éå†å°†æ‰€æœ‰é˜Ÿå‘˜è½¬ç§»åˆ°æ–°é˜Ÿé•¿åä¸‹
+	 * \param  member æˆå‘˜
+	 * \return  true ç»§ç»­éå† false ç»ˆæ­¢éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -882,19 +882,19 @@ struct ChangeLeaderExec : public TeamMemExec
 };
 
 /**
- * \brief  ±éÀú¶ÓÎé²éÕÒÒ»¸öÏÖÈÎ¶Ó³¤ÒÔÍâµÄ³ÉÔ±Ê¹Æä³ÉÎªĞÂ¶Ó³¤
+ * \brief  éå†é˜Ÿä¼æŸ¥æ‰¾ä¸€ä¸ªç°ä»»é˜Ÿé•¿ä»¥å¤–çš„æˆå‘˜ä½¿å…¶æˆä¸ºæ–°é˜Ÿé•¿
  */
 struct FindLeaderExec : public TeamMemExec
 {
-	/// ÏÖÈÎ¶Ó³¤
+	/// ç°ä»»é˜Ÿé•¿
 	SceneUser *leader;
 
-	/// ĞÂ¶Ó³¤
+	/// æ–°é˜Ÿé•¿
 	SceneUser *newleader;
 
 	/**
-	 * \brief  ¹¹Ôìº¯Êı³õÊ¼»¯±äÁ¿
-	 * \param  u µ±Ç°¶Ó³¤
+	 * \brief  æ„é€ å‡½æ•°åˆå§‹åŒ–å˜é‡
+	 * \param  u å½“å‰é˜Ÿé•¿
 	 */
 	FindLeaderExec(SceneUser *u)
 	{
@@ -903,9 +903,9 @@ struct FindLeaderExec : public TeamMemExec
 	}
 
 	/**
-	 * \brief  ±éÀú²éÕÒĞÂµÄ¶Ó³¤
-	 * \param  member ³ÉÔ±
-	 * \return true ±íÊ¾¼ÌĞø±éÀú false ÖÕÖ¹±éÀú
+	 * \brief  éå†æŸ¥æ‰¾æ–°çš„é˜Ÿé•¿
+	 * \param  member æˆå‘˜
+	 * \return true è¡¨ç¤ºç»§ç»­éå† false ç»ˆæ­¢éå†
 	 */
 	bool exec(TeamMember &member)
 	{
@@ -925,9 +925,9 @@ struct FindLeaderExec : public TeamMemExec
 };
 
 /**
- * \brief  ²éÕÒÒ»¸öĞÂµÄ¶Ó³¤
- * \param  pUser µ±Ç°¶Ó³¤
- * \return ĞÂµÄ¶Ó³¤¶ÔÏó½ÇÉ«Ö¸Õë
+ * \brief  æŸ¥æ‰¾ä¸€ä¸ªæ–°çš„é˜Ÿé•¿
+ * \param  pUser å½“å‰é˜Ÿé•¿
+ * \return æ–°çš„é˜Ÿé•¿å¯¹è±¡è§’è‰²æŒ‡é’ˆ
  */
 SceneUser *TeamManager::findNewLeader(SceneUser *pUser)
 {
@@ -937,9 +937,9 @@ SceneUser *TeamManager::findNewLeader(SceneUser *pUser)
 }
 
 /**
- * \brief  ¸Ä±ä¶Ó³¤
- * \param  pUser µ±Ç°¶Ó³¤
- * \return true ¸Ä±ä³É¹¦  false ¸Ä±äÊ§°Ü
+ * \brief  æ”¹å˜é˜Ÿé•¿
+ * \param  pUser å½“å‰é˜Ÿé•¿
+ * \return true æ”¹å˜æˆåŠŸ  false æ”¹å˜å¤±è´¥
  */
 bool TeamManager::changeLeader(SceneUser *pUser)
 {
@@ -957,18 +957,18 @@ bool TeamManager::changeLeader(SceneUser *pUser)
 }
 
 /**
- * \brief  ¸ù¾İÁÙÊ±idÔö¼Ó¶ÓÎé³ÉÔ±
- * \param  pUser Î´Ê¹ÓÃ
- * \param tempid ĞÂÔö¼Ó³ÉÔ±µÄÁÙÊ±id
- * \return true Ôö¼Ó³É¹¦ false Ôö¼ÓÊ§°Ü
+ * \brief  æ ¹æ®ä¸´æ—¶idå¢åŠ é˜Ÿä¼æˆå‘˜
+ * \param  pUser æœªä½¿ç”¨
+ * \param tempid æ–°å¢åŠ æˆå‘˜çš„ä¸´æ—¶id
+ * \return true å¢åŠ æˆåŠŸ false å¢åŠ å¤±è´¥
  */
 bool TeamManager::addMemberByTempID(SceneUser *pUser , DWORD tempid)
 {
-	//ÔÚµØ²ã×öÅĞ¶Ï
+	//åœ¨åœ°å±‚åšåˆ¤æ–­
 	/*
 	if(IsFull())
 	{
-		//TODO ÌáÊ¾Âú
+		//TODO æç¤ºæ»¡
 		return false;
 	}
 	// */
@@ -988,8 +988,8 @@ bool TeamManager::addMemberByTempID(SceneUser *pUser , DWORD tempid)
 }
 
 /**
- * \brief  ¸ù¾İid É¾³ı³ÉÔ±
- * \param  id ½ÇÉ«µÄid
+ * \brief  æ ¹æ®id åˆ é™¤æˆå‘˜
+ * \param  id è§’è‰²çš„id
  */
 void TeamManager::removeMemberByID(DWORD id)
 {
@@ -997,8 +997,8 @@ void TeamManager::removeMemberByID(DWORD id)
 }
 
 /**
- * \brief ¸ù¾İÁÙÊ±idÉ¾³ı³ÉÔ± 
- * \param  tempid ÁÙÊ±id
+ * \brief æ ¹æ®ä¸´æ—¶idåˆ é™¤æˆå‘˜ 
+ * \param  tempid ä¸´æ—¶id
  */
 void TeamManager::removeMemberByTempID(DWORD tempid)
 {
@@ -1006,7 +1006,7 @@ void TeamManager::removeMemberByTempID(DWORD tempid)
 }
 
 /**
- * \brief ÇëÇóÓÑºÃ¶È¹ØÏµ
+ * \brief è¯·æ±‚å‹å¥½åº¦å…³ç³»
  */
 void TeamManager::requestFriendDegree()
 {
@@ -1014,7 +1014,7 @@ void TeamManager::requestFriendDegree()
 }
 
 /**
- * \brief  ·¢ËÍµ±Ç°ÓÑºÃ¶È¹ØÏµÁĞ±íµ½»á»°´æµµ
+ * \brief  å‘é€å½“å‰å‹å¥½åº¦å…³ç³»åˆ—è¡¨åˆ°ä¼šè¯å­˜æ¡£
  */
 void TeamManager::sendFriendDegreeToSession()
 {
@@ -1082,9 +1082,9 @@ void TeamManager::sendFriendDegreeToSession()
 }
 
 /**
- * \brief  ÉèÖÃÓÑºÃ¶ÈÁ÷³Ì°Ñµ±Ç°µÄÓÑºÃ¶ÈÖµÌæ»»µ½·¢¹ıÀ´µÄ¹ØÏµÇåµ¥ÖĞ£¬ÒòÎªµ±Ç°ÖµÊÇ×îĞÂµÄ£¬
-		   È»ºóÇå¿ÕÖ®Ç°µÄ¹ØÏµÁĞ±í£¬ÔÙ°ÑÊÕµ½µÄ¹ØÏµÇåµ¥²åÈëµ½¹ØÏµÁĞ±íÖĞ
- * \param  rev ÓÑºÃ¶È¹ØÏµÁĞ±íÏûÏ¢
+ * \brief  è®¾ç½®å‹å¥½åº¦æµç¨‹æŠŠå½“å‰çš„å‹å¥½åº¦å€¼æ›¿æ¢åˆ°å‘è¿‡æ¥çš„å…³ç³»æ¸…å•ä¸­ï¼Œå› ä¸ºå½“å‰å€¼æ˜¯æœ€æ–°çš„ï¼Œ
+		   ç„¶åæ¸…ç©ºä¹‹å‰çš„å…³ç³»åˆ—è¡¨ï¼Œå†æŠŠæ”¶åˆ°çš„å…³ç³»æ¸…å•æ’å…¥åˆ°å…³ç³»åˆ—è¡¨ä¸­
+ * \param  rev å‹å¥½åº¦å…³ç³»åˆ—è¡¨æ¶ˆæ¯
  */
 void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSession *rev)
 {
@@ -1092,18 +1092,18 @@ void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSessio
 
 	if (NULL == rev)
 	{
-		friendList.clear();   // ÅóÓÑÁĞ±í
-		consortList.clear();  // ·òÆŞÁĞ±í
-		teacherList.clear();  // Ê¦¸µÁĞ±í
-		prenticeList.clear(); // Í½µÜÁĞ±í
+		friendList.clear();   // æœ‹å‹åˆ—è¡¨
+		consortList.clear();  // å¤«å¦»åˆ—è¡¨
+		teacherList.clear();  // å¸ˆå‚…åˆ—è¡¨
+		prenticeList.clear(); // å¾’å¼Ÿåˆ—è¡¨
 
 	}
 	else if (0 == rev->size)
 	{
-		friendList.clear();   // ÅóÓÑÁĞ±í
-		consortList.clear();  // ·òÆŞÁĞ±í
-		teacherList.clear();  // Ê¦¸µÁĞ±í
-		prenticeList.clear(); // Í½µÜÁĞ±í
+		friendList.clear();   // æœ‹å‹åˆ—è¡¨
+		consortList.clear();  // å¤«å¦»åˆ—è¡¨
+		teacherList.clear();  // å¸ˆå‚…åˆ—è¡¨
+		prenticeList.clear(); // å¾’å¼Ÿåˆ—è¡¨
 	}
 	else
 	{
@@ -1119,7 +1119,7 @@ void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSessio
 			templist.push_back(unit);
 		}
 
-		if (!friendList.empty())   // ÅóÓÑÁĞ±í
+		if (!friendList.empty())   // æœ‹å‹åˆ—è¡¨
 		{
 			std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 			for(sIterator = friendList.begin(); sIterator!= friendList.end(); sIterator++)
@@ -1136,7 +1136,7 @@ void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSessio
 				}
 			}
 		}
-		if (!consortList.empty())  // ·òÆŞÁĞ±í
+		if (!consortList.empty())  // å¤«å¦»åˆ—è¡¨
 		{
 			std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 			for(sIterator = consortList.begin(); sIterator!= consortList.end(); sIterator++)
@@ -1153,7 +1153,7 @@ void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSessio
 				}
 			}
 		}
-		if (!teacherList.empty())  // Ê¦¸µÁĞ±í
+		if (!teacherList.empty())  // å¸ˆå‚…åˆ—è¡¨
 		{
 			std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 			for(sIterator = teacherList.begin(); sIterator!= teacherList.end(); sIterator++)
@@ -1170,7 +1170,7 @@ void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSessio
 				}
 			}
 		}
-		if (!prenticeList.empty()) // Í½µÜÁĞ±í
+		if (!prenticeList.empty()) // å¾’å¼Ÿåˆ—è¡¨
 		{
 			std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 			for(sIterator = prenticeList.begin(); sIterator!= prenticeList.end(); sIterator++)
@@ -1188,10 +1188,10 @@ void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSessio
 			}
 		}
 
-		friendList.clear();   // ÅóÓÑÁĞ±í
-		consortList.clear();  // ·òÆŞÁĞ±í
-		teacherList.clear();  // Ê¦¸µÁĞ±í
-		prenticeList.clear(); // Í½µÜÁĞ±í
+		friendList.clear();   // æœ‹å‹åˆ—è¡¨
+		consortList.clear();  // å¤«å¦»åˆ—è¡¨
+		teacherList.clear();  // å¸ˆå‚…åˆ—è¡¨
+		prenticeList.clear(); // å¾’å¼Ÿåˆ—è¡¨
 
 		std::list<stTempDegreeMember>::iterator tIterator;
 		for(tIterator = templist.begin(); tIterator!=templist.end(); tIterator++)
@@ -1232,8 +1232,8 @@ void TeamManager::setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSessio
 }
 
 /**
- * \brief  ¶îÍâ½ğÇ®½±Àø
- * \param  wdMoney ½±Àø²ÎÕÕ¶î¶È
+ * \brief  é¢å¤–é‡‘é’±å¥–åŠ±
+ * \param  wdMoney å¥–åŠ±å‚ç…§é¢åº¦
  */
 void TeamManager::putMoneyPlus(WORD wdMoney)
 {
@@ -1248,7 +1248,7 @@ void TeamManager::putMoneyPlus(WORD wdMoney)
 			pMaster = SceneUserManager::getMe().getUserByID(teacherList.begin()->second.dwUserID);
 			if (pMaster)
 			{
-				pMaster->packs.addMoney((WORD)(wdMoney*(FRIENDDEGREE_MONEYPLUS_RATE/100.0f)), "¶ÓÎé¶îÍâ½±Àø","»ñµÃ¶îÍâ½ğÇ®½±Àø");
+				pMaster->packs.addMoney((WORD)(wdMoney*(FRIENDDEGREE_MONEYPLUS_RATE/100.0f)), "é˜Ÿä¼é¢å¤–å¥–åŠ±","è·å¾—é¢å¤–é‡‘é’±å¥–åŠ±");
 			}
 		}
 	}
@@ -1257,8 +1257,8 @@ void TeamManager::putMoneyPlus(WORD wdMoney)
 
 
 /**
- * \brief  »ñÈ¡ÓÑºÃ¶ÈÏà¹Ø¸½¼Ó¾­ÑéÖµ
- * \param  wdExp ½±Àø²ÎÕÕ¶î¶È
+ * \brief  è·å–å‹å¥½åº¦ç›¸å…³é™„åŠ ç»éªŒå€¼
+ * \param  wdExp å¥–åŠ±å‚ç…§é¢åº¦
  */
 DWORD TeamManager::getExpPlus(WORD wdExp)
 {
@@ -1275,7 +1275,7 @@ DWORD TeamManager::getExpPlus(WORD wdExp)
 			pLeader = SceneUserManager::getMe().getUserByTempID(team.leader);
 			if (pMaster && pLeader)
 			{
-				// TODO °ÑÏÂÃæµÄ¼ÆËã¹«Ê½¸Ä³ÉÒ»¸öºê
+				// TODO æŠŠä¸‹é¢çš„è®¡ç®—å…¬å¼æ”¹æˆä¸€ä¸ªå®
 				Exp = (DWORD)((wdExp * (((pMaster->charbase.level / 30.0f)+1.0f) / pLeader->team.getAverageExp()) + 0.9)*(FRIENDDEGREE_EXPPLUS_RATE/100.0f));
 				if (0 == Exp) Exp = 1;
 			}
@@ -1286,8 +1286,8 @@ DWORD TeamManager::getExpPlus(WORD wdExp)
 }
 
 /**
- * \brief  »ñÈ¡ÓÑºÃ¶È¹¥»÷¸½¼ÓÖµ
- * \return ¸½¼ÓÖµ
+ * \brief  è·å–å‹å¥½åº¦æ”»å‡»é™„åŠ å€¼
+ * \return é™„åŠ å€¼
  */
 DWORD TeamManager::getAttPlus()
 {
@@ -1422,8 +1422,8 @@ DWORD TeamManager::getAttPlus()
 }
 
 /**
- * \brief  »ñÈ¡ÓÑºÃ¶È·ÀÓù¸½¼ÓÖµ
- * \return ¸½¼ÓÖµ
+ * \brief  è·å–å‹å¥½åº¦é˜²å¾¡é™„åŠ å€¼
+ * \return é™„åŠ å€¼
  */
 DWORD TeamManager::getDefPlus()
 {
@@ -1549,7 +1549,7 @@ DWORD TeamManager::getDefPlus()
 }
 
 /**
- * \brief  ÊµÊ±ÀÛ¼Ó¼ÆËãËùÓĞ¹ØÏµµÄÓÑºÃ¶È¹ØÏµ
+ * \brief  å®æ—¶ç´¯åŠ è®¡ç®—æ‰€æœ‰å…³ç³»çš„å‹å¥½åº¦å…³ç³»
  */
 void TeamManager::countFriendDegree()
 {
@@ -1558,7 +1558,7 @@ void TeamManager::countFriendDegree()
 	bool oper = false;
 
 	relationlock.rdlock();
-	if (!friendList.empty())   // ÅóÓÑÁĞ±í
+	if (!friendList.empty())   // æœ‹å‹åˆ—è¡¨
 	{
 		std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 		for(sIterator = friendList.begin(); sIterator!= friendList.end(); sIterator++)
@@ -1572,7 +1572,7 @@ void TeamManager::countFriendDegree()
 			}
 		}
 	}
-	if (!consortList.empty())  // ·òÆŞÁĞ±í
+	if (!consortList.empty())  // å¤«å¦»åˆ—è¡¨
 	{
 		std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 		for(sIterator = consortList.begin(); sIterator!= consortList.end(); sIterator++)
@@ -1586,7 +1586,7 @@ void TeamManager::countFriendDegree()
 			}
 		}
 	}
-	if (!teacherList.empty())  // Ê¦¸µÁĞ±í
+	if (!teacherList.empty())  // å¸ˆå‚…åˆ—è¡¨
 	{
 		std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 		for(sIterator = teacherList.begin(); sIterator!= teacherList.end(); sIterator++)
@@ -1600,7 +1600,7 @@ void TeamManager::countFriendDegree()
 			}
 		}
 	}
-	if (!prenticeList.empty()) // Í½µÜÁĞ±í
+	if (!prenticeList.empty()) // å¾’å¼Ÿåˆ—è¡¨
 	{
 		std::map<WORD, struct stDegreeMember,ltword>::iterator sIterator;
 		for(sIterator = prenticeList.begin(); sIterator!= prenticeList.end(); sIterator++)
@@ -1619,14 +1619,14 @@ void TeamManager::countFriendDegree()
 }
 
 /**
- * \brief  ¸ù¾İÁÙÊ±´æµµÊı¾İ¼ÓÔØ¶ÓÎé
- * \param  leader ¶Ó³¤
- * \param  data ÁÙÊ±´æµµ¶ÔÏó
- * \return true ¼ÓÔØ³É¹¦  false ¼ÓÔØÊ§°Ü
+ * \brief  æ ¹æ®ä¸´æ—¶å­˜æ¡£æ•°æ®åŠ è½½é˜Ÿä¼
+ * \param  leader é˜Ÿé•¿
+ * \param  data ä¸´æ—¶å­˜æ¡£å¯¹è±¡
+ * \return true åŠ è½½æˆåŠŸ  false åŠ è½½å¤±è´¥
  */
 bool TeamManager::loadTeam(SceneUser *leader , TempArchiveMember *data)
 {
-	//±¾µØÍ¼²»ÄÜ×é¶Ó
+	//æœ¬åœ°å›¾ä¸èƒ½ç»„é˜Ÿ
 	if(leader->scene->noTeam())
 	{
 		return false;
@@ -1659,7 +1659,7 @@ bool TeamManager::loadTeam(SceneUser *leader , TempArchiveMember *data)
 		{
 			if(!u->team.IsTeamed())
 			{
-				//Zebra::logger->debug("¶ÓÎé%u»Ö¸´³ÉÔ±ÕÒµ½³ÉÔ±,id=%u , tempid=%u , name=%s" , leader->tempid , u->id , u->tempid , u->name);
+				//Zebra::logger->debug("é˜Ÿä¼%uæ¢å¤æˆå‘˜æ‰¾åˆ°æˆå‘˜,id=%u , tempid=%u , name=%s" , leader->tempid , u->id , u->tempid , u->name);
 				if(leader->team.IsFull())
 				{
 					break;
@@ -1672,22 +1672,22 @@ bool TeamManager::loadTeam(SceneUser *leader , TempArchiveMember *data)
 		{
 			team.addMember(pair->id , 0 , pair->name);
 		}
-		//Zebra::logger->debug("»Ö¸´¶ÓÎé³ÉÔ±,id=%u , name=%s" , pair->id , pair->name);
+		//Zebra::logger->debug("æ¢å¤é˜Ÿä¼æˆå‘˜,id=%u , name=%s" , pair->id , pair->name);
 		//size -= (int)((size - sizeof(DWORD)) > 0) ? size - sizeof(DWORD) : 0;
 	}
 	if(leader->team.getSize() == 1)
 	{
 		leader->team.deleteTeam(leader);
 	}
-	//Zebra::logger->debug("load¶ÓÎé³ÉÔ±ÊıÁ¿=%u" , leader->team.getSize());
+	//Zebra::logger->debug("loadé˜Ÿä¼æˆå‘˜æ•°é‡=%u" , leader->team.getSize());
 	return true;
 }
 
 /**
- * \brief  Ôö¼ÓÒ»¸ö³ÉÔ±µ½»á»°
- * \param  leaderid ¶Ó³¤ id
- * \param  userid Ôö¼ÓµÄ³ÉÔ±µÄ id
- * \return true ÎªÏûÏ¢·¢ËÍ³É¹¦ false ÏûÏ¢·¢ËÍÊ§°Ü
+ * \brief  å¢åŠ ä¸€ä¸ªæˆå‘˜åˆ°ä¼šè¯
+ * \param  leaderid é˜Ÿé•¿ id
+ * \param  userid å¢åŠ çš„æˆå‘˜çš„ id
+ * \return true ä¸ºæ¶ˆæ¯å‘é€æˆåŠŸ false æ¶ˆæ¯å‘é€å¤±è´¥
  */
 bool TeamManager::addMemberToSession(DWORD leaderid , DWORD userid)
 {
@@ -1699,10 +1699,10 @@ bool TeamManager::addMemberToSession(DWORD leaderid , DWORD userid)
 }
 
 /**
- * \brief  Ïò»á»°·¢ËÍ³ÉÔ±É¾³ıÏûÏ¢
- * \param  leaderid ¶Ó³¤µÄid
- * \param  userid ±»É¾³ı½ÇÉ«µÄid
- * \return true ÎªÏûÏ¢·¢ËÍ³É¹¦ false ÏûÏ¢·¢ËÍÊ§°Ü
+ * \brief  å‘ä¼šè¯å‘é€æˆå‘˜åˆ é™¤æ¶ˆæ¯
+ * \param  leaderid é˜Ÿé•¿çš„id
+ * \param  userid è¢«åˆ é™¤è§’è‰²çš„id
+ * \return true ä¸ºæ¶ˆæ¯å‘é€æˆåŠŸ false æ¶ˆæ¯å‘é€å¤±è´¥
  */
 bool TeamManager::delMemberToSession(DWORD leaderid , DWORD userid)
 {
@@ -1744,12 +1744,12 @@ struct ExpSizeExec : public TeamMemExec
 		{
 			if(pUser->scene->id == sceneid && pUser->scene->checkTwoPosIInNine(pUser->getPosI(),pos))
 			{
-				//Zebra::logger->debug("¼ì²é9ÆÁ³ÉÔ±×ø±ê³É¹¦(%d,%d)(%d,%d)",pos,pUser->getPosI(),pUser->getPos().x,pUser->getPos().y);
+				//Zebra::logger->debug("æ£€æŸ¥9å±æˆå‘˜åæ ‡æˆåŠŸ(%d,%d)(%d,%d)",pos,pUser->getPosI(),pUser->getPos().x,pUser->getPos().y);
 				size++;
 			}
 			else
 			{
-				//Zebra::logger->debug("¼ì²é9ÆÁ³ÉÔ±×ø±êÊ§°Ü(%d,%d)(%d,%d)",pos,pUser->getPosI(),pUser->getPos().x,pUser->getPos().y);
+				//Zebra::logger->debug("æ£€æŸ¥9å±æˆå‘˜åæ ‡å¤±è´¥(%d,%d)(%d,%d)",pos,pUser->getPosI(),pUser->getPos().x,pUser->getPos().y);
 			}
 		}
 		return true;

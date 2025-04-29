@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPClientTask.cpp $
  * \author  
  * \date 
- * \brief ÊµÏÖÀàzTCPClientTask£¬TCPÁ¬½Ó¿Í»§¶Ë¡£
+ * \brief å®ç°ç±»zTCPClientTaskï¼ŒTCPè¿æ¥å®¢æˆ·ç«¯ã€‚
  *
  * 
  */
@@ -25,10 +25,10 @@
 #include "Zebra.h"
 
 /**
- * \brief ½¨Á¢Ò»¸öµ½·şÎñÆ÷µÄTCPÁ¬½Ó
+ * \brief å»ºç«‹ä¸€ä¸ªåˆ°æœåŠ¡å™¨çš„TCPè¿æ¥
  *
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿æ¥æ˜¯å¦æˆåŠŸ
  */
 bool zTCPClientTask::connect()
 {
@@ -40,11 +40,11 @@ bool zTCPClientTask::connect()
 	nSocket = ::socket(PF_INET, SOCK_STREAM, 0);
 	if (-1 == nSocket)
 	{
-		Zebra::logger->error("´´½¨Ì×½Ó¿ÚÊ§°Ü: %s", strerror(errno));
+		Zebra::logger->error("åˆ›å»ºå¥—æ¥å£å¤±è´¥: %s", strerror(errno));
 		return false;
 	}
 
-	//ÉèÖÃÌ×½Ó¿Ú·¢ËÍ½ÓÊÕ»º³å£¬²¢ÇÒ¿Í»§¶ËµÄ±ØĞëÔÚconnectÖ®Ç°ÉèÖÃ
+	//è®¾ç½®å¥—æ¥å£å‘é€æ¥æ”¶ç¼“å†²ï¼Œå¹¶ä¸”å®¢æˆ·ç«¯çš„å¿…é¡»åœ¨connectä¹‹å‰è®¾ç½®
 	socklen_t window_size = 128 * 1024;
 	retcode = ::setsockopt(nSocket, SOL_SOCKET, SO_RCVBUF, &window_size, sizeof(window_size));
 	if (-1 == retcode)
@@ -67,7 +67,7 @@ bool zTCPClientTask::connect()
 	retcode = TEMP_FAILURE_RETRY(::connect(nSocket, (struct sockaddr *) &addr, sizeof(addr)));
 	if (-1 == retcode)
 	{
-		Zebra::logger->error("´´½¨µ½·şÎñÆ÷ %s(%u) µÄÁ¬½ÓÊ§°Ü", ip.c_str(), port);
+		Zebra::logger->error("åˆ›å»ºåˆ°æœåŠ¡å™¨ %s(%u) çš„è¿æ¥å¤±è´¥", ip.c_str(), port);
 		TEMP_FAILURE_RETRY(::close(nSocket));
 		return false;
 	}
@@ -75,12 +75,12 @@ bool zTCPClientTask::connect()
 	pSocket = new zSocket(nSocket, &addr, compress);
 	if (NULL == pSocket)
 	{
-		Zebra::logger->fatal("Ã»ÓĞ×ã¹»µÄÄÚ´æ£¬²»ÄÜ´´½¨zSocketÊµÀı");
+		Zebra::logger->fatal("æ²¡æœ‰è¶³å¤Ÿçš„å†…å­˜ï¼Œä¸èƒ½åˆ›å»ºzSocketå®ä¾‹");
 		TEMP_FAILURE_RETRY(::close(nSocket));
 		return false;
 	}
 
-	Zebra::logger->info("´´½¨µ½·şÎñÆ÷ %s:%u µÄÁ¬½Ó³É¹¦", ip.c_str(), port);
+	Zebra::logger->info("åˆ›å»ºåˆ°æœåŠ¡å™¨ %s:%u çš„è¿æ¥æˆåŠŸ", ip.c_str(), port);
 
 	return true;
 }
@@ -97,10 +97,10 @@ void zTCPClientTask::checkConn()
 }
 
 /**
- * \brief ÏòÌ×½Ó¿Ú·¢ËÍÖ¸Áî
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \brief å‘å¥—æ¥å£å‘é€æŒ‡ä»¤
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool zTCPClientTask::sendCmd(const void *pstrCmd, const int nCmdLen)
 {
@@ -127,10 +127,10 @@ bool zTCPClientTask::sendCmd(const void *pstrCmd, const int nCmdLen)
 }
 
 /**
- * \brief ´ÓÌ×½Ó¿ÚÖĞ½ÓÊÜÊı¾İ£¬²¢ÇÒ²ğ°ü½øĞĞ´¦Àí£¬ÔÚµ÷ÓÃÕâ¸öº¯ÊıÖ®Ç°±£Ö¤ÒÑ¾­¶ÔÌ×½Ó¿Ú½øĞĞÁËÂÖÑ¯
+ * \brief ä»å¥—æ¥å£ä¸­æ¥å—æ•°æ®ï¼Œå¹¶ä¸”æ‹†åŒ…è¿›è¡Œå¤„ç†ï¼Œåœ¨è°ƒç”¨è¿™ä¸ªå‡½æ•°ä¹‹å‰ä¿è¯å·²ç»å¯¹å¥—æ¥å£è¿›è¡Œäº†è½®è¯¢
  *
- * \param needRecv ÊÇ·ñĞèÒªÕæÕı´ÓÌ×½Ó¿Ú½ÓÊÜÊı¾İ£¬falseÔò²»ĞèÒª½ÓÊÕ£¬Ö»ÊÇ´¦Àí»º³åÖĞÊ£ÓàµÄÖ¸Áî£¬trueĞèÒªÊµ¼Ê½ÓÊÕÊı¾İ£¬È»ºó²Å´¦Àí
- * \return ½ÓÊÕÊÇ·ñ³É¹¦£¬true±íÊ¾½ÓÊÕ³É¹¦£¬false±íÊ¾½ÓÊÕÊ§°Ü£¬¿ÉÄÜĞèÒª¶Ï¿ªÁ¬½Ó 
+ * \param needRecv æ˜¯å¦éœ€è¦çœŸæ­£ä»å¥—æ¥å£æ¥å—æ•°æ®ï¼Œfalseåˆ™ä¸éœ€è¦æ¥æ”¶ï¼Œåªæ˜¯å¤„ç†ç¼“å†²ä¸­å‰©ä½™çš„æŒ‡ä»¤ï¼Œtrueéœ€è¦å®é™…æ¥æ”¶æ•°æ®ï¼Œç„¶åæ‰å¤„ç†
+ * \return æ¥æ”¶æ˜¯å¦æˆåŠŸï¼Œtrueè¡¨ç¤ºæ¥æ”¶æˆåŠŸï¼Œfalseè¡¨ç¤ºæ¥æ”¶å¤±è´¥ï¼Œå¯èƒ½éœ€è¦æ–­å¼€è¿æ¥ 
  */
 bool zTCPClientTask::ListeningRecv(bool needRecv)
 {
@@ -151,7 +151,7 @@ bool zTCPClientTask::ListeningRecv(bool needRecv)
 			unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 			int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 			if (nCmdLen <= 0)
-				//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+				//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 				break;
 			else
 			{
@@ -159,10 +159,10 @@ bool zTCPClientTask::ListeningRecv(bool needRecv)
 				if (Cmd::CMD_NULL == ptNullCmd->cmd
 						&& Cmd::PARA_NULL == ptNullCmd->para)
 				{
-					//Zebra::logger->debug("¿Í»§¶ËÊÕµ½²âÊÔĞÅºÅ");
+					//Zebra::logger->debug("å®¢æˆ·ç«¯æ”¶åˆ°æµ‹è¯•ä¿¡å·");
 					if (!sendCmd(pstrCmd, nCmdLen))
 					{
-						//·¢ËÍÖ¸ÁîÊ§°Ü£¬ÍË³öÑ­»·£¬½áÊøÏß³Ì
+						//å‘é€æŒ‡ä»¤å¤±è´¥ï¼Œé€€å‡ºå¾ªç¯ï¼Œç»“æŸçº¿ç¨‹
 						return false;
 					}
 				}
@@ -176,9 +176,9 @@ bool zTCPClientTask::ListeningRecv(bool needRecv)
 }
 
 /**
- * \brief ·¢ËÍ»º³åÖĞµÄÊı¾İµ½Ì×½Ó¿Ú£¬ÔÙµ÷ÓÃÕâ¸öÖ®Ç°±£Ö¤ÒÑ¾­¶ÔÌ×½Ó¿Ú½øĞĞÁËÂÖÑ¯
+ * \brief å‘é€ç¼“å†²ä¸­çš„æ•°æ®åˆ°å¥—æ¥å£ï¼Œå†è°ƒç”¨è¿™ä¸ªä¹‹å‰ä¿è¯å·²ç»å¯¹å¥—æ¥å£è¿›è¡Œäº†è½®è¯¢
  *
- * \return ·¢ËÍÊÇ·ñ³É¹¦£¬true±íÊ¾·¢ËÍ³É¹¦£¬false±íÊ¾·¢ËÍÊ§°Ü£¬¿ÉÄÜĞèÒª¶Ï¿ªÁ¬½Ó
+ * \return å‘é€æ˜¯å¦æˆåŠŸï¼Œtrueè¡¨ç¤ºå‘é€æˆåŠŸï¼Œfalseè¡¨ç¤ºå‘é€å¤±è´¥ï¼Œå¯èƒ½éœ€è¦æ–­å¼€è¿æ¥
  */
 bool zTCPClientTask::ListeningSend()
 {
@@ -190,7 +190,7 @@ bool zTCPClientTask::ListeningSend()
 }
 
 /**
- * \brief °ÑTCPÁ¬½ÓÈÎÎñ½»¸øÏÂÒ»¸öÈÎÎñ¶ÓÁĞ£¬ÇĞ»»×´Ì¬
+ * \brief æŠŠTCPè¿æ¥ä»»åŠ¡äº¤ç»™ä¸‹ä¸€ä¸ªä»»åŠ¡é˜Ÿåˆ—ï¼Œåˆ‡æ¢çŠ¶æ€
  *
  */
 void zTCPClientTask::getNextState()
@@ -224,7 +224,7 @@ void zTCPClientTask::getNextState()
 }
 
 /**
- * \brief ÖØÖµÁ¬½ÓÈÎÎñ×´Ì¬£¬»ØÊÕÁ¬½Ó
+ * \brief é‡å€¼è¿æ¥ä»»åŠ¡çŠ¶æ€ï¼Œå›æ”¶è¿æ¥
  *
  */
 void zTCPClientTask::resetState()

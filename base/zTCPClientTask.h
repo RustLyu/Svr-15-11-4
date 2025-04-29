@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPClientTask.h  $
  * \author  
  * \date 
- * \brief TCP¿Í»§¶Ë·â×°
+ * \brief TCPå®¢æˆ·ç«¯å°è£…
  *
  * 
  */
@@ -19,9 +19,9 @@
 #include "zTime.h"
 
 /**
- * \brief TCP¿Í»§¶Ë
+ * \brief TCPå®¢æˆ·ç«¯
  *
- * ·â×°ÁËÒ»Ğ©TCP¿Í»§¶ËµÄÂß¼­£¬±ÈÈç½¨Á¢Á¬½ÓµÈµÈ
+ * å°è£…äº†ä¸€äº›TCPå®¢æˆ·ç«¯çš„é€»è¾‘ï¼Œæ¯”å¦‚å»ºç«‹è¿æ¥ç­‰ç­‰
  *
  */
 class zTCPClientTask : public zProcessor, private zNoncopyable
@@ -30,33 +30,33 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 	public:
 
 		/**
-		 * \brief Á¬½Ó¶Ï¿ªÀàĞÍ
+		 * \brief è¿æ¥æ–­å¼€ç±»å‹
 		 *
 		 */
 		enum TerminateMethod
 		{
-			TM_no,						/**< Ã»ÓĞ½áÊøÈÎÎñ */
-			TM_sock_error,				/**< ¼ì²âµ½Ì×½Ó¿Ú¹Ø±Õ»òÕßÌ×½Ó¿ÚÒì³£ */
-			TM_service_close			/**< ·şÎñÆ÷¼´½«¹Ø±Õ */
+			TM_no,						/**< æ²¡æœ‰ç»“æŸä»»åŠ¡ */
+			TM_sock_error,				/**< æ£€æµ‹åˆ°å¥—æ¥å£å…³é—­æˆ–è€…å¥—æ¥å£å¼‚å¸¸ */
+			TM_service_close			/**< æœåŠ¡å™¨å³å°†å…³é—­ */
 		};
 
 		/**
-		 * \brief Á¬½ÓÈÎÎñ×´Ì¬
+		 * \brief è¿æ¥ä»»åŠ¡çŠ¶æ€
 		 *
 		 */
 		enum ConnState
 		{
-			close		=	0,							/**< Á¬½Ó¹Ø±Õ×´Ì¬ */
-			sync		=	1,							/**< µÈ´ıÍ¬²½×´Ì¬ */
-			okay		=	2,							/**< Á¬½Ó´¦Àí½×¶Î */
-			recycle		=	3							/**< Á¬½ÓÍË³ö×´Ì¬ */
+			close		=	0,							/**< è¿æ¥å…³é—­çŠ¶æ€ */
+			sync		=	1,							/**< ç­‰å¾…åŒæ­¥çŠ¶æ€ */
+			okay		=	2,							/**< è¿æ¥å¤„ç†é˜¶æ®µ */
+			recycle		=	3							/**< è¿æ¥é€€å‡ºçŠ¶æ€ */
 		};
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬´´½¨ÊµÀı¶ÔÏó£¬³õÊ¼»¯¶ÔÏó³ÉÔ±
-		 * \param ip µØÖ·
-		 * \param port ¶Ë¿Ú
-		 * \param compress µ×²ãÊı¾İ´«ÊäÊÇ·ñÖ§³ÖÑ¹Ëõ
+		 * \brief æ„é€ å‡½æ•°ï¼Œåˆ›å»ºå®ä¾‹å¯¹è±¡ï¼Œåˆå§‹åŒ–å¯¹è±¡æˆå‘˜
+		 * \param ip åœ°å€
+		 * \param port ç«¯å£
+		 * \param compress åº•å±‚æ•°æ®ä¼ è¾“æ˜¯å¦æ”¯æŒå‹ç¼©
 		 */
 		zTCPClientTask(
 				const std::string &ip, 
@@ -70,7 +70,7 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬Ïú»Ù¶ÔÏó
+		 * \brief ææ„å‡½æ•°ï¼Œé”€æ¯å¯¹è±¡
 		 */
 		virtual ~zTCPClientTask() 
 		{
@@ -78,7 +78,7 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief Çå³şÊı¾İ
+		 * \brief æ¸…æ¥šæ•°æ®
 		 *
 		 */
 		void final()
@@ -89,7 +89,7 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñĞèÒª¹Ø±ÕÁ¬½Ó
+		 * \brief åˆ¤æ–­æ˜¯å¦éœ€è¦å…³é—­è¿æ¥
 		 * \return true or false
 		 */
 		bool isTerminate() const
@@ -98,8 +98,8 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ĞèÒªÖ÷¶¯¶Ï¿ª¿Í»§¶ËµÄÁ¬½Ó
-		 * \param method Á¬½Ó¶Ï¿ª·½Ê½
+		 * \brief éœ€è¦ä¸»åŠ¨æ–­å¼€å®¢æˆ·ç«¯çš„è¿æ¥
+		 * \param method è¿æ¥æ–­å¼€æ–¹å¼
 		 */
 		void Terminate(const TerminateMethod method)
 		{
@@ -107,8 +107,8 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief Èç¹ûÊÇµÚÒ»´Î½øÈëÖ÷Ñ­»·´¦Àí£¬ĞèÒªÏÈ´¦Àí»º³åÖĞµÄÖ¸Áî
-		 * \return ÊÇ·ñÊÇµÚÒ»´Î½øÈëÖ÷´¦ÀíÑ­»·
+		 * \brief å¦‚æœæ˜¯ç¬¬ä¸€æ¬¡è¿›å…¥ä¸»å¾ªç¯å¤„ç†ï¼Œéœ€è¦å…ˆå¤„ç†ç¼“å†²ä¸­çš„æŒ‡ä»¤
+		 * \return æ˜¯å¦æ˜¯ç¬¬ä¸€æ¬¡è¿›å…¥ä¸»å¤„ç†å¾ªç¯
 		 */
 		bool checkFirstMainLoop()
 		{
@@ -122,8 +122,8 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief »ñÈ¡Á¬½ÓÈÎÎñµ±Ç°×´Ì¬
-		 * \return ×´Ì¬
+		 * \brief è·å–è¿æ¥ä»»åŠ¡å½“å‰çŠ¶æ€
+		 * \return çŠ¶æ€
 		 */
 		const ConnState getState() const
 		{
@@ -131,8 +131,8 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÉèÖÃÁ¬½ÓÈÎÎñÏÂÒ»¸ö×´Ì¬
-		 * \param state ĞèÒªÉèÖÃµÄ×´Ì¬
+		 * \brief è®¾ç½®è¿æ¥ä»»åŠ¡ä¸‹ä¸€ä¸ªçŠ¶æ€
+		 * \param state éœ€è¦è®¾ç½®çš„çŠ¶æ€
 		 */
 		void setState(const ConnState state)
 		{
@@ -140,9 +140,9 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief »ñµÃ×´Ì¬µÄ×Ö·û´®ÃèÊö
-		 * \param state ×´Ì¬
-		 * \return ·µ»Ø×´Ì¬µÄ×Ö·û´®ÃèÊö
+		 * \brief è·å¾—çŠ¶æ€çš„å­—ç¬¦ä¸²æè¿°
+		 * \param state çŠ¶æ€
+		 * \return è¿”å›çŠ¶æ€çš„å­—ç¬¦ä¸²æè¿°
 		 */
 		const char *getStateString(const ConnState state)
 		{
@@ -169,10 +169,10 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 
 #ifdef _USE_EPOLL_
 		/**
-		 * \brief Ìí¼Ó¼ì²âÊÂ¼şµ½epollÃèÊö·û
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
-		 * \param ptr ¶îÍâ²ÎÊı
+		 * \brief æ·»åŠ æ£€æµ‹äº‹ä»¶åˆ°epollæè¿°ç¬¦
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
+		 * \param ptr é¢å¤–å‚æ•°
 		 */
 		void addEpoll(int kdpfd, __uint32_t events, void *ptr)
 		{
@@ -180,9 +180,9 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 				pSocket->addEpoll(kdpfd, events, ptr);
 		}
 		/**
-		 * \brief ´ÓepollÃèÊö·ûÖĞÉ¾³ı¼ì²âÊÂ¼ş
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
+		 * \brief ä»epollæè¿°ç¬¦ä¸­åˆ é™¤æ£€æµ‹äº‹ä»¶
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
 		 */
 		void delEpoll(int kdpfd, __uint32_t events)
 		{
@@ -191,9 +191,9 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 #else
 		/**
-		 * \brief Ìî³äpollfd½á¹¹
-		 * \param pfd ´ıÌî³äµÄ½á¹¹
-		 * \param events µÈ´ıµÄÊÂ¼ş²ÎÊı
+		 * \brief å¡«å……pollfdç»“æ„
+		 * \param pfd å¾…å¡«å……çš„ç»“æ„
+		 * \param events ç­‰å¾…çš„äº‹ä»¶å‚æ•°
 		 */
 		void fillPollFD(struct pollfd &pfd, short events)
 		{
@@ -203,11 +203,11 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 #endif
 
 		/**
-		 * \brief ¼ì²âÄ³ÖÖ×´Ì¬ÊÇ·ñÑéÖ¤³¬Ê±
-		 * \param state ´ı¼ì²âµÄ×´Ì¬
-		 * \param ct µ±Ç°ÏµÍ³Ê±¼ä
-		 * \param timeout ³¬Ê±Ê±¼ä
-		 * \return ¼ì²âÊÇ·ñ³É¹¦
+		 * \brief æ£€æµ‹æŸç§çŠ¶æ€æ˜¯å¦éªŒè¯è¶…æ—¶
+		 * \param state å¾…æ£€æµ‹çš„çŠ¶æ€
+		 * \param ct å½“å‰ç³»ç»Ÿæ—¶é—´
+		 * \param timeout è¶…æ—¶æ—¶é—´
+		 * \return æ£€æµ‹æ˜¯å¦æˆåŠŸ
 		 */
 		bool checkStateTimeout(const ConnState state, const zTime &ct, const time_t timeout) const
 		{
@@ -218,9 +218,9 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief Á¬½ÓÑéÖ¤º¯Êı
+		 * \brief è¿æ¥éªŒè¯å‡½æ•°
 		 *
-		 * ×ÓÀàĞèÒªÖØÔØÕâ¸öº¯ÊıÓÃÓÚÑéÖ¤Ò»¸öTCPÁ¬½Ó£¬Ã¿¸öTCPÁ¬½Ó±ØĞëÍ¨¹ıÑéÖ¤²ÅÄÜ½øÈëÏÂÒ»²½´¦Àí½×¶Î£¬È±Ê¡Ê¹ÓÃÒ»Ìõ¿ÕµÄÖ¸Áî×÷ÎªÑéÖ¤Ö¸Áî
+		 * å­ç±»éœ€è¦é‡è½½è¿™ä¸ªå‡½æ•°ç”¨äºéªŒè¯ä¸€ä¸ªTCPè¿æ¥ï¼Œæ¯ä¸ªTCPè¿æ¥å¿…é¡»é€šè¿‡éªŒè¯æ‰èƒ½è¿›å…¥ä¸‹ä¸€æ­¥å¤„ç†é˜¶æ®µï¼Œç¼ºçœä½¿ç”¨ä¸€æ¡ç©ºçš„æŒ‡ä»¤ä½œä¸ºéªŒè¯æŒ‡ä»¤
 		 * <pre>
 		 * int retcode = pSocket->recvToBuf_NoPoll();
 		 * if (retcode > 0)
@@ -228,14 +228,14 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		 * 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		 * 		int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		 * 		if (nCmdLen <= 0)
-		 * 			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+		 * 			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 		 * 			return 0;
 		 * 		else
 		 * 		{
 		 * 			zSocket::t_NullCmd *ptNullCmd = (zSocket::t_NullCmd *)pstrCmd;
 		 * 			if (zSocket::null_opcode == ptNullCmd->opcode)
 		 * 			{
-		 * 				std::cout << "¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤" << std::endl;
+		 * 				std::cout << "å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯" << std::endl;
 		 * 				return 1;
 		 * 			}
 		 * 			else
@@ -248,7 +248,7 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		 * 		return retcode;
 		 * </pre>
 		 *
-		 * \return ÑéÖ¤ÊÇ·ñ³É¹¦£¬1±íÊ¾³É¹¦£¬¿ÉÒÔ½øÈëÏÂÒ»²½²Ù×÷£¬0£¬±íÊ¾»¹Òª¼ÌĞøµÈ´ıÑéÖ¤£¬-1±íÊ¾µÈ´ıÑéÖ¤Ê§°Ü£¬ĞèÒª¶Ï¿ªÁ¬½Ó
+		 * \return éªŒè¯æ˜¯å¦æˆåŠŸï¼Œ1è¡¨ç¤ºæˆåŠŸï¼Œå¯ä»¥è¿›å…¥ä¸‹ä¸€æ­¥æ“ä½œï¼Œ0ï¼Œè¡¨ç¤ºè¿˜è¦ç»§ç»­ç­‰å¾…éªŒè¯ï¼Œ-1è¡¨ç¤ºç­‰å¾…éªŒè¯å¤±è´¥ï¼Œéœ€è¦æ–­å¼€è¿æ¥
 		 */
 		virtual int checkRebound()
 		{
@@ -256,22 +256,22 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ĞèÒªÉ¾³ıÕâ¸öTCPÁ¬½ÓÏà¹Ø×ÊÔ´
+		 * \brief éœ€è¦åˆ é™¤è¿™ä¸ªTCPè¿æ¥ç›¸å…³èµ„æº
 		 */
 		virtual void recycleConn() {};
 
 		/**
-		 * \brief Ò»¸öÁ¬½ÓÈÎÎñÑéÖ¤µÈ²½ÖèÍê³ÉÒÔºó£¬ĞèÒªÌí¼Óµ½È«¾ÖÈİÆ÷ÖĞ
+		 * \brief ä¸€ä¸ªè¿æ¥ä»»åŠ¡éªŒè¯ç­‰æ­¥éª¤å®Œæˆä»¥åï¼Œéœ€è¦æ·»åŠ åˆ°å…¨å±€å®¹å™¨ä¸­
 		 *
-		 * Õâ¸öÈ«¾ÖÈİÆ÷ÊÇÍâ²¿ÈİÆ÷
+		 * è¿™ä¸ªå…¨å±€å®¹å™¨æ˜¯å¤–éƒ¨å®¹å™¨
 		 *
 		 */
 		virtual void addToContainer() {};
 
 		/**
-		 * \brief Á¬½ÓÈÎÎñÍË³öµÄÊ±ºò£¬ĞèÒª´ÓÈ«¾ÖÈİÆ÷ÖĞÉ¾³ı
+		 * \brief è¿æ¥ä»»åŠ¡é€€å‡ºçš„æ—¶å€™ï¼Œéœ€è¦ä»å…¨å±€å®¹å™¨ä¸­åˆ é™¤
 		 *
-		 * Õâ¸öÈ«¾ÖÈİÆ÷ÊÇÍâ²¿ÈİÆ÷
+		 * è¿™ä¸ªå…¨å±€å®¹å™¨æ˜¯å¤–éƒ¨å®¹å™¨
 		 *
 		 */
 		virtual void removeFromContainer() {};
@@ -286,18 +286,18 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 		void getNextState();
 		void resetState();
 		/**
-		 * \brief ¼ì²éÊÇ·ñÒÑ¾­¼ÓÈë¶ÁÊÂ¼ş
+		 * \brief æ£€æŸ¥æ˜¯å¦å·²ç»åŠ å…¥è¯»äº‹ä»¶
 		 *
-		 * \return ÊÇ·ñ¼ÓÈë
+		 * \return æ˜¯å¦åŠ å…¥
 		 */
 		bool isFdsrAdd()
 		{
 			return fdsradd;
 		}
 		/**
-		 * \brief ÉèÖÃ¼ÓÈë¶ÁÊÂ¼ş±êÖ¾
+		 * \brief è®¾ç½®åŠ å…¥è¯»äº‹ä»¶æ ‡å¿—
 		 *
-		 * \return ÊÇ·ñ¼ÓÈë
+		 * \return æ˜¯å¦åŠ å…¥
 		 */
 		bool fdsrAdd(bool set=true)
 		{
@@ -307,19 +307,19 @@ class zTCPClientTask : public zProcessor, private zNoncopyable
 
 	protected:
 
-		zSocket *pSocket;								/**< µ×²ãÌ×½Ó¿Ú */
-		volatile ConnState state;						/**< Á¬½Ó×´Ì¬ */
+		zSocket *pSocket;								/**< åº•å±‚å¥—æ¥å£ */
+		volatile ConnState state;						/**< è¿æ¥çŠ¶æ€ */
 
 	private:
 
-		bool fdsradd;									/**< ¶ÁÊÂ¼şÌí¼Ó±êÖ¾ */
-		const bool compress;							/**< ÊÇ·ñÖ§³ÖÑ¹Ëõ */
-		const std::string ip;							/**< ·şÎñÆ÷µØÖ· */
-		const unsigned short port;						/**< ·şÎñÆ÷¶Ë¿Ú */
+		bool fdsradd;									/**< è¯»äº‹ä»¶æ·»åŠ æ ‡å¿— */
+		const bool compress;							/**< æ˜¯å¦æ”¯æŒå‹ç¼© */
+		const std::string ip;							/**< æœåŠ¡å™¨åœ°å€ */
+		const unsigned short port;						/**< æœåŠ¡å™¨ç«¯å£ */
 
-		zTime lifeTime;									/**< ÉúÃüÆÚ£¬¼ÇÂ¼Ã¿´Î×´Ì¬¸Ä±äµÄÊ±¼ä */
-		TerminateMethod terminate;						/**< ÊÇ·ñ½áÊøÈÎÎñ */
-		volatile bool mainloop;							/**< ÊÇ·ñÒÑ¾­½øÈëÖ÷´¦ÀíÑ­»· */
+		zTime lifeTime;									/**< ç”Ÿå‘½æœŸï¼Œè®°å½•æ¯æ¬¡çŠ¶æ€æ”¹å˜çš„æ—¶é—´ */
+		TerminateMethod terminate;						/**< æ˜¯å¦ç»“æŸä»»åŠ¡ */
+		volatile bool mainloop;							/**< æ˜¯å¦å·²ç»è¿›å…¥ä¸»å¤„ç†å¾ªç¯ */
 		Timer _ten_min;
 
 }; 

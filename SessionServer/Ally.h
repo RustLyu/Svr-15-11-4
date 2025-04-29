@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file	Ally.h
  * \version  	$Id: Ally.h  $
  * \author  	
  * \date 	
- * \brief 	Í¬ÃË¹ú¹ÜÀíÆ÷¶¨Òå
+ * \brief 	åŒç›Ÿå›½ç®¡ç†å™¨å®šä¹‰
  *
  * 
  */
@@ -19,7 +19,7 @@
 
 class Record;
 class SessionTask;
-const int CREATE_ALLY_NEED_MONEY = 200000; // 20¶§
+const int CREATE_ALLY_NEED_MONEY = 200000; // 20é”­
 
 class CAlly
 {
@@ -45,9 +45,9 @@ class CAlly
 		DWORD dwAllyCountryID; // ID2
 		DWORD dwFriendDegree;
 		DWORD dwCreateTime;
-		DWORD dwLastUpTime; // Ã¿ÈÕ×Ô¶¯¿Û¼õÓÑºÃ¶ÈµÄ×îºóÒ»´Î¸üĞÂÊ±¼ä
+		DWORD dwLastUpTime; // æ¯æ—¥è‡ªåŠ¨æ‰£å‡å‹å¥½åº¦çš„æœ€åä¸€æ¬¡æ›´æ–°æ—¶é—´
 
-		BYTE  byStatus; // 2ÒÑ½¨Á¢,1µÈ´ı½¨Á¢
+		BYTE  byStatus; // 2å·²å»ºç«‹,1ç­‰å¾…å»ºç«‹
 
 		zRWLock rwlock;
 };

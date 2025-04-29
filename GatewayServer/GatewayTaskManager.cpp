@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GatewayTaskManager.cpp  $
  * \author 
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -15,7 +15,7 @@
 #include "GatewayTaskManager.h"
 #include "zXMLParser.h"
 
-///Íø¹ØÁ¬½Ó¹ÜÀíÆ÷ÊµÀı
+///ç½‘å…³è¿æ¥ç®¡ç†å™¨å®ä¾‹
 GatewayTaskManager *GatewayTaskManager::instance = NULL;
 
 GatewayTaskManager::GatewayTaskManager()
@@ -27,10 +27,10 @@ GatewayTaskManager::~GatewayTaskManager()
 }
 
 /**
- * \brief ÏòÈİÆ÷ÖĞÌí¼ÓÒ»¸ö×ÓÁ¬½Ó
+ * \brief å‘å®¹å™¨ä¸­æ·»åŠ ä¸€ä¸ªå­è¿æ¥
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTaskManager::uniqueAdd(GatewayTask *task)
 {
@@ -48,10 +48,10 @@ bool GatewayTaskManager::uniqueAdd(GatewayTask *task)
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÉ¾³ıÒ»¸ö×ÓÁ¬½Ó
+ * \brief ä»å®¹å™¨ä¸­åˆ é™¤ä¸€ä¸ªå­è¿æ¥
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return É¾³ıÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTaskManager::uniqueRemove(GatewayTask *task)
 {
@@ -69,9 +69,9 @@ bool GatewayTaskManager::uniqueRemove(GatewayTask *task)
 }
 
 /**
- * \brief ÉèÖÃÄ³Ò»¸öÁ¬½Ó¼Æ·ÑÑéÖ¤ÊÇ·ñÍ¨¹ı
- * \param accid ÕËºÅ
- * \param ok ¼Æ·ÑÑ×Ö¢ÊÇ·ñÍ¨¹ı
+ * \brief è®¾ç½®æŸä¸€ä¸ªè¿æ¥è®¡è´¹éªŒè¯æ˜¯å¦é€šè¿‡
+ * \param accid è´¦å·
+ * \param ok è®¡è´¹ç‚ç—‡æ˜¯å¦é€šè¿‡
  */
 void GatewayTaskManager::accountVerifyOK(const DWORD accid, const bool ok)
 {
@@ -86,8 +86,8 @@ void GatewayTaskManager::accountVerifyOK(const DWORD accid, const bool ok)
 }
 
 /**
- * \brief ±éÀúÈİÆ÷ÖĞµÄËùÓĞÔªËØ£¬Ö´ĞĞÄ³Ò»¸ö²Ù×÷
- * \param callback ´ıÖ´ĞĞµÄ»Øµ÷º¯Êı
+ * \brief éå†å®¹å™¨ä¸­çš„æ‰€æœ‰å…ƒç´ ï¼Œæ‰§è¡ŒæŸä¸€ä¸ªæ“ä½œ
+ * \param callback å¾…æ‰§è¡Œçš„å›è°ƒå‡½æ•°
  */
 void GatewayTaskManager::execAll(GatewayTaskCallback &callback)
 {

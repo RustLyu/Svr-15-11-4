@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.cpp  $
  * \author 
  * \date
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  *
  * 
  */
@@ -62,10 +62,10 @@ struct rushCallback : public CCountryM::countryCallback
 			if (ss)
 			{
 				ss->sendCmd(&cr, sizeof(cr));
-				Zebra::logger->debug("Ïò %s ·¢ËÍ¹ÖÎï¹¥³ÇÏûÏ¢", c->name);
+				Zebra::logger->debug("å‘ %s å‘é€æ€ªç‰©æ”»åŸæ¶ˆæ¯", c->name);
 			}
 			else
-				Zebra::logger->debug("Ïò %s ·¢ËÍ¹ÖÎï¹¥³ÇÏûÏ¢Ê§°Ü", c->name);
+				Zebra::logger->debug("å‘ %s å‘é€æ€ªç‰©æ”»åŸæ¶ˆæ¯å¤±è´¥", c->name);
 		}
 	}
 };
@@ -77,7 +77,7 @@ void SessionTimeTick::run()
 	{
 		zThread::msleep(50);
 
-		//»ñÈ¡µ±Ç°Ê±¼ä
+		//è·å–å½“å‰æ—¶é—´
 		currentTime.now();
 
 		recordClient->doCmd();
@@ -111,13 +111,13 @@ void SessionTimeTick::run()
 			CartoonPetService::getMe().writeAllToDB();
 			EmperorForbid::getMe().timer();
 
-			//¶¨Ê±¶¯×÷
+			//å®šæ—¶åŠ¨ä½œ
 			time_t timValue = time(NULL);
 			struct tm tmValue;
 			zRTime::getLocalTime(tmValue, timValue);
 			SessionService::getInstance().checkCountry(tmValue);
 
-			//GM¹«¸æ
+			//GMå…¬å‘Š
 			for (int i=0; i<=5; i++)
 			{
 				if (SessionService::wMsg[i].time)
@@ -127,7 +127,7 @@ void SessionTimeTick::run()
 					else
 					{
 						if (SessionService::wMsg[i].country)
-							if (SessionService::wMsg[i].mapID)//ÇøÓò¹«¸æ
+							if (SessionService::wMsg[i].mapID)//åŒºåŸŸå…¬å‘Š
 							{
 								SceneSession *scene = SceneSessionManager::getInstance()
 									->getSceneByID((SessionService::wMsg[i].country<<16)+SessionService::wMsg[i].mapID);
@@ -139,13 +139,13 @@ void SessionTimeTick::run()
 									send.mapID = (SessionService::wMsg[i].country<<16)+SessionService::wMsg[i].mapID;
 									scene->sendCmd(&send, sizeof(send));
 #ifdef _XWL_DEBUG
-									Zebra::logger->debug("GM¹«¸æ:%s:%s mapID=%u", send.GM, send.info, send.mapID);
+									Zebra::logger->debug("GMå…¬å‘Š:%s:%s mapID=%u", send.GM, send.info, send.mapID);
 #endif
 								}
 							}
-							else//¹ú¼Ò¹«¸æ
+							else//å›½å®¶å…¬å‘Š
 								SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_SCROLL, SessionService::wMsg[i].country, SessionService::wMsg[i].msg);
-						else//ÊÀ½ç¹«¸æ
+						else//ä¸–ç•Œå…¬å‘Š
 							SessionChannel::sendAllInfo(Cmd::INFO_TYPE_SCROLL, SessionService::wMsg[i].msg);
 
 						SessionService::wMsg[i].count = SessionService::wMsg[i].interval;
@@ -168,9 +168,9 @@ void SessionTimeTick::run()
 }
 
 
-/////////////////////////±¸ÓÃ´úÂë////////////////////////////
+/////////////////////////å¤‡ç”¨ä»£ç ////////////////////////////
 
-			/*¶¨Ê±¹ÖÎï¹¥³Ç
+			/*å®šæ—¶æ€ªç‰©æ”»åŸ
 			   if ((tmValue.tm_mday>=27 && tmValue.tm_mday<=31)
 			   && (tmValue.tm_hour==21 && tmValue.tm_min>=13 && tmValue.tm_min<=18))
 			   {
@@ -179,7 +179,7 @@ void SessionTimeTick::run()
 			   case 0:
 					case 1:
 						rush++;
-						Zebra::logger->trace("ÔËÓª»î¶¯£¬2·ÖÖÓºó¿ªÊ¼¹¥³Ç");
+						Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ2åˆ†é’Ÿåå¼€å§‹æ”»åŸ");
 						break;
 					case 2:
 						rushCallback rcb(4, 900, 102);
@@ -196,10 +196,10 @@ void SessionTimeTick::run()
 							ss->sendCmd(&cr, sizeof(cr));
 						}
 						else
-							Zebra::logger->debug("Ïò ÎŞ¹ú¼®¹ú¼Ò ·¢ËÍ¹ÖÎï¹¥³ÇÏûÏ¢Ê§°Ü");
+							Zebra::logger->debug("å‘ æ— å›½ç±å›½å®¶ å‘é€æ€ªç‰©æ”»åŸæ¶ˆæ¯å¤±è´¥");
 
 						rush ++;
-						Zebra::logger->trace("ÔËÓª»î¶¯£¬9µãÈ«¹ú¹ÖÎï¹¥³Ç");
+						Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ9ç‚¹å…¨å›½æ€ªç‰©æ”»åŸ");
 						break;
 				}
 			}
@@ -218,13 +218,13 @@ void SessionTimeTick::run()
 			case 0:
 			{
 			rush++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬2·ÖÖÓºó¸£Éñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ2åˆ†é’Ÿåç¦ç¥æ‹œå¹´");
 			}
 			break;
 			case 1:
 			{
 			rush++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬1·ÖÖÓºó¸£Éñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ1åˆ†é’Ÿåç¦ç¥æ‹œå¹´");
 			}
 			break;
 			case 2:
@@ -243,34 +243,34 @@ void SessionTimeTick::run()
 			ss->sendCmd(&cr, sizeof(cr));
 			}
 			else
-			Zebra::logger->debug("Ïò ÎŞ¹ú¼®¹ú¼Ò ·¢ËÍ¹ÖÎï¹¥³ÇÏûÏ¢Ê§°Ü");
+			Zebra::logger->debug("å‘ æ— å›½ç±å›½å®¶ å‘é€æ€ªç‰©æ”»åŸæ¶ˆæ¯å¤±è´¥");
 
 			rush ++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬18µã¸£Éñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ18ç‚¹ç¦ç¥æ‹œå¹´");
 			}
 			break;
 			case 3:
 			{
 			rush++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬4·ÖÖÓºó²ÆÉñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ4åˆ†é’Ÿåè´¢ç¥æ‹œå¹´");
 			}
 			break;
 			case 4:
 			{
 			rush++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬3·ÖÖÓºó²ÆÉñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ3åˆ†é’Ÿåè´¢ç¥æ‹œå¹´");
 			}
 			break;
 			case 5:
 			{
 			rush++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬2·ÖÖÓºó²ÆÉñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ2åˆ†é’Ÿåè´¢ç¥æ‹œå¹´");
 			}
 			break;
 			case 6:
 			{
 			rush++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬1·ÖÖÓºó²ÆÉñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ1åˆ†é’Ÿåè´¢ç¥æ‹œå¹´");
 			}
 			break;
 			case 7:
@@ -289,10 +289,10 @@ void SessionTimeTick::run()
 				ss->sendCmd(&cr, sizeof(cr));
 			}
 			else
-				Zebra::logger->debug("Ïò ÎŞ¹ú¼®¹ú¼Ò ·¢ËÍ¹ÖÎï¹¥³ÇÏûÏ¢Ê§°Ü");
+				Zebra::logger->debug("å‘ æ— å›½ç±å›½å®¶ å‘é€æ€ªç‰©æ”»åŸæ¶ˆæ¯å¤±è´¥");
 
 			rush ++;
-			Zebra::logger->trace("ÔËÓª»î¶¯£¬18µã05²ÆÉñ°İÄê");
+			Zebra::logger->trace("è¿è¥æ´»åŠ¨ï¼Œ18ç‚¹05è´¢ç¥æ‹œå¹´");
 		}
 		break;
 		}

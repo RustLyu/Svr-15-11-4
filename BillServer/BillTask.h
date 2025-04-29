@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillTask.h  $
  * \author  
  * \date 2
- * \brief ¶¨Òå¼Æ·ÑÁ¬½ÓÈÎÎñ
+ * \brief å®šä¹‰è®¡è´¹è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -24,7 +24,7 @@
 #include "MessageQueue.h"
 
 /**
- * \brief ¶¨Òå¼Æ·ÑÁ¬½ÓÈÎÎñÀà
+ * \brief å®šä¹‰è®¡è´¹è¿æ¥ä»»åŠ¡ç±»
  *
  */
 class BillTask : public zTCPTask , public MessageQueue
@@ -33,11 +33,11 @@ class BillTask : public zTCPTask , public MessageQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		BillTask(
 				zTCPTaskPool *pool,
@@ -51,7 +51,7 @@ class BillTask : public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~BillTask() {};
@@ -65,9 +65,9 @@ class BillTask : public zTCPTask , public MessageQueue
 		bool checkRecycle();
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷±àºÅ
+		 * \brief è·å–æœåŠ¡å™¨ç¼–å·
 		 *
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getID() const
 		{
@@ -75,9 +75,9 @@ class BillTask : public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷ÀàĞÍ
+		 * \brief è·å–æœåŠ¡å™¨ç±»å‹
 		 *
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{
@@ -90,29 +90,29 @@ class BillTask : public zTCPTask , public MessageQueue
 	private:
 
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;
 				
-		WORD wdServerID;					/**< ·şÎñÆ÷±àºÅ£¬Ò»¸öÇøÎ¨Ò»µÄ */
-		WORD wdServerType;					/**< ·şÎñÆ÷ÀàĞÍ */
+		WORD wdServerID;					/**< æœåŠ¡å™¨ç¼–å·ï¼Œä¸€ä¸ªåŒºå”¯ä¸€çš„ */
+		WORD wdServerType;					/**< æœåŠ¡å™¨ç±»å‹ */
 
 		/**
-		  * \brief ²éÑ¯½ğ±Ò
+		  * \brief æŸ¥è¯¢é‡‘å¸
 		  *
 		  *
 		  */
 		//void query_gold(const Cmd::Bill::t_Query_Gold_GateMoney* cmd);
 
 		/**
-		  * \brief µã¿¨¶Ò»»½ğ±Ò
+		  * \brief ç‚¹å¡å…‘æ¢é‡‘å¸
 		  *
 		  */
 		//void change_gold(const Cmd::Bill::t_Change_Gold_GateMoney* cmd);
 
 		/**
-		  * \brief ½ğ±Ò½»Ò×
+		  * \brief é‡‘å¸äº¤æ˜“
 		  *
 		  */
 		//void trade_gold(const Cmd::Bill::t_Trade_Gold_GateMoney* cmd);

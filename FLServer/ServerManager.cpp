@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ServerManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ·şÎñÆ÷¹ÜÀíÈİÆ÷
+ * \brief å®ç°æœåŠ¡å™¨ç®¡ç†å®¹å™¨
  *
- * Õâ¸öÈİÆ÷°üÀ¨È«¾ÖÈİÆ÷ºÍÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷
+ * è¿™ä¸ªå®¹å™¨åŒ…æ‹¬å…¨å±€å®¹å™¨å’Œå”¯ä¸€æ€§éªŒè¯å®¹å™¨
  * 
  */
 
@@ -22,10 +22,10 @@
 ServerManager *ServerManager::instance = NULL;
 
 /**
- * \brief °ÑÒ»¸ö·şÎñÆ÷Á¬½ÓÈÎÎñÌí¼Óµ½Î¨Ò»ĞÔÈİÆ÷ÖĞ
+ * \brief æŠŠä¸€ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡æ·»åŠ åˆ°å”¯ä¸€æ€§å®¹å™¨ä¸­
  *
- * \param task ·şÎñÆ÷Á¬½ÓÈÎÎñ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦£¬Ò²¾ÍÊÇÎ¨Ò»ĞÔÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param task æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸï¼Œä¹Ÿå°±æ˜¯å”¯ä¸€æ€§éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::uniqueAdd(ServerTask *task)
 {
@@ -43,10 +43,10 @@ bool ServerManager::uniqueAdd(ServerTask *task)
 }
 
 /**
- * \brief ´ÓÎ¨Ò»ĞÔÈİÆ÷ÖĞÉ¾³ıÒ»¸öÁ¬½ÓÈÎÎñ
+ * \brief ä»å”¯ä¸€æ€§å®¹å™¨ä¸­åˆ é™¤ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * \param task ·şÎñÆ÷Á¬½ÓÈÎÎñ
- * \return É¾³ıÊÇ·ñ³É¹¦
+ * \param task æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
+ * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::uniqueRemove(ServerTask *task)
 {

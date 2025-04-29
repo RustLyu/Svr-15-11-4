@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zEntry.h  $
  * \author  
  * \date 
- * \brief Entry»ùÀà¶¨Òå£¬ÓÃÓÚÊı¾İ¹ÜÀí
+ * \brief EntryåŸºç±»å®šä¹‰ï¼Œç”¨äºæ•°æ®ç®¡ç†
  */
 
 #ifndef _ZENTRY_H_
@@ -14,22 +14,22 @@
 #include "zNoncopyable.h"
 
 /**
- * \brief Entry»ùÀà
+ * \brief EntryåŸºç±»
  */
 
 #pragma pack(1)
 struct zEntryC
 {
 	/**
-	 * \brief entryµÄÊı¾İID£¬²»Í¬ÀàĞÍµÄEntry¿ÉÄÜ»áÖØ¸´,´ËÊ±²»ÄÜÊµÏÖ´ÓID²éÕÒentry
+	 * \brief entryçš„æ•°æ®IDï¼Œä¸åŒç±»å‹çš„Entryå¯èƒ½ä¼šé‡å¤,æ­¤æ—¶ä¸èƒ½å®ç°ä»IDæŸ¥æ‰¾entry
 	 */
 	DWORD id;
 	/**
-	 * \brief entryµÄÁÙÊ±id,½¨ÒéÔÚÊµÏÖEntryManagerÊ±£¬±£Ö¤·ÖÅäÎ¨Ò»
+	 * \brief entryçš„ä¸´æ—¶id,å»ºè®®åœ¨å®ç°EntryManageræ—¶ï¼Œä¿è¯åˆ†é…å”¯ä¸€
 	 */
 	DWORD tempid;
 	/**
-	 * \brief entryµÄÃû×Ö£¬²»Í¬ÀàĞÍµÄEntry¿ÉÄÜ»áÖØ¸´,´ËÊ±²»ÄÜÊµÏÖ´ÓÃû×Ö²éÕÒentry
+	 * \brief entryçš„åå­—ï¼Œä¸åŒç±»å‹çš„Entryå¯èƒ½ä¼šé‡å¤,æ­¤æ—¶ä¸èƒ½å®ç°ä»åå­—æŸ¥æ‰¾entry
 	 */
 	char name[MAX_NAMESIZE+1];
 	zEntryC()
@@ -41,7 +41,7 @@ struct zEntryC
 };
 
 /**
- * \brief »Øµ÷º¯ÊıÀàÄ£°å
+ * \brief å›è°ƒå‡½æ•°ç±»æ¨¡æ¿
  */
 template <typename T, typename RTValue = bool>
 struct zEntryCallback

@@ -1,4 +1,4 @@
-#include "blowfish.h"
+﻿#include "blowfish.h"
 
 #define BF_PTR2
 

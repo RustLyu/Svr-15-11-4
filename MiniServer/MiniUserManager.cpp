@@ -1,4 +1,4 @@
-#include "MiniUserCommand.h"
+ï»¿#include "MiniUserCommand.h"
 #include "MiniUserManager.h"
 #include "MiniServer.h"
 #include "MiniTaskManager.h"
@@ -79,7 +79,7 @@ MiniUser * MiniUserManager::newUser(Cmd::Mini::t_UserLogin_Gateway *info)
 
 		if ((connHandleID)-1 == handle) 
 		{   
-			Zebra::logger->error("newUser()²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("newUser()ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			delete u;
 			return 0;
 		}   
@@ -150,7 +150,7 @@ void MiniUserManager::removeUserByGatewayID(MiniTask *task)
 		{
 			if(_gatewaytask == pUser->minitask)
 			{
-				Zebra::logger->debug("Íø¹Ø¹Ø±Õ£¬Çå³ıµÇÂ½Êı¾İ£º%u, %u", pUser->id, pUser->tempid);
+				Zebra::logger->debug("ç½‘å…³å…³é—­ï¼Œæ¸…é™¤ç™»é™†æ•°æ®ï¼š%u, %u", pUser->id, pUser->tempid);
 				_del_vec.push_back(pUser->id);
 			}
 			return true;

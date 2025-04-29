@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file
  * \version  $Id: zVersion.h c $
  * \author  
  * \date 
- * \brief �õ��������汾��Ϣ�������ʵ�־��ڱ��ļ���
+ * \brief 得到服务器版本信息，定义和实现均在本文件中
  *
  * 
  */

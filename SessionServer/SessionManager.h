@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionManager.h  $
  * \author 
  * \date 
- * \brief »á»°¹ÜÀíÆ÷µÄÀà
+ * \brief ä¼šè¯ç®¡ç†å™¨çš„ç±»
  *
  * 
  */
@@ -16,16 +16,16 @@
 #include "SessionTask.h"
 
 /**
- * \brief ÓÃ»§»á»°¹ÜÀíÆ÷
+ * \brief ç”¨æˆ·ä¼šè¯ç®¡ç†å™¨
  *
  */
 class UserSessionManager:public zUserManager
 {
 	private:
-		///¹ÜÀíÆ÷ÊµÀı
+		///ç®¡ç†å™¨å®ä¾‹
 		static UserSessionManager *sm;
 
-		///ÊÇ·ñ³õÊ¼»¯³É¹¦
+		///æ˜¯å¦åˆå§‹åŒ–æˆåŠŸ
 		bool inited;
 
 		UserSessionManager();
@@ -55,16 +55,16 @@ class UserSessionManager:public zUserManager
 
 
 /**
- * \brief ³¡¾°»á»°¹ÜÀíÆ÷
+ * \brief åœºæ™¯ä¼šè¯ç®¡ç†å™¨
  *
  */
 class SceneSessionManager:public zSceneManager
 {
 	private:
-		///¹ÜÀíÆ÷ÊµÀı
+		///ç®¡ç†å™¨å®ä¾‹
 		static SceneSessionManager *sm;
 
-		///ÊÇ·ñ³õÊ¼»¯³É¹¦
+		///æ˜¯å¦åˆå§‹åŒ–æˆåŠŸ
 		bool inited;
 
 		SceneSessionManager();

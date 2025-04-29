@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordClient.cpp  $
  * \author  
  * \date
- * \brief ¶¨Òåµµ°¸·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰æ¡£æ¡ˆæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
- * ¸ºÔğÓëµµ°¸·şÎñÆ÷½»»¥£¬´æÈ¡µµ°¸
+ * è´Ÿè´£ä¸æ¡£æ¡ˆæœåŠ¡å™¨äº¤äº’ï¼Œå­˜å–æ¡£æ¡ˆ
  * 
  */
 
@@ -28,28 +28,28 @@
 #include "MiniCommand.h"
 #include "MiniClient.h"
 
-///RecordClientµÄÎ¨Ò»ÊµÀı
+///RecordClientçš„å”¯ä¸€å®ä¾‹
 RecordClient *recordClient = NULL;
 /**
- * \brief ½âÑ¹½ÇÉ«ĞèÒª±£´æµÄÊı¾İ
+ * \brief è§£å‹è§’è‰²éœ€è¦ä¿å­˜çš„æ•°æ®
  *
- * \param pUser ½ÇÉ«Ö¸Õë
- * \param data ÊäÈë£ºÑ¹ËõµÄÊı¾İ / Êä³ö£º½âÑ¹ºóµÄÊı¾İ 
- * \param dataSize ÊäÈë Êı¾İ´óĞ¡
- * \return ½âÑ¹ºóµÄÊı¾İ´óĞ¡
+ * \param pUser è§’è‰²æŒ‡é’ˆ
+ * \param data è¾“å…¥ï¼šå‹ç¼©çš„æ•°æ® / è¾“å‡ºï¼šè§£å‹åçš„æ•°æ® 
+ * \param dataSize è¾“å…¥ æ•°æ®å¤§å°
+ * \return è§£å‹åçš„æ•°æ®å¤§å°
  */
 bool uncompressSaveData(SceneUser *pUser , const unsigned char *data ,const DWORD dataSize, unsigned char * petData); 
 
 /**
- * \brief ´´½¨µ½µµ°¸·şÎñÆ÷µÄÁ¬½Ó
+ * \brief åˆ›å»ºåˆ°æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿æ¥
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿æ¥æ˜¯å¦æˆåŠŸ
  */
 bool RecordClient::connectToRecordServer()
 {
 	if (!connect())
 	{
-		Zebra::logger->error("Á¬½Óµµ°¸·şÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿æ¥æ¡£æ¡ˆæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 
@@ -62,7 +62,7 @@ bool RecordClient::connectToRecordServer()
 }
 
 /**
- * \brief ÖØÔØzTCPBufferClientµÄrun·½·¨
+ * \brief é‡è½½zTCPBufferClientçš„runæ–¹æ³•
  *
  *
  */
@@ -70,7 +70,7 @@ void RecordClient::run()
 {
 	zTCPBufferClient::run();
 
-	//Óëµµ°¸·şÎñÆ÷µÄÁ¬½Ó¶Ï¿ª£¬¹Ø±Õ·şÎñÆ÷
+	//ä¸æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿æ¥æ–­å¼€ï¼Œå…³é—­æœåŠ¡å™¨
 	ScenesService::getInstance().Terminate();
 	while (sessionClient)
 	{
@@ -79,11 +79,11 @@ void RecordClient::run()
 }
 
 /**
- * \brief ½âÎöÀ´×Ôµµ°¸·şÎñÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæ¡£æ¡ˆæœåŠ¡å™¨çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ı½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÖ¸ÁîÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -105,11 +105,11 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 					SceneUser *pUser=SceneUserManager::getMe().getUserByIDOut(rev->id);
 					if(scene)
 					{
-						//Zebra::logger->debug("µÃµ½³¡¾°%s",scene->name);
+						//Zebra::logger->debug("å¾—åˆ°åœºæ™¯%s",scene->name);
 						if(pUser)
 						{
 							bool dataOk=false;
-							//Zebra::logger->trade("¶ÁÈ¡%ldµµ°¸³É¹¦",rev->id);
+							//Zebra::logger->trade("è¯»å–%ldæ¡£æ¡ˆæˆåŠŸ",rev->id);
 							bcopy(&rev->charbase , &pUser->charbase , sizeof(CharBase));
 
 							if (pUser->charbase.reliveWeakTime>0)
@@ -122,16 +122,16 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 
 							//Zebra::logger->debug("%u, %u",rev->charbase.x,rev->charbase.y);
 							// load Object
-							//ÉèÖÃ³èÎï°ü¹üµÄ´óĞ¡
+							//è®¾ç½®å® ç‰©åŒ…è£¹çš„å¤§å°
 							PetPack *pack = (PetPack *)pUser->packs.getPackage(Cmd::OBJECTCELLTYPE_PET, 0);
 							if (pack)
 							{
 								pack->setAvailable(pUser->charbase.petPack);
-								//Zebra::logger->debug("%s ³èÎï°ü¹ü´óĞ¡ %u", pUser->name, pUser->charbase.petPack);
+								//Zebra::logger->debug("%s å® ç‰©åŒ…è£¹å¤§å° %u", pUser->name, pUser->charbase.petPack);
 							}
 							if(rev->dataSize != (DWORD)PARA_SCENE_USER_READ_ERROR)
 							{
-								BYTE petData[sizeof(int)+sizeof(Cmd::t_PetData)*10];//¿ÉÒÔ´æ·Å10¸ö³èÎï
+								BYTE petData[sizeof(int)+sizeof(Cmd::t_PetData)*10];//å¯ä»¥å­˜æ”¾10ä¸ªå® ç‰©
 								bzero(petData, sizeof(petData));
 
 								if(rev->dataSize != 0)
@@ -141,7 +141,7 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 								else
 								{
 									dataOk=true;
-									//ÔİÊ±Ê±µµ°¸²¹³¥
+									//æš‚æ—¶æ—¶æ¡£æ¡ˆè¡¥å¿
 									if(!pUser->isNewCharBase())
 									{
 										/*
@@ -158,15 +158,15 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 										pUser->charbase.wdProperty[3]=0;
 										pUser->charbase.wdProperty[4]=0;
 										pUser->charbase.skillpoint=pUser->charbase.level;
-										pUser->packs.addMoney(pUser->charbase.level * 200000,"¸øÇ®");
-										//Ä¬ÈÏÏµÍ³ÉèÖÃ
+										pUser->packs.addMoney(pUser->charbase.level * 200000,"ç»™é’±");
+										//é»˜è®¤ç³»ç»Ÿè®¾ç½®
 										using namespace Cmd;
 										memset(pUser->sysSetting,0xff,sizeof(pUser->sysSetting));
-										pUser->sysSetting[0] = 0;//pkÄ£Ê½
-										//clear_state(sysSetting , Cmd::USER_SETTING_AUTOFINDPATH);//×Ô¶¯Ñ°Â·
-										clear_state(pUser->sysSetting , Cmd::USER_SETTING_SHOW_PLAYERNAME);//ÏÔÊ¾Íæ¼ÒÃû×Ö
-										clear_state(pUser->sysSetting , Cmd::USER_SETTING_AUTO_KILL_SUMMON);//×Ô¶¯´ò¹Ö
-										//Í¨Öªsession
+										pUser->sysSetting[0] = 0;//pkæ¨¡å¼
+										//clear_state(sysSetting , Cmd::USER_SETTING_AUTOFINDPATH);//è‡ªåŠ¨å¯»è·¯
+										clear_state(pUser->sysSetting , Cmd::USER_SETTING_SHOW_PLAYERNAME);//æ˜¾ç¤ºç©å®¶åå­—
+										clear_state(pUser->sysSetting , Cmd::USER_SETTING_AUTO_KILL_SUMMON);//è‡ªåŠ¨æ‰“æ€ª
+										//é€šçŸ¥session
 										Cmd::Session::t_sysSetting_SceneSession send;
 										strncpy((char *)send.name, pUser->name, MAX_NAMESIZE-1);
 										bcopy(pUser->sysSetting, &send.sysSetting, sizeof(send.sysSetting));
@@ -181,7 +181,7 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 										pUser->chatColor[5] = 0xff98f417;//COLOR_ARGB(255,152,244,23);
 										pUser->chatColor[6] = 0xffff627c;//COLOR_ARGB(255,255,98,124);
 										pUser->chatColor[7] = 0xff007fff;//COLOR_ARGB(255,0,127,255);
-										//Í¨Öª¿Í»§¶Ë
+										//é€šçŸ¥å®¢æˆ·ç«¯
 										Cmd::stSystemSettingsUserCmd sendClient;
 										bcopy(pUser->sysSetting, &sendClient.data.bySettings, sizeof(sendClient.data.bySettings));
 										bcopy(pUser->chatColor, &sendClient.data.dwChatColor, sizeof(sendClient.data.dwChatColor));
@@ -196,21 +196,21 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 									char map[MAX_NAMESIZE+1];
 									bzero(map,sizeof(map));
 									bcopy(scene->getName(),map,6);
-									bcopy("ÇåÔ´´å",&map[6],6);
+									bcopy("æ¸…æºæ‘",&map[6],6);
 									scene=SceneManager::getInstance().getSceneByName(map);
 									if (!scene)
 									{
-										Zebra::logger->fatal("¶ÁÈ¡%uµµ°¸Ê§°Ü,ÆäµÈ¼¶ÓëµØÍ¼²»·ûºÏ£¬µ«Î´ÕÒµ½ÇåÔ´´åµØÍ¼",rev->id);
+										Zebra::logger->fatal("è¯»å–%uæ¡£æ¡ˆå¤±è´¥,å…¶ç­‰çº§ä¸åœ°å›¾ä¸ç¬¦åˆï¼Œä½†æœªæ‰¾åˆ°æ¸…æºæ‘åœ°å›¾",rev->id);
 										return true;
 									}
 								}   
 								if(dataOk)
 								{
 									pUser->initCharBase(scene);
-									//ÓÃ»§½øÈëµØÍ¼£¬²¢·¢ËÍÖ÷ÓÃ»§ĞÅÏ¢
+									//ç”¨æˆ·è¿›å…¥åœ°å›¾ï¼Œå¹¶å‘é€ä¸»ç”¨æˆ·ä¿¡æ¯
 									if(pUser->intoScene(scene,true,pUser->getPos()))
 									{
-										Cmd::Session::t_regUserSuccess_SceneSession ret; // Í¨Öª»á»°·şÎñÆ÷ÓÃ»§½øÈëÓÎÏ·³É¹¦
+										Cmd::Session::t_regUserSuccess_SceneSession ret; // é€šçŸ¥ä¼šè¯æœåŠ¡å™¨ç”¨æˆ·è¿›å…¥æ¸¸æˆæˆåŠŸ
 										ret.dwUserID=rev->id;
 										ret.dwGrace = pUser->charbase.grace;
 										ret.dwExploit = pUser->charbase.exploit;
@@ -220,14 +220,14 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 										ret.dwUnionID = pUser->charbase.unionid;
 										ret.qwExp = pUser->charbase.exp;
 										sessionClient->sendCmd(&ret,sizeof(ret));
-										//Èç¹ûËÀÍöË¢»ØÖØÉúÇø
+										//å¦‚æœæ­»äº¡åˆ·å›é‡ç”ŸåŒº
 										if((int)pUser->charbase.hp <= 0)
 										{
 											pUser->relive(Cmd::ReliveHome , 0 , 100);
 										}
 										pUser->loadPetState(petData,sizeof(petData));
 
-										//¼ì²éĞÂÓÊ¼ş
+										//æ£€æŸ¥æ–°é‚®ä»¶
 										if (Zebra::global["mail_service"]=="on")
 										{
 										Cmd::Session::t_checkNewMail_SceneSession cn;
@@ -238,12 +238,12 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 										Cmd::stTimeSyncUserCmd send;
 										send.serverTime = time(NULL);
 										pUser->sendCmdToMe(&send, sizeof(send));
-										//¼ì²é³èÎïÁĞ±í
+										//æ£€æŸ¥å® ç‰©åˆ—è¡¨
 										Cmd::Session::t_loadCartoon_SceneSession lc;
 										lc.userID = pUser->id;
 										sessionClient->sendCmd(&lc, sizeof(lc));
 
-										//Í¨Öªmini·şÎñÆ÷
+										//é€šçŸ¥miniæœåŠ¡å™¨
 										Cmd::Mini::t_Scene_SetScene ss;
 										ss.userID = pUser->id;
 										ss.serverID = ScenesService::getInstance().getServerID();
@@ -251,21 +251,21 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 
 										if(ScenesService::getInstance().double_exp)
 										{
-											Channel::sendSys(pUser, Cmd::INFO_TYPE_SCROLL, "Ë«±¶¾­ÑéÊ±¼ä£¬×°±¸Ë«±¶¾­ÑéµÀ¾ß½«ÎŞĞ§¹û£¬Çë²»ÒªÀË·ÑÅ¶£¡");
+											Channel::sendSys(pUser, Cmd::INFO_TYPE_SCROLL, "åŒå€ç»éªŒæ—¶é—´ï¼Œè£…å¤‡åŒå€ç»éªŒé“å…·å°†æ— æ•ˆæœï¼Œè¯·ä¸è¦æµªè´¹å“¦ï¼");
 										}
 
 										if (pUser->charbase.reliveWeakTime > 0)
 										{
 											if (pUser->charbase.reliveWeakTime > SceneTimeTick::currentTime.sec()%10000)
-											{// µ÷ÓÃÔ¤´¦Àí£¬ÖØĞÂ¼ÆËãÎåÏîÊôĞÔ
-												pUser->showCurrentEffect(Cmd::USTATE_RELIVEWEAK, true); // ¸üĞÂ¿Í»§¶Ë×´Ì¬
+											{// è°ƒç”¨é¢„å¤„ç†ï¼Œé‡æ–°è®¡ç®—äº”é¡¹å±æ€§
+												pUser->showCurrentEffect(Cmd::USTATE_RELIVEWEAK, true); // æ›´æ–°å®¢æˆ·ç«¯çŠ¶æ€
 												pUser->sendtoSelectedReliveWeakState();
 											}
 										}
 
 										if (pUser->charbase.trainTime)
 										{
-											pUser->showCurrentEffect(Cmd::USTATE_DAOJISHI, true); // ¸üĞÂ¿Í»§¶Ë×´Ì¬
+											pUser->showCurrentEffect(Cmd::USTATE_DAOJISHI, true); // æ›´æ–°å®¢æˆ·ç«¯çŠ¶æ€
 											pUser->sendtoSelectedTrainState();
 										}
 										return true;
@@ -280,21 +280,21 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 								}
 								else
 								{
-									Zebra::logger->fatal("¼ÓÔØ%uµµ°¸Ê§°Ü,¿ÉÄÜÊÇ±í¸ñ´íÎó",rev->id);
+									Zebra::logger->fatal("åŠ è½½%uæ¡£æ¡ˆå¤±è´¥,å¯èƒ½æ˜¯è¡¨æ ¼é”™è¯¯",rev->id);
 								}
 							}
 							else
 							{
-								Zebra::logger->fatal("¶ÁÈ¡%uµµ°¸Ê§°Ü,ÎŞĞ§ÓÃ»§Êı¾İ",rev->id);
+								Zebra::logger->fatal("è¯»å–%uæ¡£æ¡ˆå¤±è´¥,æ— æ•ˆç”¨æˆ·æ•°æ®",rev->id);
 							}
 						}
 						else
-							Zebra::logger->fatal("¶ÁÈ¡%uµµ°¸Ê§°Ü,Î´ÕÒµ½ÓÃ»§Êı¾İ",rev->id);
+							Zebra::logger->fatal("è¯»å–%uæ¡£æ¡ˆå¤±è´¥,æœªæ‰¾åˆ°ç”¨æˆ·æ•°æ®",rev->id);
 					}
 					else
-						Zebra::logger->fatal("¶ÁÈ¡%uµµ°¸Ê§°Ü,Î´ÕÒµ½µØÍ¼,maptempid=%u",rev->id,rev->dwMapTempID);
+						Zebra::logger->fatal("è¯»å–%uæ¡£æ¡ˆå¤±è´¥,æœªæ‰¾åˆ°åœ°å›¾,maptempid=%u",rev->id,rev->dwMapTempID);
 					/*
-					// Í¨ÖªSession ×¢²áÊ§°Ü
+					// é€šçŸ¥Session æ³¨å†Œå¤±è´¥
 					Cmd::Session::t_unregUser_SceneSession ret;
 					ret.dwSceneTempID=rev->dwMapTempID;
 					ret.dwUserID=rev->id;
@@ -302,20 +302,20 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 					sessionClient->sendCmd(&ret,sizeof(ret));
 					if(pUser)
 					{
-						// Í¨ÖªRecord ¶ÁÈ¡Ê§°Ü
+						// é€šçŸ¥Record è¯»å–å¤±è´¥
 						Cmd::Record::t_RemoveUser_SceneRecord rec_ret;
 						rec_ret.accid = pUser->accid;
 						rec_ret.id = pUser->id;
 						recordClient->sendCmd(&rec_ret, sizeof(rec_ret));
 						 
-						// Í¨ÖªGateway ×¢²áÊ§°Ü
+						// é€šçŸ¥Gateway æ³¨å†Œå¤±è´¥
 						Cmd::Scene::t_Unreg_LoginScene ret;
 						ret.dwUserID=pUser->id;
 						ret.dwSceneTempID=rev->dwMapTempID;
 						ret.retcode=Cmd::Scene::UNREGUSER_RET_ERROR;
 						pUser->gatetask->sendCmd(&ret,sizeof(ret));
 						SceneUserManager::getMe().removeUser(pUser);
-						Zebra::logger->debug("µµ°¸Ê§°Ü×¢Ïú(%s,%u)",pUser->name , pUser->id);
+						Zebra::logger->debug("æ¡£æ¡ˆå¤±è´¥æ³¨é”€(%s,%u)",pUser->name , pUser->id);
 						pUser->destroy();
 						SAFE_DELETE(pUser);
 
@@ -332,31 +332,31 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 					SceneUser * pUser = SceneUserManager::getMe().getUserByTempID(rev->fromID);
 					if (!pUser)
 					{
-						Zebra::logger->debug("[ÓÊ¼ş]¼ì²éÄ¿±êÍæ¼Ò %s ºó£¬·¢ËÍÕßÒÑ²»ÔÚÏß", rev->sm.toName);
+						Zebra::logger->debug("[é‚®ä»¶]æ£€æŸ¥ç›®æ ‡ç©å®¶ %s åï¼Œå‘é€è€…å·²ä¸åœ¨çº¿", rev->sm.toName);
 						return false;
 					}
 					pUser->isSendingMail = false;
 					if((pUser->privatestore.step() != PrivateStore::NONE) || pUser->tradeorder.hasBegin())
 					{
-						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "½»Ò×¹ı³ÌÖĞ²»ÄÜ·¢ËÍÓÊ¼ş");
+						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "äº¤æ˜“è¿‡ç¨‹ä¸­ä¸èƒ½å‘é€é‚®ä»¶");
 						return true;
 					}
 
 					if (0==rev->toID)
 					{
-						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "²»´æÔÚ¸Ã½ÇÉ«£¬ÇëÊäÈëÕıÈ·µÄÃû×Ö");
+						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ä¸å­˜åœ¨è¯¥è§’è‰²ï¼Œè¯·è¾“å…¥æ­£ç¡®çš„åå­—");
 						return true;
 					}
 
 					if (!pUser->packs.checkMoney(rev->sm.sendMoney?rev->sm.sendMoney+Cmd::mail_postage:Cmd::mail_postage))                          
 					{
-						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ÄãµÄÒøÁ½²»×ã");
+						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ä½ çš„é“¶ä¸¤ä¸è¶³");
 
 						return true;
 					}
 					if (!pUser->packs.checkGold(rev->sm.sendGold)) 
 					{
-						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ÄãµÄ½ğ±Ò²»×ã");
+						Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ä½ çš„é‡‘å¸ä¸è¶³");
 
 						return true;
 					}
@@ -373,8 +373,8 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 					strncpy(sm.mail.text, rev->sm.text, 256);
 					sm.mail.sendMoney = rev->sm.sendMoney;
 					sm.mail.recvMoney = rev->sm.recvMoney;
-					sm.mail.sendGold = 0;//²»·¢ËÍ½ğ±Ò
-					sm.mail.recvGold = 0;//²»·¢ËÍ½ğ±Ò
+					sm.mail.sendGold = 0;//ä¸å‘é€é‡‘å¸
+					sm.mail.recvGold = 0;//ä¸å‘é€é‡‘å¸
 					//sm.itemID = rev->sm.itemID;
 					sm.mail.itemGot = 0;
 					sm.mail.fromID = pUser->id;
@@ -388,12 +388,12 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 						zObject * srcobj=pUser->packs.uom.getObjectByThisID(rev->sm.itemID);
 						if (!srcobj)
 						{
-							Zebra::logger->trace("%s ·¢ËÍÓÊ¼şÊ±Î´ÕÒµ½¸ÃÎïÆ·ÎïÆ· id=%u", pUser->name, rev->sm.itemID);
+							Zebra::logger->trace("%s å‘é€é‚®ä»¶æ—¶æœªæ‰¾åˆ°è¯¥ç‰©å“ç‰©å“ id=%u", pUser->name, rev->sm.itemID);
 							return false;
 						}
 						if (!srcobj->canMail())
 						{
-							Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÓÊ¼ÄÕâ¼şÎïÆ·");
+							Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½é‚®å¯„è¿™ä»¶ç‰©å“");
 							return true;
 						}
 
@@ -403,24 +403,24 @@ bool RecordClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 						
 						//srcobj->getSaveData((SaveObject *)&sm.item);
 
-						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->base->name,srcobj->data.dwNum,srcobj->data.dwNum,0,pUser->id,pUser->name,0,rev->sm.toName,"ÓÊ¼Äµ½ĞÅÏä",srcobj->base,srcobj->data.kind,srcobj->data.upgrade);
+						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->base->name,srcobj->data.dwNum,srcobj->data.dwNum,0,pUser->id,pUser->name,0,rev->sm.toName,"é‚®å¯„åˆ°ä¿¡ç®±",srcobj->base,srcobj->data.kind,srcobj->data.upgrade);
 						//pUser->packs.removeObject(srcobj);//notify and delete
 
 						zObject::destroy(srcobj);
 						sm.mail.accessory = 1;
 					}
-					pUser->packs.removeMoney(rev->sm.sendMoney+Cmd::mail_postage,"·¢ËÍÓÊ¼şÓÊ¼ş");//¿ÛÇ®
-					//pUser->packs.removeGold(rev->sm.sendGold, "·¢ËÍÓÊ¼ş");//¿ÛÇ®
+					pUser->packs.removeMoney(rev->sm.sendMoney+Cmd::mail_postage,"å‘é€é‚®ä»¶é‚®ä»¶");//æ‰£é’±
+					//pUser->packs.removeGold(rev->sm.sendGold, "å‘é€é‚®ä»¶");//æ‰£é’±
 
 					if (sessionClient->sendCmd(&sm, sizeof(Cmd::Session::t_sendMail_SceneSession)))
 					{
-						pUser->save(OPERATION_WRITEBACK);//Á¢¿Ì´æµµ
-						Zebra::logger->trace("·¢ËÍÓÊ¼ş %s->%s", pUser->name, rev->sm.toName);
+						pUser->save(OPERATION_WRITEBACK);//ç«‹åˆ»å­˜æ¡£
+						Zebra::logger->trace("å‘é€é‚®ä»¶ %s->%s", pUser->name, rev->sm.toName);
 						return true;
 					}
 					else
 					{
-						Zebra::logger->error("ÓÊ¼ş·¢ËÍÊ§°Ü %s->%s money=%u gold=%u", pUser->name, rev->sm.toName, rev->sm.sendMoney, rev->sm.sendGold);
+						Zebra::logger->error("é‚®ä»¶å‘é€å¤±è´¥ %s->%s money=%u gold=%u", pUser->name, rev->sm.toName, rev->sm.sendMoney, rev->sm.sendGold);
 						return false;
 					}
 					return true;

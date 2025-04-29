@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordClient.cpp 5807 2006-03-14 06:52:58Z yuanhui $
- * \author  ËÎÊËÁ¼,songsiliang@netease.com
- * \date 2005Äê04ÔÂ01ÈÕ 11Ê±57·Ö23Ãë CST
- * \brief ÊµÏÖÍø¹Ø·þÎñÆ÷µ½µµ°¸·þÎñÆ÷µÄÁ¬½Ó¿Í»§¶Ë
+ * \author  å®‹ä»•è‰¯,songsiliang@netease.com
+ * \date 2005å¹´04æœˆ01æ—¥ 11æ—¶57åˆ†23ç§’ CST
+ * \brief å®žçŽ°ç½‘å…³æœåŠ¡å™¨åˆ°æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿žæŽ¥å®¢æˆ·ç«¯
  */
 
 #include "RecordClient.h"
@@ -18,9 +18,9 @@
 RecordClient *recordClient = NULL;
 
 /**
- * \brief ´´½¨µ½µµ°¸·þÎñÆ÷µÄÁ¬½Ó
+ * \brief åˆ›å»ºåˆ°æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿žæŽ¥
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿žæŽ¥æ˜¯å¦æˆåŠŸ
  */
 bool RecordClient::connectToRecordServer()
 {
@@ -28,7 +28,7 @@ bool RecordClient::connectToRecordServer()
 
 	if (!connect())
 	{
-		Zebra::logger->error("Á¬½Óµµ°¸·þÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿žæŽ¥æ¡£æ¡ˆæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 
@@ -41,23 +41,23 @@ bool RecordClient::connectToRecordServer()
 }
 
 /**
- * \brief Ïß³Ì»Øµ÷º¯Êý
+ * \brief çº¿ç¨‹å›žè°ƒå‡½æ•°
  *
  */
 void RecordClient::run()
 {
 	zTCPBufferClient::run();
 
-	//Óëµµ°¸·þÎñÆ÷µÄÁ¬½Ó¶Ï¿ª£¬¹Ø±Õ·þÎñÆ÷
+	//ä¸Žæ¡£æ¡ˆæœåŠ¡å™¨çš„è¿žæŽ¥æ–­å¼€ï¼Œå…³é—­æœåŠ¡å™¨
 	GatewayService::getInstance().Terminate();
 }
 
 /**
- * \brief ½âÎöÀ´×Ôµµ°¸·þÎñÆ÷µÄÖ¸Áî
+ * \brief è§£æžæ¥è‡ªæ¡£æ¡ˆæœåŠ¡å™¨çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ý½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ý½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÖ¸ÁîÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æžçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æžçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£æžæŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -69,7 +69,7 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 		{
 			case PARA_GATE_DELCHAR_RETURN:
 				{
-					//É¾³ý½ÇÉ«³É¹¦
+					//åˆ é™¤è§’è‰²æˆåŠŸ
 					t_DelChar_Return_GateRecord *rev = (t_DelChar_Return_GateRecord *)ptNullCmd;
 					GateUser *pUser=GateUserManager::getInstance()->getUserByAccID(rev->accid);
 					if(pUser && 1 == rev->retcode)
@@ -86,7 +86,7 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 						// */
 						if (GatewayService::getInstance().rolereg_verify)
 						{
-							//ÐèÒªÍ¨Öª½ÇÉ«Ãû³ÆÎ¨Ò»ÐÔÑéÖ¤·þÎñÆ÷Çå³ý½ÇÉ«Ãû³Æ
+							//éœ€è¦é€šçŸ¥è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡å™¨æ¸…é™¤è§’è‰²åç§°
 							using namespace Cmd::RoleReg;
 							using namespace Cmd::Super;
 							t_Charname_Gateway cmd;
@@ -96,10 +96,10 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 							cmd.state = ROLEREG_STATE_CLEAN;
 							GatewayService::getInstance().sendCmdToSuperServer(&cmd, sizeof(cmd));
 						}
-						Zebra::logger->trace("É¾³ý½ÇÉ«³É¹¦£º%u, %u", rev->accid, rev->id);
+						Zebra::logger->trace("åˆ é™¤è§’è‰²æˆåŠŸï¼š%u, %u", rev->accid, rev->id);
 					}
 					else
-						Zebra::logger->debug("É¾³ý½ÇÉ«Ê§°Ü£º%u, %u", rev->accid, rev->id);
+						Zebra::logger->debug("åˆ é™¤è§’è‰²å¤±è´¥ï¼š%u, %u", rev->accid, rev->id);
 					return true;
 				}
 				break;
@@ -114,7 +114,7 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 						ret.err_code = rev->err_code;
 						strncpy(ret.name, rev->name, MAX_NAMESIZE-1);
 
-						Zebra::logger->debug("¼ì²é½ÇÉ«Ãû:%d", ret.err_code);
+						Zebra::logger->debug("æ£€æŸ¥è§’è‰²å:%d", ret.err_code);
 						return pUser->sendCmd(&ret, sizeof(ret));
 					}
 				}
@@ -127,10 +127,10 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 					{
 						if (rev->retcode == 0)
 						{
-							//´´½¨½ÇÉ«Ê§°Ü£¬½ÇÉ«Ãû³ÆÖØ¸´
+							//åˆ›å»ºè§’è‰²å¤±è´¥ï¼Œè§’è‰²åç§°é‡å¤
 							if (GatewayService::getInstance().rolereg_verify)
 							{
-								//ÐèÒªÍ¨Öª½ÇÉ«Ãû³ÆÎ¨Ò»ÐÔÑéÖ¤·þÎñÆ÷Çå³ý½ÇÉ«Ãû³Æ
+								//éœ€è¦é€šçŸ¥è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡å™¨æ¸…é™¤è§’è‰²åç§°
 								using namespace Cmd::RoleReg;
 								using namespace Cmd::Super;
 								t_Charname_Gateway cmd;
@@ -145,10 +145,10 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 						}
 						else if (rev->retcode == 1)
 						{
-							//´´½¨½ÇÉ«³É¹¦
+							//åˆ›å»ºè§’è‰²æˆåŠŸ
 							if (GatewayService::getInstance().rolereg_verify)
 							{
-								//ÐèÒªÍ¨Öª½ÇÉ«Ãû³ÆÎ¨Ò»ÐÔÑéÖ¤·þÎñÆ÷»ØÐ´½ÇÉ«Ãû³Æµ½Êý¾Ý¿â
+								//éœ€è¦é€šçŸ¥è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡å™¨å›žå†™è§’è‰²åç§°åˆ°æ•°æ®åº“
 								using namespace Cmd::RoleReg;
 								using namespace Cmd::Super;
 								t_Charname_Gateway cmd;
@@ -175,13 +175,13 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 					{
 						bool empty = true;
 						pUser->setSelectUserInfo(rev);
-						//Zebra::logger->debug("ÊÕµ½%uËùÓÐ½ÇÉ«ÐÅÏ¢",rev->accid);
+						//Zebra::logger->debug("æ”¶åˆ°%uæ‰€æœ‰è§’è‰²ä¿¡æ¯",rev->accid);
 						for(int i = 0; i < Cmd::MAX_CHARINFO; i++)
 						{
 							if(rev->info[i].id!=0 && rev->info[i].id!=(DWORD)-1)
 							{
 								empty = false;
-								Zebra::logger->trace("½ÇÉ«ÐÅÏ¢:%ld,%d,%s,%d,%s,%d",
+								Zebra::logger->trace("è§’è‰²ä¿¡æ¯:%ld,%d,%s,%d,%s,%d",
 										rev->accid,rev->info[i].id,rev->info[i].name,
 										rev->info[i].level, rev->info[i].mapName,rev->info[i].type);
 							}
@@ -189,7 +189,7 @@ bool RecordClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int 
 
 						if (empty)
 						{
-							//Zebra::logger->debug("ÕÊºÅÃ»ÓÐ½ÇÉ«ÐÅÏ¢ %u", rev->accid);
+							//Zebra::logger->debug("å¸å·æ²¡æœ‰è§’è‰²ä¿¡æ¯ %u", rev->accid);
 							pUser->noCharInfo();
 						}
 						else

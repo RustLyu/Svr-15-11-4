@@ -1,9 +1,9 @@
-/**
+Ôªø/**
  * \file
  * \version  $Id: NpcTrade.cpp  $
  * \author 
  * \date 
- * \brief Npc¬Ú¬Ù∂‘ª∞øÚ
+ * \brief Npc‰π∞ÂçñÂØπËØùÊ°Ü
  *
  * 
  */
@@ -20,10 +20,10 @@
 NpcTrade *NpcTrade::instance = NULL;
 
 /**
- * \brief ∂¡»°npctade≈‰÷√Œƒº˛
+ * \brief ËØªÂèñnpctadeÈÖçÁΩÆÊñá‰ª∂
  *
  *
- * \return ∂¡»°≈‰÷√Œƒº˛ «∑Ò≥…π¶
+ * \return ËØªÂèñÈÖçÁΩÆÊñá‰ª∂ÊòØÂê¶ÊàêÂäü
  */
 bool NpcTrade::init()
 {
@@ -32,7 +32,7 @@ bool NpcTrade::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["npctradefile"]))
 	{
-		Zebra::logger->error("º”‘ÿnpcΩª“◊≈‰÷√Œƒº˛ %s  ß∞‹", Zebra::global["npctradefile"].c_str());
+		Zebra::logger->error("Âä†ËΩΩnpc‰∫§ÊòìÈÖçÁΩÆÊñá‰ª∂ %s Â§±Ë¥•", Zebra::global["npctradefile"].c_str());
 		return false;
 	}
 
@@ -76,7 +76,7 @@ bool NpcTrade::init()
 			node = xml.getNextNode(node, NULL);
 		}
 		rwlock.unlock();
-		Zebra::logger->info("≥ı ºªØNpcΩª“◊œµÕ≥≥…π¶");
+		Zebra::logger->info("ÂàùÂßãÂåñNpc‰∫§ÊòìÁ≥ªÁªüÊàêÂäü");
 		return true;
 	}
 
@@ -91,17 +91,17 @@ bool NpcTrade::init()
 	}
 #endif
 
-	Zebra::logger->error("º”‘ÿnpcΩª“◊≈‰÷√Œƒº˛ %s  ß∞‹", Zebra::global["npctradefile"].c_str());
+	Zebra::logger->error("Âä†ËΩΩnpc‰∫§ÊòìÈÖçÁΩÆÊñá‰ª∂ %s Â§±Ë¥•", Zebra::global["npctradefile"].c_str());
 	return false;
 }
 
 /**
- * \brief ∏˘æ›npcidµ√µΩmenuƒ⁄»›
+ * \brief Ê†πÊçÆnpcidÂæóÂà∞menuÂÜÖÂÆπ
  *
  *
  * \param npcid: npcid
- * \param menuTxt: ≤Àµ•ƒ⁄»›( ‰≥ˆ)
- * \return ’“µΩ∑µªÿtrue ,∑Ò‘Ú∑µªÿfalse
+ * \param menuTxt: ËèúÂçïÂÜÖÂÆπ(ËæìÂá∫)
+ * \return ÊâæÂà∞ËøîÂõûtrue ,Âê¶ÂàôËøîÂõûfalse
  */
 bool NpcTrade::getNpcMenu(const DWORD npcid, char *menuTxt)
 {
@@ -122,12 +122,12 @@ bool NpcTrade::getNpcMenu(const DWORD npcid, char *menuTxt)
 }
 
 /**
- * \brief ∏˘æ›id∫Õ¿‡–Õ≈–∂œ≤Ÿ◊˜ «∑Ò∫œ∑®
+ * \brief Ê†πÊçÆidÂíåÁ±ªÂûãÂà§Êñ≠Êìç‰ΩúÊòØÂê¶ÂêàÊ≥ï
  *
  *
  * \param npcid: npcid
  * \param item: NpcItem
- * \return ø…“‘Ω¯––µƒ≤Ÿ◊˜∑µªÿtrue,∑Ò‘Ú∑µªÿfalse
+ * \return ÂèØ‰ª•ËøõË°åÁöÑÊìç‰ΩúËøîÂõûtrue,Âê¶ÂàôËøîÂõûfalse
  */
 bool NpcTrade::verifyNpcAction(const DWORD npcid, const NpcItem &item)
 {
@@ -138,7 +138,7 @@ bool NpcTrade::verifyNpcAction(const DWORD npcid, const NpcItem &item)
 	{
 		if (npcDialog->second.npcid == npcid)
 		{
-			//’“µΩ¡ÀNpc
+			//ÊâæÂà∞‰∫ÜNpc
 			for(NpcItemMultiMap::const_iterator it = npcDialog->second.items.begin(); it != npcDialog->second.items.end(); it++)
 			{
 				//Zebra::logger->debug("%u, %u, %u, %u, %u", it->second.id, it->second.kind, it->second.lowLevel, it->second.level, it->second.action);
@@ -156,7 +156,7 @@ bool NpcTrade::verifyNpcAction(const DWORD npcid, const NpcItem &item)
 					case NPC_STORE_OBJECT :
 					case NPC_DECOMPOSE_OBJECT:
 						
-						//idŒ™¡„±Ì æ¥À¿‡»Œ∫ŒŒÔ∆∑£¨kindŒ™¡„±Ì æ»Œ∫Œ÷÷¿‡
+						//id‰∏∫Èõ∂Ë°®Á§∫Ê≠§Á±ª‰ªª‰ΩïÁâ©ÂìÅÔºåkind‰∏∫Èõ∂Ë°®Á§∫‰ªª‰ΩïÁßçÁ±ª
 						if(it->second.id!=0)
 						{
 							if(item.id==it->second.id && (item.itemlevel==it->second.itemlevel || it->second.itemlevel==0))
@@ -186,7 +186,7 @@ bool NpcTrade::verifyNpcAction(const DWORD npcid, const NpcItem &item)
 }
 
 /**
- * \brief –∂‘ÿnpctrade
+ * \brief Âç∏ËΩΩnpctrade
  *
  */
 void NpcTrade::final()

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zNoncopyable.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåzNoncopyableÀà£¬Ê¹ËùÓĞµÄ×ÓÀà½ûÓÃ¿½±´¹¹Ôìº¯ÊıºÍ¸³Öµ·ûºÅ
+ * \brief å®šä¹‰zNoncopyableç±»ï¼Œä½¿æ‰€æœ‰çš„å­ç±»ç¦ç”¨æ‹·è´æ„é€ å‡½æ•°å’Œèµ‹å€¼ç¬¦å·
  *
  * 
  */
@@ -13,7 +13,7 @@
 #define _zNoncopyable_h_
 
 /**
- * \brief Ê¹ËùÓĞµÄ×ÓÀà½ûÓÃ¿½±´¹¹Ôìº¯ÊıºÍ¸³Öµ·ûºÅ
+ * \brief ä½¿æ‰€æœ‰çš„å­ç±»ç¦ç”¨æ‹·è´æ„é€ å‡½æ•°å’Œèµ‹å€¼ç¬¦å·
  *
  */
 class zNoncopyable
@@ -22,13 +22,13 @@ class zNoncopyable
 	protected:
 
 		/**
-		 * \brief È±Ê¡¹¹Ôìº¯Êı
+		 * \brief ç¼ºçœæ„é€ å‡½æ•°
 		 *
 		 */
 		zNoncopyable() {};
 
 		/**
-		 * \brief È±Ê¡Îö¹¹º¯Êı
+		 * \brief ç¼ºçœææ„å‡½æ•°
 		 *
 		 */
 		~zNoncopyable() {};
@@ -36,13 +36,13 @@ class zNoncopyable
 	private:
 
 		/**
-		 * \brief ¿½±´¹¹Ôìº¯Êı£¬Ã»ÓĞÊµÏÖ£¬½ûÓÃµôÁË
+		 * \brief æ‹·è´æ„é€ å‡½æ•°ï¼Œæ²¡æœ‰å®ç°ï¼Œç¦ç”¨æ‰äº†
 		 *
 		 */
 		zNoncopyable(const zNoncopyable&);
 
 		/**
-		 * \brief ¸³Öµ²Ù×÷·ûºÅ£¬Ã»ÓĞÊµÏÖ£¬½ûÓÃµôÁË
+		 * \brief èµ‹å€¼æ“ä½œç¬¦å·ï¼Œæ²¡æœ‰å®ç°ï¼Œç¦ç”¨æ‰äº†
 		 *
 		 */
 		const zNoncopyable & operator= (const zNoncopyable &);

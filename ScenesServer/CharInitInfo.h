@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CharInitInfo.h  $
  * \author 
  * \date
- * \brief ³õÊ¼½ÇÉ«ĞÅÏ¢
+ * \brief åˆå§‹è§’è‰²ä¿¡æ¯
  *
  * 
  */
@@ -18,7 +18,7 @@
 #include "zRWLock.h"
 
 /**
- * \brief ĞÂÊÖ×°±¸½á¹¹
+ * \brief æ–°æ‰‹è£…å¤‡ç»“æ„
  *
  */
 struct InitObject
@@ -40,10 +40,10 @@ struct InitObject
 	}
 
 	/**
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 *
-	 * \param object: ĞÂÊÖ×°±¸
+	 * \param object: æ–°æ‰‹è£…å¤‡
 	 */
 	InitObject(const InitObject &object)
 	{
@@ -59,7 +59,7 @@ struct InitObject
 typedef std::vector<InitObject> InitObjectVector;
 
 /**
- * \brief ĞÂÊÖĞÅÏ¢
+ * \brief æ–°æ‰‹ä¿¡æ¯
  *
  */
 class CharInitInfo
@@ -73,10 +73,10 @@ class CharInitInfo
 		}
 
 		/**
-		 * \brief µÃµ½Î¨Ò»ÊµÀı
+		 * \brief å¾—åˆ°å”¯ä¸€å®ä¾‹
 		 *
 		 *
-		 * \return Î¨Ò»ÊµÀı
+		 * \return å”¯ä¸€å®ä¾‹
 		 */
 		static CharInitInfo &getInstance()
 		{
@@ -87,7 +87,7 @@ class CharInitInfo
 		}
 
 		/**
-		 * \brief É¾³ıÎ¨Ò»ÊµÀı
+		 * \brief åˆ é™¤å”¯ä¸€å®ä¾‹
 		 *
 		 *
 		 */

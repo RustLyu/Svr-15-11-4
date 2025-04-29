@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryTech.cpp $
  * \author 
  * \date 
- * \brief ¹ú¼Ò¿Æ¼¼¹ÜÀíÆ÷
+ * \brief å›½å®¶ç§‘æŠ€ç®¡ç†å™¨
  *
  * 
  */
@@ -125,7 +125,7 @@ void CountryTech::init(Cmd::Session::t_updateTech_SceneSession* rev)
 	for (CTechMap::iterator mIter=techIndex.begin(); mIter!=techIndex.end(); mIter++)
 	{
 		CTech* temp = mIter->second;
-		Zebra::logger->debug("¹ú¼Ò:%d ¿Æ¼¼ÀàÐÍ:%d ¿Æ¼¼µÈ¼¶:%d", this->id, temp->dwType, temp->dwLevel);
+		Zebra::logger->debug("å›½å®¶:%d ç§‘æŠ€ç±»åž‹:%d ç§‘æŠ€ç­‰çº§:%d", this->id, temp->dwType, temp->dwLevel);
 	}
 #endif	
 

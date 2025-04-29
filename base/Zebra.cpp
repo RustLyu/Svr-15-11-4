@@ -1,4 +1,4 @@
-#include <stdlib.h>
+﻿#include <stdlib.h>
 #include <iostream>
 
 #include "zMisc.h"
@@ -15,7 +15,7 @@ namespace Zebra
 	zProperties global;
 
 	/**
-	 * \brief ��ʼ��һЩȫ�ֱ���
+	 * \brief 初始化一些全局变量
 	 *
 	 */
 	static void initGlobal() __attribute__ ((constructor));
@@ -29,7 +29,7 @@ namespace Zebra
 		global["log"] = "debug";
 	}
 	/**
-	 * \brief �ͷ�һЩȫ�ֱ���
+	 * \brief 释放一些全局变量
 	 *
 	 */
 	static void finalGlobal() __attribute__ ((destructor));

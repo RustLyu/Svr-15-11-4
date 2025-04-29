@@ -1,4 +1,4 @@
-//void CAST_encrypt(CAST_LONG *data, CAST_KEY *key)
+﻿//void CAST_encrypt(CAST_LONG *data, CAST_KEY *key)
 #ifndef _MY_CAST_H
 #define _MY_CAST_H
 

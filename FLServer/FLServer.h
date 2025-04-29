@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: FLServer.h  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿µÇÂ½·şÎñÆ÷£¬¸ºÔğµÇÂ½£¬½¨Á¢ÕÊºÅ¡¢µµ°¸µÈ¹¦ÄÜ
+ * \brief zebraé¡¹ç›®ç™»é™†æœåŠ¡å™¨ï¼Œè´Ÿè´£ç™»é™†ï¼Œå»ºç«‹å¸å·ã€æ¡£æ¡ˆç­‰åŠŸèƒ½
  *
  */
 
@@ -17,10 +17,10 @@
 #include "zDBConnPool.h"
 
 /**
- * \brief ¶¨ÒåµÇÂ½·şÎñÀà
+ * \brief å®šä¹‰ç™»é™†æœåŠ¡ç±»
  *
- * µÇÂ½·şÎñ£¬¸ºÔğµÇÂ½£¬½¨Á¢ÕÊºÅ¡¢µµ°¸µÈ¹¦ÄÜ<br>
- * Õâ¸öÀàÊ¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+ * ç™»é™†æœåŠ¡ï¼Œè´Ÿè´£ç™»é™†ï¼Œå»ºç«‹å¸å·ã€æ¡£æ¡ˆç­‰åŠŸèƒ½<br>
+ * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
  *
  */
 class FLService : public zMNetService
@@ -29,7 +29,7 @@ class FLService : public zMNetService
 	public:
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~FLService()
@@ -56,9 +56,9 @@ class FLService : public zMNetService
 		}
 
 		/**
-		 * \brief ·µ»ØÎ¨Ò»µÄÀàÊµÀı
+		 * \brief è¿”å›å”¯ä¸€çš„ç±»å®ä¾‹
 		 *
-		 * \return Î¨Ò»µÄÀàÊµÀı
+		 * \return å”¯ä¸€çš„ç±»å®ä¾‹
 		 */
 		static FLService &getInstance()
 		{
@@ -69,7 +69,7 @@ class FLService : public zMNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -78,8 +78,8 @@ class FLService : public zMNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡Á¬½Ó³ØÖĞµÄÁ¬½ÓÊı
-		 * \return Á¬½ÓÊı
+		 * \brief è·å–è¿æ¥æ± ä¸­çš„è¿æ¥æ•°
+		 * \return è¿æ¥æ•°
 		 */
 		const int getPoolSize() const
 		{
@@ -87,8 +87,8 @@ class FLService : public zMNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷ÀàĞÍ
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \brief è·å–æœåŠ¡å™¨ç±»å‹
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{
@@ -104,16 +104,16 @@ class FLService : public zMNetService
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static FLService *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		FLService() : zMNetService("µÇÂ½·şÎñÆ÷")
+		FLService() : zMNetService("ç™»é™†æœåŠ¡å™¨")
 		{
 			jpeg_passport = false;
 			login_port = 0;

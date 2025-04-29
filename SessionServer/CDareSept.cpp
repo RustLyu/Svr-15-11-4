@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareSept.cpp  $
  * \author  
  * \date 
- * \brief ¼Ò×åËæÒâÕ½
+ * \brief å®¶æ—éšæ„æˆ˜
  *
  * 
  */
@@ -61,7 +61,7 @@ void CDareSept::addGrade(UserSession* pAtt, UserSession* pDef)
 		{
 			if (pAtt->septid == attList[i])
 			{
-				pk1 = pk1 + 1; //ÀÛ¼ÓPKÈËÊý
+				pk1 = pk1 + 1; //ç´¯åŠ PKäººæ•°
 				grade1 = pDef->level/10 + grade1;
 			}
 		}
@@ -71,7 +71,7 @@ void CDareSept::addGrade(UserSession* pAtt, UserSession* pDef)
 void CDareSept::sendCmdToAllDarePlayer(Cmd::Session::t_enterWar_SceneSession* cmd, unsigned int cmdLen, unsigned int relationID)
 {
 	if (cmd->isAtt)
-	{// Èç¹ûÊÇ¸ø¹¥»÷·½·¢ËÍÏûÏ¢
+	{// å¦‚æžœæ˜¯ç»™æ”»å‡»æ–¹å‘é€æ¶ˆæ¯
 		CSept *pAttSept = (CSept*)CSeptM::getMe().getSeptByID(relationID);
 		if (pAttSept) pAttSept->sendCmdToAllMemberScene(cmd, cmdLen);
 	}
@@ -122,20 +122,20 @@ void CDareSept::notifyWarResult(int winner_type)
 				pAttSept = (CSept*)CSeptM::getMe().getSeptByID(attList[i]);	   
 				if (pAttSept)
 				{
-					pAttSept->sendSeptNotify("\n¼Ò×å¶ÔÕ½½áÊø£¬ ¶ÔÕ½½á¹û %s »ñÊ¤\n %s PKÈËÊý:%d µÃ·Ö:%d\n %s PKÈËÊý:%d µÃ·Ö:%d", 
+					pAttSept->sendSeptNotify("\nå®¶æ—å¯¹æˆ˜ç»“æŸï¼Œ å¯¹æˆ˜ç»“æžœ %s èŽ·èƒœ\n %s PKäººæ•°:%d å¾—åˆ†:%d\n %s PKäººæ•°:%d å¾—åˆ†:%d", 
 							pAttSept->name, pAttSept->name,
 							this->pk1, this->grade1,
 							pSecond->name,
 							this->pk2, this->grade2);
 
-					pSecond->sendSeptNotify("\n¼Ò×å¶ÔÕ½½áÊø£¬ ¶ÔÕ½½á¹û %s Ê§°Ü\n %s PKÈËÊý:%d µÃ·Ö:%d\n %s PKÈËÊý:%d µÃ·Ö:%d", 
+					pSecond->sendSeptNotify("\nå®¶æ—å¯¹æˆ˜ç»“æŸï¼Œ å¯¹æˆ˜ç»“æžœ %s å¤±è´¥\n %s PKäººæ•°:%d å¾—åˆ†:%d\n %s PKäººæ•°:%d å¾—åˆ†:%d", 
 							pSecond->name, pAttSept->name,
 							this->pk1, this->grade1,
 							pSecond->name,
 							this->pk2, this->grade2);
 
 					SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, pAttSept->dwCountryID, 
-							"%s ¼Ò×å½ñÈÕ±» %s ¼Ò×å´òµÄÂä»¨Á÷Ë®±§Í·Êó´Ü£¬Å¬Á¦·Ü¶·°¡£¡",
+							"%s å®¶æ—ä»Šæ—¥è¢« %s å®¶æ—æ‰“çš„è½èŠ±æµæ°´æŠ±å¤´é¼ çªœï¼ŒåŠªåŠ›å¥‹æ–—å•Šï¼",
 							pSecond->name, pAttSept->name);
 				}
 			}
@@ -150,20 +150,20 @@ void CDareSept::notifyWarResult(int winner_type)
 				pAttSept = (CSept*)CSeptM::getMe().getSeptByID(attList[i]);
 				if (pAttSept)
 				{
-					pAttSept->sendSeptNotify("\n¼Ò×å¶ÔÕ½½áÊø£¬ ¶ÔÕ½½á¹û %s Ê§°Ü\n %s PKÈËÊý:%d µÃ·Ö:%d\n %s PKÈËÊý:%d µÃ·Ö:%d", 
+					pAttSept->sendSeptNotify("\nå®¶æ—å¯¹æˆ˜ç»“æŸï¼Œ å¯¹æˆ˜ç»“æžœ %s å¤±è´¥\n %s PKäººæ•°:%d å¾—åˆ†:%d\n %s PKäººæ•°:%d å¾—åˆ†:%d", 
 							pAttSept->name, pAttSept->name,
 							this->pk1, this->grade1,
 							pSecond->name,
 							this->pk2, this->grade2);
 
-					pSecond->sendSeptNotify("\n¼Ò×å¶ÔÕ½½áÊø£¬ ¶ÔÕ½½á¹û %s »ñÊ¤\n %s PKÈËÊý:%d µÃ·Ö:%d\n %s PKÈËÊý:%d µÃ·Ö:%d", 
+					pSecond->sendSeptNotify("\nå®¶æ—å¯¹æˆ˜ç»“æŸï¼Œ å¯¹æˆ˜ç»“æžœ %s èŽ·èƒœ\n %s PKäººæ•°:%d å¾—åˆ†:%d\n %s PKäººæ•°:%d å¾—åˆ†:%d", 
 							pSecond->name, pAttSept->name,
 							this->pk1, this->grade1,
 							pSecond->name,
 							this->pk2, this->grade2);
 					
 					SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, pAttSept->dwCountryID, 
-							"%s ¼Ò×å½ñÈÕ±» %s ¼Ò×å´òµÄÂä»¨Á÷Ë®±§Í·Êó´Ü£¬Å¬Á¦·Ü¶·°¡£¡",
+							"%s å®¶æ—ä»Šæ—¥è¢« %s å®¶æ—æ‰“çš„è½èŠ±æµæ°´æŠ±å¤´é¼ çªœï¼ŒåŠªåŠ›å¥‹æ–—å•Šï¼",
 							pAttSept->name, pSecond->name);
 
 				}
@@ -179,13 +179,13 @@ void CDareSept::notifyWarResult(int winner_type)
 				pAttSept = (CSept*)CSeptM::getMe().getSeptByID(attList[i]);
 				if (pAttSept)
 				{
-					pAttSept->sendSeptNotify("\n¼Ò×å¶ÔÕ½½áÊø£¬ ¶ÔÕ½½á¹û %s Õ½Æ½\n %s PKÈËÊý:%d µÃ·Ö:%d\n %s PKÈËÊý:%d µÃ·Ö:%d", 
+					pAttSept->sendSeptNotify("\nå®¶æ—å¯¹æˆ˜ç»“æŸï¼Œ å¯¹æˆ˜ç»“æžœ %s æˆ˜å¹³\n %s PKäººæ•°:%d å¾—åˆ†:%d\n %s PKäººæ•°:%d å¾—åˆ†:%d", 
 							pAttSept->name, pAttSept->name,
 							this->pk1, this->grade1,
 							pSecond->name,
 							this->pk2, this->grade2);
 
-					pSecond->sendSeptNotify("\n¼Ò×å¶ÔÕ½½áÊø£¬ ¶ÔÕ½½á¹û %s Õ½Æ½\n %s PKÈËÊý:%d µÃ·Ö:%d\n %s PKÈËÊý:%d µÃ·Ö:%d", 
+					pSecond->sendSeptNotify("\nå®¶æ—å¯¹æˆ˜ç»“æŸï¼Œ å¯¹æˆ˜ç»“æžœ %s æˆ˜å¹³\n %s PKäººæ•°:%d å¾—åˆ†:%d\n %s PKäººæ•°:%d å¾—åˆ†:%d", 
 							pSecond->name, pAttSept->name,
 							this->pk1, this->grade1,
 							pSecond->name,
@@ -244,12 +244,12 @@ void CDareSept::setReadyQuestionState()
 	{
 		UserSession* pDareUser = UserSessionManager::getInstance()->getUserByID(this->userid1);
 		rwlock.wrlock();
-		userid2 = toUserID;               // ±£´æÓ¦Õ½ÕßID
+		userid2 = toUserID;               // ä¿å­˜åº”æˆ˜è€…ID
 		rwlock.unlock();
 		UserSession* pUser = UserSessionManager::getInstance()->getUserByID(this->userid2);
 
 		if (pUser && pDareUser)
-		{//ÕÒµ½ÓÐÐ§Ó¦Õ½Õß,ÏòÆä·¢ËÍÌôÕ½Ñ¯ÎÊÃüÁî
+		{//æ‰¾åˆ°æœ‰æ•ˆåº”æˆ˜è€…,å‘å…¶å‘é€æŒ‘æˆ˜è¯¢é—®å‘½ä»¤
 			Cmd::stActiveDareCmd send;
 
 			send.dwMsgType = Cmd::DARE_QUESTION;
@@ -262,16 +262,16 @@ void CDareSept::setReadyQuestionState()
 			pUser->sendCmdToMe(&send, sizeof(send));
 		}
 		else
-		{//Ó¦Õ½Õß
+		{//åº”æˆ˜è€…
 #ifdef _ZJW_DEBUG		    
-			Zebra::logger->debug("Ó¦Õ½ÕßÎ´ÔÚÏß");
+			Zebra::logger->debug("åº”æˆ˜è€…æœªåœ¨çº¿");
 #endif		    
 		}
 	}
 	else
 	{
 #ifdef _ZJW_DEBUG	    
-		Zebra::logger->debug("Î´ÕÒµ½ÓÐÐ§µÄÓ¦Õ½Õß");
+		Zebra::logger->debug("æœªæ‰¾åˆ°æœ‰æ•ˆçš„åº”æˆ˜è€…");
 #endif	    
 	}
 
@@ -295,7 +295,7 @@ void CDareSept::setReadyActiveState(UserSession* pUser)
 	{
 		if ((int)pSept->getRepute() < vDareRepute[this->dwDareRepute])
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÉùÍû²»×ã£¬²»ÄÜ½ÓÊÜÌôÕ½");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å£°æœ›ä¸è¶³ï¼Œä¸èƒ½æŽ¥å—æŒ‘æˆ˜");
 			this->setReturnGoldState();
 			return;
 		}
@@ -305,7 +305,7 @@ void CDareSept::setReadyActiveState(UserSession* pUser)
 	}
 	else
 	{
-		// TODO:Èç¹ûÕÒ²»µ½Ó¦Õ½Õß
+		// TODO:å¦‚æžœæ‰¾ä¸åˆ°åº”æˆ˜è€…
 		setReturnGoldState();
 	}
 }
@@ -340,13 +340,13 @@ void CDareSept::setReturnGoldState()
 
 void CDareSept::setReadyOverState()
 {
-	Cmd::Session::t_enterWar_SceneSession exit_war; // Í¨Öª³¡¾°£¬ÍË³ö¶ÔÕ½×´Ì¬
+	Cmd::Session::t_enterWar_SceneSession exit_war; // é€šçŸ¥åœºæ™¯ï¼Œé€€å‡ºå¯¹æˆ˜çŠ¶æ€
 	int vDareRepute[] = {0, 1, 5, 10, 20};
 
 	UserSession* pUser1 = NULL;
 	UserSession* pUser2 = NULL;
 
-	int winner_type = 0;  // Îª0£¬ÌôÕ½ÕßÊ¤£¬Îª1£¬Ó¦Õ½ÕßÊ¤£¬2£¬Õ½Æ½
+	int winner_type = 0;  // ä¸º0ï¼ŒæŒ‘æˆ˜è€…èƒœï¼Œä¸º1ï¼Œåº”æˆ˜è€…èƒœï¼Œ2ï¼Œæˆ˜å¹³
 
 	rwlock.wrlock();
 	this->state = CDare::DARE_READY_OVER;
@@ -416,7 +416,7 @@ void CDareSept::setReadyOverState()
 		winner_type = 2;
 	}
 
-	// Í¨¸æ¶ÔÕ½½á¹û
+	// é€šå‘Šå¯¹æˆ˜ç»“æžœ
 	this->notifyWarResult(winner_type);
 	this->setOverState();
 }

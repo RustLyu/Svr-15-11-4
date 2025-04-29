@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zUser.h  $
  * \author  
  * \date 
- * \brief ÓÎÏ·½ÇÉ«¶¨Òå
+ * \brief æ¸¸æˆè§’è‰²å®šä¹‰
  */
 
 #ifndef _ZUSER_H_
@@ -13,7 +13,7 @@
 #include "Zebra.h"
 
 /**
- * \brief ½ÇÉ«¶¨ÒåÀà,ÓĞ´ıÀ©³ä
+ * \brief è§’è‰²å®šä¹‰ç±»,æœ‰å¾…æ‰©å……
  */
 struct zUser:public zSceneEntry
 {

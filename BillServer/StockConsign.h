@@ -1,4 +1,4 @@
-#ifndef _STOCKCONSIGN_H_
+ï»¿#ifndef _STOCKCONSIGN_H_
 #define _STOCKCONSIGN_H_
 #include <ext/hash_map>
 #include "zType.h"
@@ -38,7 +38,7 @@ class Consign
 		static bool addMoney(DWORD accid,DWORD num);
 		 
 	protected:
-		// ¸üĞÂÀúÊ·¼ÇÂ¼±í
+		// æ›´æ–°å†å²è®°å½•è¡¨
 		bool updateHistory(DWORD id, DWORD acc, DWORD num  , DWORD commitprice, DWORD price , DWORD comtime,bool type,DWORD sysmoney);
 		//PriceIndex priceindex;
 		char Buf[1024];
@@ -89,10 +89,10 @@ class ConsignHistoryManager
 		bool sendDataToUser(BillUser *pUser , DWORD begintime,DWORD num=0);
 		bool sendSelfDataToUser(BillUser *pUser , DWORD begintime,DWORD num);
 	public:
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef __gnu_cxx::hash_multimap<DWORD ,Cmd::ConsignHistoryType> HistoryIndex;
 
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef __gnu_cxx::pair<HistoryIndex::iterator,HistoryIndex::iterator> HistoryRange;
 	private:
 		HistoryIndex historyGold;

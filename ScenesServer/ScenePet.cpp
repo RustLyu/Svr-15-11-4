@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ScenePet.cpp  $
  * \author 
  * \date 
- * \brief ³èÎïÀàµÄÊµÏÖ
+ * \brief å® ç‰©ç±»çš„å®žçŽ°
  *
  * 
  */
@@ -24,7 +24,7 @@ petBonus bonusTable[] =
 };
 
 /**
- * \brief ¹¹Ôì
+ * \brief æž„é€ 
  */
 ScenePet::ScenePet(Scene* scene, zNpcB *npc, const t_NpcDefine *define, const SceneNpcType type, const SceneEntryType entrytype, zNpcB *abase)
 :SceneNpc(scene, npc, define, type, entrytype, abase),speedUpOffMaster(false)
@@ -89,10 +89,10 @@ ScenePet::ScenePet(Scene* scene, zNpcB *npc, const t_NpcDefine *define, const Sc
 }
 
 /**
- * \brief µÐÎÒÅÐ¶Ï
- * \param entry ÅÐ¶ÏµÄ¶ÔÏó
- * \param notify ÅÐ¶ÏÊ§°ÜÊ±ÊÇ·ñÌáÊ¾£¨²»ÄÜ¹¥»÷10¼¶ÒÔÏÂµÄÍæ¼Ò£©
- * \return 0:ÓÑ·½ 1:µÐÈË -1:ÖÐÁ¢
+ * \brief æ•Œæˆ‘åˆ¤æ–­
+ * \param entry åˆ¤æ–­çš„å¯¹è±¡
+ * \param notify åˆ¤æ–­å¤±è´¥æ—¶æ˜¯å¦æç¤ºï¼ˆä¸èƒ½æ”»å‡»10çº§ä»¥ä¸‹çš„çŽ©å®¶ï¼‰
+ * \return 0:å‹æ–¹ 1:æ•Œäºº -1:ä¸­ç«‹
  */
 int ScenePet::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 {
@@ -162,9 +162,9 @@ int ScenePet::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 }
 
 /**
- * \brief µ±Ö÷ÈËÊÇÍæ¼ÒÊ±£¬ÒÔÖ÷ÈËµÄÉí·Ý½øÐÐµÐÎÒÅÐ¶Ï
- * \param entry ÅÐ¶ÏµÄ¶ÔÏó
- * \return 0:ÓÑ·½ 1:µÐÈË -1:ÖÐÁ¢
+ * \brief å½“ä¸»äººæ˜¯çŽ©å®¶æ—¶ï¼Œä»¥ä¸»äººçš„èº«ä»½è¿›è¡Œæ•Œæˆ‘åˆ¤æ–­
+ * \param entry åˆ¤æ–­çš„å¯¹è±¡
+ * \return 0:å‹æ–¹ 1:æ•Œäºº -1:ä¸­ç«‹
  */
 int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 {
@@ -174,7 +174,7 @@ int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 		tm = (SceneUser*)temp;
 	else return -1;
 
-	// TODO ÅÐ¶Ï´«Èë½ÇÉ«ÓëÖ÷ÈËÊÇ·ñÎªÅóÓÑ¹ØÏµ
+	// TODO åˆ¤æ–­ä¼ å…¥è§’è‰²ä¸Žä¸»äººæ˜¯å¦ä¸ºæœ‹å‹å…³ç³»
 	if (tm==entry) return 0;
 
 	SceneEntryPk * entryMaster = entry->getTopMaster();
@@ -255,7 +255,7 @@ int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 						break;
 					case PKMODE_TEAM:
 						{
-							//ÊÇÍ¬Ò»×é¶Ó»òÕßÊÇÔöÒæÀàÄ§·¨
+							//æ˜¯åŒä¸€ç»„é˜Ÿæˆ–è€…æ˜¯å¢žç›Šç±»é­”æ³•
 							if((tm->team.getLeader() != 0) && (pUser->team.getLeader() == tm->team.getLeader()))
 								return 0;
 							else
@@ -325,7 +325,7 @@ int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 			{
 				SceneNpc * n = (SceneNpc *)entry;
 
-				if (n->id==COUNTRY_MAIN_FLAG	//Õâ¼¸¸ö²»ÔÚÕâÀïÅÐ¶Ï
+				if (n->id==COUNTRY_MAIN_FLAG	//è¿™å‡ ä¸ªä¸åœ¨è¿™é‡Œåˆ¤æ–­
 						|| n->id==COUNTRY_SEC_FLAG
 						|| n->isMainGeneral()
 						|| n->id==COUNTRY_KING_MAIN_FLAG
@@ -335,7 +335,7 @@ int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 						|| n->id==COUNTRY_EMPEROR_SEC_GEN)
 					return 1;
 
-				//¹úÍânpc
+				//å›½å¤–npc
 				if (!n->isBugbear())
 				{
 					if (n->npc->flags==1 && tm->charbase.country!=n->scene->getCountryID())
@@ -364,23 +364,23 @@ int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 				}
 				switch (n->npc->kind)
 				{
-					case NPC_TYPE_HUMAN:                    ///ÈËÐÍ
-					case NPC_TYPE_NORMAL:                   /// ÆÕÍ¨ÀàÐÍ
-					case NPC_TYPE_BBOSS:                    /// ´óBossÀàÐÍ
-					case NPC_TYPE_LBOSS:                    /// Ð¡BossÀàÐÍ
-					case NPC_TYPE_PBOSS:                    /// ×ÏBossÀàÐÍ
-					case NPC_TYPE_BACKBONE:                 /// ¾«Ó¢ÀàÐÍ
-					case NPC_TYPE_GOLD:                             /// »Æ½ðÀàÐÍ
-					case NPC_TYPE_SUMMONS:                  /// ÕÙ»½ÀàÐÍ
-					case NPC_TYPE_AGGRANDIZEMENT:   /// Ç¿»¯ÀàÐÍ
-					case NPC_TYPE_ABERRANCE:                /// ±äÒìÀàÐÍ
-					case NPC_TYPE_BACKBONEBUG:              /// ¾«¹ÖÀàÐÍ
-					case NPC_TYPE_PET:      /// ³èÎïÀàÐÍ
-					case NPC_TYPE_TOTEM:                    /// Í¼ÌÚÀàÐÍ
-						//case NPC_TYPE_DUCKHIT:    /// »¨²Ý
+					case NPC_TYPE_HUMAN:                    ///äººåž‹
+					case NPC_TYPE_NORMAL:                   /// æ™®é€šç±»åž‹
+					case NPC_TYPE_BBOSS:                    /// å¤§Bossç±»åž‹
+					case NPC_TYPE_LBOSS:                    /// å°Bossç±»åž‹
+					case NPC_TYPE_PBOSS:                    /// ç´«Bossç±»åž‹
+					case NPC_TYPE_BACKBONE:                 /// ç²¾è‹±ç±»åž‹
+					case NPC_TYPE_GOLD:                             /// é»„é‡‘ç±»åž‹
+					case NPC_TYPE_SUMMONS:                  /// å¬å”¤ç±»åž‹
+					case NPC_TYPE_AGGRANDIZEMENT:   /// å¼ºåŒ–ç±»åž‹
+					case NPC_TYPE_ABERRANCE:                /// å˜å¼‚ç±»åž‹
+					case NPC_TYPE_BACKBONEBUG:              /// ç²¾æ€ªç±»åž‹
+					case NPC_TYPE_PET:      /// å® ç‰©ç±»åž‹
+					case NPC_TYPE_TOTEM:                    /// å›¾è…¾ç±»åž‹
+						//case NPC_TYPE_DUCKHIT:    /// èŠ±è‰
 						return 1;
-					case NPC_TYPE_GUARD:    /// Ê¿±øÀàÐÍ
-					case NPC_TYPE_SOLDIER:    /// Ê¿±øÀàÐÍ
+					case NPC_TYPE_GUARD:    /// å£«å…µç±»åž‹
+					case NPC_TYPE_SOLDIER:    /// å£«å…µç±»åž‹
 						{
 							if (tm->charbase.country!=scene->getCountryID())
 								return 1;
@@ -393,19 +393,19 @@ int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 							return 1;
 						else
 							if (tm->scene->getUnionDare() && !tm->isSpecWar(Cmd::UNION_CITY_DARE)
-									&& !n->isMainGeneral())//´ó½«¾üµÚÈý·½²»ÄÜ´ò
-								return 1;//ÖÐÁ¢·½
+									&& !n->isMainGeneral())//å¤§å°†å†›ç¬¬ä¸‰æ–¹ä¸èƒ½æ‰“
+								return 1;//ä¸­ç«‹æ–¹
 							else                                                    
-								return 0;//³ÇÕ½ÆÚ¼ä´ò³ÇÕ½¶øÇÒ²»ÊÇ¹¥·½£¬¾ÍÊÇÊØ·½
+								return 0;//åŸŽæˆ˜æœŸé—´æ‰“åŸŽæˆ˜è€Œä¸”ä¸æ˜¯æ”»æ–¹ï¼Œå°±æ˜¯å®ˆæ–¹
 						break;
 					case NPC_TYPE_UNIONATTACKER:
 						if (tm->isAtt(Cmd::UNION_CITY_DARE))
 							return 0;
 						else
 							if (tm->scene->getUnionDare() && !tm->isSpecWar(Cmd::UNION_CITY_DARE))
-								return 1;//ÖÐÁ¢·½
+								return 1;//ä¸­ç«‹æ–¹
 							else
-								return 1;//³ÇÕ½ÆÚ¼ä´ò³ÇÕ½¶øÇÒ²»ÊÇ¹¥·½£¬¾ÍÊÇÊØ·½
+								return 1;//åŸŽæˆ˜æœŸé—´æ‰“åŸŽæˆ˜è€Œä¸”ä¸æ˜¯æ”»æ–¹ï¼Œå°±æ˜¯å®ˆæ–¹
 						break;
 					default:
 						return -1;
@@ -421,12 +421,12 @@ int ScenePet::isUserMasterEnemy(SceneEntryPk * entry)
 }
 
 /**
- * \brief ÉèÖÃ³èÎïÐÐÎª·½Ê½
- * \param mode Ä£Ê½
+ * \brief è®¾ç½®å® ç‰©è¡Œä¸ºæ–¹å¼
+ * \param mode æ¨¡å¼
  */
 void ScenePet::setPetAI(Cmd::petAIMode mode)
 {
-	if (mode&0xff00)//ÉèÖÃ¹¥»÷Ä£Ê½
+	if (mode&0xff00)//è®¾ç½®æ”»å‡»æ¨¡å¼
 	{
 		petData.ai &= 0x00ff;
 		petData.ai |= mode;
@@ -436,7 +436,7 @@ void ScenePet::setPetAI(Cmd::petAIMode mode)
 			setRecoverTime(SceneTimeTick::currentTime, 3000);
 		}
 	}       
-	if (mode&0x00ff)//ÉèÖÃÒÆ¶¯Ä£Ê½
+	if (mode&0x00ff)//è®¾ç½®ç§»åŠ¨æ¨¡å¼
 	{
 		petData.ai &= 0xff00;
 		petData.ai |= mode;
@@ -451,8 +451,8 @@ void ScenePet::setPetAI(Cmd::petAIMode mode)
 }
 
 /**
- * \brief µÃµ½³èÎïÐÐÎª·½Ê½
- * \return Ä£Ê½
+ * \brief å¾—åˆ°å® ç‰©è¡Œä¸ºæ–¹å¼
+ * \return æ¨¡å¼
  */
 WORD ScenePet::getPetAI()
 {
@@ -460,9 +460,9 @@ WORD ScenePet::getPetAI()
 }
 
 /**
- * \brief ÏòÖ÷ÈËÒÆ¶¯
+ * \brief å‘ä¸»äººç§»åŠ¨
  *
- * \return ÊÇ·ñÒÆ¶¯³É¹¦
+ * \return æ˜¯å¦ç§»åŠ¨æˆåŠŸ
  */
 bool ScenePet::moveToMaster()
 {
@@ -490,13 +490,13 @@ bool ScenePet::moveToMaster()
 		if (master->scene == scene)
 		{
 			check();
-			if (0==masterID) return true;//ÔËïÚ³É¹¦É¾³ýÁËÖ÷ÈË
+			if (0==masterID) return true;//è¿é•–æˆåŠŸåˆ é™¤äº†ä¸»äºº
 
-			//³¬³öË²ÒÆ·¶Î§
+			//è¶…å‡ºçž¬ç§»èŒƒå›´
 			if (!(scene->zPosShortRange(getPos(), master->getPos(), npc_pet_warp_region)))
 				return warp(master->getPos());
 
-			//Àë¿ª½ÏÔ¶¾àÀë
+			//ç¦»å¼€è¾ƒè¿œè·ç¦»
 			int region = isFighting()?npc_pet_run_region+4:npc_pet_run_region;
 			if (!(scene->zPosShortRange(getPos(), master->getPos(), region)))
 			{
@@ -508,7 +508,7 @@ bool ScenePet::moveToMaster()
 			}
 			else
 			{
-				//ÔÚÖ÷ÈËÉí±ß
+				//åœ¨ä¸»äººèº«è¾¹
 				region = isFighting()?npc_pet_chase_region+5:npc_pet_chase_region;
 				if ((scene->zPosShortRange(getPos(), master->getPos(), region)))
 				{
@@ -550,9 +550,9 @@ bool ScenePet::moveToMaster()
 }
 
 /**
- * \brief µÃµ½Ö÷ÈËµÄÖ¸Õë
+ * \brief å¾—åˆ°ä¸»äººçš„æŒ‡é’ˆ
  *
- * \return Ö÷ÈËµÄÖ¸Õë
+ * \return ä¸»äººçš„æŒ‡é’ˆ
  * 
  */
 SceneEntryPk * ScenePet::getMaster()
@@ -574,12 +574,12 @@ SceneEntryPk * ScenePet::getMaster()
 	if (!m && Cmd::PET_TYPE_GUARDNPC!=getPetType())
 	{
 #ifdef _XWL_DEBUG
-		//Zebra::logger->trace("%s ÕÒ²»µ½Ö÷ÈË masterTpye=%u masterID=%u needClear=%u", name, masterType, masterID, needClear());
+		//Zebra::logger->trace("%s æ‰¾ä¸åˆ°ä¸»äºº masterTpye=%u masterID=%u needClear=%u", name, masterType, masterID, needClear());
 #endif
 
 		delCount++;
 		if (delCount==100)
-			Zebra::logger->trace("%s ÕÒ²»µ½Ö÷ÈË masterTpye=%u masterID=%u needClear=%u %s(%u,%u)", name, masterType, masterID, needClear(), scene->name, pos.x, pos.y);
+			Zebra::logger->trace("%s æ‰¾ä¸åˆ°ä¸»äºº masterTpye=%u masterID=%u needClear=%u %s(%u,%u)", name, masterType, masterID, needClear(), scene->name, pos.x, pos.y);
 
 		//if (delCount>=10 && !needClear())
 		//	delMyself();
@@ -588,9 +588,9 @@ SceneEntryPk * ScenePet::getMaster()
 }
 
 /**
- * \brief µÃµ½×îÉÏ²ãÖ÷ÈËµÄÖ¸Õë
- * Ã»ÓÐÖ÷ÈË·µ»Ø×Ô¼º
- * \return Ö÷ÈËµÄÖ¸Õë
+ * \brief å¾—åˆ°æœ€ä¸Šå±‚ä¸»äººçš„æŒ‡é’ˆ
+ * æ²¡æœ‰ä¸»äººè¿”å›žè‡ªå·±
+ * \return ä¸»äººçš„æŒ‡é’ˆ
  * 
  */
 SceneEntryPk * ScenePet::getTopMaster()
@@ -604,9 +604,9 @@ SceneEntryPk * ScenePet::getTopMaster()
 }
 
 /**
- * \brief ·µ»ØÊÇ·ñºìÃû
+ * \brief è¿”å›žæ˜¯å¦çº¢å
  *
- * \return ÊÇ·ñºìÃû
+ * \return æ˜¯å¦çº¢å
  */
 bool ScenePet::isRedNamed(bool allRedMode)
 {
@@ -614,12 +614,12 @@ bool ScenePet::isRedNamed(bool allRedMode)
 	SceneEntryPk * master = getMaster();
 	if (master)
 		return master->isRedNamed(allRedMode);
-	//Zebra::logger->error("ScenePet::isRedNamed(): %s Ã»ÓÐÖ÷ÈË", name);
+	//Zebra::logger->error("ScenePet::isRedNamed(): %s æ²¡æœ‰ä¸»äºº", name);
 	return false;
 }
 
 /**
- * \brief »Øµ½»î¶¯·¶Î§
+ * \brief å›žåˆ°æ´»åŠ¨èŒƒå›´
  *
  */
 void ScenePet::returnToRegion()
@@ -639,10 +639,10 @@ void ScenePet::returnToRegion()
 }
 
 /**
- * \brief Ìî³ä³èÎïÐÅÏ¢½á¹¹
+ * \brief å¡«å……å® ç‰©ä¿¡æ¯ç»“æž„
  *
  *
- * \param data ½á¹¹µØÖ·
+ * \param data ç»“æž„åœ°å€
  */
 void ScenePet::full_PetDataStruct(Cmd::t_PetData & data)
 {
@@ -658,15 +658,15 @@ void ScenePet::full_PetDataStruct(Cmd::t_PetData & data)
 		hp = getMaxHP();
 	petData.hp = hp;
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("·¢ËÍ³èÎïhp plus=%u getMaxHP=%u - petData.maxhp=%u", petData.maxhp_plus, getMaxHP(), petData.maxhp);
+	Zebra::logger->debug("å‘é€å® ç‰©hp plus=%u getMaxHP=%u - petData.maxhp=%u", petData.maxhp_plus, getMaxHP(), petData.maxhp);
 #endif
 	bcopy(&petData, &data, sizeof(petData));
 }
 
 /**
- * \brief ÊÇ·ñÖ÷¶¯¹¥»÷
+ * \brief æ˜¯å¦ä¸»åŠ¨æ”»å‡»
  *
- * \return ÊÇ·ñÖ÷¶¯¹¥»÷
+ * \return æ˜¯å¦ä¸»åŠ¨æ”»å‡»
  */
 bool ScenePet::isActive()
 {
@@ -677,9 +677,9 @@ bool ScenePet::isActive()
 }
 
 /**
- * \brief ÊÇ·ñ¿ÉÒÔÕ½¶·
+ * \brief æ˜¯å¦å¯ä»¥æˆ˜æ–—
  *
- * \return ÊÇ·ñ¿ÉÒÔÕ½¶·
+ * \return æ˜¯å¦å¯ä»¥æˆ˜æ–—
  */
 bool ScenePet::canFight()
 {
@@ -690,9 +690,9 @@ bool ScenePet::canFight()
 }
 
 /**
- * \brief ÊÇ·ñ¿ÉÒÔÒÆ¶¯
+ * \brief æ˜¯å¦å¯ä»¥ç§»åŠ¨
  *
- * \return ÊÇ·ñ¿ÉÒÔÒÆ¶¯
+ * \return æ˜¯å¦å¯ä»¥ç§»åŠ¨
  */
 bool ScenePet::canMove()
 {
@@ -703,10 +703,10 @@ bool ScenePet::canMove()
 }
 
 /**
- * \brief ÉèÖÃÖ÷ÈË
+ * \brief è®¾ç½®ä¸»äºº
  *
  *
- * \param m Ö÷ÈËÖ¸Õë
+ * \param m ä¸»äººæŒ‡é’ˆ
  */
 void ScenePet::setMaster(SceneEntryPk * m)
 {
@@ -723,16 +723,16 @@ void ScenePet::setMaster(SceneEntryPk * m)
 }
 
 /**
- * \brief ÉèÖÃÖ÷ÈË
+ * \brief è®¾ç½®ä¸»äºº
  *
  *
- * \param master Ö÷ÈËÖ¸Õë
+ * \param master ä¸»äººæŒ‡é’ˆ
  */
 void ScenePet::setMaster(DWORD id, DWORD type)
 {
 	if (type!=zSceneEntry::SceneEntry_Player && type!=zSceneEntry::SceneEntry_NPC)
 	{
-		Zebra::logger->trace("ScenePet::setMaster(): ÆóÍ¼¸ø %s ÉèÖÃ·Ç·¨µÄÖ÷ÈËÀàÐÍ type=%u", name, type);
+		Zebra::logger->trace("ScenePet::setMaster(): ä¼å›¾ç»™ %s è®¾ç½®éžæ³•çš„ä¸»äººç±»åž‹ type=%u", name, type);
 		return;
 	}
 
@@ -744,7 +744,7 @@ void ScenePet::setMaster(DWORD id, DWORD type)
 }
 
 /**
- * \brief Çå³ýÖ÷ÈËÖ¸Õë
+ * \brief æ¸…é™¤ä¸»äººæŒ‡é’ˆ
  *
  */
 void ScenePet::clearMaster()
@@ -754,10 +754,10 @@ void ScenePet::clearMaster()
 }
 
 /**
- * \brief ÉèÖÃ³èÎïÀàÐÍ
+ * \brief è®¾ç½®å® ç‰©ç±»åž‹
  *
  *
- * \param petType ³èÎïÀàÐÍ
+ * \param petType å® ç‰©ç±»åž‹
  */
 void ScenePet::setPetType(Cmd::petType petType)
 {
@@ -766,10 +766,10 @@ void ScenePet::setPetType(Cmd::petType petType)
 }
 
 /**
- * \brief »ñÈ¡³èÎïÀàÐÍ
+ * \brief èŽ·å–å® ç‰©ç±»åž‹
  *
  *
- * \return ³èÎïÀàÐÍ
+ * \return å® ç‰©ç±»åž‹
  */
 Cmd::petType ScenePet::getPetType()
 {
@@ -777,11 +777,11 @@ Cmd::petType ScenePet::getPetType()
 }
 
 /**
- * \brief ²éÕÒÖ÷ÈËµÄµÐÈË
+ * \brief æŸ¥æ‰¾ä¸»äººçš„æ•Œäºº
  *
  *
- * \param ret ÕÒµ½µÄÄ¿±ê
- * \return ÊÇ·ñÕÒµ½
+ * \param ret æ‰¾åˆ°çš„ç›®æ ‡
+ * \return æ˜¯å¦æ‰¾åˆ°
  */
 bool ScenePet::checkMasterTarget(SceneEntryPk *&ret)
 {
@@ -801,9 +801,9 @@ bool ScenePet::checkMasterTarget(SceneEntryPk *&ret)
 			r *= 2;
 
 		SceneEntryPk * tmp = 0;
-		if (petData.ai&Cmd::PETAI_ATK_ACTIVE)//Ö÷ÈË¹¥»÷µÄ¶ÔÏó
+		if (petData.ai&Cmd::PETAI_ATK_ACTIVE)//ä¸»äººæ”»å‡»çš„å¯¹è±¡
 			tmp = master->getCurTarget();
-		else if (petData.ai&Cmd::PETAI_ATK_PASSIVE)//¹¥»÷Ö÷ÈËµÄ¶ÔÏó
+		else if (petData.ai&Cmd::PETAI_ATK_PASSIVE)//æ”»å‡»ä¸»äººçš„å¯¹è±¡
 			tmp = master->getDefTarget();
 
 		if ((tmp)&&(tmp!=this))
@@ -817,13 +817,13 @@ bool ScenePet::checkMasterTarget(SceneEntryPk *&ret)
 			}
 		return false;
 	} 
-	//Zebra::logger->error("ScenePet::checkMasterTarget(): %s Ã»ÓÐÖ÷ÈË", name);
+	//Zebra::logger->error("ScenePet::checkMasterTarget(): %s æ²¡æœ‰ä¸»äºº", name);
 	ret = 0;
 	return false;
 }
 
 /**
- * \brief ´¦Àí³èÎïËÀÍö
+ * \brief å¤„ç†å® ç‰©æ­»äº¡
  *
  */
 void ScenePet::petDeath()
@@ -831,7 +831,7 @@ void ScenePet::petDeath()
 	SceneEntryPk * master = getMaster();
 	if (master)
 	{
-		/* //Âí²»»áËÀÁË
+		/* //é©¬ä¸ä¼šæ­»äº†
 		   if (Cmd::PET_TYPE_RIDE==type&&zSceneEntry::SceneEntry_Player==master->getType())
 		   {
 		   SceneUser * m = (SceneUser *)master;
@@ -841,7 +841,7 @@ void ScenePet::petDeath()
 		   m->sendCmdToMe(&del, sizeof(del));
 
 		   m->horse.horse(0);
-		   Zebra::logger->trace("%s µÄ %s ËÀÍö", m->name, name);
+		   Zebra::logger->trace("%s çš„ %s æ­»äº¡", m->name, name);
 		   }
 		   */
 		petData.state = Cmd::PET_STATE_DEAD;
@@ -851,7 +851,7 @@ void ScenePet::petDeath()
 }
 
 /**
- * \brief Ïò¿Í»§¶Ë·¢ËÍ×Ô¼ºµÄÊý¾Ý
+ * \brief å‘å®¢æˆ·ç«¯å‘é€è‡ªå·±çš„æ•°æ®
  *
  */
 void ScenePet::sendData()
@@ -872,7 +872,7 @@ void ScenePet::sendData()
 			ref.id = tempid;
 			full_PetDataStruct(ref.data);
 #ifdef _XWL_DEBUG
-			Zebra::logger->debug("·¢ËÍ³èÎïÐÅÏ¢ name=%s ai=%x hp=%u maxhp=%u", name, petData.ai, petData.hp, petData.maxhp);
+			Zebra::logger->debug("å‘é€å® ç‰©ä¿¡æ¯ name=%s ai=%x hp=%u maxhp=%u", name, petData.ai, petData.hp, petData.maxhp);
 #endif
 			((SceneUser *)master)->sendCmdToMe(&ref, sizeof(ref));
 		}
@@ -880,7 +880,7 @@ void ScenePet::sendData()
 }
 
 /**
- * \brief Ïò¿Í»§¶Ë·¢ËÍ×Ô¼ºµÄÑªºÍ¾­Ñé
+ * \brief å‘å®¢æˆ·ç«¯å‘é€è‡ªå·±çš„è¡€å’Œç»éªŒ
  *
  */
 void ScenePet::sendHpExp()
@@ -903,9 +903,9 @@ void ScenePet::sendHpExp()
 }
 
 /**
- * \brief µÃµ½³èÎïµÄµÈ¼¶
+ * \brief å¾—åˆ°å® ç‰©çš„ç­‰çº§
  *
- * \return µÈ¼¶
+ * \return ç­‰çº§
  */
 DWORD ScenePet::getLevel() const
 {
@@ -913,7 +913,7 @@ DWORD ScenePet::getLevel() const
 }
 
 /**
- * \brief ÌÓÀëµÐÈË
+ * \brief é€ƒç¦»æ•Œäºº
  *
  */
 bool ScenePet::runOffEnemy(SceneEntryPk_vec& enemies)
@@ -922,10 +922,10 @@ bool ScenePet::runOffEnemy(SceneEntryPk_vec& enemies)
 }
 
 /**
- * \brief ÔÚÖ÷ÈËÖÜÎ§2¸ñÄÚËæ»úÒÆ¶¯
- * ÀëÖ÷ÈËÖ»ÓÐ1¸ñÊ±Ëæ±ã×ß£¬³¬¹ý1¸ñ¾ÍÒª¼ì²âÏÂÒ»²½ÊÇ·ñÔÚ»î¶¯·¶Î§ÄÚ
+ * \brief åœ¨ä¸»äººå‘¨å›´2æ ¼å†…éšæœºç§»åŠ¨
+ * ç¦»ä¸»äººåªæœ‰1æ ¼æ—¶éšä¾¿èµ°ï¼Œè¶…è¿‡1æ ¼å°±è¦æ£€æµ‹ä¸‹ä¸€æ­¥æ˜¯å¦åœ¨æ´»åŠ¨èŒƒå›´å†…
  *
- * \return ÊÇ·ñÒÆ¶¯³É¹¦
+ * \return æ˜¯å¦ç§»åŠ¨æˆåŠŸ
  */
 bool ScenePet::randomMove()
 {
@@ -945,17 +945,17 @@ bool ScenePet::randomMove()
 			scene->getNextPos(pos, dir, newPos);
 			zPosI newPosI = 0;
 			scene->zPos2zPosI(newPos, newPosI);
-			if (getPosI()==newPosI//²»ÇÐÆÁ
-					&& scene->zPosShortRange(master->getPos(), newPos, SceneNpc::npc_pet_chase_region))//Ö÷ÈË2¸ñÄÚ
-				return shiftMove(dir);//Ëæ»úÒÆ¶¯
+			if (getPosI()==newPosI//ä¸åˆ‡å±
+					&& scene->zPosShortRange(master->getPos(), newPos, SceneNpc::npc_pet_chase_region))//ä¸»äºº2æ ¼å†…
+				return shiftMove(dir);//éšæœºç§»åŠ¨
 		}
 	return false;
 }
 
 /**
- * \brief ÉèÖÃÖ÷ÈË¹÷Àà¸½¼Ó¹¥»÷Á¦
- * \param mindamage ×îÐ¡¹¥»÷Á¦
- * \param maxdamage ×î´ó¹¥»÷Á¦
+ * \brief è®¾ç½®ä¸»äººæ£ç±»é™„åŠ æ”»å‡»åŠ›
+ * \param mindamage æœ€å°æ”»å‡»åŠ›
+ * \param maxdamage æœ€å¤§æ”»å‡»åŠ›
  */
 void ScenePet::setAppendDamage(WORD mindamage, WORD maxdamage)
 {
@@ -965,11 +965,11 @@ void ScenePet::setAppendDamage(WORD mindamage, WORD maxdamage)
 }
 
 /**
- * \brief Ôö¼Ó³èÎï¾­Ñé
+ * \brief å¢žåŠ å® ç‰©ç»éªŒ
  *
  *
- * \param num ÊýÁ¿
- * \return ÊÇ·ñ¿ÉÒÔÉý¼¶
+ * \param num æ•°é‡
+ * \return æ˜¯å¦å¯ä»¥å‡çº§
  */
 bool ScenePet::addExp(DWORD num)
 {
@@ -994,15 +994,15 @@ bool ScenePet::addExp(DWORD num)
 }
 
 /**
- * \brief Ôö¼Ó³èÎïµÄ¾­Ñé
+ * \brief å¢žåŠ å® ç‰©çš„ç»éªŒ
  *
  *
- * \param num ÊýÁ¿
+ * \param num æ•°é‡
  */
 void ScenePet::addPetExp(DWORD num)
 {
 	/*
-	   return;//²»ÓÃ
+	   return;//ä¸ç”¨
 	   if (summon)
 	   if (summon->addExp(num))
 	   petLevelUp(summon);
@@ -1010,9 +1010,9 @@ void ScenePet::addPetExp(DWORD num)
 }
 
 /**
- * \brief »ØÑª
+ * \brief å›žè¡€
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool ScenePet::recover()
 {
@@ -1031,8 +1031,8 @@ bool ScenePet::recover()
 }
 
 /**
- * \brief »ñÈ¡Ö÷ÈËµÄ·¨Á¦Öµ
- * \return Ö÷ÈË·¨Á¦Öµ
+ * \brief èŽ·å–ä¸»äººçš„æ³•åŠ›å€¼
+ * \return ä¸»äººæ³•åŠ›å€¼
  */
 DWORD ScenePet::getMasterMana()
 {
@@ -1044,7 +1044,7 @@ DWORD ScenePet::getMasterMana()
 }
 
 /**
- * \brief ¸Ä±ä²¢Ë¢ÐÂ½ÇÉ«ÊôÐÔ
+ * \brief æ”¹å˜å¹¶åˆ·æ–°è§’è‰²å±žæ€§
  * \author fqnewman
  */
 void  ScenePet::changeAndRefreshHMS(bool lock, bool sendData)
@@ -1055,9 +1055,9 @@ void  ScenePet::changeAndRefreshHMS(bool lock, bool sendData)
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñÔÚPKÇøÓò
- * \param other PKÏà¹ØÈË
- * \return ÊÇ·ñÔÚPKÇøÓò
+ * \brief æ£€æŸ¥æ˜¯å¦åœ¨PKåŒºåŸŸ
+ * \param other PKç›¸å…³äºº
+ * \return æ˜¯å¦åœ¨PKåŒºåŸŸ
  */
 bool ScenePet::isPkZone(SceneEntryPk *other)
 {
@@ -1068,14 +1068,14 @@ bool ScenePet::isPkZone(SceneEntryPk *other)
 }
 
 /**
- * \brief Ñ¡ÔñµÐÈË
+ * \brief é€‰æ‹©æ•Œäºº
  *
- * \return µÐÈËµÄÖ¸Õë
+ * \return æ•Œäººçš„æŒ‡é’ˆ
  */
 SceneEntryPk * ScenePet::chooseEnemy(SceneEntryPk_vec &enemies)
 {
 	if (type==Cmd::PET_TYPE_SEMI) return SceneNpc::chooseEnemy(enemies);
-	//·ÇÕ½¶·npc                     
+	//éžæˆ˜æ–—npc                     
 	if (!canFight()) return false;          
 
 	SceneEntryPk * ret = 0;                 
@@ -1098,10 +1098,10 @@ SceneEntryPk * ScenePet::chooseEnemy(SceneEntryPk_vec &enemies)
 }
 
 /*
- * \brief µÃµ½×îÐ¡ÎïÀí¹¥»÷Á¦
+ * \brief å¾—åˆ°æœ€å°ç‰©ç†æ”»å‡»åŠ›
  *
  *
- * \return ×îÐ¡ÎïÀí¹¥»÷Á¦
+ * \return æœ€å°ç‰©ç†æ”»å‡»åŠ›
  */
 DWORD ScenePet::getMinPDamage()
 {
@@ -1122,10 +1122,10 @@ DWORD ScenePet::getMinPDamage()
 }
 
 /*
- * \brief µÃµ½×î´óÎïÀí¹¥»÷Á¦
+ * \brief å¾—åˆ°æœ€å¤§ç‰©ç†æ”»å‡»åŠ›
  *
  *
- * \return ×î´óÎïÀí¹¥»÷Á¦
+ * \return æœ€å¤§ç‰©ç†æ”»å‡»åŠ›
  */
 DWORD ScenePet::getMaxPDamage()
 {
@@ -1146,10 +1146,10 @@ DWORD ScenePet::getMaxPDamage()
 }
 
 /*
- * \brief µÃµ½×îÐ¡Ä§·¨¹¥»÷Á¦
+ * \brief å¾—åˆ°æœ€å°é­”æ³•æ”»å‡»åŠ›
  *
  *
- * \return ×îÐ¡Ä§·¨¹¥»÷Á¦
+ * \return æœ€å°é­”æ³•æ”»å‡»åŠ›
  */
 DWORD ScenePet::getMinMDamage()
 {
@@ -1171,10 +1171,10 @@ return 0;
 }
 
 /*
- * \brief µÃµ½×î´óÄ§·¨¹¥»÷Á¦
+ * \brief å¾—åˆ°æœ€å¤§é­”æ³•æ”»å‡»åŠ›
  *
  *
- * \return ×î´óÄ§·¨¹¥»÷Á¦
+ * \return æœ€å¤§é­”æ³•æ”»å‡»åŠ›
  */
 DWORD ScenePet::getMaxMDamage()
 {
@@ -1196,10 +1196,10 @@ return 0;
 }
 
 /*
- * \brief µÃµ½×îÐ¡ÎïÀí·ÀÓùÁ¦
+ * \brief å¾—åˆ°æœ€å°ç‰©ç†é˜²å¾¡åŠ›
  *
  *
- * \return ×îÐ¡ÎïÀí·ÀÓùÁ¦
+ * \return æœ€å°ç‰©ç†é˜²å¾¡åŠ›
  */
 DWORD ScenePet::getMinPDefence()
 {
@@ -1214,10 +1214,10 @@ DWORD ScenePet::getMinPDefence()
 }
 
 /*
- * \brief µÃµ½×î´óÎïÀí·ÀÓùÁ¦
+ * \brief å¾—åˆ°æœ€å¤§ç‰©ç†é˜²å¾¡åŠ›
  *
  *
- * \return ×î´óÎïÀí·ÀÓùÁ¦
+ * \return æœ€å¤§ç‰©ç†é˜²å¾¡åŠ›
  */
 DWORD ScenePet::getMaxPDefence()
 {
@@ -1232,10 +1232,10 @@ DWORD ScenePet::getMaxPDefence()
 }
 
 /*
- * \brief µÃµ½×î´óÄ§·¨·ÀÓùÁ¦
+ * \brief å¾—åˆ°æœ€å¤§é­”æ³•é˜²å¾¡åŠ›
  *
  *
- * \return ×î´óÄ§·¨·ÀÓùÁ¦
+ * \return æœ€å¤§é­”æ³•é˜²å¾¡åŠ›
  */
 DWORD ScenePet::getMinMDefence()
 {
@@ -1251,10 +1251,10 @@ DWORD ScenePet::getMinMDefence()
 }
 
 /*
- * \brief µÃµ½×î´óÄ§·¨·ÀÓùÁ¦
+ * \brief å¾—åˆ°æœ€å¤§é­”æ³•é˜²å¾¡åŠ›
  *
  *
- * \return ×î´óÄ§·¨·ÀÓùÁ¦
+ * \return æœ€å¤§é­”æ³•é˜²å¾¡åŠ›
  */
 DWORD ScenePet::getMaxMDefence()
 {
@@ -1270,7 +1270,7 @@ DWORD ScenePet::getMaxMDefence()
 }
 
 /*
- * \brief ´Ó±í¸ñ¶ÁÈ¡³èÎïµÄÄÜÁ¦
+ * \brief ä»Žè¡¨æ ¼è¯»å–å® ç‰©çš„èƒ½åŠ›
  *
  */
 void ScenePet::getAbilityByLevel(DWORD level)
@@ -1328,7 +1328,7 @@ void ScenePet::getAbilityByLevel(DWORD level)
 		}
 	}
 	else
-		Zebra::logger->debug("npc %s Î´ÖªµÄ¹¥»÷ÀàÐÍ type=%d", name, aType);
+		Zebra::logger->debug("npc %s æœªçŸ¥çš„æ”»å‡»ç±»åž‹ type=%d", name, aType);
 	/*
 	   std::vector<DWORD> list;
 	   if (base->getAllSkills(list))
@@ -1350,7 +1350,7 @@ void ScenePet::getAbilityByLevel(DWORD level)
 }
 
 /*
- * \brief ³èÎïÉý¼¶
+ * \brief å® ç‰©å‡çº§
  *
  *
  */
@@ -1435,10 +1435,10 @@ DWORD ScenePet::getBaseMaxHP()
 }
 
 /*
- * \brief µÃµ½³èÎïµÄ×î´óÉúÃüÖµ
+ * \brief å¾—åˆ°å® ç‰©çš„æœ€å¤§ç”Ÿå‘½å€¼
  *
  * 
- * \return ×î´óÉúÃüÖµ
+ * \return æœ€å¤§ç”Ÿå‘½å€¼
  */
 DWORD ScenePet::getMaxHP()
 {
@@ -1460,7 +1460,7 @@ void ScenePet::full_t_MapPetData(Cmd::t_MapPetData &data)
 		data.masterID = getMaster()->tempid;
 		if (zSceneEntry::SceneEntry_Player==data.masterType
 				&&((SceneUser *)getMaster())->mask.is_masking())
-			strncpy(data.masterName, "ÃÉÃæÈË", MAX_NAMESIZE-1);
+			strncpy(data.masterName, "è’™é¢äºº", MAX_NAMESIZE-1);
 		else
 			strncpy(data.masterName, getMaster()->name, MAX_NAMESIZE-1);
 	}
@@ -1488,7 +1488,7 @@ void ScenePet::sendMeToNine()
 	}
 }
 
-//Ïò9ÆÁ·¢ËÍ³èÎïÊý¾Ý
+//å‘9å±å‘é€å® ç‰©æ•°æ®
 void ScenePet::sendPetDataToNine()
 {
 	Cmd::stAddMapPetMapScreenUserCmd ret;
@@ -1510,8 +1510,8 @@ void ScenePet::sendPetDataToNine()
 void ScenePet::delMyself()
 {
 	if (masterType==zSceneEntry::SceneEntry_Player)
-		Zebra::logger->debug("[³èÎï]pet %s ÒòÕÒ²»µ½Ö÷ÈË(%u)¶øÉ¾³ý %s(%u,%u)", name, masterID, scene->name, pos.x, pos.y);
+		Zebra::logger->debug("[å® ç‰©]pet %s å› æ‰¾ä¸åˆ°ä¸»äºº(%u)è€Œåˆ é™¤ %s(%u,%u)", name, masterID, scene->name, pos.x, pos.y);
 	else
-		Zebra::logger->debug("[³èÎï]pet %s ÒòÕÒ²»µ½Ö÷ÈË¶øÉ¾³ý %s(%u,%u)", name, scene->name, pos.x, pos.y);
+		Zebra::logger->debug("[å® ç‰©]pet %s å› æ‰¾ä¸åˆ°ä¸»äººè€Œåˆ é™¤ %s(%u,%u)", name, scene->name, pos.x, pos.y);
 	setClearState();
 }

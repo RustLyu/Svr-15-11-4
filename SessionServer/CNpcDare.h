@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CNpcDare.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåNPCÕù¶áÕ½¹ÜÀíÆ÷
+ * \brief å®šä¹‰NPCäº‰å¤ºæˆ˜ç®¡ç†å™¨
  *
  */
 

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneTaskManager.h  $
  * \author  
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -21,7 +21,7 @@
 #include "zRWLock.h"
 
 /**
- * \brief ³¡¾°·şÎñÆ÷×ÓÁ¬½Ó¹ÜÀíÆ÷
+ * \brief åœºæ™¯æœåŠ¡å™¨å­è¿æ¥ç®¡ç†å™¨
  *
  */
 class SceneTaskManager : private zNoncopyable
@@ -30,15 +30,15 @@ class SceneTaskManager : private zNoncopyable
 	public:
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~SceneTaskManager() {};
 
 		/**
-		 * \brief »ñÈ¡³¡¾°×ÓÁ¬½Ó¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \brief è·å–åœºæ™¯å­è¿æ¥ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 *
-		 * \return ³¡¾°×ÓÁ¬½Ó¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \return åœºæ™¯å­è¿æ¥ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 */
 		static SceneTaskManager &getInstance()
 		{
@@ -49,7 +49,7 @@ class SceneTaskManager : private zNoncopyable
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -78,44 +78,44 @@ class SceneTaskManager : private zNoncopyable
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static SceneTaskManager *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		SceneTaskManager() {};
 
 		/**
-		 * \brief ×ÓÁ¬½Ó¹ÜÀíÈİÆ÷ÀàĞÍ
+		 * \brief å­è¿æ¥ç®¡ç†å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<WORD, SceneTask *> SceneTaskHashmap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef SceneTaskHashmap::iterator SceneTaskHashmap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷³£Á¿µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨å¸¸é‡è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef SceneTaskHashmap::const_iterator SceneTaskHashmap_const_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef SceneTaskHashmap::value_type SceneTaskHashmap_pair;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zRWLock rwlock;
 		/**
-		 * \brief ×ÓÁ¬½Ó¹ÜÀíÈİÆ÷ÀàĞÍ
+		 * \brief å­è¿æ¥ç®¡ç†å®¹å™¨ç±»å‹
 		 *
 		 */
 		SceneTaskHashmap sceneTaskSet;

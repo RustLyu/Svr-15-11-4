@@ -1,78 +1,78 @@
-#ifndef _OBJECT_H
+ï»¿#ifndef _OBJECT_H
 #define _OBJECT_H
 
 typedef unsigned long tItemThisID ;
 #define INVALID_THISID 0xffffffff
 
-// µÀ¾ßµÄÀàĞÍ
+// é“å…·çš„ç±»å‹
 enum enumItemType
 {
 	ItemType_None,
 
-	ItemType_Resource = 16,	//16´ú±íÔ­ÁÏÀà
+	ItemType_Resource = 16,	//16ä»£è¡¨åŸæ–™ç±»
 
-	ItemType_Leechdom,	//17´ú±íÒ©Æ·Àà
-	ItemType_FoodRes,	//18´ú±íÊ³ÎïÔ­ÁÏÀà
-	ItemType_Food,		//19´ú±íÊ³ÎïÀà
-	ItemType_Tools,		//20´ú±íÀÍ¶¯¹¤¾ßÀà
-	ItemType_Arrow,		//21´ú±íÅäºÏ¹­Ê¹ÓÃµÄ¼ıÖ§Àà
-	ItemType_BattleHorse,	//22Õ½Âí
-	ItemType_Pack,		//23´ú±í°ü¹üÀà
-	ItemType_Money,		//24´ú±í½ğÇ®Àà
-	ItemType_Scroll,	//25´ú±í×ªÒÆ¾íÖáÀà
-	ItemType_Move,		//26´ú±íÌØÊâÒÆ¶¯µÀ¾ßÀà
-	ItemType_LevelUp,	//27´ú±íµÀ¾ßÉı¼¶ĞèÒªµÄ²ÄÁÏÀà
-	ItemType_CaptureWeapon,	//28´ú±íÑ±·ş³èÎïÓÃÎäÆ÷
-	ItemType_Union,	//29´ú±í´´½¨°ï»áĞèÒªµÄµÀ¾ß.
-	ItemType_Tonic,	//30±íÊ¾×Ô¶¯²¹Ò©ÀàµÀ¾ß.
-	ItemType_Gift,	//31´ú±íÀñÆ·ÀàÎïÆ·.
+	ItemType_Leechdom,	//17ä»£è¡¨è¯å“ç±»
+	ItemType_FoodRes,	//18ä»£è¡¨é£Ÿç‰©åŸæ–™ç±»
+	ItemType_Food,		//19ä»£è¡¨é£Ÿç‰©ç±»
+	ItemType_Tools,		//20ä»£è¡¨åŠ³åŠ¨å·¥å…·ç±»
+	ItemType_Arrow,		//21ä»£è¡¨é…åˆå¼“ä½¿ç”¨çš„ç®­æ”¯ç±»
+	ItemType_BattleHorse,	//22æˆ˜é©¬
+	ItemType_Pack,		//23ä»£è¡¨åŒ…è£¹ç±»
+	ItemType_Money,		//24ä»£è¡¨é‡‘é’±ç±»
+	ItemType_Scroll,	//25ä»£è¡¨è½¬ç§»å·è½´ç±»
+	ItemType_Move,		//26ä»£è¡¨ç‰¹æ®Šç§»åŠ¨é“å…·ç±»
+	ItemType_LevelUp,	//27ä»£è¡¨é“å…·å‡çº§éœ€è¦çš„ææ–™ç±»
+	ItemType_CaptureWeapon,	//28ä»£è¡¨é©¯æœå® ç‰©ç”¨æ­¦å™¨
+	ItemType_Union,	//29ä»£è¡¨åˆ›å»ºå¸®ä¼šéœ€è¦çš„é“å…·.
+	ItemType_Tonic,	//30è¡¨ç¤ºè‡ªåŠ¨è¡¥è¯ç±»é“å…·.
+	ItemType_Gift,	//31ä»£è¡¨ç¤¼å“ç±»ç‰©å“.
 	ItemType_Other, 
-	ItemType_MASK = 33, 	//33´ú±íÃÉÃæ½í
+	ItemType_MASK = 33, 	//33ä»£è¡¨è’™é¢å·¾
 	ItemType_Quest = 34,
 	ItemType_HORSE = 35,
-	ItemType_SOULSTONE = 37, //37´ú±í»êÆÇÊ¯Àà
-	ItemType_Wedding = 38, //38´ú±í»éÀñÀà
-	ItemType_Change = 41,   //41 ´ú±íºÏ³ÉµÀ¾ß
-	ItemType_Auto = 42,   //42 ´ú±í×Ô¶¯Á·¹¦
-	ItemType_SkillUp = 43,   //43 ´ú±í¼¼ÄÜÉı¼¶µÀ¾ß
-	ItemType_Book = 44, //44´ú±íÊé¼®
-	ItemType_Store = 45,   //45 ´ú±í²Ö¿â
-	ItemType_Renew = 46,   //46 ´ú±íÏ´µãµÀ¾ß
-	ItemType_Repair = 47, //47´ú±íĞŞ¸´±¦Ê¯Àà
-	ItemType_DoubleExp = 52, //52´ú±íË«±¶¾­ÑéÀàĞÍ
-	ItemType_Honor = 53, //53´ú±íÈÙÓşÖ®ĞÇÀàĞÍ
-	ItemType_TONG = 54,  //°ïÖ÷Áî	
-	ItemType_FAMILY = 55,  //¼Ò×åÁî
-	ItemType_Adonment = 56, //56´ú±í×°ÊÎÆ·
-	ItemType_SpecialBook = 57, //57´ú±íÌØÊâÊé¼®
-	ItemType_GreatLeechdom = 58, //58´ó¼ÆÁ¿Ò©Æ·
-	ItemType_ClearProperty = 59, //59Ï´µãµÀ¾ß
-	ItemType_UseSkill = 60, // ¸½´ø¼¼ÄÜÀàµÀ¾ß
-	ItemType_Amulet = 61, // »¤Éí·ûÀàµÀ¾ß
-	ItemType_GreatLeechdomMp = 62,//62´ó¼ÆÁ¿×Ô¶¯²¹À¼µÀ¾ß
-	ItemType_KING = 65,  //¹úÍõÁî
+	ItemType_SOULSTONE = 37, //37ä»£è¡¨é­‚é­„çŸ³ç±»
+	ItemType_Wedding = 38, //38ä»£è¡¨å©šç¤¼ç±»
+	ItemType_Change = 41,   //41 ä»£è¡¨åˆæˆé“å…·
+	ItemType_Auto = 42,   //42 ä»£è¡¨è‡ªåŠ¨ç»ƒåŠŸ
+	ItemType_SkillUp = 43,   //43 ä»£è¡¨æŠ€èƒ½å‡çº§é“å…·
+	ItemType_Book = 44, //44ä»£è¡¨ä¹¦ç±
+	ItemType_Store = 45,   //45 ä»£è¡¨ä»“åº“
+	ItemType_Renew = 46,   //46 ä»£è¡¨æ´—ç‚¹é“å…·
+	ItemType_Repair = 47, //47ä»£è¡¨ä¿®å¤å®çŸ³ç±»
+	ItemType_DoubleExp = 52, //52ä»£è¡¨åŒå€ç»éªŒç±»å‹
+	ItemType_Honor = 53, //53ä»£è¡¨è£èª‰ä¹‹æ˜Ÿç±»å‹
+	ItemType_TONG = 54,  //å¸®ä¸»ä»¤	
+	ItemType_FAMILY = 55,  //å®¶æ—ä»¤
+	ItemType_Adonment = 56, //56ä»£è¡¨è£…é¥°å“
+	ItemType_SpecialBook = 57, //57ä»£è¡¨ç‰¹æ®Šä¹¦ç±
+	ItemType_GreatLeechdom = 58, //58å¤§è®¡é‡è¯å“
+	ItemType_ClearProperty = 59, //59æ´—ç‚¹é“å…·
+	ItemType_UseSkill = 60, // é™„å¸¦æŠ€èƒ½ç±»é“å…·
+	ItemType_Amulet = 61, // æŠ¤èº«ç¬¦ç±»é“å…·
+	ItemType_GreatLeechdomMp = 62,//62å¤§è®¡é‡è‡ªåŠ¨è¡¥å…°é“å…·
+	ItemType_KING = 65,  //å›½ç‹ä»¤
 
-	ItemType_ClothBody =101,		//101´ú±í²¼ÖÊ¼ÓÉúÃüÀà·ş×°
-	ItemType_FellBody =102,		    //102´ú±íÆ¤¼×¼ÓÄ§·ÀÀà·ş×°
-	ItemType_MetalBody =103,		//103´ú±í½ğÊôîø¼×¼ÓÎï·ÀÀà·ş×°
-	ItemType_Blade =104,		    //104´ú±íÎäÊõµ¶ÀàÎäÆ÷
-	ItemType_Sword =105,	        //105´ú±íÎäÊõ½£ÀàÎäÆ÷
-	ItemType_Axe =106,	           //106´ú±íÎäÊõ¸«ÀàÎäÆ÷
-	ItemType_Hammer =107,	        //107´ú±íÎäÊõ¸«ÀàÎäÆ÷
-	ItemType_Staff =108,		    //108´ú±í·¨ÊõÕÈÀàÎäÆ÷
-	ItemType_Crossbow =109,	        //109´ú±í¼ıÊõ¹­ÀàÎäÆ÷
-	ItemType_Fan =110,	           //110´ú±íÃÀÅ®ÉÈÀà
-	ItemType_Stick =111,	        //111´ú±íÕÙ»½¹÷ÀàÎäÆ÷
-	ItemType_Shield =112,	//112´ú±í¶ÜÅÆÀà
-	ItemType_Helm =113,		//113´ú±í½ÇÉ«Í·¿øÀà
-	ItemType_Caestus =114,	//114´ú±í½ÇÉ«Ñü´øÀà
-	ItemType_Cuff = 115,		//115´ú±í½ÇÉ«»¤ÍóÀà
-	ItemType_Shoes = 116,		//116´ú±í½ÇÉ«Ğ¬×ÓÀà
-	ItemType_Necklace = 117,	//117´ú±í½ÇÉ«ÏîÁ´Àà
-	ItemType_Fing = 118,		//118´ú±í½ÇÉ«½äÖ¸Àà
-	ItemType_FashionBody = 119,		//119´ú±íÊ±×°
-	ItemType_Flower = 120,		//120´ú±íÏÊ»¨,²É¼¯ÊÖÌ×...
-	ItemType_BMW = 121,		//119´ú±í±¦Âí
+	ItemType_ClothBody =101,		//101ä»£è¡¨å¸ƒè´¨åŠ ç”Ÿå‘½ç±»æœè£…
+	ItemType_FellBody =102,		    //102ä»£è¡¨çš®ç”²åŠ é­”é˜²ç±»æœè£…
+	ItemType_MetalBody =103,		//103ä»£è¡¨é‡‘å±é“ ç”²åŠ ç‰©é˜²ç±»æœè£…
+	ItemType_Blade =104,		    //104ä»£è¡¨æ­¦æœ¯åˆ€ç±»æ­¦å™¨
+	ItemType_Sword =105,	        //105ä»£è¡¨æ­¦æœ¯å‰‘ç±»æ­¦å™¨
+	ItemType_Axe =106,	           //106ä»£è¡¨æ­¦æœ¯æ–§ç±»æ­¦å™¨
+	ItemType_Hammer =107,	        //107ä»£è¡¨æ­¦æœ¯æ–§ç±»æ­¦å™¨
+	ItemType_Staff =108,		    //108ä»£è¡¨æ³•æœ¯æ–ç±»æ­¦å™¨
+	ItemType_Crossbow =109,	        //109ä»£è¡¨ç®­æœ¯å¼“ç±»æ­¦å™¨
+	ItemType_Fan =110,	           //110ä»£è¡¨ç¾å¥³æ‰‡ç±»
+	ItemType_Stick =111,	        //111ä»£è¡¨å¬å”¤æ£ç±»æ­¦å™¨
+	ItemType_Shield =112,	//112ä»£è¡¨ç›¾ç‰Œç±»
+	ItemType_Helm =113,		//113ä»£è¡¨è§’è‰²å¤´ç›”ç±»
+	ItemType_Caestus =114,	//114ä»£è¡¨è§’è‰²è…°å¸¦ç±»
+	ItemType_Cuff = 115,		//115ä»£è¡¨è§’è‰²æŠ¤è…•ç±»
+	ItemType_Shoes = 116,		//116ä»£è¡¨è§’è‰²é‹å­ç±»
+	ItemType_Necklace = 117,	//117ä»£è¡¨è§’è‰²é¡¹é“¾ç±»
+	ItemType_Fing = 118,		//118ä»£è¡¨è§’è‰²æˆ’æŒ‡ç±»
+	ItemType_FashionBody = 119,		//119ä»£è¡¨æ—¶è£…
+	ItemType_Flower = 120,		//120ä»£è¡¨é²œèŠ±,é‡‡é›†æ‰‹å¥—...
+	ItemType_BMW = 121,		//119ä»£è¡¨å®é©¬
 };
 
 #define BOW_ARROW_ITEM_TYPE 21
@@ -94,8 +94,8 @@ enum {
 struct stObjectLocation{
 
 private:
-	DWORD dwLocation;	// ¸ñ×ÓÀàĞÍ
-	DWORD dwTableID;	// °ü¸¤ID
+	DWORD dwLocation;	// æ ¼å­ç±»å‹
+	DWORD dwTableID;	// åŒ…è¢±ID
 	WORD  x;
 	WORD  y;
 
@@ -175,141 +175,141 @@ struct oskill
 
 typedef struct _Object
 {
-	DWORD qwThisID;   //ÎïÆ·Î¨Ò»id
-	DWORD dwObjectID;  ////ÎïÆ·Àà±ğid
-	char strName[MAX_NAMESIZE]; //Ãû³Æ
+	DWORD qwThisID;   //ç‰©å“å”¯ä¸€id
+	DWORD dwObjectID;  ////ç‰©å“ç±»åˆ«id
+	char strName[MAX_NAMESIZE]; //åç§°
 	
-	stObjectLocation pos;	// Î»ÖÃ
-	DWORD dwNum;	// ÊıÁ¿
-	BYTE upgrade;//ÎïÆ·Éı¼¶µÈ¼¶
-	BYTE kind;	//ÎïÆ·ÀàĞÍ, 0ÆÕÍ¨, 1À¶É«, 2½ğÉ«, 4ÉñÊ¥, 8Ì××°
-	DWORD exp;  //µÀ¾ß¾­Ñé
+	stObjectLocation pos;	// ä½ç½®
+	DWORD dwNum;	// æ•°é‡
+	BYTE upgrade;//ç‰©å“å‡çº§ç­‰çº§
+	BYTE kind;	//ç‰©å“ç±»å‹, 0æ™®é€š, 1è“è‰², 2é‡‘è‰², 4ç¥åœ£, 8å¥—è£…
+	DWORD exp;  //é“å…·ç»éªŒ
 	
-	WORD needlevel;				// ĞèÒªµÈ¼¶
+	WORD needlevel;				// éœ€è¦ç­‰çº§
 
-	WORD maxhp;					// ×î´óÉúÃüÖµ
-	WORD maxmp;					// ×î´ó·¨ÊõÖµ
-	WORD maxsp;					// ×î´óÌåÁ¦Öµ
+	WORD maxhp;					// æœ€å¤§ç”Ÿå‘½å€¼
+	WORD maxmp;					// æœ€å¤§æ³•æœ¯å€¼
+	WORD maxsp;					// æœ€å¤§ä½“åŠ›å€¼
 
-	WORD pdamage;				// ×îĞ¡¹¥»÷Á¦
-	WORD maxpdamage;			// ×î´ó¹¥»÷Á¦
-	WORD mdamage;				// ×îĞ¡·¨Êõ¹¥»÷Á¦
-	WORD maxmdamage;			// ×î´ó·¨Êõ¹¥»÷Á¦
+	WORD pdamage;				// æœ€å°æ”»å‡»åŠ›
+	WORD maxpdamage;			// æœ€å¤§æ”»å‡»åŠ›
+	WORD mdamage;				// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	WORD maxmdamage;			// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
 
-	WORD pdefence;				// Îï·À
-	WORD mdefence;				// Ä§·À
-	BYTE damagebonus;			// ÉËº¦¼Ó³É x% from µÀ¾ß»ù±¾±í
-	BYTE damage;				// Ôö¼ÓÉËº¦Öµx£¥ from ÉñÊ¥×°±¸±í
+	WORD pdefence;				// ç‰©é˜²
+	WORD mdefence;				// é­”é˜²
+	BYTE damagebonus;			// ä¼¤å®³åŠ æˆ x% from é“å…·åŸºæœ¬è¡¨
+	BYTE damage;				// å¢åŠ ä¼¤å®³å€¼xï¼… from ç¥åœ£è£…å¤‡è¡¨
 		
-	WORD akspeed;				// ¹¥»÷ËÙ¶È
-	WORD mvspeed;				// ÒÆ¶¯ËÙ¶È
-	WORD atrating;				// ÃüÖĞÂÊ
-	WORD akdodge;				// ¶ã±ÜÂÊ
+	WORD akspeed;				// æ”»å‡»é€Ÿåº¦
+	WORD mvspeed;				// ç§»åŠ¨é€Ÿåº¦
+	WORD atrating;				// å‘½ä¸­ç‡
+	WORD akdodge;				// èº²é¿ç‡
 
-	DWORD color;				// ÑÕÉ«	
+	DWORD color;				// é¢œè‰²	
 
-	WORD str;  // Á¦Á¿
-	WORD inte;  // ÖÇÁ¦
-	WORD dex;  // Ãô½İ
-	WORD spi;  // ¾«Éñ
-	WORD con;  // ÌåÖÊ
+	WORD str;  // åŠ›é‡
+	WORD inte;  // æ™ºåŠ›
+	WORD dex;  // æ•æ·
+	WORD spi;  // ç²¾ç¥
+	WORD con;  // ä½“è´¨
 	
-	WORD fivetype;  // ÎåĞĞÊôĞÔ
-	WORD fivepoint; // ÎåĞĞÊôĞÔ
+	WORD fivetype;  // äº”è¡Œå±æ€§
+	WORD fivepoint; // äº”è¡Œå±æ€§
 	
-	WORD hpr;  // ÉúÃüÖµ»Ö¸´
-	WORD mpr;  // ·¨ÊõÖµ»Ö¸´
-	WORD spr;  // ÌåÁ¦Öµ»Ö¸´
+	WORD hpr;  // ç”Ÿå‘½å€¼æ¢å¤
+	WORD mpr;  // æ³•æœ¯å€¼æ¢å¤
+	WORD spr;  // ä½“åŠ›å€¼æ¢å¤
 
-	WORD holy;  //ÉñÊ¥Ò»»÷	
-	WORD bang;  //ÖØ»÷
-	WORD pdam;  // Ôö¼ÓÎïÀí¹¥»÷Á¦
-	WORD pdef;  // Ôö¼ÓÎïÀí·ÀÓùÁ¦
-	WORD mdam;  // Ôö¼ÓÄ§·¨¹¥»÷Á¦
-	WORD mdef;  // Ôö¼ÓÄ§·¨·ÀÓùÁ¦
+	WORD holy;  //ç¥åœ£ä¸€å‡»	
+	WORD bang;  //é‡å‡»
+	WORD pdam;  // å¢åŠ ç‰©ç†æ”»å‡»åŠ›
+	WORD pdef;  // å¢åŠ ç‰©ç†é˜²å¾¡åŠ›
+	WORD mdam;  // å¢åŠ é­”æ³•æ”»å‡»åŠ›
+	WORD mdef;  // å¢åŠ é­”æ³•é˜²å¾¡åŠ›
 	
-	WORD poisondef; //¿¹¶¾Ôö¼Ó
-	WORD lulldef; //¿¹Âé±ÔÔö¼Ó
-	WORD reeldef; //¿¹Ñ£ÔÎÔö¼Ó
-	WORD evildef; //¿¹ÊÉÄ§Ôö¼Ó
-	WORD bitedef; //¿¹ÊÉÁ¦Ôö¼Ó
-	WORD chaosdef; //¿¹»ìÂÒÔö¼Ó
-	WORD colddef; //¿¹±ù¶³Ôö¼Ó
-	WORD petrifydef; //¿¹Ê¯»¯Ôö¼Ó
-	WORD blinddef; //¿¹Ê§Ã÷Ôö¼Ó
-	WORD stabledef; //¿¹¶¨ÉíÔö¼Ó
-	WORD slowdef; //¿¹¼õËÙÔö¼Ó
-	WORD luredef; //¿¹ÓÕ»óÔö¼Ó
+	WORD poisondef; //æŠ—æ¯’å¢åŠ 
+	WORD lulldef; //æŠ—éº»ç—¹å¢åŠ 
+	WORD reeldef; //æŠ—çœ©æ™•å¢åŠ 
+	WORD evildef; //æŠ—å™¬é­”å¢åŠ 
+	WORD bitedef; //æŠ—å™¬åŠ›å¢åŠ 
+	WORD chaosdef; //æŠ—æ··ä¹±å¢åŠ 
+	WORD colddef; //æŠ—å†°å†»å¢åŠ 
+	WORD petrifydef; //æŠ—çŸ³åŒ–å¢åŠ 
+	WORD blinddef; //æŠ—å¤±æ˜å¢åŠ 
+	WORD stabledef; //æŠ—å®šèº«å¢åŠ 
+	WORD slowdef; //æŠ—å‡é€Ÿå¢åŠ 
+	WORD luredef; //æŠ—è¯±æƒ‘å¢åŠ 
 
-	WORD durpoint; //»Ö¸´×°±¸ÄÍ¾Ã¶ÈµãÊı
-	WORD dursecond; //»Ö¸´×°±¸ÄÍ¾Ã¶ÈÊ±¼äµ¥Î»
+	WORD durpoint; //æ¢å¤è£…å¤‡è€ä¹…åº¦ç‚¹æ•°
+	WORD dursecond; //æ¢å¤è£…å¤‡è€ä¹…åº¦æ—¶é—´å•ä½
 
 	struct skillbonus {
-		WORD id; //¼¼ÄÜ id
-		WORD point; // ¼¼ÄÜµãÊı
-	} skill[10]; //¼¼ÄÜ¼Ó³É
+		WORD id; //æŠ€èƒ½ id
+		WORD point; // æŠ€èƒ½ç‚¹æ•°
+	} skill[10]; //æŠ€èƒ½åŠ æˆ
 
 	struct skillsbonus {
-		WORD id; //¼¼ÄÜ id
-		WORD point; // ¼¼ÄÜµãÊı
-	} skills;	//È«Ïµ¼¼ÄÜ¼Ó³É
+		WORD id; //æŠ€èƒ½ id
+		WORD point; // æŠ€èƒ½ç‚¹æ•°
+	} skills;	//å…¨ç³»æŠ€èƒ½åŠ æˆ
 
-	WORD poison; //ÖĞ¶¾Ôö¼Ó
-	WORD lull; //Âé±ÔÔö¼Ó
-	WORD reel; //Ñ£ÔÎÔö¼Ó
-	WORD evil; //ÊÉÄ§Ôö¼Ó
-	WORD bite; //ÊÉÁ¦Ôö¼Ó
-	WORD chaos; //»ìÂÒÔö¼Ó
-	WORD cold; //±ù¶³Ôö¼Ó
-	WORD petrify; //Ê¯»¯Ôö¼Ó
-	WORD blind; //Ê§Ã÷Ôö¼Ó
-	WORD stable; //¶¨ÉíÔö¼Ó
-	WORD slow; //¼õËÙÔö¼Ó
-	WORD lure; //ÓÕ»óÔö¼Ó
+	WORD poison; //ä¸­æ¯’å¢åŠ 
+	WORD lull; //éº»ç—¹å¢åŠ 
+	WORD reel; //çœ©æ™•å¢åŠ 
+	WORD evil; //å™¬é­”å¢åŠ 
+	WORD bite; //å™¬åŠ›å¢åŠ 
+	WORD chaos; //æ··ä¹±å¢åŠ 
+	WORD cold; //å†°å†»å¢åŠ 
+	WORD petrify; //çŸ³åŒ–å¢åŠ 
+	WORD blind; //å¤±æ˜å¢åŠ 
+	WORD stable; //å®šèº«å¢åŠ 
+	WORD slow; //å‡é€Ÿå¢åŠ 
+	WORD lure; //è¯±æƒ‘å¢åŠ 
 	
 	struct leech
 	{
 		BYTE odds;    //x
 		WORD effect;	//y
 	};
-	leech hpleech; //x%ÎüÊÕÉúÃüÖµy
-	leech mpleech; //x%ÎüÊÕ·¨ÊõÖµy
+	leech hpleech; //x%å¸æ”¶ç”Ÿå‘½å€¼y
+	leech mpleech; //x%å¸æ”¶æ³•æœ¯å€¼y
 	
-	BYTE hptomp; //×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
-	BYTE dhpp; //ÎïÀíÉËº¦¼õÉÙx%	
-	BYTE dmpp; //·¨ÊõÉËº¦Öµ¼õÉÙx%		
+	BYTE hptomp; //è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
+	BYTE dhpp; //ç‰©ç†ä¼¤å®³å‡å°‘x%	
+	BYTE dmpp; //æ³•æœ¯ä¼¤å®³å€¼å‡å°‘x%		
 
-	BYTE incgold; //Ôö¼Ó½ğÇ®µôÂäx%
-	BYTE doublexp; //x%Ë«±¶¾­Ñé		
-	BYTE mf; //Ôö¼Óµô±¦ÂÊx%
+	BYTE incgold; //å¢åŠ é‡‘é’±æ‰è½x%
+	BYTE doublexp; //x%åŒå€ç»éªŒ		
+	BYTE mf; //å¢åŠ æ‰å®ç‡x%
 	
-	BYTE bind;  //×°±¸ÊÇ·ñ°ó¶¨
+	BYTE bind;  //è£…å¤‡æ˜¯å¦ç»‘å®š
 
 	union {
 		BYTE _five_props[5];
 		struct {
-			//ÎåĞĞÌ××°Ïà¹ØÊôĞÔ
-			BYTE dpdam; //ÎïÀíÉËº¦¼õÉÙ%x
-			BYTE dmdam; //·¨ÊõÉËº¦¼õÉÙ%x
-			BYTE bdam; //Ôö¼ÓÉËº¦x%
-			BYTE rdam; //ÉËº¦·´Éä%x
-			BYTE ignoredef; //%xºöÊÓÄ¿±ê·ÀÓù
+			//äº”è¡Œå¥—è£…ç›¸å…³å±æ€§
+			BYTE dpdam; //ç‰©ç†ä¼¤å®³å‡å°‘%x
+			BYTE dmdam; //æ³•æœ¯ä¼¤å®³å‡å°‘%x
+			BYTE bdam; //å¢åŠ ä¼¤å®³x%
+			BYTE rdam; //ä¼¤å®³åå°„%x
+			BYTE ignoredef; //%xå¿½è§†ç›®æ ‡é˜²å¾¡
 		};
 	};
 
-	WORD fiveset[5]; //ÎåĞĞÌ××°, °´Ë³ĞòÅÅÁĞ
+	WORD fiveset[5]; //äº”è¡Œå¥—è£…, æŒ‰é¡ºåºæ’åˆ—
 
 	//...
-	BYTE width;  //¿í¶È
-	BYTE height; //¸ß¶È
-	WORD dur;    //µ±Ç°ÄÍ¾Ã
-	WORD maxdur; //×î´óÄÍ¾Ã
+	BYTE width;  //å®½åº¦
+	BYTE height; //é«˜åº¦
+	WORD dur;    //å½“å‰è€ä¹…
+	WORD maxdur; //æœ€å¤§è€ä¹…
 	
-	DWORD socket[6]; //¿×
-	DWORD price;     //¼Û¸ñ
-	DWORD cardpoint; //µã¿¨
+	DWORD socket[6]; //å­”
+	DWORD price;     //ä»·æ ¼
+	DWORD cardpoint; //ç‚¹å¡
 
-	char maker[MAX_NAMESIZE]; //´òÔìÕß
+	char maker[MAX_NAMESIZE]; //æ‰“é€ è€…
 
 }t_Object;
 

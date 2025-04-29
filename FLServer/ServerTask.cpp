@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ServerTask.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ·şÎñÆ÷Á¬½ÓÀà
+ * \brief å®ç°æœåŠ¡å™¨è¿æ¥ç±»
  *
  * 
  */
@@ -31,11 +31,11 @@
 #include "LoginManager.h"
 
 /**
- * \brief µÈ´ı½ÓÊÜÑéÖ¤Ö¸Áî²¢½øĞĞÑéÖ¤
+ * \brief ç­‰å¾…æ¥å—éªŒè¯æŒ‡ä»¤å¹¶è¿›è¡ŒéªŒè¯
  *
- * ÊµÏÖĞéº¯Êı<code>zTCPTask::verifyConn</code>
+ * å®ç°è™šå‡½æ•°<code>zTCPTask::verifyConn</code>
  *
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦£¬»òÕß³¬Ê±
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸï¼Œæˆ–è€…è¶…æ—¶
  */
 int ServerTask::verifyConn()
 {
@@ -46,7 +46,7 @@ int ServerTask::verifyConn()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
@@ -60,16 +60,16 @@ int ServerTask::verifyConn()
 				bool mcheck = ServerACLSingleton::instance().check(getIP(), ptCmd->port, gameZone, name);
 				if (mcheck)
 				{
-					Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤(%s:%u)",getIP(),ptCmd->port);
+					Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯(%s:%u)",getIP(),ptCmd->port);
 					return 1;
 				}else{
-					Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÖ¸ÁîÑéÖ¤Ê§°Ü(%s:%u)ChcekFailer",getIP(),ptCmd->port);
+					Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æŒ‡ä»¤éªŒè¯å¤±è´¥(%s:%u)ChcekFailer",getIP(),ptCmd->port);
                                 	return -1;
 				}
 			}
 			else
 			{
-				Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÖ¸ÁîÑéÖ¤Ê§°Ü(%s:%u)",getIP(),ptCmd->port);
+				Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æŒ‡ä»¤éªŒè¯å¤±è´¥(%s:%u)",getIP(),ptCmd->port);
 				return -1;
 			}
 		}
@@ -95,8 +95,8 @@ int ServerTask::waitSync()
 }
 
 /**
- * \brief Ìí¼Óµ½Î¨Ò»ĞÔÑéÖ¤ÈİÆ÷ÖĞ
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::uniqueAdd</code>
+ * \brief æ·»åŠ åˆ°å”¯ä¸€æ€§éªŒè¯å®¹å™¨ä¸­
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::uniqueAdd</code>
  */
 bool ServerTask::uniqueAdd()
 {
@@ -105,8 +105,8 @@ bool ServerTask::uniqueAdd()
 }
 
 /**
- * \brief ´ÓÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷ÖĞÉ¾³ı
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::uniqueRemove</code>
+ * \brief ä»å”¯ä¸€æ€§éªŒè¯å®¹å™¨ä¸­åˆ é™¤
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::uniqueRemove</code>
  */
 bool ServerTask::uniqueRemove()
 {
@@ -116,10 +116,10 @@ bool ServerTask::uniqueRemove()
 }
 
 /**
- * \brief ½âÎöÀ´×Ô¸÷¸ö·şÎñÆ÷Á¬½ÓµÄÖ¸Áî
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \brief è§£ææ¥è‡ªå„ä¸ªæœåŠ¡å™¨è¿æ¥çš„æŒ‡ä»¤
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -184,14 +184,14 @@ bool ServerTask::msgParse_session(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				using namespace Cmd;
 				stServerReturnLoginSuccessCmd tCmd;
 
-				Zebra::logger->debug("µÇÂ½³É¹¦:%u, %u, %s, %u", ptCmd->session.accid, ptCmd->session.loginTempID, ptCmd->session.pstrIP, ptCmd->session.wdPort);
+				Zebra::logger->debug("ç™»é™†æˆåŠŸ:%u, %u, %s, %u", ptCmd->session.accid, ptCmd->session.loginTempID, ptCmd->session.pstrIP, ptCmd->session.wdPort);
 				tCmd.dwUserID = ptCmd->session.accid;
 				tCmd.loginTempID = ptCmd->session.loginTempID;
 				bcopy(ptCmd->session.pstrIP, tCmd.pstrIP, sizeof(tCmd.pstrIP));
 				tCmd.wdPort = ptCmd->session.wdPort;
 #ifdef _ENCDEC_MSG
 				bzero(tCmd.key, sizeof(tCmd.key));
-				//ÃÜÔ¿Òş²ØÔÚÒ»¶ÎÊı¾İÖĞ
+				//å¯†é’¥éšè—åœ¨ä¸€æ®µæ•°æ®ä¸­
 				for (int i=0; i<256; i++)
 					tCmd.key[i] = zMisc::randBetween(0,255);
 				
@@ -210,7 +210,7 @@ bool ServerTask::msgParse_session(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				t_idinuse_Session *ptCmd = (t_idinuse_Session *)ptNullCmd;
 				using namespace Cmd;
 
-				Zebra::logger->debug("ÕËºÅÕıÔÚÊ¹ÓÃÖĞ accid = %u", ptCmd->accid);
+				Zebra::logger->debug("è´¦å·æ­£åœ¨ä½¿ç”¨ä¸­ accid = %u", ptCmd->accid);
 				LoginManager::getInstance().loginReturn(ptCmd->loginTempID, LOGIN_RETURN_IDINUSE);
 
 				return true;

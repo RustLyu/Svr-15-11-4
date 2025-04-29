@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneManager.cpp $
  * \author  
  * \date 
- * \brief SceneManagerµÄÊµÏÖ
+ * \brief SceneManagerçš„å®ç°
  *
  * 
  */
@@ -15,35 +15,35 @@
 #include "SessionClient.h"
 using namespace Cmd::Session;
 using namespace Zebra;
-///SceneManagerµÄÎ¨Ò»ÊµÀı
+///SceneManagerçš„å”¯ä¸€å®ä¾‹
 SceneManager *SceneManager::sm(new SceneManager());
 
 /**
- * \brief Éú³ÉÒ»¸öÎ¨Ò»ID
+ * \brief ç”Ÿæˆä¸€ä¸ªå”¯ä¸€ID
  *
- * \param tempid Êä³ö£ºÈ¡µÃµÄID
- * \return ÊÇ·ñ³É¹¦
+ * \param tempid è¾“å‡ºï¼šå–å¾—çš„ID
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneManager::getUniqeID(DWORD &tempid)
 {
 	tempid=sceneUniqeID->get();
-	//Zebra::logger->debug("µÃµ½scenetempid = %ld",tempid);
+	//Zebra::logger->debug("å¾—åˆ°scenetempid = %ld",tempid);
 	return (tempid!=sceneUniqeID->invalid());
 }
 
 /**
- * \brief ÊÍ·ÅÎ¨Ò»ID
+ * \brief é‡Šæ”¾å”¯ä¸€ID
  *
- * \param tempid ÒªÊÍ·ÅµÄID
+ * \param tempid è¦é‡Šæ”¾çš„ID
  */
 void SceneManager::putUniqeID(const DWORD &tempid)
 {
 	sceneUniqeID->put(tempid);
-	//Zebra::logger->debug("»ØÊÕscenetempid = %ld",tempid);
+	//Zebra::logger->debug("å›æ”¶scenetempid = %ld",tempid);
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */
 SceneManager::SceneManager()
@@ -53,7 +53,7 @@ SceneManager::SceneManager()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 SceneManager::~SceneManager()
@@ -62,8 +62,8 @@ SceneManager::~SceneManager()
 }
 
 /**
- * \brief µÃµ½SceneManagerµÄÖ¸Õë
- * Èç¹ûÖ¸ÕëÎª0Ôò½øĞĞ³õÊ¼»¯
+ * \brief å¾—åˆ°SceneManagerçš„æŒ‡é’ˆ
+ * å¦‚æœæŒ‡é’ˆä¸º0åˆ™è¿›è¡Œåˆå§‹åŒ–
  *
  */
 SceneManager & SceneManager::getInstance()
@@ -74,7 +74,7 @@ SceneManager & SceneManager::getInstance()
 }
 
 /**
- * \brief É¾³ıSceneManager
+ * \brief åˆ é™¤SceneManager
  *
  */
 void SceneManager::delInstance()
@@ -87,7 +87,7 @@ void SceneManager::delInstance()
 }
 
 /**
- * \brief ÊÍ·ÅËùÓĞÒÑ¾­¼ÓÔØµÄµØÍ¼
+ * \brief é‡Šæ”¾æ‰€æœ‰å·²ç»åŠ è½½çš„åœ°å›¾
  *
  */
 void SceneManager::final()
@@ -100,19 +100,19 @@ void SceneManager::final()
 }
 
 /**
- * \brief ³õÊ¼»¯
- * ¼ÓÔØËùÓĞµØÍ¼
+ * \brief åˆå§‹åŒ–
+ * åŠ è½½æ‰€æœ‰åœ°å›¾
  *
  */
 bool SceneManager::init()
 {
 	if(inited) return inited;
 
-	//ÎªÃ¿¸ö³¡¾°·şÎñÆ÷Éú³É²»Ïà½»²æµÄ³¡¾°ÁÙÊ±ID·ÖÅäÆ÷,×îĞ¡µÄ´Ó10000¿ªÊ¼,Ã¿¸öÓĞ49998¸öID¿ÉÓÃ
+	//ä¸ºæ¯ä¸ªåœºæ™¯æœåŠ¡å™¨ç”Ÿæˆä¸ç›¸äº¤å‰çš„åœºæ™¯ä¸´æ—¶IDåˆ†é…å™¨,æœ€å°çš„ä»10000å¼€å§‹,æ¯ä¸ªæœ‰49998ä¸ªIDå¯ç”¨
 	DWORD firstTempID=10000+(ScenesService::getInstance().getServerID()%100)*50000;
 	sceneUniqeID=new zUniqueDWORDID(firstTempID,firstTempID+49998);
 
-	// ³õÊ¼»¯ËùÓĞµØÍ¼
+	// åˆå§‹åŒ–æ‰€æœ‰åœ°å›¾
 	zXMLParser parser=zXMLParser();
 	std::string scenesinfofile=Zebra::global["sceneinfofile"];
 	if(scenesinfofile=="")
@@ -134,7 +134,7 @@ bool SceneManager::init()
 					parser.getNodePropStr(subnode , "name" , info.name , sizeof(info.name));
 					parser.getNodePropNum(subnode , "mapID" , &info.mapid , sizeof(info.mapid));
 					parser.getNodePropNum(subnode , "function" , &info.function , sizeof(info.function));
-					Zebra::logger->debug("¼ÓÔØ¹ú¼ÒÃû³Æ(%u , %s , %u , %u)" , info.id , info.name,info.mapid,info.function);
+					Zebra::logger->debug("åŠ è½½å›½å®¶åç§°(%u , %s , %u , %u)" , info.id , info.name,info.mapid,info.function);
 					country_info.insert(CountryMap_value_type(info.id , info));
 				}
 				subnode = parser.getNextNode(subnode, NULL);
@@ -173,7 +173,7 @@ bool SceneManager::init()
 					 
 					parser.getNodePropNum(subnode , "level" , &info.level , sizeof(info.level));
 					parser.getNodePropNum(subnode , "exprate" , &info.exprate , sizeof(info.exprate));
-					Zebra::logger->debug("¼ÓÔØµØÍ¼Ãû³Æ(%u,%s,%s,%u,%u)",
+					Zebra::logger->debug("åŠ è½½åœ°å›¾åç§°(%u,%s,%s,%u,%u)",
 							info.id,info.name, info.filename , info.backto,info.backtoCity);
 					map_info.insert(MapMap_value_type(info.id , info));
 				}
@@ -194,24 +194,24 @@ bool SceneManager::init()
 					xmlNodePtr mapNode=parser.getChildNode(countryNode,"map");
 					while(mapNode)
 					{
-						//TODO ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ¼ÓÔØÕâ¸öµØÍ¼
-						//¼ÓÔØµØÍ¼
+						//TODO åˆ¤æ–­æ˜¯å¦å¯ä»¥åŠ è½½è¿™ä¸ªåœ°å›¾
+						//åŠ è½½åœ°å›¾
 						//std::string s;
 						//parser.dump(mapNode,s);
 						DWORD mapid=0;
 						if(!parser.getNodePropNum(mapNode,"mapID",&mapid,sizeof(mapid)))
 						{
-							Zebra::logger->error("µÃµ½µØÍ¼±àºÅÊ§°Ü");
+							Zebra::logger->error("å¾—åˆ°åœ°å›¾ç¼–å·å¤±è´¥");
 							return inited;
 						}
 						Scene *loaded=loadScene(Scene::STATIC, countryid , mapid);
-						// ×¢²áµØÍ¼
+						// æ³¨å†Œåœ°å›¾
 						if(loaded)
 						{
-							Zebra::logger->info("¼ÓÔØ%s(%ld,%ld)³É¹¦",loaded->name,loaded->id,loaded->tempid);
+							Zebra::logger->info("åŠ è½½%s(%ld,%ld)æˆåŠŸ",loaded->name,loaded->id,loaded->tempid);
 							t_regScene_SceneSession regscene;
 							regscene.dwID=loaded->id;
-							//Zebra::logger->info("[µØÍ¼ÕæÊµID]:%d", loaded->id&0x0FFF);
+							//Zebra::logger->info("[åœ°å›¾çœŸå®ID]:%d", loaded->id&0x0FFF);
 							regscene.dwTempID=loaded->tempid;
 							strncpy(regscene.byName,loaded->name,MAX_NAMESIZE);
 							strncpy(regscene.fileName, loaded->getFileName(), MAX_NAMESIZE);
@@ -228,47 +228,47 @@ bool SceneManager::init()
 					}
 					countryNode=parser.getNextNode(countryNode,"country");
 				}
-				Zebra::logger->info("ScenesServer id=%d ¼ÓÔØ %d ÕÅµØÍ¼¡£", id, mapCount);
+				Zebra::logger->info("ScenesServer id=%d åŠ è½½ %d å¼ åœ°å›¾ã€‚", id, mapCount);
 			}
 			serverNode=parser.getNextNode(serverNode,"server");
 		}
 		inited=true;
 	}
 	else
-		Zebra::logger->debug("SceneManager ½âÎöÅäÖÃÎÄ¼şÊ§°Ü¡£ %s", scenesinfofile.c_str());
-	//Ë¢ĞÂÓñÈçÒâĞèÒªµÄµØÍ¼ĞÅÏ¢
+		Zebra::logger->debug("SceneManager è§£æé…ç½®æ–‡ä»¶å¤±è´¥ã€‚ %s", scenesinfofile.c_str());
+	//åˆ·æ–°ç‰å¦‚æ„éœ€è¦çš„åœ°å›¾ä¿¡æ¯
 	freshEverySceneField(); 
 	return inited;
 }
 
 /**
- * \brief ¸ù¾İÃû×ÖµÄµ½³¡¾°Ö¸ÕëµÄ»Øµ÷
- * ·½·¨ÊÇ±éÀúËùÓĞscene²¢±È½ÏÃû×Ö
+ * \brief æ ¹æ®åå­—çš„åˆ°åœºæ™¯æŒ‡é’ˆçš„å›è°ƒ
+ * æ–¹æ³•æ˜¯éå†æ‰€æœ‰sceneå¹¶æ¯”è¾ƒåå­—
  * 
  */
 class GetSceneByFileName:public SceneCallBack
 {
 	public:
-		///ÕÒµ½µÄsceneÖ¸Õë
+		///æ‰¾åˆ°çš„sceneæŒ‡é’ˆ
 		Scene *ret;
-		///ÒªÕÒµÄ³¡¾°Ãû×Ö
+		///è¦æ‰¾çš„åœºæ™¯åå­—
 		const char *name;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 * 
-		 * \param name Òª²éÕÒµÄ³¡¾°Ãû×Ö
+		 * \param name è¦æŸ¥æ‰¾çš„åœºæ™¯åå­—
 		 * \return 
 		 */
 		GetSceneByFileName(const char *name) : ret(NULL), name(name) {};
 
 		/**
-		 * \brief  Ö´ĞĞ²éÕÒµÄ·½·¨
+		 * \brief  æ‰§è¡ŒæŸ¥æ‰¾çš„æ–¹æ³•
 		 *
 		 *
-		 * \param scene ³¡¾°Ö¸Õë
-		 * \return ÊÇ·ñ¼ÌĞø²éÕÒ
+		 * \param scene åœºæ™¯æŒ‡é’ˆ
+		 * \return æ˜¯å¦ç»§ç»­æŸ¥æ‰¾
 		 */
 		bool exec(Scene *scene)
 		{
@@ -283,10 +283,10 @@ class GetSceneByFileName:public SceneCallBack
 };
 
 /**
- * \brief ¸ù¾İÎÄ¼şÃû×ÖÕÒµ½³¡¾°Ö¸Õë
+ * \brief æ ¹æ®æ–‡ä»¶åå­—æ‰¾åˆ°åœºæ™¯æŒ‡é’ˆ
  *
- * \param name ÒªÕÒµÄ³¡¾°Ãû×Ö
- * \return ÒªÕÒµÄ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param name è¦æ‰¾çš„åœºæ™¯åå­—
+ * \return è¦æ‰¾çš„åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 Scene * SceneManager::getSceneByFileName( const char * name)
 {
@@ -296,10 +296,10 @@ Scene * SceneManager::getSceneByFileName( const char * name)
 }
 
 /**
- * \brief ¸ù¾İÃû×ÖÕÒµ½³¡¾°Ö¸Õë
+ * \brief æ ¹æ®åå­—æ‰¾åˆ°åœºæ™¯æŒ‡é’ˆ
  *
- * \param name ÒªÕÒµÄ³¡¾°Ãû×Ö
- * \return ÒªÕÒµÄ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param name è¦æ‰¾çš„åœºæ™¯åå­—
+ * \return è¦æ‰¾çš„åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 Scene * SceneManager::getSceneByName( const char * name)
 {
@@ -310,10 +310,10 @@ Scene * SceneManager::getSceneByName( const char * name)
 }
 
 /**
- * \brief ¸ù¾İÁìÊÂIDÕÒµ½³¡¾°Ö¸Õë
+ * \brief æ ¹æ®é¢†äº‹IDæ‰¾åˆ°åœºæ™¯æŒ‡é’ˆ
  *
- * \param tempid ÒªÕÒµÄ³¡¾°µÄÁÙÊ±id
- * \return ÒªÕÒµÄ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param tempid è¦æ‰¾çš„åœºæ™¯çš„ä¸´æ—¶id
+ * \return è¦æ‰¾çš„åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 Scene * SceneManager::getSceneByTempID( DWORD tempid)
 {
@@ -324,10 +324,10 @@ Scene * SceneManager::getSceneByTempID( DWORD tempid)
 }
 
 /**
- * \brief ¸ù¾İidÕÒµ½³¡¾°Ö¸Õë
+ * \brief æ ¹æ®idæ‰¾åˆ°åœºæ™¯æŒ‡é’ˆ
  *
- * \param id ÒªÕÒµÄ³¡¾°id
- * \return ÒªÕÒµÄ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param id è¦æ‰¾çš„åœºæ™¯id
+ * \return è¦æ‰¾çš„åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 Scene * SceneManager::getSceneByID( DWORD id)
 {
@@ -338,12 +338,12 @@ Scene * SceneManager::getSceneByID( DWORD id)
 }
 
 /**
- * \brief ¼ÓÔØÒ»¸öµØÍ¼
+ * \brief åŠ è½½ä¸€ä¸ªåœ°å›¾
  *
- * \param type µØÍ¼ÀàĞÍ£¬¾²Ì¬/¶¯Ì¬
- * \param countryid ¹ú¼Òid
- * \param mapid µØÍ¼id
- * \return ĞÂ¼ÓÔØµÄ³¡¾°Ö¸Õë
+ * \param type åœ°å›¾ç±»å‹ï¼Œé™æ€/åŠ¨æ€
+ * \param countryid å›½å®¶id
+ * \param mapid åœ°å›¾id
+ * \return æ–°åŠ è½½çš„åœºæ™¯æŒ‡é’ˆ
  */
 Scene * SceneManager::loadScene(Scene::SceneType type, DWORD countryid , DWORD mapid)
 {
@@ -362,7 +362,7 @@ Scene * SceneManager::loadScene(Scene::SceneType type, DWORD countryid , DWORD m
 			break;
 		default:
 			{
-				Zebra::logger->error("Î´Öª³¡¾°ÀàĞÍ");
+				Zebra::logger->error("æœªçŸ¥åœºæ™¯ç±»å‹");
 				return false;
 			}
 	}
@@ -372,10 +372,10 @@ Scene * SceneManager::loadScene(Scene::SceneType type, DWORD countryid , DWORD m
 	{
 		ret=addEntry(s);
 		if(!ret)
-			Zebra::logger->error("Ìí¼Ó %s Ê§°Ü!",s->name);
+			Zebra::logger->error("æ·»åŠ  %s å¤±è´¥!",s->name);
 	}
 	else
-		Zebra::logger->error("³õÊ¼»¯ %s Ê§°Ü!",s->name);
+		Zebra::logger->error("åˆå§‹åŒ– %s å¤±è´¥!",s->name);
 	rwlock.unlock();
 	if(!ret)
 	{
@@ -385,9 +385,9 @@ Scene * SceneManager::loadScene(Scene::SceneType type, DWORD countryid , DWORD m
 }
 
 /**
- * \brief ¸ù¾İÃû×ÖĞ¶ÔØÒ»ÕÅµØÍ¼
+ * \brief æ ¹æ®åå­—å¸è½½ä¸€å¼ åœ°å›¾
  *
- * \param name ÒªĞ¶ÔØµÄµØÍ¼Ãû×Ö
+ * \param name è¦å¸è½½çš„åœ°å›¾åå­—
  */
 void SceneManager::unloadScene(std::string &name)
 {
@@ -401,9 +401,9 @@ void SceneManager::unloadScene(std::string &name)
 }
 
 /**
- * \brief ¸ù¾İ³¡¾°Ö¸ÕëĞ¶ÔØÒ»ÕÅµØÍ¼
+ * \brief æ ¹æ®åœºæ™¯æŒ‡é’ˆå¸è½½ä¸€å¼ åœ°å›¾
  *
- * \param scene ÒªĞ¶ÔØµÄµØÍ¼Ö¸Õë
+ * \param scene è¦å¸è½½çš„åœ°å›¾æŒ‡é’ˆ
  */
 void SceneManager::unloadScene(Scene * &scene)
 {
@@ -416,7 +416,7 @@ void SceneManager::unloadScene(Scene * &scene)
 }
 
 /**
- * \brief Ğ¶ÔØÈ«²¿µØÍ¼
+ * \brief å¸è½½å…¨éƒ¨åœ°å›¾
  *
  */
 void SceneManager::unloadAllScene()
@@ -433,9 +433,9 @@ void SceneManager::unloadAllScene()
 }
 
 /**
- * \brief ¼ì²é²¢É¾³ıÉèÖÃÎªremoveµÄ³¡¾°
- * ·½·¨ÊÇ±éÀúËùÓĞ³¡¾°£¬Èç¹ûÉèÖÃÁËremove±êÖ¾£¬ÔòÇå³ıËùÓĞnpcºÍÎï¼ş£¬È»ºóÉ¾³ı³¡¾°
- * ¸Ã·½·¨ÔÚ³¡¾°Ö÷Ñ­»·ÖĞÖ´ĞĞ
+ * \brief æ£€æŸ¥å¹¶åˆ é™¤è®¾ç½®ä¸ºremoveçš„åœºæ™¯
+ * æ–¹æ³•æ˜¯éå†æ‰€æœ‰åœºæ™¯ï¼Œå¦‚æœè®¾ç½®äº†removeæ ‡å¿—ï¼Œåˆ™æ¸…é™¤æ‰€æœ‰npcå’Œç‰©ä»¶ï¼Œç„¶ååˆ é™¤åœºæ™¯
+ * è¯¥æ–¹æ³•åœ¨åœºæ™¯ä¸»å¾ªç¯ä¸­æ‰§è¡Œ
  *
  */
 void SceneManager::checkUnloadOneScene()
@@ -445,7 +445,7 @@ void SceneManager::checkUnloadOneScene()
 		Scene *scene = (Scene *)it->second;
 		if(scene->getRunningState() == SCENE_RUNNINGSTATE_REMOVE)
 		{
-			Zebra::logger->debug("Ğ¶ÔØ³¡¾°%s",scene->name);
+			Zebra::logger->debug("å¸è½½åœºæ™¯%s",scene->name);
 			SceneNpcManager::getMe().removeNpcInOneScene(scene);
 			scene->removeSceneObjectInOneScene();
 			unloadScene(scene);
@@ -518,9 +518,9 @@ void SceneManager::freshEverySceneField()
 	SceneManager::getInstance().execEveryScene(exec);
 }
 /**
- * \brief ¶ÔÃ¿¸ö³¡¾°Ö´ĞĞ»Øµ÷º¯Êı
+ * \brief å¯¹æ¯ä¸ªåœºæ™¯æ‰§è¡Œå›è°ƒå‡½æ•°
  *
- * \param callback ÒªÖ´ĞĞµÄ»Øµ÷º¯Êı
+ * \param callback è¦æ‰§è¡Œçš„å›è°ƒå‡½æ•°
  */
 void SceneManager::execEveryScene(SceneCallBack &callback)
 {
@@ -537,10 +537,10 @@ void SceneManager::execEveryScene(SceneCallBack &callback)
 
 
 /**
- * \brief ¸ù¾İ¹ú¼ÒÃû×ÖµÃµ½¹ú¼Òid
+ * \brief æ ¹æ®å›½å®¶åå­—å¾—åˆ°å›½å®¶id
  *
- * \param name ÒªµÃµ½idµÄ¹ú¼ÒÃû×Ö
- * \return ÕÒµ½µÄid£¬Ê§°Ü·µ»Ø0
+ * \param name è¦å¾—åˆ°idçš„å›½å®¶åå­—
+ * \return æ‰¾åˆ°çš„idï¼Œå¤±è´¥è¿”å›0
  */
 DWORD SceneManager::getCountryIDByCountryName(const char *name)
 {
@@ -556,9 +556,9 @@ DWORD SceneManager::getCountryIDByCountryName(const char *name)
 }
 
 /**
- * \brief ¶ÔÃ¿¸ö¹ú¼ÒÅäÖÃÖ´ĞĞ»Øµ÷º¯Êı
+ * \brief å¯¹æ¯ä¸ªå›½å®¶é…ç½®æ‰§è¡Œå›è°ƒå‡½æ•°
  *
- * \param callback ÒªÖ´ĞĞµÄ»Øµ÷º¯Êı
+ * \param callback è¦æ‰§è¡Œçš„å›è°ƒå‡½æ•°
  */
 /*
 void SceneManager::execEveryMap(MapCallBack &callback)
@@ -571,10 +571,10 @@ void SceneManager::execEveryMap(MapCallBack &callback)
 }
 // */
 /**
- * \brief ¸ù¾İ¹ú¼ÒidµÃµ½¹ú¼ÒÃû×Ö
+ * \brief æ ¹æ®å›½å®¶idå¾—åˆ°å›½å®¶åå­—
  *
- * \param id ÒªÕÒµÄ¹ú¼Òid
- * \return ÕÒµ½µÄ¹ú¼ÒÃû×Ö£¬Ê§°Ü·µ»Ø0
+ * \param id è¦æ‰¾çš„å›½å®¶id
+ * \return æ‰¾åˆ°çš„å›½å®¶åå­—ï¼Œå¤±è´¥è¿”å›0
  */
 const char * SceneManager::getCountryNameByCountryID(DWORD id)
 {
@@ -590,16 +590,16 @@ const char * SceneManager::getCountryNameByCountryID(DWORD id)
 }
 
 /**
- * \brief ¸ù¾İµØÍ¼Ãû×ÖµÃµ½µØÍ¼id
+ * \brief æ ¹æ®åœ°å›¾åå­—å¾—åˆ°åœ°å›¾id
  *
- * \param name ÒªÕÒµÄµØÍ¼Ãû×Ö
- * \return ÕÒµ½µÄid£¬Ê§°Ü·µ»Ø0
+ * \param name è¦æ‰¾çš„åœ°å›¾åå­—
+ * \return æ‰¾åˆ°çš„idï¼Œå¤±è´¥è¿”å›0
  */
 DWORD SceneManager::getMapIDByMapName(const char *name)
 {
-	const char *p = strstr(name, "¡¤");
+	const char *p = strstr(name, "Â·");
 	if (p)
-		p += strlen("¡¤");
+		p += strlen("Â·");
 	else
 		p = name;
 
@@ -615,7 +615,7 @@ DWORD SceneManager::getMapIDByMapName(const char *name)
 }
 
 /**
- * \brief ¸ù¾İ¹ú¼ÒidºÍµØÍ¼id×é³É³¡¾°name
+ * \brief æ ¹æ®å›½å®¶idå’Œåœ°å›¾idç»„æˆåœºæ™¯name
  *
  */
 bool SceneManager::buildMapName(DWORD countryid , DWORD mapid,char *out)
@@ -624,7 +624,7 @@ bool SceneManager::buildMapName(DWORD countryid , DWORD mapid,char *out)
 	const char *m = map_info[mapid].name;
 	if(c && m)
 	{
-		sprintf(out,"%s¡¤%s",c,m);
+		sprintf(out,"%sÂ·%s",c,m);
 		return true;
 	}
 	return false;
@@ -632,7 +632,7 @@ bool SceneManager::buildMapName(DWORD countryid , DWORD mapid,char *out)
  
 
 /**
- * \brief ¸ù¾İ¹ú¼ÒidºÍµØÍ¼name×é³É³¡¾°name
+ * \brief æ ¹æ®å›½å®¶idå’Œåœ°å›¾nameç»„æˆåœºæ™¯name
  *
  */
 bool SceneManager::buildMapName(DWORD countryid , const char *in ,char *out)
@@ -640,13 +640,13 @@ bool SceneManager::buildMapName(DWORD countryid , const char *in ,char *out)
 	const char *c = getCountryNameByCountryID(countryid);
 	if(c && in)
 	{
-		sprintf(out,"%s¡¤%s",c,in);
+		sprintf(out,"%sÂ·%s",c,in);
 		return true;
 	}
 	return false;
 }
 /**
- * \brief ¸ù¾İ¹ú¼ÒidºÍµØÍ¼id×é³É³¡¾°id
+ * \brief æ ¹æ®å›½å®¶idå’Œåœ°å›¾idç»„æˆåœºæ™¯id
  *
  */
 DWORD SceneManager::buildMapID(DWORD countryid , DWORD mapid)

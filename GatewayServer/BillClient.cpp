@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillClient.cpp $
  * \author  
  * \date 
- * \brief ¶¨Òå¼Æ·Ñ·þÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰è®¡è´¹æœåŠ¡å™¨è¿žæŽ¥å®¢æˆ·ç«¯
  *
  */
 
@@ -21,23 +21,23 @@
 #include "GatewayTaskManager.h"
 
 /**
- * \brief ¼Æ·Ñ·þÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief è®¡è´¹æœåŠ¡å™¨è¿žæŽ¥å®¢æˆ·ç«¯
  *
- * Ò»¸öÇøÖÐÖ»ÓÐÒ»¸ö¼Æ·Ñ·þÎñÆ÷£¬ËùÒÔÕâÀïÖ»ÐèÒª±£ÁôÒ»¸öÖ¸Õë£¬²»ÐèÒªÁ¬½Ó¹ÜÀíÆ÷Ö®ÀàµÄ¶«¶«
+ * ä¸€ä¸ªåŒºä¸­åªæœ‰ä¸€ä¸ªè®¡è´¹æœåŠ¡å™¨ï¼Œæ‰€ä»¥è¿™é‡Œåªéœ€è¦ä¿ç•™ä¸€ä¸ªæŒ‡é’ˆï¼Œä¸éœ€è¦è¿žæŽ¥ç®¡ç†å™¨ä¹‹ç±»çš„ä¸œä¸œ
  *
  */
 BillClient *accountClient = NULL;
 
 /**
- * \brief ½¨Á¢µ½Bill·þÎñÆ÷µÄÁ¬½Ó
+ * \brief å»ºç«‹åˆ°BillæœåŠ¡å™¨çš„è¿žæŽ¥
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿žæŽ¥æ˜¯å¦æˆåŠŸ
  */
 bool BillClient::connectToBillServer()
 {
 	if (!connect())
 	{
-		Zebra::logger->error("Á¬½ÓBill·þÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿žæŽ¥BillæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 
@@ -50,7 +50,7 @@ bool BillClient::connectToBillServer()
 }
 
 /**
- * \brief ÖØÔØzThreadÖÐµÄ´¿Ðéº¯Êý£¬ÊÇÏß³ÌµÄÖ÷»Øµ÷º¯Êý£¬ÓÃÓÚ´¦Àí½ÓÊÕµ½µÄÖ¸Áî
+ * \brief é‡è½½zThreadä¸­çš„çº¯è™šå‡½æ•°ï¼Œæ˜¯çº¿ç¨‹çš„ä¸»å›žè°ƒå‡½æ•°ï¼Œç”¨äºŽå¤„ç†æŽ¥æ”¶åˆ°çš„æŒ‡ä»¤
  *
  */
 void BillClient::run()
@@ -61,7 +61,7 @@ void BillClient::run()
 	{
 		while(!connect())
 		{
-			Zebra::logger->error("Á¬½Ó¼Æ·Ñ·þÎñÆ÷Ê§°Ü");
+			Zebra::logger->error("è¿žæŽ¥è®¡è´¹æœåŠ¡å™¨å¤±è´¥");
 			zThread::msleep(1000);
 		}
 		Cmd::Super::t_restart_ServerEntry_NotifyOther notify;
@@ -82,16 +82,16 @@ void BillClient::run()
 			// */
 		zThread::msleep(1000);
 	}
-	//ÓëBillÖ®¼äµÄÁ¬½Ó¶Ï¿ª£¬ÐèÒª¹Ø±Õ·þÎñÆ÷
+	//ä¸ŽBillä¹‹é—´çš„è¿žæŽ¥æ–­å¼€ï¼Œéœ€è¦å…³é—­æœåŠ¡å™¨
 	GatewayService::getInstance().Terminate();
 }
 
 /**
- * \brief ½âÎöÀ´×ÔBill·þÎñÆ÷µÄËùÓÐÖ¸Áî
+ * \brief è§£æžæ¥è‡ªBillæœåŠ¡å™¨çš„æ‰€æœ‰æŒ‡ä»¤
  *
- * \param ptNullCmd ´ý½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ý½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æžçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æžçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£æžæ˜¯å¦æˆåŠŸ
  */
 bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -108,12 +108,12 @@ bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 
 					if (ptCmd->retcode)
 					{
-						Zebra::logger->debug("µÇÂ½¼Æ·ÑÑéÖ¤Í¨¹ý%u",ptCmd->accid);
+						Zebra::logger->debug("ç™»é™†è®¡è´¹éªŒè¯é€šè¿‡%u",ptCmd->accid);
 						GatewayTaskManager::getInstance().accountVerifyOK(ptCmd->accid, true);
 					}
 					else
 					{
-						Zebra::logger->error("µÇÂ½¼Æ·ÑÑéÖ¤Ã»ÓÐÍ¨¹ý%u",ptCmd->accid);
+						Zebra::logger->error("ç™»é™†è®¡è´¹éªŒè¯æ²¡æœ‰é€šè¿‡%u",ptCmd->accid);
 						GatewayTaskManager::getInstance().accountVerifyOK(ptCmd->accid, false);
 					}
 
@@ -125,8 +125,8 @@ bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 					t_NewSession_Gateway *ptCmd = (t_NewSession_Gateway *)ptNullCmd;
 					Cmd::Super::t_NewSession_Gateway tCmd;
 
-					Zebra::logger->info("µÇÂ½ÐÅÏ¢£º%u, %u, %s, %u", ptCmd->session.accid, ptCmd->session.loginTempID, ptCmd->session.pstrIP, ptCmd->session.wdPort);
-					//Zebra::logger->info("get key£º%u, %u, %u, %u, %u, %u, %u, %u", ptCmd->session.des_key[0], ptCmd->session.des_key[1], ptCmd->session.des_key[2], ptCmd->session.des_key[3], ptCmd->session.des_key[4], ptCmd->session.des_key[5], ptCmd->session.des_key[6], ptCmd->session.des_key[7]);
+					Zebra::logger->info("ç™»é™†ä¿¡æ¯ï¼š%u, %u, %s, %u", ptCmd->session.accid, ptCmd->session.loginTempID, ptCmd->session.pstrIP, ptCmd->session.wdPort);
+					//Zebra::logger->info("get keyï¼š%u, %u, %u, %u, %u, %u, %u, %u", ptCmd->session.des_key[0], ptCmd->session.des_key[1], ptCmd->session.des_key[2], ptCmd->session.des_key[3], ptCmd->session.des_key[4], ptCmd->session.des_key[5], ptCmd->session.des_key[6], ptCmd->session.des_key[7]);
 					LoginSessionManager::getInstance().put(ptCmd->session);
 					tCmd.session = ptCmd->session;
 					//bcopy(&ptCmd->session, &tCmd.session, sizeof(tCmd.session));
@@ -155,7 +155,7 @@ bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 						rd.dwBalance = ptCmd->dwBalance;
 						rd.byReturn = ptCmd->byReturn;
 						pUser->forwardScene(&rd,sizeof(rd));
-						//Zebra::logger->debug("Bill×ª·¢µ½³¡¾°µÄ¶Ò»»½ð±ÒÖ¸Áî");
+						//Zebra::logger->debug("Billè½¬å‘åˆ°åœºæ™¯çš„å…‘æ¢é‡‘å¸æŒ‡ä»¤");
 					}
 					return true;
 				}
@@ -175,7 +175,7 @@ bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 						{
 							pUser->setVip(ptCmd->dwNum>0?true:false);
 						}
-						//Zebra::logger->debug("Bill×ª·¢µ½³¡¾°µÄ¶Ò»»ÔÂ¿¨Ö¸Áî");
+						//Zebra::logger->debug("Billè½¬å‘åˆ°åœºæ™¯çš„å…‘æ¢æœˆå¡æŒ‡ä»¤");
 					}
 					return true;
 				}
@@ -195,7 +195,7 @@ bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 						{
 							pUser->setVip(ptCmd->dwMonthCard>0?true:false);
 						}
-						//Zebra::logger->debug("Bill×ª·¢µ½³¡¾°µÄ²éÑ¯½ð±ÒÔÂ¿¨Ö¸Áî");
+						//Zebra::logger->debug("Billè½¬å‘åˆ°åœºæ™¯çš„æŸ¥è¯¢é‡‘å¸æœˆå¡æŒ‡ä»¤");
 					}
 					return true;
 				}
@@ -243,11 +243,11 @@ bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 					t_Bill_ForwardUser *rev=(t_Bill_ForwardUser *)ptNullCmd;
 					GateUser *pUser=(GateUser *)GateUserManager::getInstance()->getUserByAccID(rev->dwAccid);
 					if(!pUser ||  !pUser->sendCmd(rev->data,rev->size))
-						Zebra::logger->debug("×ª·¢BILL·þÎñÆ÷ÕÊºÅ%ldµÄ%u %uÏûÏ¢Ê§°Ü",rev->dwAccid,
+						Zebra::logger->debug("è½¬å‘BILLæœåŠ¡å™¨å¸å·%ldçš„%u %uæ¶ˆæ¯å¤±è´¥",rev->dwAccid,
 								((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
 					else
 					{       
-						//Zebra::logger->debug("×ª·¢BILL·þÎñÆ÷ÕÊºÅ%ldµÄ%u %uÏûÏ¢³É¹¦",rev->dwID,
+						//Zebra::logger->debug("è½¬å‘BILLæœåŠ¡å™¨å¸å·%ldçš„%u %uæ¶ˆæ¯æˆåŠŸ",rev->dwID,
 						//		((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
 					}
 					return true;
@@ -259,7 +259,7 @@ bool BillClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 					GateUser *pUser=(GateUser *)GateUserManager::getInstance()->getUserByAccID(rev->id);
 					if(!pUser || !pUser->forwardSceneBill((const Cmd::stNullUserCmd*)rev->data,(unsigned int)rev->size))
 					{
-						Zebra::logger->debug("×ª·¢BILL·þÎñÆ÷ÕÊºÅ%ldµÄ³¡¾°%u %uÏûÏ¢Ê§°Ü",rev->id,
+						Zebra::logger->debug("è½¬å‘BILLæœåŠ¡å™¨å¸å·%ldçš„åœºæ™¯%u %uæ¶ˆæ¯å¤±è´¥",rev->id,
 								((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
 					}
 				}

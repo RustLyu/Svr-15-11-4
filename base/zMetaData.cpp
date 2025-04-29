@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file zMetaData.cpp
  * \version  $Id: zMetaData.cpp  $
  * \author  
  * \date 
- * \brief ±í½á¹¹¹ÜÀíÆ÷¼°Ïà¹ØÀàµÄÊµÏÖ
+ * \brief è¡¨ç»“æ„ç®¡ç†å™¨åŠç›¸å…³ç±»çš„å®ç°
  *
  * 
  */
@@ -29,7 +29,7 @@ using namespace Zebra;
 
 
 /**
-  * \brief ½âÎöº¯Êı
+  * \brief è§£æå‡½æ•°
   *
   */
 MetaData:: ~MetaData()
@@ -45,11 +45,11 @@ MetaData:: ~MetaData()
 class MySQLMetaData : public MetaData
 {
 	/**
-	  * \brief ³õÊ¼»¯±í½á¹¹
+	  * \brief åˆå§‹åŒ–è¡¨ç»“æ„
 	  *
-	  * ½¨Á¢Êı¾İ¿âÁ¬½Ó£¬²¢È¡µÃ¸ÃÊı¾İ¿âÖĞËùÓĞ±íµÄ±í½á¹¹
+	  * å»ºç«‹æ•°æ®åº“è¿æ¥ï¼Œå¹¶å–å¾—è¯¥æ•°æ®åº“ä¸­æ‰€æœ‰è¡¨çš„è¡¨ç»“æ„
 	  *  
-	  * \param url:  Êı¾İ¿âÁ¬½Ó´®
+	  * \param url:  æ•°æ®åº“è¿æ¥ä¸²
 	  */
 	bool init(const std::string& url)
 	{
@@ -59,12 +59,12 @@ class MySQLMetaData : public MetaData
 			return false;
 		}
 
-		// TODO:ÆäËüÒ»Ğ©ĞèÒª³õÊ¼»¯µÄ´úÂëĞ´ÔÚÕâÀï
+		// TODO:å…¶å®ƒä¸€äº›éœ€è¦åˆå§‹åŒ–çš„ä»£ç å†™åœ¨è¿™é‡Œ
 		return true;
 	}	
 
 	/**
-	  * \brief Í¨¹ıÖ¸¶¨µÄÁ¬½Ó£¬ÔØÈëÊı¾İ±í½á¹¹
+	  * \brief é€šè¿‡æŒ‡å®šçš„è¿æ¥ï¼Œè½½å…¥æ•°æ®è¡¨ç»“æ„
 	  *
 	  */
 	bool loadMetaDataFromDB(const UrlInfo& url)
@@ -115,7 +115,7 @@ class MySQLMetaData : public MetaData
 	}
 	
 	/**
-	  * \brief ¼ÓÈëÒ»¸öĞÂ±í
+	  * \brief åŠ å…¥ä¸€ä¸ªæ–°è¡¨
 	  */
 	bool addNewTable(MYSQL* mysql_conn, const char* tableName)
 	{
@@ -129,7 +129,7 @@ class MySQLMetaData : public MetaData
 		//mysql_real_escape_string();
 		if (mysql_real_query(mysql_conn, query_string, strlen(query_string)) != 0)
 		{
-			logger->error("²éÑ¯%sÊ§°Ü", tableName);
+			logger->error("æŸ¥è¯¢%så¤±è´¥", tableName);
 			return false;
 		}
 
@@ -174,9 +174,9 @@ class MySQLMetaData : public MetaData
 };
 
 /**
-  * \brief È¡×Ö¶Î¸öÊı
+  * \brief å–å­—æ®µä¸ªæ•°
   *
-  * \return ·µ»Ø×Ö¶Î¸öÊı
+  * \return è¿”å›å­—æ®µä¸ªæ•°
   */	  
 unsigned int FieldSet::size()
 {
@@ -184,11 +184,11 @@ unsigned int FieldSet::size()
 }
 
 /**
-  * \brief ÖØÔØoperator[]ÔËËã·û
+  * \brief é‡è½½operator[]è¿ç®—ç¬¦
   *
-  * \param pos£º Ö¸¶¨Ëæ»ú·ÃÎÊÄ³¸ö×Ö¶ÎµÄÎ»ÖÃ 
+  * \param posï¼š æŒ‡å®šéšæœºè®¿é—®æŸä¸ªå­—æ®µçš„ä½ç½® 
   *
-  * \return Èç¹ûÕÒµ½¸Ã×Ö¶ÎÔò·µ»Ø¸Ã×Ö¶ÎµÄÖ¸Õë£¬Èç¹ûÃ»ÕÒµ½£¬Ôò·µ»ØNULL
+  * \return å¦‚æœæ‰¾åˆ°è¯¥å­—æ®µåˆ™è¿”å›è¯¥å­—æ®µçš„æŒ‡é’ˆï¼Œå¦‚æœæ²¡æ‰¾åˆ°ï¼Œåˆ™è¿”å›NULL
   */
 Field* FieldSet::operator[] (unsigned int pos)
 {
@@ -201,11 +201,11 @@ Field* FieldSet::operator[] (unsigned int pos)
 }
 
 /**
-  * \brief ÖØÔØoperator[]ÔËËã·û
+  * \brief é‡è½½operator[]è¿ç®—ç¬¦
   *
-  * \param pos£º Ö¸¶¨Ëæ»ú·ÃÎÊÄ³¸ö×Ö¶ÎµÄÃû³Æ
+  * \param posï¼š æŒ‡å®šéšæœºè®¿é—®æŸä¸ªå­—æ®µçš„åç§°
   *
-  * \return Èç¹ûÕÒµ½¸Ã×Ö¶ÎÔò·µ»Ø¸Ã×Ö¶ÎµÄÖ¸Õë£¬Èç¹ûÃ»ÕÒµ½£¬Ôò·µ»ØNULL
+  * \return å¦‚æœæ‰¾åˆ°è¯¥å­—æ®µåˆ™è¿”å›è¯¥å­—æ®µçš„æŒ‡é’ˆï¼Œå¦‚æœæ²¡æ‰¾åˆ°ï¼Œåˆ™è¿”å›NULL
   */
 Field* FieldSet::operator[](const std::string& name)
 {
@@ -227,9 +227,9 @@ Field* FieldSet::operator[](const std::string& name)
 
 
 /**
-  * \brief ¼ÓÈëĞÂµÄ×Ö¶Î
+  * \brief åŠ å…¥æ–°çš„å­—æ®µ
   *
-  *  ×Ö¶ÎÀàĞÍÄ¿Ç°Ö§³ÖÒÔÏÂÀàĞÍ:
+  *  å­—æ®µç±»å‹ç›®å‰æ”¯æŒä»¥ä¸‹ç±»å‹:
   *
   *  FIELD_TYPE_TINY TINYINT field
   *  FIELD_TYPE_SHORT SMALLINT field
@@ -252,8 +252,8 @@ Field* FieldSet::operator[](const std::string& name)
   *  FIELD_TYPE_NULL NULL-type field
   *  FIELD_TYPE_CHAR Deprecated; use FIELD_TYPE_TINY instead
   *
-  * \param fieldType: ×Ö¶ÎÀàĞÍ
-  * \param fieldName: ×Ö¶ÎÃû³Æ
+  * \param fieldType: å­—æ®µç±»å‹
+  * \param fieldName: å­—æ®µåç§°
   *
   *
   */
@@ -277,9 +277,9 @@ bool FieldSet::addField(int fieldType, const std::string& fieldName)
 }
 
 /**
-  * \brief Ìá¹©ÁíÒ»ÖÖÌí¼Ó×Ö¶ÎµÄ·½·¨
+  * \brief æä¾›å¦ä¸€ç§æ·»åŠ å­—æ®µçš„æ–¹æ³•
   *
-  *  ÖØÔØaddField
+  *  é‡è½½addField
   */
 bool FieldSet::addField(Field* field)
 {
@@ -293,9 +293,9 @@ bool FieldSet::addField(Field* field)
 }
 
 /**
-  * \brief ½âÎöº¯Êı
+  * \brief è§£æå‡½æ•°
   *
-  * ÊÍ·Å¿Õ¼ä
+  * é‡Šæ”¾ç©ºé—´
   */
 FieldSet::~FieldSet()
 {
@@ -308,11 +308,11 @@ FieldSet::~FieldSet()
    	
 }
 /**
-  * \brief Í¨¹ıÖ¸¶¨±íÃû£¬»ñÈ¡¸Ã±íµÄ±í½á¹¹
+  * \brief é€šè¿‡æŒ‡å®šè¡¨åï¼Œè·å–è¯¥è¡¨çš„è¡¨ç»“æ„
   *
-  * \param tableName: ±íÃû
+  * \param tableName: è¡¨å
   *
-  * \return Èç¹ûÕÒµ½¸Ã±í£¬·µ»Ø±í½á¹¹Ö¸Õë,·ñÔò£¬·µ»ØÎª¿Õ
+  * \return å¦‚æœæ‰¾åˆ°è¯¥è¡¨ï¼Œè¿”å›è¡¨ç»“æ„æŒ‡é’ˆ,å¦åˆ™ï¼Œè¿”å›ä¸ºç©º
   */
 FieldSet* MetaData::getFields(const std::string& tableName)
 {
@@ -332,15 +332,15 @@ FieldSet* MetaData::getFields(const std::string& tableName)
 }
 
 /**
-  * \brief ÖØÔØoperator[]ÔËËã·û
+  * \brief é‡è½½operator[]è¿ç®—ç¬¦
   *
-  * ¿ÉÍ¨¹ıÖ¸¶¨×Ö¶ÎÃû£¬»ñÈ¡Æä¸Ã×Ö¶ÎµÄÖµ¡£
-  * Èç¹û¸Ã×Ö¶ÎÀàĞÍÎªÊıÖµĞÍ£¬Í¨¹ı¸Ãº¯ÊıÒ²¿É·µ»ØÆäÖµ£¬Ó¦ÓÃ³ÌĞòÔ±ĞèÒª×Ô¼ºµ÷ÓÃÏàÓ¦º¯Êı½øĞĞ×ª»»
-  * »òÕßÏÔÊ½µ÷ÓÃÓë¸ÃÀàĞÍÆ¥ÅäµÄgetº¯Êı
+  * å¯é€šè¿‡æŒ‡å®šå­—æ®µåï¼Œè·å–å…¶è¯¥å­—æ®µçš„å€¼ã€‚
+  * å¦‚æœè¯¥å­—æ®µç±»å‹ä¸ºæ•°å€¼å‹ï¼Œé€šè¿‡è¯¥å‡½æ•°ä¹Ÿå¯è¿”å›å…¶å€¼ï¼Œåº”ç”¨ç¨‹åºå‘˜éœ€è¦è‡ªå·±è°ƒç”¨ç›¸åº”å‡½æ•°è¿›è¡Œè½¬æ¢
+  * æˆ–è€…æ˜¾å¼è°ƒç”¨ä¸è¯¥ç±»å‹åŒ¹é…çš„getå‡½æ•°
   *
-  * \param name: ×Ö¶ÎÃû¡£²»Çø·Ö´óĞ¡Ğ´
+  * \param name: å­—æ®µåã€‚ä¸åŒºåˆ†å¤§å°å†™
   * 
-  * \return Èç¹û¸Ã×Ö¶Î´æÔÚ£¬Ôò·µ»ØÆäÖµ¡£Èç¹û²»´æÔÚ£¬Ôò·µ»ØÎªNULL
+  * \return å¦‚æœè¯¥å­—æ®µå­˜åœ¨ï¼Œåˆ™è¿”å›å…¶å€¼ã€‚å¦‚æœä¸å­˜åœ¨ï¼Œåˆ™è¿”å›ä¸ºNULL
   */
 VarType Record::operator[](const std::string& name)
 {
@@ -363,13 +363,13 @@ VarType Record::operator[](const std::string& name)
 }
 
 /**
-  * \brief ÖØÔØoperator[]ÔËËã·û
+  * \brief é‡è½½operator[]è¿ç®—ç¬¦
   *
-  * Í¨¹ıÖ¸¶¨ÁĞµÄÎ»ÖÃ»ñÈ¡ÆäÖµ£¬²»ÍÆ¼öÔÚ¶ÔÎ»ÖÃÓĞÒÀÀµµÄ´úÂëÖĞÊ¹ÓÃ£¬ÒòÎªÁĞµÄÎ»ÖÃ²»Ò»¶¨ÊÇ¹Ì¶¨µÄ¡£
+  * é€šè¿‡æŒ‡å®šåˆ—çš„ä½ç½®è·å–å…¶å€¼ï¼Œä¸æ¨èåœ¨å¯¹ä½ç½®æœ‰ä¾èµ–çš„ä»£ç ä¸­ä½¿ç”¨ï¼Œå› ä¸ºåˆ—çš„ä½ç½®ä¸ä¸€å®šæ˜¯å›ºå®šçš„ã€‚
   * 
-  * \param idx: Ö¸¶¨µÄÎ»ÖÃ
+  * \param idx: æŒ‡å®šçš„ä½ç½®
   *
-  * \return Èç¹ûÖ¸¶¨µÄÁĞÓĞÖµ£¬Ôò·µ»ØÆäÖµ£¬·ñÔò£¬·µ»ØÎªNULL
+  * \return å¦‚æœæŒ‡å®šçš„åˆ—æœ‰å€¼ï¼Œåˆ™è¿”å›å…¶å€¼ï¼Œå¦åˆ™ï¼Œè¿”å›ä¸ºNULL
   */
 const char* Record::operator[](unsigned int idx)
 {
@@ -388,10 +388,10 @@ const char* Record::operator[](unsigned int idx)
 }
 
 /**
-  * \brief Ìí¼ÓÁĞ
+  * \brief æ·»åŠ åˆ—
   *
-  * \param fieldName: ×Ö¶ÎÃû³Æ
-  * \param value: ×Ö¶ÎÖµ
+  * \param fieldName: å­—æ®µåç§°
+  * \param value: å­—æ®µå€¼
   * 
   */
 void Record::put(const char* fieldName)
@@ -413,10 +413,10 @@ void Record::put(const char* fieldName)
 }
 
 /**
-  * \brief »ñÈ¡Ö¸¶¨×Ö¶ÎµÄÖµµÄÍ¨ÓÃ·½·¨
+  * \brief è·å–æŒ‡å®šå­—æ®µçš„å€¼çš„é€šç”¨æ–¹æ³•
   * 
-  * ¿É»ñµÃËùÓĞ×Ö¶ÎÀàĞÍµÄÖµ£¬½ÔÒÔ×Ö·û´®µÄĞÎÊ½·µ»ØÆäÖµ¡£
-  * ÈçĞè°´×Ö¶ÎÀàĞÍ»ñµÃÆäÖµ£¬Çëµ÷ÓÃÏàÓ¦µÄget·½·¨
+  * å¯è·å¾—æ‰€æœ‰å­—æ®µç±»å‹çš„å€¼ï¼Œçš†ä»¥å­—ç¬¦ä¸²çš„å½¢å¼è¿”å›å…¶å€¼ã€‚
+  * å¦‚éœ€æŒ‰å­—æ®µç±»å‹è·å¾—å…¶å€¼ï¼Œè¯·è°ƒç”¨ç›¸åº”çš„getæ–¹æ³•
   */
 VarType Record::get(const std::string& fieldName)
 {
@@ -450,7 +450,7 @@ VarType Record::get(const std::string& fieldName)
 				case FIELD_TYPE_INT24:
 				case FIELD_TYPE_LONGLONG:
 				case FIELD_TYPE_DECIMAL:
-					{// ËùÓĞÕûĞÍÔÚÕâÀï´¦Àí
+					{// æ‰€æœ‰æ•´å‹åœ¨è¿™é‡Œå¤„ç†
 						ret.val_us = atoi(it->second.c_str());
 						ret.val_short = atoi(it->second.c_str());
 						ret.val_int = atoi(it->second.c_str());
@@ -464,13 +464,13 @@ VarType Record::get(const std::string& fieldName)
 					}
 				case FIELD_TYPE_FLOAT:
 				case FIELD_TYPE_DOUBLE:
-					{//ËùÓĞ¸¡µãĞÍÔÚÕâÀï´¦Àí`
+					{//æ‰€æœ‰æµ®ç‚¹å‹åœ¨è¿™é‡Œå¤„ç†`
 						ret.val_float = atof(it->second.c_str());
 						ret.val_double = atof(it->second.c_str());
 						break;
 					}
 				default:
-					{// ÆäËüËùÓĞÀàĞÍ°´×Ö·û´®´¦Àí
+					{// å…¶å®ƒæ‰€æœ‰ç±»å‹æŒ‰å­—ç¬¦ä¸²å¤„ç†
 						ret.val_pstr = it->second.c_str();
 					}
 			}
@@ -486,11 +486,11 @@ VarType Record::get(const std::string& fieldName)
 }
 
 /**
- * \brief ÅĞ¶ÏÄ³¸ö×Ö¶ÎÊÇ·ñÓĞĞ§ 
+ * \brief åˆ¤æ–­æŸä¸ªå­—æ®µæ˜¯å¦æœ‰æ•ˆ 
  *
- * \param fieldName: ×Ö¶ÎÃû³Æ
+ * \param fieldName: å­—æ®µåç§°
 
- * \return Èç¹û¸Ã¼ÇÂ¼°üº¬¸Ã×Ö¶Î£¬·µ»ØTRUE,·ñÔòÎªFALSE
+ * \return å¦‚æœè¯¥è®°å½•åŒ…å«è¯¥å­—æ®µï¼Œè¿”å›TRUE,å¦åˆ™ä¸ºFALSE
  */
 bool Record::find(const std::string& fieldName)
 {
@@ -510,7 +510,7 @@ bool Record::find(const std::string& fieldName)
 }
 
 /**
- * \brief ½âÎö·½·¨
+ * \brief è§£ææ–¹æ³•
  */
 RecordSet::~RecordSet()
 {
@@ -523,13 +523,13 @@ RecordSet::~RecordSet()
 }
 
 /**
- * \brief ÖØÔØoperator[]ÔËËã·û
+ * \brief é‡è½½operator[]è¿ç®—ç¬¦
  *
- * Í¨¹ıÖ¸¶¨µÄĞĞÊı£¬»ñÈ¡ÏàÓ¦µÄ¼ÇÂ¼
+ * é€šè¿‡æŒ‡å®šçš„è¡Œæ•°ï¼Œè·å–ç›¸åº”çš„è®°å½•
  *
- * \param idx:Ö¸¶¨µÄĞĞÊı
+ * \param idx:æŒ‡å®šçš„è¡Œæ•°
  *
- * \return Èç¹ûÖ¸¶¨µÄĞĞÊıÓĞĞ§£¬Ôò·µ»ØÏàÓ¦µÄ¼ÇÂ¼Ö¸Õë£¬Èç¹ûÎŞĞ§£¬Ôò·µ»ØNULL
+ * \return å¦‚æœæŒ‡å®šçš„è¡Œæ•°æœ‰æ•ˆï¼Œåˆ™è¿”å›ç›¸åº”çš„è®°å½•æŒ‡é’ˆï¼Œå¦‚æœæ— æ•ˆï¼Œåˆ™è¿”å›NULL
  */
 Record* RecordSet::operator[](unsigned int idx)
 {
@@ -537,9 +537,9 @@ Record* RecordSet::operator[](unsigned int idx)
 }
 
 /**
- * \brief »ñÈ¡¼ÇÂ¼Êı
+ * \brief è·å–è®°å½•æ•°
  *
- * \return ·µ»Ø¼ÇÂ¼Êı£¬Èç¹ûÃ»ÓĞ¼ÇÂ¼£¬·µ»ØÎª0
+ * \return è¿”å›è®°å½•æ•°ï¼Œå¦‚æœæ²¡æœ‰è®°å½•ï¼Œè¿”å›ä¸º0
  */
 unsigned int RecordSet::size()
 {
@@ -547,7 +547,7 @@ unsigned int RecordSet::size()
 }
 
 /**
- * \brief Ìí¼Ó¼ÇÂ¼
+ * \brief æ·»åŠ è®°å½•
  *
  */
 void RecordSet::put(Record* rec)
@@ -556,9 +556,9 @@ void RecordSet::put(Record* rec)
 }
 
 /**
- * \brief »ñÈ¡Ö¸¶¨µÄĞĞ
+ * \brief è·å–æŒ‡å®šçš„è¡Œ
  *
- * ¹¦ÄÜÓëÖØÔØµÄoperator[]ÔËËã·ûÏàÍ¬¡£
+ * åŠŸèƒ½ä¸é‡è½½çš„operator[]è¿ç®—ç¬¦ç›¸åŒã€‚
  */
 Record* RecordSet::get(unsigned int idx)
 {
@@ -566,11 +566,11 @@ Record* RecordSet::get(unsigned int idx)
 }
 
 /**
- * \brief builder·½·¨£¬Í¨¹ı´«ÈëµÄÀàĞÍÃèÊö£¬Éú³É¶ÔÓ¦µÄÊµÀı
+ * \brief builderæ–¹æ³•ï¼Œé€šè¿‡ä¼ å…¥çš„ç±»å‹æè¿°ï¼Œç”Ÿæˆå¯¹åº”çš„å®ä¾‹
  *
- * \param Êı¾İ¿âÀàĞÍ£¬Ä¿Ç°Ö»Ö§³ÖMYSQL£¬´«ÈëÊ±¿ÉÒÔÎª¿Õ¡£Ò²¿ÉÒÔÊÇ"MYSQL"
+ * \param æ•°æ®åº“ç±»å‹ï¼Œç›®å‰åªæ”¯æŒMYSQLï¼Œä¼ å…¥æ—¶å¯ä»¥ä¸ºç©ºã€‚ä¹Ÿå¯ä»¥æ˜¯"MYSQL"
  * 
- * \return  ·µ»Ø»ùÀàÖ¸Õë
+ * \return  è¿”å›åŸºç±»æŒ‡é’ˆ
  */
 MetaData* MetaData::newInstance(const char* type)
 {

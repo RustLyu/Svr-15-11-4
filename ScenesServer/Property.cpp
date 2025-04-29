@@ -1,4 +1,4 @@
-#include <math.h>
+ï»¿#include <math.h>
 #include <sstream>
 #include "SceneUser.h"
 #include "Scene.h"
@@ -12,14 +12,14 @@
 //#include "script.h"
 
 /**     
- * \brief  ´¦ÀístPropertyUserCmdÖ¸Áî
+ * \brief  å¤„ç†stPropertyUserCmdæŒ‡ä»¤
  *
  *
- * ´¦ÀístPropertyUserCmdÖ¸Áî
+ * å¤„ç†stPropertyUserCmdæŒ‡ä»¤
  *      
- * \param rev: ½ÓÊÜµ½µÄÖ¸ÁîÄÚÈÝ
- * \param cmdLen: ½ÓÊÜµ½µÄÖ¸Áî³¤¶È
- * \return ´¦ÀíÖ¸Áî³É¹¦·µ»ØÕæ,·ñÔò·µ»Øfalse
+ * \param rev: æŽ¥å—åˆ°çš„æŒ‡ä»¤å†…å®¹
+ * \param cmdLen: æŽ¥å—åˆ°çš„æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æŒ‡ä»¤æˆåŠŸè¿”å›žçœŸ,å¦åˆ™è¿”å›žfalse
  */     	
 bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmdLen)
 {
@@ -28,11 +28,11 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 		case SWAPUSEROBJECT_PROPERTY_USERCMD_PARAMETER:
 			{
 				Cmd::stSwapObjectPropertyUserCmd *swap=(Cmd::stSwapObjectPropertyUserCmd *)rev;
-				//µÃµ½Ô­ÎïÆ·
+				//å¾—åˆ°åŽŸç‰©å“
 				zObject *srcobj=packs.uom.getObjectByThisID(swap->qwThisID);
 				if(srcobj)
 				{
-					//½»Ò×´¦Àí
+					//äº¤æ˜“å¤„ç†
 					if(tradeorder.hasBegin() && tradeorder.in_trade(srcobj))
 					{
 						return true;
@@ -40,15 +40,15 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				
 
 					if (mask.is_use(srcobj)) {
-						return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ÇëÏÈ½â³ý¸ÃÃÉÃæ½í!");
+						return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "è¯·å…ˆè§£é™¤è¯¥è’™é¢å·¾!");
 					}
 					stObjectLocation org=srcobj->data.pos;
-					Zebra::logger->trace("[ÒÆ¶¯ÎïÆ·]%sÒÆ¶¯ÎïÆ·%s(%d,%d,%d,%d)->(%d,%u,%d,%d)",name,srcobj->data.strName,
+					Zebra::logger->trace("[ç§»åŠ¨ç‰©å“]%sç§»åŠ¨ç‰©å“%s(%d,%d,%d,%d)->(%d,%u,%d,%d)",name,srcobj->data.strName,
 							org.loc(),org.tab(),org.xpos(), org.ypos(),
 							swap->dst.loc(),swap->dst.tab(),swap->dst.xpos(),swap->dst.ypos());
 					if(org != swap->dst && packs.moveObject(this,srcobj,swap->dst))
 					{
-						//Ïò¿Í»§¶Ë·¢ËÍÖ¸ÁîÖ¸Ã÷ÐÂµÄÁ½¸öµØ·½µÄÎïÆ·
+						//å‘å®¢æˆ·ç«¯å‘é€æŒ‡ä»¤æŒ‡æ˜Žæ–°çš„ä¸¤ä¸ªåœ°æ–¹çš„ç‰©å“
 						if(swap->dst.loc()!=Cmd::OBJECTCELLTYPE_NONE)
 							sendCmdToMe(swap,sizeof(Cmd::stSwapObjectPropertyUserCmd));
 
@@ -64,17 +64,17 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 							sendMeToNine();
 							this->reSendData = false;
 #ifdef _DEBUGLOG
-							Zebra::logger->trace("[ÒÆ¶¯ÎïÆ·]Íê±Ï......");
+							Zebra::logger->trace("[ç§»åŠ¨ç‰©å“]å®Œæ¯•......");
 #endif
 						}
 					}
 					else
-						Zebra::logger->trace("[ÒÆ¶¯ÎïÆ·]%sÒÆ¶¯ÎïÆ·%s(%d,%d,%d,%d)->(%d,%u,%d,%d)Ê§°Ü",name,srcobj->data.strName,
+						Zebra::logger->trace("[ç§»åŠ¨ç‰©å“]%sç§»åŠ¨ç‰©å“%s(%d,%d,%d,%d)->(%d,%u,%d,%d)å¤±è´¥",name,srcobj->data.strName,
 								org.loc(),org.tab(),org.xpos(), org.ypos(),
 								swap->dst.loc(),swap->dst.tab(),swap->dst.xpos(),swap->dst.ypos());
 				}
 				else
-					Zebra::logger->debug("[ÒÆ¶¯ÎïÆ·]%sÎ´ÕÒµ½ÒÆ¶¯ÎïÆ· %ld",name,swap->qwThisID);
+					Zebra::logger->debug("[ç§»åŠ¨ç‰©å“]%sæœªæ‰¾åˆ°ç§»åŠ¨ç‰©å“ %ld",name,swap->qwThisID);
 				return true;
 			}
 			break;
@@ -92,7 +92,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				if (split->dst.loc() == Cmd::OBJECTCELLTYPE_EQUIP
 						|| split->dst.loc() == Cmd::OBJECTCELLTYPE_PET) return true;
 				
-				//½»Ò×´¦Àí
+				//äº¤æ˜“å¤„ç†
 				if(tradeorder.hasBegin() && tradeorder.in_trade(srcobj))
 				{
 					return true;
@@ -104,7 +104,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 
 				bool notify = false;
 
-				//ÆäËûÎïÆ· 
+				//å…¶ä»–ç‰©å“ 
 				Package *destpack=packs.getPackage(split->dst.loc(),split->dst.tab());
 				zObject *destobj=NULL;
 				if(destpack && 
@@ -119,13 +119,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 							if(packs.addObject(destobj, false)) {
 								srcobj->data.dwNum -= split->dwNum;
 
-								//Í¨Öª¿Í»§¶Ë
+								//é€šçŸ¥å®¢æˆ·ç«¯
 								Cmd::stSplitObjectPropertyUserCmd ret;
 								bcopy(split,&ret,sizeof(ret));
 								ret.qwNewThisID=destobj->data.qwThisID;
 								sendCmdToMe(&ret,sizeof(ret));
 								notify = true;
-								zObject::logger(destobj->createid,destobj->data.qwThisID,destobj->data.strName,destobj->data.dwNum,destobj->data.dwNum,1,0,NULL,this->id,this->name,"²ð·ÖÐÂÔö",destobj->base,destobj->data.kind,destobj->data.upgrade);
+								zObject::logger(destobj->createid,destobj->data.qwThisID,destobj->data.strName,destobj->data.dwNum,destobj->data.dwNum,1,0,NULL,this->id,this->name,"æ‹†åˆ†æ–°å¢ž",destobj->base,destobj->data.kind,destobj->data.upgrade);
 							}
 							else {
 								zObject::destroy(destobj);
@@ -148,7 +148,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 
 						notify = true;
 						
-						//Í¨Öª¿Í»§¶Ë
+						//é€šçŸ¥å®¢æˆ·ç«¯
 					
 						Cmd::stSplitObjectPropertyUserCmd ret;
 						bcopy(split,&ret,sizeof(ret));
@@ -163,12 +163,12 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 
 					if(srcobj->data.dwNum==0)
 					{
-						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->data.strName,srcobj->data.dwNum,destobj->data.dwNum,0,0,NULL,this->id,this->name,"²ð·ÖÉ¾³ý",srcobj->base,srcobj->data.kind,srcobj->data.upgrade);
+						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->data.strName,srcobj->data.dwNum,destobj->data.dwNum,0,0,NULL,this->id,this->name,"æ‹†åˆ†åˆ é™¤",srcobj->base,srcobj->data.kind,srcobj->data.upgrade);
 						packs.removeObject(srcobj, false, true);
 					}
 					else
 					{
-						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->data.strName,srcobj->data.dwNum,destobj->data.dwNum,0,0,NULL,this->id,this->name,"±»²ð·Ö",srcobj->base,srcobj->data.kind,srcobj->data.upgrade);
+						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->data.strName,srcobj->data.dwNum,destobj->data.dwNum,0,0,NULL,this->id,this->name,"è¢«æ‹†åˆ†",srcobj->base,srcobj->data.kind,srcobj->data.upgrade);
 					}
 
 				}
@@ -197,7 +197,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						destobj->data.dwNum+=srcobj->data.dwNum;
 						srcobj->data.dwNum=0;
 					}
-					//½»Ò×´¦Àí
+					//äº¤æ˜“å¤„ç†
 					if(destobj->data.pos.dwLocation==Cmd::OBJECTCELLTYPE_TRADE && tradeorder.hasBegin())
 					{
 						tradeorder.rollback();
@@ -214,7 +214,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						}
 					}
 
-					//Í¨Öª¿Í»§¶Ë
+					//é€šçŸ¥å®¢æˆ·ç«¯
 					Cmd::stRefCountObjectPropertyUserCmd ret;
 					ret.qwThisID=destobj->data.qwThisID;
 					ret.dwNum=destobj->data.dwNum;
@@ -266,7 +266,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				return true;
 			}
 			break;
-			//ÇëÇóÔöÖµµØ¹¬ÁÐ±í
+			//è¯·æ±‚å¢žå€¼åœ°å®«åˆ—è¡¨
 		case Cmd::REQUEST_INC_MAP_PROPERTY_USERCMD_PARA:
 			{
 				zObject *obj = this->packs.equip.getObjectByEquipPos(Cmd::EQUIPCELLTYPE_ADORN);
@@ -299,15 +299,15 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					{
 						return false;
 					}
-					//ÎÞÖ÷ÎïÆ·»òÕßÔÚÃ»ÓÐ×é¶ÓÇé¿öÏÂµÄÎïÆ·
+					//æ— ä¸»ç‰©å“æˆ–è€…åœ¨æ²¡æœ‰ç»„é˜Ÿæƒ…å†µä¸‹çš„ç‰©å“
 					if((o->base->id!=673 || o->base->id!=674) && (!ret->getOwner() || ret->getOwner() == this->id || this->team.IsOurTeam(ret->getOwner())))
 					{
 						//bool bret = false;
-						if(o->base->id==673)//ÐþÌì·û
+						if(o->base->id==673)//çŽ„å¤©ç¬¦
 						{
 							if (guard)
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÕýÔÚÔËïÚ£¬±£»¤ºÃÄãµÄïÚ³µ£¡");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ æ­£åœ¨è¿é•–ï¼Œä¿æŠ¤å¥½ä½ çš„é•–è½¦ï¼");
 								return true;
 							}
 							if(o->data.maker[0]=='\0')
@@ -315,13 +315,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 								zPos newPos;
 								if(!this->scene->backtoCityMap())
 								{
-									//Ëæ»úÖØÉúÇø×ø±ê
+									//éšæœºé‡ç”ŸåŒºåæ ‡
 									if (!this->scene->randzPosByZoneType(ZoneTypeDef::ZONE_RELIVE,newPos)) return true;
 									if (!this->goTo(newPos)) return true;
 								}
 								else
 								{
-									//ÔÚÆäËüµØÍ¼ÖÐÑ°ÕÒ³ÇÊÐ
+									//åœ¨å…¶å®ƒåœ°å›¾ä¸­å¯»æ‰¾åŸŽå¸‚
 									this->scene->changeMap(this , false);
 								}
 							}
@@ -346,13 +346,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 							}
 							return true;
 						}
-						else if(o->base->id==674)//ÐùÔ¯·û
+						else if(o->base->id==674)//è½©è¾•ç¬¦
 						{
 							if(ret->getOwner() == this->id)
 							{
 								if (guard)
 								{
-									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÕýÔÚÔËïÚ£¬±£»¤ºÃÄãµÄïÚ³µ£¡");
+									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ æ­£åœ¨è¿é•–ï¼Œä¿æŠ¤å¥½ä½ çš„é•–è½¦ï¼");
 									return true;
 								}
 								if(o->data.maker[0]=='\0')
@@ -360,13 +360,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 									zPos newPos;
 									if(!this->scene->backtoCityMap())
 									{
-										//Ëæ»úÖØÉúÇø×ø±ê
+										//éšæœºé‡ç”ŸåŒºåæ ‡
 										if (!this->scene->randzPosByZoneType(ZoneTypeDef::ZONE_RELIVE,newPos)) return true;
 										if (!this->goTo(newPos)) return true;
 									}
 									else
 									{
-										//ÔÚÆäËüµØÍ¼ÖÐÑ°ÕÒ³ÇÊÐ
+										//åœ¨å…¶å®ƒåœ°å›¾ä¸­å¯»æ‰¾åŸŽå¸‚
 										this->scene->changeMap(this , false);
 									}
 								}
@@ -395,19 +395,19 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					}
 					if(!ret->getOwner() || ret->getOwner() == this->id ||(this->team.IsOurTeam(ret->getOwner()) && this->team.isNormalObj()))
 					{
-						//Èç¹ûÊÇÒø×Ó
+						//å¦‚æžœæ˜¯é“¶å­
 						/*
 						   if(o->base->kind==ItemType_Money)
 						   {
 						   if(!this->team.IsTeamed())
 						   {
-						   packs.addMoney(o->data.dwNum,"¼ð");
+						   packs.addMoney(o->data.dwNum,"æ‹£");
 						   }
 						   else
 						   {
-						//×Ô¼ºÏÈµÃµ½20%
-						packs.addMoney((DWORD)(o->data.dwNum * 0.2f),"¼ð");
-						//×é¶ÓÆ½·ÖÒø×Ó
+						//è‡ªå·±å…ˆå¾—åˆ°20%
+						packs.addMoney((DWORD)(o->data.dwNum * 0.2f),"æ‹£");
+						//ç»„é˜Ÿå¹³åˆ†é“¶å­
 						struct TeamMoneyExec :public TeamMemExec
 						{
 						DWORD num;
@@ -421,7 +421,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						getUserByTempID(member.tempid);
 						if(pUser)
 						{
-						pUser->packs.addMoney(num,"¼ð");
+						pUser->packs.addMoney(num,"æ‹£");
 						return true;
 						}
 						return false;
@@ -459,7 +459,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						if (o->data.dwNum) {
 
 							if (this->packs.uom.space(this) >= 1 && packs.addObject(o, true, AUTO_PACK)) {
-								//Èç¹ûÊÇË«±¶¾­ÑéµÀ¾ßºÍÈÙÓþµÀ¾ßÐèÒª°ó¶¨
+								//å¦‚æžœæ˜¯åŒå€ç»éªŒé“å…·å’Œè£èª‰é“å…·éœ€è¦ç»‘å®š
 								if(o->base->kind == ItemType_DoubleExp || o->base->kind == ItemType_Honor || o->base->kind == ItemType_ClearProperty)
 								{
 									o->data.bind=1;
@@ -470,7 +470,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 								bcopy(&o->data, &status.object, sizeof(t_Object));
 								sendCmdToMe(&status, sizeof(status));
 							}else {
-								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄãµÄ°ü¹üÒÑÂú");
+								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ çš„åŒ…è£¹å·²æ»¡");
 								Cmd::stAddMapObjectMapScreenUserCmd status;
 								status.action = Cmd::OBJECTACTION_DROP;
 								status.data.dwMapObjectTempID = o->data.qwThisID;
@@ -489,14 +489,14 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						if (callback.num() || added) {
 							OnGet event(o->data.dwObjectID);
 							EventTable::instance().execute(*this, event);
-							zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,1,this->scene->id,this->scene->name,this->id,this->name,"¼ð¶«Î÷",o->base,o->data.kind,o->data.upgrade);
+							zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,1,this->scene->id,this->scene->name,this->id,this->name,"æ‹£ä¸œè¥¿",o->base,o->data.kind,o->data.upgrade);
 //							if (ScriptQuest::get_instance().has(ScriptQuest::OBJ_GET, o->data.dwObjectID)) { 
 //								char func_name[32];
 //								sprintf(func_name, "%s_%d", "get", o->data.dwObjectID);
 //								execute_script_event(this,func_name, o);
 //							}								
 							/*
-							Zebra::logger->debug("%s(%u)¼ñµ½%s(%u)ÔÚ(%u,%u)",
+							Zebra::logger->debug("%s(%u)æ¡åˆ°%s(%u)åœ¨(%u,%u)",
 									name,id,o->name,o->id,ret->getPos().x,ret->getPos().y);
 							// */
 						}
@@ -520,9 +520,9 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					else
 					{
 						zObject *o=ret->getObject();
-						if(o && o->base->id!=673 && o->base->id!=674)//ÐùÔ¯·û
+						if(o && o->base->id!=673 && o->base->id!=674)//è½©è¾•ç¬¦
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ô²»Æð,¸ÃÎïÆ·²»ÊôÓÚÄã");
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "å¯¹ä¸èµ·,è¯¥ç‰©å“ä¸å±žäºŽä½ ");
 						}
 					}
 				}
@@ -573,7 +573,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 			break;
 
 
-		//¸üÐÂÓÃ»§¿ì½Ý¼ü	
+		//æ›´æ–°ç”¨æˆ·å¿«æ·é”®	
 		case Cmd::ACCELKEY_PROPERTY_USERCMD_PARA:
 			{
 				Cmd::stAccekKeyPropertyUserCmd *acc = (Cmd::stAccekKeyPropertyUserCmd *)rev;
@@ -586,39 +586,39 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				{
 					bzero(accelData,sizeof(accelData));
 				}
-				//Zebra::logger->debug("(%s , %ld)¸üÐÂÓÃ»§¿ì½Ý¼ü³É¹¦" , this->name , this->tempid);
+				//Zebra::logger->debug("(%s , %ld)æ›´æ–°ç”¨æˆ·å¿«æ·é”®æˆåŠŸ" , this->name , this->tempid);
 				return true;
 			}
 			break;
 
-		//Ìí¼ÓÓÃ»§¼¼ÄÜÊý¾Ý
+		//æ·»åŠ ç”¨æˆ·æŠ€èƒ½æ•°æ®
 		case ADDUSERSKILL_PROPERTY_USERCMD_PARA:
 			{
 				if(!addSkillData((Cmd::stAddUserSkillPropertyUserCmd *)rev))
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "²»ÄÜÔÙ´ÎÑ§Ï°ÒÑ¾­Ñ§Ï°µ½¼¼ÄÜ");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä¸èƒ½å†æ¬¡å­¦ä¹ å·²ç»å­¦ä¹ åˆ°æŠ€èƒ½");
 				}
 				return true;
 			}
 			break;
 		
-		//É¾³ýÓÃ»§¼¼ÄÜ
+		//åˆ é™¤ç”¨æˆ·æŠ€èƒ½
 		case REMOVEUSERSKILL_PROPERTY_USERCMD_PARAMETER:
 			{
 				if(removeSkill((Cmd::stRemoveUserSkillPropertyUserCmd *)rev))
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "É¾³ý¼¼ÄÜÊ§°Ü");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "åˆ é™¤æŠ€èƒ½å¤±è´¥");
 				}
 				return true;
 			}
 			break;
 
-		//¼¼ÄÜÉý¼¶	
+		//æŠ€èƒ½å‡çº§	
 		case ADDSKILLPOINT_PROPERTY_USERCMD:
 			{
 				if(!upgradeSkill(((Cmd::stAddSkillPointPropertyUserCmd *)rev)->dwSkillID))
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "²»ÄÜÉý¼¶¸Ã¼¼ÄÜ");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä¸èƒ½å‡çº§è¯¥æŠ€èƒ½");
 				}
 				return true;
 			}
@@ -627,7 +627,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 			{
 				Cmd::stSystemSettingsUserCmd *st = (Cmd::stSystemSettingsUserCmd *)rev;
 
-				//ÔÊÐí×é¶Ó
+				//å…è®¸ç»„é˜Ÿ
 				if(isset_state(st->data.bySettings , Cmd::USER_SETTING_TEAM))
 				{
 					set_state(sysSetting , Cmd::USER_SETTING_TEAM);
@@ -653,16 +653,16 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				*/
 
 #ifdef _XWL_DEBUG
-				Zebra::logger->debug("ÊÕµ½ÏµÍ³ÉèÖÃÏûÏ¢:%x %x %x %x,%u %u %u %u %u %u %u %u", st->data.bySettings[0],st->data.bySettings[1],st->data.bySettings[2],st->data.bySettings[3],st->data.dwChatColor[0],st->data.dwChatColor[1],st->data.dwChatColor[2],st->data.dwChatColor[3],st->data.dwChatColor[4],st->data.dwChatColor[5],st->data.dwChatColor[6],st->data.dwChatColor[7]);
+				Zebra::logger->debug("æ”¶åˆ°ç³»ç»Ÿè®¾ç½®æ¶ˆæ¯:%x %x %x %x,%u %u %u %u %u %u %u %u", st->data.bySettings[0],st->data.bySettings[1],st->data.bySettings[2],st->data.bySettings[3],st->data.dwChatColor[0],st->data.dwChatColor[1],st->data.dwChatColor[2],st->data.dwChatColor[3],st->data.dwChatColor[4],st->data.dwChatColor[5],st->data.dwChatColor[6],st->data.dwChatColor[7]);
 #endif
 				
-				//Í¨Öªsession
+				//é€šçŸ¥session
 				Cmd::Session::t_sysSetting_SceneSession send;
 				bcopy(sysSetting, send.sysSetting, sizeof(send.sysSetting));
 				strncpy((char *)send.name, name, MAX_NAMESIZE-1);
 				sessionClient->sendCmd(&send, sizeof(send));
 
-				//Í¨ÖªÍø¹Ø
+				//é€šçŸ¥ç½‘å…³
 				Cmd::Scene::t_sysSetting_GateScene gate_send;
 				bcopy(sysSetting, gate_send.sysSetting, sizeof(gate_send.sysSetting));
 				gate_send.id=this->id;
@@ -671,7 +671,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 
 				/*
 				 *
-				//ÔÊÐíºÃÓÑ
+				//å…è®¸å¥½å‹
 				if(isset_state(st->data.bySettings , Cmd::USER_SETTING_FIREND))
 				{
 					set_state(sysSetting , Cmd::USER_SETTING_FIREND);
@@ -681,7 +681,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					clear_state(sysSetting , Cmd::USER_SETTING_FIREND);
 				}
 
-				//ÔÊÐí½»Ò×
+				//å…è®¸äº¤æ˜“
 				if(isset_state(st->data.bySettings , Cmd::USER_SETTING_TRADE))
 				{
 					set_state(sysSetting , Cmd::USER_SETTING_TRADE);
@@ -732,10 +732,10 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 			}
 			break;
 /*
-		//·ÖÅäÎåÐÐµãÊý
+		//åˆ†é…äº”è¡Œç‚¹æ•°
 		case DISTRIBUTEUFIVEPOINT_PROPERTY_USERCMD_PARA:
 			{
-				Zebra::logger->debug("(%s , %ld)·ÖÅäÎåÐÐµãÊýÖ¸Áî" , this->name , this->tempid);
+				Zebra::logger->debug("(%s , %ld)åˆ†é…äº”è¡Œç‚¹æ•°æŒ‡ä»¤" , this->name , this->tempid);
 				Cmd::stDistributeFivePointPropertyUserCmd *dis = (Cmd::stDistributeFivePointPropertyUserCmd *)rev;
 				if(IsJoin(dis->fiveType) && charbase.points > 0 || (charbase.five == dis->fiveType && charbase.points > 0))
 				{
@@ -765,16 +765,16 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					}
 					charbase.points --;
 
-					//×°±¸¸Ä±ä¹¥»÷Á¦Ô¤´¦Àí
+					//è£…å¤‡æ”¹å˜æ”»å‡»åŠ›é¢„å¤„ç†
 					calPreValue();
 
-					//Ë¢ÐÂÓÃ»§Êý¾Ý
+					//åˆ·æ–°ç”¨æˆ·æ•°æ®
 					Cmd::stMainUserDataUserCmd  userinfo;
 					full_t_MainUserData(userinfo.data);
 					sendCmdToMe(&userinfo,sizeof(userinfo));
 					break;
 */
-		//·ÖÅäÊôÐÔµãÊý
+		//åˆ†é…å±žæ€§ç‚¹æ•°
 		case DISTRIBUTEUPOINT_PROPERTY_USERCMD_PARA:
 			{
 				if (charbase.points>0)
@@ -782,16 +782,16 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					Cmd::stDistributePointPropertyUserCmd *dis = (Cmd::stDistributePointPropertyUserCmd *)rev;
 					switch(dis->type)
 					{
-						case Cmd::PROPERTY_CON:	//ÌåÖÊ
-						case Cmd::PROPERTY_STR:	//ÌåÁ¦
-						case Cmd::PROPERTY_DEX:	//Ãô½Ý
-						case Cmd::PROPERTY_INT:	//ÖÇÁ¦
-						case Cmd::PROPERTY_MEN:	//¾«Éñ
+						case Cmd::PROPERTY_CON:	//ä½“è´¨
+						case Cmd::PROPERTY_STR:	//ä½“åŠ›
+						case Cmd::PROPERTY_DEX:	//æ•æ·
+						case Cmd::PROPERTY_INT:	//æ™ºåŠ›
+						case Cmd::PROPERTY_MEN:	//ç²¾ç¥ž
 							{
 								charbase.wdProperty[dis->type]++;
 								charbase.points--;
 								this->setupCharBase();
-								//Ë¢ÐÂÓÃ»§Êý¾Ý
+								//åˆ·æ–°ç”¨æˆ·æ•°æ®
 								Cmd::stMainUserDataUserCmd  userinfo;
 								full_t_MainUserData(userinfo.data);
 								sendCmdToMe(&userinfo,sizeof(userinfo));
@@ -816,13 +816,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						{
 							if (this->reduceObjectNum(752,1)==-1)
 							{
-								Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜÊ§°Ü" , this->name);
+								Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 								return true;
 							}
 						}
 						else
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
@@ -831,13 +831,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						{
 							if (this->reduceObjectNum(760,1)==-1)
 							{
-								Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜÊ§°Ü" , this->name);
+								Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 								return true;
 							}
 						}
 						else
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
@@ -846,19 +846,19 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						{
 							if (this->reduceObjectNum(756,1)==-1)
 							{
-								Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜÊ§°Ü" , this->name);
+								Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 								return true;
 							}
 						}
 						else
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
 					default:
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
@@ -875,11 +875,11 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				charbase.wdProperty[3]=0;
 				charbase.wdProperty[4]=0;
 				this->setupCharBase();
-				//Ë¢ÐÂÓÃ»§Êý¾Ý
+				//åˆ·æ–°ç”¨æˆ·æ•°æ®
 				Cmd::stMainUserDataUserCmd  userinfo;
 				full_t_MainUserData(userinfo.data);
 				sendCmdToMe(&userinfo,sizeof(userinfo));
-				Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´ÊôÐÔµã¹¦ÄÜ³É¹¦" , this->name);
+				Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—å±žæ€§ç‚¹åŠŸèƒ½æˆåŠŸ" , this->name);
 				return true;
 			}
 			break;
@@ -903,13 +903,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 							charbase.wdProperty[num]=0;
 						}
 						this->setupCharBase();
-						//Ë¢ÐÂÓÃ»§Êý¾Ý
+						//åˆ·æ–°ç”¨æˆ·æ•°æ®
 						Cmd::stMainUserDataUserCmd  userinfo;
 						full_t_MainUserData(userinfo.data);
 						sendCmdToMe(&userinfo,sizeof(userinfo));
 
-						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->data.strName,srcobj->data.dwNum,srcobj->data.dwNum,0,this->id,this->name,0,NULL,"ÓÃÏ´5µãÊôÐÔ±¦Ê¯",NULL,0,0);
-						Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´5µãÊôÐÔ¹¦ÄÜ³É¹¦" , this->name);
+						zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->data.strName,srcobj->data.dwNum,srcobj->data.dwNum,0,this->id,this->name,0,NULL,"ç”¨æ´—5ç‚¹å±žæ€§å®çŸ³",NULL,0,0);
+						Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—5ç‚¹å±žæ€§åŠŸèƒ½æˆåŠŸ" , this->name);
 						packs.removeObject(srcobj); //notify and delete
 					}
 				}
@@ -926,13 +926,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						{
 							if (this->reduceObjectNum(753,1)==-1)
 							{
-								Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜÊ§°Ü" , this->name);
+								Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 								return true;
 							}
 						}
 						else
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
@@ -941,13 +941,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						{
 							if (this->reduceObjectNum(761,1)==-1)
 							{
-								Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜÊ§°Ü" , this->name);
+								Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 								return true;
 							}
 						}
 						else
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
@@ -956,19 +956,19 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						{
 							if (this->reduceObjectNum(757,1)==-1)
 							{
-								Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜÊ§°Ü" , this->name);
+								Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 								return true;
 							}
 						}
 						else
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
 					default:
 						{
-							Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜÊ§°Ü" , this->name);
+							Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½å¤±è´¥" , this->name);
 							return true;
 						}
 						break;
@@ -979,11 +979,11 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				sendCmdToMe(&send,sizeof(send));
 				skillValue.init();
 				this->setupCharBase();
-				//Ë¢ÐÂÓÃ»§Êý¾Ý
+				//åˆ·æ–°ç”¨æˆ·æ•°æ®
 				Cmd::stMainUserDataUserCmd  userinfo;
 				full_t_MainUserData(userinfo.data);
 				sendCmdToMe(&userinfo,sizeof(userinfo));
-				Zebra::logger->trace("½ÇÉ«[%s]Ê¹ÓÃÏ´¼¼ÄÜµã¹¦ÄÜ³É¹¦" , this->name);
+				Zebra::logger->trace("è§’è‰²[%s]ä½¿ç”¨æ´—æŠ€èƒ½ç‚¹åŠŸèƒ½æˆåŠŸ" , this->name);
 				return true;
 			}
 			break;
@@ -998,13 +998,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					zObject *gold=packs.getGold();					
 					if(!gold)
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"¶Ô²»Æð,ÄúÒø×Ó²»¹»");
+						Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¯¹ä¸èµ·,æ‚¨é“¶å­ä¸å¤Ÿ");
 						return true;
 					}
 
 					if(cost > gold->data.dwNum)
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"¶Ô²»Æð,ÄúÒø×Ó²»¹»");
+						Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¯¹ä¸èµ·,æ‚¨é“¶å­ä¸å¤Ÿ");
 						return true;
 					}
 					gold->data.dwNum -= cost;
@@ -1024,11 +1024,11 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						sendCmdToMe(&setgold,sizeof(setgold));
 					}
 */
-					if (!packs.checkMoney(cost) || !packs.removeMoney(cost,"·þ×°È¾É«")) {
-						Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"¶Ô²»Æð,ÄúÒø×Ó²»¹»");
+					if (!packs.checkMoney(cost) || !packs.removeMoney(cost,"æœè£…æŸ“è‰²")) {
+						Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¯¹ä¸èµ·,æ‚¨é“¶å­ä¸å¤Ÿ");
 						return true;
 					}
-					Channel::sendMoney(this, Cmd::INFO_TYPE_GAME,cost,"·þ×°È¾É«³É¹¦ , »¨·ÑÒø×Ó");
+					Channel::sendMoney(this, Cmd::INFO_TYPE_GAME,cost,"æœè£…æŸ“è‰²æˆåŠŸ , èŠ±è´¹é“¶å­");
 					if(packs.equip.equip(EquipPack::OTHERS3)  && packs.equip.equip(EquipPack::OTHERS3)->base->kind == ItemType_FashionBody)
 					{
 						packs.equip.equip(EquipPack::OTHERS3)->data.color = bcp->dwBodyColorCustom;
@@ -1052,7 +1052,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				}
 				else
 				{
-					Zebra::logger->trace("ÓÃ»§(%u,%s,%u)¸ü»»²»¿É¸ü»»ÑÕÉ«µÄÒÂ·þ" , id , name , tempid);
+					Zebra::logger->trace("ç”¨æˆ·(%u,%s,%u)æ›´æ¢ä¸å¯æ›´æ¢é¢œè‰²çš„è¡£æœ" , id , name , tempid);
 				}
 				return true;
 			}
@@ -1075,13 +1075,13 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				{
 					return true;
 				}
-				if (!packs.checkMoney(cost) || !packs.removeMoney(cost,"¸ü»»Í·Ïñ")) {
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"¶Ô²»Æð,ÄúÒø×Ó²»¹»");
+				if (!packs.checkMoney(cost) || !packs.removeMoney(cost,"æ›´æ¢å¤´åƒ")) {
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¯¹ä¸èµ·,æ‚¨é“¶å­ä¸å¤Ÿ");
 					return true;
 				}
 				
 				charbase.face = fp->dwFace;
-				Channel::sendMoney(this, Cmd::INFO_TYPE_GAME,cost,"Í·Ïñ¸ü»»³É¹¦,»¨·ÑÒø×Ó");
+				Channel::sendMoney(this, Cmd::INFO_TYPE_GAME,cost,"å¤´åƒæ›´æ¢æˆåŠŸ,èŠ±è´¹é“¶å­");
 				//Cmd::stAddUserMapScreenUserCmd cmd;
 				//full_t_MapUserData(cmd.data);
 				//scene->sendCmdToNine(getPosI() , &cmd,sizeof(cmd) , false);
@@ -1156,7 +1156,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					zHairColourB *base=haircolourbm.get(hp->dwHairColor & 0X00FFFFFF);
 					if(base)
 					{
-						/// Èç¹û²»ÊÇ¹âÍ·»»·¢É«²ÅÐèÒªÒø×Ó
+						/// å¦‚æžœä¸æ˜¯å…‰å¤´æ¢å‘è‰²æ‰éœ€è¦é“¶å­
 						if(hp->byHairType != 1)
 						{
 							cost += base->cost;
@@ -1191,12 +1191,12 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				zObject *gold=packs.getGold();
 				if(!gold)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"¶Ô²»Æð,ÄúÒø×Ó²»¹»");
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¯¹ä¸èµ·,æ‚¨é“¶å­ä¸å¤Ÿ");
 					return true;
 				}
 				if(cost > gold->data.dwNum)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"¶Ô²»Æð,ÄúÒø×Ó²»¹»");
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¯¹ä¸èµ·,æ‚¨é“¶å­ä¸å¤Ÿ");
 					return true;
 				}
 				gold->data.dwNum -= cost;
@@ -1216,18 +1216,18 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					sendCmdToMe(&setgold,sizeof(setgold));
 				}
 */
-				if (!packs.checkMoney(cost) || !packs.removeMoney(cost,"ÃÀ·¢")) {
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"¶Ô²»Æð,ÄúÒø×Ó²»¹»");
+				if (!packs.checkMoney(cost) || !packs.removeMoney(cost,"ç¾Žå‘")) {
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"å¯¹ä¸èµ·,æ‚¨é“¶å­ä¸å¤Ÿ");
 					return true;
 				}
 				
 				if(isChange)
 				{
-					Channel::sendMoney(this, Cmd::INFO_TYPE_GAME,cost,"ÃÀ·¢³É¹¦,»¨·ÑÒø×Ó");
+					Channel::sendMoney(this, Cmd::INFO_TYPE_GAME,cost,"ç¾Žå‘æˆåŠŸ,èŠ±è´¹é“¶å­");
 				}
 				else
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"ËùÑ¡·þÎñÀ×Í¬£¬ÇëÑ¡ÔñÆäËû·þÎñ");
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"æ‰€é€‰æœåŠ¡é›·åŒï¼Œè¯·é€‰æ‹©å…¶ä»–æœåŠ¡");
 				}
 				setHairType(hp->byHairType);
 				setHairColor(hp->dwHairColor);
@@ -1242,7 +1242,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 			{
 				using namespace Cmd;
 				stSelectPropertyUserCmd * spu = (stSelectPropertyUserCmd*)rev;
-				//Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"ÊÕµ½Ñ¡ÔñÖ¸Áî");
+				//Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"æ”¶åˆ°é€‰æ‹©æŒ‡ä»¤");
 				if(spu->dwOldTempID)
 				{
 					if(spu->byOldType == MAPDATATYPE_USER)
@@ -1266,7 +1266,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						}
 					}
 				}
-				//Èç¹ûÄ¿±êÎª-1Ôò±íÊ¾²»ÔÙÑ¡ÖÐ±ðµÄ¶ÔÏó
+				//å¦‚æžœç›®æ ‡ä¸º-1åˆ™è¡¨ç¤ºä¸å†é€‰ä¸­åˆ«çš„å¯¹è±¡
 				if(spu->dwTempID == (DWORD)-1)
 				{
 					break;
@@ -1282,11 +1282,11 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 								pNpc->selected.insert(SelectedSet_value_type(this->tempid));
 								Cmd::stRTSelectedHpMpPropertyUserCmd ret;
 								ret.byType = Cmd::MAPDATATYPE_NPC;
-								ret.dwTempID = pNpc->tempid;//ÁÙÊ±±àºÅ
-								ret.dwHP = pNpc->hp;//µ±Ç°Ñª
-								ret.dwMaxHp = pNpc->getMaxHP();//×î´óhp
-								ret.dwMP = 0;//this->charbase.mp;//µ±Ç°mp
-								ret.dwMaxMp = 0;//this->charstate.maxmp;//×î´ómp
+								ret.dwTempID = pNpc->tempid;//ä¸´æ—¶ç¼–å·
+								ret.dwHP = pNpc->hp;//å½“å‰è¡€
+								ret.dwMaxHp = pNpc->getMaxHP();//æœ€å¤§hp
+								ret.dwMP = 0;//this->charbase.mp;//å½“å‰mp
+								ret.dwMaxMp = 0;//this->charstate.maxmp;//æœ€å¤§mp
 								//pNpc->selected_lock.unlock();
 								this->sendCmdToMe(&ret , sizeof(ret));
 								char Buf[200]; 
@@ -1310,16 +1310,16 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 							SceneUser *pUser = SceneUserManager::getMe().getUserByTempID(spu->dwTempID);
 							if(pUser)
 							{
-								//Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"%sÊÕµ½Ñ¡Ôñ%sÖ¸Áî",this->name , pUser->name);
+								//Channel::sendSys(this, Cmd::INFO_TYPE_GAME,"%sæ”¶åˆ°é€‰æ‹©%sæŒ‡ä»¤",this->name , pUser->name);
 								//pUser->selected_lock.lock();
 								pUser->selected.insert(SelectedSet_value_type(this->tempid));
 								Cmd::stRTSelectedHpMpPropertyUserCmd ret;
 								ret.byType = Cmd::MAPDATATYPE_USER;
-								ret.dwTempID = pUser->tempid;//ÁÙÊ±±àºÅ
-								ret.dwHP = pUser->charbase.hp;//µ±Ç°Ñª
-								ret.dwMaxHp = pUser->charstate.maxhp;//×î´óhp
-								ret.dwMP = pUser->charbase.mp;//µ±Ç°mp
-								ret.dwMaxMp = pUser->charstate.maxmp;//×î´ómp
+								ret.dwTempID = pUser->tempid;//ä¸´æ—¶ç¼–å·
+								ret.dwHP = pUser->charbase.hp;//å½“å‰è¡€
+								ret.dwMaxHp = pUser->charstate.maxhp;//æœ€å¤§hp
+								ret.dwMP = pUser->charbase.mp;//å½“å‰mp
+								ret.dwMaxMp = pUser->charstate.maxmp;//æœ€å¤§mp
 								//pUser->selected_lock.unlock();
 								this->sendCmdToMe(&ret , sizeof(ret));
 								char Buf[200]; 
@@ -1334,7 +1334,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 									this->sendCmdToMe(srs , sizeof(stSelectReturnStatesPropertyUserCmd) + 
 											sizeof(srs->states[0]) * srs->size);
 								}
-								//ÁÙÊ±·¢ËÍpk¸½¼Ó×´Ì¬,µÈ´ýÒÔºó²ß»®ÐÞ¸Ä^_^´¦Àí
+								//ä¸´æ—¶å‘é€pké™„åŠ çŠ¶æ€,ç­‰å¾…ä»¥åŽç­–åˆ’ä¿®æ”¹^_^å¤„ç†
 								pUser->sendtoSelectedPkAdditionStateToUser(this);
 								pUser->sendtoSelectedReliveWeakStateToUser(this);
 								pUser->sendtoSelectedTrainStateToUser(this);
@@ -1358,7 +1358,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				}
 			}
 			break;
-			//ÇëÇó¹Û²ìÄ³¸öÓÃ»§
+			//è¯·æ±‚è§‚å¯ŸæŸä¸ªç”¨æˆ·
 		case SELECT_MAINUSER_PROPERTY_USERCMD_PARA:
 			{
 				using namespace Cmd;
@@ -1393,7 +1393,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 								}
 								else
 								{
-									Channel::sendSys(this, Cmd::INFO_TYPE_MSG, "ËûÊÇÃÉÃæÈËÎÞ·¨¹Û²ì");
+									Channel::sendSys(this, Cmd::INFO_TYPE_MSG, "ä»–æ˜¯è’™é¢äººæ— æ³•è§‚å¯Ÿ");
 								}
 							}
 						}
@@ -1429,15 +1429,15 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 					full_t_MainUserData(userinfo.data);
 					sendCmdToMe(&userinfo,sizeof(userinfo));
 					reSendMyMapData();
-					zObject::logger(0,0,"ÈÙÓþÖµ",this->charbase.honor,old_honor - this->charbase.honor,0,this->id,this->name,0,NULL,"Ï´PKÖµ¿Û³ýÈÙÓþÖµ",NULL,0,0);
-					return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ÄãÓÃ%uÈÙÓþµãËõ¶ÌÁË%u·ÖÖÓµÄ×ï¶ñÊ±¼ä",old_honor - this->charbase.honor , old_good - good);
+					zObject::logger(0,0,"è£èª‰å€¼",this->charbase.honor,old_honor - this->charbase.honor,0,this->id,this->name,0,NULL,"æ´—PKå€¼æ‰£é™¤è£èª‰å€¼",NULL,0,0);
+					return Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ä½ ç”¨%uè£èª‰ç‚¹ç¼©çŸ­äº†%uåˆ†é’Ÿçš„ç½ªæ¶æ—¶é—´",old_honor - this->charbase.honor , old_good - good);
 				}
 				return true;
 			}
 			break;
 		case GO_TRAIN_PROPERTY_USERCMD_PARA:
 			{
-				if((privatestore.step() != PrivateStore::NONE) || tradeorder.hasBegin())//ÕýÔÚ½»Ò×
+				if((privatestore.step() != PrivateStore::NONE) || tradeorder.hasBegin())//æ­£åœ¨äº¤æ˜“
 					return true;
 
 				Cmd::stGoTrainPropertyUserCmd * cmd = (Cmd::stGoTrainPropertyUserCmd *)rev;
@@ -1477,7 +1477,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 						p = zPos(107, 204);
 						break;
 					default:
-						Zebra::logger->error("%s ½øÈëÐÞÁ¶µØÍ¼²ãÊý²»¶Ô level=%u", name, cmd->level);
+						Zebra::logger->error("%s è¿›å…¥ä¿®ç‚¼åœ°å›¾å±‚æ•°ä¸å¯¹ level=%u", name, cmd->level);
 						return true;
 						break;
 				}
@@ -1485,7 +1485,7 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				zObject * o = 0;
 				if (!packs.main.getObjectByID(&o, 798))
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÈ±ÉÙÒ»¼þ±ØÒªµÄµÀ¾ß");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ç¼ºå°‘ä¸€ä»¶å¿…è¦çš„é“å…·");
 					return true;
 				}
 
@@ -1497,9 +1497,9 @@ bool SceneUser::doPropertyCmd(const Cmd::stPropertyUserCmd *rev,unsigned int cmd
 				if (s)
 				{
 					if (changeMap(s, p))
-						Zebra::logger->trace("%s ½øÈëÁ·¼¶µØÍ¼ %s(%u,%u)", name, s->name, getPos().x, getPos().y);
+						Zebra::logger->trace("%s è¿›å…¥ç»ƒçº§åœ°å›¾ %s(%u,%u)", name, s->name, getPos().x, getPos().y);
 					else
-						Zebra::logger->trace("%s ½øÈëÁ·¼¶µØÍ¼Ê§°Ü %s(%u,%u)", name, s->name, p.x, p.y);
+						Zebra::logger->trace("%s è¿›å…¥ç»ƒçº§åœ°å›¾å¤±è´¥ %s(%u,%u)", name, s->name, p.x, p.y);
 				}
 				else
 				{       

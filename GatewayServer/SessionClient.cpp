@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionClient.cpp  $
  * \author
  * \date 
- * \brief ¶¨ÒåSession·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰SessionæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
  */
 
@@ -21,23 +21,23 @@
 #include "zSocket.h"
 
 /**
- * \brief Session·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief SessionæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
- * Ò»¸öÇøÖĞÖ»ÓĞÒ»¸öSession·şÎñÆ÷£¬ËùÒÔÕâÀïÖ»ĞèÒª±£ÁôÒ»¸öÖ¸Õë£¬²»ĞèÒªÁ¬½Ó¹ÜÀíÆ÷Ö®ÀàµÄ¶«¶«
+ * ä¸€ä¸ªåŒºä¸­åªæœ‰ä¸€ä¸ªSessionæœåŠ¡å™¨ï¼Œæ‰€ä»¥è¿™é‡Œåªéœ€è¦ä¿ç•™ä¸€ä¸ªæŒ‡é’ˆï¼Œä¸éœ€è¦è¿æ¥ç®¡ç†å™¨ä¹‹ç±»çš„ä¸œä¸œ
  *
  */
 SessionClient *sessionClient = NULL;
 
 /**
- * \brief ½¨Á¢µ½Session·şÎñÆ÷µÄÁ¬½Ó
+ * \brief å»ºç«‹åˆ°SessionæœåŠ¡å™¨çš„è¿æ¥
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿æ¥æ˜¯å¦æˆåŠŸ
  */
 bool SessionClient::connectToSessionServer()
 {
 	if (!connect())
 	{
-		Zebra::logger->error("Á¬½ÓSession·şÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿æ¥SessionæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 
@@ -50,14 +50,14 @@ bool SessionClient::connectToSessionServer()
 }
 
 /**
- * \brief ÖØÔØzThreadÖĞµÄ´¿Ğéº¯Êı£¬ÊÇÏß³ÌµÄÖ÷»Øµ÷º¯Êı£¬ÓÃÓÚ´¦Àí½ÓÊÕµ½µÄÖ¸Áî
+ * \brief é‡è½½zThreadä¸­çš„çº¯è™šå‡½æ•°ï¼Œæ˜¯çº¿ç¨‹çš„ä¸»å›è°ƒå‡½æ•°ï¼Œç”¨äºå¤„ç†æ¥æ”¶åˆ°çš„æŒ‡ä»¤
  *
  */
 void SessionClient::run()
 {
 	zTCPBufferClient::run();
 
-	//ÓëSessionÖ®¼äµÄÁ¬½Ó¶Ï¿ª£¬ĞèÒª¹Ø±Õ·şÎñÆ÷
+	//ä¸Sessionä¹‹é—´çš„è¿æ¥æ–­å¼€ï¼Œéœ€è¦å…³é—­æœåŠ¡å™¨
 	GatewayService::getInstance().Terminate();
 	while(!GatewayService::getInstance().isSequeueTerminate())
 	{
@@ -67,16 +67,16 @@ void SessionClient::run()
 }
 
 /**
- * \brief ½âÎöÀ´×ÔSession·şÎñÆ÷µÄËùÓĞÖ¸Áî
+ * \brief è§£ææ¥è‡ªSessionæœåŠ¡å™¨çš„æ‰€æœ‰æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ı½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool SessionClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
 	using namespace Cmd::Session;
-//	if(ptNullCmd->cmd!=CMD_GATE) return false; ·½Ç¿ÔÚ´ËÌí¼ÓÁË ×ª·¢ÏûÏ¢£¬ËùÒÔ½«´Ë¾ä×¢ÊÍ
+//	if(ptNullCmd->cmd!=CMD_GATE) return false; æ–¹å¼ºåœ¨æ­¤æ·»åŠ äº† è½¬å‘æ¶ˆæ¯ï¼Œæ‰€ä»¥å°†æ­¤å¥æ³¨é‡Š
 	switch(ptNullCmd->cmd)
 	{
 		case CMD_GATE:
@@ -95,7 +95,7 @@ bool SessionClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 								if(pUser->backSelect)
 								{
 									pUser->final();
-									Zebra::logger->trace("ÓÃ»§(%ld,%ld,%s)ÍË»ØÈËÎïÑ¡Ôñ½çÃæ",pUser->accid,pUser->id,pUser->name);
+									Zebra::logger->trace("ç”¨æˆ·(%ld,%ld,%s)é€€å›äººç‰©é€‰æ‹©ç•Œé¢",pUser->accid,pUser->id,pUser->name);
 									pUser->initState();
 									pUser->beginSelect();
 									pUser->backSelect=false;
@@ -103,7 +103,7 @@ bool SessionClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 								else
 								{
 									//pUser->final();
-									Zebra::logger->trace("SessionÇëÇóÓÃ»§(%ld,%ld,%s)×¢Ïú",pUser->accid,pUser->id,pUser->name);
+									Zebra::logger->trace("Sessionè¯·æ±‚ç”¨æˆ·(%ld,%ld,%s)æ³¨é”€",pUser->accid,pUser->id,pUser->name);
 									pUser->Terminate();
 									//SAFE_DELETE(pUser);
 								}
@@ -111,7 +111,7 @@ bool SessionClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 							}
 							else if(rev->retcode==UNREGUSER_RET_ERROR)
 							{
-								Zebra::logger->error("SessionÇëÇóÓÃ»§%s×¢²áÊ§°Ü×¢Ïú",pUser->name);
+								Zebra::logger->error("Sessionè¯·æ±‚ç”¨æˆ·%sæ³¨å†Œå¤±è´¥æ³¨é”€",pUser->name);
 								//pUser->final();
 								pUser->Terminate();
 								//SAFE_DELETE(pUser);
@@ -120,7 +120,7 @@ bool SessionClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 						}
 						else
 						{
-							Zebra::logger->warn("×¢ÏúÊ±ÎŞ´ËÓÃ»§(%ld),scenetempid=%ld,×¢ÏúÀàĞÍ%d",
+							Zebra::logger->warn("æ³¨é”€æ—¶æ— æ­¤ç”¨æˆ·(%ld),scenetempid=%ld,æ³¨é”€ç±»å‹%d",
 									rev->dwUserID,rev->dwSceneTempID,rev->retcode);
 							return true;
 						}
@@ -131,7 +131,7 @@ bool SessionClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 						Cmd::Session::t_DelChar_GateSession *rev=(Cmd::Session::t_DelChar_GateSession *)ptNullCmd;
 
 #ifdef _ZJW_DEBUG
-						Zebra::logger->debug("É¾³ı½ÇÉ«×´Ì¬Îª:%d", rev->status);
+						Zebra::logger->debug("åˆ é™¤è§’è‰²çŠ¶æ€ä¸º:%d", rev->status);
 #endif						
 						if (rev->status == 0)
 						{
@@ -206,11 +206,11 @@ bool SessionClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 						GateUser *pUser=(GateUser *)GateUserManager::getInstance()->getUserByID(rev->dwID);
 						if(!pUser ||  !pUser->sendCmd(rev->data,rev->size))
 						{
-							//Zebra::logger->debug("×ª·¢»á»°·şÎñÆ÷ÕÊºÅ%ldµÄ%u %uÏûÏ¢Ê§°Ü",rev->dwID,((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
+							//Zebra::logger->debug("è½¬å‘ä¼šè¯æœåŠ¡å™¨å¸å·%ldçš„%u %uæ¶ˆæ¯å¤±è´¥",rev->dwID,((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
 						}
 						else
 						{
-							//Zebra::logger->debug("×ª·¢»á»°·şÎñÆ÷ÕÊºÅ%ldµÄ%u %uÏûÏ¢³É¹¦",rev->dwID,((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
+							//Zebra::logger->debug("è½¬å‘ä¼šè¯æœåŠ¡å™¨å¸å·%ldçš„%u %uæ¶ˆæ¯æˆåŠŸ",rev->dwID,((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
 						}
 						return true;
 					}

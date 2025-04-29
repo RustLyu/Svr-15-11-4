@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoClient.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷ĞÅÏ¢ÊÕ¼¯µÄ¿Í»§¶ËÁ¬½Ó
+ * \brief å®šä¹‰æœåŠ¡å™¨ä¿¡æ¯æ”¶é›†çš„å®¢æˆ·ç«¯è¿æ¥
  */
 
 #ifndef _InfoClient_h_
@@ -13,7 +13,7 @@
 #include "zTCPClientTaskPool.h"
 
 /**
- * \brief ĞÅÏ¢ÊÕ¼¯¿Í»§¶ËÁ¬½ÓÀà
+ * \brief ä¿¡æ¯æ”¶é›†å®¢æˆ·ç«¯è¿æ¥ç±»
  */
 class InfoClient : public zTCPClientTask
 {

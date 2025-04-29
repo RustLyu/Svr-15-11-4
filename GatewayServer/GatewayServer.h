@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GatewayServer.h  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿Gateway·şÎñÆ÷,¸ºÔğÓÃ»§Ö¸Áî¼ì²é×ª·¢¡¢¼ÓÃÜ½âÃÜµÈ
+ * \brief zebraé¡¹ç›®GatewayæœåŠ¡å™¨,è´Ÿè´£ç”¨æˆ·æŒ‡ä»¤æ£€æŸ¥è½¬å‘ã€åŠ å¯†è§£å¯†ç­‰
  */
 
 #ifndef _GatewayServer_h_
@@ -20,9 +20,9 @@
 
 
 /**
- * \brief ¶¨ÒåÍø¹Ø·şÎñÀà
+ * \brief å®šä¹‰ç½‘å…³æœåŠ¡ç±»
  *
- * Õâ¸öÀàÊ¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+ * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
  *
  */
 class GatewayService : public zSubNetService
@@ -52,12 +52,12 @@ class GatewayService : public zSubNetService
 		bool notifyLoginServer();
 
 		/**
-		 * \brief Ğ£Ñé¿Í»§¶Ë°æ±¾ºÅ
+		 * \brief æ ¡éªŒå®¢æˆ·ç«¯ç‰ˆæœ¬å·
 		 */
 		DWORD verify_client_version;
 		
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~GatewayService()
@@ -72,9 +72,9 @@ class GatewayService : public zSubNetService
 		}
 
 		/**
-		 * \brief ·µ»ØÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è¿”å›ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * \return ÀàµÄÎ¨Ò»ÊµÀı
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static GatewayService &getInstance()
 		{
@@ -85,12 +85,12 @@ class GatewayService : public zSubNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
 		{
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -110,21 +110,21 @@ class GatewayService : public zSubNetService
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static GatewayService *instance;
 
-		static zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		static zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 
-		//¹ú¼ÒÃû³Æ(µØÍ¼)ĞÅÏ¢
+		//å›½å®¶åç§°(åœ°å›¾)ä¿¡æ¯
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		GatewayService() : zSubNetService("Íø¹Ø·şÎñÆ÷", GATEWAYSERVER)
+		GatewayService() : zSubNetService("ç½‘å…³æœåŠ¡å™¨", GATEWAYSERVER)
 		{
 			rolereg_verify = true;
 			taskPool = NULL;
@@ -135,12 +135,12 @@ class GatewayService : public zSubNetService
 		void final();
 
 		/**
-		 * \brief È·ÈÏ·şÎñÆ÷³õÊ¼»¯³É¹¦£¬¼´½«½øÈëÖ÷»Øµ÷º¯Êı
+		 * \brief ç¡®è®¤æœåŠ¡å™¨åˆå§‹åŒ–æˆåŠŸï¼Œå³å°†è¿›å…¥ä¸»å›è°ƒå‡½æ•°
 		 *
-		 * Ïò·şÎñÆ÷·¢ËÍt_Startup_OKÖ¸ÁîÀ´È·ÈÏ·şÎñÆ÷Æô¶¯³É¹¦
-		 * ²¢ÇÒÍ¨ÖªËùÓĞµÇÂ½·şÎñÆ÷£¬ÕâÌ¨Íø¹Ø·şÎñÆ÷×¼±¸ºÃÁË
+		 * å‘æœåŠ¡å™¨å‘é€t_Startup_OKæŒ‡ä»¤æ¥ç¡®è®¤æœåŠ¡å™¨å¯åŠ¨æˆåŠŸ
+		 * å¹¶ä¸”é€šçŸ¥æ‰€æœ‰ç™»é™†æœåŠ¡å™¨ï¼Œè¿™å°ç½‘å…³æœåŠ¡å™¨å‡†å¤‡å¥½äº†
 		 *
-		 * \return È·ÈÏÊÇ·ñ³É¹¦
+		 * \return ç¡®è®¤æ˜¯å¦æˆåŠŸ
 		 */
 		virtual bool validate()
 		{

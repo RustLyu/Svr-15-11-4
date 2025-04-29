@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: FLClientManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍ³Ò»ÓÃ»§Æ½Ì¨¿Í»§¶ËÁ¬½ÓµÄ¹ÜÀíÈİÆ÷
+ * \brief å®ç°ç»Ÿä¸€ç”¨æˆ·å¹³å°å®¢æˆ·ç«¯è¿æ¥çš„ç®¡ç†å®¹å™¨
  */
 
 
@@ -14,12 +14,12 @@
 #include "zXMLParser.h"
 
 /**
- * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+ * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
  */
 FLClientManager *FLClientManager::instance = NULL;
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  */
 FLClientManager::FLClientManager()
 {
@@ -27,7 +27,7 @@ FLClientManager::FLClientManager()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 FLClientManager::~FLClientManager()
 {
@@ -35,8 +35,8 @@ FLClientManager::~FLClientManager()
 }
 
 /**
- * \brief ³õÊ¼»¯¹ÜÀíÆ÷
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–ç®¡ç†å™¨
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool FLClientManager::init()
 {
@@ -49,7 +49,7 @@ bool FLClientManager::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["loginServerListFile"]))
 	{
-		Zebra::logger->error("¼ÓÔØÍ³Ò»ÓÃ»§Æ½Ì¨µÇÂ½·şÎñÆ÷ÁĞ±íÎÄ¼ş %s Ê§°Ü", Zebra::global["loginServerListFile"].c_str());
+		Zebra::logger->error("åŠ è½½ç»Ÿä¸€ç”¨æˆ·å¹³å°ç™»é™†æœåŠ¡å™¨åˆ—è¡¨æ–‡ä»¶ %s å¤±è´¥", Zebra::global["loginServerListFile"].c_str());
 		return false;
 	}
 	xmlNodePtr root = xml.getRootNode("Zebra");
@@ -83,13 +83,13 @@ bool FLClientManager::init()
 		}
 	}
 
-	Zebra::logger->info("¼ÓÔØÍ³Ò»ÓÃ»§Æ½Ì¨µÇÂ½·şÎñÆ÷ÁĞ±íÎÄ¼ş³É¹¦");
+	Zebra::logger->info("åŠ è½½ç»Ÿä¸€ç”¨æˆ·å¹³å°ç™»é™†æœåŠ¡å™¨åˆ—è¡¨æ–‡ä»¶æˆåŠŸ");
 	return true;
 }
 
 /**
- * \brief ÖÜÆÚ¼ä¸ô½øĞĞÁ¬½ÓµÄ¶ÏÏßÖØÁ¬¹¤×÷
- * \param ct µ±Ç°Ê±¼ä
+ * \brief å‘¨æœŸé—´éš”è¿›è¡Œè¿æ¥çš„æ–­çº¿é‡è¿å·¥ä½œ
+ * \param ct å½“å‰æ—¶é—´
  */
 void FLClientManager::timeAction(const zTime &ct)
 {
@@ -103,8 +103,8 @@ void FLClientManager::timeAction(const zTime &ct)
 }
 
 /**
- * \brief ÏòÈİÆ÷ÖĞÌí¼ÓÒÑ¾­³É¹¦µÄÁ¬½Ó
- * \param flClient ´ıÌí¼ÓµÄÁ¬½Ó
+ * \brief å‘å®¹å™¨ä¸­æ·»åŠ å·²ç»æˆåŠŸçš„è¿æ¥
+ * \param flClient å¾…æ·»åŠ çš„è¿æ¥
  */
 void FLClientManager::add(FLClient *flClient)
 {
@@ -121,8 +121,8 @@ void FLClientManager::add(FLClient *flClient)
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÒÆ³ı¶Ï¿ªµÄÁ¬½Ó
- * \param flClient ´ıÒÆ³ıµÄÁ¬½Ó
+ * \brief ä»å®¹å™¨ä¸­ç§»é™¤æ–­å¼€çš„è¿æ¥
+ * \param flClient å¾…ç§»é™¤çš„è¿æ¥
  */
 void FLClientManager::remove(FLClient *flClient)
 {
@@ -139,9 +139,9 @@ void FLClientManager::remove(FLClient *flClient)
 }
 
 /**
- * \brief Ïò³É¹¦µÄËùÓĞÁ¬½Ó¹ã²¥Ö¸Áî
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen ´ı¹ã²¥Ö¸ÁîµÄ³¤¶È
+ * \brief å‘æˆåŠŸçš„æ‰€æœ‰è¿æ¥å¹¿æ’­æŒ‡ä»¤
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å¹¿æ’­æŒ‡ä»¤çš„é•¿åº¦
  */
 void FLClientManager::broadcast(const void *pstrCmd, int nCmdLen)
 {
@@ -154,10 +154,10 @@ void FLClientManager::broadcast(const void *pstrCmd, int nCmdLen)
 }
 
 /**
- * \brief ÏòÖ¸¶¨µÄ³É¹¦Á¬½Ó¹ã²¥Ö¸Áî
- * \param tempid ´ı¹ã²¥Ö¸ÁîµÄÁ¬½ÓÁÙÊ±±àºÅ
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen ´ı¹ã²¥Ö¸ÁîµÄ³¤¶È
+ * \brief å‘æŒ‡å®šçš„æˆåŠŸè¿æ¥å¹¿æ’­æŒ‡ä»¤
+ * \param tempid å¾…å¹¿æ’­æŒ‡ä»¤çš„è¿æ¥ä¸´æ—¶ç¼–å·
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å¹¿æ’­æŒ‡ä»¤çš„é•¿åº¦
  */
 void FLClientManager::sendTo(const WORD tempid, const void *pstrCmd, int nCmdLen)
 {

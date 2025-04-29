@@ -1,4 +1,4 @@
-#include "MailService.h"
+ï»¿#include "MailService.h"
 #include "zDBConnPool.h"
 #include "SessionServer.h"
 #include "Session.h"
@@ -127,18 +127,18 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				if (!pUser)
 					pUser = UserSessionManager::getInstance()->getUserByID(rev->mail.fromID);
 
-				/*//È¡ÏûÕâ¸öÉí·İÈ·ÈÏ£¬±ÜÃâÒ»Ğ©ÎïÆ·¶ªÊ§
+				/*//å–æ¶ˆè¿™ä¸ªèº«ä»½ç¡®è®¤ï¼Œé¿å…ä¸€äº›ç‰©å“ä¸¢å¤±
 				if (!pUser && rev->mail.type!=Cmd::Session::MAIL_TYPE_ACTIVITY)
 				{
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_SENDMAIL): ·¢ËÍÓÊ¼şÊ±Î´ÕÒµ½·¢ËÍÕß %s", rev->mail.fromName);
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_SENDMAIL): å‘é€é‚®ä»¶æ—¶æœªæ‰¾åˆ°å‘é€è€… %s", rev->mail.fromName);
 					return true;
 				}
 				*/
 
 				if (sendMail(* rev))
 				{
-					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "·¢ËÍ³É¹¦");
-					Zebra::logger->trace("[ÓÊ¼ş]ÓÊ¼ş·¢ËÍ³É¹¦ %s->%s(%u)", rev->mail.fromName, rev->mail.toName, rev->mail.toID);
+					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "å‘é€æˆåŠŸ");
+					Zebra::logger->trace("[é‚®ä»¶]é‚®ä»¶å‘é€æˆåŠŸ %s->%s(%u)", rev->mail.fromName, rev->mail.toName, rev->mail.toID);
 
 					UserSession * toUser = UserSessionManager::getInstance()->getUserSessionByName(rev->mail.toName);
 					if (!toUser) toUser = UserSessionManager::getInstance()->getUserByID(rev->mail.toID);
@@ -158,21 +158,21 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->tempID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_GET_MAIL_LIST): È¡µÃÓÊ¼şÁĞ±íÊ±Î´ÕÒµ½Íæ¼Ò");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_GET_MAIL_LIST): å–å¾—é‚®ä»¶åˆ—è¡¨æ—¶æœªæ‰¾åˆ°ç©å®¶");
 					return true;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{               
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "È¡µÃÓÊ¼şÊ§°Ü");
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_GET_MAIL_LIST): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å–å¾—é‚®ä»¶å¤±è´¥");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_GET_MAIL_LIST): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
 				char where[128];
 
-				//µÃµ½ÓÊ¼şÁĞ±í
+				//å¾—åˆ°é‚®ä»¶åˆ—è¡¨
 				bzero(where, sizeof(where));
 				snprintf(where, sizeof(where) - 1, "TOID=%u", pUser->id);
 
@@ -191,7 +191,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 						al.id = mailList[i].id;
 						al.state = mailList[i].state;
 						if (MAIL_TYPE_AUCTION==mailList[i].type || MAIL_TYPE_SYS==mailList[i].type)
-							al.type=1;//ÏµÍ³ÓÊ¼ş
+							al.type=1;//ç³»ç»Ÿé‚®ä»¶
 						strncpy(al.fromName, mailList[i].fromName, MAX_NAMESIZE);
 						if (mailList[i].accessory && !mailList[i].itemGot)
 							al.accessory = true;
@@ -206,7 +206,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				SAFE_DELETE_VEC(mailList);
 
 				/*
-				//µÃµ½ÓÊ¼şÁĞ±í
+				//å¾—åˆ°é‚®ä»¶åˆ—è¡¨
 				std::string escapeName;
 				bzero(where, sizeof(where));
 				snprintf(where, sizeof(where) - 1, "TONAME='%s'", pUser->name);
@@ -248,15 +248,15 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->tempID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_OPEN_MAIL): ´ò¿ªÓÊ¼şÊ±Î´ÕÒµ½Íæ¼Ò");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_OPEN_MAIL): æ‰“å¼€é‚®ä»¶æ—¶æœªæ‰¾åˆ°ç©å®¶");
 					return true;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{               
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "´ò¿ªÓÊ¼şÊ§°Ü");
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_OPEN_MAIL): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‰“å¼€é‚®ä»¶å¤±è´¥");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_OPEN_MAIL): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
@@ -280,7 +280,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 					st.state = MAIL_STATE_OPENED;
 					retcode = SessionService::dbConnPool->exeUpdate(handle, "`MAIL`", mail_state_define, (BYTE *)&st, where);
 
-					newMailMap[content.toID].erase(rev->mailID);//´ÓĞÂÓÊ¼şÁĞ±íÀïÉ¾³ı
+					newMailMap[content.toID].erase(rev->mailID);//ä»æ–°é‚®ä»¶åˆ—è¡¨é‡Œåˆ é™¤
 				}
 				SessionService::dbConnPool->putHandle(handle);
 
@@ -303,7 +303,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				}
 				pUser->sendCmdToMe(&cm, sizeof(cm));
 #ifdef _XWL_DEBUG
-				//Zebra::logger->debug("[ÓÊ¼ş]%s ´ò¿ªÓÊ¼ş id=%u ÎïÆ·:thisID=%u ObjectID=%u", pUser->name, cm.mailID, cm.item.qwThisID, cm.item.dwObjectID);
+				//Zebra::logger->debug("[é‚®ä»¶]%s æ‰“å¼€é‚®ä»¶ id=%u ç‰©å“:thisID=%u ObjectID=%u", pUser->name, cm.mailID, cm.item.qwThisID, cm.item.dwObjectID);
 #endif
 
 				return true;
@@ -316,15 +316,15 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->tempID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_GET_MAIL_ITEM): »ñÈ¡¸½¼şÊ±Î´ÕÒµ½Íæ¼Ò");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_GET_MAIL_ITEM): è·å–é™„ä»¶æ—¶æœªæ‰¾åˆ°ç©å®¶");
 					return true;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{               
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "»ñÈ¡¸½¼şÊ§°Ü");
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_GET_MAIL_ITEM): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è·å–é™„ä»¶å¤±è´¥");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_GET_MAIL_ITEM): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
@@ -340,37 +340,37 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 						||content.itemGot==1
 						||(strncmp(content.toName, pUser->name, MAX_NAMESIZE) && content.toID!=pUser->id))
 				{
-					//pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜ»ñÈ¡¸½¼ş");
+					//pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½è·å–é™„ä»¶");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 				if (content.item.object.qwThisID!=0 && rev->space==0)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄ°ü¹ü¿Õ¼ä²»×ã");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„åŒ…è£¹ç©ºé—´ä¸è¶³");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 				if (content.sendMoney && rev->money+content.sendMoney>10000000)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄÒø±Ò³¬¹ıÁËÉÏÏŞ£¬²»ÄÜÁìÈ¡¸½¼ş");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„é“¶å¸è¶…è¿‡äº†ä¸Šé™ï¼Œä¸èƒ½é¢†å–é™„ä»¶");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 				if (content.sendGold && rev->gold+content.sendGold>10000000)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄ½ğ±Ò³¬¹ıÁËÉÏÏŞ£¬²»ÄÜÁìÈ¡¸½¼ş");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„é‡‘å¸è¶…è¿‡äº†ä¸Šé™ï¼Œä¸èƒ½é¢†å–é™„ä»¶");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 				if (content.recvMoney>rev->money)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄÒø±Ò²»¹»£¬²»ÄÜÁìÈ¡¸½¼ş");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„é“¶å¸ä¸å¤Ÿï¼Œä¸èƒ½é¢†å–é™„ä»¶");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 				if (content.recvGold>rev->gold)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄ½ğ±Ò²»¹»£¬²»ÄÜÁìÈ¡¸½¼ş");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„é‡‘å¸ä¸å¤Ÿï¼Œä¸èƒ½é¢†å–é™„ä»¶");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
@@ -399,11 +399,11 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				//FunctionTimes times(24,"t_getMailItemConfirm_SceneSession");
 				t_getMailItemConfirm_SceneSession * rev = (t_getMailItemConfirm_SceneSession *)cmd;
 				/*
-				//ÒÑ¾­ÊÕÈ¡¸½¼ş³É¹¦
+				//å·²ç»æ”¶å–é™„ä»¶æˆåŠŸ
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->userID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_GET_MAIL_ITEM_CONFIRM): È·ÈÏ»ñÈ¡¸½¼şÊ±Î´ÕÒµ½Íæ¼Ò");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_GET_MAIL_ITEM_CONFIRM): ç¡®è®¤è·å–é™„ä»¶æ—¶æœªæ‰¾åˆ°ç©å®¶");
 					return true;
 				}
 				*/
@@ -411,7 +411,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{               
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_GET_MAIL_ITEM_CONFIRM): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_GET_MAIL_ITEM_CONFIRM): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
@@ -424,22 +424,22 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				if (1 != retcode)
 				{
 					if (retcode!=0)
-				Zebra::logger->error("[ÓÊ¼ş]%s È·ÈÏ»ñÈ¡¸½¼ş´íÎó mailID=%u retCode=%d", mail.toName, rev->mailID, retcode);
+				Zebra::logger->error("[é‚®ä»¶]%s ç¡®è®¤è·å–é™„ä»¶é”™è¯¯ mailID=%u retCode=%d", mail.toName, rev->mailID, retcode);
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 
 				if (mail.recvMoney)
-					if (!sendMoneyMail(mail.toName, mail.toID, mail.fromName, mail.fromID, mail.recvMoney, "Ö§¸¶¸øÄãµÄÒø×Ó"))
+					if (!sendMoneyMail(mail.toName, mail.toID, mail.fromName, mail.fromID, mail.recvMoney, "æ”¯ä»˜ç»™ä½ çš„é“¶å­"))
 					{
-						Zebra::logger->error("[ÓÊ¼ş]%s Ö§¸¶Òø×ÓÊ§°Ü mailID=%u", mail.toName, rev->mailID);
+						Zebra::logger->error("[é‚®ä»¶]%s æ”¯ä»˜é“¶å­å¤±è´¥ mailID=%u", mail.toName, rev->mailID);
 					}
 				//BYTE i = 1;
 				//retcode = SessionService::dbConnPool->exeUpdate(handle, "`MAIL`", mail_item_define, &i, where);
 				SessionService::dbConnPool->putHandle(handle);
 
 				//if ((DWORD)-1 == retcode || 0 == retcode)
-				//	Zebra::logger->error("[ÓÊ¼ş]%s È·ÈÏ»ñÈ¡¸½¼ş´íÎó mailID=%u retCode=%d", mail.toName, rev->mailID, retcode);
+				//	Zebra::logger->error("[é‚®ä»¶]%s ç¡®è®¤è·å–é™„ä»¶é”™è¯¯ mailID=%u retCode=%d", mail.toName, rev->mailID, retcode);
 
 				return true;
 			}
@@ -451,14 +451,14 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->tempID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_DEL_MAIL): É¾³ıÓÊ¼şÊ±Î´ÕÒµ½Íæ¼Ò");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_DEL_MAIL): åˆ é™¤é‚®ä»¶æ—¶æœªæ‰¾åˆ°ç©å®¶");
 					return true;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{               
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_DEL_MAIL): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_DEL_MAIL): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
@@ -473,7 +473,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 						||(strncmp(st.toName, pUser->name, MAX_NAMESIZE) && st.toID!=pUser->id))
 				{
 					if (st.accessory==1 && st.itemGot==0)
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÉ¾³ı´ø¸½¼şµÄÓÊ¼ş");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½åˆ é™¤å¸¦é™„ä»¶çš„é‚®ä»¶");
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
@@ -481,11 +481,11 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				st.state = MAIL_STATE_DEL;
 				retcode = SessionService::dbConnPool->exeUpdate(handle, "`MAIL`", mail_content_define, (BYTE *)&st, where);
 				if (1 != retcode)
-					Zebra::logger->error("[ÓÊ¼ş]É¾³ıÓÊ¼şÊ§°Ü£ºmailID=%u, retcode=%u", rev->mailID, retcode);
+					Zebra::logger->error("[é‚®ä»¶]åˆ é™¤é‚®ä»¶å¤±è´¥ï¼šmailID=%u, retcode=%u", rev->mailID, retcode);
 				stDelMail dm;
 				dm.mailID = rev->mailID;
 				pUser->sendCmdToMe(&dm, sizeof(dm));
-				Zebra::logger->trace("[ÓÊ¼ş]%s É¾³ıÓÊ¼ş mailID=%u", pUser->name, rev->mailID);
+				Zebra::logger->trace("[é‚®ä»¶]%s åˆ é™¤é‚®ä»¶ mailID=%u", pUser->name, rev->mailID);
 				SessionService::dbConnPool->putHandle(handle);
 
 				return true;
@@ -512,15 +512,15 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->userID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_TURN_BACK_MAIL): ÍË»ØÓÊ¼şÊ±Î´ÕÒµ½Íæ¼Ò");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_TURN_BACK_MAIL): é€€å›é‚®ä»¶æ—¶æœªæ‰¾åˆ°ç©å®¶");
 					return true;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÍË»ØÓÊ¼şÊ§°Ü");
-					Zebra::logger->error("[ÓÊ¼ş]doMailCmd(PARA_SCENE_TURN_BACK_MAIL): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "é€€å›é‚®ä»¶å¤±è´¥");
+					Zebra::logger->error("[é‚®ä»¶]doMailCmd(PARA_SCENE_TURN_BACK_MAIL): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
@@ -538,7 +538,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 						||info.itemGot!=0
 						||(strncmp(info.toName, pUser->name, MAX_NAMESIZE) && info.toID!=pUser->id))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÍË»¹¸ÃÓÊ¼ş");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½é€€è¿˜è¯¥é‚®ä»¶");
 					return true;
 				}
 				if (turnBackMail(rev->mailID))
@@ -546,7 +546,7 @@ bool MailService::doMailCmd(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen
 					stDelMail dm;
 					dm.mailID = rev->mailID;
 					pUser->sendCmdToMe(&dm, sizeof(dm));
-				Zebra::logger->trace("[ÓÊ¼ş]%s ÍË»Ø %s µÄÓÊ¼ş mailID=%u", pUser->name, info.fromName, rev->mailID);
+				Zebra::logger->trace("[é‚®ä»¶]%s é€€å› %s çš„é‚®ä»¶ mailID=%u", pUser->name, info.fromName, rev->mailID);
 				}
 				return true;
 			}
@@ -593,12 +593,12 @@ bool MailService::sendMoneyMail(char * fromName, DWORD fromID, char * toName, DW
 	strncpy(sm.mail.toName, toName, MAX_NAMESIZE);
 	sm.mail.fromID = fromID;
 	sm.mail.toID = toID;
-	if (strstr(text, "±»Ñ¹¹ı"))
-		strncpy(sm.mail.title, "±»Ñ¹¹ı", MAX_NAMESIZE);
-	else if (strstr(text, "³É¹¦ÊÛ³ö"))
-		strncpy(sm.mail.title, "ÅÄÂô³É¹¦", MAX_NAMESIZE);
+	if (strstr(text, "è¢«å‹è¿‡"))
+		strncpy(sm.mail.title, "è¢«å‹è¿‡", MAX_NAMESIZE);
+	else if (strstr(text, "æˆåŠŸå”®å‡º"))
+		strncpy(sm.mail.title, "æ‹å–æˆåŠŸ", MAX_NAMESIZE);
 	else
-		strncpy(sm.mail.title, "Ö§¸¶Òø×Ó", MAX_NAMESIZE);
+		strncpy(sm.mail.title, "æ”¯ä»˜é“¶å­", MAX_NAMESIZE);
 	sm.mail.type = type;
 	zRTime ct;
 	sm.mail.createTime = ct.sec();
@@ -621,23 +621,23 @@ bool MailService::sendMail(DWORD h, Cmd::Session::t_sendMail_SceneSession & sm)
 	//FunctionTimes times(20,__FUNCTION__);
 	if (0==sm.mail.toID && 0==strncmp("", sm.mail.toName, MAX_NAMESIZE))
 	{
-		Zebra::logger->error("[ÓÊ¼ş]sendMoneyMail ÊÕ¼şÈËÎª¿Õ fromName=%s money=%u text=%s type=%u", sm.mail.fromName, sm.mail.sendMoney, sm.mail.text, sm.mail.type);
+		Zebra::logger->error("[é‚®ä»¶]sendMoneyMail æ”¶ä»¶äººä¸ºç©º fromName=%s money=%u text=%s type=%u", sm.mail.fromName, sm.mail.sendMoney, sm.mail.text, sm.mail.type);
 		return false;
 	}
 
 	connHandleID handle = (connHandleID)h;
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[ÓÊ¼ş]sendMail: ÎŞĞ§µÄÊı¾İ¿â¾ä±ú");
-		Zebra::logger->error("[ÓÊ¼ş]%s->%s ¶ªÊ§ money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
+		Zebra::logger->error("[é‚®ä»¶]sendMail: æ— æ•ˆçš„æ•°æ®åº“å¥æŸ„");
+		Zebra::logger->error("[é‚®ä»¶]%s->%s ä¸¢å¤± money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
 		return false;
 	}
 	unsigned int retcode = SessionService::dbConnPool->exeInsert(handle, "`MAIL`", mail_define, (const BYTE *)&sm.mail);
 
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]sendMail: ²åÈëĞÂÓÊ¼şÊı¾İ¿â³ö´í retcode=%d" , retcode);
-		Zebra::logger->error("[ÓÊ¼ş]%s->%s ¶ªÊ§ money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
+		Zebra::logger->error("[é‚®ä»¶]sendMail: æ’å…¥æ–°é‚®ä»¶æ•°æ®åº“å‡ºé”™ retcode=%d" , retcode);
+		Zebra::logger->error("[é‚®ä»¶]%s->%s ä¸¢å¤± money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
 		return false;
 	}
 
@@ -659,8 +659,8 @@ bool MailService::sendMail(Cmd::Session::t_sendMail_SceneSession & sm)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[ÓÊ¼ş]sendMail: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
-		Zebra::logger->error("[ÓÊ¼ş]%s->%s ¶ªÊ§ money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
+		Zebra::logger->error("[é‚®ä»¶]sendMail: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
+		Zebra::logger->error("[é‚®ä»¶]%s->%s ä¸¢å¤± money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
 		return false;
 	}
 	unsigned int retcode = SessionService::dbConnPool->exeInsert(handle, "`MAIL`", mail_define, (const BYTE *)&sm.mail);
@@ -668,8 +668,8 @@ bool MailService::sendMail(Cmd::Session::t_sendMail_SceneSession & sm)
 
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]sendMail: ²åÈëĞÂÓÊ¼şÊı¾İ¿â³ö´í retcode=%d" , retcode);
-		Zebra::logger->error("[ÓÊ¼ş]%s->%s ¶ªÊ§ money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
+		Zebra::logger->error("[é‚®ä»¶]sendMail: æ’å…¥æ–°é‚®ä»¶æ•°æ®åº“å‡ºé”™ retcode=%d" , retcode);
+		Zebra::logger->error("[é‚®ä»¶]%s->%s ä¸¢å¤± money=%u item=%s", sm.mail.fromName, sm.mail.toName, sm.mail.sendMoney, sm.item.object.strName);
 		return false;
 	}
 
@@ -685,9 +685,9 @@ bool MailService::sendMail(Cmd::Session::t_sendMail_SceneSession & sm)
 	return true;
 }
 
-/* \brief ĞèÒªÑ­»·Ö´ĞĞµÄÓÊ¼şÈÎÎñ
+/* \brief éœ€è¦å¾ªç¯æ‰§è¡Œçš„é‚®ä»¶ä»»åŠ¡
  * 
- * ¼ì²éËùÓĞÓÊ¼şÊÇ·ñ³¬Ê±ĞèÒªÍË»Ø¡¢É¾³ı
+ * æ£€æŸ¥æ‰€æœ‰é‚®ä»¶æ˜¯å¦è¶…æ—¶éœ€è¦é€€å›ã€åˆ é™¤
  *
  */
 void MailService::checkDB()
@@ -698,7 +698,7 @@ void MailService::checkDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[ÓÊ¼ş]MailService::checkDB: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[é‚®ä»¶]MailService::checkDB: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 
@@ -706,14 +706,14 @@ void MailService::checkDB()
 	char where[128];
 
 	/*
-	//×ª·¢Ã»ÈËÒªµÄÓÊ¼ş
+	//è½¬å‘æ²¡äººè¦çš„é‚®ä»¶
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where), "STATE!=%u AND DELTIME<%lu AND ACCESSORY=1 AND ITEMGOT=0 AND TYPE=%u", MAIL_STATE_DEL, ct.sec(), MAIL_TYPE_RETURN);
 	mailForwardInfo fi;
 	fi.state = MAIL_STATE_NEW;
-	strncpy(fi.fromName, "À¬»ø»º³åÇø", MAX_NAMESIZE);
-	strncpy(fi.toName, "ÓÊ¼şÀ¬»øÊÕ¼¯Õß", MAX_NAMESIZE);
-	strncpy(fi.text, "ÊÕ¼¯µ½µÄÎŞÖ÷ÓÊ¼ş", MAX_NAMESIZE);
+	strncpy(fi.fromName, "åƒåœ¾ç¼“å†²åŒº", MAX_NAMESIZE);
+	strncpy(fi.toName, "é‚®ä»¶åƒåœ¾æ”¶é›†è€…", MAX_NAMESIZE);
+	strncpy(fi.text, "æ”¶é›†åˆ°çš„æ— ä¸»é‚®ä»¶", MAX_NAMESIZE);
 	fi.delTime = ct.sec()+86400*7;
 	fi.recvMoney = 0;
 	fi.recvGold = 0;
@@ -722,15 +722,15 @@ void MailService::checkDB()
 	unsigned int retcode = SessionService::dbConnPool->exeUpdate(handle, "`MAIL`", mail_forward_define, (BYTE *)&fi, where);
 	if ((DWORD)-1 == retcode)
 	{
-		//Zebra::logger->error("[ÓÊ¼ş]MailService::checkDB: ×ª·¢¹ıÆÚÓÊ¼şÊ§°Ü retCode=%d", retcode);
+		//Zebra::logger->error("[é‚®ä»¶]MailService::checkDB: è½¬å‘è¿‡æœŸé‚®ä»¶å¤±è´¥ retCode=%d", retcode);
 		SessionService::dbConnPool->putHandle(handle);
 		return;
 	}
 	else
-		//Zebra::logger->error("[ÓÊ¼ş]MailService::checkDB: ×ª·¢ %d ·â¹ıÆÚÓÊ¼ş", retcode);
+		//Zebra::logger->error("[é‚®ä»¶]MailService::checkDB: è½¬å‘ %d å°è¿‡æœŸé‚®ä»¶", retcode);
 	*/
 
-	//É¾³ı¹ıÆÚµÄÓÊ¼ş
+	//åˆ é™¤è¿‡æœŸçš„é‚®ä»¶
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where), "STATE!=%u AND DELTIME<%lu AND (ACCESSORY=0 OR ITEMGOT=1 OR TYPE=%u)", MAIL_STATE_DEL, ct.sec(), MAIL_TYPE_RETURN);
 	mailStateInfo st;
@@ -738,21 +738,21 @@ void MailService::checkDB()
 	DWORD retcode = SessionService::dbConnPool->exeUpdate(handle, "`MAIL`", mail_state_define, (BYTE *)&st, where);
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]MailService::checkDB: É¾³ı¹ıÆÚÓÊ¼şÊ§°Ü retCode=%d", retcode);
+		Zebra::logger->error("[é‚®ä»¶]MailService::checkDB: åˆ é™¤è¿‡æœŸé‚®ä»¶å¤±è´¥ retCode=%d", retcode);
 		SessionService::dbConnPool->putHandle(handle);
 		return;
 	}
 	else
-		if (retcode) Zebra::logger->trace("[ÓÊ¼ş]MailService::checkDB: É¾³ı %d ·â¹ıÆÚÓÊ¼ş", retcode);
+		if (retcode) Zebra::logger->trace("[é‚®ä»¶]MailService::checkDB: åˆ é™¤ %d å°è¿‡æœŸé‚®ä»¶", retcode);
 
-	//ÍË»Ø¹ıÆÚµÄÓÊ¼ş
+	//é€€å›è¿‡æœŸçš„é‚®ä»¶
 	mailCheckInfo * checkList, * tempPoint;
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where) - 1, "STATE!=%u AND ACCESSORY=1 AND ITEMGOT=0 AND TYPE=%u AND DELTIME<%lu", MAIL_STATE_DEL, MAIL_TYPE_MAIL, ct.sec());
 	retcode = SessionService::dbConnPool->exeSelect(handle, "`MAIL`", mail_check_define, where, NULL, (BYTE **)&checkList);
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]MailService::checkDB: ³£¹æ¼ì²éÊ§°Ü retCode=%d", retcode);
+		Zebra::logger->error("[é‚®ä»¶]MailService::checkDB: å¸¸è§„æ£€æŸ¥å¤±è´¥ retCode=%d", retcode);
 		SessionService::dbConnPool->putHandle(handle);
 		return;
 	}
@@ -768,19 +768,19 @@ void MailService::checkDB()
 		SAFE_DELETE_VEC(checkList);
 	}
 
-	//É¾³ı10ÌìÖ®Ç°µÄ
+	//åˆ é™¤10å¤©ä¹‹å‰çš„
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where), "DELTIME<%lu",ct.sec()-864000);
 	retcode = SessionService::dbConnPool->exeDelete(handle, "`MAIL`", where);
-	if (retcode) Zebra::logger->debug("[ÓÊ¼ş]É¾³ı %u ·â10ÌìÖ®Ç°µÄÓÊ¼ş¼ÇÂ¼", retcode);
+	if (retcode) Zebra::logger->debug("[é‚®ä»¶]åˆ é™¤ %u å°10å¤©ä¹‹å‰çš„é‚®ä»¶è®°å½•", retcode);
 
 	SessionService::dbConnPool->putHandle(handle);
 
 	return;
 }
 
-/* \brief ÍË»ØÒ»·âÓÊ¼ş
- *  \param mailID ÓÊ¼şID
+/* \brief é€€å›ä¸€å°é‚®ä»¶
+ *  \param mailID é‚®ä»¶ID
  *
  */
 bool MailService::turnBackMail(DWORD mailID)
@@ -791,7 +791,7 @@ bool MailService::turnBackMail(DWORD mailID)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[ÓÊ¼ş]turnBackMail: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[é‚®ä»¶]turnBackMail: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return false;
 	}
 
@@ -810,7 +810,7 @@ bool MailService::turnBackMail(DWORD mailID)
 			//|| 0==strncmp("", mail.fromName, MAX_NAMESIZE)
 			//|| 0==mail.fromID)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]²»ÄÜÍË»¹ÓÊ¼ş mailID=%u retCode=%d", mailID, retcode);
+		Zebra::logger->error("[é‚®ä»¶]ä¸èƒ½é€€è¿˜é‚®ä»¶ mailID=%u retCode=%d", mailID, retcode);
 		SessionService::dbConnPool->putHandle(handle);
 		return false;
 	}
@@ -820,12 +820,12 @@ bool MailService::turnBackMail(DWORD mailID)
 	strncpy(temp, mail.fromName, MAX_NAMESIZE);
 	strncpy(mail.fromName, mail.toName, MAX_NAMESIZE);
 	strncpy(mail.toName, temp, MAX_NAMESIZE);
-	strncpy(mail.title, "ÍË»ØµÄÎïÆ·", MAX_NAMESIZE);
+	strncpy(mail.title, "é€€å›çš„ç‰©å“", MAX_NAMESIZE);
 	mail.type = MAIL_TYPE_RETURN;
 	zRTime ct;
 	mail.createTime = ct.sec();
 	mail.delTime = mail.createTime + 60*60*24*7;
-	snprintf(mail.text, 255-1, "%s Ğ»¾øÁËÄã·¢ËÍµÄÎïÆ·", mail.fromName);
+	snprintf(mail.text, 255-1, "%s è°¢ç»äº†ä½ å‘é€çš„ç‰©å“", mail.fromName);
 	mail.recvMoney = 0;
 	mail.recvGold = 0;
 	DWORD t = mail.fromID;
@@ -836,7 +836,7 @@ bool MailService::turnBackMail(DWORD mailID)
 	SessionService::dbConnPool->putHandle(handle);
 	if (1 != retcode)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]·µ»¹ÓÊ¼şUpdateÊ§°Ü£ºmailID=%u, retcode=%d", mailID, retcode);
+		Zebra::logger->error("[é‚®ä»¶]è¿”è¿˜é‚®ä»¶Updateå¤±è´¥ï¼šmailID=%u, retcode=%d", mailID, retcode);
 		return false;
 	}
 
@@ -849,9 +849,9 @@ bool MailService::turnBackMail(DWORD mailID)
 	return true;
 }
 
-/* \brief ¸ù¾İÍæ¼ÒÃû×Ö»òIDÉ¾³ıËûµÄÓÊ¼ş
- *  \param userName Ãû×Ö
- *  \param id ½ÇÉ«ID
+/* \brief æ ¹æ®ç©å®¶åå­—æˆ–IDåˆ é™¤ä»–çš„é‚®ä»¶
+ *  \param userName åå­—
+ *  \param id è§’è‰²ID
  *
  */
 void MailService::delMailByNameAndID(char * userName, DWORD id)
@@ -862,13 +862,13 @@ void MailService::delMailByNameAndID(char * userName, DWORD id)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]delMailbyName: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü name=%s", userName);
+		Zebra::logger->error("[é‚®ä»¶]delMailbyName: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥ name=%s", userName);
 		return;
 	}
 
 	char where[128];
 
-	//ÍË»Ø±ğÈË¼ÄµÄ´øÎïÆ·µÄÓÊ¼ş
+	//é€€å›åˆ«äººå¯„çš„å¸¦ç‰©å“çš„é‚®ä»¶
 	mailCheckInfo * checkList, * tempPoint;
 	bzero(where, sizeof(where));
 	std::string escapeName;
@@ -877,7 +877,7 @@ void MailService::delMailByNameAndID(char * userName, DWORD id)
 	DWORD retcode = SessionService::dbConnPool->exeSelect(handle, "`MAIL`", mail_check_define, where,NULL, (BYTE **)&checkList);
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]É¾³ıÍæ¼ÒËùÓĞÓÊ¼şÊ§°Ü retCode=%d", retcode);
+		Zebra::logger->error("[é‚®ä»¶]åˆ é™¤ç©å®¶æ‰€æœ‰é‚®ä»¶å¤±è´¥ retCode=%d", retcode);
 		SessionService::dbConnPool->putHandle(handle);
 		return;
 	}
@@ -906,9 +906,9 @@ void MailService::delMailByNameAndID(char * userName, DWORD id)
 	retcode = SessionService::dbConnPool->exeUpdate(handle, "`MAIL`", mail_state_define, (BYTE *)&st, where);
 	SessionService::dbConnPool->putHandle(handle);
 	if ((DWORD)-1 == retcode)
-		Zebra::logger->error("[ÓÊ¼ş]delMailbyName:É¾³ı½ÇÉ«ËùÓĞÓÊ¼şUpdateÊ§°Ü£ºuserName=%s, retcode=%d", userName, retcode);
+		Zebra::logger->error("[é‚®ä»¶]delMailbyName:åˆ é™¤è§’è‰²æ‰€æœ‰é‚®ä»¶Updateå¤±è´¥ï¼šuserName=%s, retcode=%d", userName, retcode);
 	else
-		Zebra::logger->trace("[ÓÊ¼ş]delMailbyName:É¾³ı½ÇÉ«ËùÓĞÓÊ¼ş£ºuserName=%s, retcode=%d", userName, retcode);
+		Zebra::logger->trace("[é‚®ä»¶]delMailbyName:åˆ é™¤è§’è‰²æ‰€æœ‰é‚®ä»¶ï¼šuserName=%s, retcode=%d", userName, retcode);
 }
 
 void MailService::loadNewMail()
@@ -916,7 +916,7 @@ void MailService::loadNewMail()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("[ÓÊ¼ş]loadNewMail: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[é‚®ä»¶]loadNewMail: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 
@@ -938,5 +938,5 @@ void MailService::loadNewMail()
 		SAFE_DELETE_VEC(newList);
 	}
 
-	Zebra::logger->debug("[ÓÊ¼ş]loadNewMail %u×é %u¸ö", newMailMap.size(), retcode);
+	Zebra::logger->debug("[é‚®ä»¶]loadNewMail %uç»„ %uä¸ª", newMailMap.size(), retcode);
 }

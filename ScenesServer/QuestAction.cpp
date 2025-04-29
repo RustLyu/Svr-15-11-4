@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestAction.cpp $
  * \author	
  * \date	
- * \brief	ÈÎÎñÏµÍ³
+ * \brief	ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
 
@@ -17,13 +17,13 @@
 #include "SessionClient.h"
 
 /**     
- * \brief  Ö´ĞĞ½Å±¾¶¨ÒåµÄ¶¯×÷
+ * \brief  æ‰§è¡Œè„šæœ¬å®šä¹‰çš„åŠ¨ä½œ
  *
- * template methodÄ£Ê½,½øĞĞ²ÎÊı¼ì²é£¬²¢Ö´ĞĞ½Å±¾¶¨ÒåµÄ¶¯×÷
+ * template methodæ¨¡å¼,è¿›è¡Œå‚æ•°æ£€æŸ¥ï¼Œå¹¶æ‰§è¡Œè„šæœ¬å®šä¹‰çš„åŠ¨ä½œ
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */     
 int Action::do_it (SceneUser* user, Vars* vars)
 {
@@ -33,13 +33,13 @@ int Action::do_it (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ²ÎÊı¼ì²é
+ * \brief  å‚æ•°æ£€æŸ¥
  *
- * Ìá¹©ÁËÒ»¸öÄ¬ÈÏµÄ²ÎÊıĞèÇó¼ì²â,¼Ì³ĞÀàĞèÒª¸ù¾İ×Ô¼ºµÄÒªÇóÖØÔØ´Ëº¯Êı
+ * æä¾›äº†ä¸€ä¸ªé»˜è®¤çš„å‚æ•°éœ€æ±‚æ£€æµ‹,ç»§æ‰¿ç±»éœ€è¦æ ¹æ®è‡ªå·±çš„è¦æ±‚é‡è½½æ­¤å‡½æ•°
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return true±íÊ¾²ÎÊıºÏ·¨,false±íÊ¾²ÎÊı·Ç·¨
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return trueè¡¨ç¤ºå‚æ•°åˆæ³•,falseè¡¨ç¤ºå‚æ•°éæ³•
  */     
 bool Action::check_args(SceneUser* user, Vars* vars) const
 {
@@ -49,13 +49,13 @@ bool Action::check_args(SceneUser* user, Vars* vars) const
 }
 
 /**     
- * \brief  Ö´ĞĞ½Å±¾¶¨ÒåµÄ¶¯×÷
+ * \brief  æ‰§è¡Œè„šæœ¬å®šä¹‰çš„åŠ¨ä½œ
  *
- * template methodÄ£Ê½,½øĞĞ²ÎÊı¼ì²é£¬²¢¶ÔÓÚ¶ÓÎéÖĞµÄÃ¿Ò»¸ö³ÉÔ±Ö´ĞĞ½Å±¾¶¨ÒåµÄ¶¯×÷
+ * template methodæ¨¡å¼,è¿›è¡Œå‚æ•°æ£€æŸ¥ï¼Œå¹¶å¯¹äºé˜Ÿä¼ä¸­çš„æ¯ä¸€ä¸ªæˆå‘˜æ‰§è¡Œè„šæœ¬å®šä¹‰çš„åŠ¨ä½œ
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */   
 int TeamAction::do_it(SceneUser* user, Vars* vars)
 {
@@ -103,13 +103,13 @@ int TeamAction::do_it(SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ÏµÍ³ÁÄÌì
+ * \brief  ç³»ç»ŸèŠå¤©
  *
- * ÖØÔØÁËdoneº¯Êı,·¢ËÍÏµÍ³ÁÄÌìĞÅÏ¢¸øÌØ¶¨ÓÃ»§
+ * é‡è½½äº†doneå‡½æ•°,å‘é€ç³»ç»ŸèŠå¤©ä¿¡æ¯ç»™ç‰¹å®šç”¨æˆ·
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */     	
 int NotifyAction::done (SceneUser* user, Vars* vars)
 {
@@ -118,17 +118,17 @@ int NotifyAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ÈÎÎñÈÕÖ¾
+ * \brief  ä»»åŠ¡æ—¥å¿—
  *
- * ÖØÔØÁËdoneº¯Êı,Êä³öÈÎÎñÈÕÖ¾µ½LogÖĞ¡£
+ * é‡è½½äº†doneå‡½æ•°,è¾“å‡ºä»»åŠ¡æ—¥å¿—åˆ°Logä¸­ã€‚
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */     	
 int LogAction::done (SceneUser* user, Vars* vars)
 {
-	Zebra::logger->trace("ÈÎÎñÈÕÖ¾: ½ÇÉ«%s, %s", user->name, _info.c_str());
+	Zebra::logger->trace("ä»»åŠ¡æ—¥å¿—: è§’è‰²%s, %s", user->name, _info.c_str());
 	return Action::SUCCESS;
 }
 
@@ -149,13 +149,13 @@ int BulletinAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ÏµÍ³ÁÄÌì
+ * \brief  ç³»ç»ŸèŠå¤©
  *
- * ÖØÔØÁËdoneº¯Êı,·¢ËÍÏµÍ³ÁÄÌìĞÅÏ¢¸øÌØ¶¨ÓÃ»§
+ * é‡è½½äº†doneå‡½æ•°,å‘é€ç³»ç»ŸèŠå¤©ä¿¡æ¯ç»™ç‰¹å®šç”¨æˆ·
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */     	
 int Notify1Action::done (SceneUser* user, Vars* vars)
 {
@@ -164,13 +164,13 @@ int Notify1Action::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ²Ëµ¥
+ * \brief  èœå•
  *
- * ÖØÔØÁËdoneº¯Êı,ÉèÖÃÓÃ»§·ÃÎÊµÄnpcµÄÈÎÎñ²Ëµ¥
+ * é‡è½½äº†doneå‡½æ•°,è®¾ç½®ç”¨æˆ·è®¿é—®çš„npcçš„ä»»åŠ¡èœå•
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */  
    	
 int MenuAction::done (SceneUser* user, Vars* vars)
@@ -180,13 +180,13 @@ int MenuAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ²Ëµ¥
+ * \brief  èœå•
  *
- * ÖØÔØÁËdoneº¯Êı,ÉèÖÃÓÃ»§·ÃÎÊµÄnpcµÄÈÎÎñ²Ëµ¥
+ * é‡è½½äº†doneå‡½æ•°,è®¾ç½®ç”¨æˆ·è®¿é—®çš„npcçš„ä»»åŠ¡èœå•
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */  
    	
 int SubMenuAction::done (SceneUser* user, Vars* vars)
@@ -196,13 +196,13 @@ int SubMenuAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ²Ëµ¥
+ * \brief  èœå•
  *
- * ÖØÔØÁËdoneº¯Êı,ÉèÖÃÓÃ»§·ÃÎÊµÄnpcµÄÈÎÎñ²Ëµ¥
+ * é‡è½½äº†doneå‡½æ•°,è®¾ç½®ç”¨æˆ·è®¿é—®çš„npcçš„ä»»åŠ¡èœå•
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */     	
 int MainMenuAction::done (SceneUser* user, Vars* vars)
 {
@@ -220,13 +220,13 @@ int MainMenuAction::done (SceneUser* user, Vars* vars)
 
 
 /**     
- * \brief  Ë¢ĞÂ±äÁ¿
+ * \brief  åˆ·æ–°å˜é‡
  *
- * ÖØÔØÁËdoneº¯Êı,Ë¢ĞÂÈÎÎñ±äÁ¿Öµ¸ø¸ÃÓÃ»§
+ * é‡è½½äº†doneå‡½æ•°,åˆ·æ–°ä»»åŠ¡å˜é‡å€¼ç»™è¯¥ç”¨æˆ·
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */    
 int RefreshAction::done (SceneUser* user, Vars* vars)
 {
@@ -243,13 +243,13 @@ int RefreshAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Ôö¼Ó¾­Ñé
+ * \brief  å¢åŠ ç»éªŒ
  *
- * ÖØÔØÁËdoneº¯Êı,Ôö¼ÓÓÃ»§µÄ¾­Ñé
+ * é‡è½½äº†doneå‡½æ•°,å¢åŠ ç”¨æˆ·çš„ç»éªŒ
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */    
 int ExpAction::done (SceneUser* user, Vars* vars)
 {
@@ -304,13 +304,13 @@ int Exp1Action::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Ôö¼Ó¼¼ÄÜµÈ¼¶
+ * \brief  å¢åŠ æŠ€èƒ½ç­‰çº§
  *
- * ÖØÔØÁËdoneº¯Êı,Ôö¼ÓÓÃ»§Ä³Ò»¼¼ÄÜµÄµÈ¼¶
+ * é‡è½½äº†doneå‡½æ•°,å¢åŠ ç”¨æˆ·æŸä¸€æŠ€èƒ½çš„ç­‰çº§
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int SkillAction::done (SceneUser* user, Vars* vars)
 {
@@ -319,13 +319,13 @@ int SkillAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ½ûÖ¹¶¯×÷
+ * \brief  ç¦æ­¢åŠ¨ä½œ
  *
- * ÖØÔØÁËdoneº¯Êı,½ûÖ¹ÓÃ»§×öÌØ¶¨µÄ¶¯×÷
+ * é‡è½½äº†doneå‡½æ•°,ç¦æ­¢ç”¨æˆ·åšç‰¹å®šçš„åŠ¨ä½œ
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int DisableAction::done (SceneUser* user, Vars* vars)
 {
@@ -333,20 +333,20 @@ int DisableAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Ìø×ª
+ * \brief  è·³è½¬
  *
- * ÖØÔØÁËdoneº¯Êı,Ê¹ÓÃ»§Ìø×ªµ½ÌØ¶¨µØÍ¼Î»ÖÃ
+ * é‡è½½äº†doneå‡½æ•°,ä½¿ç”¨æˆ·è·³è½¬åˆ°ç‰¹å®šåœ°å›¾ä½ç½®
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int GotoAction::done (SceneUser* user, Vars* vars)
 {
 	
 	if (_name.length()/*strcmp(user->scene->name, _name.c_str())*/)  {
 		
-		//Zebra::logger->debug("»»µØÍ¼£º%s", _name.c_str());
+		//Zebra::logger->debug("æ¢åœ°å›¾ï¼š%s", _name.c_str());
 		std::string tmpStr = "name=" + _name + " pos=" +  _pos;
 		bool bret=false;
 		switch(zMisc::randBetween(1,4))
@@ -377,7 +377,7 @@ int GotoAction::done (SceneUser* user, Vars* vars)
 		// */
 		Gm::gomap(user, tmpStr.c_str());
 	}
-	//Zebra::logger->debug("»»×ø±ê£º%s", _pos.c_str());
+	//Zebra::logger->debug("æ¢åæ ‡ï¼š%s", _pos.c_str());
 	else
 	{
 		std::string tmpStr = _pos;
@@ -404,13 +404,13 @@ int GotoAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Ôö¼ÓÎïÆ·
+ * \brief  å¢åŠ ç‰©å“
  *
- * ÖØÔØÁËdoneº¯Êı,ÔÚÓÃ»§°ü¹üÖĞÔö¼ÓÌØ¶¨ÎïÆ·
+ * é‡è½½äº†doneå‡½æ•°,åœ¨ç”¨æˆ·åŒ…è£¹ä¸­å¢åŠ ç‰¹å®šç‰©å“
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int AddItemAction::done (SceneUser* user, Vars* vars)
 {
@@ -421,13 +421,13 @@ int AddItemAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Ôö¼Ó°ó¶¨ÎïÆ·
+ * \brief  å¢åŠ ç»‘å®šç‰©å“
  *
- * ÖØÔØÁËdoneº¯Êı,ÔÚÓÃ»§°ü¹üÖĞÔö¼ÓÌØ¶¨°ó¶¨ÎïÆ·
+ * é‡è½½äº†doneå‡½æ•°,åœ¨ç”¨æˆ·åŒ…è£¹ä¸­å¢åŠ ç‰¹å®šç»‘å®šç‰©å“
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int AddBindItemAction::done (SceneUser* user, Vars* vars)
 {
@@ -438,13 +438,13 @@ int AddBindItemAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Ôö¼ÓÂÌÉ«°ó¶¨ÎïÆ·
+ * \brief  å¢åŠ ç»¿è‰²ç»‘å®šç‰©å“
  *
- * ÖØÔØÁËdoneº¯Êı,ÔÚÓÃ»§°ü¹üÖĞÔö¼ÓÌØ¶¨ÂÌÉ«°ó¶¨ÎïÆ·
+ * é‡è½½äº†doneå‡½æ•°,åœ¨ç”¨æˆ·åŒ…è£¹ä¸­å¢åŠ ç‰¹å®šç»¿è‰²ç»‘å®šç‰©å“
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int AddGreenBindItemAction::done (SceneUser* user, Vars* vars)
 {
@@ -455,13 +455,13 @@ int AddGreenBindItemAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  É¾³ıÎïÆ·
+ * \brief  åˆ é™¤ç‰©å“
  *
- * ÖØÔØÁËdoneº¯Êı,ÔÚÓÃ»§°ü¹üÖĞÉ¾³ıÌØ¶¨ÎïÆ·
+ * é‡è½½äº†doneå‡½æ•°,åœ¨ç”¨æˆ·åŒ…è£¹ä¸­åˆ é™¤ç‰¹å®šç‰©å“
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int RemoveItemAction::done (SceneUser* user, Vars* vars)
 {
@@ -470,13 +470,13 @@ int RemoveItemAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ¶ªÆúÎïÆ·
+ * \brief  ä¸¢å¼ƒç‰©å“
  *
- * ÖØÔØÁËdoneº¯Êı,´ÓÓÃ»§°ü¹üÖĞ¶ªÆúÌØ¶¨ÎïÆ·
+ * é‡è½½äº†doneå‡½æ•°,ä»ç”¨æˆ·åŒ…è£¹ä¸­ä¸¢å¼ƒç‰¹å®šç‰©å“
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int DropItemAction::done (SceneUser* user, Vars* vars)
 {
@@ -487,11 +487,11 @@ int DropItemAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief Î´ÊµÏÖ
+ * \brief æœªå®ç°
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int DropAction::done (SceneUser* user, Vars* vars)
 {
@@ -503,13 +503,13 @@ int DropAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ÏÂÂí
+ * \brief  ä¸‹é©¬
  *
- * ÖØÔØÁËdoneº¯Êı,Èç¹ûÓÃ»§ÔÚÂíÉÏÔòÊ¹ÓÃ»§ÏÂÂí
+ * é‡è½½äº†doneå‡½æ•°,å¦‚æœç”¨æˆ·åœ¨é©¬ä¸Šåˆ™ä½¿ç”¨æˆ·ä¸‹é©¬
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int RideDownAction::done (SceneUser* user, Vars* vars)
 {
@@ -527,13 +527,13 @@ int RideDownAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ¶¨Ê±Æ÷
+ * \brief  å®šæ—¶å™¨
  *
- * ÖØÔØÁËdoneº¯Êı,Ôö¼ÓÓÃ»§Íê³É¸ÃÈÎÎñµÄÊ±¼äÏŞÖÆ
+ * é‡è½½äº†doneå‡½æ•°,å¢åŠ ç”¨æˆ·å®Œæˆè¯¥ä»»åŠ¡çš„æ—¶é—´é™åˆ¶
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int TimeoutsAction::done (SceneUser* user, Vars* vars)
 {
@@ -551,13 +551,13 @@ int TimeoutsAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Éè¶¨×´Ì¬
+ * \brief  è®¾å®šçŠ¶æ€
  *
- * ÖØÔØÁËdoneº¯Êı,Éè¶¨ÓÃ»§µÄ×´Ì¬
+ * é‡è½½äº†doneå‡½æ•°,è®¾å®šç”¨æˆ·çš„çŠ¶æ€
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int SetStateAction::done (SceneUser* user, Vars* vars)
 {
@@ -566,13 +566,13 @@ int SetStateAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Çå³ı×´Ì¬
+ * \brief  æ¸…é™¤çŠ¶æ€
  *
- * ÖØÔØÁËdoneº¯Êı,Çå³ıÓÃ»§µÄ×´Ì¬
+ * é‡è½½äº†doneå‡½æ•°,æ¸…é™¤ç”¨æˆ·çš„çŠ¶æ€
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int ClearStateAction::done (SceneUser* user, Vars* vars)
 {
@@ -581,13 +581,13 @@ int ClearStateAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ÂíÆ¥
+ * \brief  é©¬åŒ¹
  *
- * ÖØÔØÁËdoneº¯Êı,¸øÓèÓÃ»§ÂíÆ¥
+ * é‡è½½äº†doneå‡½æ•°,ç»™äºˆç”¨æˆ·é©¬åŒ¹
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int HorseAction::done (SceneUser* user, Vars* vars)
 {
@@ -597,13 +597,13 @@ int HorseAction::done (SceneUser* user, Vars* vars)
 
 
 /**     
- * \brief  Ìí¼ÓNPC
+ * \brief  æ·»åŠ NPC
  *
- * ÖØÔØÁËdoneº¯Êı,ÔÚµØÍ¼ÉÏÔö¼ÓÒ»¸öNPC
+ * é‡è½½äº†doneå‡½æ•°,åœ¨åœ°å›¾ä¸Šå¢åŠ ä¸€ä¸ªNPC
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int AddNpcAction::done (SceneUser* user, Vars* vars)
 {
@@ -629,19 +629,19 @@ int AddNpcAction::done (SceneUser* user, Vars* vars)
 
 	_s->summonNpc(define, define.pos, base);
 
-	//Zebra::logger->debug("Ôö¼Ónpc³É¹¦");	
+	//Zebra::logger->debug("å¢åŠ npcæˆåŠŸ");	
 	
 	return Action::SUCCESS;
 }
 
 /**     
- * \brief  É¾³ıNPC
+ * \brief  åˆ é™¤NPC
  *
- * ÖØÔØÁËdoneº¯Êı,ÔÚµØÍ¼ÉÏÖ¸¶¨·¶Î§É¾³ıÒ»¸öNPC
+ * é‡è½½äº†doneå‡½æ•°,åœ¨åœ°å›¾ä¸ŠæŒ‡å®šèŒƒå›´åˆ é™¤ä¸€ä¸ªNPC
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int RemoveNpcAction::done (SceneUser* user, Vars* vars)
 {	
@@ -651,13 +651,13 @@ int RemoveNpcAction::done (SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  Ìí¼ÓïÚ³µ
+ * \brief  æ·»åŠ é•–è½¦
  *
- * ÖØÔØÁËdoneº¯Êı,ÔÚµØÍ¼ÉÏÌí¼ÓÒ»Á¾ïÚ³µ
+ * é‡è½½äº†doneå‡½æ•°,åœ¨åœ°å›¾ä¸Šæ·»åŠ ä¸€è¾†é•–è½¦
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int AddGuardAction::done(SceneUser* user, Vars* vars)
 {
@@ -669,20 +669,20 @@ int AddGuardAction::done(SceneUser* user, Vars* vars)
 	else if (_id2 && (o>_odds1*100/(_odds1+_odds2+_odds3)))
 	{
 		i=_id2;
-		Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "¹§Ï²£¡Äã½Óµ½ÁËÒ»Á¾ÎŞµĞïÚ³µ£¡");
+		Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "æ­å–œï¼ä½ æ¥åˆ°äº†ä¸€è¾†æ— æ•Œé•–è½¦ï¼");
 	}
 
 	zNpcB *base = npcbm.get(i);
 	if (!base) return  Action::FAILED;
 
 	if (user->guard) {
-		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "Äã»¹ÔÚ»¤ïÚÖĞ!");
+		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ä½ è¿˜åœ¨æŠ¤é•–ä¸­!");
 		return  Action::FAILED;
 	}
 
 	t_NpcDefine define;
 	define.id = base->id;
-	//snprintf(define.name, MAX_NAMESIZE, "%sµÄ%s", user->name, base->name );
+	//snprintf(define.name, MAX_NAMESIZE, "%sçš„%s", user->name, base->name );
 	strcpy(define.name, base->name);
 	define.pos = _ltpos;
 	define.width = _rbpos.x - _ltpos.x;
@@ -703,7 +703,7 @@ int AddGuardAction::done(SceneUser* user, Vars* vars)
 	GuardNpc* npc = user->scene->summonOneNpc<GuardNpc>(define, define.pos, base);
 	if (!npc)
 	{
-		Zebra::logger->error("ÕÙ»½ %s Ê§°Ü", define.name);
+		Zebra::logger->error("å¬å”¤ %s å¤±è´¥", define.name);
 		return Action::FAILED;
 	}
 	npc->setMaster(user);
@@ -716,7 +716,7 @@ int AddGuardAction::done(SceneUser* user, Vars* vars)
 	/*
 	GuardNpc* npc = user->scene->summonPet(user, Cmd::PET_TYPE_GUARDNPC, define, define.pos, base);
 	if (!npc) {
-		Zebra::logger->error("ÕÙ»½ %s Ê§°Ü", define.name);
+		Zebra::logger->error("å¬å”¤ %s å¤±è´¥", define.name);
 		return Action::FAILED;
 	}
 	npc->setMaster(user);
@@ -725,14 +725,14 @@ int AddGuardAction::done(SceneUser* user, Vars* vars)
 	//set owner
 	*/
 	npc->gold(_gold);
-	if (user->venterSeptGuard.size())//¼Ò×åÔËïÚ
+	if (user->venterSeptGuard.size())//å®¶æ—è¿é•–
 	{
 		DWORD m=0;
 		for (unsigned int i=0; i<user->venterSeptGuard.size(); i++)
 			m += user->venterSeptGuard[i].money;
 		npc->gold(m);
 		npc->isSeptGuard = true;
-		Zebra::logger->debug("%s(%u) Ôö¼Ó¼Ò×åïÚ³µ gold=%u", user->name, user->id, m);
+		Zebra::logger->debug("%s(%u) å¢åŠ å®¶æ—é•–è½¦ gold=%u", user->name, user->id, m);
 	}
 	npc->owner(user);
 	npc->dest(_dest);
@@ -744,13 +744,13 @@ int AddGuardAction::done(SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief  ÉèÖÃÎåĞĞÀàĞÍ
+ * \brief  è®¾ç½®äº”è¡Œç±»å‹
  *
- * ÖØÔØÁËdoneº¯Êı,ÉèÖÃÓÃ»§ÎåĞĞÀàĞÍ
+ * é‡è½½äº†doneå‡½æ•°,è®¾ç½®ç”¨æˆ·äº”è¡Œç±»å‹
  *      
- * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+ * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
  */
 int FiveTypeAction::done (SceneUser* user, Vars* vars)
 {

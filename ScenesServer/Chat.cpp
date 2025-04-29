@@ -1,4 +1,4 @@
-#include <stdarg.h>
+ï»¿#include <stdarg.h>
 #include <fstream>
 #include <sstream>
 #include "SceneManager.h"
@@ -26,145 +26,145 @@ extern unsigned int is_cancel_country;
 
 
 /**
- * \brief GMÖ¸ÁîÊı×é
+ * \brief GMæŒ‡ä»¤æ•°ç»„
  *
  */
 Gm GmCmds[]=
 {
-	//ÆÕÍ¨GMÓÃ
-	{"help",Gm::help,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÏÔÊ¾Ö¸Áî°ïÖú"},
-	{"levelup",Gm::levelup,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Éı¼¶"},
-	{"goto",Gm::goTo_Gm,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Ìø×ªÎ»ÖÃ"},
-	{"gomap",Gm::gomap_Gm,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Ìø×ªµØÍ¼"},
-	{"finduser",Gm::finduser,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Ñ°ÕÒÍæ¼Ò"},
-	{"gotouser",Gm::gotouser,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"¸ú×ÙÍæ¼Ò"},
-	{"catchuser",Gm::catchuser,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÕÙ»½Íæ¼Ò"},
-	{"bczone",Gm::bczone,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"·¢ËÍÇøÓò¹ã²¥"},
-	{"bcworld",Gm::bcworld,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"·¢ËÍÊÀ½ç¹ã²¥"},
-	{"bcwgamemsg",Gm::bcwgamemsg,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"·¢ËÍÓÎÏ·ĞÔÊÀ½ç¹ã²¥"},
-	{"kick",Gm::kick,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÌßµôÍæ¼Ò"},
-	{"donttalk",Gm::donttalk,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"½ûÑÔ"},
-	{"talk",Gm::talk,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"½â³ı½ûÑÔ"},
-	{"gohome",Gm::goHome,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"»Øµ½Ö÷³Ç"},
-	{"hideme",Gm::hideMe,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Òş²Ø×Ô¼º"},
-	{"showme",Gm::showMe,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"»Ö¸´¿É¼û×´Ì¬"},
-	{"god",Gm::god,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÎŞµĞÄ£Ê½"},
-	{"normal",Gm::normal,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"»Ö¸´ÆÕÍ¨Ä£Ê½"},
-	{"clearseptunion",Gm::clearSeptUnion,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Çå³ıÀÏ°æ°ï»áºÍ¼Ò×åÊı¾İ"},
-	{"clearpoint",Gm::clearPoint,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Çå³ıÈËÎïÊôĞÔµã"},
-	{"clearskillpoint",Gm::clearSkillPoint,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Çå³ı¼¼ÄÜµã"},
-	{"studyskill",Gm::studySkill, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Ñ§Ï°ĞÂ¼¼ÄÜ"},
-	{"settire",Gm::setTire, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÉèÖÃÆ£ÀÍÊ±¼ä"},
-	{"checkcountryinfo",Gm::checkCountryInfo, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"¼ì²é¹ú¼ÒĞÅÏ¢"},
-	{"loadprocess",Gm::loadProcess, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÖØĞÂ¼ÓÔØÍâ¹ÒÌØÕ÷ÂëÎÄ¼ş"},
-	{"cleararea",Gm::clearArea, Gm::gm_mode | Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÇıÉ¢ÖÜÎ§Íæ¼Ò"},
-	{"embar",Gm::embar, Gm::gm_mode | Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"Çô½ûÖ¸¶¨µÄÍæ¼Ò"},
-	{"refreshgeneral",Gm::refreshGeneral, Gm::gm_mode | Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ÊÖ¶¯Ë¢ĞÂ¸÷¹ú´ó½«¾ü"},
+	//æ™®é€šGMç”¨
+	{"help",Gm::help,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ˜¾ç¤ºæŒ‡ä»¤å¸®åŠ©"},
+	{"levelup",Gm::levelup,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å‡çº§"},
+	{"goto",Gm::goTo_Gm,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"è·³è½¬ä½ç½®"},
+	{"gomap",Gm::gomap_Gm,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"è·³è½¬åœ°å›¾"},
+	{"finduser",Gm::finduser,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å¯»æ‰¾ç©å®¶"},
+	{"gotouser",Gm::gotouser,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"è·Ÿè¸ªç©å®¶"},
+	{"catchuser",Gm::catchuser,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å¬å”¤ç©å®¶"},
+	{"bczone",Gm::bczone,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å‘é€åŒºåŸŸå¹¿æ’­"},
+	{"bcworld",Gm::bcworld,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å‘é€ä¸–ç•Œå¹¿æ’­"},
+	{"bcwgamemsg",Gm::bcwgamemsg,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å‘é€æ¸¸æˆæ€§ä¸–ç•Œå¹¿æ’­"},
+	{"kick",Gm::kick,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"è¸¢æ‰ç©å®¶"},
+	{"donttalk",Gm::donttalk,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"ç¦è¨€"},
+	{"talk",Gm::talk,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"è§£é™¤ç¦è¨€"},
+	{"gohome",Gm::goHome,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å›åˆ°ä¸»åŸ"},
+	{"hideme",Gm::hideMe,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"éšè—è‡ªå·±"},
+	{"showme",Gm::showMe,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ¢å¤å¯è§çŠ¶æ€"},
+	{"god",Gm::god,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ— æ•Œæ¨¡å¼"},
+	{"normal",Gm::normal,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ¢å¤æ™®é€šæ¨¡å¼"},
+	{"clearseptunion",Gm::clearSeptUnion,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ¸…é™¤è€ç‰ˆå¸®ä¼šå’Œå®¶æ—æ•°æ®"},
+	{"clearpoint",Gm::clearPoint,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ¸…é™¤äººç‰©å±æ€§ç‚¹"},
+	{"clearskillpoint",Gm::clearSkillPoint,Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ¸…é™¤æŠ€èƒ½ç‚¹"},
+	{"studyskill",Gm::studySkill, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å­¦ä¹ æ–°æŠ€èƒ½"},
+	{"settire",Gm::setTire, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"è®¾ç½®ç–²åŠ³æ—¶é—´"},
+	{"checkcountryinfo",Gm::checkCountryInfo, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ£€æŸ¥å›½å®¶ä¿¡æ¯"},
+	{"loadprocess",Gm::loadProcess, Gm::gm_mode |Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"é‡æ–°åŠ è½½å¤–æŒ‚ç‰¹å¾ç æ–‡ä»¶"},
+	{"cleararea",Gm::clearArea, Gm::gm_mode | Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"é©±æ•£å‘¨å›´ç©å®¶"},
+	{"embar",Gm::embar, Gm::gm_mode | Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å›šç¦æŒ‡å®šçš„ç©å®¶"},
+	{"refreshgeneral",Gm::refreshGeneral, Gm::gm_mode | Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"æ‰‹åŠ¨åˆ·æ–°å„å›½å¤§å°†å†›"},
 
-	//×é³¤ÓÃ
-	{"closenpc",Gm::closenpc, Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"¹Ø±Õ¹¦ÄÜNPC"},
-	{"countrypower",Gm::countrypower, Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"´¦Àí¹ú¼ÒÇ¿Èõ"},
-	{"summon",Gm::summon,Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"GMÕÙ»½Npc"},
-	{"usleep", Gm::usleep, Gm::super_mode | Gm::debug_mode, "Ïß³ÌusleepµÄºÁÃëÊı"},
-	{"createrush", Gm::createRush, Gm::debug_mode, "Òı·¢Ò»´Î¹ÖÎï¹¥³Ç"},
+	//ç»„é•¿ç”¨
+	{"closenpc",Gm::closenpc, Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å…³é—­åŠŸèƒ½NPC"},
+	{"countrypower",Gm::countrypower, Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"å¤„ç†å›½å®¶å¼ºå¼±"},
+	{"summon",Gm::summon,Gm::captain_mode | Gm::super_mode | Gm::debug_mode,"GMå¬å”¤Npc"},
+	{"usleep", Gm::usleep, Gm::super_mode | Gm::debug_mode, "çº¿ç¨‹usleepçš„æ¯«ç§’æ•°"},
+	{"createrush", Gm::createRush, Gm::debug_mode, "å¼•å‘ä¸€æ¬¡æ€ªç‰©æ”»åŸ"},
 
-	//³¬¼¶GMÓÃ
-	{"kickgateuser",Gm::kickGateUser, Gm::super_mode | Gm::debug_mode,"ÌßµôÍø¹ØÉÏµÄÍæ¼Ò"},
-	{"loadgift",Gm::loadGift, Gm::super_mode | Gm::debug_mode,"ÖØĞÂ¼ÓÔØÀñ¹ÙµÄÊı¾İ"},
-	{"enableregister",Gm::enableRegister, Gm::super_mode | Gm::debug_mode,"ÔÊĞí×¢²á"},
-	{"enablelogin",Gm::enableLogin, Gm::super_mode | Gm::debug_mode,"ÔÊĞíµÇÂ½"},
-	{"setservice",Gm::setService, Gm::super_mode | Gm::debug_mode,"ÉèÖÃÓÎÏ·¹¦ÄÜ"},
-	{"decitydare", Gm::debugCityDare, Gm::super_mode | Gm::debug_mode, "Æô¶¯ºÍÍ£Ö¹°ï»á¶á³ÇÕ½"},
-	{"deempdare", Gm::debugEmperorDare, Gm::super_mode | Gm::debug_mode, "Æô¶¯ºÍÍ£Ö¹»Ê³ÇÕù¶áÕ½"},
-	{"createquiz", Gm::createQuiz, Gm::super_mode | Gm::debug_mode, "·¢ÆğÒ»´ÎÈ«ÇøÖÇÁ¦¾ºÈü"},
-	{"setpriv",Gm::setPriv,Gm::super_mode | Gm::debug_mode,"ÉèÖÃ½ÇÉ«È¨ÏŞ"},
-	{"newzone",Gm::newzone,Gm::super_mode | Gm::debug_mode,"ÉèÖÃÔËĞĞ²ÎÊı"},
-	{"stockconsign", Gm::stockconsign, Gm::super_mode | Gm::debug_mode, "¹ÉÆ±Î¯ÍĞ¹ÜÀí"},
-	{"killer",Gm::killer, Gm::super_mode | Gm::debug_mode,"±ØÉ±Ä£Ê½"},
-	{"tong", Gm::tong, Gm::super_mode |Gm::debug_mode, "¼¤»î°ï»áÕ½-Ê¹ÓÃ·½·¨://tong t1=XXX t2=XXX"},
-	{"clearworld", Gm::clearWorld, Gm::super_mode |Gm::debug_mode, "Çå³ı·¶Î§ÄÚµÄ¹ÖÎï"},
-	{"showspecialnpc",Gm::showSpecialNpc, Gm::debug_mode,"²é¿´µ±Ç°µÄÌØÊâNPC"},
-	{"qaccount", Gm::qAccount, Gm::super_mode | Gm::debug_mode, "²éÑ¯ÕÊºÅ"},
-	{"userdistribute", Gm::countServerUser, Gm::super_mode | Gm::debug_mode, "µÃµ½±¾×é·şÎñÆ÷µÄÈËÊı·Ö²¼"},
-	{"shutdown", Gm::shutdown, Gm::super_mode | Gm::debug_mode, "Í£»úÎ¬»¤"},
-	{"systime", Gm::systime, Gm::super_mode | Gm::debug_mode, "µÃµ½ÏµÍ³µ±Ç°Ê±¼ä"},
-	{"goldsystem", Gm::goldsystem, Gm::super_mode | Gm::debug_mode, "½ğ±ÒÏµÍ³"},
-	{"stocksystem", Gm::stocksystem, Gm::super_mode | Gm::debug_mode, "¹ÉÆ±ÏµÍ³"},
+	//è¶…çº§GMç”¨
+	{"kickgateuser",Gm::kickGateUser, Gm::super_mode | Gm::debug_mode,"è¸¢æ‰ç½‘å…³ä¸Šçš„ç©å®¶"},
+	{"loadgift",Gm::loadGift, Gm::super_mode | Gm::debug_mode,"é‡æ–°åŠ è½½ç¤¼å®˜çš„æ•°æ®"},
+	{"enableregister",Gm::enableRegister, Gm::super_mode | Gm::debug_mode,"å…è®¸æ³¨å†Œ"},
+	{"enablelogin",Gm::enableLogin, Gm::super_mode | Gm::debug_mode,"å…è®¸ç™»é™†"},
+	{"setservice",Gm::setService, Gm::super_mode | Gm::debug_mode,"è®¾ç½®æ¸¸æˆåŠŸèƒ½"},
+	{"decitydare", Gm::debugCityDare, Gm::super_mode | Gm::debug_mode, "å¯åŠ¨å’Œåœæ­¢å¸®ä¼šå¤ºåŸæˆ˜"},
+	{"deempdare", Gm::debugEmperorDare, Gm::super_mode | Gm::debug_mode, "å¯åŠ¨å’Œåœæ­¢çš‡åŸäº‰å¤ºæˆ˜"},
+	{"createquiz", Gm::createQuiz, Gm::super_mode | Gm::debug_mode, "å‘èµ·ä¸€æ¬¡å…¨åŒºæ™ºåŠ›ç«èµ›"},
+	{"setpriv",Gm::setPriv,Gm::super_mode | Gm::debug_mode,"è®¾ç½®è§’è‰²æƒé™"},
+	{"newzone",Gm::newzone,Gm::super_mode | Gm::debug_mode,"è®¾ç½®è¿è¡Œå‚æ•°"},
+	{"stockconsign", Gm::stockconsign, Gm::super_mode | Gm::debug_mode, "è‚¡ç¥¨å§”æ‰˜ç®¡ç†"},
+	{"killer",Gm::killer, Gm::super_mode | Gm::debug_mode,"å¿…æ€æ¨¡å¼"},
+	{"tong", Gm::tong, Gm::super_mode |Gm::debug_mode, "æ¿€æ´»å¸®ä¼šæˆ˜-ä½¿ç”¨æ–¹æ³•://tong t1=XXX t2=XXX"},
+	{"clearworld", Gm::clearWorld, Gm::super_mode |Gm::debug_mode, "æ¸…é™¤èŒƒå›´å†…çš„æ€ªç‰©"},
+	{"showspecialnpc",Gm::showSpecialNpc, Gm::debug_mode,"æŸ¥çœ‹å½“å‰çš„ç‰¹æ®ŠNPC"},
+	{"qaccount", Gm::qAccount, Gm::super_mode | Gm::debug_mode, "æŸ¥è¯¢å¸å·"},
+	{"userdistribute", Gm::countServerUser, Gm::super_mode | Gm::debug_mode, "å¾—åˆ°æœ¬ç»„æœåŠ¡å™¨çš„äººæ•°åˆ†å¸ƒ"},
+	{"shutdown", Gm::shutdown, Gm::super_mode | Gm::debug_mode, "åœæœºç»´æŠ¤"},
+	{"systime", Gm::systime, Gm::super_mode | Gm::debug_mode, "å¾—åˆ°ç³»ç»Ÿå½“å‰æ—¶é—´"},
+	{"goldsystem", Gm::goldsystem, Gm::super_mode | Gm::debug_mode, "é‡‘å¸ç³»ç»Ÿ"},
+	{"stocksystem", Gm::stocksystem, Gm::super_mode | Gm::debug_mode, "è‚¡ç¥¨ç³»ç»Ÿ"},
 
 
-	//µ÷ÊÔÓÃ
-	{"viewcountrydare",Gm::viewCountryDare,Gm::debug_mode,"²é¿´¹úÕ½¼ÇÂ¼"},
-	{"givegold", Gm::givegold, Gm::debug_mode, "½ğ±Ò²¹³¥"},
-	{"givemoney", Gm::givemoney, Gm::debug_mode, "Òø±Ò²¹³¥"},
-	{"givestock", Gm::givestock, Gm::debug_mode, "¹ÉÆ±²¹³¥"},
-	{"version",Gm::version, Gm::debug_mode,"¶¯Ì¬ÉèÖÃ·şÎñÆ÷°æ±¾ºÅ"},
-	{"createunion", Gm::createUnion, Gm::debug_mode, "´´½¨Ò»¸ö°ï»á"},
-	{"createfamily", Gm::createFamily, Gm::debug_mode, "´´½¨Ò»¸ö¼Ò×å"},
-	{"debugvote", Gm::debugVote, Gm::debug_mode, "Æô¶¯ºÍÍ£Ö¹Í¶Æ±"},
-	{"debuggem", Gm::debugGem, Gm::debug_mode, "Æô¶¯ºÍÍ£Ö¹»¤±¦ÈÎÎñ"},
-	{"addsepexp", Gm::addSeptExp, Gm::debug_mode, "ÁìÈ¡¼Ò×å¾­Ñé"},
-	{"setrepute", Gm::setRepute, Gm::debug_mode, "ÉèÖÃ¼Ò×åÉùÍû"},
-	{"setseptlevel", Gm::setSeptLevel, Gm::debug_mode, "ÉèÖÃ¼Ò×åµÈ¼¶"},
-	{"setallyfd", Gm::setAllyFriendDegree, Gm::debug_mode, "ÉèÖÃÁªÃËÓÑºÃ¶È"},
-	{"changecountry", Gm::changeCountry, Gm::debug_mode, "¿ªÆôºÍÍ£Ö¹ÅÑ¹ú¹¦ÄÜ"},
-	{"loadmap",Gm::loadMap, Gm::debug_mode,"¼ÓÔØµØÍ¼"},
-	{"unloadmap",Gm::unloadMap, Gm::debug_mode,"Ğ¶ÔØµØÍ¼"},
-	{"callpet",Gm::callPet, Gm::debug_mode,"ÕÙ»½³èÎï"},
-	{"lockvalue",Gm::lockValue, Gm::debug_mode,"Ëø¶¨ÏûºÄ"},
-	{"svote",Gm::svote,Gm::debug_mode,"¼Ò×åÍ¶Æ±-Ê¹ÓÃ·½·¨://svote name=XXX"},
-	{"uvote",Gm::uvote,Gm::debug_mode,"°ï»áÍ¶Æ±-Ê¹ÓÃ·½·¨://uvote name=XXX"},       
-	{"createschool", Gm::createSchool, Gm::debug_mode, "´´½¨Ò»¸öÃÅÅÉ"},
-	{"fetch",Gm::fetch, Gm::debug_mode,"GMÔìÎïÆ·"},
-	{"showentries", Gm::showEntries, Gm::debug_mode, "²é¿´ÖÜÎ§µÄnpcºÍÍæ¼Ò"},
-	{"getsize", Gm::getsize, Gm::debug_mode, "²é¿´½ÇÉ«ËùÕ¼¿Õ¼ä"},
-	{"setpetai", Gm::setPetAI, Gm::debug_mode, "ÉèÖÃ³èÎïĞĞÎªÄ£Ê½"},
-	{"setpetaif", Gm::setPetAIF, Gm::debug_mode, "ÉèÖÃ³èÎïAIF"},
-	{"bank", Gm::bank, Gm::debug_mode, "ÉèÖÃ²Ö¿âÏà¹Ø"},
-	{"backoff",Gm::backoff, Gm::debug_mode,"GMÔìÎïÆ·"},
-	{"upskill",Gm::upgradeSkill, Gm::debug_mode,"Ñ§Ï°Ä§·¨"},
-	{"abandon",Gm::abandon, Gm::debug_mode,"Çå³ıÈÎÎñ"},
-	{"showmaps",Gm::showMaps, Gm::debug_mode,"²é¿´ÒÑ¾­¼ÓÔØµÄµØÍ¼"},
-	{"showpets",Gm::showPets, Gm::debug_mode,"²é¿´µ±Ç°µÄ³èÎï"},
-	{"killpets",Gm::killPets, Gm::debug_mode,"²é¿´µ±Ç°µÄ³èÎï"},
-	{"leechdom",Gm::leechdom, Gm::debug_mode,"Ê¹ÓÃÒ©Æ·"},
-	{"value",Gm::value, Gm::debug_mode,"ÉèÖÃhp,mp,sp"},
-	{"goodness",Gm::goodness, Gm::debug_mode,"È¡µÃµ±Ç°ÉÆ¶ñ¶È"},
-	{"getvalue",Gm::getvalue, Gm::debug_mode,"È¡µÃÄ³¸öÊıÖµ,·½±ãQA²âÊÔ,Ä¿Ç°Ö»ÓĞ÷ÈÁ¦"},
-	{"setvalue",Gm::setvalue, Gm::debug_mode,"ÉèÖÃÄ³¸öÊıÖµ,·½±ãQA²âÊÔ"},
-	{"skill",Gm::skill, Gm::debug_mode,"¼¼ÄÜ²âÊÔÖ¸Áî"},
-	{"addexp", Gm::addExp, Gm::debug_mode, "Ôö¼Ó¾­ÑéÖµ"},
-	{"setquest", Gm::setQuest, Gm::debug_mode, "¸ü¸ÄÈÎÎñ±äÁ¿"},
-	{"checkquest", Gm::checkQuest, Gm::debug_mode, "¼ì²é¿ÉÒÔ½ÓµÄÈÎÎñ"},
-	{"setblock", Gm::setBlock, Gm::debug_mode, "ÉèÖÃ×èµ²"},
-	{"checkblock", Gm::checkBlock, Gm::debug_mode, "ÉèÖÃ×èµ²"},
-	{"npcdare", Gm::npcDare, Gm::debug_mode, "Á¢¼´´¥·¢NPCÕù¶áÕ½"},
-	{"team", Gm::team, Gm::debug_mode, "×é¶Ó"},
-	{"throwobject", Gm::throwobject, Gm::debug_mode, "ÈÓ¶«Î÷"},
-	{"querypoint", Gm::querypoint, Gm::debug_mode, "²éÑ¯µãÊı"},
-	{"redeemgold", Gm::redeemgold, Gm::debug_mode, "¶Ò»»½ğ±Ò"},
-	{"querygold", Gm::querygold, Gm::debug_mode, "¶Ò»»½ğ±Ò"},
-	{"redeemmonthcard", Gm::redeemmonthcard, Gm::debug_mode, "¶Ò»»ÔÂ¿¨"},
-	{"stockuser", Gm::stockuser, Gm::debug_mode, "¹ÉÆ±ÓÃ»§¹ÜÀí"},
-	{"stocktransfer", Gm::stocktransfer, Gm::debug_mode, "¹ÉÆ±×Ê½ğ¹ÜÀí"},
-	{"clearcolddown", Gm::clearColddown, Gm::debug_mode, "Çå³ıÀäÈ´Ê±¼ä"},
-	{"queryincmap", Gm::queryincmap, Gm::debug_mode, "ÇëÇóÔöÖµµØÍ¼ÁĞ±í"},
-	{"showaddexp", Gm::showAddExp, Gm::debug_mode, "ÏÔÊ¾ÌæÉí ³èÎï¸½¼ÓµÄ¾­Ñé"},
-	{"changehorse", Gm::changeHorse, Gm::debug_mode, "»»Âí"},
-	{"contribute", Gm::contribute, Gm::debug_mode, "¾èÏ×¹ú¿â"},
-	{"clearskill", Gm::clearSkill, Gm::debug_mode, "Çå³ıÖ¸¶¨¼¼ÄÜ"},
-	{"getgive", Gm::getgive, Gm::debug_mode, "»ñÈ¡ÔùÆ·"},
+	//è°ƒè¯•ç”¨
+	{"viewcountrydare",Gm::viewCountryDare,Gm::debug_mode,"æŸ¥çœ‹å›½æˆ˜è®°å½•"},
+	{"givegold", Gm::givegold, Gm::debug_mode, "é‡‘å¸è¡¥å¿"},
+	{"givemoney", Gm::givemoney, Gm::debug_mode, "é“¶å¸è¡¥å¿"},
+	{"givestock", Gm::givestock, Gm::debug_mode, "è‚¡ç¥¨è¡¥å¿"},
+	{"version",Gm::version, Gm::debug_mode,"åŠ¨æ€è®¾ç½®æœåŠ¡å™¨ç‰ˆæœ¬å·"},
+	{"createunion", Gm::createUnion, Gm::debug_mode, "åˆ›å»ºä¸€ä¸ªå¸®ä¼š"},
+	{"createfamily", Gm::createFamily, Gm::debug_mode, "åˆ›å»ºä¸€ä¸ªå®¶æ—"},
+	{"debugvote", Gm::debugVote, Gm::debug_mode, "å¯åŠ¨å’Œåœæ­¢æŠ•ç¥¨"},
+	{"debuggem", Gm::debugGem, Gm::debug_mode, "å¯åŠ¨å’Œåœæ­¢æŠ¤å®ä»»åŠ¡"},
+	{"addsepexp", Gm::addSeptExp, Gm::debug_mode, "é¢†å–å®¶æ—ç»éªŒ"},
+	{"setrepute", Gm::setRepute, Gm::debug_mode, "è®¾ç½®å®¶æ—å£°æœ›"},
+	{"setseptlevel", Gm::setSeptLevel, Gm::debug_mode, "è®¾ç½®å®¶æ—ç­‰çº§"},
+	{"setallyfd", Gm::setAllyFriendDegree, Gm::debug_mode, "è®¾ç½®è”ç›Ÿå‹å¥½åº¦"},
+	{"changecountry", Gm::changeCountry, Gm::debug_mode, "å¼€å¯å’Œåœæ­¢å›å›½åŠŸèƒ½"},
+	{"loadmap",Gm::loadMap, Gm::debug_mode,"åŠ è½½åœ°å›¾"},
+	{"unloadmap",Gm::unloadMap, Gm::debug_mode,"å¸è½½åœ°å›¾"},
+	{"callpet",Gm::callPet, Gm::debug_mode,"å¬å”¤å® ç‰©"},
+	{"lockvalue",Gm::lockValue, Gm::debug_mode,"é”å®šæ¶ˆè€—"},
+	{"svote",Gm::svote,Gm::debug_mode,"å®¶æ—æŠ•ç¥¨-ä½¿ç”¨æ–¹æ³•://svote name=XXX"},
+	{"uvote",Gm::uvote,Gm::debug_mode,"å¸®ä¼šæŠ•ç¥¨-ä½¿ç”¨æ–¹æ³•://uvote name=XXX"},       
+	{"createschool", Gm::createSchool, Gm::debug_mode, "åˆ›å»ºä¸€ä¸ªé—¨æ´¾"},
+	{"fetch",Gm::fetch, Gm::debug_mode,"GMé€ ç‰©å“"},
+	{"showentries", Gm::showEntries, Gm::debug_mode, "æŸ¥çœ‹å‘¨å›´çš„npcå’Œç©å®¶"},
+	{"getsize", Gm::getsize, Gm::debug_mode, "æŸ¥çœ‹è§’è‰²æ‰€å ç©ºé—´"},
+	{"setpetai", Gm::setPetAI, Gm::debug_mode, "è®¾ç½®å® ç‰©è¡Œä¸ºæ¨¡å¼"},
+	{"setpetaif", Gm::setPetAIF, Gm::debug_mode, "è®¾ç½®å® ç‰©AIF"},
+	{"bank", Gm::bank, Gm::debug_mode, "è®¾ç½®ä»“åº“ç›¸å…³"},
+	{"backoff",Gm::backoff, Gm::debug_mode,"GMé€ ç‰©å“"},
+	{"upskill",Gm::upgradeSkill, Gm::debug_mode,"å­¦ä¹ é­”æ³•"},
+	{"abandon",Gm::abandon, Gm::debug_mode,"æ¸…é™¤ä»»åŠ¡"},
+	{"showmaps",Gm::showMaps, Gm::debug_mode,"æŸ¥çœ‹å·²ç»åŠ è½½çš„åœ°å›¾"},
+	{"showpets",Gm::showPets, Gm::debug_mode,"æŸ¥çœ‹å½“å‰çš„å® ç‰©"},
+	{"killpets",Gm::killPets, Gm::debug_mode,"æŸ¥çœ‹å½“å‰çš„å® ç‰©"},
+	{"leechdom",Gm::leechdom, Gm::debug_mode,"ä½¿ç”¨è¯å“"},
+	{"value",Gm::value, Gm::debug_mode,"è®¾ç½®hp,mp,sp"},
+	{"goodness",Gm::goodness, Gm::debug_mode,"å–å¾—å½“å‰å–„æ¶åº¦"},
+	{"getvalue",Gm::getvalue, Gm::debug_mode,"å–å¾—æŸä¸ªæ•°å€¼,æ–¹ä¾¿QAæµ‹è¯•,ç›®å‰åªæœ‰é­…åŠ›"},
+	{"setvalue",Gm::setvalue, Gm::debug_mode,"è®¾ç½®æŸä¸ªæ•°å€¼,æ–¹ä¾¿QAæµ‹è¯•"},
+	{"skill",Gm::skill, Gm::debug_mode,"æŠ€èƒ½æµ‹è¯•æŒ‡ä»¤"},
+	{"addexp", Gm::addExp, Gm::debug_mode, "å¢åŠ ç»éªŒå€¼"},
+	{"setquest", Gm::setQuest, Gm::debug_mode, "æ›´æ”¹ä»»åŠ¡å˜é‡"},
+	{"checkquest", Gm::checkQuest, Gm::debug_mode, "æ£€æŸ¥å¯ä»¥æ¥çš„ä»»åŠ¡"},
+	{"setblock", Gm::setBlock, Gm::debug_mode, "è®¾ç½®é˜»æŒ¡"},
+	{"checkblock", Gm::checkBlock, Gm::debug_mode, "è®¾ç½®é˜»æŒ¡"},
+	{"npcdare", Gm::npcDare, Gm::debug_mode, "ç«‹å³è§¦å‘NPCäº‰å¤ºæˆ˜"},
+	{"team", Gm::team, Gm::debug_mode, "ç»„é˜Ÿ"},
+	{"throwobject", Gm::throwobject, Gm::debug_mode, "æ‰”ä¸œè¥¿"},
+	{"querypoint", Gm::querypoint, Gm::debug_mode, "æŸ¥è¯¢ç‚¹æ•°"},
+	{"redeemgold", Gm::redeemgold, Gm::debug_mode, "å…‘æ¢é‡‘å¸"},
+	{"querygold", Gm::querygold, Gm::debug_mode, "å…‘æ¢é‡‘å¸"},
+	{"redeemmonthcard", Gm::redeemmonthcard, Gm::debug_mode, "å…‘æ¢æœˆå¡"},
+	{"stockuser", Gm::stockuser, Gm::debug_mode, "è‚¡ç¥¨ç”¨æˆ·ç®¡ç†"},
+	{"stocktransfer", Gm::stocktransfer, Gm::debug_mode, "è‚¡ç¥¨èµ„é‡‘ç®¡ç†"},
+	{"clearcolddown", Gm::clearColddown, Gm::debug_mode, "æ¸…é™¤å†·å´æ—¶é—´"},
+	{"queryincmap", Gm::queryincmap, Gm::debug_mode, "è¯·æ±‚å¢å€¼åœ°å›¾åˆ—è¡¨"},
+	{"showaddexp", Gm::showAddExp, Gm::debug_mode, "æ˜¾ç¤ºæ›¿èº« å® ç‰©é™„åŠ çš„ç»éªŒ"},
+	{"changehorse", Gm::changeHorse, Gm::debug_mode, "æ¢é©¬"},
+	{"contribute", Gm::contribute, Gm::debug_mode, "æçŒ®å›½åº“"},
+	{"clearskill", Gm::clearSkill, Gm::debug_mode, "æ¸…é™¤æŒ‡å®šæŠ€èƒ½"},
+	{"getgive", Gm::getgive, Gm::debug_mode, "è·å–èµ å“"},
 	{NULL,NULL,0,NULL}
 };
 
 /*
- * \brief ÏòÓÃ»§·¢ËÍÏûÏ¢
- * Èç¹ûÓÃ»§²»ÔÚ¸Ã·şÎñÆ÷£¬¾ÍÓÉsession×ª·¢
+ * \brief å‘ç”¨æˆ·å‘é€æ¶ˆæ¯
+ * å¦‚æœç”¨æˆ·ä¸åœ¨è¯¥æœåŠ¡å™¨ï¼Œå°±ç”±sessionè½¬å‘
  *
- * \param id ÓÃ»§µÄID
- * \param cmd ÏûÏ¢
- * \param len ÏûÏ¢³¤¶È
+ * \param id ç”¨æˆ·çš„ID
+ * \param cmd æ¶ˆæ¯
+ * \param len æ¶ˆæ¯é•¿åº¦
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool sendCmdByID(DWORD id, const void *cmd, int len)
 {
@@ -188,14 +188,14 @@ bool sendCmdByID(DWORD id, const void *cmd, int len)
 
 
 /*
- * \brief ÏòÓÃ»§·¢ËÍÏûÏ¢
- * Èç¹ûÓÃ»§²»ÔÚ¸Ã·şÎñÆ÷£¬¾ÍÓÉsession×ª·¢
+ * \brief å‘ç”¨æˆ·å‘é€æ¶ˆæ¯
+ * å¦‚æœç”¨æˆ·ä¸åœ¨è¯¥æœåŠ¡å™¨ï¼Œå°±ç”±sessionè½¬å‘
  *
- * \param id ÓÃ»§µÄÁÙÊ±ID
- * \param cmd ÏûÏ¢
- * \param len ÏûÏ¢³¤¶È
+ * \param id ç”¨æˆ·çš„ä¸´æ—¶ID
+ * \param cmd æ¶ˆæ¯
+ * \param len æ¶ˆæ¯é•¿åº¦
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool sendCmdByTempID(DWORD id, const void *cmd, int len)
 {
@@ -219,14 +219,14 @@ bool sendCmdByTempID(DWORD id, const void *cmd, int len)
 
 
 /*
- * \brief ÏòÓÃ»§·¢ËÍÏûÏ¢
- * Èç¹ûÓÃ»§²»ÔÚ¸Ã·şÎñÆ÷£¬¾ÍÓÉsession×ª·¢
+ * \brief å‘ç”¨æˆ·å‘é€æ¶ˆæ¯
+ * å¦‚æœç”¨æˆ·ä¸åœ¨è¯¥æœåŠ¡å™¨ï¼Œå°±ç”±sessionè½¬å‘
  *
- * \param name ÓÃ»§µÄÃû×Ö 
- * \param cmd ÏûÏ¢
- * \param len ÏûÏ¢³¤¶È
+ * \param name ç”¨æˆ·çš„åå­— 
+ * \param cmd æ¶ˆæ¯
+ * \param len æ¶ˆæ¯é•¿åº¦
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool sendCmdByName(char * name, const void *cmd, int len)
 {
@@ -249,10 +249,10 @@ bool sendCmdByName(char * name, const void *cmd, int len)
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  *
- * \param pUser: ´´½¨¸ÃÆµµÀµÄÓÃ»§
+ * \param pUser: åˆ›å»ºè¯¥é¢‘é“çš„ç”¨æˆ·
  */
 Channel::Channel(SceneUser *pUser):zEntry()
 {
@@ -263,12 +263,12 @@ Channel::Channel(SceneUser *pUser):zEntry()
 }
 
 /**
- * \brief ·¢ËÍ¸ø¸ÃÆµµÀµÄËùÓĞÓÃ»§
+ * \brief å‘é€ç»™è¯¥é¢‘é“çš„æ‰€æœ‰ç”¨æˆ·
  *
  *
- * \param cmd: ÁÄÌìÄÚÈİ
- * \param len:ÄÚÈİ³¤¶È
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param cmd: èŠå¤©å†…å®¹
+ * \param len:å†…å®¹é•¿åº¦
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendCmdToAll(const void *cmd,int len)
 {
@@ -285,18 +285,18 @@ bool Channel::sendCmdToAll(const void *cmd,int len)
 }
 
 /**
- * \brief Àë¿ªÆµµÀ
+ * \brief ç¦»å¼€é¢‘é“
  *
  *
- * \param uname: Àë¿ª¸ÃÆµµÀµÄÓÃ»§
- * \return ¸ÃÆµµÀÊÇ·ñ»¹ÄÜ¼ÌĞø´æÔÚ
+ * \param uname: ç¦»å¼€è¯¥é¢‘é“çš„ç”¨æˆ·
+ * \return è¯¥é¢‘é“æ˜¯å¦è¿˜èƒ½ç»§ç»­å­˜åœ¨
  */
 bool Channel::remove(const char *uname)
 {
 	WORD found=has(uname);
 	if(found!=(WORD)-1)
 	{
-		Zebra::logger->debug("%sÀë¿ª%sµÄÁÄÌìÆµµÀ",uname,creater.name);
+		Zebra::logger->debug("%sç¦»å¼€%sçš„èŠå¤©é¢‘é“",uname,creater.name);
 		Cmd::stLeave_ChannelUserCmd send;
 		send.dwChannelID=tempid;
 		strncpy(send.name,uname,MAX_NAMESIZE);
@@ -315,11 +315,11 @@ bool Channel::remove(const char *uname)
 }
 
 /**
- * \brief ¼ÓÈëÁÄÌìÆµµÀ
+ * \brief åŠ å…¥èŠå¤©é¢‘é“
  *
  *
- * \param pUser: Òª¼ÓÈëµÄÓÃ»§
- * \return ¼ÓÈëÊÇ·ñ³É¹¦
+ * \param pUser: è¦åŠ å…¥çš„ç”¨æˆ·
+ * \return åŠ å…¥æ˜¯å¦æˆåŠŸ
  */
 bool Channel::add(const char *uname)
 {
@@ -329,21 +329,21 @@ bool Channel::add(const char *uname)
 	   WORD found=has(uname);
 	   if(found==(WORD)-1)
 	   {
-	   Zebra::logger->debug("%s¼ÓÈë%sµÄÁÄÌìÆµµÀ", uname,creater.name);
-	//Ìí¼Ó
+	   Zebra::logger->debug("%såŠ å…¥%sçš„èŠå¤©é¢‘é“", uname,creater.name);
+	//æ·»åŠ 
 	zEntryC temp;
 	temp.id=0;
 	temp.tempid=0;
 	strncpy(temp.name, uname, MAX_NAMESIZE);
 	userlist.push_back(temp);
 
-	//°Ñ×Ô¼º·¢ËÍ¸øËùÓĞÈË
+	//æŠŠè‡ªå·±å‘é€ç»™æ‰€æœ‰äºº
 	Cmd::stJoin_ChannelUserCmd send;
 	send.dwChannelID=tempid;
 	strncpy(send.name, uname,MAX_NAMESIZE);
 	sendCmdToAll(&send,sizeof(send));
 
-	//·¢ËÍËùÓĞ³ÉÔ±¸ø×Ô¼º
+	//å‘é€æ‰€æœ‰æˆå‘˜ç»™è‡ªå·±
 	for(unsigned int i=0;i<userlist.size();i++)
 	{
 	strncpy(send.name,userlist[i].name,MAX_NAMESIZE);
@@ -357,11 +357,11 @@ bool Channel::add(const char *uname)
 }
 
 /**
- * \brief ¼ÓÈëÁÄÌìÆµµÀ
+ * \brief åŠ å…¥èŠå¤©é¢‘é“
  *
  *
- * \param pUser: Òª¼ÓÈëµÄÓÃ»§
- * \return ¼ÓÈëÊÇ·ñ³É¹¦
+ * \param pUser: è¦åŠ å…¥çš„ç”¨æˆ·
+ * \return åŠ å…¥æ˜¯å¦æˆåŠŸ
  */
 bool Channel::add(SceneUser *pUser)
 {
@@ -370,21 +370,21 @@ bool Channel::add(SceneUser *pUser)
 		WORD found=has(pUser->name);
 		if(found==(WORD)-1)
 		{
-			Zebra::logger->debug("%s¼ÓÈë%sµÄÁÄÌìÆµµÀ",pUser->name,creater.name);
-			//Ìí¼Ó
+			Zebra::logger->debug("%såŠ å…¥%sçš„èŠå¤©é¢‘é“",pUser->name,creater.name);
+			//æ·»åŠ 
 			zEntryC temp;
 			temp.id=pUser->id;
 			temp.tempid=pUser->tempid;
 			strncpy(temp.name,pUser->name,MAX_NAMESIZE);
 			userlist.push_back(temp);
 
-			//°Ñ×Ô¼º·¢ËÍ¸øËùÓĞÈË
+			//æŠŠè‡ªå·±å‘é€ç»™æ‰€æœ‰äºº
 			Cmd::stJoin_ChannelUserCmd send;
 			send.dwChannelID=tempid;
 			strncpy(send.name,pUser->name,MAX_NAMESIZE);
 			sendCmdToAll(&send,sizeof(send));
 
-			//·¢ËÍËùÓĞ³ÉÔ±¸ø×Ô¼º
+			//å‘é€æ‰€æœ‰æˆå‘˜ç»™è‡ªå·±
 			for(unsigned int i=0;i<userlist.size();i++)
 			{
 				strncpy(send.name,userlist[i].name,MAX_NAMESIZE);
@@ -397,11 +397,11 @@ bool Channel::add(SceneUser *pUser)
 }
 
 /**
- * \brief ÁÄÌìÆµµÀÖĞÊÇ·ñ´æÔÚÄ³ÈË
+ * \brief èŠå¤©é¢‘é“ä¸­æ˜¯å¦å­˜åœ¨æŸäºº
  *
  *
- * \param name: ÓÃ»§Ãû
- * \return ´æÔÚ·µ»Ø¸ÃÓÃ»§ÔÚÆµµÀÖĞµÄÎ»ÖÃ,²»´æÔÚ·µ»Ø-1
+ * \param name: ç”¨æˆ·å
+ * \return å­˜åœ¨è¿”å›è¯¥ç”¨æˆ·åœ¨é¢‘é“ä¸­çš„ä½ç½®,ä¸å­˜åœ¨è¿”å›-1
  */
 WORD Channel::has(const char *name)
 {
@@ -417,12 +417,12 @@ WORD Channel::has(const char *name)
 }
 
 /**
- * \brief ·¢ËÍÁÄÌìĞÅÏ¢µ½9ÆÁ
+ * \brief å‘é€èŠå¤©ä¿¡æ¯åˆ°9å±
  *
  *
- * \param pUser: ÇëÇó·¢ËÍÕß
- * \param content: ·¢ËÍµÄÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚å‘é€è€…
+ * \param content: å‘é€çš„å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendNine(SceneUser *pUser,const char *content)
 {
@@ -438,7 +438,7 @@ bool Channel::sendNine(SceneUser *pUser,const char *content)
 		send.dwChatTime = ctv.sec();
 		strncpy((char *)send.pstrChat,(char *)content,MAX_CHATINFO-1);
 		if (pUser->mask.is_masking()) {
-			strncpy((char *)send.pstrName, "ÃÉÃæÈË",MAX_NAMESIZE);
+			strncpy((char *)send.pstrName, "è’™é¢äºº",MAX_NAMESIZE);
 		}else {
 			strncpy((char *)send.pstrName,pUser->name,MAX_NAMESIZE);
 		}
@@ -448,13 +448,13 @@ bool Channel::sendNine(SceneUser *pUser,const char *content)
 }
 
 /**
- * \brief ×ª·¢ÁÄÌìĞÅÏ¢µ½9ÆÁ
+ * \brief è½¬å‘èŠå¤©ä¿¡æ¯åˆ°9å±
  *
  *
- * \param pUser: ÇëÇó·¢ËÍÕß
- * \param rev: ×ª·¢µÄÄÚÈİ 
- * \param cmdLen: ÄÚÈİ³¤¶È
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚å‘é€è€…
+ * \param rev: è½¬å‘çš„å†…å®¹ 
+ * \param cmdLen: å†…å®¹é•¿åº¦
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendNine(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,unsigned int cmdLen)
 {
@@ -465,7 +465,7 @@ bool Channel::sendNine(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,uns
 	else
 	{
 		if (pUser->mask.is_masking()) {
-			strncpy((char *)rev->pstrName, "ÃÉÃæÈË",MAX_NAMESIZE);
+			strncpy((char *)rev->pstrName, "è’™é¢äºº",MAX_NAMESIZE);
 		}
 		pUser->scene->sendCmdToNine(pUser->getPosI(),rev,cmdLen);
 	}
@@ -483,12 +483,12 @@ bool Channel::sendNine(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,uns
 }while(false)
 
 /**
- * \brief ÔÚÆµµÀÖĞ×ª·¢ĞÅÏ¢
+ * \brief åœ¨é¢‘é“ä¸­è½¬å‘ä¿¡æ¯
  *
  *
- * \param pUser: ÇëÇó×ª·¢Õß
- * \param pattern: ×ª·¢µÄÄÚÈİ
- * \return ÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚è½¬å‘è€…
+ * \param pattern: è½¬å‘çš„å†…å®¹
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendToAll(SceneUser *pUser,const char *pattern, ...)
 {
@@ -516,13 +516,13 @@ bool Channel::sendToAll(SceneUser *pUser,const char *pattern, ...)
 }
 
 /**
- * \brief ÔÚÆµµÀÖĞ×ª·¢ĞÅÏ¢
+ * \brief åœ¨é¢‘é“ä¸­è½¬å‘ä¿¡æ¯
  *
  *
- * \param pUser: ÇëÇó×ª·¢Õß
- * \param rev: ×ª·¢µÄÖ¸Áî
- * \param cmdLen: Ö¸Áî³¤¶È
- * \return ÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚è½¬å‘è€…
+ * \param rev: è½¬å‘çš„æŒ‡ä»¤
+ * \param cmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendToAll(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev, unsigned int cmdLen)
 {
@@ -545,13 +545,13 @@ bool Channel::sendToAll(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev, u
 }
 
 /**
- * \brief ·¢ËÍ¹ú¼Ò¹«¸æ
+ * \brief å‘é€å›½å®¶å…¬å‘Š
  *
  *
  * \param countryID: countryID
  * \param infoType: infoType
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendCountryInfo(DWORD countryID, DWORD infoType, const char *pattern, ...)
 {
@@ -567,11 +567,11 @@ bool Channel::sendCountryInfo(DWORD countryID, DWORD infoType, const char *patte
 }
 
 /**
- * \brief ·¢ËÍÈ«·ş¹«¸æ
+ * \brief å‘é€å…¨æœå…¬å‘Š
  *
  * \param infoType: infoType
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendAllInfo(DWORD infoType, const char *pattern, ...)
 {
@@ -586,12 +586,12 @@ bool Channel::sendAllInfo(DWORD infoType, const char *pattern, ...)
 }
 
 /**
- * \brief ·¢ËÍĞÅÏ¢µ½¹ú¼ÒÆµµÀ
+ * \brief å‘é€ä¿¡æ¯åˆ°å›½å®¶é¢‘é“
  *
  *
- * \param pUser: ÇëÇó·¢ËÍÕß
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚å‘é€è€…
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendCountry(SceneUser *pUser, const char *pattern, ...)
 {
@@ -612,13 +612,13 @@ bool Channel::sendCountry(SceneUser *pUser, const char *pattern, ...)
 }
 
 /**
- * \brief ÇëÇó·¢ËÍĞÅÏ¢µ½¹ú¼ÒÆµµÀ
+ * \brief è¯·æ±‚å‘é€ä¿¡æ¯åˆ°å›½å®¶é¢‘é“
  *
  *
- * \param pUser: ÇëÇóÖ¸ÁîµÄÓÃ»§
- * \param rev: ÊÕµ½µÄÖ¸Áî
- * \param cmdLen: Ö¸Áî³¤¶È
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚æŒ‡ä»¤çš„ç”¨æˆ·
+ * \param rev: æ”¶åˆ°çš„æŒ‡ä»¤
+ * \param cmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendCountry(SceneUser *pUser, const Cmd::stChannelChatUserCmd *rev, unsigned int cmdLen)
 {
@@ -635,12 +635,12 @@ bool Channel::sendCountry(SceneUser *pUser, const Cmd::stChannelChatUserCmd *rev
 }
 
 /**
- * \brief ·¢ËÍ¸ø¸ÃµØÍ¼µÄËùÓĞÓÃ»§
+ * \brief å‘é€ç»™è¯¥åœ°å›¾çš„æ‰€æœ‰ç”¨æˆ·
  *
- * \param mapID µØÍ¼ID
- * \param infoType ÁÄÌìÀàĞÍ
- * \param pattern: ÁÄÌìÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param mapID åœ°å›¾ID
+ * \param infoType èŠå¤©ç±»å‹
+ * \param pattern: èŠå¤©å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendMapInfo(DWORD mapID, DWORD infoType, const char *pattern, ...)
 {
@@ -670,12 +670,12 @@ bool Channel::sendMapInfo(DWORD mapID, DWORD infoType, const char *pattern, ...)
 }
 
 /**
- * \brief ·¢ËÍ¸ø¸ÃµØÍ¼µÄËùÓĞÓÃ»§
+ * \brief å‘é€ç»™è¯¥åœ°å›¾çš„æ‰€æœ‰ç”¨æˆ·
  *
- * \param mapID µØÍ¼ID
- * \param infoType ÁÄÌìÀàĞÍ
- * \param pattern: ÁÄÌìÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param mapID åœ°å›¾ID
+ * \param infoType èŠå¤©ç±»å‹
+ * \param pattern: èŠå¤©å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendMapInfo(Scene * s, DWORD infoType, const char *pattern, ...)
 {
@@ -697,12 +697,12 @@ bool Channel::sendMapInfo(Scene * s, DWORD infoType, const char *pattern, ...)
 }
 
 /**
- * \brief ·¢ËÍ¸ø¸ÃµØÍ¼µÄËùÓĞÓÃ»§
+ * \brief å‘é€ç»™è¯¥åœ°å›¾çš„æ‰€æœ‰ç”¨æˆ·
  *
- * \param scene µØÍ¼
- * \param cmd ÏûÏ¢
- * \param len: ³¤¶È
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param scene åœ°å›¾
+ * \param cmd æ¶ˆæ¯
+ * \param len: é•¿åº¦
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendCmdToMap(Scene * s, const void *cmd,int len)
 {
@@ -714,12 +714,12 @@ bool Channel::sendCmdToMap(Scene * s, const void *cmd,int len)
 }
 
 /**
- * \brief ·¢ËÍ¸ø¸ÃµØÍ¼µÄËùÓĞÓÃ»§
+ * \brief å‘é€ç»™è¯¥åœ°å›¾çš„æ‰€æœ‰ç”¨æˆ·
  *
- * \param mapID µØÍ¼ID
- * \param cmd ÏûÏ¢
- * \param len: ³¤¶È
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param mapID åœ°å›¾ID
+ * \param cmd æ¶ˆæ¯
+ * \param len: é•¿åº¦
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendCmdToMap(DWORD mapID, const void *cmd,int len)
 {
@@ -739,7 +739,7 @@ bool Channel::sendCmdToMap(DWORD mapID, const void *cmd,int len)
 }
 
 /**
- * \brief ¶ÓÎéÆµµÀ
+ * \brief é˜Ÿä¼é¢‘é“
  *
  */
 struct ChatTeamExec : public TeamMemExec
@@ -770,7 +770,7 @@ struct ChatTeamExec : public TeamMemExec
 };
 
 /**
- * \brief ¶ÓÎéÖ¸Áî×ª·¢
+ * \brief é˜Ÿä¼æŒ‡ä»¤è½¬å‘
  *
  */
 struct ChatTransmitTeamExec : public TeamMemExec
@@ -798,12 +798,12 @@ struct ChatTransmitTeamExec : public TeamMemExec
 };
 
 /**
- * \brief ·¢ËÍ¶ÓÎéÆµµÀ
+ * \brief å‘é€é˜Ÿä¼é¢‘é“
  *
  *
- * \param teamid: ¶ÓÎéid
- * \param pattern: ÄÚÈİ
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param teamid: é˜Ÿä¼id
+ * \param pattern: å†…å®¹
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendTeam(DWORD teamid ,const char *pattern, ...)					
 {
@@ -821,12 +821,12 @@ bool Channel::sendTeam(DWORD teamid ,const char *pattern, ...)
 
 
 /**
- * \brief ·¢ËÍ9ÆÁĞÅÏ¢
+ * \brief å‘é€9å±ä¿¡æ¯
  *
  *
- * \param pUser: ÇëÇó·¢ËÍÕß
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚å‘é€è€…
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendNine(SceneUser *pUser ,const char *pattern, ...)
 {
@@ -850,12 +850,12 @@ bool Channel::sendNine(SceneUser *pUser ,const char *pattern, ...)
 }
 
 /**
- * \brief ·¢ËÍ9ÆÁĞÅÏ¢
+ * \brief å‘é€9å±ä¿¡æ¯
  *
  *
- * \param pNpc: ÇëÇó·¢ËÍµÄnpc
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pNpc: è¯·æ±‚å‘é€çš„npc
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendNine(const SceneNpc *pNpc ,const char *pattern, ...)
 {
@@ -877,13 +877,13 @@ bool Channel::sendNine(const SceneNpc *pNpc ,const char *pattern, ...)
 }
 
 /**
- * \brief ×ª·¢¶ÓÎéĞÅÏ¢
+ * \brief è½¬å‘é˜Ÿä¼ä¿¡æ¯
  *
  *
- * \param teamid: ¶ÓÎéid
- * \param rev: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param cmdLen: Ö¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param teamid: é˜Ÿä¼id
+ * \param rev: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param cmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendTeam(DWORD teamid ,const Cmd::stChannelChatUserCmd *rev,unsigned int cmdLen)
 {
@@ -898,13 +898,13 @@ bool Channel::sendTeam(DWORD teamid ,const Cmd::stChannelChatUserCmd *rev,unsign
 }
 
 /**
- * \brief ·¢ËÍÏµÍ³ÏûÏ¢
+ * \brief å‘é€ç³»ç»Ÿæ¶ˆæ¯
  *
  *
- * \param dwUserTempID: ÒªÇó·¢ËÍÏûÏ¢µÄÓÃ»§
- * \param type: ÏµÍ³ÏûÏ¢ÀàĞÍ
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param dwUserTempID: è¦æ±‚å‘é€æ¶ˆæ¯çš„ç”¨æˆ·
+ * \param type: ç³»ç»Ÿæ¶ˆæ¯ç±»å‹
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendSys(DWORD dwUserTempID,int type, const char *pattern, ...)
 {
@@ -916,7 +916,7 @@ bool Channel::sendSys(DWORD dwUserTempID,int type, const char *pattern, ...)
 		zRTime ctv;
 		Cmd::stChannelChatUserCmd send;
 		send.dwType=Cmd::CHAT_TYPE_SYSTEM;
-		send.dwSysInfoType = type;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+		send.dwSysInfoType = type;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 		send.dwChatTime = ctv.sec();
 		bzero(send.pstrName, sizeof(send.pstrName));
 		bzero(send.pstrChat, sizeof(send.pstrChat));
@@ -929,13 +929,13 @@ bool Channel::sendSys(DWORD dwUserTempID,int type, const char *pattern, ...)
 }
 
 /**
- * \brief ·¢ËÍÏµÍ³ÏûÏ¢
+ * \brief å‘é€ç³»ç»Ÿæ¶ˆæ¯
  *
  *
- * \param pUser: ÒªÇó·¢ËÍÏûÏ¢µÄÓÃ»§
- * \param type: ÏµÍ³ÏûÏ¢ÀàĞÍ
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¦æ±‚å‘é€æ¶ˆæ¯çš„ç”¨æˆ·
+ * \param type: ç³»ç»Ÿæ¶ˆæ¯ç±»å‹
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendSys(SceneUser *pUser, int type, const char *pattern, ...)
 {
@@ -946,7 +946,7 @@ bool Channel::sendSys(SceneUser *pUser, int type, const char *pattern, ...)
 		zRTime ctv;
 		Cmd::stChannelChatUserCmd send;
 		send.dwType=Cmd::CHAT_TYPE_SYSTEM;
-		send.dwSysInfoType = type;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+		send.dwSysInfoType = type;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 		send.dwChatTime = ctv.sec();
 		bzero(send.pstrName, sizeof(send.pstrName));
 		bzero(send.pstrChat, sizeof(send.pstrChat));
@@ -958,14 +958,14 @@ bool Channel::sendSys(SceneUser *pUser, int type, const char *pattern, ...)
 	return false;
 }
 /**
- * \brief ·¢ËÍÏµÍ³½ğ×ÓÏûÏ¢
+ * \brief å‘é€ç³»ç»Ÿé‡‘å­æ¶ˆæ¯
  *
  *
- * \param pUser: ÒªÇó·¢ËÍÏûÏ¢µÄÓÃ»§
- * \param type: ÏµÍ³ÏûÏ¢ÀàĞÍ
- * \param gold: ÏûÏ¢ÏÔÊ¾µÄ½ğ×ÓÊıÁ¿
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¦æ±‚å‘é€æ¶ˆæ¯çš„ç”¨æˆ·
+ * \param type: ç³»ç»Ÿæ¶ˆæ¯ç±»å‹
+ * \param gold: æ¶ˆæ¯æ˜¾ç¤ºçš„é‡‘å­æ•°é‡
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendGold(SceneUser *pUser, int type, DWORD gold , const char *pattern, ...)
 {
@@ -974,35 +974,35 @@ bool Channel::sendGold(SceneUser *pUser, int type, DWORD gold , const char *patt
 		char buf[MAX_CHATINFO];
 		getMessage(buf,MAX_CHATINFO,pattern);
 
-		//½ğ×Ó»»Ëã
+		//é‡‘å­æ¢ç®—
 		if (gold)
 		{
 			if(gold/10000 > 0)
 			{
-				sprintf(buf+strlen(buf) , "%d¶§" , gold/10000);
+				sprintf(buf+strlen(buf) , "%dé”­" , gold/10000);
 				gold = gold % 10000;
 			}
 
 			if(gold/100 > 0)
 			{
-				sprintf(buf+strlen(buf) , "%dÁ½" , gold/100);
+				sprintf(buf+strlen(buf) , "%dä¸¤" , gold/100);
 				gold = gold % 100;
 			}
 
 			if(gold)
 			{
-				sprintf(buf+strlen(buf) , "%dÎÄ" , gold);
+				sprintf(buf+strlen(buf) , "%dæ–‡" , gold);
 			}
 		}
 		else
 		{
-			sprintf(buf+strlen(buf) , "%dÎÄ" , gold);
+			sprintf(buf+strlen(buf) , "%dæ–‡" , gold);
 		}
 
 		zRTime ctv;
 		Cmd::stChannelChatUserCmd send;
 		send.dwType=Cmd::CHAT_TYPE_SYSTEM;
-		send.dwSysInfoType = type;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+		send.dwSysInfoType = type;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 		send.dwChatTime = ctv.sec();
 		bzero(send.pstrName, sizeof(send.pstrName));
 		bzero(send.pstrChat, sizeof(send.pstrChat));
@@ -1014,14 +1014,14 @@ bool Channel::sendGold(SceneUser *pUser, int type, DWORD gold , const char *patt
 	return false;
 }
 /**
- * \brief ·¢ËÍÏµÍ³Òø×ÓÏûÏ¢
+ * \brief å‘é€ç³»ç»Ÿé“¶å­æ¶ˆæ¯
  *
  *
- * \param pUser: ÒªÇó·¢ËÍÏûÏ¢µÄÓÃ»§
- * \param type: ÏµÍ³ÏûÏ¢ÀàĞÍ
- * \param money: ÏûÏ¢ÏÔÊ¾µÄÒø×ÓÊıÁ¿
- * \param pattern: ÄÚÈİ
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¦æ±‚å‘é€æ¶ˆæ¯çš„ç”¨æˆ·
+ * \param type: ç³»ç»Ÿæ¶ˆæ¯ç±»å‹
+ * \param money: æ¶ˆæ¯æ˜¾ç¤ºçš„é“¶å­æ•°é‡
+ * \param pattern: å†…å®¹
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendMoney(SceneUser *pUser, int type, DWORD money , const char *pattern, ...)
 {
@@ -1030,35 +1030,35 @@ bool Channel::sendMoney(SceneUser *pUser, int type, DWORD money , const char *pa
 		char buf[MAX_CHATINFO];
 		getMessage(buf,MAX_CHATINFO,pattern);
 
-		//Òø×Ó»»Ëã
+		//é“¶å­æ¢ç®—
 		if (money)
 		{
 			if(money/10000 > 0)
 			{
-				sprintf(buf+strlen(buf) , "%d¶§" , money/10000);
+				sprintf(buf+strlen(buf) , "%dé”­" , money/10000);
 				money = money % 10000;
 			}
 
 			if(money/100 > 0)
 			{
-				sprintf(buf+strlen(buf) , "%dÁ½" , money/100);
+				sprintf(buf+strlen(buf) , "%dä¸¤" , money/100);
 				money = money % 100;
 			}
 
 			if(money)
 			{
-				sprintf(buf+strlen(buf) , "%dÎÄ" , money);
+				sprintf(buf+strlen(buf) , "%dæ–‡" , money);
 			}
 		}
 		else
 		{
-			sprintf(buf+strlen(buf) , "%dÎÄ" , money);
+			sprintf(buf+strlen(buf) , "%dæ–‡" , money);
 		}
 
 		zRTime ctv;
 		Cmd::stChannelChatUserCmd send;
 		send.dwType=Cmd::CHAT_TYPE_SYSTEM;
-		send.dwSysInfoType = type;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+		send.dwSysInfoType = type;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 		send.dwChatTime = ctv.sec();
 		bzero(send.pstrName, sizeof(send.pstrName));
 		bzero(send.pstrChat, sizeof(send.pstrChat));
@@ -1071,13 +1071,13 @@ bool Channel::sendMoney(SceneUser *pUser, int type, DWORD money , const char *pa
 }
 
 /**
- * \brief Ë½ÁÄ
+ * \brief ç§èŠ
  *
  *
- * \param pUser: ÇëÇó·¢ËÍÕß
- * \param toName: Ä¿±êÓÃ»§Ãû
- * \param content: ·¢ËÍÄÚÈİ
- * \return ÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚å‘é€è€…
+ * \param toName: ç›®æ ‡ç”¨æˆ·å
+ * \param content: å‘é€å†…å®¹
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendPrivate(const char * fromName,const char *toName,const char *pattern, ...)
 {
@@ -1086,10 +1086,10 @@ bool Channel::sendPrivate(const char * fromName,const char *toName,const char *p
 	getMessage(buf,MAX_CHATINFO,pattern);
 
 	SceneUser *pToUser=SceneUserManager::getMe().getUserByName((char *)toName);
-	//Zebra::logger->debug("Ë½ÁË");
+	//Zebra::logger->debug("ç§äº†");
 	if(0==strncmp(pToUser->name, fromName, MAX_NAMESIZE))
 	{
-		Zebra::logger->debug("%s(%ld)¸ú×Ô¼ºÁÄÌì",pToUser->name,pToUser->id);
+		Zebra::logger->debug("%s(%ld)è·Ÿè‡ªå·±èŠå¤©",pToUser->name,pToUser->id);
 		return false;
 	}
 
@@ -1107,13 +1107,13 @@ bool Channel::sendPrivate(const char * fromName,const char *toName,const char *p
 }
 
 /**
- * \brief Ë½ÁÄ
+ * \brief ç§èŠ
  *
  *
- * \param pUser: ÇëÇó·¢ËÍÕß
- * \param toName: Ä¿±êÓÃ»§Ãû
- * \param content: ·¢ËÍÄÚÈİ
- * \return ÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚å‘é€è€…
+ * \param toName: ç›®æ ‡ç”¨æˆ·å
+ * \param content: å‘é€å†…å®¹
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendPrivate(SceneUser *pUser,const char *toName,const char *pattern, ...)
 {
@@ -1122,16 +1122,16 @@ bool Channel::sendPrivate(SceneUser *pUser,const char *toName,const char *patter
 	getMessage(buf,MAX_CHATINFO,pattern);
 
 	SceneUser *pToUser=SceneUserManager::getMe().getUserByName((char *)toName);
-	//Zebra::logger->debug("Ë½ÁË");
+	//Zebra::logger->debug("ç§äº†");
 	if(pToUser==pUser)
 	{
-		Zebra::logger->debug("%s(%ld)¸ú×Ô¼ºÁÄÌì",pUser->name,pUser->id);
+		Zebra::logger->debug("%s(%ld)è·Ÿè‡ªå·±èŠå¤©",pUser->name,pUser->id);
 		return false;
 	}
 
 	if (strstr(toName, "GM")||strstr(toName, "gm"))
 	{
-		//·¢ËÍµ½GM¹¤¾ß
+		//å‘é€åˆ°GMå·¥å…·
 		BYTE buf[zSocket::MAX_DATASIZE];
 		Cmd::GmTool::t_Chat_GmTool *cmd=(Cmd::GmTool::t_Chat_GmTool *)buf;
 		bzero(buf, sizeof(buf));
@@ -1184,13 +1184,13 @@ bool Channel::sendPrivate(SceneUser *pUser,const char *toName,const char *patter
 }
 
 /**
- * \brief Ë½ÁÄ
+ * \brief ç§èŠ
  *
  *
- * \param pUser: ÇëÇó·¢ËÍÕß
- * \param rev:ÇëÇóÖ¸Áî
- * \param cmdLen: Ö¸Áî³¤¶È
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pUser: è¯·æ±‚å‘é€è€…
+ * \param rev:è¯·æ±‚æŒ‡ä»¤
+ * \param cmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool Channel::sendPrivate(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,unsigned int cmdLen)
 {
@@ -1202,7 +1202,7 @@ bool Channel::sendPrivate(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,
 	{
 		if (strstr(rev->pstrName, "GM")||strstr(rev->pstrName, "gm"))
 		{
-			//·¢ËÍµ½GM¹¤¾ß
+			//å‘é€åˆ°GMå·¥å…·
 			BYTE buf[zSocket::MAX_DATASIZE];
 			Cmd::GmTool::t_Chat_GmTool *cmd=(Cmd::GmTool::t_Chat_GmTool *)buf;
 			bzero(buf, sizeof(buf));
@@ -1221,10 +1221,10 @@ bool Channel::sendPrivate(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,
 		}
 
 		SceneUser *pToUser=SceneUserManager::getMe().getUserByName(rev->pstrName);
-		//Zebra::logger->debug("ÊÕµ½%s ·¢¸ø %s µÄË½ÁÄÏûÏ¢", pUser->name, rev->pstrName);
+		//Zebra::logger->debug("æ”¶åˆ°%s å‘ç»™ %s çš„ç§èŠæ¶ˆæ¯", pUser->name, rev->pstrName);
 		if(pToUser==pUser)
 		{
-			Zebra::logger->debug("%s(%ld)¸ú×Ô¼ºÁÄÌì",pUser->name,pUser->id);
+			Zebra::logger->debug("%s(%ld)è·Ÿè‡ªå·±èŠå¤©",pUser->name,pUser->id);
 			return false;
 		}
 
@@ -1239,7 +1239,7 @@ bool Channel::sendPrivate(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,
 				pToUser->sendCmdToMe(rev,cmdLen);
 			}
 			else
-				Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s ¾Ü¾øËùÓĞË½ÁÄÏûÏ¢", pToUser->name);
+				Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ç©å®¶ %s æ‹’ç»æ‰€æœ‰ç§èŠæ¶ˆæ¯", pToUser->name);
 			//pUser->sendCmdToMe(&send,sizeof(send));
 			return true;
 		}
@@ -1264,7 +1264,7 @@ bool Channel::sendPrivate(SceneUser *pUser,const Cmd::stChannelChatUserCmd *rev,
 }
 
 /**
- * \brief Î¨Ò»ÊµÀı
+ * \brief å”¯ä¸€å®ä¾‹
  *
  */
 ChannelM *ChannelM::cm(NULL);
@@ -1279,11 +1279,11 @@ ChannelM::~ChannelM()
 }
 
 /**
- * \brief µÃµ½Ò»¸öÎ¨Ò»±àºÅ
+ * \brief å¾—åˆ°ä¸€ä¸ªå”¯ä¸€ç¼–å·
  *
  *
- * \param tempid: Î¨Ò»±àºÅ(Êä³ö)
- * \return µÃµ½µÄ±àºÅÊÇ·ñÎ¨Ò»
+ * \param tempid: å”¯ä¸€ç¼–å·(è¾“å‡º)
+ * \return å¾—åˆ°çš„ç¼–å·æ˜¯å¦å”¯ä¸€
  */
 bool ChannelM::getUniqeID(DWORD &tempid)
 {
@@ -1292,10 +1292,10 @@ bool ChannelM::getUniqeID(DWORD &tempid)
 }
 
 /**
- * \brief ÊÕ»ØÒ»¸öÎ¨Ò»±àºÅ
+ * \brief æ”¶å›ä¸€ä¸ªå”¯ä¸€ç¼–å·
  *
  *
- * \param tempid: ÊÕ»ØµÄ±àºÅ
+ * \param tempid: æ”¶å›çš„ç¼–å·
  */
 void ChannelM::putUniqeID(const DWORD &tempid)
 {
@@ -1303,10 +1303,10 @@ void ChannelM::putUniqeID(const DWORD &tempid)
 }
 
 /**
- * \brief µÃµ½Î¨Ò»ÊµÀı
+ * \brief å¾—åˆ°å”¯ä¸€å®ä¾‹
  *
  *
- * \return  Î¨Ò»ÊµÀı
+ * \return  å”¯ä¸€å®ä¾‹
  */
 ChannelM &ChannelM::getMe()
 {
@@ -1316,7 +1316,7 @@ ChannelM &ChannelM::getMe()
 }
 
 /**
- * \brief É¾³ıÎ¨Ò»ÊµÀı
+ * \brief åˆ é™¤å”¯ä¸€å®ä¾‹
  *
  *
  */
@@ -1326,11 +1326,11 @@ void ChannelM::destroyMe()
 }
 
 /**
- * \brief Ôö¼ÓÁÄÌìÆµµÀ
+ * \brief å¢åŠ èŠå¤©é¢‘é“
  *
  *
- * \param channel: ÆµµÀ
- * \return Ôö¼ÓÊÇ·ñ³É¹¦
+ * \param channel: é¢‘é“
+ * \return å¢åŠ æ˜¯å¦æˆåŠŸ
  */
 bool ChannelM::add(Channel *channel)
 {
@@ -1342,14 +1342,14 @@ bool ChannelM::add(Channel *channel)
 }
 
 /**
- * \brief ´ÓÁÄÌìÆµµÀÖĞÉ¾³ıÒ»¸öÓÃ»§
+ * \brief ä»èŠå¤©é¢‘é“ä¸­åˆ é™¤ä¸€ä¸ªç”¨æˆ·
  *
  *
- * \param name: ÓÃ»§Ãû
+ * \param name: ç”¨æˆ·å
  */
 void ChannelM::removeUser(const char *name)
 {
-	// ÇåÀíËùÓĞÆµµÀÀïµÄnameÓÃ»§
+	// æ¸…ç†æ‰€æœ‰é¢‘é“é‡Œçš„nameç”¨æˆ·
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
 	{
 		Channel *temp=(Channel *)it->second;
@@ -1358,10 +1358,10 @@ void ChannelM::removeUser(const char *name)
 }
 
 /**
- * \brief ´ÓÁÄÌìÆµµÀÖĞÉ¾³ıÒ»¸öÁÄÌìÆµµÀ
+ * \brief ä»èŠå¤©é¢‘é“ä¸­åˆ é™¤ä¸€ä¸ªèŠå¤©é¢‘é“
  *
  *
- * \param dwChannelID: ÆµµÀid
+ * \param dwChannelID: é¢‘é“id
  */
 void ChannelM::remove(DWORD dwChannelID)
 {
@@ -1373,11 +1373,11 @@ void ChannelM::remove(DWORD dwChannelID)
 }
 
 /**
- * \brief µÃµ½Ò»¸öÁÄÌìÆµµÀ
+ * \brief å¾—åˆ°ä¸€ä¸ªèŠå¤©é¢‘é“
  *
  *
- * \param dwChannelID: ÆµµÀid
- * \return ÁÄÌìÆµµÀ
+ * \param dwChannelID: é¢‘é“id
+ * \return èŠå¤©é¢‘é“
  */
 Channel *ChannelM::get(DWORD dwChannelID)
 {
@@ -1389,11 +1389,11 @@ Channel *ChannelM::get(DWORD dwChannelID)
 }
 
 /**
- * \brief ½«16½øÖÆÊı×ªÎª10½øÖÆ
+ * \brief å°†16è¿›åˆ¶æ•°è½¬ä¸º10è¿›åˆ¶
  *
  *
- * \param ch: 16½øÖÆ×Ö·û
- * \return ×ª»»ºïµÄ10½øÖÆÊı
+ * \param ch: 16è¿›åˆ¶å­—ç¬¦
+ * \return è½¬æ¢çŒ´çš„10è¿›åˆ¶æ•°
  */
 BYTE hexchtoi(char &ch)
 {
@@ -1408,31 +1408,31 @@ BYTE hexchtoi(char &ch)
 	return 0;
 }
 
-/*\brief ¶ÔÒª·¢ËÍµÄÁÄÌìÏûÏ¢½øĞĞÔ¤ÏÈ¼ì²é
- *Èç¹ûÊÇ//¿ªÍ·µÄÌØÊâÖ¸ÁîÔòÖ´ĞĞÖ¸Áî
- *Èç¹ûÊÇÆÕÍ¨ÁÄÌìÏûÏ¢Ôò¼ì²é½ÇÉ«ÊÇ·ñ±»½ûÑÔ
+/*\brief å¯¹è¦å‘é€çš„èŠå¤©æ¶ˆæ¯è¿›è¡Œé¢„å…ˆæ£€æŸ¥
+ *å¦‚æœæ˜¯//å¼€å¤´çš„ç‰¹æ®ŠæŒ‡ä»¤åˆ™æ‰§è¡ŒæŒ‡ä»¤
+ *å¦‚æœæ˜¯æ™®é€šèŠå¤©æ¶ˆæ¯åˆ™æ£€æŸ¥è§’è‰²æ˜¯å¦è¢«ç¦è¨€
  *
- * \param pUser: ÓÃ»§
- * \param cchat: ÁÄÌìÖ¸Áî
- * \param cmdLen:Ö¸Áî³¤¶È
- *\return ¸ÃÏûÏ¢ÊÇ·ñ¿ÉÒÔ±»·¢³ö
+ * \param pUser: ç”¨æˆ·
+ * \param cchat: èŠå¤©æŒ‡ä»¤
+ * \param cmdLen:æŒ‡ä»¤é•¿åº¦
+ *\return è¯¥æ¶ˆæ¯æ˜¯å¦å¯ä»¥è¢«å‘å‡º
  * 
  */
 bool Channel::doPreCheck(SceneUser *pUser, Cmd::stChannelChatUserCmd *cchat, unsigned int cmdLen)
 {
-	//ÏÈ²âÊÔGMÖ¸Áî
+	//å…ˆæµ‹è¯•GMæŒ‡ä»¤
 	if(cchat->pstrChat[0]=='/' && cchat->pstrChat[1]=='/')
 	{
 		Gm::exec(pUser,(char *)cchat->pstrChat+2);
 		return false;
 	}
 
-	//¼ì²éÊÇ·ñ±»½ûÑÔ
+	//æ£€æŸ¥æ˜¯å¦è¢«ç¦è¨€
 	if (pUser->isForbidTalk())
 	{
 		zRTime now;
 		int delay = pUser->charbase.forbidtalk - now.sec();
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ÄãÒÑ¾­±»½ûÑÔ£¬%dÃëºó½â³ı",delay);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ä½ å·²ç»è¢«ç¦è¨€ï¼Œ%dç§’åè§£é™¤",delay);
 		return false;
 	}
 
@@ -1442,12 +1442,12 @@ bool Channel::doPreCheck(SceneUser *pUser, Cmd::stChannelChatUserCmd *cchat, uns
 }
 
 /**
- * \brief ½âÎöÁÄÌìÖ¸Áî
+ * \brief è§£æèŠå¤©æŒ‡ä»¤
  *
  *
- * \param rev: ÊÕµ½µÄÖ¸Áî
- * \param cmdLen: ÊÕµ½µÄÖ¸Áî³¤¶È
- * \return ÊÇ·ñÊ¶±ğ¸ÃÖ¸Áî
+ * \param rev: æ”¶åˆ°çš„æŒ‡ä»¤
+ * \param cmdLen: æ”¶åˆ°çš„æŒ‡ä»¤é•¿åº¦
+ * \return æ˜¯å¦è¯†åˆ«è¯¥æŒ‡ä»¤
  */
 bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 {
@@ -1460,33 +1460,33 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 
 	switch(rev->byParam)
 	{
-		case DIRTY_USER_USERCMD_PARA://¾Ù±¨Íâ¹Ò
+		case DIRTY_USER_USERCMD_PARA://ä¸¾æŠ¥å¤–æŒ‚
 			{
 				stDirtyUserUserCmd *cmd = (stDirtyUserUserCmd *)rev;
 				switch (cmd->type)
 				{
 					case DIRTYUSER_DLL_CALL:
 						{
-							ScenesService::wg_logger->trace("[¾Ù±¨Íâ¹Ò]%s,%u,%u,%u,%s,%u,%s", 
+							ScenesService::wg_logger->trace("[ä¸¾æŠ¥å¤–æŒ‚]%s,%u,%u,%u,%s,%u,%s", 
 											name, id, accid, charbase.level, 
 											SceneManager::getInstance().getCountryNameByCountryID(charbase.country), 
-											charbase.gold, "Íâ²¿DLLµ÷ÓÃ±¾½ø³Ìº¯Êı£¬Ò»°ãÍâ¹ÒÓÃ»§");
+											charbase.gold, "å¤–éƒ¨DLLè°ƒç”¨æœ¬è¿›ç¨‹å‡½æ•°ï¼Œä¸€èˆ¬å¤–æŒ‚ç”¨æˆ·");
 						}
 						break;
 					case DIRTYUSER_DEBUGGER:
 						{
-							ScenesService::wg_logger->trace("[¾Ù±¨Íâ¹Ò]%s,%u,%u,%u,%s,%u,%s", 
+							ScenesService::wg_logger->trace("[ä¸¾æŠ¥å¤–æŒ‚]%s,%u,%u,%u,%s,%u,%s", 
 											name, id, accid, charbase.level, 
 											SceneManager::getInstance().getCountryNameByCountryID(charbase.country), 
-											charbase.gold, "ÆôÓÃµ÷ÊÔÆ÷µ÷ÊÔ±¾½ø³Ì£¬¿ÉÄÜÊÇÍâ¹ÒÖÆ×÷Õß");
+											charbase.gold, "å¯ç”¨è°ƒè¯•å™¨è°ƒè¯•æœ¬è¿›ç¨‹ï¼Œå¯èƒ½æ˜¯å¤–æŒ‚åˆ¶ä½œè€…");
 						}
 						break;
 					default:
 						{
-							ScenesService::wg_logger->trace("[¾Ù±¨Íâ¹Ò]%s,%u,%u,%u,%s,%u,%s", 
+							ScenesService::wg_logger->trace("[ä¸¾æŠ¥å¤–æŒ‚]%s,%u,%u,%u,%s,%u,%s", 
 											name, id, accid, charbase.level, 
 											SceneManager::getInstance().getCountryNameByCountryID(charbase.country), 
-											charbase.gold, "¿Í»§¶Ë¼ì²âµ½Íæ¼ÒÊ¹ÓÃÍâ¹Ò");
+											charbase.gold, "å®¢æˆ·ç«¯æ£€æµ‹åˆ°ç©å®¶ä½¿ç”¨å¤–æŒ‚");
 						}
 						break;
 				}
@@ -1495,7 +1495,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				{
 						DWORD t = zMisc::randBetween(180, 600);
 						dropTime = SceneTimeTick::currentTime.sec() + t;
-						Zebra::logger->debug("%s Ê¹ÓÃÍâ¹Ò£¬%u Ãëºó¶ÏÏß", name, t);
+						Zebra::logger->debug("%s ä½¿ç”¨å¤–æŒ‚ï¼Œ%u ç§’åæ–­çº¿", name, t);
 				}
 
 				return true;
@@ -1533,7 +1533,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					  itemNum = 0;
 					 */
 
-					//					Zebra::logger->debug("[*]ÏâÇ¶ÎïÆ·ÊıÁ¿%u cmdLen=%u struct size=%u",itemNum,cmdLen,sizeof(struct Cmd::stChannelChatUserCmd));
+					//					Zebra::logger->debug("[*]é•¶åµŒç‰©å“æ•°é‡%u cmdLen=%u struct size=%u",itemNum,cmdLen,sizeof(struct Cmd::stChannelChatUserCmd));
 					DWORD itemNum = temp->size;
 					cchat = (stChannelChatUserCmd *)buf;
 					memcpy(cchat, rev, cmdLen);
@@ -1565,13 +1565,13 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					   DWORD pay = 0;
 					   switch(temp->dwType)
 					   {
-					   case CHAT_TYPE_PRIVATE:			/// Ë½ÁÄÆµµÀ
+					   case CHAT_TYPE_PRIVATE:			/// ç§èŠé¢‘é“
 					   pay = SHELLITEM_IN_PRIVATE;
 					   break;
-					   case CHAT_TYPE_NINE:			/// ÇáÁÄÆµµÀ
+					   case CHAT_TYPE_NINE:			/// è½»èŠé¢‘é“
 					   pay = SHELLITEM_IN_NINE;
 					   break;
-					   case CHAT_TYPE_TEAM:			/// ¶ÓÎéÆµµÀ
+					   case CHAT_TYPE_TEAM:			/// é˜Ÿä¼é¢‘é“
 					   {
 					   if (this->team.IsTeamed())
 					   {
@@ -1583,10 +1583,10 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					   }
 					   }
 					   break;
-					   case CHAT_TYPE_FRIEND:			/// ºÃÓÑÆµµÀ
+					   case CHAT_TYPE_FRIEND:			/// å¥½å‹é¢‘é“
 					   pay = SHELLITEM_IN_FRIEND;
 					   break;
-					   case CHAT_TYPE_UNION:			/// °ï»áÆµµÀ
+					   case CHAT_TYPE_UNION:			/// å¸®ä¼šé¢‘é“
 					   {
 					   if (this->charbase.unionid > 0)
 					   {
@@ -1598,10 +1598,10 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					   }
 					   }
 					   break;
-					   case CHAT_TYPE_PERSON:			/// ¸öÈËÆµµÀ
+					   case CHAT_TYPE_PERSON:			/// ä¸ªäººé¢‘é“
 					   pay = SHELLITEM_IN_PERSON;
 					   break;
-					   case CHAT_TYPE_COUNTRY:			/// ¹ú¼ÒÆµµÀ
+					   case CHAT_TYPE_COUNTRY:			/// å›½å®¶é¢‘é“
 					   {
 					   if (this->getLevel() >= 25)
 					   {
@@ -1613,13 +1613,13 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					   }
 					   }
 					   break;
-					   case CHAT_TYPE_OVERMAN:			/// Ê¦ÃÅÆµµÀ
+					   case CHAT_TYPE_OVERMAN:			/// å¸ˆé—¨é¢‘é“
 					   {
 					   pay = SHELLITEM_IN_ZONE;
 					//pay = 0;
 					}
 					break;
-					case CHAT_TYPE_FAMILY:			/// ¼Ò×åÆµµÀ
+					case CHAT_TYPE_FAMILY:			/// å®¶æ—é¢‘é“
 					{
 					if (this->charbase.septid > 0)
 					{
@@ -1633,9 +1633,9 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				break;
 				}
 
-				if (packs.checkMoney(pay) && packs.removeMoney(pay,"¹ã¸æ·Ñ")) {
-					sendok = true; /// ¸¶Ç®³É¹¦
-					Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, pay, "»¨µôÁË¹ã¸æ·ÑÓÃ");
+				if (packs.checkMoney(pay) && packs.removeMoney(pay,"å¹¿å‘Šè´¹")) {
+					sendok = true; /// ä»˜é’±æˆåŠŸ
+					Channel::sendMoney(this, Cmd::INFO_TYPE_GAME, pay, "èŠ±æ‰äº†å¹¿å‘Šè´¹ç”¨");
 				}
 
 				if (sendok)
@@ -1644,7 +1644,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				}
 				else
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ×ã¹»µÄÒø×ÓÀ´Ö§¸¶ÎïÆ·ĞÅÏ¢¹ã¸æ·ÑÓÃ£¡");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰è¶³å¤Ÿçš„é“¶å­æ¥æ”¯ä»˜ç‰©å“ä¿¡æ¯å¹¿å‘Šè´¹ç”¨ï¼");
 					cchat->size = 0;
 					curCmdLen = sizeof(stChannelChatUserCmd);
 				}
@@ -1656,7 +1656,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					cchat = (stChannelChatUserCmd *)rev;
 				}
 
-				//²âÊÔÍâ¹Ò¾Ù±¨
+				//æµ‹è¯•å¤–æŒ‚ä¸¾æŠ¥
 				if(cchat->pstrChat[0]==125 && cchat->pstrChat[1]==127)
 				{
 					for (DWORD i=2; i<strlen(cchat->pstrChat) && i<MAX_CHATINFO-1-2; i++)
@@ -1666,11 +1666,11 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 						else
 							cchat->pstrChat[i] ^= 127;
 					}
-					ScenesService::wg_logger->trace("[·Æ·Æ]%s,%u,%u,%u,%s,%u,%s", 
+					ScenesService::wg_logger->trace("[è²è²]%s,%u,%u,%u,%s,%u,%s", 
 									name, id, accid, charbase.level, 
 									SceneManager::getInstance().getCountryNameByCountryID(charbase.country), 
 									charbase.gold, &cchat->pstrChat[2]);
-					//Zebra::logger->trace("[·Æ·Æ]%s,%u,%u,%u,%s,%u,%s",
+					//Zebra::logger->trace("[è²è²]%s,%u,%u,%u,%s,%u,%s",
 					//				name, id, accid, charbase.level, 
 					//				SceneManager::getInstance().getCountryNameByCountryID(charbase.country), 
 					//				charbase.gold, &cchat->pstrChat[2]);
@@ -1684,70 +1684,70 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 							if (miniGame)
 								if (Channel::doPreCheck(this, cchat, curCmdLen))
 								{
-									strncpy(cchat->pstrName, name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
+									strncpy(cchat->pstrName, name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
 									miniGame->sendCmdToAll(cchat, curCmdLen);
 								}
 						}
 						break;
-					case CHAT_TYPE_EMOTION://±íÇé
+					case CHAT_TYPE_EMOTION://è¡¨æƒ…
 					case CHAT_TYPE_NINE:
-					case CHAT_TYPE_SHOPADV: //°ÚÌ¯¹ã¸æ
+					case CHAT_TYPE_SHOPADV: //æ‘†æ‘Šå¹¿å‘Š
 						{
 							if (Channel::doPreCheck(this, cchat, curCmdLen))
 							{
-								//¼ì²éÊÇ·ñÒşÉí
+								//æ£€æŸ¥æ˜¯å¦éšèº«
 								if (SceneEntry_Hide==getState()&&!this->hideme)
 								{
-									Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÒşÉí×´Ì¬ÏÂ²»ÄÜÇáÁÄ");
+									Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "éšèº«çŠ¶æ€ä¸‹ä¸èƒ½è½»èŠ");
 									return false;
 								}
-								strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
+								strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
 								bool ret=Channel::sendNine(this, cchat, curCmdLen);
 								return ret; 
 							}
 						}
 						break;
-					case CHAT_TYPE_PRIVATE:	///Ë½ÁÄ
-					case CHAT_TYPE_WHISPER:	/// ÇÄÇÄ»°
+					case CHAT_TYPE_PRIVATE:	///ç§èŠ
+					case CHAT_TYPE_WHISPER:	/// æ‚„æ‚„è¯
 						{
 							if (Channel::doPreCheck(this, cchat, curCmdLen))
 								return Channel::sendPrivate(this, cchat, curCmdLen);
 						}
 						break;
-					case CHAT_TYPE_TEAM:				/// ¶ÓÎéÆµµÀ
+					case CHAT_TYPE_TEAM:				/// é˜Ÿä¼é¢‘é“
 						{
 							if (Channel::doPreCheck(this, cchat, curCmdLen))
 							{
-								strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
+								strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
 								if(this->team.IsTeamed())
 								{
 									return Channel::sendTeam(this->team.getLeader() , cchat, curCmdLen);
 								}
 								else
 								{
-									Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "Ã»ÓĞ¶ÓÎé,²»ÄÜ½øĞĞ¶ÓÎéÁÄÌì");
+									Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æ²¡æœ‰é˜Ÿä¼,ä¸èƒ½è¿›è¡Œé˜Ÿä¼èŠå¤©");
 								}
 							}
 						}
 						break;
 					case CHAT_TYPE_GM:
 						break;
-					case CHAT_TYPE_WORLD:	///ÊÀ½çÆµµÀ
+					case CHAT_TYPE_WORLD:	///ä¸–ç•Œé¢‘é“
 						{
 							if (charbase.level<60)
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äú²»Âú60¼¶£¬²»¿ÉÒÔÊ¹ÓÃÊÀ½çÆµµÀÁÄÌì");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ»¡60çº§ï¼Œä¸å¯ä»¥ä½¿ç”¨ä¸–ç•Œé¢‘é“èŠå¤©");
 								return true;
 							}
 							if (Channel::doPreCheck(this, cchat, curCmdLen))
 							{
 								if (!packs.checkMoney(1000)
-										|| !packs.removeMoney(1000,"ÊÀ½çÆµµÀ»¨·Ñ"))
+										|| !packs.removeMoney(1000,"ä¸–ç•Œé¢‘é“èŠ±è´¹"))
 								{
-									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãµÄÒø×Ó²»×ã");
+									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ çš„é“¶å­ä¸è¶³");
 									return true;
 								}
-								Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "Äã·¢ËÍÈ«·ş¹ã²¥£¬»¨·ÑÒø×Ó10Á½");
+								Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ä½ å‘é€å…¨æœå¹¿æ’­ï¼ŒèŠ±è´¹é“¶å­10ä¸¤");
 
 								if (checkUserCmd(cchat, curCmdLen))
 								{
@@ -1756,12 +1756,12 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 							}
 						}
 						break;
-						/*//·¢µ½sessionÈ¥
+						/*//å‘åˆ°sessionå»
 						  case CHAT_TYPE_PERSON:
 						  {
 						  if (Channel::doPreCheck(this, cchat, curCmdLen))
 						  {
-						  strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
+						  strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
 						  Channel *cl=ChannelM::getMe().get(cchat->dwChannelID);
 						  if(cl)
 						  {
@@ -1772,43 +1772,43 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 						  }
 						  break;
 						 */
-					case CHAT_TYPE_COUNTRY:			/// ¹ú¼ÒÆµµÀ
+					case CHAT_TYPE_COUNTRY:			/// å›½å®¶é¢‘é“
 						{
 							if (Channel::doPreCheck(this, cchat, curCmdLen))
 							{
 								if (charbase.level<25)
 								{
-									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äú²»Âú25¼¶£¬²»¿ÉÒÔÊ¹ÓÃ¹ú¼ÒÆµµÀÁÄÌì");
+									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ»¡25çº§ï¼Œä¸å¯ä»¥ä½¿ç”¨å›½å®¶é¢‘é“èŠå¤©");
 									return true;
 								}
 								/*
 								   if (packs.checkMoney(2) && packs.removeMoney(2))
 								   {
-								   strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
+								   strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
 								   forwardSession(cchat,curCmdLen);
-								   Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "»¨µôÆµµÀ·ÑÓÃ2ÎÄ");
+								   Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "èŠ±æ‰é¢‘é“è´¹ç”¨2æ–‡");
 								   return true;
 								   }
 								   else
 								   {
-								   Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ×ã¹»µÄÒø×Ó");
+								   Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰è¶³å¤Ÿçš„é“¶å­");
 								   return true;
 								   }
 								 */
-								strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
+								strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
 								forwardSession(cchat,curCmdLen);
 								return true;
 							}
 						}
 						break;
-					case CHAT_TYPE_AREA:			/// ÏÖÔÚÊÇÇøÓòÁÄÌì
+					case CHAT_TYPE_AREA:			/// ç°åœ¨æ˜¯åŒºåŸŸèŠå¤©
 						{
-							strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
+							strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
 							if (Channel::doPreCheck(this, cchat, curCmdLen))
 							{
 								scene->sendCmdToScene(cchat, curCmdLen);
 
-								//·¢ËÍµ½GM¹¤¾ß
+								//å‘é€åˆ°GMå·¥å…·
 								BYTE buf[zSocket::MAX_DATASIZE];
 								Cmd::GmTool::t_Chat_GmTool *cmd=(Cmd::GmTool::t_Chat_GmTool *)buf;
 								bzero(buf, sizeof(buf));
@@ -1827,22 +1827,22 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 							}
 						}
 						break;
-					case CHAT_TYPE_OVERMAN_AFFICHE:	/// Ê¦ÃÅ¹«¸æ
-					case CHAT_TYPE_OVERMAN:			/// Ê¦ÃÅÆµµÀ
-					case CHAT_TYPE_FAMILY_AFFICHE:	/// ¼Ò×å¹«¸æ
-					case CHAT_TYPE_FAMILY:			/// ¼Ò×åÆµµÀ
-						//strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
-					case CHAT_TYPE_FRIEND_AFFICHE:	/// ºÃÓÑ¹«¸æ
-					case CHAT_TYPE_UNION_AFFICHE:	/// °ï»á¹«¸æ
-					case CHAT_TYPE_FRIEND:			/// ºÃÓÑÆµµÀ
-					case CHAT_TYPE_UNION:			/// °ï»áÆµµÀ
-					case CHAT_TYPE_PERSON:		//¸öÈËÆµµÀ
-						strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // ·ÀÖ¹Íâ¹Ò×÷±×Î±×°ËûÈËËµ»°
-						// Ë½ÁÄÌîµÄÊÇ¶Ô·½Ãû×ÖËùÒÔ²»¸²¸Ç¡£
-					case CHAT_TYPE_FRIEND_PRIVATE:	/// ºÃÓÑË½ÁÄ
-					case CHAT_TYPE_UNION_PRIVATE:	/// °ï»áË½ÁÄ
-					case CHAT_TYPE_FAMILY_PRIVATE:	/// ¼Ò×åË½ÁÄ
-					case CHAT_TYPE_OVERMAN_PRIVATE:	/// Ê¦ÃÅË½ÁÄ
+					case CHAT_TYPE_OVERMAN_AFFICHE:	/// å¸ˆé—¨å…¬å‘Š
+					case CHAT_TYPE_OVERMAN:			/// å¸ˆé—¨é¢‘é“
+					case CHAT_TYPE_FAMILY_AFFICHE:	/// å®¶æ—å…¬å‘Š
+					case CHAT_TYPE_FAMILY:			/// å®¶æ—é¢‘é“
+						//strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
+					case CHAT_TYPE_FRIEND_AFFICHE:	/// å¥½å‹å…¬å‘Š
+					case CHAT_TYPE_UNION_AFFICHE:	/// å¸®ä¼šå…¬å‘Š
+					case CHAT_TYPE_FRIEND:			/// å¥½å‹é¢‘é“
+					case CHAT_TYPE_UNION:			/// å¸®ä¼šé¢‘é“
+					case CHAT_TYPE_PERSON:		//ä¸ªäººé¢‘é“
+						strncpy(cchat->pstrName, this->name, MAX_NAMESIZE); // é˜²æ­¢å¤–æŒ‚ä½œå¼Šä¼ªè£…ä»–äººè¯´è¯
+						// ç§èŠå¡«çš„æ˜¯å¯¹æ–¹åå­—æ‰€ä»¥ä¸è¦†ç›–ã€‚
+					case CHAT_TYPE_FRIEND_PRIVATE:	/// å¥½å‹ç§èŠ
+					case CHAT_TYPE_UNION_PRIVATE:	/// å¸®ä¼šç§èŠ
+					case CHAT_TYPE_FAMILY_PRIVATE:	/// å®¶æ—ç§èŠ
+					case CHAT_TYPE_OVERMAN_PRIVATE:	/// å¸ˆé—¨ç§èŠ
 						{
 							if (Channel::doPreCheck(this, cchat, curCmdLen))
 								if (checkUserCmd(cchat, curCmdLen))
@@ -1852,22 +1852,22 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				}
 			}
 			break;
-			//½âÉ¢¶ÓÎé
+			//è§£æ•£é˜Ÿä¼
 		case REMOVE_TEAM_USERCMD_PARA:
 			break;
-			//Ìí¼Ó¶ÓÔ±,Ë¢ĞÂ¶ÓÔ±Êı¾İÖ¸Áî
+			//æ·»åŠ é˜Ÿå‘˜,åˆ·æ–°é˜Ÿå‘˜æ•°æ®æŒ‡ä»¤
 		case ADD_TEAMMEMBER_USERCMD_PARA:
 			break;
-			//É¾³ı¶ÓÔ±Ö¸Áî
+			//åˆ é™¤é˜Ÿå‘˜æŒ‡ä»¤
 		case REMOVE_TEAMMEMBER_USERCMD_PARA:
 			{
-				//Zebra::logger->debug("ÊÕµ½É¾³ı¶ÓÔ±Ö¸Áî(%s , %ld)" , this->name , this->id);
+				//Zebra::logger->debug("æ”¶åˆ°åˆ é™¤é˜Ÿå‘˜æŒ‡ä»¤(%s , %ld)" , this->name , this->id);
 				stRemoveTeamMemberUserCmd *rem = (stRemoveTeamMemberUserCmd *)rev;
 
 				SceneUser *leader=SceneUserManager::getMe().getUserByTempID(rem->dwTeamID);
 				if(leader)
 				{
-					//Èç¹ûÊÇ¶Ó³¤Ôò½âÉ¢¶ÓÎé
+					//å¦‚æœæ˜¯é˜Ÿé•¿åˆ™è§£æ•£é˜Ÿä¼
 					//if(!strcmp(rem->pstrName , leader->name))
 					if(rem->dwTempID == leader->tempid)
 					{
@@ -1875,7 +1875,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					}
 					else
 					{
-						//Èç¹ûÊÇ¶Ó³¤ÌßÈË
+						//å¦‚æœæ˜¯é˜Ÿé•¿è¸¢äºº
 						if(leader == this)
 						{
 							leader->team.kickoutMember(leader , (stRemoveTeamMemberUserCmd *)rev);
@@ -1898,16 +1898,16 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				return true;
 			}
 			break;
-			//ÇëÇóÉèÖÃÎïÆ··ÖÅäÄ£Ê½
+			//è¯·æ±‚è®¾ç½®ç‰©å“åˆ†é…æ¨¡å¼
 		case OBJMODE_TEAMMEMBER_USERCMD_PARA:
 			{
 				stObjModeTeamMemberUserCmd *emt = (stObjModeTeamMemberUserCmd *)rev;
 				if(this->tempid != this->team.getLeader() || this->team_mode != Cmd::TEAM_NORMAL)
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÎïÆ··ÖÅäÄ£Ê½ÉèÖÃÊ§°Ü");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ç‰©å“åˆ†é…æ¨¡å¼è®¾ç½®å¤±è´¥");
 				}
 				/**
-				 * \brief ÉèÖÃ¾­Ñé·ÖÅäÄ£Ê½
+				 * \brief è®¾ç½®ç»éªŒåˆ†é…æ¨¡å¼
 				 *
 				 */
 				struct ObjModeTeamExec : public TeamMemExec
@@ -1935,16 +1935,16 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				return true;
 			}
 			break;
-			//ÇëÇóÉèÖÃ¾­Ñé·ÖÅäÄ£Ê½
+			//è¯·æ±‚è®¾ç½®ç»éªŒåˆ†é…æ¨¡å¼
 		case EXPMODE_TEAMMEMBER_USERCMD_PARA:
 			{
 				stExpModeTeamMemberUserCmd *emt = (stExpModeTeamMemberUserCmd *)rev;
 				if(this->tempid != this->team.getLeader() || this->team_mode != Cmd::TEAM_NORMAL)
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¾­Ñé·ÖÅäÄ£Ê½ÉèÖÃÊ§°Ü");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ç»éªŒåˆ†é…æ¨¡å¼è®¾ç½®å¤±è´¥");
 				}
 				/**
-				 * \brief ÉèÖÃ¾­Ñé·ÖÅäÄ£Ê½
+				 * \brief è®¾ç½®ç»éªŒåˆ†é…æ¨¡å¼
 				 *
 				 */
 				struct ExpModeTeamExec : public TeamMemExec
@@ -1972,45 +1972,45 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				return true;
 			}
 			break;
-			//ÇëÇó×é¶ÓÖ¸Áî
+			//è¯·æ±‚ç»„é˜ŸæŒ‡ä»¤
 		case REQUEST_NAME_TEAM_USERCMD_PARA:
 			{
-				//Zebra::logger->debug("ÊÕµ½ÑûÇë¶ÓÔ±Ö¸Áî(%s , %ld)" , this->name , this->id);
+				//Zebra::logger->debug("æ”¶åˆ°é‚€è¯·é˜Ÿå‘˜æŒ‡ä»¤(%s , %ld)" , this->name , this->id);
 				stRequestNameTeamUserCmd *req = (stRequestNameTeamUserCmd *)rev;
 				stRequestNameTeamUserCmd ret;
 				strncpy(ret.byAnswerUserName,req->byAnswerUserName,MAX_NAMESIZE);
 				if(this->scene->noTeam())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "±¾µØÍ¼²»ÄÜ×é¶Ó");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æœ¬åœ°å›¾ä¸èƒ½ç»„é˜Ÿ");
 					return true;
 				}
 				if(this->team.IsFull())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄúµÄ×é¶ÓÒÑÂú");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æ‚¨çš„ç»„é˜Ÿå·²æ»¡");
 					return true;
 				}
 				if((this->team.getLeader() != 0) && (this->tempid != this->team.getLeader()))
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄúÎŞÈ¨ÑûÇë¶ÓÔ±");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æ‚¨æ— æƒé‚€è¯·é˜Ÿå‘˜");
 					return true;
 				}
 				if(strncmp(this->name , ret.byAnswerUserName,MAX_NAMESIZE) == 0)
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "²»ÄÜÑûÇë×Ô¼º");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä¸èƒ½é‚€è¯·è‡ªå·±");
 					return true;
 				}
 
 				if (this->issetUState(Cmd::USTATE_TOGETHER_WITH_TIGER)
 						|| issetUState(Cmd::USTATE_TOGETHER_WITH_DRAGON))
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äú´¦ÓÚ»¤±¦×´Ì¬²»ÄÜ×é¶Ó");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨å¤„äºæŠ¤å®çŠ¶æ€ä¸èƒ½ç»„é˜Ÿ");
 					return true;
 				}
 
 				SceneUser *pUser = SceneUserManager::getMe().getUserByName(req->byAnswerUserName);
 				if(pUser)
 				{
-					//ÉèÖÃ×é¶ÓÄ£Ê½
+					//è®¾ç½®ç»„é˜Ÿæ¨¡å¼
 					if(!this->team.IsTeamed())
 					{
 						if(req->dwTeamMode < Cmd::TEAM_MAX)
@@ -2019,7 +2019,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 						}
 						else
 						{
-							Zebra::logger->trace("ÊÕµ½ÎŞĞ§Ä£Ê½µÄÑûÇë¶ÓÔ±Ö¸Áî(%s , %ld)" , this->name , this->id);
+							Zebra::logger->trace("æ”¶åˆ°æ— æ•ˆæ¨¡å¼çš„é‚€è¯·é˜Ÿå‘˜æŒ‡ä»¤(%s , %ld)" , this->name , this->id);
 							return true;
 						}
 					}
@@ -2027,7 +2027,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					{
 						if(this->team_mode != req->dwTeamMode)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "Ò»¸ö¶ÓÎéÖ»ÄÜÊ¹ÓÃÒ»ÖÖ×é¶ÓÄ£Ê½");
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä¸€ä¸ªé˜Ÿä¼åªèƒ½ä½¿ç”¨ä¸€ç§ç»„é˜Ÿæ¨¡å¼");
 							return true;
 						}
 					}
@@ -2035,35 +2035,35 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					{
 						if(this->charbase.level < TEAM_HONOR_LEADER_LEVEL)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½ĞèÒª¶Ó³¤µÈ¼¶%d¼¶",TEAM_HONOR_LEADER_LEVEL);
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼éœ€è¦é˜Ÿé•¿ç­‰çº§%dçº§",TEAM_HONOR_LEADER_LEVEL);
 							return true;
 						}
 						if(pUser->charbase.level >= TEAM_HONOR_MEMBER_LEVEL)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½¶ÓÔ±µÈ¼¶²»ÄÜ´óÓÚ%d¼¶",TEAM_HONOR_MEMBER_LEVEL);
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼é˜Ÿå‘˜ç­‰çº§ä¸èƒ½å¤§äº%dçº§",TEAM_HONOR_MEMBER_LEVEL);
 							return true;
 						}
 						if(this->charbase.level <= pUser->charbase.level)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½Ö»ÄÜ×é±È×Ô¼ºµÈ¼¶µÍµÄÍæ¼Ò");
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼åªèƒ½ç»„æ¯”è‡ªå·±ç­‰çº§ä½çš„ç©å®¶");
 							return true;
 						}
 					}
 					if(!pUser->team.IsOpen())
 					{
-						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ô·½×é¶ÓÎ´¿ªÆô");
+						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ç»„é˜Ÿæœªå¼€å¯");
 						return true;
 					}
 					if(pUser->team.IsTeamed())
 					{
-						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑÓĞ×é¶Ó");
+						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²æœ‰ç»„é˜Ÿ");
 						return true;
 					}
 
 					if (pUser->issetUState(Cmd::USTATE_TOGETHER_WITH_TIGER)
 					|| pUser->issetUState(Cmd::USTATE_TOGETHER_WITH_DRAGON))
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½´¦ÓÚ»¤±¦×´Ì¬,²»ÄÜ×é¶Ó");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å¤„äºæŠ¤å®çŠ¶æ€,ä¸èƒ½ç»„é˜Ÿ");
 						return true;
 					}
 
@@ -2074,45 +2074,45 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				}
 			}
 			break;
-			//ÇëÇó×é¶ÓÖ¸Áî
+			//è¯·æ±‚ç»„é˜ŸæŒ‡ä»¤
 		case REQUEST_TEAM_USERCMD_PARA:
 			{
-				//Zebra::logger->debug("ÊÕµ½ÑûÇë¶ÓÔ±Ö¸Áî(%s , %ld)" , this->name , this->id);
+				//Zebra::logger->debug("æ”¶åˆ°é‚€è¯·é˜Ÿå‘˜æŒ‡ä»¤(%s , %ld)" , this->name , this->id);
 				stRequestTeamUserCmd *req = (stRequestTeamUserCmd *)rev;
 				stRequestTeamUserCmd ret;
 				ret.dwAnswerUserID = req->dwAnswerUserID;
 				if(this->scene->noTeam())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "±¾µØÍ¼²»ÄÜ×é¶Ó");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æœ¬åœ°å›¾ä¸èƒ½ç»„é˜Ÿ");
 					return true;
 				}
 				if(this->team.IsFull())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄúµÄ×é¶ÓÒÑÂú");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æ‚¨çš„ç»„é˜Ÿå·²æ»¡");
 					return true;
 				}
 				if((this->team.getLeader() != 0) && (this->tempid != this->team.getLeader()))
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄúÎŞÈ¨ÑûÇë¶ÓÔ±");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æ‚¨æ— æƒé‚€è¯·é˜Ÿå‘˜");
 					return true;
 				}
 				if(this->tempid == ret.dwAnswerUserID)
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "²»ÄÜÑûÇë×Ô¼º");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä¸èƒ½é‚€è¯·è‡ªå·±");
 					return true;
 				}
 
 				if (this->issetUState(Cmd::USTATE_TOGETHER_WITH_TIGER)
 						|| this->issetUState(Cmd::USTATE_TOGETHER_WITH_DRAGON))
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äú´¦ÓÚ»¤±¦×´Ì¬²»ÄÜ×é¶Ó");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨å¤„äºæŠ¤å®çŠ¶æ€ä¸èƒ½ç»„é˜Ÿ");
 					return true;
 				}
 
 				SceneUser *pUser = SceneUserManager::getMe().getUserByTempID(ret.dwAnswerUserID);
 				if(pUser)
 				{
-					//ÉèÖÃ×é¶ÓÄ£Ê½
+					//è®¾ç½®ç»„é˜Ÿæ¨¡å¼
 					if(!this->team.IsTeamed())
 					{
 						if(req->dwTeamMode < Cmd::TEAM_MAX)
@@ -2121,7 +2121,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 						}
 						else
 						{
-							Zebra::logger->trace("ÊÕµ½ÎŞĞ§Ä£Ê½µÄÑûÇë¶ÓÔ±Ö¸Áî(%s , %ld)" , this->name , this->id);
+							Zebra::logger->trace("æ”¶åˆ°æ— æ•ˆæ¨¡å¼çš„é‚€è¯·é˜Ÿå‘˜æŒ‡ä»¤(%s , %ld)" , this->name , this->id);
 							return true;
 						}
 					}
@@ -2129,7 +2129,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					{
 						if(this->team_mode != req->dwTeamMode)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "Ò»¸ö¶ÓÎéÖ»ÄÜÊ¹ÓÃÒ»ÖÖ×é¶ÓÄ£Ê½");
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä¸€ä¸ªé˜Ÿä¼åªèƒ½ä½¿ç”¨ä¸€ç§ç»„é˜Ÿæ¨¡å¼");
 							return true;
 						}
 					}
@@ -2137,35 +2137,35 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					{
 						if(this->charbase.level < TEAM_HONOR_LEADER_LEVEL)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½ĞèÒª¶Ó³¤µÈ¼¶%d¼¶",TEAM_HONOR_LEADER_LEVEL);
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼éœ€è¦é˜Ÿé•¿ç­‰çº§%dçº§",TEAM_HONOR_LEADER_LEVEL);
 							return true;
 						}
 						if(pUser->charbase.level >= TEAM_HONOR_MEMBER_LEVEL)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½¶ÓÔ±µÈ¼¶²»ÄÜ´óÓÚ%d¼¶",TEAM_HONOR_MEMBER_LEVEL);
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼é˜Ÿå‘˜ç­‰çº§ä¸èƒ½å¤§äº%dçº§",TEAM_HONOR_MEMBER_LEVEL);
 							return true;
 						}
 						if(this->charbase.level <= pUser->charbase.level)
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½Ö»ÄÜ×é±È×Ô¼ºµÈ¼¶µÍµÄÍæ¼Ò");
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼åªèƒ½ç»„æ¯”è‡ªå·±ç­‰çº§ä½çš„ç©å®¶");
 							return true;
 						}
 					}
 					if(!pUser->team.IsOpen())
 					{
-						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ô·½×é¶ÓÎ´¿ªÆô");
+						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ç»„é˜Ÿæœªå¼€å¯");
 						return true;
 					}
 					if(pUser->team.IsTeamed())
 					{
-						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑÓĞ×é¶Ó");
+						Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²æœ‰ç»„é˜Ÿ");
 						return true;
 					}
 
 					if (pUser->issetUState(Cmd::USTATE_TOGETHER_WITH_TIGER)
 					|| pUser->issetUState(Cmd::USTATE_TOGETHER_WITH_DRAGON))
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½´¦ÓÚ»¤±¦×´Ì¬,²»ÄÜ×é¶Ó");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å¤„äºæŠ¤å®çŠ¶æ€,ä¸èƒ½ç»„é˜Ÿ");
 						return true;
 					}
 
@@ -2176,19 +2176,19 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				}
 			}
 			break;
-			//»Ø´ğ×é¶ÓÖ¸Áî
+			//å›ç­”ç»„é˜ŸæŒ‡ä»¤
 		case ANSWER_NAME_TEAM_USERCMD_PARA:
 			{
-				Zebra::logger->debug("ÊÕµ½»Ø´ğ×é¶ÓÖ¸Áî(%s , %ld)" , this->name , this->id);
+				Zebra::logger->debug("æ”¶åˆ°å›ç­”ç»„é˜ŸæŒ‡ä»¤(%s , %ld)" , this->name , this->id);
 				stAnswerNameTeamUserCmd *ans = (stAnswerNameTeamUserCmd *)rev;
 				if(this->scene->noTeam())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "±¾µØÍ¼²»ÄÜ×é¶Ó");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æœ¬åœ°å›¾ä¸èƒ½ç»„é˜Ÿ");
 					return true;
 				}
 				if(this->team.IsTeamed())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "Ö»ÄÜ¼ÓÈëÒ»¸ö¶ÓÎé");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "åªèƒ½åŠ å…¥ä¸€ä¸ªé˜Ÿä¼");
 					return true;
 				}
 				if(ans->byAgree)
@@ -2198,7 +2198,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					{
 						if(leader->scene->noTeam())
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ó³¤ËùÔÚµØÍ¼²»ÄÜ×é¶Ó");
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "é˜Ÿé•¿æ‰€åœ¨åœ°å›¾ä¸èƒ½ç»„é˜Ÿ");
 							return true;
 						}
 						stAnswerTeamUserCmd temp;
@@ -2206,13 +2206,13 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 						temp.dwAnswerUserID = this->tempid;
 						temp.byAgree = ans->byAgree;
 						temp.dwTeamMode = ans->dwTeamMode;
-						//TODOÌí¼Ó¶ÓÔ±
-						//Èç¹ûÊÇĞÂ¶ÓÎé
+						//TODOæ·»åŠ é˜Ÿå‘˜
+						//å¦‚æœæ˜¯æ–°é˜Ÿä¼
 						if(leader->team.getSize() == 0)
 						{
 							if(leader->team.IsTeamed())
 							{
-								Channel::sendSys(this ,Cmd::INFO_TYPE_FAIL,"×é¶ÓÊ§°Ü,¶Ó³¤ÒÑ¾­³·Ïú×é¶ÓÇëÇó");
+								Channel::sendSys(this ,Cmd::INFO_TYPE_FAIL,"ç»„é˜Ÿå¤±è´¥,é˜Ÿé•¿å·²ç»æ’¤é”€ç»„é˜Ÿè¯·æ±‚");
 								return true;
 							}
 							leader->team_mode = ans->dwTeamMode;
@@ -2220,7 +2220,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 							{
 								if(!leader->team.addNewMember(leader , (stAnswerTeamUserCmd *)(&temp)))
 								{
-									//TODOÈ¡Ïû×é¶Ó
+									//TODOå–æ¶ˆç»„é˜Ÿ
 									leader->team.removeTeam(leader , leader->tempid);
 								}
 							}
@@ -2229,12 +2229,12 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 						{
 							if(ans->dwTeamMode != leader->team_mode)
 							{
-								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ó³¤È¡ÏûÁË¶ÔÄãµÄ×é¶ÓÑûÇë");
+								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "é˜Ÿé•¿å–æ¶ˆäº†å¯¹ä½ çš„ç»„é˜Ÿé‚€è¯·");
 								return true;
 							}
 							if(leader->team.IsFull())
 							{
-								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "×é¶ÓÊ§°Ü,¶ÓÎéÒÑÂú");
+								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ç»„é˜Ÿå¤±è´¥,é˜Ÿä¼å·²æ»¡");
 								return true;
 							}
 							leader->team.addNewMember(leader , (stAnswerTeamUserCmd *)(&temp));
@@ -2246,25 +2246,25 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					SceneUser *pUser = SceneUserManager::getMe().getUserByName(ans->byRequestUserName);
 					if(pUser)
 					{
-						Channel::sendSys(pUser , Cmd::INFO_TYPE_FAIL, "¶Ô·½¾Ü¾øÁËÄúµÄÑûÇë");
+						Channel::sendSys(pUser , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹æ‹’ç»äº†æ‚¨çš„é‚€è¯·");
 						return true;
 					}
 				}
 			}
 			break;
-			//»Ø´ğ×é¶ÓÖ¸Áî
+			//å›ç­”ç»„é˜ŸæŒ‡ä»¤
 		case ANSWER_TEAM_USERCMD_PARA:
 			{
-				//Zebra::logger->debug("ÊÕµ½»Ø´ğ×é¶ÓÖ¸Áî(%s , %ld)" , this->name , this->id);
+				//Zebra::logger->debug("æ”¶åˆ°å›ç­”ç»„é˜ŸæŒ‡ä»¤(%s , %ld)" , this->name , this->id);
 				stAnswerTeamUserCmd *ans = (stAnswerTeamUserCmd *)rev;
 				if(this->scene->noTeam())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "±¾µØÍ¼²»ÄÜ×é¶Ó");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "æœ¬åœ°å›¾ä¸èƒ½ç»„é˜Ÿ");
 					return true;
 				}
 				if(this->team.IsTeamed())
 				{
-					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "Ö»ÄÜ¼ÓÈëÒ»¸ö¶ÓÎé");
+					Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "åªèƒ½åŠ å…¥ä¸€ä¸ªé˜Ÿä¼");
 					return true;
 				}
 				if(ans->byAgree)
@@ -2274,16 +2274,16 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					{
 						if(leader->scene->noTeam())
 						{
-							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ó³¤ËùÔÚµØÍ¼²»ÄÜ×é¶Ó");
+							Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "é˜Ÿé•¿æ‰€åœ¨åœ°å›¾ä¸èƒ½ç»„é˜Ÿ");
 							return true;
 						}
-						//TODOÌí¼Ó¶ÓÔ±
-						//Èç¹ûÊÇĞÂ¶ÓÎé
+						//TODOæ·»åŠ é˜Ÿå‘˜
+						//å¦‚æœæ˜¯æ–°é˜Ÿä¼
 						if(leader->team.getSize() == 0)
 						{
 							if(leader->team.IsTeamed())
 							{
-								Channel::sendSys(this ,Cmd::INFO_TYPE_FAIL,"×é¶ÓÊ§°Ü,¶Ó³¤ÒÑ¾­³·Ïú×é¶ÓÇëÇó");
+								Channel::sendSys(this ,Cmd::INFO_TYPE_FAIL,"ç»„é˜Ÿå¤±è´¥,é˜Ÿé•¿å·²ç»æ’¤é”€ç»„é˜Ÿè¯·æ±‚");
 								return true;
 							}
 							leader->team_mode = ans->dwTeamMode;
@@ -2291,7 +2291,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 							{
 								if(!leader->team.addNewMember(leader , (stAnswerTeamUserCmd *)rev))
 								{
-									//TODOÈ¡Ïû×é¶Ó
+									//TODOå–æ¶ˆç»„é˜Ÿ
 									leader->team.removeTeam(leader , leader->tempid);
 								}
 							}
@@ -2300,12 +2300,12 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 						{
 							if(ans->dwTeamMode != leader->team_mode)
 							{
-								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ó³¤È¡ÏûÁË¶ÔÄãµÄ×é¶ÓÑûÇë");
+								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "é˜Ÿé•¿å–æ¶ˆäº†å¯¹ä½ çš„ç»„é˜Ÿé‚€è¯·");
 								return true;
 							}
 							if(leader->team.IsFull())
 							{
-								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "×é¶ÓÊ§°Ü,¶ÓÎéÒÑÂú");
+								Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ç»„é˜Ÿå¤±è´¥,é˜Ÿä¼å·²æ»¡");
 								return true;
 							}
 							leader->team.addNewMember(leader , (stAnswerTeamUserCmd *)rev);
@@ -2317,7 +2317,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 					SceneUser *pUser = SceneUserManager::getMe().getUserByTempID(ans->dwRequestUserID);
 					if(pUser)
 					{
-						Channel::sendSys(pUser , Cmd::INFO_TYPE_FAIL, "¶Ô·½¾Ü¾øÁËÄúµÄÑûÇë");
+						Channel::sendSys(pUser , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹æ‹’ç»äº†æ‚¨çš„é‚€è¯·");
 						return true;
 					}
 				}
@@ -2332,7 +2332,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 			if(!cl) return false;
 			if(!ChannelM::getMe().add(cl))
 			{
-			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄãÖ»ÄÜÓµÓĞÒ»¸öË½ÈËÁÄÌìÆµµÀ");
+			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ åªèƒ½æ‹¥æœ‰ä¸€ä¸ªç§äººèŠå¤©é¢‘é“");
 			return true;
 			}
 
@@ -2372,24 +2372,24 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 			{
 			stInvite_ChannelUserCmd *invite=(stInvite_ChannelUserCmd *)rev;
 			SceneUser *pUser=SceneUserManager::getMe().getUserByName(invite->name);
-			// µÃµ½ÆµµÀÑéÖ¤ÊÇ·ñ¿ÉÒÔÌí¼ÓÓÃ»§,ÓÃ»§ÊÇ·ñÒÑ¾­ÔÚÆµµÀÀï
+			// å¾—åˆ°é¢‘é“éªŒè¯æ˜¯å¦å¯ä»¥æ·»åŠ ç”¨æˆ·,ç”¨æˆ·æ˜¯å¦å·²ç»åœ¨é¢‘é“é‡Œ
 			Channel *cl=ChannelM::getMe().get(invite->dwChannelID);
 			if(cl)
 			{
 			if(strncmp(name,cl->name,MAX_NAMESIZE)!=0)
 			{
-			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÑûÇëÓÃ»§");
+			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½é‚€è¯·ç”¨æˆ·");
 			return true;
 			}
 			if(cl->has(invite->name)!=(WORD)-1)
 			{
-			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑ¾­ÔÚÆµµÀÀïÁË");
+			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²ç»åœ¨é¢‘é“é‡Œäº†");
 			return true;
 			}
 			}
 			else
 			{
-			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÁÄÌìÆµµÀ²»´æÔÚ");
+			Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "èŠå¤©é¢‘é“ä¸å­˜åœ¨");
 			return true;
 			}
 			stInvite_ChannelUserCmd inv;
@@ -2422,14 +2422,14 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 		SceneUser *pHost=SceneUserManager::getMe().getUserByName(join->host_name);
 		if (pHost)
 		{
-			// µÃµ½ÆµµÀ
+			// å¾—åˆ°é¢‘é“
 			Channel *cl=ChannelM::getMe().get(join->dwChannelID);
 			if(cl)
 			{
 				cl->add(this);
 			}
 			else
-				Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "²»´æÔÚ´ËÁÄÌìÆµµÀ");
+				Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä¸å­˜åœ¨æ­¤èŠå¤©é¢‘é“");
 		}
 		else
 		{
@@ -2458,12 +2458,12 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 			{
 				if(!cl->remove(this->name))
 				{
-					// É¾³ıÕâ¸öÆµµÀ
+					// åˆ é™¤è¿™ä¸ªé¢‘é“
 					ChannelM::getMe().remove(cl->tempid);
 				}
 			}
 			else
-				Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "²»´æÔÚ´ËÁÄÌìÆµµÀ");
+				Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä¸å­˜åœ¨æ­¤èŠå¤©é¢‘é“");
 		}
 		else
 		{
@@ -2482,7 +2482,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 	}
 	break;
 	*/
-		//ÇëÇó¶ÓÎé×ø±ê
+		//è¯·æ±‚é˜Ÿä¼åæ ‡
 		case REQUEST_TEAMMEMBER_POSITION_USERCMD_PARA:
 			{
 				using namespace Cmd;
@@ -2532,7 +2532,7 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 				stAutoReplyUserCmd * cmd = (stAutoReplyUserCmd *)rev;
 				strncpy(replyText, cmd->text, MAX_CHATINFO);
 #ifdef _XWL_DEBUG
-				Zebra::logger->debug("%s ÉèÖÃ×Ô¶¯»Ø¸´£¬\"%s\"", name, cmd->text);
+				Zebra::logger->debug("%s è®¾ç½®è‡ªåŠ¨å›å¤ï¼Œ\"%s\"", name, cmd->text);
 #endif
 			}
 			break;
@@ -2543,11 +2543,11 @@ bool SceneUser::doChatCmd(const Cmd::stChatUserCmd *rev,unsigned int cmdLen)
 }
 
 /**
- * \brief ½âÎöGMÖ¸Áî
+ * \brief è§£æGMæŒ‡ä»¤
  *
  *
- * \param pUser: ·¢³öÖ¸ÁîÕß
- * \param cmd: ·¢³öµÄÖ¸Áî
+ * \param pUser: å‘å‡ºæŒ‡ä»¤è€…
+ * \param cmd: å‘å‡ºçš„æŒ‡ä»¤
  */
 void Gm::exec(SceneUser *pUser,char *cmd)
 {
@@ -2575,13 +2575,13 @@ void Gm::exec(SceneUser *pUser,char *cmd)
 		{
 			if(strcasecmp(GmCmds[i].cmd,cmdName)==0)
 			{
-				if (0==(Gm::normal_mode & GmCmds[i].priv))//ÆÕÍ¨Íæ¼Ò²»¿ÉÖ´ĞĞ
+				if (0==(Gm::normal_mode & GmCmds[i].priv))//æ™®é€šç©å®¶ä¸å¯æ‰§è¡Œ
 				{
 #ifndef _ALL_SUPER_GM
-					if (pUser->id>100)//id>100µÄ²»¿ÉÖ´ĞĞ
+					if (pUser->id>100)//id>100çš„ä¸å¯æ‰§è¡Œ
 						break;
 #endif
-					if (0==(pUser->getPriv() & GmCmds[i].priv))//Ã»ÓĞÈ¨ÏŞµÄ²»¿ÉÖ´ĞĞ
+					if (0==(pUser->getPriv() & GmCmds[i].priv))//æ²¡æœ‰æƒé™çš„ä¸å¯æ‰§è¡Œ
 						break;
 				}
 				if (GmCmds[i].parse(pUser,para))
@@ -2592,11 +2592,11 @@ void Gm::exec(SceneUser *pUser,char *cmd)
 	}
 }
 
-/*\brief ÏÔÊ¾ÃüÁîĞĞ°ïÖú
- * Ö»ÏÔÊ¾¸ÃÓÃ»§ÓĞÈ¨ÏŞÖ´ĞĞµÄ
+/*\brief æ˜¾ç¤ºå‘½ä»¤è¡Œå¸®åŠ©
+ * åªæ˜¾ç¤ºè¯¥ç”¨æˆ·æœ‰æƒé™æ‰§è¡Œçš„
  *
- * \param pUser: ·¢³öÖ¸ÁîÕß
- * \param para: ÎŞÓÃ
+ * \param pUser: å‘å‡ºæŒ‡ä»¤è€…
+ * \param para: æ— ç”¨
  * \return true
  */
 bool Gm::help(SceneUser *pUser,const char *para)
@@ -2604,7 +2604,7 @@ bool Gm::help(SceneUser *pUser,const char *para)
 	int i=0;
 	while(GmCmds[i].cmd)
 	{
-		if (!(GmCmds[i].priv & Gm::normal_mode) && (pUser->id>1000))//id>1000µÄ²»¿ÉÖ´ĞĞ
+		if (!(GmCmds[i].priv & Gm::normal_mode) && (pUser->id>1000))//id>1000çš„ä¸å¯æ‰§è¡Œ
 		{
 			i++;
 			continue;
@@ -2616,7 +2616,7 @@ bool Gm::help(SceneUser *pUser,const char *para)
 		i++;
 	}
 	/*
-	//ÏµÍ³ÏûÏ¢²âÊÔ
+	//ç³»ç»Ÿæ¶ˆæ¯æµ‹è¯•
 	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "Cmd::INFO_TYPE_SYS");
 	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "Cmd::INFO_TYPE_GAME");
 	Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "Cmd::INFO_TYPE_FAIL");
@@ -2626,12 +2626,12 @@ bool Gm::help(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief ÕÙ»½³èÎï
+ * \brief å¬å”¤å® ç‰©
  *
  *
- * \param pUser: ÓÃ»§
- * \param para: ×Ö´®
- * \return ÕÙ»½ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para: å­—ä¸²
+ * \return å¬å”¤æ˜¯å¦æˆåŠŸ
  */
 bool Gm::callPet(SceneUser *pUser,const char *para)
 {
@@ -2670,7 +2670,7 @@ bool Gm::callPet(SceneUser *pUser,const char *para)
 			pt = Cmd::PET_TYPE_CARTOON;
 			break;
 		default:
-			ScenesService::gm_logger->trace("GM %s(%u) Ê¹ÓÃcallpetÖ¸Áî£¬ÀàĞÍ´íÎó£¬type=%u", pUser->name, pUser->id, atoi(prop["type"].c_str()));
+			ScenesService::gm_logger->trace("GM %s(%u) ä½¿ç”¨callpetæŒ‡ä»¤ï¼Œç±»å‹é”™è¯¯ï¼Œtype=%u", pUser->name, pUser->id, atoi(prop["type"].c_str()));
 			return false;
 			break;
 	}
@@ -2689,19 +2689,19 @@ bool Gm::callPet(SceneUser *pUser,const char *para)
 				bcopy(&p->petData, &pUser->petData, sizeof(pUser->petData));
 				p->sendData();
 			}
-			ScenesService::gm_logger->trace("GM %s(%u) Ê¹ÓÃcallpetÖ¸Áî£¬ÕÙ»½ %s type=%u", pUser->name, pUser->id, p->name, pt);
+			ScenesService::gm_logger->trace("GM %s(%u) ä½¿ç”¨callpetæŒ‡ä»¤ï¼Œå¬å”¤ %s type=%u", pUser->name, pUser->id, p->name, pt);
 			return true;
 		}
-		ScenesService::gm_logger->trace("GM %s(%u) Ê¹ÓÃcallpetÖ¸Áî£¬ÕÙ»½Ê§°Ü£¬para=%s", pUser->name, pUser->id, para);
+		ScenesService::gm_logger->trace("GM %s(%u) ä½¿ç”¨callpetæŒ‡ä»¤ï¼Œå¬å”¤å¤±è´¥ï¼Œpara=%s", pUser->name, pUser->id, para);
 	}
 	return false;
 }
 
-/*\brief Ö±½ÓÉèÖÃÍæ¼ÒµÄÊıÖµ
- * °üÀ¨ÎåĞĞÖµ¡¢¼¼ÄÜµãÊı¡¢»Ö¸´×°±¸ÄÍ¾Ã¶È¡¢¾­ÑéÖµ
+/*\brief ç›´æ¥è®¾ç½®ç©å®¶çš„æ•°å€¼
+ * åŒ…æ‹¬äº”è¡Œå€¼ã€æŠ€èƒ½ç‚¹æ•°ã€æ¢å¤è£…å¤‡è€ä¹…åº¦ã€ç»éªŒå€¼
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
  * return true
  */
 bool Gm::setvalue(SceneUser* pUser , const char* para)
@@ -2712,20 +2712,20 @@ bool Gm::setvalue(SceneUser* pUser , const char* para)
 	{
 		pUser->charbase.skillpoint = atoi(prop["skill"].c_str());
 
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃÁË×Ô¼ºµÄ¼¼ÄÜµãÊı %d", pUser->name, pUser->charbase.skillpoint);
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®äº†è‡ªå·±çš„æŠ€èƒ½ç‚¹æ•° %d", pUser->name, pUser->charbase.skillpoint);
 		//pUser->charstate.skillpoint = atoi(prop["skill"].c_str());
 	}
 	if(""!=prop["dur"])
 	{
 		pUser->packs.equip.updateDurability(pUser , atoi(prop["dur"].c_str())*50);
 
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃÁË×Ô¼ºµÄ×°±¸ÄÍ¾Ã¶È %d", pUser->name, atoi(prop["resume"].c_str()));
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®äº†è‡ªå·±çš„è£…å¤‡è€ä¹…åº¦ %d", pUser->name, atoi(prop["resume"].c_str()));
 	}
 	if(""!=prop["equip_exp"])
 	{
 		pUser->packs.equip.obtain_exp(pUser, atoi(prop["equip_exp"].c_str()), true);
 
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃÁË×Ô¼ºµÄ×°±¸¾­ÑéÖµ %d", pUser->name, atoi(prop["equip_exp"].c_str()));
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®äº†è‡ªå·±çš„è£…å¤‡ç»éªŒå€¼ %d", pUser->name, atoi(prop["equip_exp"].c_str()));
 	}
 	if(atoi(prop["exp"].c_str()) != 0)
 	{
@@ -2735,7 +2735,7 @@ bool Gm::setvalue(SceneUser* pUser , const char* para)
 			pUser->upgrade(); 
 		}
 
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃÁË×Ô¼ºµÄ¾­ÑéÖµ %d", pUser->name, pUser->charbase.exp);
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®äº†è‡ªå·±çš„ç»éªŒå€¼ %d", pUser->name, pUser->charbase.exp);
 	}
 	if(atoi(prop["cooling"].c_str()) != 0)
 	{
@@ -2768,7 +2768,7 @@ bool Gm::setvalue(SceneUser* pUser , const char* para)
 		{
 			pUser->charbase.pkaddition = atoi(prop["peace"].c_str());
 		}
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚµÄºÍÆ½¶ÈÀÛ¼ÆÊ±¼ä%d·ÖÖÓ",
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨çš„å’Œå¹³åº¦ç´¯è®¡æ—¶é—´%dåˆ†é’Ÿ",
 				pUser->charbase.pkaddition);
 	}
 	if (atoi(prop["actionpoint"].c_str()) != 0)
@@ -2782,11 +2782,11 @@ bool Gm::setvalue(SceneUser* pUser , const char* para)
 		}
 		else
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚ»¹Î´¼ÓÈëÈÎºÎ°ï»á");
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨è¿˜æœªåŠ å…¥ä»»ä½•å¸®ä¼š");
 		}
 	}
 
-	//Í¨Öª¿Í»§¶Ë
+	//é€šçŸ¥å®¢æˆ·ç«¯
 	Cmd::stMainUserDataUserCmd send;
 	pUser->full_t_MainUserData(send.data);
 	pUser->sendCmdToMe(&send,sizeof(send));
@@ -2794,48 +2794,48 @@ bool Gm::setvalue(SceneUser* pUser , const char* para)
 	return true;
 }
 
-/*\brief µÃµ½Íæ¼ÒµÄÄ³¸öÊıÖµ
- * °üÀ¨÷ÈÁ¦¡¢¾­ÑéÖµ
+/*\brief å¾—åˆ°ç©å®¶çš„æŸä¸ªæ•°å€¼
+ * åŒ…æ‹¬é­…åŠ›ã€ç»éªŒå€¼
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * return µÃµ½ÊÇ·ñ³É¹¦ 
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * return å¾—åˆ°æ˜¯å¦æˆåŠŸ 
  */
 bool Gm::getvalue(SceneUser* pUser , const char* para)
 {
 	zProperties prop;
 	prop.parseCmdLine(para);
 	//zRegex regex;
-	if(!strcmp(prop["type"].c_str() , "÷ÈÁ¦"))
+	if(!strcmp(prop["type"].c_str() , "é­…åŠ›"))
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ÄúÏÖÔÚµÄ÷ÈÁ¦Öµ=%u",pUser->charstate.charm);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "æ‚¨ç°åœ¨çš„é­…åŠ›å€¼=%u",pUser->charstate.charm);
 
-		ScenesService::gm_logger->trace("GM:%s ²é¿´×Ô¼ºµÄ÷ÈÁ¦Öµ", pUser->name);
+		ScenesService::gm_logger->trace("GM:%s æŸ¥çœ‹è‡ªå·±çš„é­…åŠ›å€¼", pUser->name);
 		return true;
 	}
-	if(!strcmp(prop["type"].c_str() , "¾­Ñé"))
+	if(!strcmp(prop["type"].c_str() , "ç»éªŒ"))
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚµÄ¾­ÑéÖµ=%u , Éı¼¶¾­ÑéÖµ=%u",pUser->charbase.exp ,pUser->charstate.nextexp );
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨çš„ç»éªŒå€¼=%u , å‡çº§ç»éªŒå€¼=%u",pUser->charbase.exp ,pUser->charstate.nextexp );
 
-		ScenesService::gm_logger->trace("GM:%s ²é¿´×Ô¼ºµÄÏµÍ³ÉèÖÃ", pUser->name);
+		ScenesService::gm_logger->trace("GM:%s æŸ¥çœ‹è‡ªå·±çš„ç³»ç»Ÿè®¾ç½®", pUser->name);
 		return true;
 	}
 	if("sys"==prop["type"])
 	{
 		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"%x %x %x %x",pUser->sysSetting[0] ,pUser->sysSetting[1], pUser->sysSetting[2], pUser->sysSetting[3]);
 
-		ScenesService::gm_logger->trace("GM:%s ²é¿´×Ô¼ºµÄ¾­ÑéÖµ", pUser->name);
+		ScenesService::gm_logger->trace("GM:%s æŸ¥çœ‹è‡ªå·±çš„ç»éªŒå€¼", pUser->name);
 		return true;
 	}
 
-	ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃgetvalueÃüÁî£¬²ÎÊı´íÎó", pUser->name);
+	ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨getvalueå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯", pUser->name);
 	return false;
 }
 
-/*\brief ÉèÖÃºÍÏÔÊ¾µ±Ç°ÉÆ¶ñ
+/*\brief è®¾ç½®å’Œæ˜¾ç¤ºå½“å‰å–„æ¶
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
  * return true
  */
 bool Gm::goodness(SceneUser* pUser, const char* para)
@@ -2844,86 +2844,86 @@ bool Gm::goodness(SceneUser* pUser, const char* para)
 	prop.parseCmdLine(para);
 	//zRegex regex;
 	pUser->pkState.clearProtect();
-	if(!strcmp(prop["type"].c_str() , "Ó¢ĞÛ"))
+	if(!strcmp(prop["type"].c_str() , "è‹±é›„"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_0;
 	}
-	else if(!strcmp(prop["type"].c_str() , "ÏÀÊ¿"))
+	else if(!strcmp(prop["type"].c_str() , "ä¾ å£«"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_1;
 	}
-	else if(!strcmp(prop["type"].c_str() , "ÆÕÍ¨"))
+	else if(!strcmp(prop["type"].c_str() , "æ™®é€š"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_2_1;
 		while (!pUser->pkState.cancelProtect(pUser));
 	}
-	else if(!strcmp(prop["type"].c_str() , "´õÍ½"))
+	else if(!strcmp(prop["type"].c_str() , "æ­¹å¾’"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_3;
 	}
-	else if(!strcmp(prop["type"].c_str() , "¶ñÍ½"))
+	else if(!strcmp(prop["type"].c_str() , "æ¶å¾’"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_4;
 	}
-	else if(!strcmp(prop["type"].c_str() , "¶ñÄ§"))
+	else if(!strcmp(prop["type"].c_str() , "æ¶é­”"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_5;
 	}
-	else if(!strcmp(prop["type"].c_str() , "Ä§Í·"))
+	else if(!strcmp(prop["type"].c_str() , "é­”å¤´"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_6;
 	}
-	else if(!strcmp(prop["type"].c_str() , "Ö÷¶¯"))
+	else if(!strcmp(prop["type"].c_str() , "ä¸»åŠ¨"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_ATT;
 	}
-	else if(!strcmp(prop["type"].c_str() , "×ÔÎÀ"))
+	else if(!strcmp(prop["type"].c_str() , "è‡ªå«"))
 	{
 		pUser->charbase.goodness = (DWORD)Cmd::GOODNESS_DEF;
 	}
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s,ÊıÖµÊÇ:%u",
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s,æ•°å€¼æ˜¯:%u",
 			pUser->getGoodnessName(),pUser->charbase.goodness&0X0000FFFF);
- 	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s,ÊıÖµÊÇ:%u",
+ 	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s,æ•°å€¼æ˜¯:%u",
                         pUser->getGoodnessName(),pUser->charbase.goodness);
 
-	ScenesService::gm_logger->trace("GM:%s °ÑÉèÖÃ×Ô¼ºµÄÉÆ¶ñ¶ÈÎª %s", pUser->name, prop["type"].c_str());
+	ScenesService::gm_logger->trace("GM:%s æŠŠè®¾ç½®è‡ªå·±çš„å–„æ¶åº¦ä¸º %s", pUser->name, prop["type"].c_str());
 	/*
 	 *
 	 switch(pUser->getGoodnessState())
 	 {
 	 case Cmd::GOODNESS_0:
 	 {
-	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s","Ó¢ĞÛ");
+	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s","è‹±é›„");
 	 }
 	 break;
 	 case Cmd::GOODNESS_1:
 	 {
-	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s","ÏÀÊ¿");
+	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s","ä¾ å£«");
 	 }
 	 break;
 	 case Cmd::GOODNESS_2_1:
 	 {
-	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s","ÆÕÍ¨ÈË");
+	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s","æ™®é€šäºº");
 	 }
 	 break;
 	 case Cmd::GOODNESS_3:
 	 {
-	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s","´õÍ½");
+	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s","æ­¹å¾’");
 	 }
 	 break;
 	 case Cmd::GOODNESS_4:
 	 {
-	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s","¶ñÍ½");
+	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s","æ¶å¾’");
 	 }
 	 break;
 	 case Cmd::GOODNESS_5:
 	 {
-	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s","¶ñÄ§");
+	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s","æ¶é­”");
 	 }
 	 break;
 	 case Cmd::GOODNESS_6:
 	 {
-	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÄúÏÖÔÚÊÇ%s","Ä§Í·");
+	 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ‚¨ç°åœ¨æ˜¯%s","é­”å¤´");
 	 }
 	 break;
 	 break;
@@ -2935,10 +2935,10 @@ bool Gm::goodness(SceneUser* pUser, const char* para)
 	return true;
 }
 
-/*\brief ºóÍË
+/*\brief åé€€
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
  * return true
  */
 bool Gm::backoff(SceneUser* pUser, const char* para)
@@ -2953,10 +2953,10 @@ bool Gm::backoff(SceneUser* pUser, const char* para)
 	pUser->backOff(dir , grid);
 	return true;
 }
-/*\brief ÉèÖÃhp , mp , sp
+/*\brief è®¾ç½®hp , mp , sp
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
  * return true
  */
 bool Gm::value(SceneUser* pUser, const char* para)
@@ -2989,43 +2989,43 @@ bool Gm::value(SceneUser* pUser, const char* para)
 	if(hp)
 	{
 		pUser->charbase.hp = hp;
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃ×Ô¼ºµÄÉúÃüÖµ %d", pUser->name, hp);
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®è‡ªå·±çš„ç”Ÿå‘½å€¼ %d", pUser->name, hp);
 	}
 
 	if(mp)
 	{
 		pUser->charbase.mp = mp;
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃ×Ô¼ºµÄÄ§·¨Öµ %d", pUser->name, mp);
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®è‡ªå·±çš„é­”æ³•å€¼ %d", pUser->name, mp);
 	}
 
 	if(sp)
 	{
 		pUser->charbase.sp = sp;
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃ×Ô¼ºµÄÌåÁ¦Öµ %d", pUser->name, sp);
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®è‡ªå·±çš„ä½“åŠ›å€¼ %d", pUser->name, sp);
 	}
 
 	if (ep)
 	{
 		pUser->charbase.exploit = ep;
 		pUser->reSendMyMapData();
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃ×Ô¼ºµÄ¹¦Ñ«Öµ %d", pUser->name, ep);
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®è‡ªå·±çš„åŠŸå‹‹å€¼ %d", pUser->name, ep);
 	}
 	if (honor)
 	{
 		pUser->charbase.honor = honor;
 		pUser->charbase.maxhonor = honor;
-		ScenesService::gm_logger->trace("GM:%s ÉèÖÃ×Ô¼ºµÄÈÙÓşÖµ %d", pUser->name, honor);
+		ScenesService::gm_logger->trace("GM:%s è®¾ç½®è‡ªå·±çš„è£èª‰å€¼ %d", pUser->name, honor);
 	}
 	if(gold)
 	{
-		pUser->packs.addGold(gold,"GMÖ¸Áî",NULL,true,true);
+		pUser->packs.addGold(gold,"GMæŒ‡ä»¤",NULL,true,true);
 		Cmd::stMainUserDataUserCmd send;
 		pUser->full_t_MainUserData(send.data);
 		pUser->sendCmdToMe(&send,sizeof(send));
 	}
 	if(ticket)
 	{
-		pUser->packs.addTicket(ticket,"GMÖ¸Áî");
+		pUser->packs.addTicket(ticket,"GMæŒ‡ä»¤");
 	}
 	if(pk)
 	{
@@ -3044,12 +3044,12 @@ bool Gm::value(SceneUser* pUser, const char* para)
 }
 
 /**
- * \brief Ê¹ÓÃÒ©Æ·
+ * \brief ä½¿ç”¨è¯å“
  *
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return Ê¹ÓÃÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return ä½¿ç”¨æ˜¯å¦æˆåŠŸ
  */
 bool Gm::leechdom(SceneUser *pUser,const char *para)
 {
@@ -3060,7 +3060,7 @@ bool Gm::leechdom(SceneUser *pUser,const char *para)
 	//zRegex regex;
 	if ("" == prop["id"] && "" == prop["name"].c_str())
 	{
-		ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃleechdomÃüÁî£¬²ÎÊı´íÎó", pUser->name);
+		ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨leechdomå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯", pUser->name);
 		return false;
 	}
 	zObjectB *base = objectbm.get(atoi(prop["id"].c_str()));
@@ -3083,31 +3083,31 @@ bool Gm::leechdom(SceneUser *pUser,const char *para)
 		{
 			if(pUser->leechdom.isCooling(o->data.maxhp))
 			{
-				Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"¸ÃÀàÒ©Æ·´¦ÓÚÀäÈ´Ê±ÆÚ%s%ld¸ö",o->name,o->data.dwNum);
+				Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"è¯¥ç±»è¯å“å¤„äºå†·å´æ—¶æœŸ%s%ldä¸ª",o->name,o->data.dwNum);
 				SAFE_DELETE(o);
-				ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃÒ©Æ· %s £¬¸ÃÒ©Æ·´¦ÓÚÀäÈ´Ê±ÆÚ", pUser->name, o->name);
+				ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨è¯å“ %s ï¼Œè¯¥è¯å“å¤„äºå†·å´æ—¶æœŸ", pUser->name, o->name);
 				return false;
 			}
 			for (unsigned int i=0; i<num; i++)
 				pUser->useLeechdom(o);
 			pUser->attackRTHpAndMp();
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"Ê¹ÓÃÒ©Æ·%s%ld¸ö",o->name,o->data.dwNum);
-			ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃÒ©Æ· %s %d ¸ö", pUser->name, o->name, o->data.dwNum);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"ä½¿ç”¨è¯å“%s%ldä¸ª",o->name,o->data.dwNum);
+			ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨è¯å“ %s %d ä¸ª", pUser->name, o->name, o->data.dwNum);
 			return true;
 		}
 	}
-	ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃleechdomÃüÁî£¬²»´æÔÚ¸ÃµÀ¾ß id=%d name=%s", pUser->name,atoi(prop["id"].c_str()), prop["name"].c_str());
+	ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨leechdomå‘½ä»¤ï¼Œä¸å­˜åœ¨è¯¥é“å…· id=%d name=%s", pUser->name,atoi(prop["id"].c_str()), prop["name"].c_str());
 #endif 
 	return false;
 }
 
 /**
- * \brief µÃµ½ÎïÆ·
+ * \brief å¾—åˆ°ç‰©å“
  *
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return µÃµ½ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return å¾—åˆ°æ˜¯å¦æˆåŠŸ
  */
 bool Gm::fetch(SceneUser *pUser,const char *para)
 {
@@ -3116,7 +3116,7 @@ bool Gm::fetch(SceneUser *pUser,const char *para)
 	zRegex regex;
 	if ("" == prop["id"] && "" == prop["name"].c_str())
 	{
-		ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃfetchÃüÁî£¬²ÎÊı´íÎó", pUser->name);
+		ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨fetchå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯", pUser->name);
 		return false;
 	}
 
@@ -3125,7 +3125,7 @@ bool Gm::fetch(SceneUser *pUser,const char *para)
 		base = objectbm.get(prop["name"].c_str());
 	if (base)
 	{
-		//²»ÄÜ»ñµÃÂíÆ¥
+		//ä¸èƒ½è·å¾—é©¬åŒ¹
 		if (base->kind==ItemType_HORSE || base->kind==ItemType_BattleHorse)
 			return false;
 
@@ -3136,20 +3136,20 @@ bool Gm::fetch(SceneUser *pUser,const char *para)
 		DWORD hole=atoi(prop["hole"].c_str());
 		if (hole>6) hole=6;
 
-		//ÌìÄ§Ê¯×î¸ß6¼¶
-		if ((679==atoi(prop["id"].c_str()))||("ÌìÄ§Ê¯"==prop["name"].c_str()))
+		//å¤©é­”çŸ³æœ€é«˜6çº§
+		if ((679==atoi(prop["id"].c_str()))||("å¤©é­”çŸ³"==prop["name"].c_str()))
 			if (level>6) level=6;
 
-		//¶¨ÇéÎïÃ»ÓĞµÈ¼¶
-		if ((682==atoi(prop["id"].c_str()))||("¶¨ÇéĞÅÎï"==prop["name"].c_str()))
+		//å®šæƒ…ç‰©æ²¡æœ‰ç­‰çº§
+		if ((682==atoi(prop["id"].c_str()))||("å®šæƒ…ä¿¡ç‰©"==prop["name"].c_str()))
 			level=0;
 
 		if(num==0) num=1;
-		//gmÖ¸ÁîÖÆÔìÒø×ÓÓĞÄÚ´æĞ¹Â©,ĞŞ¸Äok
+		//gmæŒ‡ä»¤åˆ¶é€ é“¶å­æœ‰å†…å­˜æ³„æ¼,ä¿®æ”¹ok
 		if(base->id == 665)
 		{
-			pUser->packs.addMoney(num,"GMÖ¸Áî´´½¨");
-			ScenesService::gm_logger->trace("GM:%s ´´ÔìÁË %u Ç®", pUser->name, num);
+			pUser->packs.addMoney(num,"GMæŒ‡ä»¤åˆ›å»º");
+			ScenesService::gm_logger->trace("GM:%s åˆ›é€ äº† %u é’±", pUser->name, num);
 			return true;
 		}
 		zObject* o = NULL;
@@ -3167,7 +3167,7 @@ bool Gm::fetch(SceneUser *pUser,const char *para)
 		if(o)
 		{
 			zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,o->data.dwNum,1,0,NULL,pUser->id,pUser->name,"fetch",o->base,o->data.kind,o->data.upgrade);
-			//»êÆÇÊ¯
+			//é­‚é­„çŸ³
 			if (o->base->kind == ItemType_SOULSTONE) 
 			{
 				DWORD monster_id = atoi(prop["monster"].c_str());
@@ -3189,7 +3189,7 @@ bool Gm::fetch(SceneUser *pUser,const char *para)
 			}
 			if(o->data.dwNum!=0 && pUser->packs.addObject(o,true, AUTO_PACK))
 			{		
-				//ÊÖ¶¯ÉèÖÃÎïÆ·ÊôĞÔ
+				//æ‰‹åŠ¨è®¾ç½®ç‰©å“å±æ€§
 				if (""!=prop["strName"]) strncpy(o->data.strName, prop["strName"].c_str(), MAX_NAMESIZE-1);
 				int value;
 				//if (0!=(value=atoi(prop["sex"].c_str()))) o->data.sex = value;
@@ -3237,7 +3237,7 @@ bool Gm::fetch(SceneUser *pUser,const char *para)
 				if (0!=(value=atoi(prop["con"].c_str()))) o->data.con = value;
 
 				if (0!=(value=atoi(prop["fivetype"].c_str()))) o->data.fivetype = value;
-				if ("0"==prop["fivetype"]) o->data.fivetype = 0;//½ğÊôĞÔ
+				if ("0"==prop["fivetype"]) o->data.fivetype = 0;//é‡‘å±æ€§
 				if (0!=(value=atoi(prop["fivepoint"].c_str()))) o->data.fivepoint = value;
 				if (0!=(value=atoi(prop["kind"].c_str()))) o->data.kind = value;
 				if (0!=(value=atoi(prop["upgrade"].c_str()))) o->data.upgrade = value;
@@ -3357,30 +3357,30 @@ bool Gm::fetch(SceneUser *pUser,const char *para)
 				if (0!=(value=atoi(prop["sid10"].c_str()))) o->data.skill[9].id = value;
 				if (0!=(value=atoi(prop["slv10"].c_str()))) o->data.skill[9].point = value;
 
-				//Èç¹ûÊÇË«±¶¾­ÑéµÀ¾ßºÍÈÙÓşµÀ¾ßĞèÒª°ó¶¨
+				//å¦‚æœæ˜¯åŒå€ç»éªŒé“å…·å’Œè£èª‰é“å…·éœ€è¦ç»‘å®š
 				o->checkBind();
 				Cmd::stAddObjectPropertyUserCmd send;
 				bcopy(&o->data,&send.object,sizeof(t_Object));
 				pUser->sendCmdToMe(&send,sizeof(send));
-				Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "µÃµ½ÎïÆ·%s%ld¸ö",o->name,o->data.dwNum);
-				ScenesService::gm_logger->trace("GM:%s ´´ÔìÁËÎïÆ· %s %d ¸ö", pUser->name, o->name, o->data.dwNum);
+				Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å¾—åˆ°ç‰©å“%s%ldä¸ª",o->name,o->data.dwNum);
+				ScenesService::gm_logger->trace("GM:%s åˆ›é€ äº†ç‰©å“ %s %d ä¸ª", pUser->name, o->name, o->data.dwNum);
 				return true;
 			}
 			zObject::destroy(o);
 		}
 		return false;
 	}
-	ScenesService::gm_logger->trace("GM:%s ÊÔÍ¼´´Ôì²»´æÔÚµÄÎïÆ· name=%s id=%s ", pUser->name, prop["name"].c_str(), prop["id"].c_str());
+	ScenesService::gm_logger->trace("GM:%s è¯•å›¾åˆ›é€ ä¸å­˜åœ¨çš„ç‰©å“ name=%s id=%s ", pUser->name, prop["name"].c_str(), prop["id"].c_str());
 	return false;
 }
 
 /**
- * \brief ÕÙ»½npc
+ * \brief å¬å”¤npc
  *
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return µÃµ½ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return å¾—åˆ°æ˜¯å¦æˆåŠŸ
  */
 bool Gm::summon(SceneUser *pUser,const char *para)
 {
@@ -3390,7 +3390,7 @@ bool Gm::summon(SceneUser *pUser,const char *para)
 
 	if ("" == prop["id"] && "" == prop["name"].c_str())
 	{
-		ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃsummonÃüÁî£¬²ÎÊı´íÎó¡£Î»ÖÃ %s (%d,%d)", pUser->name, pUser->scene->name, pUser->getPos().x, pUser->getPos().y);
+		ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨summonå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ã€‚ä½ç½® %s (%d,%d)", pUser->name, pUser->scene->name, pUser->getPos().x, pUser->getPos().y);
 		return false;
 	}
 	zNpcB *base = npcbm.get(atoi(prop["id"].c_str()));
@@ -3429,21 +3429,21 @@ bool Gm::summon(SceneUser *pUser,const char *para)
 		pUser->scene->initRegion(define.region, define.pos, define.width, define.height);
 		int num = pUser->scene->summonNpc(define, pos, base);
 
-		ScenesService::gm_logger->trace("GM:%s ÕÙ»½¹ÖÎï %s %d ¸ö¡£Î»ÖÃ %s (%d,%d)", pUser->name, define.name, num, pUser->scene->name, define.pos.x, define.pos.y);
+		ScenesService::gm_logger->trace("GM:%s å¬å”¤æ€ªç‰© %s %d ä¸ªã€‚ä½ç½® %s (%d,%d)", pUser->name, define.name, num, pUser->scene->name, define.pos.x, define.pos.y);
 		return true;
 	}
 
-	ScenesService::gm_logger->trace("GM:%s Ê¹ÓÃsummonÃüÁî£¬²ÎÊı´íÎó¡£Î»ÖÃ %s (%d,%d)", pUser->name, pUser->scene->name, pUser->getPos().x, pUser->getPos().y);
+	ScenesService::gm_logger->trace("GM:%s ä½¿ç”¨summonå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ã€‚ä½ç½® %s (%d,%d)", pUser->name, pUser->scene->name, pUser->getPos().x, pUser->getPos().y);
 	return false;
 }
 
-/*\brief GM¸ø×Ô¼ºÉı¼¶
+/*\brief GMç»™è‡ªå·±å‡çº§
  * 
- * ³¬¼¶GM¿ÉÒÔÓÃÕâÌõÃüÁî¸ø±ğµÄÓÃ»§Éı¼¶
+ * è¶…çº§GMå¯ä»¥ç”¨è¿™æ¡å‘½ä»¤ç»™åˆ«çš„ç”¨æˆ·å‡çº§
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return Éı¼¶ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return å‡çº§æ˜¯å¦æˆåŠŸ
  */
 bool Gm::levelup(SceneUser *pUser,const char *para)
 {
@@ -3456,64 +3456,64 @@ bool Gm::levelup(SceneUser *pUser,const char *para)
 	if (num>MAX_LEVEL) num = MAX_LEVEL;
 	if (num <=0) num = 1;
 
-	//¸ø×Ô¼ºÉı¼¶
+	//ç»™è‡ªå·±å‡çº§
 	if (""==prop["name"] || !strncmp(pUser->name, prop["name"].c_str(), MAX_NAMESIZE))
 	{
 		if (pUser->upgrade(num))
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"¹§Ï²Äã£¡Éı¼¶ÁË¡£");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃlevelupÖ¸Áî£¬ ÌáÉıÁË×Ô¼ºµÄµÈ¼¶ num=%d", pUser->name, num);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"æ­å–œä½ ï¼å‡çº§äº†ã€‚");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨levelupæŒ‡ä»¤ï¼Œ æå‡äº†è‡ªå·±çš„ç­‰çº§ num=%d", pUser->name, num);
 			return true;
 		}
 		else
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Éı¼¶Ê§°Ü");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃlevelupÖ¸Áî£¬ ÌáÉı×Ô¼ºµÄµÈ¼¶Ê§°Ü, num=%d", pUser->name, num);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"å‡çº§å¤±è´¥");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨levelupæŒ‡ä»¤ï¼Œ æå‡è‡ªå·±çš„ç­‰çº§å¤±è´¥, num=%d", pUser->name, num);
 			return false;
 		}
 	}
-   else//¸ø±ğÈËÉı¼¶
+   else//ç»™åˆ«äººå‡çº§
    {
-		//Ö»ÓĞ³¬¼¶GM²Å¿ÉÒÔ¸øÆäËûÈËÉı¼¶
+		//åªæœ‰è¶…çº§GMæ‰å¯ä»¥ç»™å…¶ä»–äººå‡çº§
 		if (!(pUser->getPriv() & Gm::super_mode))
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Äã²»ÄÜÌáÉı±ğÈËµÄµÈ¼¶£¡È¨ÏŞ²»×ã");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃlevelupÖ¸Áî£¬ ÊÔÍ¼ÌáÉı %s µÄµÈ¼¶, È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ä½ ä¸èƒ½æå‡åˆ«äººçš„ç­‰çº§ï¼æƒé™ä¸è¶³");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨levelupæŒ‡ä»¤ï¼Œ è¯•å›¾æå‡ %s çš„ç­‰çº§, æƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 		else
 		{
-			//Ã»ÓĞËø¹ÜÀíÆ÷
+			//æ²¡æœ‰é”ç®¡ç†å™¨
 			SceneUser * pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 
-			if (pTarget)//Íæ¼ÒÔÚÏß
+			if (pTarget)//ç©å®¶åœ¨çº¿
 			{
 				if (pUser->getPriv() <= pTarget->getPriv())
 				{                       
-					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Ö»ÄÜ²Ù×÷±È×Ô¼º¼¶±ğµÍµÄÍæ¼Ò!");
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃÓÃlevelupÃüÁî£¬ÊÔÍ¼Ê¹ %s Éı¼¶£¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());                                    
+					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"åªèƒ½æ“ä½œæ¯”è‡ªå·±çº§åˆ«ä½çš„ç©å®¶!");
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨ç”¨levelupå‘½ä»¤ï¼Œè¯•å›¾ä½¿ %s å‡çº§ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());                                    
 					return false;
 				}
 				if (pTarget->upgrade(num))
 				{
-					Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME,"¹§Ï²£¡%s ÌáÉıÁËÄãµÄµÈ¼¶ %d", pUser->name, num);
-					Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÌáÉı %s µÄµÈ¼¶ %d ³É¹¦", pTarget->name, num);
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃlevelupÖ¸Áî£¬ ÌáÉıÁË %s µÄµÈ¼¶¡£ num=%d", pUser->name, prop["name"].c_str(), num);
+					Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME,"æ­å–œï¼%s æå‡äº†ä½ çš„ç­‰çº§ %d", pUser->name, num);
+					Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æå‡ %s çš„ç­‰çº§ %d æˆåŠŸ", pTarget->name, num);
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨levelupæŒ‡ä»¤ï¼Œ æå‡äº† %s çš„ç­‰çº§ã€‚ num=%d", pUser->name, prop["name"].c_str(), num);
 					return true;
 				}
 				else
 				{
-					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Éı¼¶Ê§°Ü");
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃlevelupÖ¸Áî£¬ ÌáÉı %s µÄµÈ¼¶Ê§°Ü, num=%d", pUser->name, prop["name"].c_str(), num);
+					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"å‡çº§å¤±è´¥");
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨levelupæŒ‡ä»¤ï¼Œ æå‡ %s çš„ç­‰çº§å¤±è´¥, num=%d", pUser->name, prop["name"].c_str(), num);
 					return false;
 				}
 			}
-			else//Íæ¼Ò²»ÔÚÏß»ò²»ÔÚµ±Ç°³¡¾°·şÎñÆ÷
+			else//ç©å®¶ä¸åœ¨çº¿æˆ–ä¸åœ¨å½“å‰åœºæ™¯æœåŠ¡å™¨
 			{
 				Cmd::Session::t_gmCommand_SceneSession cmd;
 				cmd.gm_cmd = Cmd::Session::GM_COMMAND_LEVELUP;
 				cmd.src_priv = pUser->getPriv();
-				cmd.x = num;//²ÎÊı£¬ÒªÌáÉıµÄµÈ¼¶Êı
+				cmd.x = num;//å‚æ•°ï¼Œè¦æå‡çš„ç­‰çº§æ•°
 				strncpy((char *)cmd.src_name, pUser->name, MAX_NAMESIZE-1);
 				strncpy((char *)cmd.dst_name, prop["name"].c_str(), MAX_NAMESIZE-1);
 
@@ -3526,12 +3526,12 @@ bool Gm::levelup(SceneUser *pUser,const char *para)
 	return false;
 }
 
-/*\brief µØÍ¼Ìø×ª
+/*\brief åœ°å›¾è·³è½¬
  * 
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return Ìø×ªÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return è·³è½¬æ˜¯å¦æˆåŠŸ
  */
 bool Gm::gomap_Gm(SceneUser *pUser,const char *para)
 {
@@ -3545,26 +3545,26 @@ bool Gm::gomap_Gm(SceneUser *pUser,const char *para)
 	}
 	if ("" == prop["name"])
 	{
-		//		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ÇëÖ¸¶¨µØÍ¼ºÍ×ø±ê£¬Èç£º//gomap name=XXX pos=100,100");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgomapÃüÁî£¬²ÎÊı´íÎó", pUser->name);
+		//		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"è¯·æŒ‡å®šåœ°å›¾å’Œåæ ‡ï¼Œå¦‚ï¼š//gomap name=XXX pos=100,100");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gomapå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯", pUser->name);
 		return false;
 	}
 	pUser->charbase.gomaptype=atoi(prop["type"].c_str());
 	std::string name = prop["name"];
-	if(strstr(prop["name"].c_str() , "¡¤") == NULL)
+	if(strstr(prop["name"].c_str() , "Â·") == NULL)
 	{
 		SceneManager::CountryMap_iter country_iter
 			=SceneManager::getInstance().country_info.find(pUser->scene->getCountryID());
-		if(country_iter != SceneManager::getInstance().country_info.end() && !(country_iter->second.function &0x01)/*²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò*/ && pUser->scene->getCountryID()!=6)
+		if(country_iter != SceneManager::getInstance().country_info.end() && !(country_iter->second.function &0x01)/*ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶*/ && pUser->scene->getCountryID()!=6)
 		{
 			name = country_iter->second.name;
-			name+= "¡¤";
+			name+= "Â·";
 			name+= prop["name"];
 		}
 		else
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "Î´¿ª¹ú¼Ò");
-			Zebra::logger->debug("%s(%u)²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò",pUser->name,pUser->id);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "æœªå¼€å›½å®¶");
+			Zebra::logger->debug("%s(%u)ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶",pUser->name,pUser->id);
 			return false;
 		}
 	}
@@ -3573,16 +3573,16 @@ bool Gm::gomap_Gm(SceneUser *pUser,const char *para)
 		char country_name[MAX_NAMESIZE+1];
 		bzero(country_name,sizeof(country_name));
 		strncpy(country_name,name.c_str(),MAX_NAMESIZE);
-		char *real = strstr(country_name , "¡¤");
+		char *real = strstr(country_name , "Â·");
 		if(real)
 		{
 			*real=0;
 		}
 		SceneManager::CountryMap_iter country_iter=SceneManager::getInstance().country_info.find(SceneManager::getInstance().getCountryIDByCountryName(country_name));
-		if(country_iter != SceneManager::getInstance().country_info.end() && (country_iter->second.function &0x01)/*²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò*/ && country_iter->first!=6)
+		if(country_iter != SceneManager::getInstance().country_info.end() && (country_iter->second.function &0x01)/*ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶*/ && country_iter->first!=6)
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "Î´¿ª¹ú¼Ò");
-			Zebra::logger->debug("%s(%u)²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò",pUser->name,pUser->id);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "æœªå¼€å›½å®¶");
+			Zebra::logger->debug("%s(%u)ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶",pUser->name,pUser->id);
 			return false;
 		}
 	}
@@ -3637,28 +3637,28 @@ bool Gm::gomap_Gm(SceneUser *pUser,const char *para)
 		if (!findPos) return pUser->changeMap(scene,Pos, ignoreUserLevel);
 
 		const WayPoint *wp=pUser->scene->getWayPoint(scene->getFileName());
-		if(wp==NULL)//Ã»ÓĞ´ÓpUser->sceneµ½sceneµÄÌø×ªµã
+		if(wp==NULL)//æ²¡æœ‰ä»pUser->sceneåˆ°sceneçš„è·³è½¬ç‚¹
 		{
-			wp=scene->getRandWayPoint();//Ëæ±ãÕÒÒ»¸ösceneÉÏµÄÌø×ªµã
+			wp=scene->getRandWayPoint();//éšä¾¿æ‰¾ä¸€ä¸ªsceneä¸Šçš„è·³è½¬ç‚¹
 			if(wp)
 			{
 				const zPos *pos=wp->getRandPoint();
 				bool suc = pUser->changeMap(scene,*pos, ignoreUserLevel);
 				if (suc)
 				{
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgomapÃüÁî£¬Ä¿µÄ %s (%d,%d)", pUser->name, scene->name, pos->x, pos->y);
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gomapå‘½ä»¤ï¼Œç›®çš„ %s (%d,%d)", pUser->name, scene->name, pos->x, pos->y);
 					return true;
 				}
 				else
 				{
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgomapÃüÁî£¬Ìø×ªµØÍ¼Ê§°Ü£¬Ä¿µÄ %s (%d,%d)", pUser->name, scene->name, pos->x, pos->y);
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gomapå‘½ä»¤ï¼Œè·³è½¬åœ°å›¾å¤±è´¥ï¼Œç›®çš„ %s (%d,%d)", pUser->name, scene->name, pos->x, pos->y);
 					return false;
 				}
 			}
 			else
 			{
-				//				Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"µØÍ¼ÉÏÃ»ÓĞÌø×ªµã");
-				ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgomapÃüÁî£¬µØÍ¼ %s Ã»ÓĞÌø×ªµã", pUser->name, name.c_str());
+				//				Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"åœ°å›¾ä¸Šæ²¡æœ‰è·³è½¬ç‚¹");
+				ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gomapå‘½ä»¤ï¼Œåœ°å›¾ %s æ²¡æœ‰è·³è½¬ç‚¹", pUser->name, name.c_str());
 				return false;
 			}
 		}
@@ -3668,20 +3668,20 @@ bool Gm::gomap_Gm(SceneUser *pUser,const char *para)
 			bool suc = pUser->changeMap(scene,pos, ignoreUserLevel);
 			if (suc)
 			{
-				ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgomapÃüÁî£¬Ä¿µÄ %s (%d,%d)", pUser->name, scene->name, pos.x, pos.y);
+				ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gomapå‘½ä»¤ï¼Œç›®çš„ %s (%d,%d)", pUser->name, scene->name, pos.x, pos.y);
 				return true;
 			}
 			else
 			{
-				ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgomapÃüÁî£¬Ìø×ªµØÍ¼Ê§°Ü£¬Ä¿µÄ %s (%d,%d)", pUser->name, scene->name, pos.x, pos.y);
+				ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gomapå‘½ä»¤ï¼Œè·³è½¬åœ°å›¾å¤±è´¥ï¼Œç›®çš„ %s (%d,%d)", pUser->name, scene->name, pos.x, pos.y);
 				return false;
 			}
 		}
 	}
 	else
 	{
-		//ScenesService::gm_logger->debug("ÇĞ»»³¡¾°·şÎñÆ÷(%s, %d, %d)", dp->name, dp->pos.x, dp->pos.y);
-		if (pUser->guard && pUser->guard->canMove()) pUser->saveGuard = true;//Ê¹ïÚ³µ¸úËæÖ¸ÁîÊ¹ÓÃÕß
+		//ScenesService::gm_logger->debug("åˆ‡æ¢åœºæ™¯æœåŠ¡å™¨(%s, %d, %d)", dp->name, dp->pos.x, dp->pos.y);
+		if (pUser->guard && pUser->guard->canMove()) pUser->saveGuard = true;//ä½¿é•–è½¦è·ŸéšæŒ‡ä»¤ä½¿ç”¨è€…
 		if (pUser->adoptList.size()) pUser->saveAdopt = true;
 		Cmd::Session::t_changeScene_SceneSession cmd;
 		cmd.id = pUser->id;
@@ -3696,12 +3696,12 @@ bool Gm::gomap_Gm(SceneUser *pUser,const char *para)
 	}
 }
 
-/*\brief µØÍ¼Ìø×ª
+/*\brief åœ°å›¾è·³è½¬
  * 
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return Ìø×ªÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return è·³è½¬æ˜¯å¦æˆåŠŸ
  */
 bool Gm::gomap(SceneUser *pUser,const char *para)
 {
@@ -3719,20 +3719,20 @@ bool Gm::gomap(SceneUser *pUser,const char *para)
 	}
 	pUser->charbase.gomaptype=atoi(prop["type"].c_str());
 	std::string name = prop["name"];
-	if(strstr(prop["name"].c_str() , "¡¤") == NULL)
+	if(strstr(prop["name"].c_str() , "Â·") == NULL)
 	{
 		SceneManager::CountryMap_iter country_iter
 			=SceneManager::getInstance().country_info.find(pUser->scene->getCountryID());
-		if(country_iter != SceneManager::getInstance().country_info.end() && !(country_iter->second.function &0x01)/*²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò*/ && pUser->scene->getCountryID()!=6)
+		if(country_iter != SceneManager::getInstance().country_info.end() && !(country_iter->second.function &0x01)/*ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶*/ && pUser->scene->getCountryID()!=6)
 		{
 			name = country_iter->second.name;
-			name+= "¡¤";
+			name+= "Â·";
 			name+= prop["name"];
 		}
 		else
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "Î´¿ª¹ú¼Ò");
-			Zebra::logger->debug("%s(%u)²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò",pUser->name,pUser->id);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "æœªå¼€å›½å®¶");
+			Zebra::logger->debug("%s(%u)ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶",pUser->name,pUser->id);
 			return false;
 		}
 	}
@@ -3741,16 +3741,16 @@ bool Gm::gomap(SceneUser *pUser,const char *para)
 		char country_name[MAX_NAMESIZE+1];
 		bzero(country_name,sizeof(country_name));
 		strncpy(country_name,name.c_str(),MAX_NAMESIZE);
-		char *real = strstr(country_name , "¡¤");
+		char *real = strstr(country_name , "Â·");
 		if(real)
 		{
 			*real=0;
 		}
 		SceneManager::CountryMap_iter country_iter=SceneManager::getInstance().country_info.find(SceneManager::getInstance().getCountryIDByCountryName(country_name));
-		if(country_iter != SceneManager::getInstance().country_info.end() && (country_iter->second.function &0x01)/*²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò*/ && country_iter->first!=6)
+		if(country_iter != SceneManager::getInstance().country_info.end() && (country_iter->second.function &0x01)/*ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶*/ && country_iter->first!=6)
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "Î´¿ª¹ú¼Ò");
-			Zebra::logger->debug("%s(%u)²»ÄÜÌøµ½Î´¿ª·Å¹ú¼Ò",pUser->name,pUser->id);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "æœªå¼€å›½å®¶");
+			Zebra::logger->debug("%s(%u)ä¸èƒ½è·³åˆ°æœªå¼€æ”¾å›½å®¶",pUser->name,pUser->id);
 			return false;
 		}
 	}
@@ -3805,9 +3805,9 @@ bool Gm::gomap(SceneUser *pUser,const char *para)
 		if (!findPos) return pUser->changeMap(scene,Pos, ignoreUserLevel);
 
 		const WayPoint *wp=pUser->scene->getWayPoint(scene->getFileName());
-		if(wp==NULL)//Ã»ÓĞ´ÓpUser->sceneµ½sceneµÄÌø×ªµã
+		if(wp==NULL)//æ²¡æœ‰ä»pUser->sceneåˆ°sceneçš„è·³è½¬ç‚¹
 		{
-			wp=scene->getRandWayPoint();//Ëæ±ãÕÒÒ»¸ösceneÉÏµÄÌø×ªµã
+			wp=scene->getRandWayPoint();//éšä¾¿æ‰¾ä¸€ä¸ªsceneä¸Šçš„è·³è½¬ç‚¹
 			if(wp)
 			{
 				const zPos *pos=wp->getRandPoint();
@@ -3824,7 +3824,7 @@ bool Gm::gomap(SceneUser *pUser,const char *para)
 	}
 	else
 	{
-		if (pUser->guard && pUser->guard->canMove()) pUser->saveGuard = true;//Ê¹ïÚ³µ¸úËæÖ¸ÁîÊ¹ÓÃÕß
+		if (pUser->guard && pUser->guard->canMove()) pUser->saveGuard = true;//ä½¿é•–è½¦è·ŸéšæŒ‡ä»¤ä½¿ç”¨è€…
 		if (pUser->adoptList.size()) pUser->saveAdopt = true;
 		Cmd::Session::t_changeScene_SceneSession cmd;
 		cmd.id = pUser->id;
@@ -3839,12 +3839,12 @@ bool Gm::gomap(SceneUser *pUser,const char *para)
 	}
 }
 
-/*\brief Ë²ÒÆ
+/*\brief ç¬ç§»
  * 
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Gm::goTo_Gm(SceneUser *pUser,const char *para)
 {
@@ -3857,7 +3857,7 @@ bool Gm::goTo_Gm(SceneUser *pUser,const char *para)
 	}
 	zRegex regex;
 	zPos newPos;
-	//Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"ÄãµÄ×ø±êÊÇ(%ld,%ld),³ÇÕòÖĞĞÄÔÚ(265,290)",pUser->getPos().x,pUser->getPos().y);
+	//Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"ä½ çš„åæ ‡æ˜¯(%ld,%ld),åŸé•‡ä¸­å¿ƒåœ¨(265,290)",pUser->getPos().x,pUser->getPos().y);
 	if((regex.compile("(.*)[ ,](.*)") && regex.match(para_1)))
 	{
 		std::string s;
@@ -3870,29 +3870,29 @@ bool Gm::goTo_Gm(SceneUser *pUser,const char *para)
 	}
 	else
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgotoÃüÁî£¬²ÎÊı´íÎó %s", pUser->name, para);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gotoå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ %s", pUser->name, para);
 		return false;
 	}
 	bool suc = pUser->goTo(newPos);
 	if (suc)
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgotoÃüÁî£¬Ä¿µÄ %s (%d,%d)", pUser->name, pUser->scene->name, newPos.x, newPos.y);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gotoå‘½ä»¤ï¼Œç›®çš„ %s (%d,%d)", pUser->name, pUser->scene->name, newPos.x, newPos.y);
 		return true;
 	}
 	else
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgotoÃüÁîÊ§°Ü£¬Ä¿µÄ %s (%d,%d)", pUser->name, pUser->scene->name, newPos.x, newPos.y);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gotoå‘½ä»¤å¤±è´¥ï¼Œç›®çš„ %s (%d,%d)", pUser->name, pUser->scene->name, newPos.x, newPos.y);
 		return false;
 	}
 }
 
 
-/*\brief Ë²ÒÆ
+/*\brief ç¬ç§»
  * 
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Gm::goTo(SceneUser *pUser,const char *para)
 {
@@ -3921,12 +3921,12 @@ bool Gm::goTo(SceneUser *pUser,const char *para)
 	return pUser->goTo(newPos);
 }
 
-/*\brief ¸ø¼¼ÄÜÉı¼¶
+/*\brief ç»™æŠ€èƒ½å‡çº§
  * 
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return Éı¼¶ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return å‡çº§æ˜¯å¦æˆåŠŸ
  */
 bool Gm::upgradeSkill(SceneUser *pUser,const char *para)
 {
@@ -3935,29 +3935,29 @@ bool Gm::upgradeSkill(SceneUser *pUser,const char *para)
 
 	if ("" == prop["id"])
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃupskillÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨upskillå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
 	bool suc = pUser->upgradeSkill(atoi(prop["id"].c_str()));
 	if (suc)
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃupskillÃüÁî£¬id=%s", pUser->name, prop["id"].c_str());
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨upskillå‘½ä»¤ï¼Œid=%s", pUser->name, prop["id"].c_str());
 		return true;
 	}
 	else
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃupskillÃüÁîÊ§°Ü£¬id=%s", pUser->name, prop["id"].c_str());
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨upskillå‘½ä»¤å¤±è´¥ï¼Œid=%s", pUser->name, prop["id"].c_str());
 		return false;
 	}
 }
 
-/*\brief ·ÅÆúÈÎÎñ
+/*\brief æ”¾å¼ƒä»»åŠ¡
  * 
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ·ÅÆúÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ”¾å¼ƒæ˜¯å¦æˆåŠŸ
  */
 bool Gm::abandon(SceneUser *pUser,const char *para)
 {
@@ -3966,22 +3966,22 @@ bool Gm::abandon(SceneUser *pUser,const char *para)
 
 	if ("" == prop["id"])
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃabandonÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨abandonå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"Çå³ıÈÎÎñ(%s)", prop["id"].c_str());
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"æ¸…é™¤ä»»åŠ¡(%s)", prop["id"].c_str());
 	pUser->quest_list.abandon(*pUser, atoi(prop["id"].c_str()), true);
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃabandonÃüÁî£¬È¡ÏûÈÎÎñ id=%s", pUser->name, prop["id"].c_str());
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨abandonå‘½ä»¤ï¼Œå–æ¶ˆä»»åŠ¡ id=%s", pUser->name, prop["id"].c_str());
 	return true;
 }
 
 /**
- * \brief GMµÃµ½Íæ¼ÒËùÔÚµÄÇøÓò¡¢Î»ÖÃ
+ * \brief GMå¾—åˆ°ç©å®¶æ‰€åœ¨çš„åŒºåŸŸã€ä½ç½®
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return µÃµ½ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return å¾—åˆ°æ˜¯å¦æˆåŠŸ
  */
 bool Gm::finduser(SceneUser *pUser,const char *para)
 {
@@ -3990,24 +3990,24 @@ bool Gm::finduser(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃfinduserÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨finduserå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget)
 	{					
-		//±È½ÏÈ¨ÏŞ¼¶±ğ
+		//æ¯”è¾ƒæƒé™çº§åˆ«
 		if (pUser->getPriv() <= pTarget->getPriv())
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Ö»ÄÜ²Ù×÷±È×Ô¼º¼¶±ğµÍµÄÍæ¼Ò!");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃfinduserÃüÁî£¬ÊÔÍ¼µÃµ½ %s µÄÎ»ÖÃ£¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"åªèƒ½æ“ä½œæ¯”è‡ªå·±çº§åˆ«ä½çš„ç©å®¶!");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨finduserå‘½ä»¤ï¼Œè¯•å›¾å¾—åˆ° %s çš„ä½ç½®ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 
 		zPos Pos=pTarget->getPos();
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"Íæ¼Ò %s ÔÚÇøÓò:%s ×ø±ê:(%d,%d)",prop["name"].c_str(),pTarget->scene->getName(),Pos.x,Pos.y);
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃfinduserÃüÁî£¬µÃµ½ %s µÄÎ»ÖÃ", pUser->name, prop["name"].c_str());
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"ç©å®¶ %s åœ¨åŒºåŸŸ:%s åæ ‡:(%d,%d)",prop["name"].c_str(),pTarget->scene->getName(),Pos.x,Pos.y);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨finduserå‘½ä»¤ï¼Œå¾—åˆ° %s çš„ä½ç½®", pUser->name, prop["name"].c_str());
 		return true;
 	}
 	else
@@ -4028,11 +4028,11 @@ bool Gm::finduser(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief °ÑGM´øµ½Ò»¸öÍæ¼ÒÉí±ß
+ * \brief æŠŠGMå¸¦åˆ°ä¸€ä¸ªç©å®¶èº«è¾¹
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::gotouser(SceneUser *pUser,const char *para)
 {               
@@ -4041,36 +4041,36 @@ bool Gm::gotouser(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgotouserÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gotouserå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget)
 	{
-		//±È½ÏÈ¨ÏŞ¼¶±ğ
+		//æ¯”è¾ƒæƒé™çº§åˆ«
 		if (pUser->getPriv() <= pTarget->getPriv())
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "Ö»ÄÜ²Ù×÷±È×Ô¼º¼¶±ğµÍµÄÍæ¼Ò!");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgotouserÃüÁî£¬ÊÔÍ¼µ½´ï %s µÄÎ»ÖÃ£¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "åªèƒ½æ“ä½œæ¯”è‡ªå·±çº§åˆ«ä½çš„ç©å®¶!");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gotouserå‘½ä»¤ï¼Œè¯•å›¾åˆ°è¾¾ %s çš„ä½ç½®ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 
-		//Î»ÖÃ
+		//ä½ç½®
 		std::string mapName = "name=";
 		mapName += pTarget->scene->getName();
-		//×ø±ê
+		//åæ ‡
 		zPos Pos = pTarget->getPos();
 		char position[MAX_NAMESIZE];
 		bzero(position,sizeof(position));
 		sprintf(position,"%d,%d",Pos.x,Pos.y);
 		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,position);
 
-		//Ìø×ª
+		//è·³è½¬
 		gomap(pUser,mapName.c_str());
 		goTo(pUser,position);
 
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgotouserÃüÁî£¬µ½´ï %s µÄÎ»ÖÃ", pUser->name, prop["name"].c_str());
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gotouserå‘½ä»¤ï¼Œåˆ°è¾¾ %s çš„ä½ç½®", pUser->name, prop["name"].c_str());
 		return true;
 	}       
 	else    
@@ -4091,11 +4091,11 @@ bool Gm::gotouser(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief ²¹³¥Ò»¸öÍæ¼Ò¹ÉÆ±
+ * \brief è¡¥å¿ä¸€ä¸ªç©å®¶è‚¡ç¥¨
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::givestock(SceneUser *pUser,const char *para)
 {
@@ -4104,8 +4104,8 @@ bool Gm::givestock(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcatchuserÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨catchuserå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	DWORD gold=atoi(prop["gold"].c_str());
@@ -4118,19 +4118,19 @@ bool Gm::givestock(SceneUser *pUser,const char *para)
 		save.dwMoney=money;
 		save.dwGold=gold;
 		pTarget->sendSceneCmdToBill(&save,sizeof(save));
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgivestockÃüÁî£¬¸øÍæ¼Ò%s(%d)²¹³¥¹ÉÆ±½ğ±Ò:%d,¹ÉÆ±Òø±Ò:%d", pUser->name, pTarget->name,pTarget->id,gold,money);
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò%s(%d)²¹³¥¹ÉÆ±²Ù×÷³É¹¦",pTarget->name,pTarget->charbase.accid);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨givestockå‘½ä»¤ï¼Œç»™ç©å®¶%s(%d)è¡¥å¿è‚¡ç¥¨é‡‘å¸:%d,è‚¡ç¥¨é“¶å¸:%d", pUser->name, pTarget->name,pTarget->id,gold,money);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶%s(%d)è¡¥å¿è‚¡ç¥¨æ“ä½œæˆåŠŸ",pTarget->name,pTarget->charbase.accid);
 		return true;
 	}
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò²¹³¥Òø±Ò²Ù×÷Ê§°Ü,Ô­Òò:1.Íæ¼Ò²»ÔÚÏß;2.Ãû×ÖºÍaccid²»¶ÔÓ¦;3.²»ÔÚÍæ¼ÒËùÔÚ¹ú¼Ò");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶è¡¥å¿é“¶å¸æ“ä½œå¤±è´¥,åŸå› :1.ç©å®¶ä¸åœ¨çº¿;2.åå­—å’Œaccidä¸å¯¹åº”;3.ä¸åœ¨ç©å®¶æ‰€åœ¨å›½å®¶");
 	return false;
 }
 /**
- * \brief ²¹³¥Ò»¸öÍæ¼ÒÒø±Ò
+ * \brief è¡¥å¿ä¸€ä¸ªç©å®¶é“¶å¸
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::givemoney(SceneUser *pUser,const char *para)
 {
@@ -4139,34 +4139,34 @@ bool Gm::givemoney(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcatchuserÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨catchuserå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	DWORD num=atoi(prop["num"].c_str());
 	DWORD accid=atoi(prop["accid"].c_str());
-	if((strncmp(prop["type"].c_str(),"¹ÉÆ±ÌáÏÖ",MAX_NAMESIZE)!=0))
+	if((strncmp(prop["type"].c_str(),"è‚¡ç¥¨æç°",MAX_NAMESIZE)!=0))
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò²¹³¥Òø±Ò²Ù×÷Ê§°Ü,Ô­Òò:ÀàĞÍ²»ÕıÈ·");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶è¡¥å¿é“¶å¸æ“ä½œå¤±è´¥,åŸå› :ç±»å‹ä¸æ­£ç¡®");
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget && (accid == pTarget->charbase.accid) && (pUser->scene->getCountryID() == pTarget->charbase.country))
 	{
 		pTarget->packs.addMoney(num,prop["type"].c_str());
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgivemoneyÃüÁî£¬¸øÍæ¼Ò%s(%d)²¹³¥Òø±Ò:%d,ÀàĞÍ:%s", pUser->name, pTarget->name,pTarget->id,num,prop["type"].c_str());
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò%s(%d)²¹³¥Òø±Ò²Ù×÷³É¹¦",pTarget->name,pTarget->charbase.accid);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨givemoneyå‘½ä»¤ï¼Œç»™ç©å®¶%s(%d)è¡¥å¿é“¶å¸:%d,ç±»å‹:%s", pUser->name, pTarget->name,pTarget->id,num,prop["type"].c_str());
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶%s(%d)è¡¥å¿é“¶å¸æ“ä½œæˆåŠŸ",pTarget->name,pTarget->charbase.accid);
 		return true;
 	}
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò²¹³¥Òø±Ò²Ù×÷Ê§°Ü,Ô­Òò:1.Íæ¼Ò²»ÔÚÏß;2.Ãû×ÖºÍaccid²»¶ÔÓ¦;3.²»ÔÚÍæ¼ÒËùÔÚ¹ú¼Ò");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶è¡¥å¿é“¶å¸æ“ä½œå¤±è´¥,åŸå› :1.ç©å®¶ä¸åœ¨çº¿;2.åå­—å’Œaccidä¸å¯¹åº”;3.ä¸åœ¨ç©å®¶æ‰€åœ¨å›½å®¶");
 	return false;
 }
 /**
- * \brief ²¹³¥Ò»¸öÍæ¼Ò½ğ±Ò
+ * \brief è¡¥å¿ä¸€ä¸ªç©å®¶é‡‘å¸
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::givegold(SceneUser *pUser,const char *para)
 {
@@ -4175,44 +4175,44 @@ bool Gm::givegold(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcatchuserÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨catchuserå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	DWORD num=atoi(prop["num"].c_str());
 	DWORD accid=atoi(prop["accid"].c_str());
-	if((strncmp(prop["type"].c_str(),"¹ÉÆ±ÌáÏÖ",MAX_NAMESIZE)!=0) && (strncmp(prop["type"].c_str(),"µã¿¨»»½ğ±Ò",MAX_NAMESIZE)!=0))
+	if((strncmp(prop["type"].c_str(),"è‚¡ç¥¨æç°",MAX_NAMESIZE)!=0) && (strncmp(prop["type"].c_str(),"ç‚¹å¡æ¢é‡‘å¸",MAX_NAMESIZE)!=0))
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò²¹³¥½ğ±Ò²Ù×÷Ê§°Ü,Ô­Òò:ÀàĞÍ²»ÕıÈ·");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶è¡¥å¿é‡‘å¸æ“ä½œå¤±è´¥,åŸå› :ç±»å‹ä¸æ­£ç¡®");
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget && (accid == pTarget->charbase.accid) && (pUser->scene->getCountryID() == pTarget->charbase.country))
 	{
-		if(strncmp(prop["type"].c_str(),"µã¿¨»»½ğ±Ò",MAX_NAMESIZE)==0)
+		if(strncmp(prop["type"].c_str(),"ç‚¹å¡æ¢é‡‘å¸",MAX_NAMESIZE)==0)
 		{
 			DWORD temp=num/300;
 			if(temp)
 			{
 				pTarget->charbase.goldgive +=temp;
-				Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME, "ÄãµÃµ½ÔùÆ·¾«ÖÂÉı¼¶±¦Ê¯%d¸ö,Äã¿ÉÒÔµ½±¾ÈËÕâÀïÁìÅ¶",temp);
+				Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME, "ä½ å¾—åˆ°èµ å“ç²¾è‡´å‡çº§å®çŸ³%dä¸ª,ä½ å¯ä»¥åˆ°æœ¬äººè¿™é‡Œé¢†å“¦",temp);
 			}
 		}
 		pTarget->packs.addGold(num,prop["type"].c_str());
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgivegoldÃüÁî£¬¸øÍæ¼Ò%s(%d)²¹³¥½ğ±Ò:%d,ÀàĞÍ:%s", pUser->name, pTarget->name,pTarget->id,num,prop["type"].c_str());
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò%s(%d)²¹³¥½ğ±Ò²Ù×÷³É¹¦",pTarget->name,pTarget->charbase.accid);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨givegoldå‘½ä»¤ï¼Œç»™ç©å®¶%s(%d)è¡¥å¿é‡‘å¸:%d,ç±»å‹:%s", pUser->name, pTarget->name,pTarget->id,num,prop["type"].c_str());
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶%s(%d)è¡¥å¿é‡‘å¸æ“ä½œæˆåŠŸ",pTarget->name,pTarget->charbase.accid);
 		return true;
 	}
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¸øÍæ¼Ò²¹³¥Òø±Ò²Ù×÷Ê§°Ü,Ô­Òò:1.Íæ¼Ò²»ÔÚÏß;2.Ãû×ÖºÍaccid²»¶ÔÓ¦;3.²»ÔÚÍæ¼ÒËùÔÚ¹ú¼Ò");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç»™ç©å®¶è¡¥å¿é“¶å¸æ“ä½œå¤±è´¥,åŸå› :1.ç©å®¶ä¸åœ¨çº¿;2.åå­—å’Œaccidä¸å¯¹åº”;3.ä¸åœ¨ç©å®¶æ‰€åœ¨å›½å®¶");
 	return false;
 }
 
 /**
- * \brief °ÑÒ»¸öÍæ¼Ò´øµ½GMÉí±ß
+ * \brief æŠŠä¸€ä¸ªç©å®¶å¸¦åˆ°GMèº«è¾¹
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::catchuser(SceneUser *pUser,const char *para)
 {
@@ -4221,36 +4221,36 @@ bool Gm::catchuser(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcatchuserÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨catchuserå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget)
 	{
-		//±È½ÏÈ¨ÏŞ¼¶±ğ
+		//æ¯”è¾ƒæƒé™çº§åˆ«
 		if (pUser->getPriv() <= pTarget->getPriv())
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Ö»ÄÜ²Ù×÷±È×Ô¼º¼¶±ğµÍµÄÍæ¼Ò!");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcatchuserÃüÁî£¬ÊÔÍ¼²¶×½ %s £¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"åªèƒ½æ“ä½œæ¯”è‡ªå·±çº§åˆ«ä½çš„ç©å®¶!");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨catchuserå‘½ä»¤ï¼Œè¯•å›¾æ•æ‰ %s ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 
-		//µØÍ¼
+		//åœ°å›¾
 		std::string mapName = "name=";
 		mapName += pUser->scene->getName();
-		//×ø±ê
+		//åæ ‡
 		zPos Pos = pUser->getPos();
 		char position[MAX_NAMESIZE];
 		bzero(position,sizeof(position));
 		sprintf(position,"%d,%d",Pos.x,Pos.y);
 		//Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,position);
 
-		//×ø±ê
+		//åæ ‡
 		gomap(pTarget,mapName.c_str());
 		goTo(pTarget,position);
 
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcatchuserÃüÁî£¬µ½´ï %s µÄÎ»ÖÃ", pUser->name, prop["name"].c_str());
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨catchuserå‘½ä»¤ï¼Œåˆ°è¾¾ %s çš„ä½ç½®", pUser->name, prop["name"].c_str());
 		return true;
 	}
 	else
@@ -4274,11 +4274,11 @@ bool Gm::catchuser(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief °ÑÒ»¸öÍæ¼Ò¶ªµ½»î¶¯ÊÒÇô½û
+ * \brief æŠŠä¸€ä¸ªç©å®¶ä¸¢åˆ°æ´»åŠ¨å®¤å›šç¦
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::embar(SceneUser *pUser,const char *para)
 {
@@ -4287,30 +4287,30 @@ bool Gm::embar(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcatchuserÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨catchuserå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget)
 	{
-		//±È½ÏÈ¨ÏŞ¼¶±ğ
+		//æ¯”è¾ƒæƒé™çº§åˆ«
 		if (pUser->getPriv() <= pTarget->getPriv())
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Ö»ÄÜ²Ù×÷±È×Ô¼º¼¶±ğµÍµÄÍæ¼Ò!");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃembarÃüÁî£¬ÊÔÍ¼²¶×½ %s £¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"åªèƒ½æ“ä½œæ¯”è‡ªå·±çº§åˆ«ä½çš„ç©å®¶!");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨embarå‘½ä»¤ï¼Œè¯•å›¾æ•æ‰ %s ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 
-		//µØÍ¼
-		std::string mapName = "name=»î¶¯ÊÒ pos=65,54 ignoreUserLevel=true";
+		//åœ°å›¾
+		std::string mapName = "name=æ´»åŠ¨å®¤ pos=65,54 ignoreUserLevel=true";
 		//Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,position);
 
-		//×ø±ê
+		//åæ ‡
 		pTarget->killAllPets();
 		gomap(pTarget,mapName.c_str());
 
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃembarÃüÁî£¬µ½´ï %s µÄÎ»ÖÃ", pUser->name, prop["name"].c_str());
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨embarå‘½ä»¤ï¼Œåˆ°è¾¾ %s çš„ä½ç½®", pUser->name, prop["name"].c_str());
 		return true;
 	}
 	else
@@ -4328,18 +4328,18 @@ bool Gm::embar(SceneUser *pUser,const char *para)
 		cmd.y = 54;
 		strncpy((char *)&cmd.src_name, pUser->name, MAX_NAMESIZE);
 		strncpy((char *)&cmd.dst_name, prop["name"].c_str(), MAX_NAMESIZE);
-		strncpy((char *)&cmd.map_name, "»î¶¯ÊÒ", MAX_NAMESIZE);
+		strncpy((char *)&cmd.map_name, "æ´»åŠ¨å®¤", MAX_NAMESIZE);
 		return sessionClient->sendCmd(&cmd, sizeof(cmd));
 	}
 }
 
 
 /**
- * \brief  ½ğ±ÒÏµÍ³¿ØÖÆ
+ * \brief  é‡‘å¸ç³»ç»Ÿæ§åˆ¶
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::goldsystem(SceneUser *pUser,const char *para)
 {
@@ -4349,24 +4349,24 @@ bool Gm::goldsystem(SceneUser *pUser,const char *para)
 	{
 		Cmd::Scene::t_ServiceGold_GateScene ret;
 		ret.byType=Cmd::Scene::SERVICE_START;
-		Zebra::logger->debug("%s(%d)Æô¶¯½ğ±Ò·şÎñ",pUser->name,pUser->id);
+		Zebra::logger->debug("%s(%d)å¯åŠ¨é‡‘å¸æœåŠ¡",pUser->name,pUser->id);
 		SceneTaskManager::getInstance().broadcastCmd(&ret,sizeof(ret));
 	}
 	if(!strcmp(prop["service"].c_str(),"stop"))
 	{
 		Cmd::Scene::t_ServiceGold_GateScene ret;
 		ret.byType=Cmd::Scene::SERVICE_STOP;
-		Zebra::logger->debug("%s(%d)Í£Ö¹½ğ±Ò·şÎñ",pUser->name,pUser->id);
+		Zebra::logger->debug("%s(%d)åœæ­¢é‡‘å¸æœåŠ¡",pUser->name,pUser->id);
 		SceneTaskManager::getInstance().broadcastCmd(&ret,sizeof(ret));
 	}
 	return true;
 }
 /**
- * \brief  ¹ÉÆ±ÏµÍ³¿ØÖÆ
+ * \brief  è‚¡ç¥¨ç³»ç»Ÿæ§åˆ¶
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::stocksystem(SceneUser *pUser,const char *para)
 {
@@ -4376,26 +4376,26 @@ bool Gm::stocksystem(SceneUser *pUser,const char *para)
 	{
 		Cmd::Scene::t_ServiceStock_GateScene ret;
 		ret.byType=Cmd::Scene::SERVICE_START;
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"Æô¶¯¹ÉÆ±·şÎñ³É¹¦");
-		Zebra::logger->debug("%s(%d)Æô¶¯¹ÉÆ±·şÎñ",pUser->name,pUser->id);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"å¯åŠ¨è‚¡ç¥¨æœåŠ¡æˆåŠŸ");
+		Zebra::logger->debug("%s(%d)å¯åŠ¨è‚¡ç¥¨æœåŠ¡",pUser->name,pUser->id);
 		SceneTaskManager::getInstance().broadcastCmd(&ret,sizeof(ret));
 	}
 	if(!strcmp(prop["service"].c_str(),"stop"))
 	{
 		Cmd::Scene::t_ServiceStock_GateScene ret;
 		ret.byType=Cmd::Scene::SERVICE_STOP;
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"Í£Ö¹¹ÉÆ±·şÎñ³É¹¦");
-		Zebra::logger->debug("%s(%d)Í£Ö¹¹ÉÆ±·şÎñ",pUser->name,pUser->id);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"åœæ­¢è‚¡ç¥¨æœåŠ¡æˆåŠŸ");
+		Zebra::logger->debug("%s(%d)åœæ­¢è‚¡ç¥¨æœåŠ¡",pUser->name,pUser->id);
 		SceneTaskManager::getInstance().broadcastCmd(&ret,sizeof(ret));
 	}
 	return true;
 }
 /**
- * \brief  ¹ÉÆ±Î¯ÍĞ¹ÜÀí
+ * \brief  è‚¡ç¥¨å§”æ‰˜ç®¡ç†
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::stockconsign(SceneUser *pUser,const char *para)
 {
@@ -4420,8 +4420,8 @@ bool Gm::stockconsign(SceneUser *pUser,const char *para)
 	{
 		Cmd::t_CancelListAllStock_GateScene ret;
 		pUser->sendCmdToBill(&ret , sizeof(ret));
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"¹ÉÆ±ĞİÊĞ³É¹¦");
-		Zebra::logger->debug("%s(%d)¹ÉÆ±ĞİÊĞ",pUser->name,pUser->id);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"è‚¡ç¥¨ä¼‘å¸‚æˆåŠŸ");
+		Zebra::logger->debug("%s(%d)è‚¡ç¥¨ä¼‘å¸‚",pUser->name,pUser->id);
 	}
 	if(!strcmp(prop["history"].c_str(),"true"))
 	{
@@ -4438,11 +4438,11 @@ bool Gm::stockconsign(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief  ¹ÉÆ±×Ê½ğ¹ÜÀí
+ * \brief  è‚¡ç¥¨èµ„é‡‘ç®¡ç†
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::stocktransfer(SceneUser *pUser,const char *para)
 {
@@ -4473,11 +4473,11 @@ bool Gm::stocktransfer(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief  ¹ÉÆ±ÓÃ»§
+ * \brief  è‚¡ç¥¨ç”¨æˆ·
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::stockuser(SceneUser *pUser,const char *para)
 {
@@ -4492,11 +4492,11 @@ bool Gm::stockuser(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief  ¶Ò»»ÔÂ¿¨
+ * \brief  å…‘æ¢æœˆå¡
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::redeemmonthcard(SceneUser *pUser,const char *para)
 {
@@ -4506,11 +4506,11 @@ bool Gm::redeemmonthcard(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief ¶Ò»»½ğ±Ò 
+ * \brief å…‘æ¢é‡‘å¸ 
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::redeemgold(SceneUser *pUser,const char *para)
 {
@@ -4525,11 +4525,11 @@ bool Gm::redeemgold(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief  ²éÑ¯ÔÂ¿¨ºÍ½ğ±Ò
+ * \brief  æŸ¥è¯¢æœˆå¡å’Œé‡‘å¸
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::querygold(SceneUser *pUser,const char *para)
 {
@@ -4539,11 +4539,11 @@ bool Gm::querygold(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief ²éÑ¯Ê£Óàµã¿¨Êı
+ * \brief æŸ¥è¯¢å‰©ä½™ç‚¹å¡æ•°
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::querypoint(SceneUser *pUser,const char *para)
 {
@@ -4553,11 +4553,11 @@ bool Gm::querypoint(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief ÈÓ¶«Î÷
+ * \brief æ‰”ä¸œè¥¿
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::throwobject(SceneUser *pUser,const char *para)
 {
@@ -4594,7 +4594,7 @@ bool Gm::throwobject(SceneUser *pUser,const char *para)
 	{
 		for(iter = pUser->packs.main.getAllset().begin(); iter != pUser->packs.main.getAllset().end() ; iter ++)
 		{
-			//TODO ÆäËü²»¿ÉµôÂäÎïÆ·
+			//TODO å…¶å®ƒä¸å¯æ‰è½ç‰©å“
 			if((*iter)->data.upgrade > 5 || (*iter)->data.bind || (*iter)->data.pos.y == Cmd::EQUIPCELLTYPE_PACKAGE || (*iter)->data.pos.y == Cmd::EQUIPCELLTYPE_MAKE || (*iter)->base->kind==ItemType_MASK)
 			{
 				continue;
@@ -4614,7 +4614,7 @@ bool Gm::throwobject(SceneUser *pUser,const char *para)
 		temp_vec.clear();
 		for(iter = pUser->packs.equip.getAllset().begin(); iter != pUser->packs.equip.getAllset().end() ; iter ++)
 		{
-			//TODO ÆäËü²»¿ÉµôÂäÎïÆ·
+			//TODO å…¶å®ƒä¸å¯æ‰è½ç‰©å“
 			if((*iter)->data.upgrade > 5 || (*iter)->data.bind || (*iter)->data.pos.y == Cmd::EQUIPCELLTYPE_PACKAGE || (*iter)->data.pos.y == Cmd::EQUIPCELLTYPE_MAKE )
 			{
 				continue;
@@ -4640,11 +4640,11 @@ bool Gm::throwobject(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief ×é¶Ó:mode:Ä£Ê½,name:¶ÓÔ±
+ * \brief ç»„é˜Ÿ:mode:æ¨¡å¼,name:é˜Ÿå‘˜
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::team(SceneUser *pLeader,const char *para)
 {
@@ -4653,15 +4653,15 @@ bool Gm::team(SceneUser *pLeader,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pLeader, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃteamÃüÁî£¬²ÎÊı´íÎó para=%s", pLeader->name, para);
+		Channel::sendSys(pLeader, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨teamå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pLeader->name, para);
 		return false;
 	}
 	SceneUser *pUser=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pUser)
 	{
 		DWORD mode = atoi(prop["mode"].c_str());
-		//ÉèÖÃ×é¶ÓÄ£Ê½
+		//è®¾ç½®ç»„é˜Ÿæ¨¡å¼
 		if(!pLeader->team.IsTeamed())
 		{
 			if(mode < Cmd::TEAM_MAX)
@@ -4670,7 +4670,7 @@ bool Gm::team(SceneUser *pLeader,const char *para)
 			}
 			else
 			{
-				Zebra::logger->trace("ÊÕµ½ÎŞĞ§Ä£Ê½µÄÑûÇë¶ÓÔ±Ö¸Áî(%s , %ld)" , pLeader->name , pLeader->id);
+				Zebra::logger->trace("æ”¶åˆ°æ— æ•ˆæ¨¡å¼çš„é‚€è¯·é˜Ÿå‘˜æŒ‡ä»¤(%s , %ld)" , pLeader->name , pLeader->id);
 				return false;
 			}
 		}
@@ -4678,7 +4678,7 @@ bool Gm::team(SceneUser *pLeader,const char *para)
 		{
 			if(pLeader->team_mode != mode)
 			{
-				Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "Ò»¸ö¶ÓÎéÖ»ÄÜÊ¹ÓÃÒ»ÖÖ×é¶ÓÄ£Ê½");
+				Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "ä¸€ä¸ªé˜Ÿä¼åªèƒ½ä½¿ç”¨ä¸€ç§ç»„é˜Ÿæ¨¡å¼");
 				return false;
 			}
 		}
@@ -4686,30 +4686,30 @@ bool Gm::team(SceneUser *pLeader,const char *para)
 		{
 			if(pLeader->charbase.level < TEAM_HONOR_LEADER_LEVEL)
 			{
-				Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½ĞèÒª¶Ó³¤µÈ¼¶%d¼¶",TEAM_HONOR_LEADER_LEVEL);
+				Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼éœ€è¦é˜Ÿé•¿ç­‰çº§%dçº§",TEAM_HONOR_LEADER_LEVEL);
 				return false;
 			}
 			if(pUser->charbase.level >= TEAM_HONOR_MEMBER_LEVEL)
 			{
-				Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "ÈÙÓşÄ£Ê½¶ÓÔ±µÈ¼¶²»ÄÜ´óÓÚ%d¼¶",TEAM_HONOR_MEMBER_LEVEL-1);
+				Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "è£èª‰æ¨¡å¼é˜Ÿå‘˜ç­‰çº§ä¸èƒ½å¤§äº%dçº§",TEAM_HONOR_MEMBER_LEVEL-1);
 				return false;
 			}
 		}
 		if(!pUser->team.IsOpen())
 		{
-			Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "¶Ô·½×é¶ÓÎ´¿ªÆô");
+			Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ç»„é˜Ÿæœªå¼€å¯");
 			return false;
 		}
 		if(pUser->team.IsTeamed())
 		{
-			Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑÓĞ×é¶Ó");
+			Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²æœ‰ç»„é˜Ÿ");
 			return false;
 		}
 		
 		if (pUser->issetUState(Cmd::USTATE_TOGETHER_WITH_TIGER)
 		||  pUser->issetUState(Cmd::USTATE_TOGETHER_WITH_DRAGON))
 		{
-			Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "¶Ô·½´¦ÓÚ»¤±¦×´Ì¬£¬²»ÄÜ×é¶Ó");
+			Channel::sendSys(pLeader , Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å¤„äºæŠ¤å®çŠ¶æ€ï¼Œä¸èƒ½ç»„é˜Ÿ");
 			return false;
 		}
 
@@ -4722,11 +4722,11 @@ bool Gm::team(SceneUser *pLeader,const char *para)
 }
 
 /**
- * \brief GM·¢ËÍÇøÓò¹ã²¥ÏûÏ¢
+ * \brief GMå‘é€åŒºåŸŸå¹¿æ’­æ¶ˆæ¯
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::bczone(SceneUser *pUser,const char *para)
 {
@@ -4734,12 +4734,12 @@ bool Gm::bczone(SceneUser *pUser,const char *para)
 		return false;
 	if (!strcmp(para,""))
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃbczoneÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨bczoneå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
-	//ÏûÏ¢
+	//æ¶ˆæ¯
 	Cmd::stChannelChatUserCmd send;
 	zRTime ctv;
 	send.dwType=Cmd::CHAT_TYPE_GM;
@@ -4747,10 +4747,10 @@ bool Gm::bczone(SceneUser *pUser,const char *para)
 	strncpy((char *)send.pstrChat,para,MAX_CHATINFO-1);
 
 	/*
-	//Òş²ØÉí·İ
+	//éšè—èº«ä»½
 	if (pUser->mask.is_masking()) 
 	{
-	strncpy((char *)send.pstrName, "ÃÉÃæÈË",MAX_NAMESIZE);
+	strncpy((char *)send.pstrName, "è’™é¢äºº",MAX_NAMESIZE);
 	}
 	else 
 	 */
@@ -4760,16 +4760,16 @@ bool Gm::bczone(SceneUser *pUser,const char *para)
 
 	pUser->scene->sendCmdToScene(&send,sizeof(send));
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃbczoneÃüÁî£¬para=%s", pUser->name, para);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨bczoneå‘½ä»¤ï¼Œpara=%s", pUser->name, para);
 	return true;
 }
 
 /**
- * \brief GM·¢ËÍÊÀ½ç¹ã²¥ÏûÏ¢
+ * \brief GMå‘é€ä¸–ç•Œå¹¿æ’­æ¶ˆæ¯
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::bcworld(SceneUser *pUser,const char *para)
 {
@@ -4777,12 +4777,12 @@ bool Gm::bcworld(SceneUser *pUser,const char *para)
 		return false;
 	if (""==para)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃbcworldÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨bcworldå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
-	//ÏûÏ¢
+	//æ¶ˆæ¯
 	Cmd::stChannelChatUserCmd send;
 	zRTime ctv;
 	send.dwType = Cmd::CHAT_TYPE_GM;
@@ -4791,10 +4791,10 @@ bool Gm::bcworld(SceneUser *pUser,const char *para)
 	bzero(send.pstrChat, sizeof(send.pstrChat));
 	strncpy((char *)send.pstrChat, para,MAX_CHATINFO-1);
 	/*
-	//Òş²ØÉí·İ
+	//éšè—èº«ä»½
 	if (pUser->mask.is_masking()) 
 	{
-	strncpy((char *)send.pstrName, "ÃÉÃæÈË", MAX_NAMESIZE);
+	strncpy((char *)send.pstrName, "è’™é¢äºº", MAX_NAMESIZE);
 	}
 	else 
 	 */
@@ -4803,16 +4803,16 @@ bool Gm::bcworld(SceneUser *pUser,const char *para)
 	}
 	pUser->forwardSession(&send, sizeof(Cmd::stChannelChatUserCmd));
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃbcworldÃüÁî£¬para=%s", pUser->name, para);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨bcworldå‘½ä»¤ï¼Œpara=%s", pUser->name, para);
 	return true;
 }
 
 /**
- * \brief GM·¢ËÍÊÀ½ç¹ã²¥ÏûÏ¢
+ * \brief GMå‘é€ä¸–ç•Œå¹¿æ’­æ¶ˆæ¯
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::bcwgamemsg(SceneUser *pUser,const char *para)
 {
@@ -4820,12 +4820,12 @@ bool Gm::bcwgamemsg(SceneUser *pUser,const char *para)
 		return false;
 	if (""==para)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃbcwgamemsgÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨bcwgamemsgå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
-	//ÏûÏ¢
+	//æ¶ˆæ¯
 	Cmd::stChannelChatUserCmd send;
 	zRTime ctv;
 	send.dwType = Cmd::CHAT_TYPE_GM;
@@ -4835,10 +4835,10 @@ bool Gm::bcwgamemsg(SceneUser *pUser,const char *para)
 	bzero(send.pstrChat, sizeof(send.pstrChat));
 	strncpy((char *)send.pstrChat, para,MAX_CHATINFO-1);
 	/*
-	//Òş²ØÉí·İ
+	//éšè—èº«ä»½
 	if (pUser->mask.is_masking()) 
 	{
-	strncpy((char *)send.pstrName, "ÃÉÃæÈË", MAX_NAMESIZE);
+	strncpy((char *)send.pstrName, "è’™é¢äºº", MAX_NAMESIZE);
 	}
 	else 
 	 */
@@ -4847,17 +4847,17 @@ bool Gm::bcwgamemsg(SceneUser *pUser,const char *para)
 	}
 	pUser->forwardSession(&send, sizeof(Cmd::stChannelChatUserCmd));
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃbcwgamemsgÃüÁî£¬para=%s", pUser->name, para);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨bcwgamemsgå‘½ä»¤ï¼Œpara=%s", pUser->name, para);
 	return true;
 }
 
 /**
- * \brief GMÊ¹Ò»¸öÍæ¼Ò²»ÄÜ·¢ÑÔ
- * Èç£º//donttalk name=xwl time=86400
+ * \brief GMä½¿ä¸€ä¸ªç©å®¶ä¸èƒ½å‘è¨€
+ * å¦‚ï¼š//donttalk name=xwl time=86400
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::donttalk(SceneUser *pUser,const char *para)
 {
@@ -4866,31 +4866,31 @@ bool Gm::donttalk(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{       
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨Íæ¼ÒÃû×Ö");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃdonttalkÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šç©å®¶åå­—");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨donttalkå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
 	int delay = atoi(prop["time"].c_str());
 	if (86400<delay)
-		delay = 86400;//×î¶à½ûÑÔ1Ìì
+		delay = 86400;//æœ€å¤šç¦è¨€1å¤©
 	if (0>=delay)
-		delay = 600;//Ä¬ÈÏ½ûÑÔ1Ğ¡Ê±
+		delay = 600;//é»˜è®¤ç¦è¨€1å°æ—¶
 
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget)
 	{
-		//±È½ÏÈ¨ÏŞ¼¶±ğ
+		//æ¯”è¾ƒæƒé™çº§åˆ«
 		if (pUser->getPriv() <= pTarget->getPriv())
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Ö»ÄÜ²Ù×÷±È×Ô¼º¼¶±ğµÍµÄÍæ¼Ò!");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃdonttalkÃüÁî£¬ÊÔÍ¼Ê¹ %s ½ûÑÔ£¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"åªèƒ½æ“ä½œæ¯”è‡ªå·±çº§åˆ«ä½çš„ç©å®¶!");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨donttalkå‘½ä»¤ï¼Œè¯•å›¾ä½¿ %s ç¦è¨€ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 		pTarget->delayForbidTalk(delay);
-		Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME,"Äã±» %s ½ûÑÔ %d Ãë", pUser->name, delay);
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"Íæ¼Ò %s ±»½ûÑÔ %d Ãë", pTarget->name, delay);
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃdonttalkÃüÁî£¬Íæ¼Ò %s ½ûÑÔ %d Ãë", pUser->name, prop["name"].c_str(), delay);
+		Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME,"ä½ è¢« %s ç¦è¨€ %d ç§’", pUser->name, delay);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"ç©å®¶ %s è¢«ç¦è¨€ %d ç§’", pTarget->name, delay);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨donttalkå‘½ä»¤ï¼Œç©å®¶ %s ç¦è¨€ %d ç§’", pUser->name, prop["name"].c_str(), delay);
 		return true;
 	}
 	else    
@@ -4913,12 +4913,12 @@ bool Gm::donttalk(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief GMÊ¹Ò»¸öÍæ¼Ò»Ö¸´·¢ÑÔ
- * Èç£º//talk name=xwl
+ * \brief GMä½¿ä¸€ä¸ªç©å®¶æ¢å¤å‘è¨€
+ * å¦‚ï¼š//talk name=xwl
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::talk(SceneUser *pUser,const char *para)
 {
@@ -4929,8 +4929,8 @@ bool Gm::talk(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{       
-		/*                Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨Íæ¼ÒÃû×Ö");
-				  ScenesService::gm_logger->trace("GM %s Ê¹ÓÃtalkÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		/*                Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šç©å®¶åå­—");
+				  ScenesService::gm_logger->trace("GM %s ä½¿ç”¨talkå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 				  return false;*/
 		pTarget = pUser;
 	}
@@ -4941,19 +4941,19 @@ bool Gm::talk(SceneUser *pUser,const char *para)
 
 	if(pTarget)
 	{
-		//±È½ÏÈ¨ÏŞ¼¶±ğ
+		//æ¯”è¾ƒæƒé™çº§åˆ«
 		if ((pUser->getPriv() <= pTarget->getPriv()) && (pUser->getPriv()!=Gm::super_mode))
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Ö»ÄÜ²Ù×÷±È×Ô¼º¼¶±ğµÍµÄÍæ¼Ò!");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃtalkÃüÁî£¬ÊÔÍ¼Ê¹ %s »Ö¸´½ûÑÔ£¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"åªèƒ½æ“ä½œæ¯”è‡ªå·±çº§åˆ«ä½çš„ç©å®¶!");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨talkå‘½ä»¤ï¼Œè¯•å›¾ä½¿ %s æ¢å¤ç¦è¨€ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 
 		if (pTarget->isForbidTalk())
 		{
 			pTarget->delayForbidTalk(0);
-			Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME,"%s ½â³ıÁËÄãµÄ½ûÑÔ£¬ÏÖÔÚ¿ÉÒÔËµ»°ÁË", pUser->name);
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃtalkÃüÁî£¬½â³ıÍæ¼Ò %s µÄ½ûÑÔ", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pTarget, Cmd::INFO_TYPE_GAME,"%s è§£é™¤äº†ä½ çš„ç¦è¨€ï¼Œç°åœ¨å¯ä»¥è¯´è¯äº†", pUser->name);
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨talkå‘½ä»¤ï¼Œè§£é™¤ç©å®¶ %s çš„ç¦è¨€", pUser->name, prop["name"].c_str());
 		}
 		return true;
 	}
@@ -4978,12 +4978,12 @@ bool Gm::talk(SceneUser *pUser,const char *para)
 
 
 /**
- * \brief GMÌßµôÒ»¸öÍæ¼Ò
- * Èç£º//kick name=xwl
+ * \brief GMè¸¢æ‰ä¸€ä¸ªç©å®¶
+ * å¦‚ï¼š//kick name=xwl
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::kick(SceneUser *pUser,const char *para)
 {
@@ -4992,23 +4992,23 @@ bool Gm::kick(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{       
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨Íæ¼ÒÃû×Ö");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃkickÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šç©å®¶åå­—");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨kickå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if(pTarget && pUser)
 	{       
-		//±È½ÏÈ¨ÏŞ¼¶±ğ
+		//æ¯”è¾ƒæƒé™çº§åˆ«
 		if (pUser->getPriv() <= pTarget->getPriv())
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"²»ÄÜÌß±È×Ô¼º¸ß¼¶±ğµÄÍæ¼Ò!");
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃkickÃüÁî£¬ÊÔÍ¼°Ñ %s Ìß³ö·şÎñÆ÷£¬È¨ÏŞ²»×ã", pUser->name, prop["name"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ä¸èƒ½è¸¢æ¯”è‡ªå·±é«˜çº§åˆ«çš„ç©å®¶!");
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨kickå‘½ä»¤ï¼Œè¯•å›¾æŠŠ %s è¸¢å‡ºæœåŠ¡å™¨ï¼Œæƒé™ä¸è¶³", pUser->name, prop["name"].c_str());
 			return false;
 		}
 
 		//SceneUserManager::getMe().lock();
-		Channel::sendSys(pTarget, Cmd::INFO_TYPE_FAIL,"ÄãÒÑ¾­±»%sÌß³ö·şÎñÆ÷£¡",pUser->name);
+		Channel::sendSys(pTarget, Cmd::INFO_TYPE_FAIL,"ä½ å·²ç»è¢«%sè¸¢å‡ºæœåŠ¡å™¨ï¼",pUser->name);
 
 		OnQuit event(1);
 		EventTable::instance().execute(*pTarget, event);
@@ -5016,14 +5016,14 @@ bool Gm::kick(SceneUser *pUser,const char *para)
 		pTarget->save(Cmd::Record::LOGOUT_WRITEBACK);
 		pTarget->killAllPets();
 
-		//Í¨Öªsession·şÎñÆ÷
+		//é€šçŸ¥sessionæœåŠ¡å™¨
 		Cmd::Session::t_unregUser_SceneSession ret;
 		ret.dwUserID=pTarget->id;
 		ret.dwSceneTempID=pTarget->scene->tempid;
 		ret.retcode=Cmd::Session::UNREGUSER_RET_ERROR;
 		sessionClient->sendCmd(&ret,sizeof(ret));
 		/*
-		//Í¨Öªsession·şÎñÆ÷
+		//é€šçŸ¥sessionæœåŠ¡å™¨
 		//Cmd::Session::t_unregUser_SceneSession ret;
 		Cmd::Session::t_unregUser_GateSession ret;
 		ret.dwUserID=pTarget->id;
@@ -5032,7 +5032,7 @@ bool Gm::kick(SceneUser *pUser,const char *para)
 		sessionClient->sendCmd(&ret,sizeof(ret));
 		 */
 
-		//Í¨ÖªÍø¹Ø·şÎñÆ÷
+		//é€šçŸ¥ç½‘å…³æœåŠ¡å™¨
 		Cmd::Scene::t_Unreg_LoginScene retgate;
 		retgate.dwUserID = pTarget->id;
 		retgate.dwSceneTempID = pTarget->scene->tempid;
@@ -5045,7 +5045,7 @@ bool Gm::kick(SceneUser *pUser,const char *para)
 		/*
 		 */
 
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃkickÃüÁî£¬°Ñ %s Ìß³ö·şÎñÆ÷", pUser->name, prop["name"].c_str());
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨kickå‘½ä»¤ï¼ŒæŠŠ %s è¸¢å‡ºæœåŠ¡å™¨", pUser->name, prop["name"].c_str());
 		return true;
 	}
 	else    
@@ -5094,11 +5094,11 @@ bool Gm::kickGateUser(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief ÏÔÊ¾³èÎï
+ * \brief æ˜¾ç¤ºå® ç‰©
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::showPets(SceneUser *pUser,const char *para)
 {
@@ -5106,39 +5106,39 @@ bool Gm::showPets(SceneUser *pUser,const char *para)
 	int count = 0;
 	if (pUser->pet)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "³èÎï:%s id=%d pos=%d,%d", pUser->pet->name, pUser->pet->tempid, pUser->pet->getPos().x, pUser->pet->getPos().y);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å® ç‰©:%s id=%d pos=%d,%d", pUser->pet->name, pUser->pet->tempid, pUser->pet->getPos().x, pUser->pet->getPos().y);
 		count++;
 	}
 	if (pUser->summon)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ÕÙ»½ÊŞ:%s id=%d pos=%d,%d", pUser->summon->name, pUser->summon->tempid, pUser->summon->getPos().x, pUser->summon->getPos().y);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å¬å”¤å…½:%s id=%d pos=%d,%d", pUser->summon->name, pUser->summon->tempid, pUser->summon->getPos().x, pUser->summon->getPos().y);
 		count++;
 	}
 	for (std::list<ScenePet *>::iterator it=pUser->totems.begin(); it!=pUser->totems.end(); it++)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "Í¼ÌÚ£º%s id=%d pos=%d,%d", (*it)->name, (*it)->tempid, (*it)->getPos().x, (*it)->getPos().y);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å›¾è…¾ï¼š%s id=%d pos=%d,%d", (*it)->name, (*it)->tempid, (*it)->getPos().x, (*it)->getPos().y);
 		count++;
 	} 
 	if (pUser->ridepet)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ïÚ³µ:%s id=%d pos=%d,%d", pUser->ridepet->name, pUser->ridepet->tempid, pUser->ridepet->getPos().x, pUser->ridepet->getPos().y);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "é•–è½¦:%s id=%d pos=%d,%d", pUser->ridepet->name, pUser->ridepet->tempid, pUser->ridepet->getPos().x, pUser->ridepet->getPos().y);
 		count++;
 	}
 	if (pUser->guard)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ïÚ³µ:%s id=%d pos=%d,%d", pUser->guard->name, pUser->guard->tempid, pUser->guard->getPos().x, pUser->guard->getPos().y);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "é•–è½¦:%s id=%d pos=%d,%d", pUser->guard->name, pUser->guard->tempid, pUser->guard->getPos().x, pUser->guard->getPos().y);
 		count++;
 	}
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¹² %d ¸ö", count);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å…± %d ä¸ª", count);
 	return true;
 }
 
 /**
- * \brief ÏÔÊ¾µØÍ¼
+ * \brief æ˜¾ç¤ºåœ°å›¾
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::showMaps(SceneUser *pUser,const char *para)
 {
@@ -5163,12 +5163,12 @@ bool Gm::showMaps(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief ¼ÓÔØµØÍ¼£¬Ö»ÓĞ³¬¼¶GM²Å¿ÉÒÔÊ¹ÓÃ
- * Èç£º//loadmap name=Ë´¡¤ÇàÖİ
+ * \brief åŠ è½½åœ°å›¾ï¼Œåªæœ‰è¶…çº§GMæ‰å¯ä»¥ä½¿ç”¨
+ * å¦‚ï¼š//loadmap name=èˆœÂ·é’å·
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::loadMap(SceneUser *pUser,const char *para)
 {
@@ -5179,11 +5179,11 @@ bool Gm::loadMap(SceneUser *pUser,const char *para)
 
 	if ("" == prop["mapname"])
 	{       
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨µØÍ¼Ãû×Ö");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃloadmapÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šåœ°å›¾åå­—");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨loadmapå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
-	//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"¸ÃÖ¸ÁîÄ¿Ç°²»¿ÉÓÃ");
+	//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è¯¥æŒ‡ä»¤ç›®å‰ä¸å¯ç”¨");
 	DWORD countryid = 0;
 	DWORD mapid = 0;
 	if ("" == prop["countryname"])
@@ -5201,21 +5201,21 @@ bool Gm::loadMap(SceneUser *pUser,const char *para)
 	}
 	if(countryid == 0)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÊäÈëµÄ¹ú¼ÒÃû³Æ²»ÕıÈ·");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è¾“å…¥çš„å›½å®¶åç§°ä¸æ­£ç¡®");
 		return false;
 	}
 
 	mapid = SceneManager::getInstance().getMapIDByMapName(prop["mapname"].c_str());
 	if(mapid == 0)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÊäÈëµÄµØÍ¼Ãû³Æ²»ÕıÈ·");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è¾“å…¥çš„åœ°å›¾åç§°ä¸æ­£ç¡®");
 		return false;
 	}
-	//ÅĞ¶ÏÊÇ·ñÖØ¸´¼ÓÔØ
+	//åˆ¤æ–­æ˜¯å¦é‡å¤åŠ è½½
 	Scene *loaded = SceneManager::getInstance().getSceneByID(SceneManager::getInstance().buildMapID(countryid , mapid));
 	if(loaded)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"²»ÄÜÖØ¸´¼ÓÔØµØÍ¼");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ä¸èƒ½é‡å¤åŠ è½½åœ°å›¾");
 		return false;
 	}
 
@@ -5226,7 +5226,7 @@ bool Gm::loadMap(SceneUser *pUser,const char *para)
 		if(loaded)
 		{
 			using namespace Cmd::Session;
-			ScenesService::gm_logger->info("¼ÓÔØ%s(%ld,%ld)³É¹¦",loaded->name,loaded->id,loaded->tempid);
+			ScenesService::gm_logger->info("åŠ è½½%s(%ld,%ld)æˆåŠŸ",loaded->name,loaded->id,loaded->tempid);
 			t_regScene_SceneSession regscene;
 			regscene.dwCountryID = countryid;
 			regscene.dwID=loaded->id;
@@ -5234,7 +5234,7 @@ bool Gm::loadMap(SceneUser *pUser,const char *para)
 			strncpy(regscene.byName,loaded->name,MAX_NAMESIZE);
 			strncpy(regscene.fileName, loaded->getFileName(), MAX_NAMESIZE);
 			sessionClient->sendCmd(&regscene,sizeof(regscene));
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃloadmapÃüÁî£¬¼ÓÔØµØÍ¼ %s¡¤%s", 
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨loadmapå‘½ä»¤ï¼ŒåŠ è½½åœ°å›¾ %sÂ·%s", 
 					pUser->name, prop["countryname"].c_str() , prop["mapname"].c_str());
 		}
 	}
@@ -5246,7 +5246,7 @@ bool Gm::loadMap(SceneUser *pUser,const char *para)
 		ass.dwCountryID = countryid;
 		ass.dwMapID = mapid;
 		sessionClient->sendCmd(&ass,sizeof(ass));
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃloadmapÃüÁî£¬¼ÓÔØµØÍ¼ %s¡¤%s", 
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨loadmapå‘½ä»¤ï¼ŒåŠ è½½åœ°å›¾ %sÂ·%s", 
 				pUser->name, prop["countryname"].c_str() , prop["mapname"].c_str());
 	}
 
@@ -5255,13 +5255,13 @@ bool Gm::loadMap(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief Ğ¶ÔØµØÍ¼£¬Ö»ÓĞ³¬¼¶GM²Å¿ÉÒÔÊ¹ÓÃ
- * Èç£º//unloadmap name=Ë´¡¤ÇàÖİ
+ * \brief å¸è½½åœ°å›¾ï¼Œåªæœ‰è¶…çº§GMæ‰å¯ä»¥ä½¿ç”¨
+ * å¦‚ï¼š//unloadmap name=èˆœÂ·é’å·
  * 
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::unloadMap(SceneUser *pUser,const char *para)
 {
@@ -5272,8 +5272,8 @@ bool Gm::unloadMap(SceneUser *pUser,const char *para)
 
 	if ("" == prop["mapname"])
 	{       
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨µØÍ¼Ãû×Ö");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃunloadmapÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šåœ°å›¾åå­—");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨unloadmapå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	DWORD countryid = 0;
@@ -5293,17 +5293,17 @@ bool Gm::unloadMap(SceneUser *pUser,const char *para)
 	}
 	if(countryid == 0)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÊäÈëµÄ¹ú¼ÒÃû³Æ²»ÕıÈ·");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è¾“å…¥çš„å›½å®¶åç§°ä¸æ­£ç¡®");
 		return false;
 	}
 
 	mapid = SceneManager::getInstance().getMapIDByMapName(prop["mapname"].c_str());
 	if(mapid == 0)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÊäÈëµÄµØÍ¼Ãû³Æ²»ÕıÈ·");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è¾“å…¥çš„åœ°å›¾åç§°ä¸æ­£ç¡®");
 		return false;
 	}
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃunloadmapÃüÁî£¬Ğ¶ÔØµØÍ¼ %s", pUser->name, prop["mapname"].c_str());
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨unloadmapå‘½ä»¤ï¼Œå¸è½½åœ°å›¾ %s", pUser->name, prop["mapname"].c_str());
 	Cmd::Session::t_unloadScene_SceneSession ret;
 	//strncpy((char*)ret.map_name , name.c_str() , MAX_NAMESIZE);
 	ret.map_id = SceneManager::getInstance().buildMapID(countryid , mapid);
@@ -5313,15 +5313,15 @@ bool Gm::unloadMap(SceneUser *pUser,const char *para)
 
 
 /**
- * \brief ÉèÖÃÍæ¼ÒÈ¨ÏŞ£¬Ö»ÓĞ³¬¼¶GM²Å¿ÉÒÔÓÃ
- * Èç£º//setpriv name=xwl priv=2
+ * \brief è®¾ç½®ç©å®¶æƒé™ï¼Œåªæœ‰è¶…çº§GMæ‰å¯ä»¥ç”¨
+ * å¦‚ï¼š//setpriv name=xwl priv=2
  * 
- * priv Ä¿Ç°ÓĞ3¸öÖµ£º 0.ÈÎºÎÖ¸Áî¶¼²»ÄÜÖ´ĞĞ 1.ÆÕÍ¨Íæ¼ÒÖ¸Áî 2.ÆÕÍ¨GMÖ¸Áî 3.ËùÓĞÖ¸Áî¶¼ÄÜÖ´ĞĞ
+ * priv ç›®å‰æœ‰3ä¸ªå€¼ï¼š 0.ä»»ä½•æŒ‡ä»¤éƒ½ä¸èƒ½æ‰§è¡Œ 1.æ™®é€šç©å®¶æŒ‡ä»¤ 2.æ™®é€šGMæŒ‡ä»¤ 3.æ‰€æœ‰æŒ‡ä»¤éƒ½èƒ½æ‰§è¡Œ
  * 
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::setPriv(SceneUser *pUser,const char *para)
 {
@@ -5330,15 +5330,15 @@ bool Gm::setPriv(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{       
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨Íæ¼ÒÃû×Ö");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃsetprivÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šç©å®¶åå­—");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨setprivå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 	SceneUser *pTarget=SceneUserManager::getMe().getUserByName(prop["name"].c_str());
 	if (pUser==pTarget && (pUser->getPriv()!=Gm::super_mode))
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"²»ÄÜÉèÖÃ×Ô¼º£¡");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃsetprivÃüÁî£¬ÊÔÍ¼ÉèÖÃ×Ô¼ºµÄÈ¨ÏŞ", pUser->name);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ä¸èƒ½è®¾ç½®è‡ªå·±ï¼");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨setprivå‘½ä»¤ï¼Œè¯•å›¾è®¾ç½®è‡ªå·±çš„æƒé™", pUser->name);
 		return false;
 	}
 
@@ -5349,39 +5349,39 @@ bool Gm::setPriv(SceneUser *pUser,const char *para)
 		{
 			case 0:
 				pTarget->setPriv(level);
-				Channel::sendSys(pTarget, Cmd::INFO_TYPE_FAIL,"Äã±» %s ½ûÓÃËùÓĞÃüÁî",pUser->name);
+				Channel::sendSys(pTarget, Cmd::INFO_TYPE_FAIL,"ä½ è¢« %s ç¦ç”¨æ‰€æœ‰å‘½ä»¤",pUser->name);
 				break;
 			case 1:
 				pTarget->setPriv(level);
-				Channel::sendSys(pTarget, Cmd::INFO_TYPE_SYS,"Äã»Ö¸´µ½ÆÕÍ¨Íæ¼Ò×´Ì¬");
+				Channel::sendSys(pTarget, Cmd::INFO_TYPE_SYS,"ä½ æ¢å¤åˆ°æ™®é€šç©å®¶çŠ¶æ€");
 				break;
 			case 2:
 				if (pTarget->id>1000)
 				{
-					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"%s ²»ÄÜ³ÉÎªGM",pTarget->name);
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃsetprivÃüÁî£¬ÊÔÍ¼ÉèÖÃ %s µÄÈ¨ÏŞ£¬idÌ«´ó£¬ id=%d", pUser->name, prop["name"].c_str(), pTarget->id);
+					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"%s ä¸èƒ½æˆä¸ºGM",pTarget->name);
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨setprivå‘½ä»¤ï¼Œè¯•å›¾è®¾ç½® %s çš„æƒé™ï¼Œidå¤ªå¤§ï¼Œ id=%d", pUser->name, prop["name"].c_str(), pTarget->id);
 					return false;
 				}
 				pTarget->setPriv(level);
-				Channel::sendSys(pTarget, Cmd::INFO_TYPE_SYS,"Äã³ÉÎªGMÁË£¡");
+				Channel::sendSys(pTarget, Cmd::INFO_TYPE_SYS,"ä½ æˆä¸ºGMäº†ï¼");
 				break;
 				/*
 			case 3:
 				{
 					pTarget->setPriv(Gm::super_mode);
-					Channel::sendSys(pTarget, Cmd::INFO_TYPE_SYS,"Äã»Ö¸´µ½³¬¼¶GMÍæ¼Ò×´Ì¬");
+					Channel::sendSys(pTarget, Cmd::INFO_TYPE_SYS,"ä½ æ¢å¤åˆ°è¶…çº§GMç©å®¶çŠ¶æ€");
 				}
 				break;
 				*/
 			default:
 				{
-					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È¨ÏŞ²ÎÊı´íÎó");
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃsetprivÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+					Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"æƒé™å‚æ•°é”™è¯¯");
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨setprivå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 					return false;
 				}
 		}
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÉèÖÃ³É¹¦");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃsetprivÃüÁî£¬ÉèÖÃ %s µÄÈ¨ÏŞ£¬ priv=%d", pUser->name, prop["name"].c_str(), level);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è®¾ç½®æˆåŠŸ");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨setprivå‘½ä»¤ï¼Œè®¾ç½® %s çš„æƒé™ï¼Œ priv=%d", pUser->name, prop["name"].c_str(), level);
 		return true;
 	}
 	else    
@@ -5402,13 +5402,13 @@ bool Gm::setPriv(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief Òş²Ø×Ô¼º 
- * ÒşÉíÖ®ºóÈÎºÎÈË¶¼¿´²»¼û¸Ã½ÇÉ«
+ * \brief éšè—è‡ªå·± 
+ * éšèº«ä¹‹åä»»ä½•äººéƒ½çœ‹ä¸è§è¯¥è§’è‰²
  * 
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::hideMe(SceneUser *pUser,const char *para)
 {
@@ -5416,29 +5416,29 @@ bool Gm::hideMe(SceneUser *pUser,const char *para)
 	{       
 		pUser->setState(zSceneEntry::SceneEntry_Hide);
 
-		//Í¨Öª9ÆÁÉ¾³ı¸Ã½ÇÉ«
+		//é€šçŸ¥9å±åˆ é™¤è¯¥è§’è‰²
 		Cmd::stRemoveUserMapScreenUserCmd remove;
 		remove.dwUserTempID=pUser->tempid;
 		pUser->scene->sendCmdToNine(pUser->getPosI(),&remove,sizeof(remove));
 
-		//ÒÆ³ıblock
+		//ç§»é™¤block
 		pUser->scene->clearBlock(pUser->getPos());
 
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÒşÉí³É¹¦");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃhidemeÃüÁî£¬ÒşÉí", pUser->name);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"éšèº«æˆåŠŸ");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨hidemeå‘½ä»¤ï¼Œéšèº«", pUser->name);
 		return true;
 	}
 	return false;
 }
 
 /**
- * \brief È¡ÏûÒşÉí 
- * »Ö¸´¿É¼û×´Ì¬
+ * \brief å–æ¶ˆéšèº« 
+ * æ¢å¤å¯è§çŠ¶æ€
  * 
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::showMe(SceneUser *pUser,const char *para)
 {
@@ -5448,19 +5448,19 @@ bool Gm::showMe(SceneUser *pUser,const char *para)
 
 		zPos curPos = pUser->getPos();
 		pUser->goTo(curPos);
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"»Ö¸´µ½¿É¼û×´Ì¬");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃshowmeÃüÁî£¬½â³ıÒşÉí", pUser->name);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ¢å¤åˆ°å¯è§çŠ¶æ€");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨showmeå‘½ä»¤ï¼Œè§£é™¤éšèº«", pUser->name);
 		return true;
 	}
 	return false;
 }
 
 /**
- * \brief ÎŞµĞÄ£Ê½ 
+ * \brief æ— æ•Œæ¨¡å¼ 
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::god(SceneUser *pUser,const char *para)
 {
@@ -5468,19 +5468,19 @@ bool Gm::god(SceneUser *pUser,const char *para)
 	{       
 		pUser->angelMode = true;
 
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"½øÈëÎŞµĞÄ£Ê½£¡");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgodÃüÁî£¬½øÈë²»ËÀÄ£Ê½", pUser->name);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è¿›å…¥æ— æ•Œæ¨¡å¼ï¼");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨godå‘½ä»¤ï¼Œè¿›å…¥ä¸æ­»æ¨¡å¼", pUser->name);
 		return true;
 	}
 	return false;
 }
 
 /**
- * \brief ±ØÉ±Ä£Ê½ 
+ * \brief å¿…æ€æ¨¡å¼ 
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::killer(SceneUser *pUser,const char *para)
 {
@@ -5488,8 +5488,8 @@ bool Gm::killer(SceneUser *pUser,const char *para)
 	{       
 		pUser->afreetMode = true;
 
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"½øÈë±ØÉ±Ä£Ê½£¡");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃkillerÃüÁî£¬½øÈë±ØÉ±Ä£Ê½", pUser->name);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è¿›å…¥å¿…æ€æ¨¡å¼ï¼");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨killerå‘½ä»¤ï¼Œè¿›å…¥å¿…æ€æ¨¡å¼", pUser->name);
 		return true;
 	}
 	return false;
@@ -5514,22 +5514,22 @@ bool Gm::newzone(SceneUser *pUser,const char *para)
 			{
 				SceneManager::getInstance().setNewZoneConfig(true);
 			}
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÉèÖÃĞÂÇøÅäÖÃ³É¹¦");
-			ScenesService::gm_logger->trace("GM %s ÉèÖÃĞÂÇøÅäÖÃ", pUser->name);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è®¾ç½®æ–°åŒºé…ç½®æˆåŠŸ");
+			ScenesService::gm_logger->trace("GM %s è®¾ç½®æ–°åŒºé…ç½®", pUser->name);
 		}
 		if(strncmp("false",prop["service"].c_str(),MAX_NAMESIZE)==0)
 		{
 			SceneManager::getInstance().setNewZoneConfig(false);
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"È¡ÏûĞÂÇøÅäÖÃ³É¹¦");
-			ScenesService::gm_logger->trace("GM %s È¡ÏûĞÂÇøÅäÖÃ", pUser->name);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"å–æ¶ˆæ–°åŒºé…ç½®æˆåŠŸ");
+			ScenesService::gm_logger->trace("GM %s å–æ¶ˆæ–°åŒºé…ç½®", pUser->name);
 		}
 		DWORD x = atoi(prop["x"].c_str());
 		DWORD y = atoi(prop["y"].c_str());
 		if(x && y)
 		{
 			SceneManager::getInstance().addNewZonePos(x,y); 
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"Ôö¼ÓĞÂÇøÅäÖÃÖØÉú×ø±êµã:x=%d,y=%d",x,y);
-			ScenesService::gm_logger->trace("GM %s Ôö¼ÓĞÂÇøÅäÖÃÖØÉú×ø±êµã:x=%d,y=%d", pUser->name,x,y);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"å¢åŠ æ–°åŒºé…ç½®é‡ç”Ÿåæ ‡ç‚¹:x=%d,y=%d",x,y);
+			ScenesService::gm_logger->trace("GM %s å¢åŠ æ–°åŒºé…ç½®é‡ç”Ÿåæ ‡ç‚¹:x=%d,y=%d", pUser->name,x,y);
 		}
 		Cmd::Session::t_gmCommand_SceneSession send;
 		send.gm_cmd=Cmd::Session::GM_COMMAND_NEWZONE;
@@ -5539,14 +5539,14 @@ bool Gm::newzone(SceneUser *pUser,const char *para)
 		if(strncmp("true",prop["serviceall"].c_str(),MAX_NAMESIZE)==0)
 		{
 			send.cmd_state=1;
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ÉèÖÃÈ«ÇøĞÂÇøÅäÖÃ³É¹¦");
-			ScenesService::gm_logger->trace("GM %s ÉèÖÃĞÂÇøÅäÖÃ", pUser->name);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"è®¾ç½®å…¨åŒºæ–°åŒºé…ç½®æˆåŠŸ");
+			ScenesService::gm_logger->trace("GM %s è®¾ç½®æ–°åŒºé…ç½®", pUser->name);
 		}
 		if(strncmp("false",prop["serviceall"].c_str(),MAX_NAMESIZE)==0)
 		{
 			send.cmd_state=0;
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"È¡ÏûÈ«ÇøĞÂÇøÅäÖÃ³É¹¦");
-			ScenesService::gm_logger->trace("GM %s È¡ÏûĞÂÇøÅäÖÃ", pUser->name);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"å–æ¶ˆå…¨åŒºæ–°åŒºé…ç½®æˆåŠŸ");
+			ScenesService::gm_logger->trace("GM %s å–æ¶ˆæ–°åŒºé…ç½®", pUser->name);
 		}
 		DWORD xall = atoi(prop["xall"].c_str());
 		DWORD yall = atoi(prop["yall"].c_str());
@@ -5554,8 +5554,8 @@ bool Gm::newzone(SceneUser *pUser,const char *para)
 		{
 			send.x=xall;
 			send.y=yall;
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"Ôö¼ÓĞÂÇøÅäÖÃÖØÉú×ø±êµã:x=%d,y=%d",xall,yall);
-			ScenesService::gm_logger->trace("GM %s Ôö¼ÓĞÂÇøÅäÖÃÖØÉú×ø±êµã:x=%d,y=%d", pUser->name,xall,yall);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"å¢åŠ æ–°åŒºé…ç½®é‡ç”Ÿåæ ‡ç‚¹:x=%d,y=%d",xall,yall);
+			ScenesService::gm_logger->trace("GM %s å¢åŠ æ–°åŒºé…ç½®é‡ç”Ÿåæ ‡ç‚¹:x=%d,y=%d", pUser->name,xall,yall);
 		}
 		if((send.cmd_state != 2) || (send.x != 0 && send.y != 0))
 		{
@@ -5567,7 +5567,7 @@ bool Gm::newzone(SceneUser *pUser,const char *para)
 			SceneManager::newZoneVec_iter iter = vec.begin();
 			for(;iter != vec.end() ; iter ++)
 			{
-				Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"ĞÂÇøÅäÖÃÖØÉú×ø±êµã:x=%d,y=%d",(*iter).first,(*iter).second);
+				Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ–°åŒºé…ç½®é‡ç”Ÿåæ ‡ç‚¹:x=%d,y=%d",(*iter).first,(*iter).second);
 			}
 		}
 		return true;
@@ -5576,12 +5576,12 @@ bool Gm::newzone(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief »Ö¸´ÆÕÍ¨Ä£Ê½ 
- * È¡ÏûÎŞµĞºÍ±ØÉ±Ä£Ê½
+ * \brief æ¢å¤æ™®é€šæ¨¡å¼ 
+ * å–æ¶ˆæ— æ•Œå’Œå¿…æ€æ¨¡å¼
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::normal(SceneUser *pUser,const char *para)
 {
@@ -5589,19 +5589,19 @@ bool Gm::normal(SceneUser *pUser,const char *para)
 	{       
 		pUser->angelMode = false;
 		pUser->afreetMode = false;
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"»Ö¸´ÆÕÍ¨Ä£Ê½");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃnormalÃüÁî£¬»Ö¸´ÆÕÍ¨Ä£Ê½", pUser->name);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS,"æ¢å¤æ™®é€šæ¨¡å¼");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨normalå‘½ä»¤ï¼Œæ¢å¤æ™®é€šæ¨¡å¼", pUser->name);
 		return true;
 	}
 	return false;
 }
 
 /**
- * \brief »Øµ½¹ú¼ÒÖ÷³Ç 
+ * \brief å›åˆ°å›½å®¶ä¸»åŸ 
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::goHome(SceneUser *pUser,const char *para)
 {
@@ -5628,9 +5628,9 @@ bool Gm::goHome(SceneUser *pUser,const char *para)
 					std::string s = "name=";
 					parser.getNodePropStr(countryNode, "name", str, sizeof(str));
 					s += str;
-					s += "¡¤";
+					s += "Â·";
 
-					unsigned int cap_id;//Ö÷³ÇµÄmapID
+					unsigned int cap_id;//ä¸»åŸçš„mapID
 					parser.getNodePropNum(countryNode, "mapID", &cap_id, sizeof(cap_id));
 
 					infoNode = parser.getChildNode(root,"mapinfo");
@@ -5675,7 +5675,7 @@ bool Gm::goHome(SceneUser *pUser,const char *para)
 								}
 							}
 							else
-								ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgohomeÖ¸Áî,´ò¿ª %s ÎÄ¼şÊ§°Ü", pUser->name, mapFile);
+								ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gohomeæŒ‡ä»¤,æ‰“å¼€ %s æ–‡ä»¶å¤±è´¥", pUser->name, mapFile);
 							break;
 						}
 						mapNode = parser.getNextNode(mapNode, "map");
@@ -5683,14 +5683,14 @@ bool Gm::goHome(SceneUser *pUser,const char *para)
 
 					gomap(pUser, s.c_str());
 
-					//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "Ö÷³Ç£¬country=%d, param=%s", pUser->charbase.country, s.c_str());
-					ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgohomeÃüÁî£¬·µ»ØÖ÷³Ç param=%s ", pUser->name, s.c_str());
+					//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ä¸»åŸï¼Œcountry=%d, param=%s", pUser->charbase.country, s.c_str());
+					ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gohomeå‘½ä»¤ï¼Œè¿”å›ä¸»åŸ param=%s ", pUser->name, s.c_str());
 					return true;
 				}
 				countryNode = parser.getNextNode(countryNode, "country");
 			}
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "Î´ÕÒµ½Ö÷³Ç£¬country=%d", pUser->charbase.country);
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃgohomeÃüÁîÊ§°Ü£¬Ã»ÕÒµ½Ö÷³Ç¡£countryID=%d", pUser->name, pUser->charbase.country);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "æœªæ‰¾åˆ°ä¸»åŸï¼Œcountry=%d", pUser->charbase.country);
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨gohomeå‘½ä»¤å¤±è´¥ï¼Œæ²¡æ‰¾åˆ°ä¸»åŸã€‚countryID=%d", pUser->name, pUser->charbase.country);
 		}
 		return false;
 	}
@@ -5698,11 +5698,11 @@ bool Gm::goHome(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief ¼¼ÄÜ²âÊÔÖ¸Áî
+ * \brief æŠ€èƒ½æµ‹è¯•æŒ‡ä»¤
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::skill(SceneUser *pUser,const char *para)
 {
@@ -5710,8 +5710,8 @@ bool Gm::skill(SceneUser *pUser,const char *para)
 		return false;
 	if (""==para)
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃskillÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨skillå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
@@ -5758,35 +5758,35 @@ bool Gm::skill(SceneUser *pUser,const char *para)
 			send.byDirect = pUser->getDir();
 			send.byAttackType = atoi(prop["attacktype"].c_str());
 			send.byAction = 0;
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ÎÒ¹¥»÷ÁË%s",defencer->name);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "æˆ‘æ”»å‡»äº†%s",defencer->name);
 			pUser->attackMagic(&send, sizeof(send));
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃskillÃüÁî£¬¹¥»÷ÁË %s ", pUser->name, defencer->name);
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨skillå‘½ä»¤ï¼Œæ”»å‡»äº† %s ", pUser->name, defencer->name);
 			return true;
 		}
 		else
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"Íæ¼Ò %s ²»ÔÚÏß",prop["defencer"].c_str());
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃskillÃüÁî£¬Íæ¼Ò %s ²»ÔÚÏß", pUser->name, prop["defencer"].c_str());
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç©å®¶ %s ä¸åœ¨çº¿",prop["defencer"].c_str());
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨skillå‘½ä»¤ï¼Œç©å®¶ %s ä¸åœ¨çº¿", pUser->name, prop["defencer"].c_str());
 			return false;
 		}
 	}
 	else    
 	{
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃskillÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨skillå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 }
 
 
 /**
- * \brief ¶ÔÍæ¼Ò½øĞĞËøÑªµÈ´¦Àí
- * ·¶Àı
+ * \brief å¯¹ç©å®¶è¿›è¡Œé”è¡€ç­‰å¤„ç†
+ * èŒƒä¾‹
  * //lockvalue name=member1 lock=mp
  * //lockvalue name=member1 unlock=all
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::lockValue(SceneUser *pUser,const char *para)
 {
@@ -5795,13 +5795,13 @@ bool Gm::lockValue(SceneUser *pUser,const char *para)
 
 	/*        if ("" == prop["name"])
 		  {       
-		  Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨Íæ¼ÒÃû×Ö");
-		  ScenesService::gm_logger->trace("GM %s Ê¹ÓÃlockvalueÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		  Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šç©å®¶åå­—");
+		  ScenesService::gm_logger->trace("GM %s ä½¿ç”¨lockvalueå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		  return false;
 		  }
 	 */
 	Cmd::Session::t_gmCommand_SceneSession cmd;
-	cmd.err_code = 0;//´íÎóĞÅÏ¢
+	cmd.err_code = 0;//é”™è¯¯ä¿¡æ¯
 	bzero(cmd.src_name,MAX_NAMESIZE);
 	bzero(cmd.dst_name,MAX_NAMESIZE);
 	bzero(cmd.map_file,MAX_NAMESIZE);
@@ -5868,13 +5868,13 @@ bool Gm::lockValue(SceneUser *pUser,const char *para)
 
 
 /**
- * \brief Ä£Äâ¼Ò×åÍ¶Æ±
- * ·¶Àı
- * //svote name=°µºÚ×å
+ * \brief æ¨¡æ‹Ÿå®¶æ—æŠ•ç¥¨
+ * èŒƒä¾‹
+ * //svote name=æš—é»‘æ—
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::svote(SceneUser *pUser,const char *para)
 {
@@ -5883,7 +5883,7 @@ bool Gm::svote(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{       
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨¼Ò×åÃû×Ö");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šå®¶æ—åå­—");
 		return false;
 	}
 
@@ -5898,13 +5898,13 @@ bool Gm::svote(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief Ä£Äâ°ï»áÍ¶Æ±
- * ·¶Àı
- * //uvote name=°µºÚ°ï
+ * \brief æ¨¡æ‹Ÿå¸®ä¼šæŠ•ç¥¨
+ * èŒƒä¾‹
+ * //uvote name=æš—é»‘å¸®
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::uvote(SceneUser *pUser,const char *para)
 {
@@ -5913,7 +5913,7 @@ bool Gm::uvote(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨°ï»áÃû×Ö");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šå¸®ä¼šåå­—");
 		return false;
 	}
 
@@ -5928,13 +5928,13 @@ bool Gm::uvote(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief Ç¿ÖÆ¼¤»î°ï»áÕ½
- * ·¶Àı
- * //tong t1=°µºÚ°ï t2=Ä§ÊŞ°ï...
+ * \brief å¼ºåˆ¶æ¿€æ´»å¸®ä¼šæˆ˜
+ * èŒƒä¾‹
+ * //tong t1=æš—é»‘å¸® t2=é­”å…½å¸®...
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::tong(SceneUser *pUser,const char *para)
 {
@@ -5943,24 +5943,24 @@ bool Gm::tong(SceneUser *pUser,const char *para)
 
 	if ("" == prop["t1"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨°ï»áÃû×Ö");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šå¸®ä¼šåå­—");
 		return false;
 	}
 
 	if ("" == prop["t2"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬ÇëÖ¸¶¨°ï»áÃû×Ö");
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œè¯·æŒ‡å®šå¸®ä¼šåå­—");
 		return false;
 	}
 
 
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "°ï»áÕ½×´Ì¬ÒÑ¼¤»î¡£");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "å¸®ä¼šæˆ˜çŠ¶æ€å·²æ¿€æ´»ã€‚");
 	return true;
 
 }
 
 /**
- * \brief ÏÔÊ¾ÌØ¶¨npcµÄ¾ßÌåÎ»ÖÃĞÅÏ¢
+ * \brief æ˜¾ç¤ºç‰¹å®šnpcçš„å…·ä½“ä½ç½®ä¿¡æ¯
  *
  */
 class ShowSpecialNpcCallBack : public specialNpcCallBack
@@ -5973,33 +5973,33 @@ class ShowSpecialNpcCallBack : public specialNpcCallBack
 		ShowSpecialNpcCallBack(SceneUser * user):pUser(user),count(0){}
 		bool exec(SceneNpc * npc)
 		{
-			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ÌØÊâNPC: %s Î»ÖÃ:%s (%u,%u)", npc->name, npc->scene->name, npc->getPos().x, npc->getPos().y);
+			Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ç‰¹æ®ŠNPC: %s ä½ç½®:%s (%u,%u)", npc->name, npc->scene->name, npc->getPos().x, npc->getPos().y);
 			count++;
 			return true;
 		}
 };
 
 /**
- * \brief ÏÔÊ¾ÌØ¶¨npcµÄÎ»ÖÃĞÅÏ¢
+ * \brief æ˜¾ç¤ºç‰¹å®šnpcçš„ä½ç½®ä¿¡æ¯
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::showSpecialNpc(SceneUser *pUser,const char *para)
 {
 	ShowSpecialNpcCallBack ssncb(pUser);
 	SceneNpcManager::getMe().execAllSpecialNpc(ssncb);
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "¹² %u ¸ö", ssncb.count);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "å…± %u ä¸ª", ssncb.count);
 	return true;
 }
 
 /**
- * \brief ¼¼ÄÜ³èÎï
+ * \brief æŠ€èƒ½å® ç‰©
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::killPets(SceneUser *pUser,const char *para)
 {
@@ -6007,11 +6007,11 @@ bool Gm::killPets(SceneUser *pUser,const char *para)
 	return true;
 }
 /**
- * \brief ¹¥³Ç
+ * \brief æ”»åŸ
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::createRush(SceneUser *pUser,const char *para)
 {
@@ -6020,8 +6020,8 @@ bool Gm::createRush(SceneUser *pUser,const char *para)
 
 	if ("" == prop["id"])
 	{       
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬²ÎÕÕ//createrush id=1 delay=60");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreaterushÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œå‚ç…§//createrush id=1 delay=60");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createrushå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
@@ -6054,13 +6054,13 @@ bool Gm::createRush(SceneUser *pUser,const char *para)
 			}
 			if (!id)
 			{
-				ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreaterushÖ¸Áî£¬Î´ÕÒµ½¹ú¼Ò country=%s", pUser->name, prop["country"].c_str());
+				ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createrushæŒ‡ä»¤ï¼Œæœªæ‰¾åˆ°å›½å®¶ country=%s", pUser->name, prop["country"].c_str());
 				return false;
 			}
 		}
 		else
 		{
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreaterushÖ¸Áî£¬ÕÒ²»µ½ÎÄ¼ş %s", pUser->name, Zebra::global["sceneinfofile"].c_str());
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createrushæŒ‡ä»¤ï¼Œæ‰¾ä¸åˆ°æ–‡ä»¶ %s", pUser->name, Zebra::global["sceneinfofile"].c_str());
 			return false;
 		}
 	}
@@ -6074,25 +6074,25 @@ bool Gm::createRush(SceneUser *pUser,const char *para)
 	{
 		if (rush->init())
 		{
-			ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreaterushÃüÁî, ÔÚ %s Òı·¢¹ÖÎï¹¥³Ç", pUser->name, rush->mapName);
+			ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createrushå‘½ä»¤, åœ¨ %s å¼•å‘æ€ªç‰©æ”»åŸ", pUser->name, rush->mapName);
 			return true;
 		}
 
 		SAFE_DELETE(rush);
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreaterushÃüÁî, ³õÊ¼»¯¹¥³ÇÊı¾İÊ§°Ü para=%s", pUser->name, para);
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createrushå‘½ä»¤, åˆå§‹åŒ–æ”»åŸæ•°æ®å¤±è´¥ para=%s", pUser->name, para);
 		return false;
 	}
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreaterushÃüÁî, Òı·¢¹¥³ÇÊ§°Ü para=%s", pUser->name, para);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createrushå‘½ä»¤, å¼•å‘æ”»åŸå¤±è´¥ para=%s", pUser->name, para);
 	return false;
 }
 
 /**
- * \brief ¹¥³Ç
+ * \brief æ”»åŸ
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::createQuiz(SceneUser *pUser,const char *para)
 {
@@ -6106,16 +6106,16 @@ bool Gm::createQuiz(SceneUser *pUser,const char *para)
 	send.type = 0;
 	sessionClient->sendCmd(&send, sizeof(send));
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreatequizÃüÁî, Òı·¢È«ÇøÖÇÁ¦¾ºÈü para=%s", pUser->name, para);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createquizå‘½ä»¤, å¼•å‘å…¨åŒºæ™ºåŠ›ç«èµ› para=%s", pUser->name, para);
 	return true;
 }
 
 /**
- * \brief Çå³ıÒ»¸öµØÍ¼ÉÏÄ³¸öÇøÓòµÄnpc
+ * \brief æ¸…é™¤ä¸€ä¸ªåœ°å›¾ä¸ŠæŸä¸ªåŒºåŸŸçš„npc
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::clearWorld(SceneUser *pUser,const char *para)
 {
@@ -6179,16 +6179,16 @@ bool Gm::clearWorld(SceneUser *pUser,const char *para)
 		if (++count>=(region*2+1)*(region)*2+1)
 			break;
 	} while(pUser->scene->getNextPos(side, direct, pUser->getPos(), clockwise, pos) && side <= region);
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃ clearworld ÃüÁî£¬É±ËÀÁË°ë¾¶ %d ·¶Î§ÄÚµÄ %d Ö»NPC", pUser->name, region, clearCount);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨ clearworld å‘½ä»¤ï¼Œæ€æ­»äº†åŠå¾„ %d èŒƒå›´å†…çš„ %d åªNPC", pUser->name, region, clearCount);
 	return true;
 }
 
 /**
- * \brief Çå³ıÒ»¸öµØÍ¼ÉÏÄ³¸öÇøÓòµÄnpc
+ * \brief æ¸…é™¤ä¸€ä¸ªåœ°å›¾ä¸ŠæŸä¸ªåŒºåŸŸçš„npc
  * 
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ²Ù×÷ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ“ä½œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::clearArea(SceneUser *pUser,const char *para)
 {
@@ -6223,17 +6223,17 @@ bool Gm::clearArea(SceneUser *pUser,const char *para)
 		if (++count>=(region*2+1)*(region)*2+1)
 			break;
 	} while(pUser->scene->getNextPos(side, direct, pUser->getPos(), clockwise, pos) && side <= region);
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃ cleararea ÃüÁî£¬ÇıÉ¢ÁË%s(%u,%u)ÖÜÎ§µÄÍæ¼Ò", pUser->name, pUser->scene->name, pUser->getPos().x, pUser->getPos().y);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨ cleararea å‘½ä»¤ï¼Œé©±æ•£äº†%s(%u,%u)å‘¨å›´çš„ç©å®¶", pUser->name, pUser->scene->name, pUser->getPos().x, pUser->getPos().y);
 	return true;
 }
 
 /**
- * \brief Çå³ı°ï»áÓë¼Ò×åÊı¾İ
+ * \brief æ¸…é™¤å¸®ä¼šä¸å®¶æ—æ•°æ®
  *
  *
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
- * \return Ö¸ÁîÖ´ĞĞÊÇ·ñ³É¹¦
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æŒ‡ä»¤æ‰§è¡Œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::clearSeptUnion(SceneUser *pUser,const char *para)
 {
@@ -6243,17 +6243,17 @@ bool Gm::clearSeptUnion(SceneUser *pUser,const char *para)
 	sessionClient->sendCmd(&send, sizeof(send));
 	*/
 
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"¸ÃÃüÁîÒÑ½ûÓÃ");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"è¯¥å‘½ä»¤å·²ç¦ç”¨");
 	return false;
 }
 
 /**
- * \brief ´´½¨Ò»¸ö¼Ò×å
+ * \brief åˆ›å»ºä¸€ä¸ªå®¶æ—
  *
  *
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
- * \return Ö¸ÁîÖ´ĞĞÊÇ·ñ³É¹¦
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æŒ‡ä»¤æ‰§è¡Œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::createFamily(SceneUser *pUser,const char *para)
 {
@@ -6264,8 +6264,8 @@ bool Gm::createFamily(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬²ÎÕÕ//createfamily name=ÎÒµÄ¼Ò×å");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreatefamilyÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œå‚ç…§//createfamily name=æˆ‘çš„å®¶æ—");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createfamilyå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
@@ -6274,31 +6274,31 @@ bool Gm::createFamily(SceneUser *pUser,const char *para)
 	send.dwMapTempID = pUser->scene->tempid;
 	send.info.dwUnionID = 0;
 	send.info.dwRepute = 0;
-	send.info.dwSeptID = 0;			 			// ¼Ò×åµÄID
-	strncpy(send.info.name,prop["name"].c_str(),MAX_NAMESIZE-1); 	// ¼Ò×åÃû³Æ
-	send.info.dwCharID = pUser->charbase.id;			// ×å³¤µÄ½ÇÉ«ID
-	send.info.dwCountryID = pUser->charbase.country;		// ¼Ò×åËùÊô¹ú¼Ò
-	send.info.byVote = 0;						// Ä¬ÈÏ½øÈëÍ¶Æ±ÆÚ¼ä
-	strncpy(send.info.masterName,pUser->name,MAX_NAMESIZE-1);	// »á³¤µÄÃû×Ö
-	send.info.dwSpendGold = 0;		// ¼Ò×å»¨·Ñ½ğ±Ò
-	send.info.dwLevel = 1;		// ¼Ò×åµÈ¼¶
+	send.info.dwSeptID = 0;			 			// å®¶æ—çš„ID
+	strncpy(send.info.name,prop["name"].c_str(),MAX_NAMESIZE-1); 	// å®¶æ—åç§°
+	send.info.dwCharID = pUser->charbase.id;			// æ—é•¿çš„è§’è‰²ID
+	send.info.dwCountryID = pUser->charbase.country;		// å®¶æ—æ‰€å±å›½å®¶
+	send.info.byVote = 0;						// é»˜è®¤è¿›å…¥æŠ•ç¥¨æœŸé—´
+	strncpy(send.info.masterName,pUser->name,MAX_NAMESIZE-1);	// ä¼šé•¿çš„åå­—
+	send.info.dwSpendGold = 0;		// å®¶æ—èŠ±è´¹é‡‘å¸
+	send.info.dwLevel = 1;		// å®¶æ—ç­‰çº§
 	bzero(send.info.note, sizeof(send.info.note));
 	sessionClient->sendCmd(&send, sizeof(send));
 	return true;
 }
 
 /**
- * \brief ´´½¨Ò»¸ö°ï»á
+ * \brief åˆ›å»ºä¸€ä¸ªå¸®ä¼š
  *
  *
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
- * \return Ö¸ÁîÖ´ĞĞÊÇ·ñ³É¹¦
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æŒ‡ä»¤æ‰§è¡Œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::createUnion(SceneUser *pUser,const char *para)
 {
 
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"¸ÃÃüÁîÒÑ½ûÓÃ");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"è¯¥å‘½ä»¤å·²ç¦ç”¨");
 	/*
 	if ((!pUser)||(!para)) return false;
 
@@ -6307,8 +6307,8 @@ bool Gm::createUnion(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬²ÎÕÕ//createunion name=ÎÒµÄ°ï»á");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreateunionÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œå‚ç…§//createunion name=æˆ‘çš„å¸®ä¼š");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createunionå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
@@ -6316,26 +6316,26 @@ bool Gm::createUnion(SceneUser *pUser,const char *para)
 
 	send.dwMapTempID = pUser->scene->tempid;
 	send.dwItemID 	 = 0;
-	send.info.dwUnionID = 0;					// °ï»áµÄID
-	strncpy(send.info.name,prop["name"].c_str(),MAX_NAMESIZE-1);		// °ï»áÃû³Æ
-	send.info.dwCharID = pUser->charbase.id;	                    	// »á³¤µÄ½ÇÉ«ID
+	send.info.dwUnionID = 0;					// å¸®ä¼šçš„ID
+	strncpy(send.info.name,prop["name"].c_str(),MAX_NAMESIZE-1);		// å¸®ä¼šåç§°
+	send.info.dwCharID = pUser->charbase.id;	                    	// ä¼šé•¿çš„è§’è‰²ID
 	send.info.dwCountryID = pUser->charbase.country;
-	strncpy(send.info.masterName,pUser->name,MAX_NAMESIZE-1);	// »á³¤µÄÃû×Ö
-	send.info.wdLevel = 1;     		    	       	        // °ï»á¼¶±ğ
-	send.info.qwExp = 0;                              	  	// °ï»á¾­Ñé
-	send.info.byVote = 0; //°ï»áÍ¶Æ±±êÖ¾
+	strncpy(send.info.masterName,pUser->name,MAX_NAMESIZE-1);	// ä¼šé•¿çš„åå­—
+	send.info.wdLevel = 1;     		    	       	        // å¸®ä¼šçº§åˆ«
+	send.info.qwExp = 0;                              	  	// å¸®ä¼šç»éªŒ
+	send.info.byVote = 0; //å¸®ä¼šæŠ•ç¥¨æ ‡å¿—
 	sessionClient->sendCmd(&send, sizeof(send));
 	*/
 	return false;
 }
 
 /**
- * \brief ´´½¨Ò»¸öÃÅÅÉ
+ * \brief åˆ›å»ºä¸€ä¸ªé—¨æ´¾
  *
  *
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
- * \return Ö¸ÁîÖ´ĞĞÊÇ·ñ³É¹¦
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æŒ‡ä»¤æ‰§è¡Œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::createSchool(SceneUser *pUser,const char *para)
 {
@@ -6346,26 +6346,26 @@ bool Gm::createSchool(SceneUser *pUser,const char *para)
 
 	if ("" == prop["name"])
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"È±ÉÙ²ÎÊı£¬²ÎÕÕ//createunion name=ÎÒµÄ°ï»á");
-		ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcreateunionÃüÁî£¬²ÎÊı´íÎó para=%s", pUser->name, para);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL,"ç¼ºå°‘å‚æ•°ï¼Œå‚ç…§//createunion name=æˆ‘çš„å¸®ä¼š");
+		ScenesService::gm_logger->trace("GM %s ä½¿ç”¨createunionå‘½ä»¤ï¼Œå‚æ•°é”™è¯¯ para=%s", pUser->name, para);
 		return false;
 	}
 
 	Cmd::Session::t_createSchool_SceneSession cmd;
 	strncpy((char *)cmd.masterName, pUser->name, MAX_NAMESIZE-1);
-	strncpy((char *)cmd.schoolName, prop["name"].c_str(), MAX_NAMESIZE-1);//Òª´´½¨µÄÃÅÅÉÃû×Ö
+	strncpy((char *)cmd.schoolName, prop["name"].c_str(), MAX_NAMESIZE-1);//è¦åˆ›å»ºçš„é—¨æ´¾åå­—
 
 	sessionClient->sendCmd(&cmd, sizeof(cmd));
 	return true;
 }
 
 /**
- * \brief ²é¿´¹ú¼Ò¶ÔÕ½ĞÅÏ¢
+ * \brief æŸ¥çœ‹å›½å®¶å¯¹æˆ˜ä¿¡æ¯
  *
  *
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
- * \return Ö¸ÁîÖ´ĞĞÊÇ·ñ³É¹¦
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æŒ‡ä»¤æ‰§è¡Œæ˜¯å¦æˆåŠŸ
  */
 bool Gm::viewCountryDare(SceneUser *pUser,const char *para)
 {
@@ -6387,13 +6387,13 @@ bool Gm::viewCountryDare(SceneUser *pUser,const char *para)
 }
 
 /**
- * \brief ²é¿´ÖÜÎ§µÄnpcºÍÍæ¼Ò
+ * \brief æŸ¥çœ‹å‘¨å›´çš„npcå’Œç©å®¶
  *
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
- * radius ²éÕÒ°ë¾¶
- * type ²éÕÒµÄÀàĞÍ 1:Íæ¼Ò 2:npc 0:È«²¿
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * radius æŸ¥æ‰¾åŠå¾„
+ * type æŸ¥æ‰¾çš„ç±»å‹ 1:ç©å®¶ 2:npc 0:å…¨éƒ¨
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool Gm::showEntries(SceneUser *pUser,const char *para)
 {
@@ -6425,20 +6425,20 @@ bool Gm::showEntries(SceneUser *pUser,const char *para)
 				switch (entry->getState())
 				{
 					case zSceneEntry::SceneEntry_Normal:
-						state = "ÆÕÍ¨";
+						state = "æ™®é€š";
 						break;
 					case zSceneEntry::SceneEntry_Death:
-						state = "ËÀÍö";
+						state = "æ­»äº¡";
 						break;
 					case zSceneEntry::SceneEntry_Hide:
-						state = "ÒşÉí";
+						state = "éšèº«";
 						break;
 					default:
-						state = "Î´Öª";
+						state = "æœªçŸ¥";
 						break;
 				}
 				playerCount++;
-				snprintf(str, MAX_CHATINFO-1,"(%u,%u) Íæ¼Ò %s %s", curPos.x, curPos.y, entry->name, state.c_str());
+				snprintf(str, MAX_CHATINFO-1,"(%u,%u) ç©å®¶ %s %s", curPos.x, curPos.y, entry->name, state.c_str());
 				Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, str);
 			}
 		}
@@ -6451,16 +6451,16 @@ bool Gm::showEntries(SceneUser *pUser,const char *para)
 				switch (entry->getState())
 				{
 					case zSceneEntry::SceneEntry_Normal:
-						state = "ÆÕÍ¨";
+						state = "æ™®é€š";
 						break;
 					case zSceneEntry::SceneEntry_Death:
-						state = "ËÀÍö";
+						state = "æ­»äº¡";
 						break;
 					case zSceneEntry::SceneEntry_Hide:
-						state = "ÒşÉí";
+						state = "éšèº«";
 						break;
 					default:
-						state = "Î´Öª";
+						state = "æœªçŸ¥";
 						break;
 				}
 				npcCount++;
@@ -6472,36 +6472,36 @@ bool Gm::showEntries(SceneUser *pUser,const char *para)
 	} while(pUser->scene->getNextPos(side, direct, pUser->getPos(), clockwise, curPos) && side <= radius);
 
 	if (playerCount||npcCount)
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "%d ¸öÍæ¼Ò %d ¸önpc", playerCount, npcCount);
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "%d ä¸ªç©å®¶ %d ä¸ªnpc", playerCount, npcCount);
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃshowentriesÃüÁî(%u,%u) para=\"%s\"", pUser->name, pUser->getPos().x, pUser->getPos().y, para);
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨showentrieså‘½ä»¤(%u,%u) para=\"%s\"", pUser->name, pUser->getPos().x, pUser->getPos().y, para);
 
 	return true;
 	//Channel::sendNine(this, "?? %d ???", entries.size());
 	//        return !entries.empty();
 }
 
-/*\brief ²éÑ¯½ÇÉ«´óĞ¡
+/*\brief æŸ¥è¯¢è§’è‰²å¤§å°
  * 
- * ²éÑ¯½ÇÉ«ÔÚÄÚ´æÖĞËùÕ¼µÄ¿Õ¼ä´óĞ¡
+ * æŸ¥è¯¢è§’è‰²åœ¨å†…å­˜ä¸­æ‰€å çš„ç©ºé—´å¤§å°
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return Éı¼¶ÊÇ·ñ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return å‡çº§æ˜¯å¦æˆåŠŸ
  */
 bool Gm::getsize(SceneUser *pUser,const char *para)
 {
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"%s½ÇÉ«ËùÕ¼¿Õ¼äÎª%d",pUser->name, sizeof(*pUser));
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME,"%sè§’è‰²æ‰€å ç©ºé—´ä¸º%d",pUser->name, sizeof(*pUser));
 	return true;
 }
 
 /**
- * \brief ÉèÖÃ³èÎïĞĞÎªÄ£Ê½
+ * \brief è®¾ç½®å® ç‰©è¡Œä¸ºæ¨¡å¼
  *
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ÊÇ·ñÉèÖÃ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ˜¯å¦è®¾ç½®æˆåŠŸ
  */
 bool Gm::setPetAI(SceneUser *pUser,const char *para)
 {
@@ -6525,17 +6525,17 @@ bool Gm::setPetAI(SceneUser *pUser,const char *para)
 		for (std::list<ScenePet *>::iterator it=pUser->totems.begin(); it!=pUser->totems.end(); it++)
 			(*it)->setPetAI(m);
 	}
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃsetpetaiÖ¸ÁîÉèÖÃ³èÎïĞĞ¶¯·½Ê½ type=%d ai=%s",pUser->name, t, prop["mode"].c_str());
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨setpetaiæŒ‡ä»¤è®¾ç½®å® ç‰©è¡ŒåŠ¨æ–¹å¼ type=%d ai=%s",pUser->name, t, prop["mode"].c_str());
 	return true;
 }
 
 /**
- * \brief ÉèÖÃ³èÎïAIF
+ * \brief è®¾ç½®å® ç‰©AIF
  *
  *
- * \param pUser: ÓÃ»§
- * \param para:ÄÚÈİ
- * \return ÊÇ·ñÉèÖÃ³É¹¦
+ * \param pUser: ç”¨æˆ·
+ * \param para:å†…å®¹
+ * \return æ˜¯å¦è®¾ç½®æˆåŠŸ
  */
 bool Gm::setPetAIF(SceneUser *pUser,const char *para)
 {
@@ -6571,12 +6571,12 @@ bool Gm::bank(SceneUser* pUser, const char* para)
 }
 
 /**
- * \brief Ôö¼Ó¾­ÑéÖµ
- * ×î¶à¼Ó10w
+ * \brief å¢åŠ ç»éªŒå€¼
+ * æœ€å¤šåŠ 10w
  *
- * \param pUser Ê¹ÓÃÕß
- * \param para ²ÎÊı
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \param pUser ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool Gm::addExp(SceneUser* pUser, const char* para)
 {
@@ -6594,12 +6594,12 @@ bool Gm::addExp(SceneUser* pUser, const char* para)
 }
 
 /**
- * \brief ²éÑ¯ÓÃ»§ÕÊºÅ
+ * \brief æŸ¥è¯¢ç”¨æˆ·å¸å·
  * 
  *
- * \param pUser Ê¹ÓÃÕß
- * \param para ²ÎÊı
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \param pUser ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool Gm::qAccount(SceneUser* pUser, const char* para)
 {
@@ -6620,12 +6620,12 @@ bool Gm::qAccount(SceneUser* pUser, const char* para)
 }
 
 /**
- * \brief µ÷ÕûÏß³ÌsleepµÄÊ±¼ä
+ * \brief è°ƒæ•´çº¿ç¨‹sleepçš„æ—¶é—´
  * 
  *
- * \param pUser ³¬¼¶GM
- * \param para ²ÎÊı
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \param pUser è¶…çº§GM
+ * \param para å‚æ•°
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool Gm::usleep(SceneUser* pUser, const char* para)
 {
@@ -6637,7 +6637,7 @@ bool Gm::usleep(SceneUser* pUser, const char* para)
 	if(uscene)
 	{
 		zTCPTaskPool::setUsleepTime(uscene);
-		Zebra::logger->info("µ÷Õû³¡¾°·şÎñÆ÷usleepÊ±¼ä:%dus",uscene);
+		Zebra::logger->info("è°ƒæ•´åœºæ™¯æœåŠ¡å™¨usleepæ—¶é—´:%dus",uscene);
 	}
 	Cmd::Scene::t_Usleep_GateScene ret;
 	if(ugate)
@@ -6654,28 +6654,28 @@ bool Gm::usleep(SceneUser* pUser, const char* para)
 		{
 			SceneTaskManager::getInstance().broadcastCmd(&ret, sizeof(ret));
 			if(ugate)
-				Zebra::logger->info("µ÷ÕûËùÓĞÍø¹Ø·şÎñÆ÷usleepÊ±¼ä:%dus",ugate);
+				Zebra::logger->info("è°ƒæ•´æ‰€æœ‰ç½‘å…³æœåŠ¡å™¨usleepæ—¶é—´:%dus",ugate);
 			if(uclient)
-				Zebra::logger->info("µ÷ÕûËùÓĞÍø¹Ø¿Í»§¶ËusleepÊ±¼ä:%dus",uclient);
+				Zebra::logger->info("è°ƒæ•´æ‰€æœ‰ç½‘å…³å®¢æˆ·ç«¯usleepæ—¶é—´:%dus",uclient);
 		}
 		else
 		{
 			pUser->gatetask->sendCmd(&ret, sizeof(ret));
 			if(ugate)
-				Zebra::logger->info("µ÷ÕûËùÓĞÍø¹Ø·şÎñÆ÷usleepÊ±¼ä:%dus",ugate);
+				Zebra::logger->info("è°ƒæ•´æ‰€æœ‰ç½‘å…³æœåŠ¡å™¨usleepæ—¶é—´:%dus",ugate);
 			if(uclient)
-				Zebra::logger->info("µ÷ÕûËùÓĞÍø¹Ø¿Í»§¶ËusleepÊ±¼ä:%dus",uclient);
+				Zebra::logger->info("è°ƒæ•´æ‰€æœ‰ç½‘å…³å®¢æˆ·ç«¯usleepæ—¶é—´:%dus",uclient);
 		}
 	}
 	return true;
 }
 /**
- * \brief µÃµ½ÏµÍ³µ±Ç°Ê±¼ä
+ * \brief å¾—åˆ°ç³»ç»Ÿå½“å‰æ—¶é—´
  * 
  *
- * \param pUser ³¬¼¶GM
- * \param para ²ÎÊı
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \param pUser è¶…çº§GM
+ * \param para å‚æ•°
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool Gm::systime(SceneUser* pUser, const char* para)
 {
@@ -6683,16 +6683,16 @@ bool Gm::systime(SceneUser* pUser, const char* para)
 	time_t timValue = time(NULL);
 	zRTime::getLocalTime(tm_1, timValue);
 	//tm_1=*localtime(&timValue);
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ÏµÍ³µ±Ç°Ê±¼ä%dÄê%dÔÂ%dÈÕ%dÊ±%d·Ö%dÃë",tm_1.tm_year+1900,tm_1.tm_mon+1,tm_1.tm_mday,tm_1.tm_hour,tm_1.tm_min,tm_1.tm_sec);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ç³»ç»Ÿå½“å‰æ—¶é—´%då¹´%dæœˆ%dæ—¥%dæ—¶%dåˆ†%dç§’",tm_1.tm_year+1900,tm_1.tm_mon+1,tm_1.tm_mday,tm_1.tm_hour,tm_1.tm_min,tm_1.tm_sec);
 	return true;
 }
 /**
- * \brief Í£»úÎ¬»¤
+ * \brief åœæœºç»´æŠ¤
  * 
  *
- * \param pUser ³¬¼¶GM
- * \param para ²ÎÊı
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \param pUser è¶…çº§GM
+ * \param para å‚æ•°
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool Gm::shutdown(SceneUser* pUser, const char* para)
 {
@@ -6704,7 +6704,7 @@ bool Gm::shutdown(SceneUser* pUser, const char* para)
 	time_t timValue = time(NULL);
 	tm_1=*localtime(&timValue);
 	//zRTime::getLocalTime(tm_1, timValue);
-	//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ÏµÍ³µ±Ç°Ê±¼ä%dÄê%dÔÂ%dÈÕ%dÊ±%d·Ö%dÃë",tm_1.tm_year+1900,tm_1.tm_mon+1,tm_1.tm_mday,tm_1.tm_hour,tm_1.tm_min,tm_1.tm_sec);
+	//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ç³»ç»Ÿå½“å‰æ—¶é—´%då¹´%dæœˆ%dæ—¥%dæ—¶%dåˆ†%dç§’",tm_1.tm_year+1900,tm_1.tm_mon+1,tm_1.tm_mday,tm_1.tm_hour,tm_1.tm_min,tm_1.tm_sec);
 	tm_1.tm_year=atoi(prop["year"].c_str())!=0?atoi(prop["year"].c_str()):tm_1.tm_year;
 	tm_1.tm_mon=atoi(prop["month"].c_str())!=0?atoi(prop["month"].c_str()):tm_1.tm_mon;
 	tm_1.tm_mday=atoi(prop["day"].c_str())!=0?atoi(prop["day"].c_str()):tm_1.tm_mday;
@@ -6715,21 +6715,21 @@ bool Gm::shutdown(SceneUser* pUser, const char* para)
 	if(send.time<=timValue)
 	{
 		send.time=0;
-		 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "È¡ÏûÍ£»úÎ¬»¤");
+		 Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "å–æ¶ˆåœæœºç»´æŠ¤");
 	}
 	strncpy((char *)send.info, prop["info"].c_str(),MAX_CHATINFO-1);
 	sessionClient->sendCmd(&send, sizeof(send));
-	//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ÏµÍ³½«ÓÚ%dÄê%dÔÂ%dÈÕ%dÊ±%d·Ö%dÃëÍ£»úÎ¬»¤",tm_1.tm_year+1900,tm_1.tm_mon+1,tm_1.tm_mday,tm_1.tm_hour,tm_1.tm_min,tm_1.tm_sec);
+	//Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ç³»ç»Ÿå°†äº%då¹´%dæœˆ%dæ—¥%dæ—¶%dåˆ†%dç§’åœæœºç»´æŠ¤",tm_1.tm_year+1900,tm_1.tm_mon+1,tm_1.tm_mday,tm_1.tm_hour,tm_1.tm_min,tm_1.tm_sec);
 	return true;
 }
 
 /**
- * \brief µÃµ½±¾³¡¾°·şÎñÆ÷µÄÈËÊı·Ö²¼×´¿ö
+ * \brief å¾—åˆ°æœ¬åœºæ™¯æœåŠ¡å™¨çš„äººæ•°åˆ†å¸ƒçŠ¶å†µ
  * 
  *
- * \param pUser Ê¹ÓÃÕß
- * \param para ²ÎÊı
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \param pUser ä½¿ç”¨è€…
+ * \param para å‚æ•°
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool Gm::countServerUser(SceneUser* pUser, const char* para)
 {
@@ -6744,7 +6744,7 @@ bool Gm::countServerUser(SceneUser* pUser, const char* para)
 			if (scene)
 			{
 				DWORD count = scene->countUser();
-				Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "³¡¾°%sµ±Ç°ÈËÊı:%d", scene->name, count);
+				Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "åœºæ™¯%så½“å‰äººæ•°:%d", scene->name, count);
 			}
 			return true;
 		}
@@ -6762,7 +6762,7 @@ bool Gm::countServerUser(SceneUser* pUser, const char* para)
 			if(task)
 			{
 				DWORD count = SceneUserManager::getMe().countUserByTask(task);
-				Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "Íø¹Ø%uµ±Ç°ÈËÊı:%d", task->getID(), count);
+				Channel::sendSys(pUser, Cmd::INFO_TYPE_SYS, "ç½‘å…³%uå½“å‰äººæ•°:%d", task->getID(), count);
 			}
 			return true;
 		}
@@ -6853,7 +6853,7 @@ bool Gm::setBlock(SceneUser* pUser, const char* para)
 		pUser->scene->setBlock(curPos);
 		if (++count>=(radius*2+1)*(radius*2+1)) break;
 	} while(pUser->scene->getNextPos(side, direct, pUser->getPos(), clockwise, curPos) && side <= radius);
-	ScenesService::gm_logger->debug("GM %s Ê¹ÓÃclearblockÃüÁî£¬ÉèÖÃ×èµ²", pUser->name);
+	ScenesService::gm_logger->debug("GM %s ä½¿ç”¨clearblockå‘½ä»¤ï¼Œè®¾ç½®é˜»æŒ¡", pUser->name);
 
 	return true;
 }
@@ -6875,7 +6875,7 @@ bool Gm::checkBlock(SceneUser* pUser, const char* para)
 			blockCount++;
 		if (++count>=(radius*2+1)*(radius*2+1)) break;
 	} while(pUser->scene->getNextPos(side, direct, pUser->getPos(), clockwise, curPos) && side <= radius);
-	Channel::sendSys(pUser,Cmd::INFO_TYPE_FAIL, "ÖÜÎ§2¸ñÄÚÓĞ %d ¸ö×èµ²µã", blockCount);
+	Channel::sendSys(pUser,Cmd::INFO_TYPE_FAIL, "å‘¨å›´2æ ¼å†…æœ‰ %d ä¸ªé˜»æŒ¡ç‚¹", blockCount);
 
 	return true;
 }
@@ -6884,7 +6884,7 @@ bool Gm::npcDare(SceneUser *pUser, const char * para)
 {
 	Cmd::Session::t_NpcDare_GMCmd_SceneSession send;
 	sessionClient->sendCmd(&send, sizeof(send));
-	ScenesService::gm_logger->debug("GM %s Ê¹ÓÃnpcdareÃüÁî£¬Ö÷¶¯´¥·¢NPCÕù¶áÕ½", pUser->name);
+	ScenesService::gm_logger->debug("GM %s ä½¿ç”¨npcdareå‘½ä»¤ï¼Œä¸»åŠ¨è§¦å‘NPCäº‰å¤ºæˆ˜", pUser->name);
 	return true;
 }
 
@@ -6904,11 +6904,11 @@ bool Gm::clearPoint(SceneUser *pUser, const char * para)
 				pUser->charbase.wdProperty[3]=0;
 				pUser->charbase.wdProperty[4]=0;
 				pUser->setupCharBase();
-				//Ë¢ĞÂÓÃ»§Êı¾İ
+				//åˆ·æ–°ç”¨æˆ·æ•°æ®
 				Cmd::stMainUserDataUserCmd  userinfo;
 				pUser->full_t_MainUserData(userinfo.data);
 				pUser->sendCmdToMe(&userinfo,sizeof(userinfo));
-				ScenesService::gm_logger->debug("GM %s Ê¹ÓÃclearpointÇå×Ô¼ºµÄÈËÎïÊôĞÔµã", pUser->name);
+				ScenesService::gm_logger->debug("GM %s ä½¿ç”¨clearpointæ¸…è‡ªå·±çš„äººç‰©å±æ€§ç‚¹", pUser->name);
 	}
 	return true;
 }
@@ -6923,11 +6923,11 @@ bool Gm::clearSkillPoint(SceneUser *pUser, const char * para)
 				pUser->sendCmdToMe(&send,sizeof(send));
 				pUser->skillValue.init();
 				pUser->setupCharBase();
-				//Ë¢ĞÂÓÃ»§Êı¾İ
+				//åˆ·æ–°ç”¨æˆ·æ•°æ®
 				Cmd::stMainUserDataUserCmd  userinfo;
 				pUser->full_t_MainUserData(userinfo.data);
 				pUser->sendCmdToMe(&userinfo,sizeof(userinfo));
-				ScenesService::gm_logger->debug("GM %s Ê¹ÓÃclearskillpointÇå×Ô¼ºµÄ¼¼ÄÜµã", pUser->name);
+				ScenesService::gm_logger->debug("GM %s ä½¿ç”¨clearskillpointæ¸…è‡ªå·±çš„æŠ€èƒ½ç‚¹", pUser->name);
 	}
 	return true;
 }
@@ -6948,11 +6948,11 @@ bool Gm::clearSkill(SceneUser *pUser, const char * para)
 			pUser->usm.refresh();
 			pUser->skillValue.init();
 			pUser->setupCharBase();
-				//Ë¢ĞÂÓÃ»§Êı¾İ
+				//åˆ·æ–°ç”¨æˆ·æ•°æ®
 			Cmd::stMainUserDataUserCmd  userinfo;
 			pUser->full_t_MainUserData(userinfo.data);
 			pUser->sendCmdToMe(&userinfo,sizeof(userinfo));
-			ScenesService::gm_logger->debug("GM %s Ê¹ÓÃclearskillÇå×Ô¼ºµÄÖ¸¶¨¼¼ÄÜ", pUser->name);
+			ScenesService::gm_logger->debug("GM %s ä½¿ç”¨clearskillæ¸…è‡ªå·±çš„æŒ‡å®šæŠ€èƒ½", pUser->name);
 		}
 	}
 	return true;
@@ -7063,7 +7063,7 @@ bool Gm::setAllyFriendDegree(SceneUser *pUser, const char * para)
 	send.dwCountryID = pUser->charbase.country;
 	sessionClient->sendCmd(&send, sizeof(send));
 	
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃsetallyfdÃüÁî£¬ÉèÖÃ %s ¹úµÄÁªÃËÓÑºÃ¶È", 
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨setallyfdå‘½ä»¤ï¼Œè®¾ç½® %s å›½çš„è”ç›Ÿå‹å¥½åº¦", 
 			pUser->name, prop["value"].c_str());                                    
 
 	return true;
@@ -7126,11 +7126,11 @@ bool Gm::checkQuest(SceneUser *pUser, const char * para)
 }
 
 /*
- * \brief ÉèÖÃÓÎÏ·¹¦ÄÜµÄ¿ª¹Ø
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
+ * \brief è®¾ç½®æ¸¸æˆåŠŸèƒ½çš„å¼€å…³
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
  *
- * \return Ö´ĞĞ½á¹û
+ * \return æ‰§è¡Œç»“æœ
  *
  */
 bool Gm::setService(SceneUser *pUser, const char * para)
@@ -7141,7 +7141,7 @@ bool Gm::setService(SceneUser *pUser, const char * para)
 	zProperties prop;
 	if (0==prop.parseCmdLine(para))
 	{
-		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "µ±Ç°·şÎñ×´Ì¬ flag=%s", Zebra::global["service_flag"].c_str());
+		Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å½“å‰æœåŠ¡çŠ¶æ€ flag=%s", Zebra::global["service_flag"].c_str());
 		return true;
 	}
 
@@ -7179,18 +7179,18 @@ bool Gm::setService(SceneUser *pUser, const char * para)
 	Cmd::Session::t_SetService_SceneSession send;
 	send.flag = f;
 	sessionClient->sendCmd(&send, sizeof(send));
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "µ±Ç°·şÎñ×´Ì¬ flag=%u", f);
-	ScenesService::gm_logger->trace("GM %s ÉèÖÃ·şÎñ flag=%u", pUser->name, f);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å½“å‰æœåŠ¡çŠ¶æ€ flag=%u", f);
+	ScenesService::gm_logger->trace("GM %s è®¾ç½®æœåŠ¡ flag=%u", pUser->name, f);
 
 	return true;
 }
 
 /*
- * \brief ÉèÖÃÓÎÏ·¹¦ÄÜµÄ¿ª¹Ø
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
+ * \brief è®¾ç½®æ¸¸æˆåŠŸèƒ½çš„å¼€å…³
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
  *
- * \return Ö´ĞĞ½á¹û
+ * \return æ‰§è¡Œç»“æœ
  *
  */
 bool Gm::setTire(SceneUser *pUser, const char * para)
@@ -7254,11 +7254,11 @@ bool Gm::setTire(SceneUser *pUser, const char * para)
 }
 
 /*
- * \brief ÉèÖÃ¿ªÆô/¹Ø±ÕÄ³¹ú¼Ò×¢²á
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
+ * \brief è®¾ç½®å¼€å¯/å…³é—­æŸå›½å®¶æ³¨å†Œ
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
  *
- * \return Ö´ĞĞ½á¹û
+ * \return æ‰§è¡Œç»“æœ
  *
  */
 bool Gm::enableRegister(SceneUser *pUser, const char * para)
@@ -7278,7 +7278,7 @@ bool Gm::enableRegister(SceneUser *pUser, const char * para)
 			send.country = wdCountryID;
 			send.dwUserID = pUser->id;
 			SceneTaskManager::getInstance().broadcastCmd(&send,sizeof(send));
-			ScenesService::gm_logger->trace("GM %s ÉèÖÃÁË¹ú¼Ò%u×¢²áÔÊĞí", pUser->name, wdCountryID);
+			ScenesService::gm_logger->trace("GM %s è®¾ç½®äº†å›½å®¶%uæ³¨å†Œå…è®¸", pUser->name, wdCountryID);
 		}
 		else if (prop["status"]=="false")
 		{
@@ -7287,18 +7287,18 @@ bool Gm::enableRegister(SceneUser *pUser, const char * para)
 			send.country = wdCountryID;
 			send.dwUserID = pUser->id;
 			SceneTaskManager::getInstance().broadcastCmd(&send,sizeof(send));
-			ScenesService::gm_logger->trace("GM %s ÉèÖÃÁË¹ú¼Ò%u×¢²á¹Ø±Õ", pUser->name, wdCountryID);
+			ScenesService::gm_logger->trace("GM %s è®¾ç½®äº†å›½å®¶%uæ³¨å†Œå…³é—­", pUser->name, wdCountryID);
 		}
 	}
 	return true;
 }
 
 /*
- * \brief ÉèÖÃ¿ªÆô/¹Ø±ÕÄ³¹ú¼Ò×¢²á
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
+ * \brief è®¾ç½®å¼€å¯/å…³é—­æŸå›½å®¶æ³¨å†Œ
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
  *
- * \return Ö´ĞĞ½á¹û
+ * \return æ‰§è¡Œç»“æœ
  *
  */
 bool Gm::enableLogin(SceneUser *pUser, const char * para)
@@ -7318,7 +7318,7 @@ bool Gm::enableLogin(SceneUser *pUser, const char * para)
 			send.country = wdCountryID;
 			send.dwUserID = pUser->id;
 			SceneTaskManager::getInstance().broadcastCmd(&send,sizeof(send));
-			ScenesService::gm_logger->trace("GM %s ÉèÖÃÁË¹ú¼Ò%uµÇÂ½ÔÊĞí", pUser->name, wdCountryID);
+			ScenesService::gm_logger->trace("GM %s è®¾ç½®äº†å›½å®¶%uç™»é™†å…è®¸", pUser->name, wdCountryID);
 		}
 		else if (prop["status"]=="false")
 		{
@@ -7327,18 +7327,18 @@ bool Gm::enableLogin(SceneUser *pUser, const char * para)
 			send.country = wdCountryID;
 			send.dwUserID = pUser->id;
 			SceneTaskManager::getInstance().broadcastCmd(&send,sizeof(send));
-			ScenesService::gm_logger->trace("GM %s ÉèÖÃÁË¹ú¼Ò%uµÇÂ½¹Ø±Õ", pUser->name, wdCountryID);
+			ScenesService::gm_logger->trace("GM %s è®¾ç½®äº†å›½å®¶%uç™»é™†å…³é—­", pUser->name, wdCountryID);
 		}
 	}
 	return true;
 }
 
 /*
- * \brief ÉèÖÃ/ÏÔÊ¾ ·şÎñÆ÷°æ±¾ºÅ
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
+ * \brief è®¾ç½®/æ˜¾ç¤º æœåŠ¡å™¨ç‰ˆæœ¬å·
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
  *
- * \return Ö´ĞĞ½á¹û
+ * \return æ‰§è¡Œç»“æœ
  *
  */
 bool Gm::version(SceneUser *pUser, const char * para)
@@ -7358,7 +7358,7 @@ bool Gm::version(SceneUser *pUser, const char * para)
 			send.versionCode = wdVersionID;
 			send.dwUserID = pUser->id;
 			SceneTaskManager::getInstance().broadcastCmd(&send,sizeof(send));
-			ScenesService::gm_logger->trace("GM %s ÉèÖÃ·şÎñÆ÷°æ±¾Ğ£ÑéºÅÎª%u", pUser->name, wdVersionID);
+			ScenesService::gm_logger->trace("GM %s è®¾ç½®æœåŠ¡å™¨ç‰ˆæœ¬æ ¡éªŒå·ä¸º%u", pUser->name, wdVersionID);
 		}
 	}
 	else if (prop["oper"]=="show")
@@ -7368,17 +7368,17 @@ bool Gm::version(SceneUser *pUser, const char * para)
 		send.versionCode = 0;
 		send.dwUserID = pUser->id;
 		SceneTaskManager::getInstance().broadcastCmd(&send,sizeof(send));
-		ScenesService::gm_logger->trace("GM %s ²é¿´°æ±¾Ğ£ÑéºÅ", pUser->name);
+		ScenesService::gm_logger->trace("GM %s æŸ¥çœ‹ç‰ˆæœ¬æ ¡éªŒå·", pUser->name);
 	}
 	return true;
 }
 
 /*
- * \brief ÏÔÊ¾¹ú¼Ò×¢²á/µÇÂ½ÔÊĞí×´Ì¬ÁĞ±í
- * \param pUser Ö¸ÁîÊ¹ÓÃÕß
- * \param para ²ÎÊı
+ * \brief æ˜¾ç¤ºå›½å®¶æ³¨å†Œ/ç™»é™†å…è®¸çŠ¶æ€åˆ—è¡¨
+ * \param pUser æŒ‡ä»¤ä½¿ç”¨è€…
+ * \param para å‚æ•°
  *
- * \return Ö´ĞĞ½á¹û
+ * \return æ‰§è¡Œç»“æœ
  *
  */
 bool Gm::checkCountryInfo(SceneUser *pUser, const char * para)
@@ -7418,7 +7418,7 @@ bool Gm::changeHorse(SceneUser *pUser, const char * para)
 	DWORD id = atoi(prop["id"].c_str());
 
 	pUser->horse.horse(id);
-	ScenesService::gm_logger->trace("GM %s ÓÃchangehorseÖ¸Áî»»Âí id=%u", pUser->name, id);
+	ScenesService::gm_logger->trace("GM %s ç”¨changehorseæŒ‡ä»¤æ¢é©¬ id=%u", pUser->name, id);
 	return true;
 }
 
@@ -7431,8 +7431,8 @@ bool Gm::loadProcess(SceneUser *pUser, const char * para)
 	send.gm_cmd = Cmd::Session::GM_COMMAND_LOAD_PROCESS;
 	sessionClient->sendCmd(&send, sizeof(send));
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃloadProcessÖ¸Áî", pUser->name);
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¼ÓÔØprocessÎÄ¼ş£¬Çë²é¿´¸÷³¡¾°ÈÕÖ¾");
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨loadProcessæŒ‡ä»¤", pUser->name);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "åŠ è½½processæ–‡ä»¶ï¼Œè¯·æŸ¥çœ‹å„åœºæ™¯æ—¥å¿—");
 	return true;
 }
 
@@ -7445,7 +7445,7 @@ bool Gm::loadGift(SceneUser *pUser, const char * para)
 	send.gm_cmd = Cmd::Session::GM_COMMAND_LOAD_GIFT;
 	sessionClient->sendCmd(&send, sizeof(send));
 
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¼ÓÔØÀñ¹ÙÊı¾İ£¬Çë²é¿´sessionÈÕÖ¾");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "åŠ è½½ç¤¼å®˜æ•°æ®ï¼Œè¯·æŸ¥çœ‹sessionæ—¥å¿—");
 	return true;
 }
 
@@ -7462,7 +7462,7 @@ bool Gm::contribute(SceneUser *pUser, const char * para)
 	send.byType = atoi(prop["type"].c_str())?atoi(prop["type"].c_str()):1;
 	sessionClient->sendCmd(&send, sizeof(send));
 
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¹±Ï×£¬country=%u type=%u num=%u", send.dwCountry, send.byType, send.dwValue);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "è´¡çŒ®ï¼Œcountry=%u type=%u num=%u", send.dwCountry, send.byType, send.dwValue);
 	return true;
 }
 
@@ -7477,7 +7477,7 @@ bool Gm::refreshGeneral(SceneUser *pUser, const char * para)
 	send.gm_cmd = Cmd::Session::GM_COMMAND_REFRESH_GENERAL;
 	sessionClient->sendCmd(&send, sizeof(send));
 
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "Ë¢ĞÂ´ó½«¾ü£¬Çë²é¿´³¡¾°»òsessionµÄÈÕÖ¾");
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "åˆ·æ–°å¤§å°†å†›ï¼Œè¯·æŸ¥çœ‹åœºæ™¯æˆ–sessionçš„æ—¥å¿—");
 	return true;
 }
 
@@ -7488,8 +7488,8 @@ bool Gm::closenpc(SceneUser *pUser, const char * para)
 	Cmd::Session::t_CloseNpc_SceneSession send;
 	sessionClient->sendCmd(&send, sizeof(send));
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃclosenpcÖ¸Áî", pUser->name);
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "¹Ø±Õ¹¦ÄÜNPC×¼±¸Í£»ú");
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨closenpcæŒ‡ä»¤", pUser->name);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "å…³é—­åŠŸèƒ½NPCå‡†å¤‡åœæœº");
 	return true;
 }
 
@@ -7500,8 +7500,8 @@ bool Gm::countrypower(SceneUser *pUser, const char * para)
 	Cmd::Session::t_DebugCountryPower_SceneSession send;
 	sessionClient->sendCmd(&send, sizeof(send));
 
-	ScenesService::gm_logger->trace("GM %s Ê¹ÓÃcountrypowerÖ¸Áî", pUser->name);
-	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "Á¢¼´´¦Àí¹ú¼ÒÇ¿Èõ¼ÆËã");
+	ScenesService::gm_logger->trace("GM %s ä½¿ç”¨countrypoweræŒ‡ä»¤", pUser->name);
+	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "ç«‹å³å¤„ç†å›½å®¶å¼ºå¼±è®¡ç®—");
 	return true;
 }
 
@@ -7526,7 +7526,7 @@ bool Gm::getgive(SceneUser *pUser, const char * para)
 	pUser->charbase.goldgive +=10;
 	pUser->Give_MatarialNum +=2;
 	pUser->Card_num +=10;
-    Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "»ñµÃÔùÆ·");
+    Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "è·å¾—èµ å“");
 	return true;
 
 }

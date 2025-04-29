@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Gem.h 5600 2006-02-28 12:39:55Z zjw $
- * \author  ÖÙ¿¡Î°,mark.zhong@gmail.com
- * \date 2005Äê03ÔÂ16ÈÕ 10Ê±32·Ö01Ãë CST
- * \brief ¶¨Òå»¤±¦ÈÎÎñµÄ»ù±¾½á¹¹
+ * \author  ä»²ä¿Šä¼Ÿ,mark.zhong@gmail.com
+ * \date 2005å¹´03æœˆ16æ—¥ 10æ—¶32åˆ†01ç§’ CST
+ * \brief å®šä¹‰æŠ¤å®ä»»åŠ¡çš„åŸºæœ¬ç»“æ„
  *
  */
 
@@ -18,10 +18,10 @@
 namespace GemDef
 {
 
-	const DWORD GEM_ACTIVE_TIME = 4*60*60; // »¤±¦ÈÎÎñ½øĞĞÊ±¼ä
+	const DWORD GEM_ACTIVE_TIME = 4*60*60; // æŠ¤å®ä»»åŠ¡è¿›è¡Œæ—¶é—´
 
 
-	/// ×´Ì¬ÃèÊö
+	/// çŠ¶æ€æè¿°
 	char str_gem_state[][20]={"GEM_READY", "GEM_ACTIVE", "GEM_READY_OVER", "GEM_OVER"};
 
 }

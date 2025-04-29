@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GYListManager.cpp  $
  * \author  
  * \date 
- * \brief Íø¹ØĞÅÏ¢ÁĞ±í
+ * \brief ç½‘å…³ä¿¡æ¯åˆ—è¡¨
  *
- * µÇÂ½·şÎñÆ÷ĞèÒª±£´æ×îĞÂµÄËùÓĞÍø¹ØµÄĞÅÏ¢ÁĞ±í£¬±ãÓÚ·ÖÅäÍø¹Ø
+ * ç™»é™†æœåŠ¡å™¨éœ€è¦ä¿å­˜æœ€æ–°çš„æ‰€æœ‰ç½‘å…³çš„ä¿¡æ¯åˆ—è¡¨ï¼Œä¾¿äºåˆ†é…ç½‘å…³
  * 
  */
 
@@ -20,11 +20,11 @@
 GYListManager *GYListManager::instance = NULL;
 
 /**
- * \brief Ìí¼ÓÍø¹ØĞÅÏ¢
- * Èç¹ûÒÑ¾­´æÔÚ£¬Ö±½Ó¸üĞÂĞÅÏ¢£¬Ã»ÓĞĞèÒªĞÂ½¨Á¢¼ÇÂ¼
- * \param gameZone ÓÎÏ·ÇøĞÅÏ¢
- * \param gy Íø¹ØĞÅÏ¢
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \brief æ·»åŠ ç½‘å…³ä¿¡æ¯
+ * å¦‚æœå·²ç»å­˜åœ¨ï¼Œç›´æ¥æ›´æ–°ä¿¡æ¯ï¼Œæ²¡æœ‰éœ€è¦æ–°å»ºç«‹è®°å½•
+ * \param gameZone æ¸¸æˆåŒºä¿¡æ¯
+ * \param gy ç½‘å…³ä¿¡æ¯
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool GYListManager::put(const GameZone_t &gameZone, const GYList &gy)
 {
@@ -35,7 +35,7 @@ bool GYListManager::put(const GameZone_t &gameZone, const GYList &gy)
 	{
 		if (it->second.wdServerID == gy.wdServerID)
 		{
-			//ÕÒµ½ÁË£¬Ö»ÊÇ¸üĞÂ£¬Ö»ÏŞÓÚÍø¹ØÁ¬½ÓÊıºÍÍø¹Ø×´Ì¬
+			//æ‰¾åˆ°äº†ï¼Œåªæ˜¯æ›´æ–°ï¼Œåªé™äºç½‘å…³è¿æ¥æ•°å’Œç½‘å…³çŠ¶æ€
 			bcopy(gy.pstrIP, it->second.pstrIP, MAX_IP_LENGTH);
 			it->second.wdPort = gy.wdPort;
 			it->second.wdNumOnline = gy.wdNumOnline;
@@ -44,7 +44,7 @@ bool GYListManager::put(const GameZone_t &gameZone, const GYList &gy)
 		}
 	}
 
-	//Ã»ÓĞÕÒµ½£¬ĞèÒª²åÈëĞÂµÄ¼ÇÂ¼
+	//æ²¡æœ‰æ‰¾åˆ°ï¼Œéœ€è¦æ’å…¥æ–°çš„è®°å½•
 	gyData.insert(GYListContainer_value_type(gameZone, gy));
 	return true;
 }
@@ -63,8 +63,8 @@ void GYListManager::disableAll(const GameZone_t &gameZone)
 }
 
 /**
- * \brief Ëæ»ú»ñÈ¡Ò»¸öÈËÊı×îĞ¡µÄÍø¹ØĞÅÏ¢
- * \return Íø¹ØĞÅÏ¢
+ * \brief éšæœºè·å–ä¸€ä¸ªäººæ•°æœ€å°çš„ç½‘å…³ä¿¡æ¯
+ * \return ç½‘å…³ä¿¡æ¯
  */
 GYList *GYListManager::getAvl(const GameZone_t &gameZone)
 {
@@ -86,19 +86,19 @@ GYList *GYListManager::getAvl(const GameZone_t &gameZone)
 }
 
 /**
- * \brief »ñÈ¡Íø¹ØÁĞ±í
- * \return Íø¹ØĞÅÏ¢
+ * \brief è·å–ç½‘å…³åˆ—è¡¨
+ * \return ç½‘å…³ä¿¡æ¯
  */
 void GYListManager::full_ping_list(Cmd::stPingList* cmd, const GameZone_t& gameZone)
 {
 	Zebra::logger->trace("GYListManager::full_ping_list");
 	zMutex_scope_lock scope_lock(mlock);
 	GYList *ret = NULL;
-	const int per_num = 5;   // µµÊı
+	const int per_num = 5;   // æ¡£æ•°
 	int server_num = gyData.count(gameZone);
-	int max_per = server_num * 2000;  // ×î´óÈËÊı
-	int per_per = max_per/per_num; // ·Ö³ÉÎåµµ£¬Ã¿Ò»µµµÄÈËÊı
-	int total_personal = 0; // ¸ÃÇø×ÜÈËÊı
+	int max_per = server_num * 2000;  // æœ€å¤§äººæ•°
+	int per_per = max_per/per_num; // åˆ†æˆäº”æ¡£ï¼Œæ¯ä¸€æ¡£çš„äººæ•°
+	int total_personal = 0; // è¯¥åŒºæ€»äººæ•°
 	int i=0;
 
 	__gnu_cxx::pair<GYListContainer_iterator, GYListContainer_iterator> hps = gyData.equal_range(gameZone);

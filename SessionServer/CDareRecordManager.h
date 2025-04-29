@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareRecordManager.h  $
  * \author 
  * \date 
- * \brief ¶ÔÕ½¼ÇÂ¼¹ÜÀíÆ÷
+ * \brief å¯¹æˆ˜è®°å½•ç®¡ç†å™¨
  *
  * 
  */

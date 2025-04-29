@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillTaskManager.h  $
  * \author  
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -19,7 +19,7 @@
 #include "zRWLock.h"
 
 /**
- * \brief ¼Æ·Ñ·şÎñÆ÷×ÓÁ¬½Ó¹ÜÀíÆ÷
+ * \brief è®¡è´¹æœåŠ¡å™¨å­è¿æ¥ç®¡ç†å™¨
  *
  */
 class BillTaskManager
@@ -28,15 +28,15 @@ class BillTaskManager
 	public:
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~BillTaskManager() {};
 
 		/**
-		 * \brief »ñÈ¡×ÓÁ¬½Ó¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \brief è·å–å­è¿æ¥ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 *
-		 * \return ×ÓÁ¬½ÓÎ¨Ò»ÊµÀı
+		 * \return å­è¿æ¥å”¯ä¸€å®ä¾‹
 		 */
 		static BillTaskManager &getInstance()
 		{
@@ -47,7 +47,7 @@ class BillTaskManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -64,44 +64,44 @@ class BillTaskManager
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static BillTaskManager *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		BillTaskManager() {};
 
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<WORD, BillTask *> BillTaskHashmap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef BillTaskHashmap::iterator BillTaskHashmap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷³£Á¿µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨å¸¸é‡è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef BillTaskHashmap::const_iterator BillTaskHashmap_const_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef BillTaskHashmap::value_type BillTaskHashmap_pair;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zRWLock rwlock;
 		/**
-		 * \brief ÉùÃ÷Ò»¸öÈİÆ÷£¬´æ·ÅËùÓĞµÄ×ÓÁ¬½Ó
+		 * \brief å£°æ˜ä¸€ä¸ªå®¹å™¨ï¼Œå­˜æ”¾æ‰€æœ‰çš„å­è¿æ¥
 		 *
 		 */
 		BillTaskHashmap sessionTaskSet;

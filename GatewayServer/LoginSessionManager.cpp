@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: LoginSessionManager.cpp  $
  * \author  
  * \date
- * \brief ±£´æµÇÂ½»á»°½¨Á¢Ö®Ç°µÄÐÅÏ¢
+ * \brief ä¿å­˜ç™»é™†ä¼šè¯å»ºç«‹ä¹‹å‰çš„ä¿¡æ¯
  *
  * 
  */
@@ -18,9 +18,9 @@
 LoginSessionManager *LoginSessionManager::instance = NULL;
 
 /**
- * \brief Ïò¹ÜÀíÆ÷ÖÐÌí¼ÓÒ»Ìõ¼ÇÂ¼
+ * \brief å‘ç®¡ç†å™¨ä¸­æ·»åŠ ä¸€æ¡è®°å½•
  *
- * \param session »á»°ÐÅÏ¢
+ * \param session ä¼šè¯ä¿¡æ¯
  */
 void LoginSessionManager::put(const t_NewLoginSession &session)
 {
@@ -30,24 +30,24 @@ void LoginSessionManager::put(const t_NewLoginSession &session)
 	LoginSessionHashmap_iterator it = sessionData.find(session.accid);
 	if (it != sessionData.end())
 	{
-		//ÕÒµ½ÁË£¬Ö»ÊÇ¸üÐÂ
+		//æ‰¾åˆ°äº†ï¼Œåªæ˜¯æ›´æ–°
 		it->second.session = session;
 		it->second.timestamp.now();
 	}
 	else
 	{
-		//Ã»ÓÐÕÒµ½£¬ÐèÒª²åÈëÐÂµÄ¼ÇÂ¼
+		//æ²¡æœ‰æ‰¾åˆ°ï¼Œéœ€è¦æ’å…¥æ–°çš„è®°å½•
 		sessionData.insert(LoginSessionHashmap_pair(session.accid, LoginSession(session)));
 	}
 	mlock.unlock();
 }
 
 /**
- * \brief ÑéÖ¤µÇÂ½Á¬½ÓÊÇ·ñÕýÈ·
+ * \brief éªŒè¯ç™»é™†è¿žæŽ¥æ˜¯å¦æ­£ç¡®
  *
- * \param loginTempID µÇÂ½ÁÙÊ±±àºÅ
- * \param accid µÇÂ½ÕÊºÅ
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param loginTempID ç™»é™†ä¸´æ—¶ç¼–å·
+ * \param accid ç™»é™†å¸å·
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool LoginSessionManager::verify(const DWORD loginTempID, const DWORD accid,char *numPassword, DES_cblock *key)
 {
@@ -62,7 +62,7 @@ bool LoginSessionManager::verify(const DWORD loginTempID, const DWORD accid,char
 		if (0!=key)
 		{
 			bcopy(it->second.session.des_key, key, sizeof(DES_cblock));
-			//Zebra::logger->debug("¸´ÖÆÃÜÔ¿£º%u %u %u %u %u %u %u %u", it->second.session.des_key[0], it->second.session.des_key[1], it->second.session.des_key[2], it->second.session.des_key[3], it->second.session.des_key[4], it->second.session.des_key[5], it->second.session.des_key[6], it->second.session.des_key[7]);
+			//Zebra::logger->debug("å¤åˆ¶å¯†é’¥ï¼š%u %u %u %u %u %u %u %u", it->second.session.des_key[0], it->second.session.des_key[1], it->second.session.des_key[2], it->second.session.des_key[3], it->second.session.des_key[4], it->second.session.des_key[5], it->second.session.des_key[6], it->second.session.des_key[7]);
 		}
 		bcopy(it->second.session.numpasswd,numPassword,sizeof(it->second.session.numpasswd));
 		sessionData.erase(it);
@@ -72,7 +72,7 @@ bool LoginSessionManager::verify(const DWORD loginTempID, const DWORD accid,char
 }
 
 /**
- * \brief ¸üÐÂ³¬Ê±µÄµÇÂ½ÐÅÏ¢
+ * \brief æ›´æ–°è¶…æ—¶çš„ç™»é™†ä¿¡æ¯
  */
 void LoginSessionManager::update(const zRTime &ct)
 {
@@ -88,7 +88,7 @@ void LoginSessionManager::update(const zRTime &ct)
 			{
 				if (it->second.timestamp.elapse(currentTime) >= 10)
 				{
-					Zebra::logger->debug("µÇÂ½ÐÅÏ¢³¬Ê±£º%u, %u, %u", it->second.session.accid, it->second.session.loginTempID, it->second.session.wdGatewayID);
+					Zebra::logger->debug("ç™»é™†ä¿¡æ¯è¶…æ—¶ï¼š%u, %u, %u", it->second.session.accid, it->second.session.loginTempID, it->second.session.wdGatewayID);
 					LoginSessionHashmap_iterator tmp = it;
 					it++;
 					sessionData.erase(tmp);

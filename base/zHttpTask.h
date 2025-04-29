@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zHttpTask.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊµÏÖÇáÁ¿¼¶(lightweight)µÄhttp·şÎñ¿ò¼Ü
+ * \brief å®šä¹‰å®ç°è½»é‡çº§(lightweight)çš„httpæœåŠ¡æ¡†æ¶
  */
 
 
@@ -24,7 +24,7 @@
 class zHttpTaskPool;
 
 /**
- * \brief ¶¨ÒåÇáÁ¿¼¶httpÈÎÎñÀà£¬·â×°Ò»Ğ©µÍ²ã½Ó¿Ú
+ * \brief å®šä¹‰è½»é‡çº§httpä»»åŠ¡ç±»ï¼Œå°è£…ä¸€äº›ä½å±‚æ¥å£
  */
 class zHttpTask : private zNoncopyable
 {
@@ -32,10 +32,10 @@ class zHttpTask : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬ÓÃÓÚ´´½¨Ò»¸ö¶ÔÏó
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock Ì×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \brief æ„é€ å‡½æ•°ï¼Œç”¨äºåˆ›å»ºä¸€ä¸ªå¯¹è±¡
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock å¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		zHttpTask(
 				zHttpTaskPool *pool,
@@ -46,7 +46,7 @@ class zHttpTask : private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬ÓÃÓÚÏú»ÙÒ»¸ö¶ÔÏó
+		 * \brief ææ„å‡½æ•°ï¼Œç”¨äºé”€æ¯ä¸€ä¸ªå¯¹è±¡
 		 */
 		virtual ~zHttpTask()
 		{
@@ -55,10 +55,10 @@ class zHttpTask : private zNoncopyable
 
 #ifdef _USE_EPOLL_
 		/**
-		 * \brief Ìí¼Ó¼ì²âÊÂ¼şµ½epollÃèÊö·û
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
-		 * \param ptr ¶îÍâ²ÎÊı
+		 * \brief æ·»åŠ æ£€æµ‹äº‹ä»¶åˆ°epollæè¿°ç¬¦
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
+		 * \param ptr é¢å¤–å‚æ•°
 		 */
 		void addEpoll(int kdpfd, __uint32_t events, void *ptr)
 		{
@@ -66,9 +66,9 @@ class zHttpTask : private zNoncopyable
 				pSocket->addEpoll(kdpfd, events, ptr);
 		}
 		/**
-		 * \brief ´ÓepollÃèÊö·ûÖĞÉ¾³ı¼ì²âÊÂ¼ş
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
+		 * \brief ä»epollæè¿°ç¬¦ä¸­åˆ é™¤æ£€æµ‹äº‹ä»¶
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
 		 */
 		void delEpoll(int kdpfd, __uint32_t events)
 		{
@@ -77,9 +77,9 @@ class zHttpTask : private zNoncopyable
 		}
 #else
 		/**
-		 * \brief Ìî³äpollfd½á¹¹
-		 * \param pfd ´ıÌî³äµÄ½á¹¹
-		 * \param events µÈ´ıµÄÊÂ¼ş²ÎÊı
+		 * \brief å¡«å……pollfdç»“æ„
+		 * \param pfd å¾…å¡«å……çš„ç»“æ„
+		 * \param events ç­‰å¾…çš„äº‹ä»¶å‚æ•°
 		 */
 		void fillPollFD(struct pollfd &pfd, short events)
 		{
@@ -89,10 +89,10 @@ class zHttpTask : private zNoncopyable
 #endif
 
 		/**
-		 * \brief ¼ì²âÊÇ·ñÑéÖ¤³¬Ê±
-		 * \param ct µ±Ç°ÏµÍ³Ê±¼ä
-		 * \param interval ³¬Ê±Ê±¼ä£¬ºÁÃë
-		 * \return ¼ì²âÊÇ·ñ³É¹¦
+		 * \brief æ£€æµ‹æ˜¯å¦éªŒè¯è¶…æ—¶
+		 * \param ct å½“å‰ç³»ç»Ÿæ—¶é—´
+		 * \param interval è¶…æ—¶æ—¶é—´ï¼Œæ¯«ç§’
+		 * \return æ£€æµ‹æ˜¯å¦æˆåŠŸ
 		 */
 		bool checkHttpTimeout(const zRTime &ct, const unsigned long long interval = 2000) const
 		{
@@ -100,8 +100,8 @@ class zHttpTask : private zNoncopyable
 		}
 
 		/**
-		 * \brief httpÈÎÎñÖ÷´¦Àíº¯Êı
-		 * \return ÊÇ·ñ³É¹¦£¬1±íÊ¾³É¹¦£¬0£¬±íÊ¾»¹Òª¼ÌĞøµÈ´ı£¬-1£¬±íÊ¾Ê§°Ü
+		 * \brief httpä»»åŠ¡ä¸»å¤„ç†å‡½æ•°
+		 * \return æ˜¯å¦æˆåŠŸï¼Œ1è¡¨ç¤ºæˆåŠŸï¼Œ0ï¼Œè¡¨ç¤ºè¿˜è¦ç»§ç»­ç­‰å¾…ï¼Œ-1ï¼Œè¡¨ç¤ºå¤±è´¥
 		 */
 		virtual int httpCore()
 		{
@@ -112,12 +112,12 @@ class zHttpTask : private zNoncopyable
 
 	protected:
 
-		zSocket *pSocket;								/**< µ×²ãÌ×½Ó¿Ú */
+		zSocket *pSocket;								/**< åº•å±‚å¥—æ¥å£ */
 
 	private:
 
-		zHttpTaskPool *pool;							/**< ÈÎÎñËùÊôµÄ³Ø */
-		zRTime lifeTime;								/**< Á¬½Ó´´½¨Ê±¼ä¼ÇÂ¼ */
+		zHttpTaskPool *pool;							/**< ä»»åŠ¡æ‰€å±çš„æ±  */
+		zRTime lifeTime;								/**< è¿æ¥åˆ›å»ºæ—¶é—´è®°å½• */
 
 };
 

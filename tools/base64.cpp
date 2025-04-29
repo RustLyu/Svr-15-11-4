@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: base64.cpp 609 2005-02-25 12:53:20Z song $
- * \author  ËÎÊËÁ¼,songsiliang@netease.com
- * \date 2004Äê12ÔÂ29ÈÕ 11Ê±15·Ö02Ãë CST
- * \brief base64±àÂë½âÂë³ÌÐò
+ * \author  å®‹ä»•è‰¯,songsiliang@netease.com
+ * \date 2004å¹´12æœˆ29æ—¥ 11æ—¶15åˆ†02ç§’ CST
+ * \brief base64ç¼–ç è§£ç ç¨‹åº
  *
  */
 
@@ -70,13 +70,13 @@ static error_t base64_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöÐÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char base64_doc[] = "\nbase64\n" "\tBase64±àÂë½âÂë¹¤¾ß¡£";
+static char base64_doc[] = "\nbase64\n" "\tBase64ç¼–ç è§£ç å·¥å…·ã€‚";
 
 /**
- * \brief ³ÌÐòµÄ°æ±¾ÐÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 {
 	Zebra::logger=new zLogger();
 
-	//½âÎöÃüÁîÐÐ²ÎÊý
+	//è§£æžå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(base64_options, base64_parse_opt, 0, base64_doc);
 	zArg::getArg()->parse(argc, argv);
 

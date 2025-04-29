@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleregCommand.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå½ÇÉ«´´½¨Ö¸Áî
+ * \brief å®šä¹‰è§’è‰²åˆ›å»ºæŒ‡ä»¤
  *
  */
  
@@ -23,10 +23,10 @@
 		const BYTE CMD_ROLEREG = 2;
 
 		//////////////////////////////////////////////////////////////
-		/// µÇÂ½·þÎñÆ÷Ö¸Áî
+		/// ç™»é™†æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		const BYTE PARA_LOGIN = 1;
-		struct t_LoginRoleReg : t_NullCmd   //µÇÈë·þÎñÆ÷ÃüÁî
+		struct t_LoginRoleReg : t_NullCmd   //ç™»å…¥æœåŠ¡å™¨å‘½ä»¤
 		{
 			char strIP[MAX_IP_LENGTH];
 			unsigned short port;
@@ -45,32 +45,32 @@
 				: t_NullCmd(CMD_LOGIN, PARA_LOGIN_OK) {};
 		};
 		//////////////////////////////////////////////////////////////
-		/// µÇÂ½·þÎñÆ÷Ö¸Áî
+		/// ç™»é™†æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 
 
 		//////////////////////////////////////////////////////////////
-		/// ½ÇÉ«Ãû³ÆÎ¨Ò»ÐÔÑéÖ¤Ïà¹ØÖ¸Áî
+		/// è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯ç›¸å…³æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
-		const WORD ROLEREG_STATE_TEST		= 1;	//²âÊÔ
-		const WORD ROLEREG_STATE_WRITE		= 2;	//»ØÐ´
-		const WORD ROLEREG_STATE_CLEAN		= 4;	//Çå³ý
-		const WORD ROLEREG_STATE_HAS		= 8;	//²âÊÔÓÐ
-		const WORD ROLEREG_STATE_OK			= 16;	//Çå³ý»ò»ØÐ´³É¹¦
+		const WORD ROLEREG_STATE_TEST		= 1;	//æµ‹è¯•
+		const WORD ROLEREG_STATE_WRITE		= 2;	//å›žå†™
+		const WORD ROLEREG_STATE_CLEAN		= 4;	//æ¸…é™¤
+		const WORD ROLEREG_STATE_HAS		= 8;	//æµ‹è¯•æœ‰
+		const WORD ROLEREG_STATE_OK			= 16;	//æ¸…é™¤æˆ–å›žå†™æˆåŠŸ
 		const BYTE PARA_CHARNAME_ROLEREG = 1;
 		struct t_Charname_Rolereg : t_NullCmd
 		{
-			WORD wdServerID;			/**< ·þÎñÆ÷±àºÅ */
-			DWORD accid;				/**< ÕËºÅ±àºÅ */
-			GameZone_t gameZone;		/**< ÓÎÏ·Çø±àºÅ */
-			char name[MAX_NAMESIZE];	/**< ½ÇÉ«Ãû³Æ */
-			WORD state;					/**< ÉÏÃæ¸÷ÖÖ×´Ì¬µÄÎ»×éºÏ */
+			WORD wdServerID;			/**< æœåŠ¡å™¨ç¼–å· */
+			DWORD accid;				/**< è´¦å·ç¼–å· */
+			GameZone_t gameZone;		/**< æ¸¸æˆåŒºç¼–å· */
+			char name[MAX_NAMESIZE];	/**< è§’è‰²åç§° */
+			WORD state;					/**< ä¸Šé¢å„ç§çŠ¶æ€çš„ä½ç»„åˆ */
 
 			t_Charname_Rolereg()
 				:t_NullCmd(CMD_ROLEREG, PARA_CHARNAME_ROLEREG) { }
 		};
 		//////////////////////////////////////////////////////////////
-		/// ½ÇÉ«Ãû³ÆÎ¨Ò»ÐÔÑéÖ¤Ïà¹ØÖ¸Áî
+		/// è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯ç›¸å…³æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 	};
 };

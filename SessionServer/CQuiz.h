@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file CQuiz.h
  * \version  $Id: CQuiz.h  $
  * \author 
  * \date 
- * \brief ¶¨Òå´ğÌâ¹ÜÀíÆ÷
+ * \brief å®šä¹‰ç­”é¢˜ç®¡ç†å™¨
  *
  */
 
@@ -32,9 +32,9 @@ extern unsigned int quiz_ready_time;
 typedef zUniqueID<DWORD> zUniqueDWORDID;
 
 /**
- * \brief ´ğÌâ¼ÇÂ¼¹ÜÀíÀà
+ * \brief ç­”é¢˜è®°å½•ç®¡ç†ç±»
  *
- * ¹ÜÀí´ğÌâ¼ÇÂ¼µÄÈİÆ÷,Ê¹ÓÃSingletonÄ£Ê½
+ * ç®¡ç†ç­”é¢˜è®°å½•çš„å®¹å™¨,ä½¿ç”¨Singletonæ¨¡å¼
  */
 class CQuizM : public zEntryManager<zEntryTempID>, 
 	       public Singleton<CQuizM>
@@ -72,9 +72,9 @@ class CQuizM : public zEntryManager<zEntryTempID>,
 		static void destroyMe();
 
 		/**
-		 * \brief ¶ÔÕ½¹ÜÀíÆ÷µÄ¶¨Ê±Æ÷»Øµ÷º¯Êı
+		 * \brief å¯¹æˆ˜ç®¡ç†å™¨çš„å®šæ—¶å™¨å›è°ƒå‡½æ•°
 		 *
-		 * ¶¨Ê±±éÀúËùÓĞ¶ÔÕ½¼ÇÂ¼£¬É¾³ıÎŞĞ§¼ÇÂ¼£¬½áÊø´ïµ½Ê±¼äµÄ¶ÔÕ½µÈÏà¹Ø´¦Àí¡£
+		 * å®šæ—¶éå†æ‰€æœ‰å¯¹æˆ˜è®°å½•ï¼Œåˆ é™¤æ— æ•ˆè®°å½•ï¼Œç»“æŸè¾¾åˆ°æ—¶é—´çš„å¯¹æˆ˜ç­‰ç›¸å…³å¤„ç†ã€‚
 		 */
 		void timer();
 		void printSize();
@@ -84,32 +84,32 @@ class CQuizM : public zEntryManager<zEntryTempID>,
 
 
 		/**
-		 * \brief ´¦ÀíÓÃ»§µÄ¶ÔÕ½ÃüÁî
+		 * \brief å¤„ç†ç”¨æˆ·çš„å¯¹æˆ˜å‘½ä»¤
 		 *
-		 * \param pUser ·¢ËÍ¸ÃÃüÁîµÄÍæ¼ÒÏà¶ÔÓ¦µÄUserSession¶ÔÏó
-		 * \param ptNullCmd ÊÕµ½µÄÃüÁî
-		 * \param cmdLen ÃüÁî³¤¶È
-		 * \return ÊÇ¶ÔÕ½ÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»ØÎªtrue, ·ñÔòÎªfalse
+		 * \param pUser å‘é€è¯¥å‘½ä»¤çš„ç©å®¶ç›¸å¯¹åº”çš„UserSessionå¯¹è±¡
+		 * \param ptNullCmd æ”¶åˆ°çš„å‘½ä»¤
+		 * \param cmdLen å‘½ä»¤é•¿åº¦
+		 * \return æ˜¯å¯¹æˆ˜å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›ä¸ºtrue, å¦åˆ™ä¸ºfalse
 		 *
 		 */
 		bool processUserMessage(UserSession *pUser, const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ´¦Àí³¡¾°·¢ËÍ¹ıÀ´µÄ·şÎñÆ÷¼äÏûÏ¢
+		 * \brief å¤„ç†åœºæ™¯å‘é€è¿‡æ¥çš„æœåŠ¡å™¨é—´æ¶ˆæ¯
 		 *
-		 * \param cmd ³¡¾°·şÎñÆ÷·¢ËÍ¹ıÀ´µÄÃüÁîÖ¸Áî
-		 * \param cmdLen ÃüÁî³¤¶È
+		 * \param cmd åœºæ™¯æœåŠ¡å™¨å‘é€è¿‡æ¥çš„å‘½ä»¤æŒ‡ä»¤
+		 * \param cmdLen å‘½ä»¤é•¿åº¦
 		 *
-		 * \return ÊÇÒÑ¶¨ÒåµÄ·şÎñÆ÷¼äÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»Øtrue, ·ñÔòÎªfalse.
+		 * \return æ˜¯å·²å®šä¹‰çš„æœåŠ¡å™¨é—´å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›true, å¦åˆ™ä¸ºfalse.
 		 *
 		 */
 		bool processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ¼ÓÈëĞÂµÄ¾ºÈü¼ÇÂ¼
+		 * \brief åŠ å…¥æ–°çš„ç«èµ›è®°å½•
 		 *
-		 * \param pCmd ÃüÁîÖ¸Õë
-		 * \return Ã»ÓĞÖØ¸´¼ÇÂ¼£¬²¢¼ÓÈë³É¹¦£¬·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \param pCmd å‘½ä»¤æŒ‡é’ˆ
+		 * \return æ²¡æœ‰é‡å¤è®°å½•ï¼Œå¹¶åŠ å…¥æˆåŠŸï¼Œè¿”å›true,å¦åˆ™è¿”å›false
 		 *
 		 */
 		bool addNewQuiz_sceneSession(Cmd::Session::t_createQuiz_SceneSession* pCmd);
@@ -117,35 +117,35 @@ class CQuizM : public zEntryManager<zEntryTempID>,
 
 
 		/**
-		 * \brief ²éÕÒÈ«Çø¾ºÈü¼ÇÂ¼
+		 * \brief æŸ¥æ‰¾å…¨åŒºç«èµ›è®°å½•
 		 *
-		 * \return Èç¹ûÕÒµ½£¬·µ»Ø¶ÔÓ¦Ö¸Õë£¬Èç¹ûÃ»ÓĞ£¬·µ»ØNULL
+		 * \return å¦‚æœæ‰¾åˆ°ï¼Œè¿”å›å¯¹åº”æŒ‡é’ˆï¼Œå¦‚æœæ²¡æœ‰ï¼Œè¿”å›NULL
 		 */
 		CQuiz* findWorldQuiz();
 
 		/**
-		 * \brief ²éÕÒ¸öÈËÎÊ´ğ¼ÇÂ¼
+		 * \brief æŸ¥æ‰¾ä¸ªäººé—®ç­”è®°å½•
 		 *
-		 * \return Èç¹ûÕÒµ½£¬·µ»Ø¶ÔÓ¦Ö¸Õë£¬Èç¹ûÃ»ÓĞ£¬·µ»ØNULL
+		 * \return å¦‚æœæ‰¾åˆ°ï¼Œè¿”å›å¯¹åº”æŒ‡é’ˆï¼Œå¦‚æœæ²¡æœ‰ï¼Œè¿”å›NULL
 		 */
 		CQuiz* findPersonalQuiz(DWORD dwUserID);
 		
 		/**
-		  * \brief ÓÃ»§ÉÏÏß´¦Àí
+		  * \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†
 		  *
-		  * ÓÃ»§ÉÏÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí
+		  * ç”¨æˆ·ä¸Šçº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†
 		  *
-		  * \param pUser ÉÏÏßÓÃ»§
+		  * \param pUser ä¸Šçº¿ç”¨æˆ·
 		  *
 		  */
 		void userOnline(UserSession* pUser);
 		
 		/**
-		  * \brief ÓÃ»§ÏÂÏß´¦Àí
+		  * \brief ç”¨æˆ·ä¸‹çº¿å¤„ç†
 		  *
-		  * ÓÃ»§ÏÂÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí
+		  * ç”¨æˆ·ä¸‹çº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†
 		  *
-		  * \param pUser ÉÏÏßÓÃ»§
+		  * \param pUser ä¸Šçº¿ç”¨æˆ·
 		  *
 		  */
 		void userOffline(UserSession* pUser);
@@ -153,18 +153,18 @@ class CQuizM : public zEntryManager<zEntryTempID>,
 
 
 /**
- * \brief ²ÎÈüÕß
+ * \brief å‚èµ›è€…
  *
  */
 class CPothunter
 {
 	public:
-		DWORD dwUserID;   // ²ÎÈüÕßID
-		int dwScore;    // µÃ·Ö
-		DWORD dwGrace;    // ±¾´ÎÎÄ²ÉµÃ·Ö
-		int dwLuck;	// ĞÒÔËĞÇÊ¹ÓÃ´ÎÊı
+		DWORD dwUserID;   // å‚èµ›è€…ID
+		int dwScore;    // å¾—åˆ†
+		DWORD dwGrace;    // æœ¬æ¬¡æ–‡é‡‡å¾—åˆ†
+		int dwLuck;	// å¹¸è¿æ˜Ÿä½¿ç”¨æ¬¡æ•°
 
-		int dwAnswerStatus; // ±¾´Î´ğÌâ×´Ì¬
+		int dwAnswerStatus; // æœ¬æ¬¡ç­”é¢˜çŠ¶æ€
 		
 		CPothunter()
 		{
@@ -203,7 +203,7 @@ class CSubject
 		char answer_f[56];
 
 		DWORD answer;
-		int  quiz_type; // 0ÎªÈ«¹ú,1Îª¸öÈË,2Îª£²£°¼¶
+		int  quiz_type; // 0ä¸ºå…¨å›½,1ä¸ºä¸ªäºº,2ä¸ºï¼’ï¼çº§
 
 		CSubject(const CSubject& ref)
 		{
@@ -272,19 +272,19 @@ class CSubjectM : public Singleton<CSubjectM>
 class CQuiz:public zEntry
 {
 	protected:
-		zRWLock rwlock;                             // ¶ÁĞ´Ëø
+		zRWLock rwlock;                             // è¯»å†™é”
 
-		/// ´ğÌâÇ°µÄµÈ´ıÊ±¼ä
+		/// ç­”é¢˜å‰çš„ç­‰å¾…æ—¶é—´
 		DWORD ready_time;
 
-		/// ready_question³ÖĞøÊ±¼ä,Ä¬ÈÏ10Ãë
+		/// ready_questionæŒç»­æ—¶é—´,é»˜è®¤10ç§’
 		DWORD ready_question_time;
 		
 
-		/// ¾ºÈüµ±Ç°×´Ì¬
+		/// ç«èµ›å½“å‰çŠ¶æ€
 		BYTE state;
 
-		/// ¾ºÈüÀàĞÍ
+		/// ç«èµ›ç±»å‹
 		BYTE type;
 		
 		virtual void sendExitToAll(){};
@@ -292,34 +292,34 @@ class CQuiz:public zEntry
 
 
 	public:
-		/// ¾ºÈü¼ÆÊ±,´Óready_question½áÊøÊ±ÖØĞÂÖÃÁãºó£¬ÔÙ½øĞĞ¼ÆÊ±, Ä¬ÈÏ½øĞĞ30·ÖÖÓ
+		/// ç«èµ›è®¡æ—¶,ä»ready_questionç»“æŸæ—¶é‡æ–°ç½®é›¶åï¼Œå†è¿›è¡Œè®¡æ—¶, é»˜è®¤è¿›è¡Œ30åˆ†é’Ÿ
 		DWORD count;
 
-		/// Ìâ¿âÀàĞÍ
+		/// é¢˜åº“ç±»å‹
 		BYTE subject_type;
 
 		DWORD active_time;
 
-		/// µ±Ç°ÒÑ´ğÌâÄ¿Êı
+		/// å½“å‰å·²ç­”é¢˜ç›®æ•°
 		DWORD cur_subject;
 
-		/// ±¾´Î´ğÌâµÄ×ÜÌâÊı
+		/// æœ¬æ¬¡ç­”é¢˜çš„æ€»é¢˜æ•°
 		DWORD total_subject;
 
-		/// ´ğÌâ¼ÆÊ±
+		/// ç­”é¢˜è®¡æ—¶
 		DWORD question_count;
 
 		enum{
-			QUIZ_READY,		// ÑûÇëµÈ´ı×´Ì¬
-			QUIZ_READY_QUESTION,    // µÈ´ı±»ÑûÓ¦Õß»ØÓ¦×´Ì¬,±£³Ö10Ãë
-			QUIZ_SEND_QUESTION,	// ·¢Ìâ×´Ì¬
-			QUIZ_ACTIVE_QUESTION,	// ´ğÌâ×´Ì¬
-			QUIZ_END_QUESTION,      // ½áÊø±¾ÂÖÎÊ´ğ,²¢×öÏàÓ¦´¦Àí(È«Çø¾ºÈüÊ±£¬½øĞĞÅÅĞò´¦Àí²¢·¢ËÍÅÅÃûÓëµÃ·Ö£¬
-						// ¸öÈËÎÊ´ğ½ö½øĞĞµÃ·ÖºÍÎÄ²ÉµÄ·¢ËÍ)
-			QUIZ_READY_OVER,        // ½áÊø¾ºÈü£¬Í¨Öª³¡¾°È¡ÏûËùÓĞÈËµÄ¶ÔÕ½×´Ì¬£¬²¢¼ÆËãÊäÓ®,ÖØÖÃ²é¿´ÅÅÃûÊ±¼ä
-			QUIZ_READ_SORT,		// ¸Ã×´Ì¬Ö»ÓÃÓÚÈ«¹ú,µÈ´ıÎåÃëÊ±¼äºó£¬ÔÚ´Ë×´Ì¬ÔÙ·¢ËÍÒ»´Î½áÊø
-			QUIZ_RETURN_GOLD,	// ¸öÈËÎÊ´ğ½áÊø£¬µ«»¹Î´½øĞĞ½±Àø
-			QUIZ_OVER		// ½áÊøÇå³ı×´Ì¬
+			QUIZ_READY,		// é‚€è¯·ç­‰å¾…çŠ¶æ€
+			QUIZ_READY_QUESTION,    // ç­‰å¾…è¢«é‚€åº”è€…å›åº”çŠ¶æ€,ä¿æŒ10ç§’
+			QUIZ_SEND_QUESTION,	// å‘é¢˜çŠ¶æ€
+			QUIZ_ACTIVE_QUESTION,	// ç­”é¢˜çŠ¶æ€
+			QUIZ_END_QUESTION,      // ç»“æŸæœ¬è½®é—®ç­”,å¹¶åšç›¸åº”å¤„ç†(å…¨åŒºç«èµ›æ—¶ï¼Œè¿›è¡Œæ’åºå¤„ç†å¹¶å‘é€æ’åä¸å¾—åˆ†ï¼Œ
+						// ä¸ªäººé—®ç­”ä»…è¿›è¡Œå¾—åˆ†å’Œæ–‡é‡‡çš„å‘é€)
+			QUIZ_READY_OVER,        // ç»“æŸç«èµ›ï¼Œé€šçŸ¥åœºæ™¯å–æ¶ˆæ‰€æœ‰äººçš„å¯¹æˆ˜çŠ¶æ€ï¼Œå¹¶è®¡ç®—è¾“èµ¢,é‡ç½®æŸ¥çœ‹æ’åæ—¶é—´
+			QUIZ_READ_SORT,		// è¯¥çŠ¶æ€åªç”¨äºå…¨å›½,ç­‰å¾…äº”ç§’æ—¶é—´åï¼Œåœ¨æ­¤çŠ¶æ€å†å‘é€ä¸€æ¬¡ç»“æŸ
+			QUIZ_RETURN_GOLD,	// ä¸ªäººé—®ç­”ç»“æŸï¼Œä½†è¿˜æœªè¿›è¡Œå¥–åŠ±
+			QUIZ_OVER		// ç»“æŸæ¸…é™¤çŠ¶æ€
 		};
 
 		CQuiz();
@@ -328,16 +328,16 @@ class CQuiz:public zEntry
 		virtual ~CQuiz();
 
 		/**
-		 * \brief Ê±¼äÊÂ¼ş´¦Àí»Øµ÷º¯Êı£¬ÓÉTimeTick.cppÖĞº¯Êı»Øµ÷
+		 * \brief æ—¶é—´äº‹ä»¶å¤„ç†å›è°ƒå‡½æ•°ï¼Œç”±TimeTick.cppä¸­å‡½æ•°å›è°ƒ
 		 *
 		 *
 		 */
-		void timer();	//Ê±¼äÊÂ¼ş´¦Àí»Øµ÷
+		void timer();	//æ—¶é—´äº‹ä»¶å¤„ç†å›è°ƒ
 
 
-		// ÒÔÏÂÎªÉèÖÃ¶ÔÕ½×´Ì¬µÄ´¦Àí·½·¨¡£¶ÔÕ½×´Ì¬¾ßÌå²é¿´¶ÔÕ½ÏµÍ³×´Ì¬×ª»»Í¼
-		// ×´Ì¬×ª»»º¯ÊıÄ¬ÈÏÇé¿ö£¬½Ô²»ĞèÒªÖØÔØ¡£Ö»ĞèÖØÔØÖ¸¶¨µÄ¼¸¸ö·½·¨¡£
-		// Èç¹ûÄãÏëÊµÏÖÒ»¸öÓëÄ¬ÈÏĞĞÎª²»Í¬µÄ×´Ì¬×ª»»¹ı³Ì¡£¿ÉÄÜĞèÒªÖØÔØËùÓĞ×´Ì¬×ª»»·½·¨
+		// ä»¥ä¸‹ä¸ºè®¾ç½®å¯¹æˆ˜çŠ¶æ€çš„å¤„ç†æ–¹æ³•ã€‚å¯¹æˆ˜çŠ¶æ€å…·ä½“æŸ¥çœ‹å¯¹æˆ˜ç³»ç»ŸçŠ¶æ€è½¬æ¢å›¾
+		// çŠ¶æ€è½¬æ¢å‡½æ•°é»˜è®¤æƒ…å†µï¼Œçš†ä¸éœ€è¦é‡è½½ã€‚åªéœ€é‡è½½æŒ‡å®šçš„å‡ ä¸ªæ–¹æ³•ã€‚
+		// å¦‚æœä½ æƒ³å®ç°ä¸€ä¸ªä¸é»˜è®¤è¡Œä¸ºä¸åŒçš„çŠ¶æ€è½¬æ¢è¿‡ç¨‹ã€‚å¯èƒ½éœ€è¦é‡è½½æ‰€æœ‰çŠ¶æ€è½¬æ¢æ–¹æ³•
 		
 		virtual void setReadyState();
 		virtual void setReadyQuestionState();
@@ -352,43 +352,43 @@ class CQuiz:public zEntry
 		virtual bool addPothunters(UserSession* pUser) = 0;
 
 		/**
-		 * \brief ´ò³ö¾ºÈüµ±Ç°×´Ì¬
+		 * \brief æ‰“å‡ºç«èµ›å½“å‰çŠ¶æ€
 		 *
 		 */
 		void printState();
 
 		/**
-		  * \brief ÓÃ»§ÉÏÏß´¦Àí
+		  * \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†
 		  *
-		  * ÓÃ»§ÉÏÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí,¸öÈËÎÊ´ğÉÏÏß²»Ğè´¦Àí¡£
-		  * ÊÀ½ç¾ºÈüÊ±£¬ĞèÒªÅĞ¶ÏÆäÊÇ·ñÒÑ¾­²Î¼ÓÁË¾ºÈü,Èç¹ûÃ»ÓĞ²Î¼Ó£¬Ôò·¢³öÑ¯ÎÊ£¬Èç¹ûÒÑ¾­²Î¼Ó£¬Ôò²»ÔÙ´¦Àí
+		  * ç”¨æˆ·ä¸Šçº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†,ä¸ªäººé—®ç­”ä¸Šçº¿ä¸éœ€å¤„ç†ã€‚
+		  * ä¸–ç•Œç«èµ›æ—¶ï¼Œéœ€è¦åˆ¤æ–­å…¶æ˜¯å¦å·²ç»å‚åŠ äº†ç«èµ›,å¦‚æœæ²¡æœ‰å‚åŠ ï¼Œåˆ™å‘å‡ºè¯¢é—®ï¼Œå¦‚æœå·²ç»å‚åŠ ï¼Œåˆ™ä¸å†å¤„ç†
 		  *
-		  * \param pUser ÉÏÏßÓÃ»§
+		  * \param pUser ä¸Šçº¿ç”¨æˆ·
 		  *
 		  */
 		virtual void userOnline(UserSession* pUser) = 0;
 		
 		/**
-		  * \brief ÓÃ»§ÏÂÏß´¦Àí
+		  * \brief ç”¨æˆ·ä¸‹çº¿å¤„ç†
 		  *
-		  * ÓÃ»§ÏÂÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí, ¸öÈËÎÊ´ğÏÂÏßÊ±£¬½øÈësetReadyOver×´Ì¬£¬È«¹ú¾ºÈüÊ±²»×ö´¦Àí
+		  * ç”¨æˆ·ä¸‹çº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†, ä¸ªäººé—®ç­”ä¸‹çº¿æ—¶ï¼Œè¿›å…¥setReadyOverçŠ¶æ€ï¼Œå…¨å›½ç«èµ›æ—¶ä¸åšå¤„ç†
 		  *
-		  * \param pUser ÉÏÏßÓÃ»§
+		  * \param pUser ä¸Šçº¿ç”¨æˆ·
 		  *
 		  */
 		virtual void userOffline(UserSession* pUser) = 0;
 
 		/**
-		  * \brief ÅĞ¶ÏÊÇ·ñÈÔÔÚ¾ºÈüÆÚ¼ä
+		  * \brief åˆ¤æ–­æ˜¯å¦ä»åœ¨ç«èµ›æœŸé—´
 		  *
-		  * \return Èç¹ûÈÔÔÚ¶ÔÕ½Ê±ÆÚ£¬·µ»ØTRUE,·ñÔò·µ»ØFALSE
+		  * \return å¦‚æœä»åœ¨å¯¹æˆ˜æ—¶æœŸï¼Œè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
 		  */
 		virtual bool isActivePeriod()=0;
 
 		/**
-		  * \brief ÅĞ¶ÏÊÇ·ñÈÔÔÚ×¼±¸ÆÚ
+		  * \brief åˆ¤æ–­æ˜¯å¦ä»åœ¨å‡†å¤‡æœŸ
 		  *
-		  * \return Èç¹ûÈÔÔÚ×¼±¸ÆÚÊ±ÆÚ£¬·µ»ØTRUE,·ñÔò·µ»ØFALSE
+		  * \return å¦‚æœä»åœ¨å‡†å¤‡æœŸæ—¶æœŸï¼Œè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
 		  */
 		virtual bool isReadyPeriod()
 		{
@@ -396,9 +396,9 @@ class CQuiz:public zEntry
 		}
 		
 		/**
-		  * \brief ÅĞ¶ÏÊÇ·ñÈÔÔÚ×¼±¸ÆÚ
+		  * \brief åˆ¤æ–­æ˜¯å¦ä»åœ¨å‡†å¤‡æœŸ
 		  *
-		  * \return Èç¹ûÈÔÔÚ×¼±¸ÆÚÊ±ÆÚ£¬·µ»ØTRUE,·ñÔò·µ»ØFALSE
+		  * \return å¦‚æœä»åœ¨å‡†å¤‡æœŸæ—¶æœŸï¼Œè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
 		  */
 		virtual bool isReadyQuestionPeriod()
 		{
@@ -407,7 +407,7 @@ class CQuiz:public zEntry
 
 
 		/**
-		 * \brief  ÅĞ¶ÏÊÇ·ñÈÔÔÚ²é¿´ÅÅÃûÆÚ
+		 * \brief  åˆ¤æ–­æ˜¯å¦ä»åœ¨æŸ¥çœ‹æ’åæœŸ
 		 *
 		 */
 		virtual bool isReadSortPeriod()
@@ -426,9 +426,9 @@ class CQuiz:public zEntry
 		}
 		
 		/**
-		  * \brief ÅĞ¶ÏÊÇ·ñÈÔÔÚ×¼±¸ÆÚ
+		  * \brief åˆ¤æ–­æ˜¯å¦ä»åœ¨å‡†å¤‡æœŸ
 		  *
-		  * \return Èç¹ûÈÔÔÚ×¼±¸ÆÚÊ±ÆÚ£¬·µ»ØTRUE,·ñÔò·µ»ØFALSE
+		  * \return å¦‚æœä»åœ¨å‡†å¤‡æœŸæ—¶æœŸï¼Œè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
 		  */
 		virtual void updateTime()
 		{
@@ -451,7 +451,7 @@ class CQuiz:public zEntry
 		virtual int answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID) = 0;
 		virtual void exitQuiz(DWORD dwUserID) = 0;
 
-		/// ±¾´Î¾ºÈüµÄÌâÄ¿
+		/// æœ¬æ¬¡ç«èµ›çš„é¢˜ç›®
 		std::vector<CSubject>   subjects;
 //		CSubject subjects[1];
 //		int subjects[100];
@@ -480,11 +480,11 @@ class CQuizPersonal : public CQuiz
 		void exitQuiz(DWORD dwUserID);
 		
 		/**
-		  * \brief ÓÃ»§ÉÏÏß´¦Àí
+		  * \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†
 		  *
-		  * ÓÃ»§ÉÏÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí
+		  * ç”¨æˆ·ä¸Šçº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†
 		  *
-		  * \param pUser ÉÏÏßÓÃ»§
+		  * \param pUser ä¸Šçº¿ç”¨æˆ·
 		  *
 		  */
 		void userOnline(UserSession* pUser);
@@ -517,19 +517,19 @@ class CQuizWorld : public CQuiz
 		}
 
 		/**
-		  * \brief ÓÃ»§ÉÏÏß´¦Àí
+		  * \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†
 		  *
-		  * ÓÃ»§ÉÏÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí
+		  * ç”¨æˆ·ä¸Šçº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†
 		  *
-		  * \param pUser ÉÏÏßÓÃ»§
+		  * \param pUser ä¸Šçº¿ç”¨æˆ·
 		  *
 		  */
 		void userOnline(UserSession* pUser);
 		void userOffline(UserSession* pUser);
 	public:		
-		/// ²ÎÈüÈËÔ±ÁĞ±í
+		/// å‚èµ›äººå‘˜åˆ—è¡¨
 		std::vector<CPothunter> pothunters;
-//		int valid_pothunter; // ±¾ÂÖÓĞĞ§ÈËÊı
+//		int valid_pothunter; // æœ¬è½®æœ‰æ•ˆäººæ•°
 	private:
 		virtual void sendExitToAll();
 

@@ -1,4 +1,4 @@
-#include "MiniHall.h"
+ï»¿#include "MiniHall.h"
 #include "MiniRoom.h"
 #include "MiniGame.h"
 #include "MiniUser.h"
@@ -26,7 +26,7 @@ bool MiniHall::init()
 	zXMLParser xml;
 	if (!xml.initFile("miniConfig.xml"))
 	{       
-		Zebra::logger->error("´ò¿ªMiniÅäÖÃÎÄ¼şÊ§°Ü miniConfig.xml");
+		Zebra::logger->error("æ‰“å¼€Minié…ç½®æ–‡ä»¶å¤±è´¥ miniConfig.xml");
 		return false;
 	}
 
@@ -61,12 +61,12 @@ bool MiniHall::init()
 			DWORD count = r->init(tempid, gameNum, userNum, money);
 			if (!count)
 			{
-				Zebra::logger->error("³õÊ¼»¯·¿¼äÊ§°Ü id=%u gameNum=%u userNum=%u money=%u", tempid.id(), gameNum, userNum, money);
+				Zebra::logger->error("åˆå§‹åŒ–æˆ¿é—´å¤±è´¥ id=%u gameNum=%u userNum=%u money=%u", tempid.id(), gameNum, userNum, money);
 				delete r;
 				continue;
 			}
 			roomList[tempid.roomID()] = r;
-			Zebra::logger->debug("³õÊ¼»¯ÓÎÏ··¿¼ä roomID=%u", tempid.roomID());
+			Zebra::logger->debug("åˆå§‹åŒ–æ¸¸æˆæˆ¿é—´ roomID=%u", tempid.roomID());
 
 			roomDataCmd->data[roomDataCmd->num].roomID = tempid;
 			roomDataCmd->data[roomDataCmd->num].gameNum = count;
@@ -75,20 +75,20 @@ bool MiniHall::init()
 			roomDataCmd->data[roomDataCmd->num].money = money;
 			roomDataCmd->num++;
 		}
-		Zebra::logger->debug("ÓÎÏ·ÀàĞÍ=%u roomNum=%u gameNum=%u userNum=%u money=%u", type, roomList.size(), gameNum, userNum, money);
+		Zebra::logger->debug("æ¸¸æˆç±»å‹=%u roomNum=%u gameNum=%u userNum=%u money=%u", type, roomList.size(), gameNum, userNum, money);
 
 		gameNode = xml.getNextNode(gameNode, "game");
 	}
 
 	if (!Top100::getMe().init())
-		Zebra::logger->error("Top100 ³õÊ¼»¯Ê§°Ü");
+		Zebra::logger->error("Top100 åˆå§‹åŒ–å¤±è´¥");
 
 	return true;
 }
 
 bool MiniHall::parseUserCmd(MiniUser *u, Cmd::stMiniGameUserCmd *cmd, DWORD len)
 {
-	//u¿ÉÄÜÎª0
+	//uå¯èƒ½ä¸º0
 	using namespace Cmd;
 
 	switch (cmd->byParam)
@@ -109,7 +109,7 @@ bool MiniHall::parseUserCmd(MiniUser *u, Cmd::stMiniGameUserCmd *cmd, DWORD len)
 		default:
 			break;
 	}
-	Zebra::logger->error("MiniHall::parseUserCmd ½âÎöÖ¸Áî´íÎó cmd=(%u,%u,%u)", cmd->byCmd, cmd->byParam, cmd->subParam);
+	Zebra::logger->error("MiniHall::parseUserCmd è§£ææŒ‡ä»¤é”™è¯¯ cmd=(%u,%u,%u)", cmd->byCmd, cmd->byParam, cmd->subParam);
 	return false;
 }
 
@@ -132,7 +132,7 @@ void MiniHall::userEnter(MiniUser *u)
 	sendRoomData(u);
 
 
-	Zebra::logger->trace("%s(%u) ½øÈë´óÌü", u->name, u->id);
+	Zebra::logger->trace("%s(%u) è¿›å…¥å¤§å…", u->name, u->id);
 }
 
 void MiniHall::userLeave(MiniUser *u)
@@ -155,7 +155,7 @@ void MiniHall::userLeave(MiniUser *u)
 	}
 	u->save();
 
-	Zebra::logger->debug("%s(%u) ×¢Ïú", u->name, u->id);
+	Zebra::logger->debug("%s(%u) æ³¨é”€", u->name, u->id);
 
 	MiniUserManager::getMe().removeUser(u);
 }
@@ -165,7 +165,7 @@ MiniRoom * MiniHall::getRoom(const Cmd::MiniRoomID &id)
 	if (roomList.end()!=roomList.find(id.roomID()))
 		return roomList[id.roomID()];
 
-	Zebra::logger->error("ÕÒ²»µ½·¿¼ä£¡roomID=%u", id.roomID());
+	Zebra::logger->error("æ‰¾ä¸åˆ°æˆ¿é—´ï¼roomID=%u", id.roomID());
 	return 0;
 }
 
@@ -200,7 +200,7 @@ void MiniHall::timer()
 
 bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD len)
 {
-	//u¿ÉÄÜÎª0
+	//uå¯èƒ½ä¸º0
 	using namespace Cmd;
 
 	switch (cmd->subParam)
@@ -212,7 +212,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				MiniRoom *r = getRoom(rev->roomID);
 				if (!r)
 				{
-					Zebra::logger->error("ENTER_ROOM ²»´æÔÚ¸Ã·¿¼ä %u", rev->roomID.roomID());
+					Zebra::logger->error("ENTER_ROOM ä¸å­˜åœ¨è¯¥æˆ¿é—´ %u", rev->roomID.roomID());
 					return false;
 				}
 
@@ -224,7 +224,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				}
 				else
 				{
-					Zebra::logger->error("%s(%u) ½øÈë·¿¼äÊ§°Ü roomID=%u", u->name, u->id, rev->roomID.roomID());
+					Zebra::logger->error("%s(%u) è¿›å…¥æˆ¿é—´å¤±è´¥ roomID=%u", u->name, u->id, rev->roomID.roomID());
 					return false;
 				}
 
@@ -238,7 +238,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				MiniGame *g = getGame(rev->seatID);
 				if (!g)
 				{
-					Zebra::logger->error("ENTER_GAME ²»´æÔÚ¸ÃÓÎÏ· %u", rev->seatID.id());
+					Zebra::logger->error("ENTER_GAME ä¸å­˜åœ¨è¯¥æ¸¸æˆ %u", rev->seatID.id());
 					return false;
 				}
 
@@ -254,7 +254,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				MiniGame *g = getGame(rev->gameID);
 				if (!g)
 				{
-					Zebra::logger->error("LEAVE_GAME ²»´æÔÚ¸ÃÓÎÏ· %u", rev->gameID.gameID());
+					Zebra::logger->error("LEAVE_GAME ä¸å­˜åœ¨è¯¥æ¸¸æˆ %u", rev->gameID.gameID());
 					return false;
 				}
 
@@ -290,7 +290,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				MiniGame *g = getGame(rev->seatID);
 				if (!g)
 				{
-					Zebra::logger->error("TOGGLE_SEAT ²»´æÔÚ¸ÃÓÎÏ· %u", rev->seatID.gameID());
+					Zebra::logger->error("TOGGLE_SEAT ä¸å­˜åœ¨è¯¥æ¸¸æˆ %u", rev->seatID.gameID());
 					return false;
 				}
 
@@ -308,7 +308,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				MiniGame *g = getGame(rev->gameID);
 				if (!g)
 				{
-					Zebra::logger->error("KICK_USER ²»´æÔÚ¸ÃÓÎÏ· %u", rev->gameID.gameID());
+					Zebra::logger->error("KICK_USER ä¸å­˜åœ¨è¯¥æ¸¸æˆ %u", rev->gameID.gameID());
 					return false;
 				}
 
@@ -323,7 +323,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				MiniGame *g = getGame(rev->gameID);
 				if (!g)
 				{
-					Zebra::logger->error("TOGGLE_READY ²»´æÔÚ¸ÃÓÎÏ· %u", rev->gameID.gameID());
+					Zebra::logger->error("TOGGLE_READY ä¸å­˜åœ¨è¯¥æ¸¸æˆ %u", rev->gameID.gameID());
 					return false;
 				}
 
@@ -373,7 +373,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 
 				if (u->getMoney()+rev->num>MAX_MONEY)
 				{
-					u->sendMiniInfo(Cmd::MCT_POPUP, "ÄúµÄÏÉµ¤³¬¹ıÉÏÏŞ£¬²»ÄÜÔÙ³äÖµÁË");
+					u->sendMiniInfo(Cmd::MCT_POPUP, "æ‚¨çš„ä»™ä¸¹è¶…è¿‡ä¸Šé™ï¼Œä¸èƒ½å†å……å€¼äº†");
 					return true;
 				}
 
@@ -394,7 +394,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				{
 					if (it->second.state!=Cmd::MUS_ROOM && it->second.state!=Cmd::MUS_NOTPLAY)
 					{
-						u->sendMiniInfo(Cmd::MCT_POPUP, "ÏÖÔÚ²»ÄÜ¶Ò»»ÏÉµ¤");
+						u->sendMiniInfo(Cmd::MCT_POPUP, "ç°åœ¨ä¸èƒ½å…‘æ¢ä»™ä¸¹");
 						return true;
 					}
 				}
@@ -402,7 +402,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 				if (!rev->num) return true;
 				if (!u->checkMoney(rev->num))
 				{
-					u->sendMiniInfo(Cmd::MCT_POPUP, "ÄúµÄÏÉµ¤ÊıÁ¿²»×ã");
+					u->sendMiniInfo(Cmd::MCT_POPUP, "æ‚¨çš„ä»™ä¸¹æ•°é‡ä¸è¶³");
 					return true;
 				}
 
@@ -417,7 +417,7 @@ bool MiniHall::parseCommonCmd(MiniUser *u, Cmd::stCommonMiniGameCmd *cmd, DWORD 
 		default:
 			break;
 	}
-	Zebra::logger->error("MiniHall::parseCommonCmd ½âÎöÖ¸Áî´íÎó cmd=(%u,%u,%u)", cmd->byCmd, cmd->byParam, cmd->subParam);
+	Zebra::logger->error("MiniHall::parseCommonCmd è§£ææŒ‡ä»¤é”™è¯¯ cmd=(%u,%u,%u)", cmd->byCmd, cmd->byParam, cmd->subParam);
 	return false;
 }
 

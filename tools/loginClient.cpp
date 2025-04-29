@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: loginClient.cpp $
  * \author  
@@ -52,7 +52,7 @@ bool LoginClient::loginLoginServer(const char *name, const char *passwd)
 	if (LOGON_USERCMD == fail->byCmd
 			&& SERVER_RETURN_LOGIN_FAILED == fail->byParam)
 	{
-		Zebra::logger->debug("µÇÂ½´íÎóÐÅÏ¢(%u, %u), µØÖ·:%s, ¶Ë¿Ú:%u , ´íÎó´úÂë:%u", ptCmd->dwUserID, ptCmd->loginTempID, pstrIP, wdPort ,fail->byReturnCode);
+		Zebra::logger->debug("ç™»é™†é”™è¯¯ä¿¡æ¯(%u, %u), åœ°å€:%s, ç«¯å£:%u , é”™è¯¯ä»£ç :%u", ptCmd->dwUserID, ptCmd->loginTempID, pstrIP, wdPort ,fail->byReturnCode);
 		msgParse_logon(ptCmd,nCmdLen);
 		return false;
 	}
@@ -64,10 +64,10 @@ bool LoginClient::loginLoginServer(const char *name, const char *passwd)
 		bcopy(ptCmd->pstrIP, pstrIP, MAX_IP_LENGTH);
 		wdPort = ptCmd->wdPort;
 
-		//µÃµ½desÃÜÔ¿
+		//å¾—åˆ°deså¯†é’¥
 		bcopy(&(ptCmd->key[ptCmd->key[58]]), &key_des, sizeof(key_des));
-		//Zebra::logger->debug("µÇÂ½³É¹¦Íø¹ØÐÅÏ¢£º%u, %u, %s, %u", ptCmd->dwUserID, ptCmd->loginTempID, pstrIP, wdPort);
-		//Zebra::logger->debug("»ñµÃÃÜÔ¿£º%u, %u, %u, %u, %u, %u, %u, %u Î»ÖÃ£º%u", key_des[0], key_des[1], key_des[2], key_des[3], key_des[4], key_des[5], key_des[6], key_des[7], ptCmd->key[58]);
+		//Zebra::logger->debug("ç™»é™†æˆåŠŸç½‘å…³ä¿¡æ¯ï¼š%u, %u, %s, %u", ptCmd->dwUserID, ptCmd->loginTempID, pstrIP, wdPort);
+		//Zebra::logger->debug("èŽ·å¾—å¯†é’¥ï¼š%u, %u, %u, %u, %u, %u, %u, %u ä½ç½®ï¼š%u", key_des[0], key_des[1], key_des[2], key_des[3], key_des[4], key_des[5], key_des[6], key_des[7], ptCmd->key[58]);
 		return true;
 	}
 	return false;
@@ -84,51 +84,51 @@ bool LoginClient::msgParse_logon(const Cmd::stNullUserCmd *ptNull, const unsigne
 				switch(ptCmd->byReturnCode)
 				{
 					case LOGIN_RETURN_UNKNOWN:
-						Zebra::logger->error("%s:Î´Öª´íÎó", __FUNCTION__);
+						Zebra::logger->error("%s:æœªçŸ¥é”™è¯¯", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_VERSIONERROR:
-						Zebra::logger->error("%s:°æ±¾´íÎó", __FUNCTION__);
+						Zebra::logger->error("%s:ç‰ˆæœ¬é”™è¯¯", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_UUID:
-						Zebra::logger->error("%s:UUIDµÇÂ½·½Ê½Ã»ÓÐÊµÏÖ", __FUNCTION__);
+						Zebra::logger->error("%s:UUIDç™»é™†æ–¹å¼æ²¡æœ‰å®žçŽ°", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_DB:
-						Zebra::logger->error("%s:Êý¾Ý¿â³ö´í", __FUNCTION__);
+						Zebra::logger->error("%s:æ•°æ®åº“å‡ºé”™", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_PASSWORDERROR:
-						Zebra::logger->error("%s:ÕÊºÅÃÜÂë´íÎó", __FUNCTION__);
+						Zebra::logger->error("%s:å¸å·å¯†ç é”™è¯¯", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_CHANGEPASSWORD:
-						Zebra::logger->error("%s:ÐÞ¸ÄÃÜÂë³É¹¦", __FUNCTION__);
+						Zebra::logger->error("%s:ä¿®æ”¹å¯†ç æˆåŠŸ", __FUNCTION__);
 						retval = true;
 						break;
 					case LOGIN_RETURN_IDINUSE:
-						Zebra::logger->error("%s:IDÕýÔÚ±»Ê¹ÓÃÖÐ", __FUNCTION__);
+						Zebra::logger->error("%s:IDæ­£åœ¨è¢«ä½¿ç”¨ä¸­", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_IDINCLOSE:
-						Zebra::logger->error("%s:ID±»·â", __FUNCTION__);
+						Zebra::logger->error("%s:IDè¢«å°", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_GATEWAYNOTAVAILABLE:
-						Zebra::logger->error("%s:Íø¹Ø·þÎñÆ÷Î´¿ª", __FUNCTION__);
+						Zebra::logger->error("%s:ç½‘å…³æœåŠ¡å™¨æœªå¼€", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_USERMAX:
-						Zebra::logger->error("%s:ÓÃ»§Âú", __FUNCTION__);
+						Zebra::logger->error("%s:ç”¨æˆ·æ»¡", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_ACCOUNTEXIST:
-						Zebra::logger->error("%s:ÕËºÅÒÑ¾­´æÔÚ", __FUNCTION__);
+						Zebra::logger->error("%s:è´¦å·å·²ç»å­˜åœ¨", __FUNCTION__);
 						break;
 					case LOGON_RETURN_ACCOUNTSUCCESS:
-						Zebra::logger->error("%s:×¢²áÕËºÅ³É¹¦", __FUNCTION__);
+						Zebra::logger->error("%s:æ³¨å†Œè´¦å·æˆåŠŸ", __FUNCTION__);
 						retval = true;
 						break;
 					case LOGIN_RETURN_USERNAMEREPEAT:
-						Zebra::logger->error("%s:ÓÃ»§ÃûÖØ¸´", __FUNCTION__);
+						Zebra::logger->error("%s:ç”¨æˆ·åé‡å¤", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_TIMEOUT:
-						Zebra::logger->error("%s:Á¬½Ó³¬Ê±", __FUNCTION__);
+						Zebra::logger->error("%s:è¿žæŽ¥è¶…æ—¶", __FUNCTION__);
 						break;
 					case LOGIN_RETURN_PAYFAILED:
-						Zebra::logger->error("%s:¼Æ·ÑÊ§°Ü", __FUNCTION__);
+						Zebra::logger->error("%s:è®¡è´¹å¤±è´¥", __FUNCTION__);
 						break;
 				}
 				return retval;

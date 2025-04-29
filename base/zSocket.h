@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSocket.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåzSocketÀà£¬ÓÃÓÚ¶ÔÌ×½Ó¿Úµ×²ã½øĞĞ·â×°
+ * \brief å®šä¹‰zSocketç±»ï¼Œç”¨äºå¯¹å¥—æ¥å£åº•å±‚è¿›è¡Œå°è£…
  */
 
 #ifndef _zSocket_h_
@@ -42,11 +42,11 @@
 
 const unsigned int trunkSize = 64 * 1024;
 #define unzip_size(zip_size) ((zip_size) * 120 / 100 + 12)
-const unsigned int PACKET_ZIP_BUFFER	=	unzip_size(trunkSize - 1) + sizeof(unsigned int) + 8;	/**< Ñ¹ËõĞèÒªµÄ»º³å */
+const unsigned int PACKET_ZIP_BUFFER	=	unzip_size(trunkSize - 1) + sizeof(unsigned int) + 8;	/**< å‹ç¼©éœ€è¦çš„ç¼“å†² */
 
 /**
- * ×Ö½Ú»º³å£¬ÓÃÓÚÌ×½Ó¿Ú½ÓÊÕºÍ·¢ËÍÊı¾İµÄ»º³å
- * \param _type »º³åÇøÊı¾İÀàĞÍ
+ * å­—èŠ‚ç¼“å†²ï¼Œç”¨äºå¥—æ¥å£æ¥æ”¶å’Œå‘é€æ•°æ®çš„ç¼“å†²
+ * \param _type ç¼“å†²åŒºæ•°æ®ç±»å‹
  */
 template <typename _type>
 class ByteBuffers
@@ -55,27 +55,27 @@ class ByteBuffers
 	public:
 
 		/**
-		 * ¹¹Ôìº¯Êı
+		 * æ„é€ å‡½æ•°
 		 */
 		ByteBuffers();
 
 		/**
-		 * Ïò»º³åÌîÈëÊı¾İ
-		 * \param buf ´ıÌîÈë»º³åµÄÊı¾İ
-		 * \param size ´ıÌîÈë»º³åÊı¾İµÄ³¤¶È
+		 * å‘ç¼“å†²å¡«å…¥æ•°æ®
+		 * \param buf å¾…å¡«å…¥ç¼“å†²çš„æ•°æ®
+		 * \param size å¾…å¡«å…¥ç¼“å†²æ•°æ®çš„é•¿åº¦
 		 */
 		inline void put(const unsigned char *buf, const unsigned int size)
 		{
-			//Ê×ÏÈÈ·ÈÏ»º³åÄÚ´æÊÇ·ñ×ã¹»
+			//é¦–å…ˆç¡®è®¤ç¼“å†²å†…å­˜æ˜¯å¦è¶³å¤Ÿ
 			wr_reserve(size);
 			bcopy(buf, &_buffer[_currPtr], size);
 			_currPtr += size;
 		}
 
 		/**
-		 * µÃµ½µ±Ç°¿ÉĞ´bfµÄÎ´Öª
-		 * ±£Ö¤ÔÚµ÷ÓÃ´Ëº¯ÊıĞ´ÈëÊı¾İÖ®Ç°ĞèÒªµ÷ÓÃwr_reserve(size)À´Ô¤Áô»º³åÇø´óĞ¡
-		 * \return ¿ÉĞ´Èë»º³å¿ªÊ¼µØÖ·
+		 * å¾—åˆ°å½“å‰å¯å†™bfçš„æœªçŸ¥
+		 * ä¿è¯åœ¨è°ƒç”¨æ­¤å‡½æ•°å†™å…¥æ•°æ®ä¹‹å‰éœ€è¦è°ƒç”¨wr_reserve(size)æ¥é¢„ç•™ç¼“å†²åŒºå¤§å°
+		 * \return å¯å†™å…¥ç¼“å†²å¼€å§‹åœ°å€
 		 */
 		inline unsigned char *wr_buf()
 		{
@@ -83,8 +83,8 @@ class ByteBuffers
 		}
 
 		/**
-		 * ·µ»Ø»º³åÖĞÓĞĞ§Êı¾İµÄ¿ªÊ¼µØÖ·
-		 * \return ÓĞĞ§Êı¾İµØÖ·
+		 * è¿”å›ç¼“å†²ä¸­æœ‰æ•ˆæ•°æ®çš„å¼€å§‹åœ°å€
+		 * \return æœ‰æ•ˆæ•°æ®åœ°å€
 		 */
 		inline unsigned char *rd_buf()
 		{
@@ -92,8 +92,8 @@ class ByteBuffers
 		}
 
 		/**
-		 * ÅĞ¶Ï»º³åÖĞÊ±ºòÓĞÓĞĞ§Êı¾İ
-		 * \return ·µ»Ø»º³åÖĞÊÇ·ñÓĞÓĞĞ§Êı¾İ
+		 * åˆ¤æ–­ç¼“å†²ä¸­æ—¶å€™æœ‰æœ‰æ•ˆæ•°æ®
+		 * \return è¿”å›ç¼“å†²ä¸­æ˜¯å¦æœ‰æœ‰æ•ˆæ•°æ®
 		 */
 		inline bool rd_ready() const
 		{
@@ -101,8 +101,8 @@ class ByteBuffers
 		}
 
 		/**
-		 * µÃµ½»º³åÖĞÓĞĞ§Êı¾İµÄ´óĞ¡
-		 * \return ·µ»Ø»º³åÖĞÓĞĞ§Êı¾İ´óĞ¡
+		 * å¾—åˆ°ç¼“å†²ä¸­æœ‰æ•ˆæ•°æ®çš„å¤§å°
+		 * \return è¿”å›ç¼“å†²ä¸­æœ‰æ•ˆæ•°æ®å¤§å°
 		 */
 		inline unsigned int rd_size() const
 		{
@@ -110,8 +110,8 @@ class ByteBuffers
 		}
 
 		/**
-		 * µ±»º³åµÄÓĞĞ§Êı¾İ±»Ê¹ÓÃÒÔºó£¬ĞèÒª¶Ô»º³å½øĞĞÕûÀí
-		 * \param size ×îºóÒ»´ÎÊ¹ÓÃµÄÓĞĞ§Êı¾İ³¤¶È
+		 * å½“ç¼“å†²çš„æœ‰æ•ˆæ•°æ®è¢«ä½¿ç”¨ä»¥åï¼Œéœ€è¦å¯¹ç¼“å†²è¿›è¡Œæ•´ç†
+		 * \param size æœ€åä¸€æ¬¡ä½¿ç”¨çš„æœ‰æ•ˆæ•°æ®é•¿åº¦
 		 */
 		inline void rd_flip(unsigned int size)
 		{
@@ -134,8 +134,8 @@ class ByteBuffers
 		}
 
 		/**
-		 * µÃµ½»º³å¿ÉĞ´ÈëÊı¾İµÄ´óĞ¡
-		 * \return ¿ÉĞ´ÈëÊı¾İµÄ´óĞ¡
+		 * å¾—åˆ°ç¼“å†²å¯å†™å…¥æ•°æ®çš„å¤§å°
+		 * \return å¯å†™å…¥æ•°æ®çš„å¤§å°
 		 */
 		inline unsigned int wr_size() const
 		{
@@ -143,8 +143,8 @@ class ByteBuffers
 		}
 
 		/**
-		 * Êµ¼ÊÏò»º³åĞ´ÈëÁËÊı¾İ£¬ĞèÒª¶Ô»º³å½øĞĞÕûÀí
-		 * \param size Êµ¼ÊĞ´ÈëµÄÊı¾İ
+		 * å®é™…å‘ç¼“å†²å†™å…¥äº†æ•°æ®ï¼Œéœ€è¦å¯¹ç¼“å†²è¿›è¡Œæ•´ç†
+		 * \param size å®é™…å†™å…¥çš„æ•°æ®
 		 */
 		inline void wr_flip(const unsigned int size)
 		{
@@ -152,7 +152,7 @@ class ByteBuffers
 		}
 
 		/**
-		 * ÖØÖµ»º³åÖĞµÄÊı¾İ£¬Çå¿ÕÎŞÓÃµÄÀ¬»øÊı¾İ
+		 * é‡å€¼ç¼“å†²ä¸­çš„æ•°æ®ï¼Œæ¸…ç©ºæ— ç”¨çš„åƒåœ¾æ•°æ®
 		 */
 		inline void reset()
 		{
@@ -161,8 +161,8 @@ class ByteBuffers
 		}
 
 		/**
-		 * ·µ»Ø»º³å×î´ó´óĞ¡
-		 * \return »º³å×î´ó´óĞ¡
+		 * è¿”å›ç¼“å†²æœ€å¤§å¤§å°
+		 * \return ç¼“å†²æœ€å¤§å¤§å°
 		 */
 		inline unsigned int maxSize() const
 		{
@@ -170,9 +170,9 @@ class ByteBuffers
 		}
 
 		/**
-		 * ¶Ô»º³åµÄÄÚ´æ½øĞĞÖØĞÂÕûÀí£¬Ïò»º³åĞ´Êı¾İ£¬Èç¹û»º³å´óĞ¡²»×ã£¬ÖØĞÂµ÷Õû»º³å´óĞ¡£¬
-		 * ´óĞ¡µ÷ÕûÔ­Ôò°´ÕÕtrunkSizeµÄÕûÊı±¶½øĞĞÔö¼Ó
-		 * \param size Ïò»º³åĞ´ÈëÁË¶àÉÙÊı¾İ
+		 * å¯¹ç¼“å†²çš„å†…å­˜è¿›è¡Œé‡æ–°æ•´ç†ï¼Œå‘ç¼“å†²å†™æ•°æ®ï¼Œå¦‚æœç¼“å†²å¤§å°ä¸è¶³ï¼Œé‡æ–°è°ƒæ•´ç¼“å†²å¤§å°ï¼Œ
+		 * å¤§å°è°ƒæ•´åŸåˆ™æŒ‰ç…§trunkSizeçš„æ•´æ•°å€è¿›è¡Œå¢åŠ 
+		 * \param size å‘ç¼“å†²å†™å…¥äº†å¤šå°‘æ•°æ®
 		 */
 		inline void wr_reserve(const unsigned int size);
 
@@ -186,15 +186,15 @@ class ByteBuffers
 };
 
 /**
- * ¶¯Ì¬ÄÚ´æµÄ»º³åÇø£¬¿ÉÒÔ¶¯Ì¬À©Õ¹»º³åÇø´óĞ¡
+ * åŠ¨æ€å†…å­˜çš„ç¼“å†²åŒºï¼Œå¯ä»¥åŠ¨æ€æ‰©å±•ç¼“å†²åŒºå¤§å°
  */
 typedef ByteBuffers<std::vector<unsigned char> > t_BufferCmdQueue;
 
 /**
- * Ä£°åÆ«ÌØ»¯
- * ¶Ô»º³åµÄÄÚ´æ½øĞĞÖØĞÂÕûÀí£¬Ïò»º³åĞ´Êı¾İ£¬Èç¹û»º³å´óĞ¡²»×ã£¬ÖØĞÂµ÷Õû»º³å´óĞ¡£¬
- * ´óĞ¡µ÷ÕûÔ­Ôò°´ÕÕtrunkSizeµÄÕûÊı±¶½øĞĞÔö¼Ó
- * \param size Ïò»º³åĞ´ÈëÁË¶àÉÙÊı¾İ
+ * æ¨¡æ¿åç‰¹åŒ–
+ * å¯¹ç¼“å†²çš„å†…å­˜è¿›è¡Œé‡æ–°æ•´ç†ï¼Œå‘ç¼“å†²å†™æ•°æ®ï¼Œå¦‚æœç¼“å†²å¤§å°ä¸è¶³ï¼Œé‡æ–°è°ƒæ•´ç¼“å†²å¤§å°ï¼Œ
+ * å¤§å°è°ƒæ•´åŸåˆ™æŒ‰ç…§trunkSizeçš„æ•´æ•°å€è¿›è¡Œå¢åŠ 
+ * \param size å‘ç¼“å†²å†™å…¥äº†å¤šå°‘æ•°æ®
  */
 template <>
 inline void t_BufferCmdQueue::wr_reserve(const unsigned int size)
@@ -209,15 +209,15 @@ inline void t_BufferCmdQueue::wr_reserve(const unsigned int size)
 
 
 /**
- * ¾²Ì¬´óĞ¡µÄ»º³åÇø£¬ÒÔÕ»¿Õ¼äÊı×éµÄ·½Ê½À´·ÖÅäÄÚ´æ£¬ÓÃÓÚÒ»Ğ©ÁÙÊ±±äÁ¿µÄ»ñÈ¡
+ * é™æ€å¤§å°çš„ç¼“å†²åŒºï¼Œä»¥æ ˆç©ºé—´æ•°ç»„çš„æ–¹å¼æ¥åˆ†é…å†…å­˜ï¼Œç”¨äºä¸€äº›ä¸´æ—¶å˜é‡çš„è·å–
  */
 typedef ByteBuffers<unsigned char [PACKET_ZIP_BUFFER]> t_StackCmdQueue;
 
 /**
- * Ä£°åÆ«ÌØ»¯
- * ¶Ô»º³åµÄÄÚ´æ½øĞĞÖØĞÂÕûÀí£¬Ïò»º³åĞ´Êı¾İ£¬Èç¹û»º³å´óĞ¡²»×ã£¬ÖØĞÂµ÷Õû»º³å´óĞ¡£¬
- * ´óĞ¡µ÷ÕûÔ­Ôò°´ÕÕtrunkSizeµÄÕûÊı±¶½øĞĞÔö¼Ó
- * \param size Ïò»º³åĞ´ÈëÁË¶àÉÙÊı¾İ
+ * æ¨¡æ¿åç‰¹åŒ–
+ * å¯¹ç¼“å†²çš„å†…å­˜è¿›è¡Œé‡æ–°æ•´ç†ï¼Œå‘ç¼“å†²å†™æ•°æ®ï¼Œå¦‚æœç¼“å†²å¤§å°ä¸è¶³ï¼Œé‡æ–°è°ƒæ•´ç¼“å†²å¤§å°ï¼Œ
+ * å¤§å°è°ƒæ•´åŸåˆ™æŒ‰ç…§trunkSizeçš„æ•´æ•°å€è¿›è¡Œå¢åŠ 
+ * \param size å‘ç¼“å†²å†™å…¥äº†å¤šå°‘æ•°æ®
  */
 template <>
 inline void t_StackCmdQueue::wr_reserve(const unsigned int size)
@@ -225,17 +225,17 @@ inline void t_StackCmdQueue::wr_reserve(const unsigned int size)
 	/*
 	if (wr_size() < size)
 	{
-		//²»ÄÜ¶¯Ì¬À©Õ¹ÄÚ´æ
+		//ä¸èƒ½åŠ¨æ€æ‰©å±•å†…å­˜
 		assert(false);
 	}
 	// */
 }
 
 /**
- * \brief ±ä³¤Ö¸ÁîµÄ·â×°£¬¹Ì¶¨´óĞ¡µÄ»º³å¿Õ¼ä
- * ÔÚÕ»¿Õ¼ä·ÖÅä»º³åÄÚ´æ
- * \param cmd_type Ö¸ÁîÀàĞÍ
- * \param size »º³å´óĞ¡
+ * \brief å˜é•¿æŒ‡ä»¤çš„å°è£…ï¼Œå›ºå®šå¤§å°çš„ç¼“å†²ç©ºé—´
+ * åœ¨æ ˆç©ºé—´åˆ†é…ç¼“å†²å†…å­˜
+ * \param cmd_type æŒ‡ä»¤ç±»å‹
+ * \param size ç¼“å†²å¤§å°
  */
 template <typename cmd_type, unsigned int size = 64 * 1024>
 class CmdBuffer_wrapper
@@ -261,27 +261,27 @@ class CmdBuffer_wrapper
 };
 
 /**
- * \brief ·â×°Ì×½Ó¿Úµ×²ãº¯Êı£¬Ìá¹©Ò»¸ö±È½ÏÍ¨ÓÃµÄ½Ó¿Ú
+ * \brief å°è£…å¥—æ¥å£åº•å±‚å‡½æ•°ï¼Œæä¾›ä¸€ä¸ªæ¯”è¾ƒé€šç”¨çš„æ¥å£
  */
 class zSocket : private zNoncopyable
 {
 
 	public:
 
-		static const int T_RD_MSEC					=	2100;					/**< ¶ÁÈ¡³¬Ê±µÄºÁÃëÊı */
-		static const int T_WR_MSEC					=	5100;					/**< ·¢ËÍ³¬Ê±µÄºÁÃëÊı */
+		static const int T_RD_MSEC					=	2100;					/**< è¯»å–è¶…æ—¶çš„æ¯«ç§’æ•° */
+		static const int T_WR_MSEC					=	5100;					/**< å‘é€è¶…æ—¶çš„æ¯«ç§’æ•° */
 
-		static const unsigned int PH_LEN 			=	sizeof(unsigned int);	/**< Êı¾İ°ü°üÍ·´óĞ¡ */
-		static const unsigned int PACKET_ZIP_MIN	=	32;						/**< Êı¾İ°üÑ¹Ëõ×îĞ¡´óĞ¡ */
+		static const unsigned int PH_LEN 			=	sizeof(unsigned int);	/**< æ•°æ®åŒ…åŒ…å¤´å¤§å° */
+		static const unsigned int PACKET_ZIP_MIN	=	32;						/**< æ•°æ®åŒ…å‹ç¼©æœ€å°å¤§å° */
 
-		static const unsigned int PACKET_ZIP		=	0x40000000;				/**< Êı¾İ°üÑ¹Ëõ±êÖ¾ */
-		static const unsigned int INCOMPLETE_READ	=	0x00000001;				/**< ÉÏ´Î¶ÔÌ×½Ó¿Ú½øĞĞ¶ÁÈ¡²Ù×÷Ã»ÓĞ¶ÁÈ¡ÍêÈ«µÄ±êÖ¾ */
-		static const unsigned int INCOMPLETE_WRITE	=	0x00000002;				/**< ÉÏ´Î¶ÔÌ×½Ó¿Ú½øĞĞĞ´Èë²Ù×÷ÃºÓÍĞ´ÈëÍê±ÏµÄ±êÖ¾ */
+		static const unsigned int PACKET_ZIP		=	0x40000000;				/**< æ•°æ®åŒ…å‹ç¼©æ ‡å¿— */
+		static const unsigned int INCOMPLETE_READ	=	0x00000001;				/**< ä¸Šæ¬¡å¯¹å¥—æ¥å£è¿›è¡Œè¯»å–æ“ä½œæ²¡æœ‰è¯»å–å®Œå…¨çš„æ ‡å¿— */
+		static const unsigned int INCOMPLETE_WRITE	=	0x00000002;				/**< ä¸Šæ¬¡å¯¹å¥—æ¥å£è¿›è¡Œå†™å…¥æ“ä½œç…¤æ²¹å†™å…¥å®Œæ¯•çš„æ ‡å¿— */
 
-		static const unsigned int PACKET_MASK			=	trunkSize - 1;	/**< ×î´óÊı¾İ°ü³¤¶ÈÑÚÂë */
-		static const unsigned int MAX_DATABUFFERSIZE	=	PACKET_MASK;						/**< Êı¾İ°ü×î´ó³¤¶È£¬°üÀ¨°üÍ·4×Ö½Ú */
-		static const unsigned int MAX_DATASIZE			=	(MAX_DATABUFFERSIZE - PH_LEN);		/**< Êı¾İ°ü×î´ó³¤¶È */
-		static const unsigned int MAX_USERDATASIZE		=	(MAX_DATASIZE - 128);				/**< ÓÃ»§Êı¾İ°ü×î´ó³¤¶È */
+		static const unsigned int PACKET_MASK			=	trunkSize - 1;	/**< æœ€å¤§æ•°æ®åŒ…é•¿åº¦æ©ç  */
+		static const unsigned int MAX_DATABUFFERSIZE	=	PACKET_MASK;						/**< æ•°æ®åŒ…æœ€å¤§é•¿åº¦ï¼ŒåŒ…æ‹¬åŒ…å¤´4å­—èŠ‚ */
+		static const unsigned int MAX_DATASIZE			=	(MAX_DATABUFFERSIZE - PH_LEN);		/**< æ•°æ®åŒ…æœ€å¤§é•¿åº¦ */
+		static const unsigned int MAX_USERDATASIZE		=	(MAX_DATASIZE - 128);				/**< ç”¨æˆ·æ•°æ®åŒ…æœ€å¤§é•¿åº¦ */
 
 		static const char *getIPByIfName(const char *ifName);
 
@@ -300,50 +300,50 @@ class zSocket : private zNoncopyable
 		int recvToCmd_NoPoll(void *pstrCmd, const int nCmdLen);
 
 		/**
-		 * \brief »ñÈ¡Ì×½Ó¿Ú¶Ô·½µÄµØÖ·
-		 * \return IPµØÖ·
+		 * \brief è·å–å¥—æ¥å£å¯¹æ–¹çš„åœ°å€
+		 * \return IPåœ°å€
 		 */
 		inline const char *getIP() const { return inet_ntoa(addr.sin_addr); }
 		inline const DWORD getAddr() const { return addr.sin_addr.s_addr; }
 
 		/**
-		 * \brief »ñÈ¡Ì×½Ó¿Ú¶Ô·½¶Ë¿Ú
-		 * \return ¶Ë¿Ú
+		 * \brief è·å–å¥—æ¥å£å¯¹æ–¹ç«¯å£
+		 * \return ç«¯å£
 		 */
 		inline const unsigned short getPort() const { return ntohs(addr.sin_port); }
 
 		/**
-		 * \brief »ñÈ¡Ì×½Ó¿Ú±¾µØµÄµØÖ·
-		 * \return IPµØÖ·
+		 * \brief è·å–å¥—æ¥å£æœ¬åœ°çš„åœ°å€
+		 * \return IPåœ°å€
 		 */
 		inline const char *getLocalIP() const { return inet_ntoa(local_addr.sin_addr); }
 
 		/**
-		 * \brief »ñÈ¡Ì×½Ó¿Ú±¾µØ¶Ë¿Ú
-		 * \return ¶Ë¿Ú
+		 * \brief è·å–å¥—æ¥å£æœ¬åœ°ç«¯å£
+		 * \return ç«¯å£
 		 */
 		inline const unsigned short getLocalPort() const { return ntohs(local_addr.sin_port); }
 
 		/**
-		 * \brief ÉèÖÃ¶ÁÈ¡³¬Ê±
-		 * \param msec ³¬Ê±£¬µ¥Î»ºÁÃë 
+		 * \brief è®¾ç½®è¯»å–è¶…æ—¶
+		 * \param msec è¶…æ—¶ï¼Œå•ä½æ¯«ç§’ 
 		 * \return 
 		 */
 		inline void setReadTimeout(const int msec) { rd_msec = msec; }
 
 		/**
-		 * \brief ÉèÖÃĞ´Èë³¬Ê±
-		 * \param msec ³¬Ê±£¬µ¥Î»ºÁÃë 
+		 * \brief è®¾ç½®å†™å…¥è¶…æ—¶
+		 * \param msec è¶…æ—¶ï¼Œå•ä½æ¯«ç§’ 
 		 * \return 
 		 */
 		inline void setWriteTimeout(const int msec) { wr_msec = msec; }
 
 #ifdef _USE_EPOLL_
 		/**
-		 * \brief Ìí¼Ó¼ì²âÊÂ¼şµ½epollÃèÊö·û
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
-		 * \param ptr ¶îÍâ²ÎÊı
+		 * \brief æ·»åŠ æ£€æµ‹äº‹ä»¶åˆ°epollæè¿°ç¬¦
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
+		 * \param ptr é¢å¤–å‚æ•°
 		 */
 		inline void addEpoll(int kdpfd, __uint32_t events, void *ptr)
 		{
@@ -359,9 +359,9 @@ class zSocket : private zNoncopyable
 			}
 		}
 		/**
-		 * \brief ´ÓepollÃèÊö·ûÖĞÉ¾³ı¼ì²âÊÂ¼ş
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
+		 * \brief ä»epollæè¿°ç¬¦ä¸­åˆ é™¤æ£€æµ‹äº‹ä»¶
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
 		 */
 		inline void delEpoll(int kdpfd, __uint32_t events)
 		{
@@ -378,9 +378,9 @@ class zSocket : private zNoncopyable
 		}
 #else
 		/**
-		 * \brief Ìî³äpollfd½á¹¹
-		 * \param pfd ´ıÌî³äµÄ½á¹¹
-		 * \param events µÈ´ıµÄÊÂ¼ş²ÎÊı
+		 * \brief å¡«å……pollfdç»“æ„
+		 * \param pfd å¾…å¡«å……çš„ç»“æ„
+		 * \param events ç­‰å¾…çš„äº‹ä»¶å‚æ•°
 		 */
 		inline void fillPollFD(struct pollfd &pfd, short events)
 		{
@@ -397,38 +397,38 @@ class zSocket : private zNoncopyable
 
 		inline unsigned int getBufferSize() const {return _rcv_queue.maxSize() + _snd_queue.maxSize();}
 	private:
-		int sock;									/**< Ì×½Ó¿Ú */
-		struct sockaddr_in addr;					/**< Ì×½Ó¿ÚµØÖ· */
-		struct sockaddr_in local_addr;				/**< Ì×½Ó¿ÚµØÖ· */
-		int rd_msec;								/**< ¶ÁÈ¡³¬Ê±£¬ºÁÃë */
-		int wr_msec;								/**< Ğ´Èë³¬Ê±£¬ºÁÃë */
+		int sock;									/**< å¥—æ¥å£ */
+		struct sockaddr_in addr;					/**< å¥—æ¥å£åœ°å€ */
+		struct sockaddr_in local_addr;				/**< å¥—æ¥å£åœ°å€ */
+		int rd_msec;								/**< è¯»å–è¶…æ—¶ï¼Œæ¯«ç§’ */
+		int wr_msec;								/**< å†™å…¥è¶…æ—¶ï¼Œæ¯«ç§’ */
 
-		t_BufferCmdQueue _rcv_queue;				/**< ½ÓÊÕ»º³åÖ¸Áî¶ÓÁĞ */
-		unsigned int _rcv_raw_size;					/**< ½ÓÊÕ»º³å½âÃÜÊı¾İ´óĞ¡ */
-		t_BufferCmdQueue _snd_queue;				/**< ¼ÓÃÜ»º³åÖ¸Áî¶ÓÁĞ */
-		t_BufferCmdQueue _enc_queue;				/**< ¼ÓÃÜ»º³åÖ¸Áî¶ÓÁĞ */
+		t_BufferCmdQueue _rcv_queue;				/**< æ¥æ”¶ç¼“å†²æŒ‡ä»¤é˜Ÿåˆ— */
+		unsigned int _rcv_raw_size;					/**< æ¥æ”¶ç¼“å†²è§£å¯†æ•°æ®å¤§å° */
+		t_BufferCmdQueue _snd_queue;				/**< åŠ å¯†ç¼“å†²æŒ‡ä»¤é˜Ÿåˆ— */
+		t_BufferCmdQueue _enc_queue;				/**< åŠ å¯†ç¼“å†²æŒ‡ä»¤é˜Ÿåˆ— */
 		unsigned int _current_cmd;
-		zMutex mutex;								/**< Ëø */
+		zMutex mutex;								/**< é” */
 
-		zTime last_check_time;						/**< ×îºóÒ»´Î¼ì²âÊ±¼ä */
+		zTime last_check_time;						/**< æœ€åä¸€æ¬¡æ£€æµ‹æ—¶é—´ */
 
-		unsigned int bitmask;						/**< ±êÖ¾ÑÚÂë */
-		CEncrypt enc;								/**< ¼ÓÃÜ·½Ê½ */
+		unsigned int bitmask;						/**< æ ‡å¿—æ©ç  */
+		CEncrypt enc;								/**< åŠ å¯†æ–¹å¼ */
 
 		inline void set_flag(unsigned int _f) { bitmask |= _f; }
 		inline bool isset_flag(unsigned int _f) const { return bitmask & _f; }
 		inline void clear_flag(unsigned int _f) { bitmask &= ~_f; }
 		inline bool need_enc() const { return CEncrypt::ENCDEC_NONE!=enc.getEncMethod(); }
 		/**
-		 * \brief ·µ»ØÊı¾İ°ü°üÍ·×îĞ¡³¤¶È
-		 * \return ×îĞ¡³¤¶È
+		 * \brief è¿”å›æ•°æ®åŒ…åŒ…å¤´æœ€å°é•¿åº¦
+		 * \return æœ€å°é•¿åº¦
 		 */
 		inline unsigned int packetMinSize() const { return PH_LEN; }
 
 		/**
-		 * \brief ·µ»ØÕû¸öÊı¾İ°üµÄ³¤¶È
-		 * \param in Êı¾İ°ü
-		 * \return ·µ»ØÕû¸öÊı¾İ°üµÄ³¤¶È
+		 * \brief è¿”å›æ•´ä¸ªæ•°æ®åŒ…çš„é•¿åº¦
+		 * \param in æ•°æ®åŒ…
+		 * \return è¿”å›æ•´ä¸ªæ•°æ®åŒ…çš„é•¿åº¦
 		 */
 		inline unsigned int packetSize(const unsigned char *in) const { return PH_LEN + ((*((unsigned int *)in)) & PACKET_MASK); }
 
@@ -454,11 +454,11 @@ class zSocket : private zNoncopyable
 };
 
 /**
- * \brief ¶ÔÊı¾İ½øĞĞ×éÖ¯,ĞèÒªÊ±Ñ¹Ëõ,²»¼ÓÃÜ
- * \param pData ´ı×éÖ¯µÄÊı¾İ£¬ÊäÈë
- * \param nLen ´ı²ğ°üµÄÊı¾İ³¤¶È£¬ÊäÈë
- * \param cmd_queue Êä³ö£¬´æ·ÅÊı¾İ
- * \return ·â°üºóµÄ´óĞ¡
+ * \brief å¯¹æ•°æ®è¿›è¡Œç»„ç»‡,éœ€è¦æ—¶å‹ç¼©,ä¸åŠ å¯†
+ * \param pData å¾…ç»„ç»‡çš„æ•°æ®ï¼Œè¾“å…¥
+ * \param nLen å¾…æ‹†åŒ…çš„æ•°æ®é•¿åº¦ï¼Œè¾“å…¥
+ * \param cmd_queue è¾“å‡ºï¼Œå­˜æ”¾æ•°æ®
+ * \return å°åŒ…åçš„å¤§å°
  */
 template<typename buffer_type>
 inline unsigned int zSocket::packetAppendNoEnc(const void *pData, const unsigned int nLen, buffer_type &cmd_queue)
@@ -467,11 +467,11 @@ inline unsigned int zSocket::packetAppendNoEnc(const void *pData, const unsigned
 }
 
 /**
- * \brief ¶ÔÊı¾İ½øĞĞ×éÖ¯,ĞèÒªÊ±Ñ¹ËõºÍ¼ÓÃÜ
- * \param pData ´ı×éÖ¯µÄÊı¾İ£¬ÊäÈë
- * \param nLen ´ı²ğ°üµÄÊı¾İ³¤¶È£¬ÊäÈë
- * \param cmd_queue Êä³ö£¬´æ·ÅÊı¾İ
- * \return ·â°üºóµÄ´óĞ¡
+ * \brief å¯¹æ•°æ®è¿›è¡Œç»„ç»‡,éœ€è¦æ—¶å‹ç¼©å’ŒåŠ å¯†
+ * \param pData å¾…ç»„ç»‡çš„æ•°æ®ï¼Œè¾“å…¥
+ * \param nLen å¾…æ‹†åŒ…çš„æ•°æ®é•¿åº¦ï¼Œè¾“å…¥
+ * \param cmd_queue è¾“å‡ºï¼Œå­˜æ”¾æ•°æ®
+ * \return å°åŒ…åçš„å¤§å°
  */
 template<typename buffer_type>
 inline unsigned int zSocket::packetAppend(const void *pData, const unsigned int nLen, buffer_type &cmd_queue)
@@ -483,11 +483,11 @@ inline unsigned int zSocket::packetAppend(const void *pData, const unsigned int 
 }
 
 /**
- * \brief 				¶ÔÊı¾İ½øĞĞ¼ÓÃÜ
- * \param cmd_queue		´ı¼ÓÃÜµÄÊı¾İ£¬ÊäÈëÊä³ö
- * \param current_cmd	×îºóÒ»¸öÖ¸Áî³¤¶È
- * \param offset		´ı¼ÓÃÜÊı¾İµÄÆ«ÒÆ
- * \return 				·µ»Ø¼ÓÃÜÒÔºóÕæÊµÊı¾İµÄ´óĞ¡
+ * \brief 				å¯¹æ•°æ®è¿›è¡ŒåŠ å¯†
+ * \param cmd_queue		å¾…åŠ å¯†çš„æ•°æ®ï¼Œè¾“å…¥è¾“å‡º
+ * \param current_cmd	æœ€åä¸€ä¸ªæŒ‡ä»¤é•¿åº¦
+ * \param offset		å¾…åŠ å¯†æ•°æ®çš„åç§»
+ * \return 				è¿”å›åŠ å¯†ä»¥åçœŸå®æ•°æ®çš„å¤§å°
  */
 template<typename buffer_type>
 inline unsigned int zSocket::packetPackEnc(buffer_type &cmd_queue, const unsigned int current_cmd, const unsigned int offset)
@@ -500,19 +500,19 @@ inline unsigned int zSocket::packetPackEnc(buffer_type &cmd_queue, const unsigne
 		cmd_queue.wr_flip(mod);
 	}
 
-	//¼ÓÃÜ¶¯×÷
+	//åŠ å¯†åŠ¨ä½œ
 	enc.encdec(&cmd_queue.rd_buf()[offset], cmd_queue.rd_size() - offset, true);
 
 	return cmd_queue.rd_size();
 }
 
 /**
- * \brief 			¶ÔÊı¾İ½øĞĞÑ¹Ëõ,ÓÉÉÏ²ãÅĞ¶ÏÊÇ·ñĞèÒª¼ÓÃÜ,ÕâÀïÖ»¸ºÔğ¼ÓÃÜ²»×÷ÅĞ¶Ï
- * \param pData 	´ıÑ¹ËõµÄÊı¾İ£¬ÊäÈë
- * \param nLen 		´ıÑ¹ËõµÄÊı¾İ³¤¶È£¬ÊäÈë
- * \param pBuffer 	Êä³ö£¬´æ·ÅÑ¹ËõÒÔºóµÄÊı¾İ
- * \param _compress	µ±Êı¾İ°ü¹ı´óÊ±ºòÊÇ·ñÑ¹Ëõ
- * \return 			·µ»Ø¼ÓÃÜÒÔºóÕæÊµÊı¾İµÄ´óĞ¡
+ * \brief 			å¯¹æ•°æ®è¿›è¡Œå‹ç¼©,ç”±ä¸Šå±‚åˆ¤æ–­æ˜¯å¦éœ€è¦åŠ å¯†,è¿™é‡Œåªè´Ÿè´£åŠ å¯†ä¸ä½œåˆ¤æ–­
+ * \param pData 	å¾…å‹ç¼©çš„æ•°æ®ï¼Œè¾“å…¥
+ * \param nLen 		å¾…å‹ç¼©çš„æ•°æ®é•¿åº¦ï¼Œè¾“å…¥
+ * \param pBuffer 	è¾“å‡ºï¼Œå­˜æ”¾å‹ç¼©ä»¥åçš„æ•°æ®
+ * \param _compress	å½“æ•°æ®åŒ…è¿‡å¤§æ—¶å€™æ˜¯å¦å‹ç¼©
+ * \return 			è¿”å›åŠ å¯†ä»¥åçœŸå®æ•°æ®çš„å¤§å°
  */
 template<typename buffer_type>
 inline unsigned int zSocket::packetPackZip(const void *pData, const unsigned int nLen, buffer_type &cmd_queue, const bool _compress)
@@ -520,13 +520,13 @@ inline unsigned int zSocket::packetPackZip(const void *pData, const unsigned int
 	/*if (nLen > MAX_DATASIZE)
 	{
 		Cmd::t_NullCmd *cmd = (Cmd::t_NullCmd *)pData;
-		Zebra::logger->warn("%s: ·¢ËÍµÄÊı¾İ°ü¹ı´ó(cmd = %u, para = %u", __FUNCTION__, cmd->cmd, cmd->para);
+		Zebra::logger->warn("%s: å‘é€çš„æ•°æ®åŒ…è¿‡å¤§(cmd = %u, para = %u", __FUNCTION__, cmd->cmd, cmd->para);
 	}*/
 	unsigned int nSize = nLen > MAX_DATASIZE ? MAX_DATASIZE : nLen;//nLen & PACKET_MASK;
 	unsigned int nMask = 0;//nLen & (~PACKET_MASK);
-	if (nSize > PACKET_ZIP_MIN /*Êı¾İ°ü¹ı´ó*/ 
-			&& _compress /*´øÑ¹Ëõ±ê¼Ç£¬Êı¾İ°üĞèÒªÑ¹Ëõ*/
-			/*&& !(nMask & PACKET_ZIP)*/ /*Êı¾İ°ü¹ı´ó¿ÉÄÜÒÑ¾­ÊÇÑ¹Ëõ¹ıµÄ*/ )
+	if (nSize > PACKET_ZIP_MIN /*æ•°æ®åŒ…è¿‡å¤§*/ 
+			&& _compress /*å¸¦å‹ç¼©æ ‡è®°ï¼Œæ•°æ®åŒ…éœ€è¦å‹ç¼©*/
+			/*&& !(nMask & PACKET_ZIP)*/ /*æ•°æ®åŒ…è¿‡å¤§å¯èƒ½å·²ç»æ˜¯å‹ç¼©è¿‡çš„*/ )
 	{
 		uLong nZipLen = unzip_size(nSize);
 		cmd_queue.wr_reserve(nZipLen + PH_LEN);
@@ -553,13 +553,13 @@ inline unsigned int zSocket::packetPackZip(const void *pData, const unsigned int
 
 	(*(unsigned int *)cmd_queue.wr_buf()) = (nSize | nMask);
 	cmd_queue.wr_flip(nSize + PH_LEN);
-	//Zebra::logger->debug("%sÀ©Õ¹ºóÊı¾İ°ü³¤¶È£º%u, %u, %u", __FUNCTION__, nSize+PH_LEN, *(unsigned int *)(cmd_queue.wr_buf()) & PACKET_MASK, nLen);
+	//Zebra::logger->debug("%sæ‰©å±•åæ•°æ®åŒ…é•¿åº¦ï¼š%u, %u, %u", __FUNCTION__, nSize+PH_LEN, *(unsigned int *)(cmd_queue.wr_buf()) & PACKET_MASK, nLen);
 
 	return nSize + PH_LEN;
 }
 
 /**
- * \brief ¶¨ÒåÁËÏûÏ¢´¦Àí½Ó¿Ú£¬ËùÓĞ½ÓÊÕµ½µÄTCPÊı¾İÖ¸ÁîĞèÒªÍ¨¹ıÕâ¸ö½Ó¿ÚÀ´´¦Àí
+ * \brief å®šä¹‰äº†æ¶ˆæ¯å¤„ç†æ¥å£ï¼Œæ‰€æœ‰æ¥æ”¶åˆ°çš„TCPæ•°æ®æŒ‡ä»¤éœ€è¦é€šè¿‡è¿™ä¸ªæ¥å£æ¥å¤„ç†
  */
 class zProcessor
 {
@@ -567,7 +567,7 @@ class zProcessor
 		virtual bool msgParse(const Cmd::t_NullCmd *, const unsigned int) = 0;
 };
 /**
- * \brief Ö¸ÁîÁ÷Á¿·ÖÎö
+ * \brief æŒ‡ä»¤æµé‡åˆ†æ
  */
 struct CmdAnalysis
 {
@@ -586,7 +586,7 @@ struct CmdAnalysis
 	zMutex _mutex;
 	Timer _log_timer;
 	char _disc[256];
-	bool _switch;//¿ª¹Ø
+	bool _switch;//å¼€å…³
 	void add(const BYTE &cmd, const BYTE &para , const DWORD &size)
 	{
 		if(!_switch)

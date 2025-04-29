@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSingleton.h  $
  * \author  
@@ -26,13 +26,13 @@ class Singleton
 {
 	private:
 		/**
-		 * \brief ¿½±´¹¹Ôìº¯Êı£¬Ã»ÓĞÊµÏÖ£¬½ûÓÃµôÁË
+		 * \brief æ‹·è´æ„é€ å‡½æ•°ï¼Œæ²¡æœ‰å®ç°ï¼Œç¦ç”¨æ‰äº†
 		 *
 		 */
 		Singleton(const Singleton&);
 
 		/**
-		 * \brief ¸³Öµ²Ù×÷·ûºÅ£¬Ã»ÓĞÊµÏÖ£¬½ûÓÃµôÁË
+		 * \brief èµ‹å€¼æ“ä½œç¬¦å·ï¼Œæ²¡æœ‰å®ç°ï¼Œç¦ç”¨æ‰äº†
 		 *
 		 */
 		const Singleton & operator= (const Singleton &);
@@ -50,7 +50,7 @@ class Singleton
 	public:
 	
 		static void delMe(void)
-		{//¿ÉÒÔÔÚ×ÓÀàµÄdestoryMeÖĞ±»µ÷ÓÃ
+		{//å¯ä»¥åœ¨å­ç±»çš„destoryMeä¸­è¢«è°ƒç”¨
 			if (ms_Singleton)
 			{
 				delete ms_Singleton;

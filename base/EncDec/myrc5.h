@@ -1,4 +1,4 @@
-#ifndef _MY_RC5_H
+﻿#ifndef _MY_RC5_H
 #define _MY_RC5_H
 #include <stdlib.h>
 

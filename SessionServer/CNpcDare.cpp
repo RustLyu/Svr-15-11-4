@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CNpcDare.cpp  $
  * \author 
  * \date 
- * \brief ¶¨ÒåNPCÕù¶áÕ½¹ÜÀíÆ÷
+ * \brief å®šä¹‰NPCäº‰å¤ºæˆ˜ç®¡ç†å™¨
  *
  */
 
@@ -24,7 +24,7 @@ using namespace NpcDareDef;
 CNpcDareM *CNpcDareM::um(NULL);
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  */
 CNpcDareM::CNpcDareM()
 {
@@ -33,8 +33,8 @@ CNpcDareM::CNpcDareM()
 }
 
 /**
- * \brief NPCÕù¶áÕ½¹ÜÀíÆ÷³õÊ¼»¯
- * \return true ³õÊ¼»¯³É¹¦ false³õÊ¼»¯Ê§°Ü
+ * \brief NPCäº‰å¤ºæˆ˜ç®¡ç†å™¨åˆå§‹åŒ–
+ * \return true åˆå§‹åŒ–æˆåŠŸ falseåˆå§‹åŒ–å¤±è´¥
  */
 bool CNpcDareM::init()
 {
@@ -42,8 +42,8 @@ bool CNpcDareM::init()
 }
 
 /**
- * \brief »ñµÃ¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
- * \return ¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
+ * \brief è·å¾—ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
+ * \return ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
  */
 CNpcDareM &CNpcDareM::getMe()
 {
@@ -55,15 +55,15 @@ CNpcDareM &CNpcDareM::getMe()
 }
 
 /**
- * \brief Îö¹¹¹ÜÀíÆ÷
+ * \brief ææ„ç®¡ç†å™¨
  */
 void CNpcDareM::destroyMe()
 {
 }
 
 /**
- * \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÕù¶áÄ¿±ê¼ÇÂ¼
- * \return true ¼ÓÔØ³É¹¦
+ * \brief ä»æ•°æ®åº“ä¸­åŠ è½½äº‰å¤ºç›®æ ‡è®°å½•
+ * \return true åŠ è½½æˆåŠŸ
  */
 bool CNpcDareM::load()
 {
@@ -85,7 +85,7 @@ bool CNpcDareM::load()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -124,14 +124,14 @@ bool CNpcDareM::load()
 	}
 	else
 	{
-		Zebra::logger->error("NPCÕù¶áÕ½Ä¿±êÊı¾İ¼ÓÔØÊ§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("NPCäº‰å¤ºæˆ˜ç›®æ ‡æ•°æ®åŠ è½½å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 	}
 	return false;
 }
 
 /**
- * \brief ½«¹ÜÀíÆ÷ÖĞµÄÊı¾İË¢ĞÂµ½Êı¾İ¿âÖĞÈ¥
- * \return true Ë¢ĞÂ³É¹¦
+ * \brief å°†ç®¡ç†å™¨ä¸­çš„æ•°æ®åˆ·æ–°åˆ°æ•°æ®åº“ä¸­å»
+ * \return true åˆ·æ–°æˆåŠŸ
  */
 bool CNpcDareM::refreshDB()
 {
@@ -139,7 +139,7 @@ bool CNpcDareM::refreshDB()
 }
 
 /**
- * \brief ´¦Àí¿ªÊ¼¶ÔÕ½
+ * \brief å¤„ç†å¼€å§‹å¯¹æˆ˜
  */
 void CNpcDareM::doDare()
 {
@@ -152,7 +152,7 @@ void CNpcDareM::doDare()
 }
 
 /**
- * \brief ´¦Àí¿ªÊ¼¶ÔÕ½Ç°µÄÍ¨ÖªÏûÏ¢
+ * \brief å¤„ç†å¼€å§‹å¯¹æˆ˜å‰çš„é€šçŸ¥æ¶ˆæ¯
  */
 void CNpcDareM::notifyDareReady()
 {
@@ -165,7 +165,7 @@ void CNpcDareM::notifyDareReady()
 }
 
 /**
- * \brief ´¦Àí¶ÔÕ½½á¹û
+ * \brief å¤„ç†å¯¹æˆ˜ç»“æœ
  */
 void CNpcDareM::doResult()
 {
@@ -178,7 +178,7 @@ void CNpcDareM::doResult()
 }
 
 /**
-* \brief Ç¿ÖÆ½øĞĞ¶ÔÕ½½á¹û¼ÆËã
+* \brief å¼ºåˆ¶è¿›è¡Œå¯¹æˆ˜ç»“æœè®¡ç®—
 * \author fqnewman
 */
 void CNpcDareM::forceProcessResult()
@@ -193,8 +193,8 @@ void CNpcDareM::forceProcessResult()
 
 
 /**
- * \brief »ñµÃ¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
- * \return ¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
+ * \brief è·å¾—ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
+ * \return ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
  */
 void CNpcDareM::timer()
 {
@@ -203,7 +203,7 @@ void CNpcDareM::timer()
 	zRTime::getLocalTime(tv1, timValue);
 
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("Ê±¼ä£º%u:%u", tv1.tm_hour, tv1.tm_min);
+	Zebra::logger->debug("æ—¶é—´ï¼š%u:%u", tv1.tm_hour, tv1.tm_min);
 #endif
 
 	if (_notifyDareMessage && (18 == tv1.tm_hour) && (tv1.tm_min>=55))
@@ -232,10 +232,10 @@ void CNpcDareM::timer()
 }
 
 /**
- * \brief ²éÕÒNPCĞÅÏ¢
- * \param country ¹ú¼Ò
- * \param mapid µØÍ¼id
- * \param npcid npc±àºÅ
+ * \brief æŸ¥æ‰¾NPCä¿¡æ¯
+ * \param country å›½å®¶
+ * \param mapid åœ°å›¾id
+ * \param npcid npcç¼–å·
  */
 CNpcDareObj* CNpcDareM::findObject(DWORD country, DWORD mapid, DWORD npcid)
 {
@@ -252,8 +252,8 @@ CNpcDareObj* CNpcDareM::findObject(DWORD country, DWORD mapid, DWORD npcid)
 }
 
 /**
- * \brief ´¦Àí¶ÔÕ½µÄÇëÇó
- * \param rev ¶ÔÕ½ÇëÇóÏûÏ¢
+ * \brief å¤„ç†å¯¹æˆ˜çš„è¯·æ±‚
+ * \param rev å¯¹æˆ˜è¯·æ±‚æ¶ˆæ¯
  */
 void CNpcDareM::processRequest(Cmd::Session::t_NpcDare_Dare_SceneSession * rev)
 {
@@ -268,16 +268,16 @@ void CNpcDareM::processRequest(Cmd::Session::t_NpcDare_Dare_SceneSession * rev)
 		if (pUser)
 		{
 //			CNpcDareObj::itemBack(pUser);
-			pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ÉÌÈËµÄË¼Ğ÷»ìÂÒÖĞ£¬ÎŞ·¨»ØÒäÏà¹ØÇé¿ö");
+			pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "å•†äººçš„æ€ç»ªæ··ä¹±ä¸­ï¼Œæ— æ³•å›å¿†ç›¸å…³æƒ…å†µ");
 		}
 	}
 
 }
 
 /**
- * \brief ´¦Àí»ñÈ¡±£»¤·Ñ
- * \param pUser ÊÕÇ®µÄ½ÇÉ«
- * \param rev ÊÕÇ°µÄÏûÏ¢
+ * \brief å¤„ç†è·å–ä¿æŠ¤è´¹
+ * \param pUser æ”¶é’±çš„è§’è‰²
+ * \param rev æ”¶å‰çš„æ¶ˆæ¯
  */
 void CNpcDareM::processGetGold(Cmd::Session::t_NpcDare_GetGold_SceneSession *rev)
 {
@@ -287,7 +287,7 @@ void CNpcDareM::processGetGold(Cmd::Session::t_NpcDare_GetGold_SceneSession *rev
 	if (!pUser) return;
 	if ((septid=CSeptM::getMe().findUserSept(rev->dwUserID)) == 0)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÎŞ·¨ÊÕÈ¡Ë°½ğÄã²»ÊÇ×å³¤£¡");
+		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ— æ³•æ”¶å–ç¨é‡‘ä½ ä¸æ˜¯æ—é•¿ï¼");
 	}
 	else
 	{
@@ -300,12 +300,12 @@ void CNpcDareM::processGetGold(Cmd::Session::t_NpcDare_GetGold_SceneSession *rev
 }
 
 /**
-* \brief ´¦Àí Gateway ×ª·¢¹ıÀ´µÄ¿Í»§¶ËÏûÏ¢
-* \param pUser ÏûÏ¢½ÓÊÕÕß
-* \param ptNullCmd ÏûÏ¢º¯Êı
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç† Gateway è½¬å‘è¿‡æ¥çš„å®¢æˆ·ç«¯æ¶ˆæ¯
+* \param pUser æ¶ˆæ¯æ¥æ”¶è€…
+* \param ptNullCmd æ¶ˆæ¯å‡½æ•°
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CNpcDareM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -325,11 +325,11 @@ bool CNpcDareM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 }
 
 /**
-* \brief ´¦Àí´Ó³¡¾°¹ıÀ´µÄÏûÏ¢
-* \param cmd ÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç†ä»åœºæ™¯è¿‡æ¥çš„æ¶ˆæ¯
+* \param cmd æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CNpcDareM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -359,18 +359,18 @@ bool CNpcDareM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 								DWORD septid = Obj->get_holdseptid();
 								if (0 == septid)
 								{
-									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Ä¿Ç°Ã»ÓĞ¼Ò×å¿ØÖÆ¸ÃÉÌÈË");
+									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ç›®å‰æ²¡æœ‰å®¶æ—æ§åˆ¶è¯¥å•†äºº");
 								}
 								else
 								{
 									CSept *pSept = CSeptM::getMe().getSeptByID(septid);
 									if (pSept)
 									{
-										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Ä¿Ç°ÓÉ%s¼Ò×å¿ØÖÆ",	pSept->name);
+										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ç›®å‰ç”±%så®¶æ—æ§åˆ¶",	pSept->name);
 									}
 									else
 									{
-										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "¿ØÖÆ¸ÃÉÌÈËµÄ¼Ò×å¿ÉÄÜÒÑ¾­½âÉ¢");
+										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ§åˆ¶è¯¥å•†äººçš„å®¶æ—å¯èƒ½å·²ç»è§£æ•£");
 									}
 								}
 							}
@@ -380,18 +380,18 @@ bool CNpcDareM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 								DWORD septid = Obj->get_dareseptid();
 								if (0 == septid)
 								{
-									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Ä¿Ç°Ã»ÓĞ¼Ò×åÌôÕ½ÉÌÈËµÄ¿ØÖÆÈ¨");
+									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ç›®å‰æ²¡æœ‰å®¶æ—æŒ‘æˆ˜å•†äººçš„æ§åˆ¶æƒ");
 								}
 								else
 								{
 									CSept *pSept = CSeptM::getMe().getSeptByID(septid);
 									if (pSept)
 									{
-										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Ä¿Ç°%s¼Ò×åÔÚÌôÕ½ÉÌÈËµÄ¿ØÖÆÈ¨",	pSept->name);
+										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ç›®å‰%så®¶æ—åœ¨æŒ‘æˆ˜å•†äººçš„æ§åˆ¶æƒ",	pSept->name);
 									}
 									else
 									{
-										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ÌôÕ½µÄ¼Ò×å¿ÉÄÜÒÑ¾­½âÉ¢");
+										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æŒ‘æˆ˜çš„å®¶æ—å¯èƒ½å·²ç»è§£æ•£");
 									}
 								}
 							}
@@ -401,7 +401,7 @@ bool CNpcDareM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ÉÌÈËµÄË¼Ğ÷»ìÂÒÖĞ£¬ÎŞ·¨»ØÒäÏà¹ØÇé¿ö");
+					pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "å•†äººçš„æ€ç»ªæ··ä¹±ä¸­ï¼Œæ— æ³•å›å¿†ç›¸å…³æƒ…å†µ");
 				}
 				return true;
 			}
@@ -440,10 +440,10 @@ bool CNpcDareM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 
 
 /**
-* \brief ËÑË÷¸Ã¼Ò×åÓĞ·ñÕ¼ÓÃ»òÕßÕıÔÚÌôÕ½ÉÌÒµNPC
-* \param septid ¼Ò×åid
+* \brief æœç´¢è¯¥å®¶æ—æœ‰å¦å ç”¨æˆ–è€…æ­£åœ¨æŒ‘æˆ˜å•†ä¸šNPC
+* \param septid å®¶æ—id
 * \author fqnewman
-* \return true ³É¹¦ÕÒµ½¸Ã¼Ò×åµÄĞÅÏ¢ false ¸Ä¼Ò×åÎŞÏà¹ØĞÅÏ¢ÔÚÉÌÒµNPCÈº×éÖĞ
+* \return true æˆåŠŸæ‰¾åˆ°è¯¥å®¶æ—çš„ä¿¡æ¯ false æ”¹å®¶æ—æ— ç›¸å…³ä¿¡æ¯åœ¨å•†ä¸šNPCç¾¤ç»„ä¸­
 */
 bool CNpcDareM::searchSept(DWORD septid)
 {
@@ -461,10 +461,10 @@ bool CNpcDareM::searchSept(DWORD septid)
 }
 
 /**
-* \brief ËÑË÷¸Ã¼Ò×åÓĞ·ñÕ¼ÓÃÉÌÒµNPC
-* \param septid ¼Ò×åid
+* \brief æœç´¢è¯¥å®¶æ—æœ‰å¦å ç”¨å•†ä¸šNPC
+* \param septid å®¶æ—id
 * \author fqnewman
-* \return true ³É¹¦ÕÒµ½¸Ã¼Ò×åµÄĞÅÏ¢ false ¸Ä¼Ò×åÎŞÕ¼ÁìĞÅÏ¢ÔÚÉÌÒµNPCÈº×éÖĞ
+* \return true æˆåŠŸæ‰¾åˆ°è¯¥å®¶æ—çš„ä¿¡æ¯ false æ”¹å®¶æ—æ— å é¢†ä¿¡æ¯åœ¨å•†ä¸šNPCç¾¤ç»„ä¸­
 */
 CNpcDareObj* CNpcDareM::searchSeptHold(DWORD septid)
 {
@@ -481,10 +481,10 @@ CNpcDareObj* CNpcDareM::searchSeptHold(DWORD septid)
 }
 
 /**
-* \brief ËÑË÷¸Ã¼Ò×åÓĞ·ñÕ¼ÓÃ»òÕßÕıÔÚÌôÕ½ÉÌÒµNPC
-* \param septid ¼Ò×åid
+* \brief æœç´¢è¯¥å®¶æ—æœ‰å¦å ç”¨æˆ–è€…æ­£åœ¨æŒ‘æˆ˜å•†ä¸šNPC
+* \param septid å®¶æ—id
 * \author fqnewman
-* \return true ³É¹¦ÕÒµ½¸Ã¼Ò×åµÄĞÅÏ¢ false ¸Ä¼Ò×åÎŞÏà¹ØĞÅÏ¢ÔÚÉÌÒµNPCÈº×éÖĞ
+* \return true æˆåŠŸæ‰¾åˆ°è¯¥å®¶æ—çš„ä¿¡æ¯ false æ”¹å®¶æ—æ— ç›¸å…³ä¿¡æ¯åœ¨å•†ä¸šNPCç¾¤ç»„ä¸­
 */
 CNpcDareObj* CNpcDareM::searchRecord(DWORD dwCountryID, DWORD dwMapID, DWORD dwNpcID)
 {
@@ -503,10 +503,10 @@ CNpcDareObj* CNpcDareM::searchRecord(DWORD dwCountryID, DWORD dwMapID, DWORD dwN
 }
 
 /**
-* \brief ËÑË÷ÓĞ¸Ã¼Ò×åĞÅÏ¢µÄÌôÕ½¼ÇÂ¼
-* \param septid ¼Ò×åid
+* \brief æœç´¢æœ‰è¯¥å®¶æ—ä¿¡æ¯çš„æŒ‘æˆ˜è®°å½•
+* \param septid å®¶æ—id
 * \author fqnewman
-* \return true ÌôÕ½¶ÔÏó£¬ÕÒ²»µ½·µ»ØNULL
+* \return true æŒ‘æˆ˜å¯¹è±¡ï¼Œæ‰¾ä¸åˆ°è¿”å›NULL
 */
 CNpcDareObj* CNpcDareM::getNpcDareObjBySept(DWORD septid)
 {
@@ -552,7 +552,7 @@ void CNpcDareM::sendUserData(UserSession *pUser)
 //------------------------------------------------------------------------------------------------------------
 
 /**
-* \brief ¸üĞÂÊı¾İ¿â¼ÇÂ¼
+* \brief æ›´æ–°æ•°æ®åº“è®°å½•
 * \author fqnewman
 */
 void CNpcDareObj::writeDatabase()
@@ -575,7 +575,7 @@ void CNpcDareObj::writeDatabase()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -593,13 +593,13 @@ void CNpcDareObj::writeDatabase()
 
 	if (1 != retcode)
 	{
-		Zebra::logger->error("ĞŞ¸ÄNPC¶ÔÕ½µµ°¸Ê§°Ü£ºcountry=%u, mapid=%u npcid=%u", _dwCountry, _dwMapID, _dwNpcID);
+		Zebra::logger->error("ä¿®æ”¹NPCå¯¹æˆ˜æ¡£æ¡ˆå¤±è´¥ï¼šcountry=%u, mapid=%u npcid=%u", _dwCountry, _dwMapID, _dwNpcID);
 	}
 }
 
 
 /**
-* \brief ³õÊ¼»¯½¨Á¢Ò»¸öNPCDare¶ÔÏó
+* \brief åˆå§‹åŒ–å»ºç«‹ä¸€ä¸ªNPCDareå¯¹è±¡
 * \author fqnewman
 */
 void CNpcDareObj::create(NpcDareDef::NpcDareRecord &record)
@@ -618,8 +618,8 @@ void CNpcDareObj::create(NpcDareDef::NpcDareRecord &record)
 }
 
 /**
-* \brief µÀ¾ßÎïÆ··µ»¹
-* \param pUser ½ÇÉ«
+* \brief é“å…·ç‰©å“è¿”è¿˜
+* \param pUser è§’è‰²
 * \author fqnewman
 */
 void CNpcDareObj::itemBack(UserSession *pUser)
@@ -630,8 +630,8 @@ void CNpcDareObj::itemBack(UserSession *pUser)
 }
 
 /**
-* \brief ¶ÔÕ½ÇëÇó
-* \param userID ½ÇÉ«
+* \brief å¯¹æˆ˜è¯·æ±‚
+* \param userID è§’è‰²
 * \author fqnewman
 */
 void CNpcDareObj::dareRequest(DWORD userId)
@@ -643,12 +643,12 @@ void CNpcDareObj::dareRequest(DWORD userId)
 
 	if ((septid=CSeptM::getMe().findUserSept(userId)) == 0)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÎŞ·¨·¢ÆğÌôÕ½Äã²»ÊÇ×å³¤£¡");
+		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ— æ³•å‘èµ·æŒ‘æˆ˜ä½ ä¸æ˜¯æ—é•¿ï¼");
 //		itemBack(pUser);
 	}
 	else
 	{
-		if (!CNpcDareM::getMe().searchSept(septid)) //ËÑË÷¸Ä¼Ò×åÓĞ·ñÌôÕ½»òÕ¼ÓĞÉÌÒµNPC
+		if (!CNpcDareM::getMe().searchSept(septid)) //æœç´¢æ”¹å®¶æ—æœ‰å¦æŒ‘æˆ˜æˆ–å æœ‰å•†ä¸šNPC
 		{
 			CSept *pSept = CSeptM::getMe().getSeptByID(_dwHoldSeptID);
 			if (_dwHoldSeptID == 0 ||((_dwHoldSeptID !=0) && (pSept==NULL)))
@@ -656,61 +656,61 @@ void CNpcDareObj::dareRequest(DWORD userId)
 				_dwHoldSeptID = septid;
 				itemBack(pUser);
 				writeDatabase();
-				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÄãÒÑ¾­¿ØÖÆÁË¸ÃÉÌÈË£¬¿ÉÒÔÃ¿ÌìÏòËûÊÕÈ¡¹ÜÀí·Ñ£¡");
+				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ å·²ç»æ§åˆ¶äº†è¯¥å•†äººï¼Œå¯ä»¥æ¯å¤©å‘ä»–æ”¶å–ç®¡ç†è´¹ï¼");
 				CSeptM::getMe().notifyNpcHoldData(septid);
 			}
 			else
 			{
 				if (_dwDareSeptID == 0)
 				{
-					// ÎŞÈËÌôÕ½
+					// æ— äººæŒ‘æˆ˜
 					struct tm  tv1;
 					time_t timValue = time(NULL);
 					zRTime::getLocalTime(tv1, timValue);
 					if (tv1.tm_hour <18 || tv1.tm_hour>20)
 					{
-						//·¢ÆğÌôÕ½
+						//å‘èµ·æŒ‘æˆ˜
 						_dwDareSeptID = septid;
 						writeDatabase();
 						itemBack(pUser);
-						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÄãµÄÌôÕ½ÇëÇóÒÑ±»½ÓÊÜ£¡");
+						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ çš„æŒ‘æˆ˜è¯·æ±‚å·²è¢«æ¥å—ï¼");
 						SceneSession *scene= SceneSessionManager::getInstance()->getSceneByID((this->_dwCountry<<16)+this->_dwMapID);
 						if (scene)
 						{
-							CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "ÓĞ¼Ò×å×¼±¸ÏòÄã¼Ò×åÔÚ%s(%u,%u)´¦·¢ÆğÉÌÈË¿ØÖÆÈ¨Õù¶áÕ½", scene->name, this->_dwPosX, this->_dwPosY);
-							CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "¼Ò×å½«×¼±¸ÏòÆäËû¼Ò×åÔÚ%s(%u,%u)´¦·¢ÆğÉÌÈË¿ØÖÆÈ¨Õù¶áÕ½", scene->name, this->_dwPosX, this->_dwPosY);
+							CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "æœ‰å®¶æ—å‡†å¤‡å‘ä½ å®¶æ—åœ¨%s(%u,%u)å¤„å‘èµ·å•†äººæ§åˆ¶æƒäº‰å¤ºæˆ˜", scene->name, this->_dwPosX, this->_dwPosY);
+							CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "å®¶æ—å°†å‡†å¤‡å‘å…¶ä»–å®¶æ—åœ¨%s(%u,%u)å¤„å‘èµ·å•†äººæ§åˆ¶æƒäº‰å¤ºæˆ˜", scene->name, this->_dwPosX, this->_dwPosY);
 						}
 						else
 						{
-							CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "ÓĞ¼Ò×å×¼±¸ÏòÄã¼Ò×å·¢ÆğÉÌÈË¿ØÖÆÈ¨Õù¶áÕ½£¬Çë×¼±¸£¡");
-							CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "¼Ò×å½«×¼±¸ÏòÆäËû¼Ò×å·¢ÆğÉÌÈË¿ØÖÆÈ¨Õù¶áÕ½£¬Çë×¼±¸£¡");
+							CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "æœ‰å®¶æ—å‡†å¤‡å‘ä½ å®¶æ—å‘èµ·å•†äººæ§åˆ¶æƒäº‰å¤ºæˆ˜ï¼Œè¯·å‡†å¤‡ï¼");
+							CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "å®¶æ—å°†å‡†å¤‡å‘å…¶ä»–å®¶æ—å‘èµ·å•†äººæ§åˆ¶æƒäº‰å¤ºæˆ˜ï¼Œè¯·å‡†å¤‡ï¼");
 						}
 					}
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÏÖÔÚÔİ²»ÊÜÀíÌôÕ½ÒµÎñ£¡");
+						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ç°åœ¨æš‚ä¸å—ç†æŒ‘æˆ˜ä¸šåŠ¡ï¼");
 //						itemBack(pUser);
 					}
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "±§Ç¸ÄãÀ´ÍíÁË£¬½ñÌìÒÑ¾­ÓĞÒ»¸öÌôÕ½ÁË£¡");
+					pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æŠ±æ­‰ä½ æ¥æ™šäº†ï¼Œä»Šå¤©å·²ç»æœ‰ä¸€ä¸ªæŒ‘æˆ˜äº†ï¼");
 //					itemBack(pUser);
 				}
 			}
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Äã²»ÄÜ·¢ÆğÌôÕ½£¡");
+			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ ä¸èƒ½å‘èµ·æŒ‘æˆ˜ï¼");
 //			itemBack(pUser);
 		}
 	}
 }
 
 /**
-* \brief ÅĞ¶Ï¼ì²éµÄÄ¿±êÊÇ²»ÊÇ±¾¶ÔÏó
-* \param country ¹ú¼Ò id
-* \param mapid µØÍ¼ id
+* \brief åˆ¤æ–­æ£€æŸ¥çš„ç›®æ ‡æ˜¯ä¸æ˜¯æœ¬å¯¹è±¡
+* \param country å›½å®¶ id
+* \param mapid åœ°å›¾ id
 * \param npcid NPC id
 * \author fqnewman
 */
@@ -725,9 +725,9 @@ bool CNpcDareObj::isMe(DWORD country, DWORD mapid, DWORD npcid)
 }
 
 /**
-* \brief Ö´ĞĞ¶ÔÕ½¿ªÊ¼²Ù×÷
+* \brief æ‰§è¡Œå¯¹æˆ˜å¼€å§‹æ“ä½œ
 * \author fqnewman
-* \return true ³É¹¦¿ªÕ½ false Î´ÓĞ¿ªÕ½
+* \return true æˆåŠŸå¼€æˆ˜ false æœªæœ‰å¼€æˆ˜
 */
 bool CNpcDareObj::doDare()
 {
@@ -750,8 +750,8 @@ bool CNpcDareObj::doDare()
 
 		CSeptM::getMe().sendNpcDareCmdToScene(this->_dwDareSeptID, &send, sizeof(send));
 		CSeptM::getMe().sendNpcDareCmdToScene(this->_dwHoldSeptID, &send, sizeof(send));
-		CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "ÉÌÈËÕù¶áÕ½¿ªÊ¼£¬²ÎÕ½ÈËÔ±½áÊøÖ®Ç°²»ÒªÀë¿ªÕ½Çø");
-		CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "ÉÌÈËÕù¶áÕ½¿ªÊ¼£¬²ÎÕ½ÈËÔ±½áÊøÖ®Ç°²»ÒªÀë¿ªÕ½Çø");
+		CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "å•†äººäº‰å¤ºæˆ˜å¼€å§‹ï¼Œå‚æˆ˜äººå‘˜ç»“æŸä¹‹å‰ä¸è¦ç¦»å¼€æˆ˜åŒº");
+		CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "å•†äººäº‰å¤ºæˆ˜å¼€å§‹ï¼Œå‚æˆ˜äººå‘˜ç»“æŸä¹‹å‰ä¸è¦ç¦»å¼€æˆ˜åŒº");
 
 
 		Cmd::Session::t_createDare_SceneSession pCmd;
@@ -773,9 +773,9 @@ bool CNpcDareObj::doDare()
 
 
 /**
-* \brief Ö´ĞĞ¶ÔÕ½¿ªÊ¼µÄÍ¨Öª
+* \brief æ‰§è¡Œå¯¹æˆ˜å¼€å§‹çš„é€šçŸ¥
 * \author fqnewman
-* \return true ³É¹¦¿ªÕ½ false Î´ÓĞ¿ªÕ½
+* \return true æˆåŠŸå¼€æˆ˜ false æœªæœ‰å¼€æˆ˜
 */
 bool CNpcDareObj::notifyDareReady()
 {
@@ -795,13 +795,13 @@ bool CNpcDareObj::notifyDareReady()
 		SceneSession *scene= SceneSessionManager::getInstance()->getSceneByID((this->_dwCountry<<16)+this->_dwMapID);
 		if (scene)
 		{
-			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "5·ÖÖÓÒÔºóÕù¶áÕ½¿ªÊ¼£¬Çëµ½%s£¨%u,%u£©×ø±ê¼¯ºÏ£¡", scene->name, this->_dwPosX, this->_dwPosY);
-			CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "5·ÖÖÓÒÔºóÕù¶áÕ½¿ªÊ¼£¬Çëµ½%s£¨%u,%u£©×ø±ê¼¯ºÏ£¡", scene->name, this->_dwPosX, this->_dwPosY);
+			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "5åˆ†é’Ÿä»¥åäº‰å¤ºæˆ˜å¼€å§‹ï¼Œè¯·åˆ°%sï¼ˆ%u,%uï¼‰åæ ‡é›†åˆï¼", scene->name, this->_dwPosX, this->_dwPosY);
+			CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "5åˆ†é’Ÿä»¥åäº‰å¤ºæˆ˜å¼€å§‹ï¼Œè¯·åˆ°%sï¼ˆ%u,%uï¼‰åæ ‡é›†åˆï¼", scene->name, this->_dwPosX, this->_dwPosY);
 		}
 		else
 		{
-			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "Çëµ½ÉÌÈË´¦¼¯ºÏ£¬5·ÖÖÓÒÔºóÉÌÈË¿ØÖÆÈ¨Õù¶áÕ½¿ªÊ¼");
-			CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "Çëµ½ÉÌÈË´¦¼¯ºÏ£¬5·ÖÖÓÒÔºóÉÌÈË¿ØÖÆÈ¨Õù¶áÕ½¿ªÊ¼");
+			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "è¯·åˆ°å•†äººå¤„é›†åˆï¼Œ5åˆ†é’Ÿä»¥åå•†äººæ§åˆ¶æƒäº‰å¤ºæˆ˜å¼€å§‹");
+			CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "è¯·åˆ°å•†äººå¤„é›†åˆï¼Œ5åˆ†é’Ÿä»¥åå•†äººæ§åˆ¶æƒäº‰å¤ºæˆ˜å¼€å§‹");
 		}
 		return true;
 	}
@@ -809,8 +809,8 @@ bool CNpcDareObj::notifyDareReady()
 }
 
 /**
-* \brief ÊÕ¼¯¶ÔÕ½½á¹û
-* \param septid ¼Ò×å
+* \brief æ”¶é›†å¯¹æˆ˜ç»“æœ
+* \param septid å®¶æ—
 * \author fqnewman
 */
 void CNpcDareObj::processResult(DWORD septid)
@@ -820,7 +820,7 @@ void CNpcDareObj::processResult(DWORD septid)
 		_dareStep = 1;
 		_dwResultDare++;
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("ÊÕµ½½»Õ½½á¹û¼Ò×åid=%u _dwResultDare=%u", septid, _dwResultDare);
+	Zebra::logger->debug("æ”¶åˆ°äº¤æˆ˜ç»“æœå®¶æ—id=%u _dwResultDare=%u", septid, _dwResultDare);
 #endif
 	}
 	if (this->_dwHoldSeptID == septid)
@@ -828,14 +828,14 @@ void CNpcDareObj::processResult(DWORD septid)
 		_dareStep = 1;
 		_dwResultHold++;
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("ÊÕµ½½»Õ½½á¹û¼Ò×åid=%u _dwResultHold=%u", septid, _dwResultHold);
+	Zebra::logger->debug("æ”¶åˆ°äº¤æˆ˜ç»“æœå®¶æ—id=%u _dwResultHold=%u", septid, _dwResultHold);
 #endif
 	}
 	resultTime = SessionTimeTick::currentTime;
 }
 
 /**
-* \brief Ç¿ÖÆ½øĞĞ¶ÔÕ½½á¹û¼ÆËã
+* \brief å¼ºåˆ¶è¿›è¡Œå¯¹æˆ˜ç»“æœè®¡ç®—
 * \author fqnewman
 */
 void CNpcDareObj::forceProcessResult()
@@ -849,29 +849,29 @@ void CNpcDareObj::forceProcessResult()
 
 
 /**
-* \brief Í¨Öª¶ÔÕ½½á¹û
-* \param septid ¼Ò×å
+* \brief é€šçŸ¥å¯¹æˆ˜ç»“æœ
+* \param septid å®¶æ—
 * \author fqnewman
 */
 void CNpcDareObj::doResult()
 {
 	if ((1==_dareStep) && SessionTimeTick::currentTime.sec() - resultTime.sec() >120)
 	{
-		Zebra::logger->trace("[¼Ò×å]¼Ò×åNPCÕù¶áÕ½¿ØÖÆÕß[%u]¼Ò×åÊ£Óà[%d]ÈËÌôÕ½Õß[%u]¼Ò×åÊ£Óà[%d]ÈËMAPID=[%u] NPCID=[%u]", this->_dwHoldSeptID, this->_dwResultHold, this->_dwDareSeptID, this->_dwResultDare, this->_dwMapID, this->_dwNpcID);
+		Zebra::logger->trace("[å®¶æ—]å®¶æ—NPCäº‰å¤ºæˆ˜æ§åˆ¶è€…[%u]å®¶æ—å‰©ä½™[%d]äººæŒ‘æˆ˜è€…[%u]å®¶æ—å‰©ä½™[%d]äººMAPID=[%u] NPCID=[%u]", this->_dwHoldSeptID, this->_dwResultHold, this->_dwDareSeptID, this->_dwResultDare, this->_dwMapID, this->_dwNpcID);
 		if (this->_dwResultHold>= this->_dwResultDare)
 		{
 			CSeptM::getMe().changeRepute(this->_dwDareSeptID, -5);
 				
-			CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "¹§Ï²Äã£¬ÄãµÄ¼Ò×å±£×¡ÁËÉÌÈËµÄ¿ØÖÆÈ¨£¡");
-			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "ºÜÒÅº¶£¬ÄãµÄ¼Ò×åÌôÕ½Ê§°Ü£¡Ê§È¥5µãÉùÍû£¡");
+			CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, "æ­å–œä½ ï¼Œä½ çš„å®¶æ—ä¿ä½äº†å•†äººçš„æ§åˆ¶æƒï¼");
+			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "å¾ˆé—æ†¾ï¼Œä½ çš„å®¶æ—æŒ‘æˆ˜å¤±è´¥ï¼å¤±å»5ç‚¹å£°æœ›ï¼");
 		}
 		else
 		{
 			CSeptM::getMe().changeRepute(this->_dwHoldSeptID, -5);
 			
-			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "¹§Ï²Äã£¬ÄãµÄ¼Ò×åÓ®µÃÁËÉÌÈËµÄ¿ØÖÆÈ¨£¡");
+			CSeptM::getMe().sendSeptNotify(this->_dwDareSeptID, "æ­å–œä½ ï¼Œä½ çš„å®¶æ—èµ¢å¾—äº†å•†äººçš„æ§åˆ¶æƒï¼");
 			CSeptM::getMe().sendSeptNotify(this->_dwHoldSeptID, 
-				"ºÜÒÅº¶£¬ÄãµÄ¼Ò×åÊ§È¥ÁËÉÌÈËµÄ¿ØÖÆÈ¨£¡Ê§È¥5µãÉùÍû");
+				"å¾ˆé—æ†¾ï¼Œä½ çš„å®¶æ—å¤±å»äº†å•†äººçš„æ§åˆ¶æƒï¼å¤±å»5ç‚¹å£°æœ›");
 
 			this->_dwHoldSeptID = this->_dwDareSeptID;
 		}
@@ -884,7 +884,7 @@ void CNpcDareObj::doResult()
 }
 
 /**
-* \brief ´¦Àí½ÇÉ«ÊÕÈ¡±£»¤·Ñ
+* \brief å¤„ç†è§’è‰²æ”¶å–ä¿æŠ¤è´¹
 * \author fqnewman
 */
 void CNpcDareObj::processGetGold(UserSession *pUser, DWORD septid, DWORD dwNpcID, DWORD dwMapID, DWORD dwCountryID)
@@ -900,24 +900,24 @@ void CNpcDareObj::processGetGold(UserSession *pUser, DWORD septid, DWORD dwNpcID
 			send.dwUserID = pUser->id;
 			send.dwGold = _dwGold;
 			pUser->scene->sendCmd(&send, sizeof(send));
-			Zebra::logger->trace("[¼Ò×å]½ÇÉ«%sÁìÈ¡ÁËNPCË°½ğ%u", pUser->name, _dwGold);
+			Zebra::logger->trace("[å®¶æ—]è§’è‰²%sé¢†å–äº†NPCç¨é‡‘%u", pUser->name, _dwGold);
 			_dwGold = 0;
 			this->writeDatabase();
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "½ñÌìÒÑ¾­ÊÕ¹ıË°ÁË£¬²»ÄÜÔÙ´ÎÁìÈ¡£¡");
+			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä»Šå¤©å·²ç»æ”¶è¿‡ç¨äº†ï¼Œä¸èƒ½å†æ¬¡é¢†å–ï¼");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÄãÎŞ·¨ÏòËûÊÕÈ¡Ë°½ğ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ æ— æ³•å‘ä»–æ”¶å–ç¨é‡‘");
 	}
 
 }
 
 /**
-* \brief »ñÈ¡npcËùÔÚ¹ú¼Ò
+* \brief è·å–npcæ‰€åœ¨å›½å®¶
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_country()
@@ -926,7 +926,7 @@ DWORD CNpcDareObj::get_country()
 }
 
 /**
-* \brief »ñÈ¡npcËùÔÚµØÍ¼
+* \brief è·å–npcæ‰€åœ¨åœ°å›¾
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_mapid()
@@ -935,7 +935,7 @@ DWORD CNpcDareObj::get_mapid()
 }
 
 /**
-* \brief »ñÈ¡npcµÄid
+* \brief è·å–npcçš„id
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_npcid()
@@ -944,7 +944,7 @@ DWORD CNpcDareObj::get_npcid()
 }
 
 /**
-* \brief »ñÈ¡µ±Ç°¿ØÖÆnpcµÄ¼Ò×åid
+* \brief è·å–å½“å‰æ§åˆ¶npcçš„å®¶æ—id
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_holdseptid()
@@ -953,7 +953,7 @@ DWORD CNpcDareObj::get_holdseptid()
 }
 
 /**
-* \brief »ñÈ¡µ±Ç°ÌôÕ½npcµÄ¼Ò×åid
+* \brief è·å–å½“å‰æŒ‘æˆ˜npcçš„å®¶æ—id
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_dareseptid()
@@ -962,7 +962,7 @@ DWORD CNpcDareObj::get_dareseptid()
 }
 
 /**
-* \brief »ñÈ¡npcÏÖÔÚµÄË°½ğ
+* \brief è·å–npcç°åœ¨çš„ç¨é‡‘
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_gold()
@@ -971,7 +971,7 @@ DWORD CNpcDareObj::get_gold()
 }
 
 /**
-* \brief »ñÈ¡npcµÄx×ø±ê
+* \brief è·å–npcçš„xåæ ‡
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_posx()
@@ -980,7 +980,7 @@ DWORD CNpcDareObj::get_posx()
 }
 
 /**
-* \brief »ñÈ¡npcµÄy×ø±ê
+* \brief è·å–npcçš„yåæ ‡
 * \author fqnewman
 */
 DWORD CNpcDareObj::get_posy()
@@ -989,12 +989,12 @@ DWORD CNpcDareObj::get_posy()
 }
 
 /**
-* \brief ¼Ò×å·ÅÆúNPC
+* \brief å®¶æ—æ”¾å¼ƒNPC
 * \author zjw
 */
 void CNpcDareObj::abandon_npc()
 {
-	CSeptM::getMe().sendSeptNotify(_dwHoldSeptID, "¹ó¼Ò×å·ÅÆúÉÌÈËËùÓĞÈ¨");
+	CSeptM::getMe().sendSeptNotify(_dwHoldSeptID, "è´µå®¶æ—æ”¾å¼ƒå•†äººæ‰€æœ‰æƒ");
 	_dwHoldSeptID = 0;	
 	_dwGold = 0;
 	this->writeDatabase();

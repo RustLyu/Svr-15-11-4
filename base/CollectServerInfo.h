@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CollectServerInfo.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊÕ¼¯·şÎñÆ÷ĞÅÏ¢Àà
+ * \brief å®šä¹‰æ”¶é›†æœåŠ¡å™¨ä¿¡æ¯ç±»
  */
 
 #ifndef	_CollectServerInfo_h_
@@ -17,7 +17,7 @@
 #include "zMisc.h"
 
 /**
- * \brief ·şÎñÆ÷ĞÅÏ¢²É¼¯Àà
+ * \brief æœåŠ¡å™¨ä¿¡æ¯é‡‡é›†ç±»
  */
 class ServerInfo
 {
@@ -25,21 +25,21 @@ class ServerInfo
 	public:
 
 		/**
-		 * \brief ¶¨ÒåÍø¿¨ĞÅÏ¢½á¹¹
+		 * \brief å®šä¹‰ç½‘å¡ä¿¡æ¯ç»“æ„
 		 */
 		struct NetIf
 		{
 			/**
-			 * \brief ×Ö½ÚÊı¾İ
+			 * \brief å­—èŠ‚æ•°æ®
 			 */
 			struct BytesInfo
 			{
-				zTime tsp;						//Ê±¼ä´Á
-				unsigned long long rx_bytes;	//½ÓÊÕ×Ö½ÚÊı
-				unsigned long long tx_bytes;	//·¢ËÍ×Ö½ÚÊı
+				zTime tsp;						//æ—¶é—´æˆ³
+				unsigned long long rx_bytes;	//æ¥æ”¶å­—èŠ‚æ•°
+				unsigned long long tx_bytes;	//å‘é€å­—èŠ‚æ•°
 
 				/**
-				 * \brief È±Ê¡¹¹Ôìº¯Êı
+				 * \brief ç¼ºçœæ„é€ å‡½æ•°
 				 */
 				BytesInfo() : tsp()
 				{
@@ -47,8 +47,8 @@ class ServerInfo
 					tx_bytes = 0;
 				}
 				/**
-				 * \brief ¿½±´¹¹Ôìº¯Êı
-				 * \param bi ´ı¿½±´µÄÊı¾İ
+				 * \brief æ‹·è´æ„é€ å‡½æ•°
+				 * \param bi å¾…æ‹·è´çš„æ•°æ®
 				 */
 				BytesInfo(const BytesInfo &bi)
 				{
@@ -57,9 +57,9 @@ class ServerInfo
 					tx_bytes = bi.tx_bytes;
 				}
 				/**
-				 * \brief ÖØÔØ¸³Öµ²Ù×÷·û
-				 * \param bi ´ı¸³ÖµµÄÔ´Êı¾İ
-				 * \return ¸³ÖµÒÔºó½á¹¹µÄÒıÓÃ
+				 * \brief é‡è½½èµ‹å€¼æ“ä½œç¬¦
+				 * \param bi å¾…èµ‹å€¼çš„æºæ•°æ®
+				 * \return èµ‹å€¼ä»¥åç»“æ„çš„å¼•ç”¨
 				 */
 				BytesInfo &operator= (const BytesInfo &bi)
 				{
@@ -70,19 +70,19 @@ class ServerInfo
 				}
 			};
 
-			char name[MAX_NAMESIZE];		//Íø¿¨Ãû³Æ
-			BytesInfo prev;					//ÉÏ´ÎÉ¨ÃèÍø¿¨ĞÅÏ¢
-			BytesInfo current;				//µ±Ç°É¨ÃèÍø¿¨ĞÅÏ¢
-			float delta;					//Á½´ÎÉ¨Ãè¼ä¸ôÊ±¼ä
-			unsigned long long rx_packets;	//µ±Ç°½ÓÊÕµÄÊı¾İ°üÊı
-			unsigned long long tx_packets;	//µ±Ç°·¢ËÍµÄÊı¾İ°üÊı
-			float rx_speed;					//½ÓÊÕÁ÷Á¿ËÙ¶È
-			float rx_speed_max;				//½ÓÊÕÁ÷Á¿ËÙ¶È×î´óÖµ
-			float tx_speed;					//·¢ËÍÁ÷Á¿ËÙ¶È
-			float tx_speed_max;				//·¢ËÍÁ÷Á¿ËÙ¶È×î´óÖµ
+			char name[MAX_NAMESIZE];		//ç½‘å¡åç§°
+			BytesInfo prev;					//ä¸Šæ¬¡æ‰«æç½‘å¡ä¿¡æ¯
+			BytesInfo current;				//å½“å‰æ‰«æç½‘å¡ä¿¡æ¯
+			float delta;					//ä¸¤æ¬¡æ‰«æé—´éš”æ—¶é—´
+			unsigned long long rx_packets;	//å½“å‰æ¥æ”¶çš„æ•°æ®åŒ…æ•°
+			unsigned long long tx_packets;	//å½“å‰å‘é€çš„æ•°æ®åŒ…æ•°
+			float rx_speed;					//æ¥æ”¶æµé‡é€Ÿåº¦
+			float rx_speed_max;				//æ¥æ”¶æµé‡é€Ÿåº¦æœ€å¤§å€¼
+			float tx_speed;					//å‘é€æµé‡é€Ÿåº¦
+			float tx_speed_max;				//å‘é€æµé‡é€Ÿåº¦æœ€å¤§å€¼
 
 			/**
-			 * \brief È±Ê¡¹¹Ôìº¯Êı
+			 * \brief ç¼ºçœæ„é€ å‡½æ•°
 			 */
 			NetIf() : prev(), current()
 			{
@@ -96,8 +96,8 @@ class ServerInfo
 				tx_speed_max = 0.0;
 			}
 			/**
-			 * \brief ¿½±´¹¹Ôìº¯Êı
-			 * \param net Ô´Êı¾İ
+			 * \brief æ‹·è´æ„é€ å‡½æ•°
+			 * \param net æºæ•°æ®
 			 */
 			NetIf(const NetIf &net)
 			{
@@ -113,9 +113,9 @@ class ServerInfo
 				tx_speed_max = net.tx_speed_max;
 			}
 			/**
-			 * \brief ÖØÔØ¸³Öµ²Ù×÷·û
-			 * \param net Ô´Êı¾İ
-			 * \return ·µ»Ø¸³ÖµÒÔºó½á¹¹±¾ÉíÒıÓÃ
+			 * \brief é‡è½½èµ‹å€¼æ“ä½œç¬¦
+			 * \param net æºæ•°æ®
+			 * \return è¿”å›èµ‹å€¼ä»¥åç»“æ„æœ¬èº«å¼•ç”¨
 			 */
 			NetIf &operator= (const NetIf &net)
 			{
@@ -134,17 +134,17 @@ class ServerInfo
 		};
 
 		/**
-		 * \brief CPUĞÅÏ¢
+		 * \brief CPUä¿¡æ¯
 		 */
 		struct CpuInfo
 		{
 			/**
-			 * \brief µ¥¸öCPUµÄĞÅÏ¢
+			 * \brief å•ä¸ªCPUçš„ä¿¡æ¯
 			 */
 			struct Cpu
 			{
 				/**
-				 * \brief µ¥¸öCPUµÄÊ¹ÓÃÇé¿ö
+				 * \brief å•ä¸ªCPUçš„ä½¿ç”¨æƒ…å†µ
 				 */
 				struct TickInfo
 				{
@@ -156,7 +156,7 @@ class ServerInfo
 								  x,		//irq: servicing interrupts
 								  y;		//softirq: servicing softirqs
 					/**
-					 * \brief ¹¹Ôìº¯Êı
+					 * \brief æ„é€ å‡½æ•°
 					 */
 					TickInfo()
 					{
@@ -169,8 +169,8 @@ class ServerInfo
 						y = 0;
 					}
 					/**
-					 * \brief ¿½±´¹¹Ôìº¯Êı
-					 * \param ti ¿½±´¹¹ÔìµÄÔ´Êı¾İ
+					 * \brief æ‹·è´æ„é€ å‡½æ•°
+					 * \param ti æ‹·è´æ„é€ çš„æºæ•°æ®
 					 */
 					TickInfo(const TickInfo &ti)
 					{
@@ -183,9 +183,9 @@ class ServerInfo
 						y = ti.y;
 					}
 					/**
-					 * \brief ¸³ÖµÔËËã·û
-					 * \param ti ´ı¸³ÖµµÄÔ´Êı¾İ
-					 * \return ¸³ÖµÒÔºó½á¹¹µÄ³£Á¿ÒıÓÃ
+					 * \brief èµ‹å€¼è¿ç®—ç¬¦
+					 * \param ti å¾…èµ‹å€¼çš„æºæ•°æ®
+					 * \return èµ‹å€¼ä»¥åç»“æ„çš„å¸¸é‡å¼•ç”¨
 					 */
 					TickInfo &operator= (const TickInfo &ti)
 					{
@@ -199,9 +199,9 @@ class ServerInfo
 						return *this;
 					}
 					/**
-					 * \brief ¸ù¾İÒÑ²É¼¯Êı¾İ¼ÆËãÀûÓÃÂÊ
-					 * \param pv ÉÏÒ»´Î²É¼¯µÄÊı¾İ
-					 * \param ct µ±Ç°²É¼¯µÄÊı¾İ
+					 * \brief æ ¹æ®å·²é‡‡é›†æ•°æ®è®¡ç®—åˆ©ç”¨ç‡
+					 * \param pv ä¸Šä¸€æ¬¡é‡‡é›†çš„æ•°æ®
+					 * \param ct å½“å‰é‡‡é›†çš„æ•°æ®
 					 */
 					void calculate(const TickInfo &pv, const TickInfo &ct)
 					{
@@ -230,30 +230,30 @@ class ServerInfo
 				};
 
 				/**
-				 * \brief CPU±àºÅ
+				 * \brief CPUç¼–å·
 				 */
 				const unsigned int id;
 				/**
-				 * \brief ÉÏÒ»´Î²É¼¯µÄÊı¾İ
+				 * \brief ä¸Šä¸€æ¬¡é‡‡é›†çš„æ•°æ®
 				 */
 				TickInfo prev;
 				/**
-				 * \brief µ±Ç°Êı¾İ
+				 * \brief å½“å‰æ•°æ®
 				 */
 				TickInfo current;
 				/**
-				 * \brief ¼ÆËã³öÀ´µÄCPU¸÷ÏîÀûÓÃÂÊ
+				 * \brief è®¡ç®—å‡ºæ¥çš„CPUå„é¡¹åˆ©ç”¨ç‡
 				 */
 				TickInfo usage;
 				/**
-				 * \brief ¹¹Ôìº¯Êı
-				 * \param id CPU±àºÅ
+				 * \brief æ„é€ å‡½æ•°
+				 * \param id CPUç¼–å·
 				 */
 				explicit Cpu(const unsigned int id)
 					: id(id), prev(), current(), usage() { }
 				/**
-				 * \brief ¿½±´¹¹Ôìº¯Êı
-				 * \param cpu ¿½±´¹¹ÔìµÄÔ´Êı¾İ
+				 * \brief æ‹·è´æ„é€ å‡½æ•°
+				 * \param cpu æ‹·è´æ„é€ çš„æºæ•°æ®
 				 */
 				Cpu(const Cpu &cpu) : id(cpu.id)
 				{
@@ -262,9 +262,9 @@ class ServerInfo
 					usage = cpu.usage;
 				}
 				/**
-				 * \brief ¸³Öµ²Ù×÷·û
-				 * \param cpu ´ı¸³ÖµµÄÔ´Êı¾İ
-				 * \return ¸³ÖµÒÔºóµÄÊı¾İ³£Á¿ÒıÓÃ
+				 * \brief èµ‹å€¼æ“ä½œç¬¦
+				 * \param cpu å¾…èµ‹å€¼çš„æºæ•°æ®
+				 * \return èµ‹å€¼ä»¥åçš„æ•°æ®å¸¸é‡å¼•ç”¨
 				 */
 				Cpu &operator= (const Cpu &cpu)
 				{
@@ -276,21 +276,21 @@ class ServerInfo
 			};
 
 			/**
-			 * \brief CPUÊıÁ¿
+			 * \brief CPUæ•°é‡
 			 */
 			const unsigned int CpuNum;
 			/**
-			 * \brief ¸÷¸öCPUÊ¹ÓÃÂÊµÄÏòÁ¿
+			 * \brief å„ä¸ªCPUä½¿ç”¨ç‡çš„å‘é‡
 			 */
 			std::vector<Cpu> CpuUsage;
 			/**
-			 * \brief ¶¨Òå´óĞ¡ÀàĞÍ
+			 * \brief å®šä¹‰å¤§å°ç±»å‹
 			 */
 			typedef std::vector<Cpu>::size_type size_type;
 
 			/**
-			 * \brief ¹¹Ôìº¯Êı
-			 * \param CpuNum CPUÊıÁ¿
+			 * \brief æ„é€ å‡½æ•°
+			 * \param CpuNum CPUæ•°é‡
 			 */
 			CpuInfo(unsigned int CpuNum = getCpuNum()) : CpuNum(CpuNum)
 			{
@@ -303,13 +303,13 @@ class ServerInfo
 		};
 
 		/**
-		 * \brief ¶¨ÒåÍø¿¨ĞÅÏ¢ÏòÁ¿ÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰ç½‘å¡ä¿¡æ¯å‘é‡å®¹å™¨ç±»å‹
 		 */
 		typedef std::vector<NetIf> NetIfInfo;
 
 		/**
-		 * \brief ·µ»ØCPU¸öÊı
-		 * \return CPU¸öÊı
+		 * \brief è¿”å›CPUä¸ªæ•°
+		 * \return CPUä¸ªæ•°
 		 */
 		static inline unsigned int getCpuNum()
 		{

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GateUser.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÍø¹ØÓÃ»§Àà
+ * \brief å®šä¹‰ç½‘å…³ç”¨æˆ·ç±»
  */
 
 #ifndef _GATEUSER_H_
@@ -19,7 +19,7 @@
 class GateUserManager;
 
 /**
- * \brief ½ÇÉ«Ñ¡Ôñ
+ * \brief è§’è‰²é€‰æ‹©
  *
  */
 class GateSelectUserSession:private zNoncopyable
@@ -42,11 +42,11 @@ class GateSelectUserSession:private zNoncopyable
 	void putSelectUserInfo(const Cmd::SelectUserInfo &info);
 
 	/**
-	 * \brief É¾³ıÑ¡ÔñµÄ½ÇÉ«
+	 * \brief åˆ é™¤é€‰æ‹©çš„è§’è‰²
 	 *
 	 *
-	 * \param charid: ½ÇÉ«id
-	 * \return É¾³ıÊÇ·ñ³É¹¦
+	 * \param charid: è§’è‰²id
+	 * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
 	 */
 	bool delSelectUserInfo(DWORD charid)
 	{
@@ -64,11 +64,11 @@ class GateSelectUserSession:private zNoncopyable
 	}
 
 	/**
-	 * \brief ¸ù¾İ½ÇÉ«ĞòºÅµÃµ½Ò»¸ö½ÇÉ«ĞÅÏ¢
+	 * \brief æ ¹æ®è§’è‰²åºå·å¾—åˆ°ä¸€ä¸ªè§’è‰²ä¿¡æ¯
 	 *
 	 *
-	 * \param num: ½ÇÉ«ĞòºÅ
-	 * \return ½ÇÉ«ĞÅÏ¢
+	 * \param num: è§’è‰²åºå·
+	 * \return è§’è‰²ä¿¡æ¯
 	 */
 	Cmd::SelectUserInfo *getSelectUserInfo(WORD num)
 	{
@@ -78,10 +78,10 @@ class GateSelectUserSession:private zNoncopyable
 	}
 
 	/**
-	 * \brief ÅĞ¶Ï½ÇÉ«ÊÇ·ñ´ïµ½×î´ó½ÇÉ«ÊıÁ¿
+	 * \brief åˆ¤æ–­è§’è‰²æ˜¯å¦è¾¾åˆ°æœ€å¤§è§’è‰²æ•°é‡
 	 *
 	 *
-	 * \return ½ÇÉ«Âú·µ»Øture,·ñÔò·µ»Øfalse
+	 * \return è§’è‰²æ»¡è¿”å›ture,å¦åˆ™è¿”å›false
 	 */
 	bool charInfoFull()
 	{
@@ -110,7 +110,7 @@ class GateSelectUserSession:private zNoncopyable
 class GatewayTask;
 class SceneClient;
 /**
- * \brief Íø¹ØÓÃ»§
+ * \brief ç½‘å…³ç”¨æˆ·
  *
  */
 class GateUser:public zUser,public GateSelectUserSession
@@ -118,31 +118,31 @@ class GateUser:public zUser,public GateSelectUserSession
 	friend class GatewayTask;
 	private:
 
-	/// ÓÃ»§´¦ÓÚÍË³ö×´Ì¬(socketÒÑ¾­¶Ï¿ª)
+	/// ç”¨æˆ·å¤„äºé€€å‡ºçŠ¶æ€(socketå·²ç»æ–­å¼€)
 	bool logout;
 	GatewayTask *gatewaytask;
-	/// ËÄ¸ö×´Ì¬²»ÄÜÖØµş
+	/// å››ä¸ªçŠ¶æ€ä¸èƒ½é‡å 
 	enum Systemstate
 	{
-		SYSTEM_STATE_INITING,		/// ³õÊ¼×´Ì¬
-		SYSTEM_STATE_CREATING,		/// ´´½¨½ÇÉ«×´Ì¬
-		SYSTEM_STATE_SELECT,		/// Ñ¡Ôñ½ÇÉ«×´Ì¬
-		SYSTEM_STATE_PLAY,			/// ÓÎÏ·×´Ì¬
-		SYSTEM_WAIT_STATE_PLAY,		/// µÈ´ıÓÎÏ·×´Ì¬
-		SYSTEM_WAIT_STATE_UNREG		/// µÈ´ıÍË³ö½ÇÉ«Á÷³Ì
+		SYSTEM_STATE_INITING,		/// åˆå§‹çŠ¶æ€
+		SYSTEM_STATE_CREATING,		/// åˆ›å»ºè§’è‰²çŠ¶æ€
+		SYSTEM_STATE_SELECT,		/// é€‰æ‹©è§’è‰²çŠ¶æ€
+		SYSTEM_STATE_PLAY,			/// æ¸¸æˆçŠ¶æ€
+		SYSTEM_WAIT_STATE_PLAY,		/// ç­‰å¾…æ¸¸æˆçŠ¶æ€
+		SYSTEM_WAIT_STATE_UNREG		/// ç­‰å¾…é€€å‡ºè§’è‰²æµç¨‹
 	};
 	volatile Systemstate systemstate;
 
 	bool quiz;
-	/// ÑéÖ¤Âë
+	/// éªŒè¯ç 
 	char jpegPassport[5];
-	/// ºÚÃûµ¥ÁĞ±í 
+	/// é»‘åå•åˆ—è¡¨ 
 	std::set<std::string> blacklist; 
 	typedef std::set<std::string>::value_type blackListValueType;
 	zRWLock rwlock;
 
 	public:
-	/// »º´æÒ»ÏÂ´´½¨½ÇÉ«Ö¸Áî
+	/// ç¼“å­˜ä¸€ä¸‹åˆ›å»ºè§’è‰²æŒ‡ä»¤
 	Cmd::Record::t_CreateChar_GateRecord createCharCmd;
 
 	bool backSelect;
@@ -156,7 +156,7 @@ class GateUser:public zUser,public GateSelectUserSession
 	~GateUser();
 
 	/**
-	 * \brief ³õÊ¼»¯×´Ì¬ÉèÖÃ
+	 * \brief åˆå§‹åŒ–çŠ¶æ€è®¾ç½®
 	 *
 	 */
 	void initState()
@@ -164,17 +164,17 @@ class GateUser:public zUser,public GateSelectUserSession
 		systemstate = SYSTEM_STATE_INITING;
 	}
 	/**
-	 * \brief ÊÇ·ñÍê³É³õÊ¼»¯
+	 * \brief æ˜¯å¦å®Œæˆåˆå§‹åŒ–
 	 *
 	 *
-	 * \return Èç¹ûÍê³É·µ»Øture,·ñÔòfalse
+	 * \return å¦‚æœå®Œæˆè¿”å›ture,å¦åˆ™false
 	 */
 	bool isInitState() const
 	{
 		return SYSTEM_STATE_INITING == systemstate;
 	}
 	/**
-	 * \brief ´´½¨½ÇÉ«×´Ì¬
+	 * \brief åˆ›å»ºè§’è‰²çŠ¶æ€
 	 *
 	 *
 	 */
@@ -183,17 +183,17 @@ class GateUser:public zUser,public GateSelectUserSession
 		systemstate = SYSTEM_STATE_CREATING;
 	}
 	/**
-	 * \brief ÊÇ·ñÔÚ´´½¨½ÇÉ«×´Ì¬
+	 * \brief æ˜¯å¦åœ¨åˆ›å»ºè§’è‰²çŠ¶æ€
 	 *
 	 *
-	 * \return Èç¹ûÔÚ´´½¨½ÇÉ«×´Ì¬·µ»Øture,·ñÔò·µ»Øfalse
+	 * \return å¦‚æœåœ¨åˆ›å»ºè§’è‰²çŠ¶æ€è¿”å›ture,å¦åˆ™è¿”å›false
 	 */
 	bool isCreateState() const
 	{
 		return SYSTEM_STATE_CREATING == systemstate;
 	}
 	/**
-	 * \brief ÉèÖÃÑ¡Ôñ½ÇÉ«×´Ì¬
+	 * \brief è®¾ç½®é€‰æ‹©è§’è‰²çŠ¶æ€
 	 *
 	 *
 	 */
@@ -202,10 +202,10 @@ class GateUser:public zUser,public GateSelectUserSession
 		systemstate=SYSTEM_STATE_SELECT;
 	}
 	/**
-	 * \brief ÊÇ·ñÔÚµÈ´ıÍË³ö½ÇÉ«×´Ì¬
+	 * \brief æ˜¯å¦åœ¨ç­‰å¾…é€€å‡ºè§’è‰²çŠ¶æ€
 	 *
 	 *
-	 * \return ÔÚÍË³ö½ÇÉ«×´Ì¬·µ»Øture,·ñÔò·µ»Øfalse
+	 * \return åœ¨é€€å‡ºè§’è‰²çŠ¶æ€è¿”å›ture,å¦åˆ™è¿”å›false
 	 */
 	bool isWaitUnregState() const
 	{
@@ -214,7 +214,7 @@ class GateUser:public zUser,public GateSelectUserSession
 
 	
 	/**
-	 * \brief ÉèÖÃÍË³öµÈ´ı×´Ì¬
+	 * \brief è®¾ç½®é€€å‡ºç­‰å¾…çŠ¶æ€
 	 *
 	 *
 	 */
@@ -223,10 +223,10 @@ class GateUser:public zUser,public GateSelectUserSession
 		systemstate = SYSTEM_WAIT_STATE_UNREG;
 	}
 	/**
-	 * \brief ÊÇ·ñÔÚÑ¡Ôñ½ÇÉ«×´Ì¬
+	 * \brief æ˜¯å¦åœ¨é€‰æ‹©è§’è‰²çŠ¶æ€
 	 *
 	 *
-	 * \return ÔÚÑ¡Ôñ×´Ì¬·µ»Øture,·ñÔò·µ»Øfalse
+	 * \return åœ¨é€‰æ‹©çŠ¶æ€è¿”å›ture,å¦åˆ™è¿”å›false
 	 */
 	bool isSelectState() const
 	{
@@ -237,7 +237,7 @@ class GateUser:public zUser,public GateSelectUserSession
 	void playState(SceneClient *s=NULL , DWORD scene_tempid=0);
 
 	/**
-	 * \brief ÉèÖÃ¾ºÈü×´Ì¬
+	 * \brief è®¾ç½®ç«èµ›çŠ¶æ€
 	 *
 	 */
 	void quizState()
@@ -246,7 +246,7 @@ class GateUser:public zUser,public GateSelectUserSession
 	}
 	
 	/**
-	 * \brief Çå³ı¾ºÈü×´Ì¬
+	 * \brief æ¸…é™¤ç«èµ›çŠ¶æ€
 	 *
 	 */
 	void clearQuizState()
@@ -255,7 +255,7 @@ class GateUser:public zUser,public GateSelectUserSession
 	}
 	
 	/**
-	 * \brief ÊÇ·ñÔÚ¾ºÈü×´Ì¬
+	 * \brief æ˜¯å¦åœ¨ç«èµ›çŠ¶æ€
 	 *
 	 */
 	bool isQuizState()
@@ -264,10 +264,10 @@ class GateUser:public zUser,public GateSelectUserSession
 	}
 
 	/**
-	 * \brief ÊÇ·ñÔÚÓÎÏ·×´Ì¬
+	 * \brief æ˜¯å¦åœ¨æ¸¸æˆçŠ¶æ€
 	 *
 	 *
-	 * \return ÔÚÓÎÏ·×´Ì¬·µ»Øture,·ñÔò·µ»Øfalse
+	 * \return åœ¨æ¸¸æˆçŠ¶æ€è¿”å›ture,å¦åˆ™è¿”å›false
 	 */
 	bool isPlayState() const
 	{
@@ -275,18 +275,18 @@ class GateUser:public zUser,public GateSelectUserSession
 	}
 
 	/**
-	 * \brief ÊÇ·ñÔÚµÈ´ıÓÎÏ·×´Ì¬
-	 * ´æÔÚÒ»ÖÖ×´Ì¬:Íø¹Ø¸Õ¸ÕÊÕµ½Ñ¡Ôñ½ÇÉ«Ö¸ÁîºóÊÕµ½ÍË³öÖ¸Áî,¿ÉÄÜ³öÏÖ"idÕıÔÚÊ¹ÓÃ"µÄÇé¿ö
+	 * \brief æ˜¯å¦åœ¨ç­‰å¾…æ¸¸æˆçŠ¶æ€
+	 * å­˜åœ¨ä¸€ç§çŠ¶æ€:ç½‘å…³åˆšåˆšæ”¶åˆ°é€‰æ‹©è§’è‰²æŒ‡ä»¤åæ”¶åˆ°é€€å‡ºæŒ‡ä»¤,å¯èƒ½å‡ºç°"idæ­£åœ¨ä½¿ç”¨"çš„æƒ…å†µ
 	 *
 	 *
-	 * \return ÔÚÓÎÏ·×´Ì¬·µ»Øture,·ñÔò·µ»Øfalse
+	 * \return åœ¨æ¸¸æˆçŠ¶æ€è¿”å›ture,å¦åˆ™è¿”å›false
 	 */
 	bool isWaitPlayState() const
 	{
 		return SYSTEM_WAIT_STATE_PLAY == systemstate;
 	}
 	/**
-	 * \brief ÉèÖÃµÈ´ıÓÎÏ·×´Ì¬
+	 * \brief è®¾ç½®ç­‰å¾…æ¸¸æˆçŠ¶æ€
 	 *
 	 *
 	 */
@@ -299,7 +299,7 @@ class GateUser:public zUser,public GateSelectUserSession
 	void refreshCharInfo();
 	bool checkPassport(const char *passport);
 	/**
-	 * \brief Í¨Öª¿Í»§¶ËÃ»ÓĞ´´½¨µÄ½ÇÉ«
+	 * \brief é€šçŸ¥å®¢æˆ·ç«¯æ²¡æœ‰åˆ›å»ºçš„è§’è‰²
 	 *
 	 */
 	void noCharInfo()
@@ -314,7 +314,7 @@ class GateUser:public zUser,public GateSelectUserSession
 	}
 
 	/**
-	 * \brief Í¨Öª¿Í»§¶ËÃû×ÖÖØ¸´
+	 * \brief é€šçŸ¥å®¢æˆ·ç«¯åå­—é‡å¤
 	 *
 	 */
 	void nameRepeat()
@@ -329,13 +329,13 @@ class GateUser:public zUser,public GateSelectUserSession
 	}
 	
 	/**
-	 * \brief »ñÈ¡ÕÊºÅ
+	 * \brief è·å–å¸å·
 	 *
 	 */
 	const char* getAccount();
 
 	/**
-	 * \brief ½«ÏûÏ¢×ª·¢µ½³¡¾°
+	 * \brief å°†æ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯
 	 *
 	 */
 	bool forwardScene(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen);
@@ -355,23 +355,23 @@ class GateUser:public zUser,public GateSelectUserSession
 	void removeBlackList(const char *);
 	bool checkChatCmd(DWORD type, const char *strName);
 	public:
-	/// µØÍ¼ÆÁË÷Òıhash key
+	/// åœ°å›¾å±ç´¢å¼•hash key
 	DWORD mapScreenIndex;
-	/// ÊÇ·ñÒşÉí
+	/// æ˜¯å¦éšèº«
 	bool hide;
 
-	/// ÊÇ·ñÒÑ¾­Ìí¼Óµ½Ë÷Òı
+	/// æ˜¯å¦å·²ç»æ·»åŠ åˆ°ç´¢å¼•
 	bool inserted;
 
-	/// ÏµÍ³ÉèÖÃ
+	/// ç³»ç»Ÿè®¾ç½®
 	BYTE sysSetting[20];
 
 	public:
 	/**
-	 * \brief Ë¢ĞÂÓÃ»§ÆÁË÷Òı
+	 * \brief åˆ·æ–°ç”¨æˆ·å±ç´¢å¼•
 	 *
 	 *
-	 * \param screen ĞÂµÄÆÁË÷Òıhashkey
+	 * \param screen æ–°çš„å±ç´¢å¼•hashkey
 	 * \return 
 	 */
 	void setIndexKey(const DWORD screen)

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file: RecommendManager.cpp
  * \version  $Id: RecommendManager.cpp $
  * \author 
  * \date 
- * \brief ÍÆ¼öÈË¹ÜÀíÆ÷ÊµÏÖ
+ * \brief æŽ¨èäººç®¡ç†å™¨å®žçŽ°
  *
  * 
  */
@@ -54,7 +54,7 @@ bool RecommendM::load()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 
@@ -87,7 +87,7 @@ bool RecommendM::load()
 	}
 	else
 	{
-		Zebra::logger->error("ÍÆ¼öÈËÊý¾Ý¼ÓÔØÊ§°Ü£¬RECOMMEND±í²»´æÔÚ");
+		Zebra::logger->error("æŽ¨èäººæ•°æ®åŠ è½½å¤±è´¥ï¼ŒRECOMMENDè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -161,13 +161,13 @@ bool RecommendM::processUserMessage(UserSession *pUser,
 						|| strchr(rev->name, ';')
 						|| strchr(rev->name, '\"'))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÇëÊäÈëÕýÈ·µÄ½ÇÉ«Ãû×Ö");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯·è¾“å…¥æ­£ç¡®çš„è§’è‰²åå­—");
 					return true;
 				}
 
 				if (strncmp(pUser->name, rev->name, MAX_NAMESIZE) == 0)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÉèÖÃ×Ô¼ºÎªÍÆ¼öÈË");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½è®¾ç½®è‡ªå·±ä¸ºæŽ¨èäºº");
 					return true;
 				}
 				
@@ -181,12 +181,12 @@ bool RecommendM::processUserMessage(UserSession *pUser,
 					}
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÒÑ¾­ÉèÖÃÍÆ¼öÈË.");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å·²ç»è®¾ç½®æŽ¨èäºº.");
 					}
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Ö»ÄÜÔÚ15¼¶ÒÔÏÂÊ±,²ÅÄÜÉè¶¨ÍÆ¼öÈË");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "åªèƒ½åœ¨15çº§ä»¥ä¸‹æ—¶,æ‰èƒ½è®¾å®šæŽ¨èäºº");
 				}
 				
 				return true;
@@ -208,15 +208,15 @@ void RecommendM::processAddRecommended(const Cmd::Record::t_chkUserExist_Session
 		return;
 	
 	if (pUser && cmd->user_id && cmd->user_level>=30)
-	{// ±»ÍÆ¼öÈËÔÚÏß,ÍÆ¼öÈËÓÐÐ§,²¢ÇÒ´óÓÚ30¼¶
+	{// è¢«æŽ¨èäººåœ¨çº¿,æŽ¨èäººæœ‰æ•ˆ,å¹¶ä¸”å¤§äºŽ30çº§
 		Recommend* pRecommend = findByID(cmd->user_id);
 
 		if (pRecommend)
-		{// Èç¹ûÒÑÓÐÍÆ¼öÈË¼ÇÂ¼
+		{// å¦‚æžœå·²æœ‰æŽ¨èäººè®°å½•
 			ret = pRecommend->addRecommended(cmd->from_id);
 		}
 		else
-		{// Èç¹ûÍÆ¼öÈË¼ÇÂ¼Îª¿Õ
+		{// å¦‚æžœæŽ¨èäººè®°å½•ä¸ºç©º
 			pRecommend = new Recommend();
 			pRecommend->id = cmd->user_id;
 			strncpy(pRecommend->name, cmd->name, MAX_NAMESIZE);
@@ -235,13 +235,13 @@ void RecommendM::processAddRecommended(const Cmd::Record::t_chkUserExist_Session
 	{
 		UserSession* pRecommendUser = UserSessionManager::getInstance()->getUserByID(cmd->user_id);
 		if (pRecommendUser)
-			pRecommendUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%s ÒÑ°ÑÄãÉèÎªÍÆ¼öÈË", pUser->name);
+			pRecommendUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%s å·²æŠŠä½ è®¾ä¸ºæŽ¨èäºº", pUser->name);
 
-		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÉèÖÃÍÆ¼öÈË³É¹¦");
+		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "è®¾ç½®æŽ¨èäººæˆåŠŸ");
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÉèÖÃÍÆ¼öÈËÊ§°Ü,Çë¼ì²éÍÆ¼öÈËÐÕÃûÌîÐ´ÊÇ·ñÕýÈ·");
+		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "è®¾ç½®æŽ¨èäººå¤±è´¥,è¯·æ£€æŸ¥æŽ¨èäººå§“åå¡«å†™æ˜¯å¦æ­£ç¡®");
 	}
 }
 
@@ -360,7 +360,7 @@ void Recommend::writeDatabase()
 		
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 
@@ -382,7 +382,7 @@ void Recommend::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("ÍÆ¼öÈËÊý¾Ý±£´æÊ§°Ü£¬RECOMMEND±í²»´æÔÚ");
+		Zebra::logger->error("æŽ¨èäººæ•°æ®ä¿å­˜å¤±è´¥ï¼ŒRECOMMENDè¡¨ä¸å­˜åœ¨");
 		return;
 	}	
 
@@ -404,7 +404,7 @@ bool Recommend::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{       
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -420,7 +420,7 @@ bool Recommend::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("Ìí¼ÓÍÆ¼öÈË¼ÇÂ¼Ê§°Ü£¬RECOMMEND±í²»´æÔÚ");
+		Zebra::logger->error("æ·»åŠ æŽ¨èäººè®°å½•å¤±è´¥ï¼ŒRECOMMENDè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -437,7 +437,7 @@ bool Recommend::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -471,7 +471,7 @@ bool Recommend::loadRecommendSubFromDB()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 
@@ -510,7 +510,7 @@ bool Recommend::loadRecommendSubFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("±»ÍÆ¼öÈËÏêÏ¸Êý¾Ý¼ÓÔØÊ§°Ü£¬RECOMMENDSUB±í²»´æÔÚ");
+		Zebra::logger->error("è¢«æŽ¨èäººè¯¦ç»†æ•°æ®åŠ è½½å¤±è´¥ï¼ŒRECOMMENDSUBè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -603,7 +603,7 @@ void Recommend::pickupBounty(UserSession* pUser)
 		send.dwMoney = this->dwBalance;
 		send.byType = 0;
 		pUser->scene->sendCmd(&send, sizeof(send));
-		Zebra::logger->trace("[ÍÆ¼öÈË]: %s ÌáÈ¡ÁËÍÆ¼öÈË½±Àø½ð:%u ÎÄ", pUser->name, this->dwBalance);
+		Zebra::logger->trace("[æŽ¨èäºº]: %s æå–äº†æŽ¨èäººå¥–åŠ±é‡‘:%u æ–‡", pUser->name, this->dwBalance);
 		this->dwBalance = 0;
 		this->dwTotal += send.dwMoney;
 		this->writeDatabase();
@@ -653,7 +653,7 @@ void RecommendSub::writeDatabase()
 		
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 		else
@@ -664,7 +664,7 @@ void RecommendSub::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("±»ÍÆ¼öÈËÏêÏ¸Êý¾Ý±£´æÊ§°Ü£¬RECOMMENDSUB±í²»´æÔÚ");
+		Zebra::logger->error("è¢«æŽ¨èäººè¯¦ç»†æ•°æ®ä¿å­˜å¤±è´¥ï¼ŒRECOMMENDSUBè¡¨ä¸å­˜åœ¨");
 		return;
 	}	
 
@@ -687,7 +687,7 @@ bool RecommendSub::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{       
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -703,7 +703,7 @@ bool RecommendSub::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("Ìí¼Ó±»ÍÆ¼öÈË¼ÇÂ¼Ê§°Ü£¬RECOMMENDSUB±í²»´æÔÚ");
+		Zebra::logger->error("æ·»åŠ è¢«æŽ¨èäººè®°å½•å¤±è´¥ï¼ŒRECOMMENDSUBè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -721,7 +721,7 @@ bool RecommendSub::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -749,7 +749,7 @@ bool RecommendSub::fireMe()
 
 void RecommendSub::pickupBounty(UserSession* pUser)
 {
-	// ±»ÍÆ¼öÈËÌáÈ¡Ò»´Î,½«»á¸øËûµÄÍÆ¼öÈË,¼ÇÉÏÒ»±Ê½±Àø
+	// è¢«æŽ¨èäººæå–ä¸€æ¬¡,å°†ä¼šç»™ä»–çš„æŽ¨èäºº,è®°ä¸Šä¸€ç¬”å¥–åŠ±
 	if (pUser && pUser->scene && this->lastLevel!=pUser->level)
 	{
 		Cmd::Session::t_PickupRecommend_SceneSession send;
@@ -760,7 +760,7 @@ void RecommendSub::pickupBounty(UserSession* pUser)
 		{
 			send.byType = 1;
 			pUser->scene->sendCmd(&send, sizeof(send));
-			Zebra::logger->trace("[ÍÆ¼öÈË]: %s(%u, %u) ÌáÈ¡ÁË±»ÍÆ¼öÈË½±Àø½ð:%u ÎÄ", 
+			Zebra::logger->trace("[æŽ¨èäºº]: %s(%u, %u) æå–äº†è¢«æŽ¨èäººå¥–åŠ±é‡‘:%u æ–‡", 
 					pUser->name, pUser->level, this->lastLevel, send.dwMoney);
 
 			this->lastLevel = pUser->level;
@@ -787,7 +787,7 @@ DWORD RecommendSub::queryBounty()
 	if (pUser->level<10)
 		return 0;
 
-	// ¼ÆËãÏµÊý
+	// è®¡ç®—ç³»æ•°
 	if (pUser->level>30 && this->lastLevel<=30)
 	{
 		coef = 0.5;

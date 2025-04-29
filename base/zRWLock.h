@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zRWLock.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåzRWLockÀà£¬¼òµ¥¶ÔÏµÍ³¶ÁĞ´Ëø²Ù×÷½øĞĞ·â×°
+ * \brief å®šä¹‰zRWLockç±»ï¼Œç®€å•å¯¹ç³»ç»Ÿè¯»å†™é”æ“ä½œè¿›è¡Œå°è£…
  *
  * 
  */
@@ -17,19 +17,19 @@
 #include "zNoncopyable.h"
 
 /**
- * \brief ·â×°ÁËÏµÍ³¶ÁĞ´Ëø£¬Ê¹ÓÃÉÏÒª¼òµ¥£¬Ê¡È¥ÁËÊÖ¹¤³õÊ¼»¯ºÍÏú»ÙÏµÍ³¶ÁĞ´ËøµÄ¹¤×÷£¬ÕâĞ©¹¤×÷¶¼¿ÉÒÔÓÉ¹¹Ôìº¯ÊıºÍÎö¹¹º¯ÊıÀ´×Ô¶¯Íê³É
+ * \brief å°è£…äº†ç³»ç»Ÿè¯»å†™é”ï¼Œä½¿ç”¨ä¸Šè¦ç®€å•ï¼Œçœå»äº†æ‰‹å·¥åˆå§‹åŒ–å’Œé”€æ¯ç³»ç»Ÿè¯»å†™é”çš„å·¥ä½œï¼Œè¿™äº›å·¥ä½œéƒ½å¯ä»¥ç”±æ„é€ å‡½æ•°å’Œææ„å‡½æ•°æ¥è‡ªåŠ¨å®Œæˆ
  *
  */
 class zRWLock : private zNoncopyable
 {
 
 	public:
-		//¶ÁĞ´´í¼ÆÊı²âÊÔ
+		//è¯»å†™é”™è®¡æ•°æµ‹è¯•
 		//unsigned int rd_count;
 		//unsigned int wr_count;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬ÓÃÓÚ´´½¨Ò»¸ö¶ÁĞ´Ëø
+		 * \brief æ„é€ å‡½æ•°ï¼Œç”¨äºåˆ›å»ºä¸€ä¸ªè¯»å†™é”
 		 *
 		 */
 		zRWLock()//:rd_count(0),wr_count(0)
@@ -39,7 +39,7 @@ class zRWLock : private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬ÓÃÓÚÏú»ÙÒ»¸ö¶ÁĞ´Ëø
+		 * \brief ææ„å‡½æ•°ï¼Œç”¨äºé”€æ¯ä¸€ä¸ªè¯»å†™é”
 		 *
 		 */
 		~zRWLock()
@@ -49,7 +49,7 @@ class zRWLock : private zNoncopyable
 		}
 
 		/**
-		 * \brief ¶Ô¶ÁĞ´Ëø½øĞĞ¶Á¼ÓËø²Ù×÷
+		 * \brief å¯¹è¯»å†™é”è¿›è¡Œè¯»åŠ é”æ“ä½œ
 		 *
 		 */
 		inline void rdlock()
@@ -60,7 +60,7 @@ class zRWLock : private zNoncopyable
 		};
 
 		/**
-		 * \brief ¶Ô¶ÁĞ´Ëø½øĞĞĞ´¼ÓËø²Ù×÷
+		 * \brief å¯¹è¯»å†™é”è¿›è¡Œå†™åŠ é”æ“ä½œ
 		 *
 		 */
 		inline void wrlock()
@@ -72,7 +72,7 @@ class zRWLock : private zNoncopyable
 		}
 
 		/**
-		 * \brief ¶Ô¶ÁĞ´Ëø½øĞĞ½âËø²Ù×÷
+		 * \brief å¯¹è¯»å†™é”è¿›è¡Œè§£é”æ“ä½œ
 		 *
 		 */
 		inline void unlock()
@@ -84,13 +84,13 @@ class zRWLock : private zNoncopyable
 
 	private:
 
-		pthread_rwlock_t rwlock;		/**< ÏµÍ³¶ÁĞ´Ëø */
+		pthread_rwlock_t rwlock;		/**< ç³»ç»Ÿè¯»å†™é” */
 
 };
 
 /**
  * \brief rdlock Wrapper
- * ·½±ãÔÚ¸´ÔÓº¯ÊıÖĞ¶ÁĞ´ËøµÄÊ¹ÓÃ
+ * æ–¹ä¾¿åœ¨å¤æ‚å‡½æ•°ä¸­è¯»å†™é”çš„ä½¿ç”¨
  */
 class zRWLock_scope_rdlock : private zNoncopyable
 {
@@ -98,9 +98,9 @@ class zRWLock_scope_rdlock : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * ¶ÔËø½øĞĞrdlock²Ù×÷
-		 * \param m ËøµÄÒıÓÃ
+		 * \brief æ„é€ å‡½æ•°
+		 * å¯¹é”è¿›è¡Œrdlockæ“ä½œ
+		 * \param m é”çš„å¼•ç”¨
 		 */
 		zRWLock_scope_rdlock(zRWLock &m) : rwlock(m)
 		{
@@ -108,8 +108,8 @@ class zRWLock_scope_rdlock : private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹ºº¯Êı
-		 * ¶ÔËø½øĞĞunlock²Ù×÷
+		 * \brief æè´­å‡½æ•°
+		 * å¯¹é”è¿›è¡Œunlockæ“ä½œ
 		 */
 		~zRWLock_scope_rdlock()
 		{
@@ -119,7 +119,7 @@ class zRWLock_scope_rdlock : private zNoncopyable
 	private:
 
 		/**
-		 * \brief ËøµÄÒıÓÃ
+		 * \brief é”çš„å¼•ç”¨
 		 */
 		zRWLock &rwlock;
 
@@ -127,7 +127,7 @@ class zRWLock_scope_rdlock : private zNoncopyable
 
 /**
  * \brief wrlock Wrapper
- * ·½±ãÔÚ¸´ÔÓº¯ÊıÖĞ¶ÁĞ´ËøµÄÊ¹ÓÃ
+ * æ–¹ä¾¿åœ¨å¤æ‚å‡½æ•°ä¸­è¯»å†™é”çš„ä½¿ç”¨
  */
 class zRWLock_scope_wrlock : private zNoncopyable
 {
@@ -135,9 +135,9 @@ class zRWLock_scope_wrlock : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * ¶ÔËø½øĞĞwrlock²Ù×÷
-		 * \param m ËøµÄÒıÓÃ
+		 * \brief æ„é€ å‡½æ•°
+		 * å¯¹é”è¿›è¡Œwrlockæ“ä½œ
+		 * \param m é”çš„å¼•ç”¨
 		 */
 		zRWLock_scope_wrlock(zRWLock &m) : rwlock(m)
 		{
@@ -145,8 +145,8 @@ class zRWLock_scope_wrlock : private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹ºº¯Êı
-		 * ¶ÔËø½øĞĞunlock²Ù×÷
+		 * \brief æè´­å‡½æ•°
+		 * å¯¹é”è¿›è¡Œunlockæ“ä½œ
 		 */
 		~zRWLock_scope_wrlock()
 		{
@@ -156,7 +156,7 @@ class zRWLock_scope_wrlock : private zNoncopyable
 	private:
 
 		/**
-		 * \brief ËøµÄÒıÓÃ
+		 * \brief é”çš„å¼•ç”¨
 		 */
 		zRWLock &rwlock;
 

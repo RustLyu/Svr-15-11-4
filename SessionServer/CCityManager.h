@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CCityManager.h  $
  * \author  
  * \date 
- * \brief ³ÇÊĞ¹ÜÀíÆ÷
+ * \brief åŸå¸‚ç®¡ç†å™¨
  *
  * 
  */
@@ -65,7 +65,7 @@ class CCity
 		DWORD dwCountry;
 		DWORD dwCityID;
 		DWORD dwUnionID;
-		int   isAward;	// µ±ÌìµÄÇ®£¬ÊÇ·ñÒÑ¾­Ë¢ĞÂ
+		int   isAward;	// å½“å¤©çš„é’±ï¼Œæ˜¯å¦å·²ç»åˆ·æ–°
 		DWORD dwGold;
 		char  name[MAX_NAMESIZE];
 		char  catcherName[MAX_NAMESIZE];
@@ -106,7 +106,7 @@ class CCityM : public Singleton<CCityM>
 			virtual ~cityCallback(){};
 		};
 
-		void execEveryCity(cityCallback &);//²»°üÀ¨ÎŞ¹ú¼®¹ú¼Ò	 
+		void execEveryCity(cityCallback &);//ä¸åŒ…æ‹¬æ— å›½ç±å›½å®¶	 
 		
 		void beginDare();
                 void endDare();

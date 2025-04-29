@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillServer.cpp  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿¼Æ·Ñ·şÎñÆ÷
+ * \brief zebraé¡¹ç›®è®¡è´¹æœåŠ¡å™¨
  *
  */
 
@@ -35,11 +35,11 @@ zLogger* BillService::tradelog = NULL;
 bool action(const BillData *bd);
 
 /**
- * \brief ³õÊ¼»¯ÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–ç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zService::init</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zService::init</code>
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool BillService::init()
 {
@@ -49,7 +49,7 @@ bool BillService::init()
 	if (NULL == dbConnPool
 			|| !dbConnPool->putURL(0, Zebra::global["mysql"].c_str(), false))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü");
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥");
 		return false;
 	}
 
@@ -58,22 +58,22 @@ bool BillService::init()
 	if (NULL == metaData
 			|| !metaData->init(Zebra::global["mysql"]))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü");
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥");
 		return false;
 	}
 
 	tradelog = new zLogger("tradelog");
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	tradelog->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["gold_tradelog"])
 	{
 		tradelog->addLocalFileLog(Zebra::global["gold_tradelog"]);
 		//tradelog->removeConsoleLog();
 	}
 
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -99,7 +99,7 @@ bool BillService::init()
 	if (!::Bill_init(Zebra::global["billServerList"].c_str() , Zebra::global["tradelogfilename"].c_str() , &bc) )
 	//	|| !::Bill_addserver(Zebra::global["BillServerIP"].c_str(),	atoi(Zebra::global["BillServerPort"].c_str())))
 	{
-		Zebra::logger->error("Á¬½ÓBILL·şÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿æ¥BILLæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 	ConsignGoldManager::getInstance()->init();
@@ -117,36 +117,36 @@ bool BillService::init()
 }
 
 /**
- * \brief ĞÂ½¨Á¢Ò»¸öÁ¬½ÓÈÎÎñ
+ * \brief æ–°å»ºç«‹ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zNetService::newTCPTask</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zNetService::newTCPTask</code>
  *
- * \param sock TCP/IPÁ¬½Ó
- * \param addr µØÖ·
+ * \param sock TCP/IPè¿æ¥
+ * \param addr åœ°å€
  */
 void BillService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	//Zebra::logger->debug(__PRETTY_FUNCTION__);
 	BillTask *tcpTask = new BillTask(taskPool, sock, addr);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
 
 /**
- * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
  *
- * ÕâĞ©Ö¸ÁîÊÇÍø¹ØºÍ·şÎñÆ÷¹ÜÀíÆ÷½»»¥µÄÖ¸Áî<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zSubNetService::msgParse_SuperService</code>
+ * è¿™äº›æŒ‡ä»¤æ˜¯ç½‘å…³å’ŒæœåŠ¡å™¨ç®¡ç†å™¨äº¤äº’çš„æŒ‡ä»¤<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zSubNetService::msgParse_SuperService</code>
  *
- * \param ptNullCmd ´ı½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ı½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool BillService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -161,7 +161,7 @@ bool BillService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const u
 				BillTask *task=BillTaskManager::getInstance().getTaskByID(ptCmd->session.wdGatewayID);
 				if(!task)
 				{
-					Zebra::logger->error("ÕËºÅ %uµÇÂ½Ê±Íø¹ØÒÑ¾­¹Ø±Õ", ptCmd->session.accid);
+					Zebra::logger->error("è´¦å· %uç™»é™†æ—¶ç½‘å…³å·²ç»å…³é—­", ptCmd->session.accid);
 					t_idinuse_Bill ret;
 					ret.accid = ptCmd->session.accid;
 					ret.loginTempID = ptCmd->session.loginTempID;
@@ -172,8 +172,8 @@ bool BillService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const u
 				BillUser *pUser=new BillUser(ptCmd->session.accid,ptCmd->session.loginTempID,ptCmd->session.account,ptCmd->session.client_ip,task);
 				if (!pUser || !BillUserManager::getInstance()->addUser(pUser))
 				{
-					//ÖØ¸´µÇÂ½ÑéÖ¤
-					Zebra::logger->error("ÕËºÅÒÑ¾­µÇÂ½ %s(%u,%u)",ptCmd->session.account, ptCmd->session.accid,ptCmd->session.loginTempID);
+					//é‡å¤ç™»é™†éªŒè¯
+					Zebra::logger->error("è´¦å·å·²ç»ç™»é™† %s(%u,%u)",ptCmd->session.account, ptCmd->session.accid,ptCmd->session.loginTempID);
 					t_idinuse_Bill ret;
 					ret.accid = ptCmd->session.accid;
 					ret.loginTempID = ptCmd->session.loginTempID;
@@ -181,7 +181,7 @@ bool BillService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const u
 					bcopy(ptCmd->session.name, ret.name, sizeof(ret.name));
 					return sendCmdToSuperServer(&ret, sizeof(ret));
 				}
-				Zebra::logger->debug("ÕÊºÅµÇÂ½%s(%d,%u)",pUser->account,pUser->id,pUser->tempid);
+				Zebra::logger->debug("å¸å·ç™»é™†%s(%d,%u)",pUser->account,pUser->id,pUser->tempid);
 				//Zebra::logger->debug("%s: %u, %u, %s, %u", __FUNCTION__, ptCmd->session.accid, ptCmd->session.loginTempID, ptCmd->session.pstrIP, ptCmd->session.wdPort);
 				tCmd.session = ptCmd->session;
 				//Zebra::logger->debug("BillService: %u %u %u %u %u %u %u %u", ptCmd->session.des_key[0], ptCmd->session.des_key[1], ptCmd->session.des_key[2], ptCmd->session.des_key[3], ptCmd->session.des_key[4], ptCmd->session.des_key[5], ptCmd->session.des_key[6], ptCmd->session.des_key[7]);
@@ -197,9 +197,9 @@ bool BillService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const u
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨
  *
- * ÊµÏÖÁË´¿Ğéº¯Êı<code>zService::final</code>
+ * å®ç°äº†çº¯è™šå‡½æ•°<code>zService::final</code>
  *
  */
 void BillService::final()
@@ -225,7 +225,7 @@ void BillService::final()
 }
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  *
  */
 static struct argp_option account_options[] =
@@ -241,12 +241,12 @@ static struct argp_option account_options[] =
 };
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
  *
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t account_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -294,13 +294,13 @@ static error_t account_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char account_doc[] = "\nBillServer\n" "\t¼Æ·Ñ·şÎñÆ÷¡£";
+static char account_doc[] = "\nBillServer\n" "\tè®¡è´¹æœåŠ¡å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -308,7 +308,7 @@ const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild time      :\t" __DATE__ ", " __TIME__;
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  *
  */
 class BillConfile:public zConfile
@@ -331,7 +331,7 @@ class BillConfile:public zConfile
 };
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶ï¼Œä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  *
  */
 void BillService::reloadConfig()
@@ -339,7 +339,7 @@ void BillService::reloadConfig()
 	Zebra::logger->debug("%s", __PRETTY_FUNCTION__);
 	BillConfile rc;
 	rc.parse("BillServer");
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -353,29 +353,29 @@ void BillService::reloadConfig()
 }
 
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
+ * \brief ä¸»ç¨‹åºå…¥å£
  *
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("BillServer");
 
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["mysql"] = "mysql://Zebra:Zebra@192.168.1.162:3306/BillServer";
 	Zebra::global["logfilename"] = "/tmp/billserver.log";
 	Zebra::global["gold_tradelog"] = "/tmp/gold_tradelog.log";
 	Zebra::global["tradelogfilename"] = "/home/tmp/billtrade.log";
 	Zebra::global["billServerList"] = "BillServer/billServerList.xml";
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	BillConfile rc;
 	if (!rc.parse("BillServer"))
 		return EXIT_FAILURE;
 
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -386,18 +386,18 @@ int main(int argc, char **argv)
 		zTCPTask::analysis._switch = false;
 		zTCPClient::analysis._switch=false;
 	}
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(account_options, account_parse_opt, 0, account_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();
@@ -506,12 +506,12 @@ bool redeem_moth_card(const BillData* bd)
 	BillSession bs = BillSessionManager::getInstance().get(bd->tid);
 	if(!bs.accid)
 	{
-		Zebra::logger->debug("%s¶Ò»»½ğ±Ò·µ»ØÊ±Ã»ÓĞÕıÈ·µÄBillSession,¿ÉÄÜ¸ÃÍæ¼ÒÒÑ¾­ÍË³ö",bd->tid);
+		Zebra::logger->debug("%så…‘æ¢é‡‘å¸è¿”å›æ—¶æ²¡æœ‰æ­£ç¡®çš„BillSession,å¯èƒ½è¯¥ç©å®¶å·²ç»é€€å‡º",bd->tid);
 		return false;
 	}
 	strncpy(send.account , bs.account , Cmd::UserServer::ID_MAX_LENGTH);
-	send.accid = bs.accid;			        /// ÕËºÅ±àºÅ
-	send.charid = bs.charid;				/// ½ÇÉ«ID
+	send.accid = bs.accid;			        /// è´¦å·ç¼–å·
+	send.charid = bs.charid;				/// è§’è‰²ID
 
 	//send.type = Cmd::TYPE_QUERY;
 
@@ -539,7 +539,7 @@ bool redeem_moth_card(const BillData* bd)
 					recordset = BillService::dbConnPool->exeSelect(handle, balance, NULL, &where);
 
 					if (recordset && !recordset->empty())
-					{//¸üĞÂÒÑÓĞ½ğ±Ò¼ÇÂ¼
+					{//æ›´æ–°å·²æœ‰é‡‘å¸è®°å½•
 						oss.str("");
 
 						old_vip_time = recordset->get(0)->get("monthcard");
@@ -558,7 +558,7 @@ bool redeem_moth_card(const BillData* bd)
 						}	
 					}
 					else
-					{// Ã»ÓĞ¶Ò»»¼ÇÂ¼£¬²åÈëĞÂµÄ¼ÇÂ¼
+					{// æ²¡æœ‰å…‘æ¢è®°å½•ï¼Œæ’å…¥æ–°çš„è®°å½•
 						
 						old_vip_time = time((time_t)NULL);
 						old_vip_time +=  30 * 24 * 60 * 60;
@@ -593,10 +593,10 @@ bool redeem_moth_card(const BillData* bd)
 			send.byReturn = Cmd::REDEEM_FAIL;
 		}
 
-		// ½ğ±Ò·şÎñÆ÷²Ù×÷Ê§°Ü£¬¼ÇÂ¼¶Ò»»ÈÕÖ¾
-		 // ÕÊºÅ, TID, ½»Ò×½á¹û£¬µãÊıÓà¶î£¬½ğ±ÒÓà¶î
-		BillService::tradelog->trace("µãÊı»»ÔÂ¿¨:----------------------------------------");
-		BillService::tradelog->trace("µãÊı»»ÔÂ¿¨:%u,%s,%d,%d,%u",
+		// é‡‘å¸æœåŠ¡å™¨æ“ä½œå¤±è´¥ï¼Œè®°å½•å…‘æ¢æ—¥å¿—
+		 // å¸å·, TID, äº¤æ˜“ç»“æœï¼Œç‚¹æ•°ä½™é¢ï¼Œé‡‘å¸ä½™é¢
+		BillService::tradelog->trace("ç‚¹æ•°æ¢æœˆå¡:----------------------------------------");
+		BillService::tradelog->trace("ç‚¹æ•°æ¢æœˆå¡:%u,%s,%d,%d,%u",
 				bd->uid,
 				bd->tid,
 				bd->result,
@@ -628,12 +628,12 @@ bool query_point(const BillData* bd)
 	BillSession bs = BillSessionManager::getInstance().get(bd->tid);
 	if(!bs.accid)
 	{
-		Zebra::logger->debug("%s¶Ò»»½ğ±Ò·µ»ØÊ±Ã»ÓĞÕıÈ·µÄBillSession,¿ÉÄÜ¸ÃÍæ¼ÒÒÑ¾­ÍË³ö",bd->tid);
+		Zebra::logger->debug("%så…‘æ¢é‡‘å¸è¿”å›æ—¶æ²¡æœ‰æ­£ç¡®çš„BillSession,å¯èƒ½è¯¥ç©å®¶å·²ç»é€€å‡º",bd->tid);
 		return false;
 	}
 	strncpy(send.account , bs.account , Cmd::UserServer::ID_MAX_LENGTH);
-	send.accid = bs.accid;			        /// ÕËºÅ±àºÅ
-	send.charid = bs.charid;				/// ½ÇÉ«ID
+	send.accid = bs.accid;			        /// è´¦å·ç¼–å·
+	send.charid = bs.charid;				/// è§’è‰²ID
 
 	//send.type = Cmd::TYPE_QUERY;
 
@@ -658,18 +658,18 @@ bool redeem_gold(const BillData* bd)
 	
 	Record column,where;                           
 	std::ostringstream oss;         
-	int rate = REDEEM_RATE_GOLD;  // ½ğ±ÒÓëµãÊı¶Ò»»±ÈÂÊ
-	double gold = 0.0;  // ´ı³ä½ğ±ÒÊı
-	double last_gold = 0.0; // ÉÏ´Î½ğ±ÒÓà¶î
+	int rate = REDEEM_RATE_GOLD;  // é‡‘å¸ä¸ç‚¹æ•°å…‘æ¢æ¯”ç‡
+	double gold = 0.0;  // å¾…å……é‡‘å¸æ•°
+	double last_gold = 0.0; // ä¸Šæ¬¡é‡‘å¸ä½™é¢
 	BillSession bs = BillSessionManager::getInstance().get(bd->tid);
 	if(!bs.accid)
 	{
-		Zebra::logger->debug("%s¶Ò»»½ğ±Ò·µ»ØÊ±Ã»ÓĞÕıÈ·µÄBillSession,¿ÉÄÜ¸ÃÍæ¼ÒÒÑ¾­ÍË³ö",bd->tid);
+		Zebra::logger->debug("%så…‘æ¢é‡‘å¸è¿”å›æ—¶æ²¡æœ‰æ­£ç¡®çš„BillSession,å¯èƒ½è¯¥ç©å®¶å·²ç»é€€å‡º",bd->tid);
 		return false;
 	}
 	strncpy(send.account , bs.account , Cmd::UserServer::ID_MAX_LENGTH);
-	send.accid = bs.accid;			        /// ÕËºÅ±àºÅ
-	send.charid = bs.charid;				/// ½ÇÉ«ID
+	send.accid = bs.accid;			        /// è´¦å·ç¼–å·
+	send.charid = bs.charid;				/// è§’è‰²ID
 
 	//send.type = Cmd::TYPE_QUERY;
 
@@ -699,7 +699,7 @@ bool redeem_gold(const BillData* bd)
 					recordset = BillService::dbConnPool->exeSelect(handle, balance, NULL, &where);
 
 					if (recordset && !recordset->empty())
-					{//¸üĞÂÒÑÓĞ½ğ±Ò¼ÇÂ¼
+					{//æ›´æ–°å·²æœ‰é‡‘å¸è®°å½•
 						oss.str("");
 
 						last_gold = recordset->get(0)->get("gold");
@@ -724,7 +724,7 @@ bool redeem_gold(const BillData* bd)
 						}	
 					}
 					else
-					{// Ã»ÓĞ¶Ò»»¼ÇÂ¼£¬²åÈëĞÂµÄ¼ÇÂ¼
+					{// æ²¡æœ‰å…‘æ¢è®°å½•ï¼Œæ’å…¥æ–°çš„è®°å½•
 						last_gold = 0;
 						
 						column.clear();
@@ -759,10 +759,10 @@ bool redeem_gold(const BillData* bd)
 			send.byReturn = Cmd::REDEEM_FAIL;
 		}
 
-		// ½ğ±Ò·şÎñÆ÷²Ù×÷Ê§°Ü£¬¼ÇÂ¼¶Ò»»ÈÕÖ¾
-		 // ÕÊºÅ, TID, ½»Ò×½á¹û£¬µãÊıÓà¶î£¬½ğ±ÒÓà¶î
-		//BillService::tradelog->trace("µãÊı»»½ğ±Ò:----------------------------------------");
-		BillService::tradelog->trace("µãÊı»»½ğ±Ò:%u,%s,%d,%d,%f",
+		// é‡‘å¸æœåŠ¡å™¨æ“ä½œå¤±è´¥ï¼Œè®°å½•å…‘æ¢æ—¥å¿—
+		 // å¸å·, TID, äº¤æ˜“ç»“æœï¼Œç‚¹æ•°ä½™é¢ï¼Œé‡‘å¸ä½™é¢
+		//BillService::tradelog->trace("ç‚¹æ•°æ¢é‡‘å¸:----------------------------------------");
+		BillService::tradelog->trace("ç‚¹æ•°æ¢é‡‘å¸:%u,%s,%d,%d,%f",
 				bd->uid,
 				bd->tid,
 				bd->result,

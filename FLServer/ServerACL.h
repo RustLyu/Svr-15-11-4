@@ -1,11 +1,11 @@
-/**
+﻿/**
  * \file
  * \version  $Id: ServerACL.h  $
  * \author  
  * \date 
- * \brief �洢��Ч���������б�
- * ��Ч�������б��洢��xml�ļ��У�������������ʱ���ȡ��Щ��Ϣ���ڴ棬
- * ��һ�����������������ӹ�����ʱ�򣬿��Ը�����Щ��Ϣ�ж���������Ƿ�Ϸ��ġ�
+ * \brief 存储有效服务器的列表
+ * 有效服务器列表存储在xml文件中，服务器启动的时候读取这些信息到内存，
+ * 当一个服务器管理器连接过来的时候，可以根据这些信息判断这个连接是否合法的。
  */
 
 #ifndef _ServerACL_h_
@@ -59,7 +59,7 @@ class ServerACL : zNoncopyable
 		bool add(const ACLZone &zone);
 
 		/**
-		 * \brief hash����
+		 * \brief hash函数
 		 *
 		 */
 		struct GameZone_hash

@@ -1,4 +1,4 @@
-#include "DDZCardGame.h"
+ï»¿#include "DDZCardGame.h"
 #include "zSocket.h"
 #include "MiniUser.h"
 #include "TimeTick.h"
@@ -11,7 +11,7 @@ DDZCardGame::DDZCardGame(Cmd::MiniGameID id, BYTE userNum, DWORD p)
 
 bool DDZCardGame::v_start()
 {
-	//Zebra::logger->debug("%u ¶·µØÖ÷ ¿ªÊ¼", id.id());
+	//Zebra::logger->debug("%u æ–—åœ°ä¸» å¼€å§‹", id.id());
 	clean();
 	initCards();
 	shuffle();
@@ -57,7 +57,7 @@ void DDZCardGame::initCards()
 	packNum = 3;
 #else
 */
-	packNum = 2;//¼¸¸±ÅÆ
+	packNum = 2;//å‡ å‰¯ç‰Œ
 	if (curUserNum==3) packNum = 1;
 	if (curUserNum==6) packNum = 3;
 //#endif
@@ -132,7 +132,7 @@ void DDZCardGame::deal()
 		
 		seatList[i].user->sendCmdToMe(cmd, sizeof(Cmd::stDealCardMiniGameCmd)+cmd->num);
 		userCount++;
-		Zebra::logger->debug("%u ·¢ÅÆ %s(%u):\t%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u", id.id(), seatList[i].user->name, cmd->num, cmd->cards[0].number(), cmd->cards[1].number(), cmd->cards[2].number(), cmd->cards[3].number(), cmd->cards[4].number(), cmd->cards[5].number(), cmd->cards[6].number(), cmd->cards[7].number(), cmd->cards[8].number(), cmd->cards[9].number(), cmd->cards[10].number(), cmd->cards[11].number(), cmd->cards[12].number(), cmd->cards[13].number(), cmd->cards[14].number(), cmd->cards[15].number(), cmd->cards[16].number());
+		Zebra::logger->debug("%u å‘ç‰Œ %s(%u):\t%u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u %u", id.id(), seatList[i].user->name, cmd->num, cmd->cards[0].number(), cmd->cards[1].number(), cmd->cards[2].number(), cmd->cards[3].number(), cmd->cards[4].number(), cmd->cards[5].number(), cmd->cards[6].number(), cmd->cards[7].number(), cmd->cards[8].number(), cmd->cards[9].number(), cmd->cards[10].number(), cmd->cards[11].number(), cmd->cards[12].number(), cmd->cards[13].number(), cmd->cards[14].number(), cmd->cards[15].number(), cmd->cards[16].number());
 	}
 }
 
@@ -161,7 +161,7 @@ bool DDZCardGame::v_parseGameCmd(MiniUser *u, Cmd::stMiniGameUserCmd *c, DWORD l
 						judge(seat);
 				}
 				//else
-				//	Zebra::logger->debug("%s ÎÞ·¨³öÅÆ %u", u->name, makeSeatID(seat).id());
+				//	Zebra::logger->debug("%s æ— æ³•å‡ºç‰Œ %u", u->name, makeSeatID(seat).id());
 			}
 			break;
 		case POINT_DDZ_MINI_PARA:
@@ -187,28 +187,28 @@ bool DDZCardGame::v_parseGameCmd(MiniUser *u, Cmd::stMiniGameUserCmd *c, DWORD l
 				{
 					point = rev->num;
 					lordSeat = curPointSeat;
-					Zebra::logger->debug("%s ½Ð %u ·Ö seatID=%u", u->name, rev->num, makeSeatID(curPointSeat).id());
+					Zebra::logger->debug("%s å« %u åˆ† seatID=%u", u->name, rev->num, makeSeatID(curPointSeat).id());
 				}
 				else
-					Zebra::logger->debug("%s ²»½Ð·Ö seatID=%u", u->name, makeSeatID(curPointSeat).id());
+					Zebra::logger->debug("%s ä¸å«åˆ† seatID=%u", u->name, makeSeatID(curPointSeat).id());
 
 				rev->userID = u->id;
 				sendCmdToAll(rev, len);
 				
 				BYTE newSeat = nextPointSeat();
-				if (rev->num==3 || (newSeat==lastPointSeat))//½ÐÅÆÍê±Ï
+				if (rev->num==3 || (newSeat==lastPointSeat))//å«ç‰Œå®Œæ¯•
 				{
-					if (0==point)//Ã»ÈË½Ð·Ö
+					if (0==point)//æ²¡äººå«åˆ†
 					{
 						v_start();
-						Zebra::logger->debug("%u ÖØÐÂ·¢ÅÆ", id.id());
+						Zebra::logger->debug("%u é‡æ–°å‘ç‰Œ", id.id());
 					}
 					else
 					{
 						showReserveCards();
 						ddz_state = DDZS_PLAY;
 						nextPutUser(lordSeat);
-						Zebra::logger->debug("%s ³ÉÎªµØÖ÷ seatID=%u", seatList[lordSeat].user->name, makeSeatID(lordSeat).id());
+						Zebra::logger->debug("%s æˆä¸ºåœ°ä¸» seatID=%u", seatList[lordSeat].user->name, makeSeatID(lordSeat).id());
 					}
 				}
 				else
@@ -233,7 +233,7 @@ void DDZCardGame::nextPutUser(BYTE seat)
 	else
 		curPutSeat = nextUserSeat(curPutSeat);
 
-	if (curPutSeat==lastPutSeat)//Ò»È¦Ã»ÈËÒª
+	if (curPutSeat==lastPutSeat)//ä¸€åœˆæ²¡äººè¦
 		lastPattern.clear();
 
 	Cmd::stNotifyPutCardMiniGameCmd send;
@@ -276,10 +276,10 @@ void DDZCardGame::putCards(BYTE seat, Cmd::stPutCardMiniGameCmd *cmd, DWORD len)
 			lordPutTime++;
 		else
 			otherPutTime++;
-		//Zebra::logger->debug("%s(%u) ³öÅÆ seatID=%u", seatList[seat].user->name, seatList[seat].user->id, makeSeatID(seat).id());
+		//Zebra::logger->debug("%s(%u) å‡ºç‰Œ seatID=%u", seatList[seat].user->name, seatList[seat].user->id, makeSeatID(seat).id());
 	}
 	//else
-	//	Zebra::logger->debug("%s(%u) ²»¸ú seatID=%u", seatList[seat].user->name, seatList[seat].user->id, makeSeatID(seat).id());
+	//	Zebra::logger->debug("%s(%u) ä¸è·Ÿ seatID=%u", seatList[seat].user->name, seatList[seat].user->id, makeSeatID(seat).id());
 
 	for (DWORD i=0; i<cmd->num; i++)
 	{
@@ -305,14 +305,14 @@ void DDZCardGame::judge(BYTE seat)
 
 void DDZCardGame::calcFleeScore(BYTE seat)
 {
-	Cmd::MiniGameScore s;//ÌÓÅÜÕßµÃ·Ö
+	Cmd::MiniGameScore s;//é€ƒè·‘è€…å¾—åˆ†
 	s.gameType = id.type;
 
 	Cmd::stGameResultCommonMiniGameCmd send;
 	send.gameID = id;
 
-	//ÌÓÅÜÕß
-	s.score = (point?point:1)*(bombCount()+pointTime)*3;//ÌÓÅÜÕß¿Û·Ö = 1 * ±¾×ÀÍæ¼ÒÊÖÅÆ×ÜÕ¨µ¯Êý * 3
+	//é€ƒè·‘è€…
+	s.score = (point?point:1)*(bombCount()+pointTime)*3;//é€ƒè·‘è€…æ‰£åˆ† = 1 * æœ¬æ¡ŒçŽ©å®¶æ‰‹ç‰Œæ€»ç‚¸å¼¹æ•° * 3
 	s.money = (s.score>30?30:s.score)*money;
 	s.score = 0-s.score;
 	s.money = 0-s.money;
@@ -321,27 +321,27 @@ void DDZCardGame::calcFleeScore(BYTE seat)
 	send.score = s;
 	seatList[seat].user->sendCmdToMe(&send, sizeof(send));
 	if (s.money)
-		sendInfoToAll(Cmd::MCT_POPUP, "ÄúÌÓÅÜ£¬±»¿Ûµô%uµã»ý·ÖºÍ%uÁ£ÏÉµ¤", 0-s.score, 0-s.money);
+		sendInfoToAll(Cmd::MCT_POPUP, "æ‚¨é€ƒè·‘ï¼Œè¢«æ‰£æŽ‰%uç‚¹ç§¯åˆ†å’Œ%uç²’ä»™ä¸¹", 0-s.score, 0-s.money);
 	else
-		sendInfoToAll(Cmd::MCT_POPUP, "ÄúÌÓÅÜ£¬±»¿Ûµô%uµã»ý·Ö", 0-s.score);
+		sendInfoToAll(Cmd::MCT_POPUP, "æ‚¨é€ƒè·‘ï¼Œè¢«æ‰£æŽ‰%uç‚¹ç§¯åˆ†", 0-s.score);
 
-	//ÆäËûÈË
+	//å…¶ä»–äºº
 	s.score = (point?point:1)*(bombCount()+pointTime);
 	s.money = (s.score>10?10:s.score)*money;
-	//sendInfoToAll(Cmd::MCT_SYS, "ÄúÌÓÅÜ£¬±»¿Ûµô%uµã»ý·ÖºÍ%uÁ£ÏÉµ¤", 0-s.score, 0-s.money);
+	//sendInfoToAll(Cmd::MCT_SYS, "æ‚¨é€ƒè·‘ï¼Œè¢«æ‰£æŽ‰%uç‚¹ç§¯åˆ†å’Œ%uç²’ä»™ä¸¹", 0-s.score, 0-s.money);
 	for (BYTE i=1; i<=maxUserNum; i++)
 	{
 		if (i!=seat && seatList[i].user)
 		{
 			seatList[i].user->addScore(s);
 			if (s.money)
-				seatList[i].user->sendMiniInfo(Cmd::MCT_POPUP, "%sÌÓÅÜ£¬±»¿Ûµô%uµã»ý·ÖºÍ%uÁ£ÏÉµ¤£¬ÄúµÃµ½%uµã»ý·ÖºÍ%uÁ£ÏÉµ¤", seatList[seat].user->name, s.score*3, s.money*3, s.score, s.money);
+				seatList[i].user->sendMiniInfo(Cmd::MCT_POPUP, "%sé€ƒè·‘ï¼Œè¢«æ‰£æŽ‰%uç‚¹ç§¯åˆ†å’Œ%uç²’ä»™ä¸¹ï¼Œæ‚¨å¾—åˆ°%uç‚¹ç§¯åˆ†å’Œ%uç²’ä»™ä¸¹", seatList[seat].user->name, s.score*3, s.money*3, s.score, s.money);
 			else
-				seatList[i].user->sendMiniInfo(Cmd::MCT_POPUP, "%sÌÓÅÜ£¬±»¿Ûµô%uµã»ý·Ö£¬ÄúµÃµ½%uµã»ý·Ö", seatList[seat].user->name, s.score*3, s.score);
+				seatList[i].user->sendMiniInfo(Cmd::MCT_POPUP, "%sé€ƒè·‘ï¼Œè¢«æ‰£æŽ‰%uç‚¹ç§¯åˆ†ï¼Œæ‚¨å¾—åˆ°%uç‚¹ç§¯åˆ†", seatList[seat].user->name, s.score*3, s.score);
 		}
 	}
 
-	Zebra::logger->debug("%s ÌÓÅÜ\twin:%u lose:%u score:%d", seatList[seat].user->name, s.win, s.lose, s.score);
+	Zebra::logger->debug("%s é€ƒè·‘\twin:%u lose:%u score:%d", seatList[seat].user->name, s.win, s.lose, s.score);
 }
 
 void DDZCardGame::calcNormalScore(BYTE seat)
@@ -352,7 +352,7 @@ void DDZCardGame::calcNormalScore(BYTE seat)
 	Cmd::stGameResultCommonMiniGameCmd send;
 	send.gameID = id;
 
-	//µØÖ÷
+	//åœ°ä¸»
 	if (seat==lordSeat)
 	{
 		s.win = 1;
@@ -372,9 +372,9 @@ void DDZCardGame::calcNormalScore(BYTE seat)
 
 	send.score = s;
 	sendCmdToAll(&send, sizeof(send));
-	Zebra::logger->debug("%s\tµØÖ÷µÃ·Ö\twin:%u lose:%u score:%d", seatList[lordSeat].user->name, s.win, s.lose, s.score);
+	Zebra::logger->debug("%s\tåœ°ä¸»å¾—åˆ†\twin:%u lose:%u score:%d", seatList[lordSeat].user->name, s.win, s.lose, s.score);
 
-	//ÆäËû
+	//å…¶ä»–
 	s.win = 0;
 	s.lose = 0;
 	if (seat==lordSeat)
@@ -400,7 +400,7 @@ void DDZCardGame::calcNormalScore(BYTE seat)
 			seatList[i].user->addScore(s);
 			sendCmdToAll(&send, sizeof(send));
 			//seatList[i].user->sendCmdToMe(&send, sizeof(send));
-			Zebra::logger->debug("%s\tÅ©ÃñµÃ·Ö\twin:%u lose:%u score:%d", seatList[i].user->name, s.win, s.lose, s.score);
+			Zebra::logger->debug("%s\tå†œæ°‘å¾—åˆ†\twin:%u lose:%u score:%d", seatList[i].user->name, s.win, s.lose, s.score);
 		}
 	}
 }

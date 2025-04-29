@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.h  $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êý
+ * \brief æ—¶é—´å›žè°ƒå‡½æ•°
  *
  * 
  */
@@ -36,7 +36,7 @@ class SuperTimeTick : public zThread
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀý
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®žä¾‹
 		 *
 		 */
 		static void delInstance()

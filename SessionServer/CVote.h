@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file
  * \version  $Id: CVote.h  $
  * \author  
  * \date 
- * \brief ͶƱ����ϵͳ����
+ * \brief 投票管理系统定义
  *
  * 
  */
@@ -45,10 +45,10 @@ class CVote
 	public:
 		enum
 		{
-			VOTE_READY,             // ׼��״̬
-			VOTE_ACTIVE,            // ����ͶƱ״̬
-			VOTE_READY_OVER,        // ����ͶƱ���޸Ķ�Ӧ���ҿƼ�״̬
-			VOTE_OVER               // �������״̬
+			VOTE_READY,             // 准备状态
+			VOTE_ACTIVE,            // 正在投票状态
+			VOTE_READY_OVER,        // 结束投票，修改对应国家科技状态
+			VOTE_OVER               // 结束清除状态
 		};
 		
 		void init(Record* rec);

@@ -1,4 +1,4 @@
-
+﻿
 #ifndef _MESSAGEQUEUE_H_
 #define _MESSAGEQUEUE_H_
 #include "zNullCmd.h"

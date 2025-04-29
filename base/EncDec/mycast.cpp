@@ -1,4 +1,4 @@
-#include "mycast.h"
+﻿#include "mycast.h"
 const CAST_LONG MyCAST_S_table0[256]={
 	0x30fb40d4,0x9fa0ff0b,0x6beccd2f,0x3f258c7a,
 		0x1e213f2f,0x9c004dd3,0x6003e540,0xcf9fc949,

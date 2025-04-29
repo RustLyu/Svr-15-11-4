@@ -1,4 +1,4 @@
-#include "Dice.h"
+ï»¿#include "Dice.h"
 #include "Scene.h"
 #include "SceneUserManager.h"
 #include "Chat.h"
@@ -27,21 +27,21 @@ Dice::Dice(SceneUser * u1, SceneUser * u2, DWORD m)
 
 bool Dice::setReady(SceneUser * user)
 {
-	if (!user->packs.checkMoney(money) || !user->packs.removeMoney(money, "Ğ¡ÓÎÏ·:Ñº½ğ"))
+	if (!user->packs.checkMoney(money) || !user->packs.removeMoney(money, "å°æ¸¸æˆ:æŠ¼é‡‘"))
 	{
-		sendAllInfo("%s ½ğÇ®²»×ã", user->name);
+		sendAllInfo("%s é‡‘é’±ä¸è¶³", user->name);
 		return false;
 	}
 
 	if (user->tempid==tempid1)
 	{
 		continue1 = true;
-		sendAllInfo("%s ×¼±¸Íê±Ï", name1);
+		sendAllInfo("%s å‡†å¤‡å®Œæ¯•", name1);
 	}
 	else if (user->tempid==tempid2)
 	{
 		continue2 = true;
-		sendAllInfo("%s ×¼±¸Íê±Ï", name2);
+		sendAllInfo("%s å‡†å¤‡å®Œæ¯•", name2);
 	}
 
 	if (continue1 && continue2)
@@ -56,7 +56,7 @@ bool Dice::init()
 	SceneUser * u2 = SceneUserManager::getMe().getUserByTempID(tempid2);
 	if (!u1||!u2) return false;
 
-	if (round>0)//nÖÜÄ¿
+	if (round>0)//nå‘¨ç›®
 	{
 		round++;
 		//money *= 2;
@@ -77,10 +77,10 @@ bool Dice::init()
 	gameState = DICE_STATE_ROLLING;
 
 	std::ostringstream os;
-	os<<u1->name<<" vs "<<u2->name<<" µÚ "<<round<<" ¾Ö Ñº½ğ ";
-	if (money/10000) os<<money/10000<<"¶§";
-	if ((money%10000)/100) os<<(money%10000)/100<<"Á½";
-	if (money%100) os<<money%100<<"ÎÄ";
+	os<<u1->name<<" vs "<<u2->name<<" ç¬¬ "<<round<<" å±€ æŠ¼é‡‘ ";
+	if (money/10000) os<<money/10000<<"é”­";
+	if ((money%10000)/100) os<<(money%10000)/100<<"ä¸¤";
+	if (money%100) os<<money%100<<"æ–‡";
 
 	sendAllInfo(os.str().c_str());
 	Zebra::logger->debug("%s", os.str().c_str());
@@ -110,7 +110,7 @@ bool Dice::rotate(DWORD id)
 		send.num = value1;
 		sendCmdToAll(&send, sizeof(send));
 
-		sendAllInfo("%s ÖÀ³ö %u µã", name1, value1);
+		sendAllInfo("%s æ·å‡º %u ç‚¹", name1, value1);
 	}
 	if (id==tempid2)
 	{
@@ -121,7 +121,7 @@ bool Dice::rotate(DWORD id)
 		send.num = value2;
 		sendCmdToAll(&send, sizeof(send));
 
-		sendAllInfo("%s ÖÀ³ö %u µã", name2, value2);
+		sendAllInfo("%s æ·å‡º %u ç‚¹", name2, value2);
 	}
 
 	if (value1 && value2)
@@ -142,9 +142,9 @@ bool Dice::judge()
 		if (pUser1)
 		{
 			pUser1->sendCmdToMe(&send ,sizeof(send));
-			pUser1->packs.addMoney(money*2, "Ğ¡ÓÎÏ·:Ó®µÃ");
+			pUser1->packs.addMoney(money*2, "å°æ¸¸æˆ:èµ¢å¾—");
 
-			Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·£¬Ó®µÃ½ğÇ® %u", name1, name2, money*2);
+			Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆï¼Œèµ¢å¾—é‡‘é’± %u", name1, name2, money*2);
 		}
 
 		send.res = 0;
@@ -156,9 +156,9 @@ bool Dice::judge()
 			if (pUser2)
 			{
 				pUser2->sendCmdToMe(&send ,sizeof(send));
-				pUser2->packs.addMoney(money*2, "Ğ¡ÓÎÏ·:Ó®µÃ");
+				pUser2->packs.addMoney(money*2, "å°æ¸¸æˆ:èµ¢å¾—");
 
-				Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·£¬Ó®µÃ½ğÇ® %u", name2, name1, money*2);
+				Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆï¼Œèµ¢å¾—é‡‘é’± %u", name2, name1, money*2);
 			}
 
 			send.res = 0;
@@ -169,15 +169,15 @@ bool Dice::judge()
 			send.res = 2;
 			if (pUser1)
 			{
-				pUser1->packs.addMoney(money, "Ğ¡ÓÎÏ·:Æ½¾Ö");
+				pUser1->packs.addMoney(money, "å°æ¸¸æˆ:å¹³å±€");
 				pUser1->sendCmdToMe(&send ,sizeof(send));
-				Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·£¬Æ½¾Ö·µ»Ø½ğÇ® %u", name1, name2, money);
+				Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆï¼Œå¹³å±€è¿”å›é‡‘é’± %u", name1, name2, money);
 			}
 			if (pUser2)
 			{
-				pUser2->packs.addMoney(money, "Ğ¡ÓÎÏ·:Æ½¾Ö");
+				pUser2->packs.addMoney(money, "å°æ¸¸æˆ:å¹³å±€");
 				pUser2->sendCmdToMe(&send ,sizeof(send));
-				Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·£¬Æ½¾Ö·µ»Ø½ğÇ® %u", name2, name1, money);
+				Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆï¼Œå¹³å±€è¿”å›é‡‘é’± %u", name2, name1, money);
 			}
 		}
 
@@ -195,26 +195,26 @@ void Dice::endGame(SceneUser * u)
 	{
 		if (pUser1 && pUser1!=u)
 		{
-			pUser1->packs.addMoney(money, "Ğ¡ÓÎÏ·:ÖĞÍ¾ÍË³ö");
-			Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·ÖĞÍ¾½áÊø£¬·µ»Ø½ğÇ® %u state=DICE_STATE_ROLLING", name1, name2, money);
+			pUser1->packs.addMoney(money, "å°æ¸¸æˆ:ä¸­é€”é€€å‡º");
+			Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆä¸­é€”ç»“æŸï¼Œè¿”å›é‡‘é’± %u state=DICE_STATE_ROLLING", name1, name2, money);
 		}
 		if (pUser2 && pUser2!=u)
 		{
-			pUser2->packs.addMoney(money, "Ğ¡ÓÎÏ·:ÖĞÍ¾ÍË³ö");
-			Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·ÖĞÍ¾½áÊø£¬·µ»Ø½ğÇ® %u state=DICE_STATE_ROLLING", name2, name1, money);
+			pUser2->packs.addMoney(money, "å°æ¸¸æˆ:ä¸­é€”é€€å‡º");
+			Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆä¸­é€”ç»“æŸï¼Œè¿”å›é‡‘é’± %u state=DICE_STATE_ROLLING", name2, name1, money);
 		}
 	}
 	else if (gameState==DICE_STATE_END)
 	{
 		if (pUser1 && continue1)
 		{
-			pUser1->packs.addMoney(money, "Ğ¡ÓÎÏ·:ÖĞÍ¾ÍË³ö");
-			Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·ÖĞÍ¾½áÊø£¬·µ»Ø½ğÇ® %u state=DICE_STATE_END", name1, name2, money);
+			pUser1->packs.addMoney(money, "å°æ¸¸æˆ:ä¸­é€”é€€å‡º");
+			Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆä¸­é€”ç»“æŸï¼Œè¿”å›é‡‘é’± %u state=DICE_STATE_END", name1, name2, money);
 		}
 		if (pUser2 && continue2)
 		{
-			pUser2->packs.addMoney(money, "Ğ¡ÓÎÏ·:ÖĞÍ¾ÍË³ö");
-			Zebra::logger->trace("%s ºÍ %s ÍæĞ¡ÓÎÏ·ÖĞÍ¾½áÊø£¬·µ»Ø½ğÇ® %u state=DICE_STATE_END", name2, name1, money);
+			pUser2->packs.addMoney(money, "å°æ¸¸æˆ:ä¸­é€”é€€å‡º");
+			Zebra::logger->trace("%s å’Œ %s ç©å°æ¸¸æˆä¸­é€”ç»“æŸï¼Œè¿”å›é‡‘é’± %u state=DICE_STATE_END", name2, name1, money);
 		}
 	}
 
@@ -281,7 +281,7 @@ bool Dice::sendAllInfo(const char *pattern, ...)
 	send.dwChatTime = ctv.sec();
 	send.dwType=Cmd::CHAT_TYPE_MINIGAME;
 	strncpy((char *)send.pstrChat, buf, MAX_CHATINFO-1);
-	strncpy(send.pstrName, "ÏµÍ³", MAX_NAMESIZE-1);
+	strncpy(send.pstrName, "ç³»ç»Ÿ", MAX_NAMESIZE-1);
 
 	return sendCmdToAll(&send, sizeof(send));
 }

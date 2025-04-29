@@ -1,4 +1,4 @@
-#include "AuctionService.h"
+ï»¿#include "AuctionService.h"
 #include "MailService.h"
 #include "zDBConnPool.h"
 #include "SessionServer.h"
@@ -77,10 +77,10 @@ void AuctionService::delMe()
 	SAFE_DELETE(as);
 }
 
-/* \brief ´¦ÀíÅÄÂôÏûÏ¢
+/* \brief å¤„ç†æ‹å–æ¶ˆæ¯
  *
- * \param cmd ÏûÏ¢
- * \param cmdLen ÏûÏ¢³¤¶È
+ * \param cmd æ¶ˆæ¯
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
  * 
  */
 bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const DWORD cmdLen)
@@ -99,8 +99,8 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				/*
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_SALE): Ìí¼ÓÅÄÂô¼ÇÂ¼Ê±Î´ÕÒµ½ÅÄÂôÕß %s", rev->info.owner);
-					Zebra::logger->error("[ÅÄÂô]Ìí¼ÓÅÄÂô¼ÇÂ¼Ê±Î´ÕÒµ½ÅÄÂôÕß %s ÎïÆ·: %s", rev->info.owner, rev->item.object.strName);
+					Zebra::logger->error("[æ‹å–]doAuctionCmd(PARA_AUCTION_SALE): æ·»åŠ æ‹å–è®°å½•æ—¶æœªæ‰¾åˆ°æ‹å–è€… %s", rev->info.owner);
+					Zebra::logger->error("[æ‹å–]æ·»åŠ æ‹å–è®°å½•æ—¶æœªæ‰¾åˆ°æ‹å–è€… %s ç‰©å“: %s", rev->info.owner, rev->item.object.strName);
 					return false;
 				}
 				*/
@@ -108,26 +108,26 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_SALE): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
-					Zebra::logger->error("[ÅÄÂô]Ìí¼ÓÅÄÂô¼ÇÂ¼´íÎó %s ÎïÆ·: %s ¼Û¸ñ£º%u-%u", rev->info.owner, rev->item.object.strName, rev->info.minMoney, rev->info.maxMoney);
-					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÅÄÂôÎïÆ·Ê§°Ü£¬ÇëÓëGMÁªÏµ");
+					error("[æ‹å–]doAuctionCmd(PARA_AUCTION_SALE): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
+					Zebra::logger->error("[æ‹å–]æ·»åŠ æ‹å–è®°å½•é”™è¯¯ %s ç‰©å“: %s ä»·æ ¼ï¼š%u-%u", rev->info.owner, rev->item.object.strName, rev->info.minMoney, rev->info.maxMoney);
+					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‹å–ç‰©å“å¤±è´¥ï¼Œè¯·ä¸GMè”ç³»");
 					return true;
 				}
 				unsigned int retcode = SessionService::dbConnPool->exeInsert(handle, "`AUCTION`", auction_define, (const unsigned char *)&(rev->info));
 				SessionService::dbConnPool->putHandle(handle);
 				if ((unsigned int)-1 == retcode)
 				{
-					error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_SALE): ²åÈëÅÄÂô¼ÇÂ¼Êı¾İ¿â³ö´í");
-					Zebra::logger->error("[ÅÄÂô]Ìí¼ÓÅÄÂô¼ÇÂ¼´íÎó %s ÎïÆ·: %s ¼Û¸ñ£º%u-%u", rev->info.owner, rev->item.object.strName, rev->info.minMoney, rev->info.maxMoney);
-					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÅÄÂôÊ§°Ü£¬ÇëÓëGMÁªÏµ");
+					error("[æ‹å–]doAuctionCmd(PARA_AUCTION_SALE): æ’å…¥æ‹å–è®°å½•æ•°æ®åº“å‡ºé”™");
+					Zebra::logger->error("[æ‹å–]æ·»åŠ æ‹å–è®°å½•é”™è¯¯ %s ç‰©å“: %s ä»·æ ¼ï¼š%u-%u", rev->info.owner, rev->item.object.strName, rev->info.minMoney, rev->info.maxMoney);
+					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‹å–å¤±è´¥ï¼Œè¯·ä¸GMè”ç³»");
 				}       
 				else    
 				{       
 					if (pUser)
 					{
 						stAddListAuction al;
-						al.list = 3;//ÅÄÂôÁĞ±í
-						al.auctionID = retcode;//·µ»ØID
+						al.list = 3;//æ‹å–åˆ—è¡¨
+						al.auctionID = retcode;//è¿”å›ID
 						al.minMoney = rev->info.minMoney;
 						al.maxMoney = rev->info.maxMoney;
 						al.minGold = rev->info.minGold;
@@ -139,10 +139,10 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 						al.mine = true;
 
 						pUser->sendCmdToMe(&al, sizeof(al));
-						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÄãÅÄÂôÒ»¼şÎïÆ·");
+						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ æ‹å–ä¸€ä»¶ç‰©å“");
 					}
 
-					Zebra::logger->trace("[ÅÄÂô]:%s ÅÄÂôÎïÆ· %s auctionID=%u", rev->info.owner, rev->item.object.strName, retcode);
+					Zebra::logger->trace("[æ‹å–]:%s æ‹å–ç‰©å“ %s auctionID=%u", rev->info.owner, rev->item.object.strName, retcode);
 				}
 
 				return true;
@@ -155,14 +155,14 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->userID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_CHECK_BID): ¾º±êÊ±Î´ÕÒµ½¾º±êÕß");
+					Zebra::logger->error("[æ‹å–]doAuctionCmd(PARA_AUCTION_CHECK_BID): ç«æ ‡æ—¶æœªæ‰¾åˆ°ç«æ ‡è€…");
 					return false;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_CHECK_BID): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					error("[æ‹å–]doAuctionCmd(PARA_AUCTION_CHECK_BID): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
@@ -177,14 +177,14 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				SessionService::dbConnPool->putHandle(handle);
 				if ((DWORD)-1 == retcode)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¾º±êÊ§°Ü");
-					error("[ÅÄÂô]%s ¾º±êÊ±²éÑ¯´íÎó auctionID=%u retCode=%d", pUser->name, rev->auctionID, retcode);
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç«æ ‡å¤±è´¥");
+					error("[æ‹å–]%s ç«æ ‡æ—¶æŸ¥è¯¢é”™è¯¯ auctionID=%u retCode=%d", pUser->name, rev->auctionID, retcode);
 					return false;
 				}
 				if (1 != retcode)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¾º±êÊ§°Ü£¬¸ÃÎïÆ·ÒÑ¾­³É½»");
-					//Zebra::logger->debug("[ÅÄÂô]%s ¾º±êÃ»ÓĞÕÒµ½¼ÇÂ¼ auctionID=%u retCode=%d", pUser->name, rev->auctionID, retcode);
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç«æ ‡å¤±è´¥ï¼Œè¯¥ç‰©å“å·²ç»æˆäº¤");
+					//Zebra::logger->debug("[æ‹å–]%s ç«æ ‡æ²¡æœ‰æ‰¾åˆ°è®°å½• auctionID=%u retCode=%d", pUser->name, rev->auctionID, retcode);
 					return true;
 				}
 
@@ -193,7 +193,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 					if ((0==bid.bidType&&((bid.maxMoney&&rev->money<bid.maxMoney)||0==bid.maxMoney))
 							|| (1==bid.bidType&&(bid.maxGold&&rev->gold<bid.maxGold||0==bid.maxGold)))
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Õâ¼şÎïÆ·µÄ×î¸ß¼ÛÒÑ¾­ÊÇÄãµÄ¡£Èç¹ûÕâ¼şÎïÆ·Éè¶¨ÁËÒ»¿Ú¼Û£¬Äã¿ÉÒÔÒ»¿Ú¼Û°ÑËüÂòÏÂÀ´");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¿™ä»¶ç‰©å“çš„æœ€é«˜ä»·å·²ç»æ˜¯ä½ çš„ã€‚å¦‚æœè¿™ä»¶ç‰©å“è®¾å®šäº†ä¸€å£ä»·ï¼Œä½ å¯ä»¥ä¸€å£ä»·æŠŠå®ƒä¹°ä¸‹æ¥");
 						return true;
 					}
 				}
@@ -204,7 +204,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 						|| (1==bid.bidType && bid.minGold>rev->gold)
 						|| (1==bid.bidType && (bid.minGold==rev->gold && (bid.maxGold!=bid.minGold))))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÖ´ĞĞ¸Ã²Ù×÷£¬·Ç·¨¾º±ê");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½æ‰§è¡Œè¯¥æ“ä½œï¼Œéæ³•ç«æ ‡");
 					return false;
 				}
 
@@ -220,15 +220,15 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->userID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_CHECK_BID): ¾º±êÊ±Î´ÕÒµ½¾º±êÕß, ¶ªÊ§%uÎÄ",rev->money);
+					Zebra::logger->error("[æ‹å–]doAuctionCmd(PARA_AUCTION_CHECK_BID): ç«æ ‡æ—¶æœªæ‰¾åˆ°ç«æ ‡è€…, ä¸¢å¤±%uæ–‡",rev->money);
 					return false;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_CHECK_BID): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü", pUser->name);
-					Zebra::logger->error("[ÅÄÂô]¾º±êÊ§°Ü %s ¶ªÊ§ money=%u gold=%u", rev->money, rev->gold);
+					error("[æ‹å–]doAuctionCmd(PARA_AUCTION_CHECK_BID): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥", pUser->name);
+					Zebra::logger->error("[æ‹å–]ç«æ ‡å¤±è´¥ %s ä¸¢å¤± money=%u gold=%u", rev->money, rev->gold);
 					return false;
 				}
 
@@ -243,33 +243,33 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				if ((DWORD)-1 == retcode)
 				{
 					SessionService::dbConnPool->putHandle(handle);
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¾º±êÊ§°Ü");
-					error("[ÅÄÂô]%s ¾º±êÊ±²éÑ¯´íÎó auctionID=%u retCode=%d ¶ªÊ§ money=%u gold=%u", pUser->name, rev->auctionID, retcode, rev->money, rev->gold);
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç«æ ‡å¤±è´¥");
+					error("[æ‹å–]%s ç«æ ‡æ—¶æŸ¥è¯¢é”™è¯¯ auctionID=%u retCode=%d ä¸¢å¤± money=%u gold=%u", pUser->name, rev->auctionID, retcode, rev->money, rev->gold);
 					return false;
 				}
 				if (1 != retcode)
 				{
-					if (MailService::getMe().sendMoneyMail("Õ÷Í¾ÅÄÂôĞĞ", 0, pUser->name, pUser->id, rev->money, "¾ºÅÄÊ§°Ü·µ»¹µÄÒø×Ó", (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID))
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¾º±êÊ§°Ü£¬¸ÃÎïÆ·ÒÑ¾­³É½»£¬·ÑÓÃÒÑÍË»Øµ½ÓÊÏä");
+					if (MailService::getMe().sendMoneyMail("å¾é€”æ‹å–è¡Œ", 0, pUser->name, pUser->id, rev->money, "ç«æ‹å¤±è´¥è¿”è¿˜çš„é“¶å­", (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID))
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç«æ ‡å¤±è´¥ï¼Œè¯¥ç‰©å“å·²ç»æˆäº¤ï¼Œè´¹ç”¨å·²é€€å›åˆ°é‚®ç®±");
 					else
-						Zebra::logger->error("[ÅÄÂô]%s ¾º±êÊ§°Ü·µ»¹Òø×ÓÊ§°Ü auctionID=%u retCode=%d ¶ªÊ§ money=%u gold=%u", pUser->name, rev->auctionID, retcode, rev->money, rev->gold);
+						Zebra::logger->error("[æ‹å–]%s ç«æ ‡å¤±è´¥è¿”è¿˜é“¶å­å¤±è´¥ auctionID=%u retCode=%d ä¸¢å¤± money=%u gold=%u", pUser->name, rev->auctionID, retcode, rev->money, rev->gold);
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 
-				//ÍËÇ®¸øÉÏÒ»¸ö¾º±êÕß
+				//é€€é’±ç»™ä¸Šä¸€ä¸ªç«æ ‡è€…
 				if (0!=strcmp(bid.bidder, "") || bid.bidderID!=0)
 				{
 					char buf[128];
 					bzero(buf, sizeof(buf));
-					snprintf(buf, sizeof(buf), "Äã¾ºÅÄ %s µÄ¼Û¸ñ±»Ñ¹¹ı£¬·µ»¹µÄ½ğÇ®", bid.item.object.strName);
-					MailService::getMe().sendMoneyMail("Õ÷Í¾ÅÄÂôĞĞ", 0, bid.bidder, bid.bidderID, bid.minMoney, buf, (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID);
+					snprintf(buf, sizeof(buf), "ä½ ç«æ‹ %s çš„ä»·æ ¼è¢«å‹è¿‡ï¼Œè¿”è¿˜çš„é‡‘é’±", bid.item.object.strName);
+					MailService::getMe().sendMoneyMail("å¾é€”æ‹å–è¡Œ", 0, bid.bidder, bid.bidderID, bid.minMoney, buf, (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID);
 				}
 
 				char bidder3[MAX_NAMESIZE];
 				strncpy(bidder3, bid.bidder2, MAX_NAMESIZE);
 
-				//¸üĞÂ¼Û¸ñºÍ¾º¼ÛÕß
+				//æ›´æ–°ä»·æ ¼å’Œç«ä»·è€…
 				bid.minMoney = 0==bid.bidType?rev->money:0;
 				bid.minGold = 1==bid.bidType?rev->gold:0;
 				strncpy(bid.bidder2, bid.bidder, MAX_NAMESIZE);
@@ -279,12 +279,12 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				retcode = SessionService::dbConnPool->exeUpdate(handle, "`AUCTION`", auction_bid_define, (BYTE *)&bid, where);
 				if (1 != retcode)
 				{
-					if (MailService::getMe().sendMoneyMail("Õ÷Í¾ÅÄÂôĞĞ", 0, pUser->name, pUser->id, rev->money, "¾ºÅÄÊ§°Ü·µ»¹µÄ½ğÇ®", (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID))
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¾º±êÊ§°Ü£¬¸ÃÎïÆ·ÒÑ¾­³É½»£¬·ÑÓÃÒÑÍË»Øµ½ÓÊÏä");
+					if (MailService::getMe().sendMoneyMail("å¾é€”æ‹å–è¡Œ", 0, pUser->name, pUser->id, rev->money, "ç«æ‹å¤±è´¥è¿”è¿˜çš„é‡‘é’±", (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID))
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç«æ ‡å¤±è´¥ï¼Œè¯¥ç‰©å“å·²ç»æˆäº¤ï¼Œè´¹ç”¨å·²é€€å›åˆ°é‚®ç®±");
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¾º±êÊ§°Ü");
-						Zebra::logger->error("[ÅÄÂô]%s ¾º±êÊ±Ã»ÕÒµ½¼ÇÂ¼£¬ÍË»ØÓÊ¼şÊ§°Ü auctionID=%u retCode=%d, ¶ªÊ§ money=%u gold=%u", pUser->name, rev->auctionID, retcode, rev->money, rev->gold);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç«æ ‡å¤±è´¥");
+						Zebra::logger->error("[æ‹å–]%s ç«æ ‡æ—¶æ²¡æ‰¾åˆ°è®°å½•ï¼Œé€€å›é‚®ä»¶å¤±è´¥ auctionID=%u retCode=%d, ä¸¢å¤± money=%u gold=%u", pUser->name, rev->auctionID, retcode, rev->money, rev->gold);
 						SessionService::dbConnPool->putHandle(handle);
 						return false;
 					}
@@ -292,20 +292,20 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 					return true;
 				}
 
-				//³ö¼Û´óÓÚÒ»¿Ú¼Û
+				//å‡ºä»·å¤§äºä¸€å£ä»·
 				if ((0==bid.bidType && bid.maxMoney && rev->money>=bid.maxMoney)
 						|| (1==bid.bidType && bid.maxGold && rev->gold>=bid.maxGold))
 				{
 					if (!sendAuctionItem((DWORD)handle, rev->auctionID, AUCTION_STATE_DEAL, false))
 					{
-						Zebra::logger->error("[ÅÄÂô]%s ¾º¼Û³É¹¦·¢ËÍÎïÆ·Ê§°Ü auctionID=%u", pUser->name, rev->auctionID);
+						Zebra::logger->error("[æ‹å–]%s ç«ä»·æˆåŠŸå‘é€ç‰©å“å¤±è´¥ auctionID=%u", pUser->name, rev->auctionID);
 						SessionService::dbConnPool->putHandle(handle);
 						return false;
 					}
 				}
 				else
 				{
-					//Í¨Öª¾º¼ÛÕßË¢ĞÂ¼ÇÂ¼
+					//é€šçŸ¥ç«ä»·è€…åˆ·æ–°è®°å½•
 					stAddListAuction al;
 					al.auctionID = bid.auctionID;
 					al.minMoney = bid.minMoney;
@@ -324,7 +324,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 					al.list = 2;
 					pUser->sendCmdToMe(&al, sizeof(al));
 
-					al.list = 2;//¾ºÅÄÁĞ±í
+					al.list = 2;//ç«æ‹åˆ—è¡¨
 					al.mine = false;
 					UserSession * u = 0;
 					if (strcmp(bidder3, pUser->name))
@@ -340,7 +340,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 							u->sendCmdToMe(&al, sizeof(al));
 					}
 
-					al.list = 3;//ÅÄÂôÕßµÄÅÄÂôÁĞ±í
+					al.list = 3;//æ‹å–è€…çš„æ‹å–åˆ—è¡¨
 					u = UserSessionManager::getInstance()->getUserSessionByName(bid.owner);
 					if (u)
 						u->sendCmdToMe(&al, sizeof(al));
@@ -361,14 +361,14 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 
 				if (0==strcmp(rev->name,"") && 0==rev->type && 0==rev->quality)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÊıÁ¿Ì«¶à£¬ÇëÔö¼ÓÏŞÖÆÌõ¼şÒÔËõĞ¡ËÑË÷·¶Î§");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ•°é‡å¤ªå¤šï¼Œè¯·å¢åŠ é™åˆ¶æ¡ä»¶ä»¥ç¼©å°æœç´¢èŒƒå›´");
 					return true;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_QUERY): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					error("[æ‹å–]doAuctionCmd(PARA_AUCTION_QUERY): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return false;
 				}
 
@@ -420,7 +420,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 
 				if ((DWORD)-1 == retcode)
 				{
-					Zebra::logger->error("[ÅÄÂô]%s ²éÑ¯ÅÄÂôÎïÆ·Ê±´íÎó retCode=%d", pUser->name, retcode);
+					Zebra::logger->error("[æ‹å–]%s æŸ¥è¯¢æ‹å–ç‰©å“æ—¶é”™è¯¯ retCode=%d", pUser->name, retcode);
 					return false;
 				}
 
@@ -445,7 +445,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 
 						pUser->sendCmdToMe(&al, sizeof(al));
 #ifdef _XWL_DEBUG
-				//Zebra::logger->debug("[ÅÄÂô]²éÑ¯µ½ %u Ìõ¼ÇÂ¼ %s", count, where.c_str());
+				//Zebra::logger->debug("[æ‹å–]æŸ¥è¯¢åˆ° %u æ¡è®°å½• %s", count, where.c_str());
 #endif
 					}
 				}
@@ -463,14 +463,14 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->userID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_CHECK_CANCEL): È¡ÏûÅÄÂô¼ì²éÊ±Î´ÕÒµ½ÅÄÂôÕß");
+					Zebra::logger->error("[æ‹å–]doAuctionCmd(PARA_AUCTION_CHECK_CANCEL): å–æ¶ˆæ‹å–æ£€æŸ¥æ—¶æœªæ‰¾åˆ°æ‹å–è€…");
 					return false;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_CHECK_CANCEL): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					error("[æ‹å–]doAuctionCmd(PARA_AUCTION_CHECK_CANCEL): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return false;
 				}
 
@@ -485,13 +485,13 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				SessionService::dbConnPool->putHandle(handle);
 				if ((DWORD)-1 == retcode)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "È¡ÏûÅÄÂôÊ§°Ü");
-					error("[ÅÄÂô]%s È¡ÏûÅÄÂô¼ì²éÊ±²éÑ¯´íÎó auctionID=%u retCode=%d", pUser->name, rev->auctionID, retcode);
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å–æ¶ˆæ‹å–å¤±è´¥");
+					error("[æ‹å–]%s å–æ¶ˆæ‹å–æ£€æŸ¥æ—¶æŸ¥è¯¢é”™è¯¯ auctionID=%u retCode=%d", pUser->name, rev->auctionID, retcode);
 					return false;
 				}
 				if (1 != retcode)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÎŞ·¨È¡ÏûÅÄÂô£¬ÎïÆ·ÒÑ¾­³É½»»ò¹ıÆÚ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ— æ³•å–æ¶ˆæ‹å–ï¼Œç‰©å“å·²ç»æˆäº¤æˆ–è¿‡æœŸ");
 					return true;
 				}
 
@@ -511,14 +511,14 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->userID);
 				if (!pUser)
 				{
-					Zebra::logger->error("[ÅÄÂô]doAuctionCmd(PARA_AUCTION_CANCEL): È¡ÏûÅÄÂôÊ±Î´ÕÒµ½ÅÄÂôÕß");
+					Zebra::logger->error("[æ‹å–]doAuctionCmd(PARA_AUCTION_CANCEL): å–æ¶ˆæ‹å–æ—¶æœªæ‰¾åˆ°æ‹å–è€…");
 					return false;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					error("doAuctionCmd(PARA_AUCTION_CANCEL): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					error("doAuctionCmd(PARA_AUCTION_CANCEL): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return true;
 				}
 
@@ -532,29 +532,29 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				if (1 != retcode
 						|| bid.state!=AUCTION_STATE_NEW)
 				{
-					if (MailService::getMe().sendMoneyMail("Õ÷Í¾ÅÄÂôĞĞ", 0, pUser->name, pUser->id, rev->charge, "È¡ÏûÅÄÂôÊ§°Ü·µ»¹µÄ·ÑÓÃ", (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID))
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÎŞ·¨È¡ÏûÅÄÂô£¬ÎïÆ·ÒÑ¾­³É½»»ò¹ıÆÚ,ÊÖĞø·Ñ·µ»¹µ½ÓÊÏä");
+					if (MailService::getMe().sendMoneyMail("å¾é€”æ‹å–è¡Œ", 0, pUser->name, pUser->id, rev->charge, "å–æ¶ˆæ‹å–å¤±è´¥è¿”è¿˜çš„è´¹ç”¨", (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID))
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ— æ³•å–æ¶ˆæ‹å–ï¼Œç‰©å“å·²ç»æˆäº¤æˆ–è¿‡æœŸ,æ‰‹ç»­è´¹è¿”è¿˜åˆ°é‚®ç®±");
 					else
-						Zebra::logger->error("%s È¡ÏûÅÄÂôÊ±Ã»ÕÒµ½¼ÇÂ¼£¬ÍË»ØÒø×ÓÊ§°Ü auctionID=%u retCode=%d charge=%u", pUser->name, rev->auctionID, retcode, rev->charge);
+						Zebra::logger->error("%s å–æ¶ˆæ‹å–æ—¶æ²¡æ‰¾åˆ°è®°å½•ï¼Œé€€å›é“¶å­å¤±è´¥ auctionID=%u retCode=%d charge=%u", pUser->name, rev->auctionID, retcode, rev->charge);
 					SessionService::dbConnPool->putHandle(handle);
 					return true;
 				}
 
 				if (!sendAuctionItem((DWORD)handle, rev->auctionID, AUCTION_STATE_CANCEL, true))
 				{
-					Zebra::logger->error("%s È¡ÏûÅÄÂô·¢ËÍÎïÆ·Ê§°Ü auctionID=%u charge=%u itemID=%u", pUser->name, rev->auctionID, rev->charge, bid.itemID);
+					Zebra::logger->error("%s å–æ¶ˆæ‹å–å‘é€ç‰©å“å¤±è´¥ auctionID=%u charge=%u itemID=%u", pUser->name, rev->auctionID, rev->charge, bid.itemID);
 					SessionService::dbConnPool->putHandle(handle);
 					return false;
 				}
 				SessionService::dbConnPool->putHandle(handle);
 
 				std::ostringstream s;
-				s<<"Äã¸¶³ö";
-				if (rev->charge/10000) s<<rev->charge/10000<<"¶§";
-				if ((rev->charge%10000)/100) s<<(rev->charge%10000)/100<<"Á½";
-				if (rev->charge%100) s<<rev->charge%100<<"ÎÄ";
-				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Äã¸¶³ö%s£¬È¡ÏûÁË %s µÄÅÄÂô,ÇëÕÒ´«µİÕßÊÕÈ¡ÎïÆ·", s.str().c_str(), bid.item.object.strName);
-				Zebra::logger->trace("[ÅÄÂô]%s È¡ÏûÅÄÂô %s auctionID=%u itemID=%u", pUser->name, bid.item.object.strName, rev->auctionID, bid.itemID);
+				s<<"ä½ ä»˜å‡º";
+				if (rev->charge/10000) s<<rev->charge/10000<<"é”­";
+				if ((rev->charge%10000)/100) s<<(rev->charge%10000)/100<<"ä¸¤";
+				if (rev->charge%100) s<<rev->charge%100<<"æ–‡";
+				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ ä»˜å‡º%sï¼Œå–æ¶ˆäº† %s çš„æ‹å–,è¯·æ‰¾ä¼ é€’è€…æ”¶å–ç‰©å“", s.str().c_str(), bid.item.object.strName);
+				Zebra::logger->trace("[æ‹å–]%s å–æ¶ˆæ‹å– %s auctionID=%u itemID=%u", pUser->name, bid.item.object.strName, rev->auctionID, bid.itemID);
 			}
 			break;
 		case PARA_AUCTION_GET_LIST:
@@ -565,14 +565,14 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				UserSession * pUser = UserSessionManager::getInstance()->getUserByTempID(rev->userID);
 				if (!pUser)
 				{
-					Zebra::logger->error("doAuctionCmd(PARA_AUCTION_GET_LIST): ²éÑ¯Ê±Î´ÕÒµ½Íæ¼Ò");
+					Zebra::logger->error("doAuctionCmd(PARA_AUCTION_GET_LIST): æŸ¥è¯¢æ—¶æœªæ‰¾åˆ°ç©å®¶");
 					return false;
 				}
 
 				connHandleID handle = SessionService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					error("doAuctionCmd(PARA_AUCTION_GET_LIST): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+					error("doAuctionCmd(PARA_AUCTION_GET_LIST): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 					return false;
 				}
 
@@ -581,7 +581,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 				SessionService::dbConnPool->escapeString(handle,pUser->name,escapeName);
 				char where[128];
 				bzero(where, sizeof(where));
-				if (rev->list == 3)//ÅÄÂôÁĞ±í
+				if (rev->list == 3)//æ‹å–åˆ—è¡¨
 					snprintf(where, sizeof(where)-1, "STATE=%u AND OWNER='%s'", AUCTION_STATE_NEW, escapeName.c_str());
 				else
 					snprintf(where, sizeof(where)-1, "STATE=%u AND (BIDDER='%s' OR BIDDER2='%s')", AUCTION_STATE_NEW, escapeName.c_str(), escapeName.c_str());
@@ -592,7 +592,7 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 
 				if ((DWORD)-1 == retcode)
 				{
-					error("%s ²éÑ¯ÅÄÂôÎïÆ·Ê±´íÎó retCode=%d", pUser->name, retcode);
+					error("%s æŸ¥è¯¢æ‹å–ç‰©å“æ—¶é”™è¯¯ retCode=%d", pUser->name, retcode);
 					return false;
 				}
 
@@ -643,9 +643,9 @@ bool AuctionService::doAuctionCmd(const Cmd::Session::t_AuctionCmd *cmd, const D
 	return false;
 }
 
-/* \brief ¶¨Ê±¼ì²éÊı¾İ¿â
+/* \brief å®šæ—¶æ£€æŸ¥æ•°æ®åº“
  * 
- * ÍË»Ø¡¢É¾³ı¹ıÆÚµÄÓÊ¼ş
+ * é€€å›ã€åˆ é™¤è¿‡æœŸçš„é‚®ä»¶
  * 
  */
 void AuctionService::checkDB()
@@ -656,14 +656,14 @@ void AuctionService::checkDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		error("[ÅÄÂô]checkDB: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		error("[æ‹å–]checkDB: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 
 	zRTime ct;
 	char where[128];
 
-	//½áÊøÅÄÂôÊ±¼ä½áÊøµÄ
+	//ç»“æŸæ‹å–æ—¶é—´ç»“æŸçš„
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where), "STATE=%u AND ENDTIME<%lu", AUCTION_STATE_NEW, ct.sec());
 
@@ -671,7 +671,7 @@ void AuctionService::checkDB()
 	DWORD retcode = SessionService::dbConnPool->exeSelect(handle, "`AUCTION`", auction_bid_define, where, NULL, (BYTE **)&bidList);
 	if ((DWORD)-1 == retcode)
 	{
-		error("[ÅÄÂô]checkDB: ³£¹æ¼ì²éÊ§°Ü retCode=%d", retcode);
+		error("[æ‹å–]checkDB: å¸¸è§„æ£€æŸ¥å¤±è´¥ retCode=%d", retcode);
 		SessionService::dbConnPool->putHandle(handle);
 		return;
 	}
@@ -685,30 +685,30 @@ void AuctionService::checkDB()
 			if (0!=strcmp(tempPoint->bidder, ""))
 				toOnwer = false;
 			if (sendAuctionItem((DWORD)handle, tempPoint->auctionID, AUCTION_STATE_TIMEOVER, toOnwer))
-				Zebra::logger->trace("[ÅÄÂô]ÅÄÂôÊ±¼ä½áÊø£¬%sÎïÆ· %s auctionID=%u itemID=%u", toOnwer?"ÍË»Ø":"·¢ËÍ", tempPoint->item.object.strName, tempPoint->auctionID, tempPoint->itemID);
+				Zebra::logger->trace("[æ‹å–]æ‹å–æ—¶é—´ç»“æŸï¼Œ%sç‰©å“ %s auctionID=%u itemID=%u", toOnwer?"é€€å›":"å‘é€", tempPoint->item.object.strName, tempPoint->auctionID, tempPoint->itemID);
 			else
-				Zebra::logger->error("[ÅÄÂô]Ê±¼ä½áÊøÍË»ØÎïÆ·Ê§°Ü auctionID=%u itemID=%u",tempPoint->auctionID, tempPoint->itemID);
+				Zebra::logger->error("[æ‹å–]æ—¶é—´ç»“æŸé€€å›ç‰©å“å¤±è´¥ auctionID=%u itemID=%u",tempPoint->auctionID, tempPoint->itemID);
 			tempPoint++;
 		}
 		SAFE_DELETE_VEC(bidList);
 	}
 
-	//É¾³ı¹ıÆÚµÄ
+	//åˆ é™¤è¿‡æœŸçš„
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where), "ENDTIME<%lu", ct.sec()-864000);
 	retcode = SessionService::dbConnPool->exeDelete(handle, "`AUCTION`", where);
-	if (retcode) Zebra::logger->debug("[ÅÄÂô]É¾³ı %u Ìõ10ÌìÖ®Ç°µÄÅÄÂô¼ÇÂ¼", retcode);
+	if (retcode) Zebra::logger->debug("[æ‹å–]åˆ é™¤ %u æ¡10å¤©ä¹‹å‰çš„æ‹å–è®°å½•", retcode);
 
 	SessionService::dbConnPool->putHandle(handle);
 }
 
-/* \brief ·¢ËÍÅÄÂôµÄÎïÆ·
- * ¿ÉÄÜÊÇÂòµÄ¡¢ÂôµÄ¡¢ÍË»ØµÄ£¬Í¬Ê±·¢ËÍÇ®
+/* \brief å‘é€æ‹å–çš„ç‰©å“
+ * å¯èƒ½æ˜¯ä¹°çš„ã€å–çš„ã€é€€å›çš„ï¼ŒåŒæ—¶å‘é€é’±
  * 
- * \param h Êı¾İ¿â¾ä±ú
- * \param auctionID ÅÄÂô¼ÇÂ¼µÄID
- * \param newState ·¢ËÍÖ®ºóÒªÉèÖÃµÄ×´Ì¬
- * \param toOwner ÊÇ·ñ·¢ËÍ¸øÎïÆ·ÅÄÂôÕß
+ * \param h æ•°æ®åº“å¥æŸ„
+ * \param auctionID æ‹å–è®°å½•çš„ID
+ * \param newState å‘é€ä¹‹åè¦è®¾ç½®çš„çŠ¶æ€
+ * \param toOwner æ˜¯å¦å‘é€ç»™ç‰©å“æ‹å–è€…
  * 
  */
 bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bool toOwner)
@@ -720,7 +720,7 @@ bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bo
 
 	if ((connHandleID)-1 == handle)
 	{               
-		error("[ÅÄÂô]sendAuctionItem: ÎŞĞ§µÄÊı¾İ¿â¾ä±ú");
+		error("[æ‹å–]sendAuctionItem: æ— æ•ˆçš„æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -732,7 +732,7 @@ bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bo
 	unsigned int retcode = SessionService::dbConnPool->exeSelectLimit(handle, "`AUCTION`", auction_bid_define, where, NULL, 1, (BYTE *)&bid);
 	if ((DWORD)-1 == retcode)
 	{
-		error("[ÅÄÂô]sendAuctionItem Êı¾İ¿â²éÑ¯´íÎó auctionID=%u retcode=%d", auctionID, retcode);
+		error("[æ‹å–]sendAuctionItem æ•°æ®åº“æŸ¥è¯¢é”™è¯¯ auctionID=%u retcode=%d", auctionID, retcode);
 		return false;
 	}
 	if (1 != retcode)
@@ -740,7 +740,7 @@ bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bo
 
 	t_sendMail_SceneSession sm;
 	sm.mail.state = MAIL_STATE_NEW;
-	strncpy(sm.mail.fromName, "Õ÷Í¾ÅÄÂôĞĞ", MAX_NAMESIZE);
+	strncpy(sm.mail.fromName, "å¾é€”æ‹å–è¡Œ", MAX_NAMESIZE);
 	sm.mail.type = MAIL_TYPE_AUCTION;
 	zRTime ct;
 	sm.mail.createTime = ct.sec();
@@ -755,38 +755,38 @@ bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bo
 	bzero(buf, sizeof(buf));
 	Cmd::stRemoveListAuction rl;
 	rl.auctionID = auctionID;
-	if (!toOwner)//Âô³ö£¬¸ø¾º±êÕß
+	if (!toOwner)//å–å‡ºï¼Œç»™ç«æ ‡è€…
 	{
 		if (strcmp(bid.bidder, ""))
 		{
 			strncpy(sm.mail.toName, bid.bidder, MAX_NAMESIZE);
 			sm.mail.toID = bid.bidderID;
 			sm.mail.itemID = bid.itemID;
-			snprintf(buf, sizeof(buf), "ÄãÅÄÂôµÄÎïÆ· %s ³É¹¦ÊÛ³ö£¬»ñµÃµÄÒø×Ó¡£ÏµÍ³ÊÕÈ¡1%%µÄ³É½»¶î×÷ÎªÓ¶½ğ", bid.item.object.strName);
-			MailService::getMe().sendMoneyMail("Õ÷Í¾ÅÄÂôĞĞ", 0, bid.owner, bid.ownerID, bid.minMoney*99/100, buf, (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID);//¸øÅÄÂôÕßÇ®
+			snprintf(buf, sizeof(buf), "ä½ æ‹å–çš„ç‰©å“ %s æˆåŠŸå”®å‡ºï¼Œè·å¾—çš„é“¶å­ã€‚ç³»ç»Ÿæ”¶å–1%%çš„æˆäº¤é¢ä½œä¸ºä½£é‡‘", bid.item.object.strName);
+			MailService::getMe().sendMoneyMail("å¾é€”æ‹å–è¡Œ", 0, bid.owner, bid.ownerID, bid.minMoney*99/100, buf, (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID);//ç»™æ‹å–è€…é’±
 
 			UserSession * u = UserSessionManager::getInstance()->getUserSessionByName(bid.owner);
 			if (u)
 			{
-				u->sendSysChat(Cmd::INFO_TYPE_GAME, "ÎïÆ· %s ÅÄÂô³É¹¦,Çë×¢Òâ²éÊÕÓÊ¼ş", bid.item.object.strName);
+				u->sendSysChat(Cmd::INFO_TYPE_GAME, "ç‰©å“ %s æ‹å–æˆåŠŸ,è¯·æ³¨æ„æŸ¥æ”¶é‚®ä»¶", bid.item.object.strName);
 				rl.list = 4;
 				u->sendCmdToMe(&rl, sizeof(rl));
 			}
 			u = UserSessionManager::getInstance()->getUserSessionByName(bid.bidder);
 			if (u)
 			{
-				u->sendSysChat(Cmd::INFO_TYPE_GAME, "ÎïÆ· %s ¾ºÅÄ³É¹¦,Çë×¢Òâ²éÊÕÓÊ¼ş", bid.item.object.strName);
+				u->sendSysChat(Cmd::INFO_TYPE_GAME, "ç‰©å“ %s ç«æ‹æˆåŠŸ,è¯·æ³¨æ„æŸ¥æ”¶é‚®ä»¶", bid.item.object.strName);
 				rl.list = 4;
 				u->sendCmdToMe(&rl, sizeof(rl));
 			}
 
-			snprintf(sm.mail.text, sizeof(sm.mail.text), "¾ºÅÄ %s ³É¹¦", bid.item.object.strName);
-			strcpy(sm.mail.title, "¾ºÅÄ³É¹¦");
-			Zebra::logger->trace("[ÅÄÂô]%s Ó®µÃÎïÆ· %s auctionID=%u itemID=%u", bid.bidder, bid.item.object.strName, auctionID, bid.itemID);
+			snprintf(sm.mail.text, sizeof(sm.mail.text), "ç«æ‹ %s æˆåŠŸ", bid.item.object.strName);
+			strcpy(sm.mail.title, "ç«æ‹æˆåŠŸ");
+			Zebra::logger->trace("[æ‹å–]%s èµ¢å¾—ç‰©å“ %s auctionID=%u itemID=%u", bid.bidder, bid.item.object.strName, auctionID, bid.itemID);
 		}
 		else
 		{
-			Zebra::logger->error("[ÅÄÂô]sendAuctionItem: ¾º±êÕßµÄÃû×ÖÎª¿Õ auctionID=%u, itemID=%u", auctionID, bid.itemID);
+			Zebra::logger->error("[æ‹å–]sendAuctionItem: ç«æ ‡è€…çš„åå­—ä¸ºç©º auctionID=%u, itemID=%u", auctionID, bid.itemID);
 			return false;
 		}
 	}
@@ -796,26 +796,26 @@ bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bo
 		sm.mail.toID = bid.ownerID;
 		if (newState==AUCTION_STATE_CANCEL)
 		{
-			strncpy(sm.mail.title, "È¡ÏûÅÄÂô", sizeof(sm.mail.title));
-			snprintf(sm.mail.text, sizeof(sm.mail.text), "ÄãÈ¡ÏûÅÄÂô %s", bid.item.object.strName);
+			strncpy(sm.mail.title, "å–æ¶ˆæ‹å–", sizeof(sm.mail.title));
+			snprintf(sm.mail.text, sizeof(sm.mail.text), "ä½ å–æ¶ˆæ‹å– %s", bid.item.object.strName);
 		}
 		else
 		{
-			strncpy(sm.mail.title, "ÎïÆ·±»ÍË»Ø", sizeof(sm.mail.title));
-			snprintf(sm.mail.text, sizeof(sm.mail.text), "ÅÄÂôĞĞ·µ»¹ÁËÄãµÄ %s", bid.item.object.strName);
+			strncpy(sm.mail.title, "ç‰©å“è¢«é€€å›", sizeof(sm.mail.title));
+			snprintf(sm.mail.text, sizeof(sm.mail.text), "æ‹å–è¡Œè¿”è¿˜äº†ä½ çš„ %s", bid.item.object.strName);
 		}
 
 		UserSession * u = UserSessionManager::getInstance()->getUserSessionByName(bid.owner);
 		if (u)
 		{
-			u->sendSysChat(Cmd::INFO_TYPE_GAME, "ÄãµÄÎïÆ· %s ½áÊøÅÄÂô,Çë×¢Òâ²éÊÕÓÊ¼ş", bid.item.object.strName);
+			u->sendSysChat(Cmd::INFO_TYPE_GAME, "ä½ çš„ç‰©å“ %s ç»“æŸæ‹å–,è¯·æ³¨æ„æŸ¥æ”¶é‚®ä»¶", bid.item.object.strName);
 			rl.list = 4;
 			u->sendCmdToMe(&rl, sizeof(rl));
 		}
 		if (strcmp(bid.bidder, ""))
 		{
-			snprintf(buf, sizeof(buf), "Äã¾ºÅÄÎïÆ· %s Ê§°Ü£¬ÍË»ØµÄÒø×Ó", bid.item.object.strName);
-			MailService::getMe().sendMoneyMail("Õ÷Í¾ÅÄÂôĞĞ", 0, bid.bidder, bid.bidderID, bid.minMoney, buf, (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID);//¸ø¾º±êÕßÇ®
+			snprintf(buf, sizeof(buf), "ä½ ç«æ‹ç‰©å“ %s å¤±è´¥ï¼Œé€€å›çš„é“¶å­", bid.item.object.strName);
+			MailService::getMe().sendMoneyMail("å¾é€”æ‹å–è¡Œ", 0, bid.bidder, bid.bidderID, bid.minMoney, buf, (DWORD)handle, MAIL_TYPE_AUCTION, bid.itemID);//ç»™ç«æ ‡è€…é’±
 			u = UserSessionManager::getInstance()->getUserSessionByName(bid.bidder);
 			if (u)
 			{
@@ -823,7 +823,7 @@ bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bo
 				u->sendCmdToMe(&rl, sizeof(rl));
 			}
 		}
-		Zebra::logger->trace("[ÅÄÂô]%s È¡»ØÎïÆ· %s auctionID=%u itemID=%u", bid.owner, bid.item.object.strName, auctionID, bid.itemID);
+		Zebra::logger->trace("[æ‹å–]%s å–å›ç‰©å“ %s auctionID=%u itemID=%u", bid.owner, bid.item.object.strName, auctionID, bid.itemID);
 	}
 	bcopy(&bid.item, &sm.item, sizeof(SessionObject));
 
@@ -833,22 +833,22 @@ bool AuctionService::sendAuctionItem(DWORD h, DWORD auctionID, BYTE newState, bo
 		retcode = SessionService::dbConnPool->exeUpdate(handle, "`AUCTION`", auction_bid_define, (BYTE *)&bid, where);
 		if (retcode!=1)
 		{
-			error("[ÅÄÂô]sendAuctionItem: ¸üĞÂÅÄÂô×´Ì¬Ê§°Ü auctionID=%u itemID=%u", auctionID, bid.itemID);
+			error("[æ‹å–]sendAuctionItem: æ›´æ–°æ‹å–çŠ¶æ€å¤±è´¥ auctionID=%u itemID=%u", auctionID, bid.itemID);
 			return false;
 		}
 		return true;
 	}
 	else
 	{
-		Zebra::logger->error("[ÅÄÂô]sendAuctionItem: ÅÄÂô½áÊø·¢ËÍÎïÆ·Ê§°Ü auctionID=%u itemID=%u", auctionID, bid.itemID);
+		Zebra::logger->error("[æ‹å–]sendAuctionItem: æ‹å–ç»“æŸå‘é€ç‰©å“å¤±è´¥ auctionID=%u itemID=%u", auctionID, bid.itemID);
 		return false;
 	}
 }
 
-/* \brief ¸ù¾İÍæ¼ÒÃû×ÖÉ¾³ıËûËùÓĞÅÄÂô¼ÇÂ¼
- * °üÀ¨Âô³ö¡¢¾ºÅÄºÍ³ö¼Û¼ÇÂ¼È«¶¼É¾³ı
+/* \brief æ ¹æ®ç©å®¶åå­—åˆ é™¤ä»–æ‰€æœ‰æ‹å–è®°å½•
+ * åŒ…æ‹¬å–å‡ºã€ç«æ‹å’Œå‡ºä»·è®°å½•å…¨éƒ½åˆ é™¤
  * 
- * \param name ½ÇÉ«Ãû×Ö
+ * \param name è§’è‰²åå­—
  * 
  */
 void AuctionService::delAuctionRecordByName(char * name)
@@ -859,7 +859,7 @@ void AuctionService::delAuctionRecordByName(char * name)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		error("[ÅÄÂô]delAuctionRecordByName: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü name=%s", name);
+		error("[æ‹å–]delAuctionRecordByName: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥ name=%s", name);
 		return;
 	}
 
@@ -880,7 +880,7 @@ void AuctionService::delAuctionRecordByName(char * name)
 
 	SessionService::dbConnPool->putHandle(handle);
 
-	Zebra::logger->trace("[ÅÄÂô]É¾³ı½ÇÉ«ËùÓĞÅÄÂô¼ÇÂ¼£ºname=%s", name);
+	Zebra::logger->trace("[æ‹å–]åˆ é™¤è§’è‰²æ‰€æœ‰æ‹å–è®°å½•ï¼šname=%s", name);
 }
 
 #define getMessage(msg,msglen,pat)	\
@@ -899,8 +899,8 @@ bool AuctionService::error(const char * msg, ...)
 	bzero(buf, sizeof(buf));
 	getMessage(buf, MAX_CHATINFO, msg);
 
-	Zebra::logger->error("[ÅÄÂô]%s", buf);
-	SessionService::getInstance().reportGm("[ÅÄÂô]", buf);
+	Zebra::logger->error("[æ‹å–]%s", buf);
+	SessionService::getInstance().reportGm("[æ‹å–]", buf);
 
 	return true;
 }

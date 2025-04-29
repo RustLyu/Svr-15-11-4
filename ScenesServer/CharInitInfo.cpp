@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CharInitInfo.cpp  $
  * \author  
  * \date 
- * \brief ³õÊ¼½ÇÉ«ĞÅÏ¢
+ * \brief åˆå§‹è§’è‰²ä¿¡æ¯
  *
  * 
  */
@@ -21,10 +21,10 @@
 CharInitInfo *CharInitInfo::instance = NULL;
 
 /**
- * \brief ³õÊ¼»¯ĞÂÊÖĞÅÏ¢(¶ÁÈ¡ÅäÖÃÎÄ¼şcharinitinfoFile.xml)
+ * \brief åˆå§‹åŒ–æ–°æ‰‹ä¿¡æ¯(è¯»å–é…ç½®æ–‡ä»¶charinitinfoFile.xml)
  *
  *
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool CharInitInfo::init()
 {
@@ -34,7 +34,7 @@ bool CharInitInfo::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["charinitinfoFile"]))
 	{
-		Zebra::logger->error("¼ÓÔØ½ÇÉ«³õÊ¼ĞÅÏ¢ÅäÖÃÎÄ¼ş %s Ê§°Ü", Zebra::global["charinitinfoFile"].c_str());
+		Zebra::logger->error("åŠ è½½è§’è‰²åˆå§‹ä¿¡æ¯é…ç½®æ–‡ä»¶ %s å¤±è´¥", Zebra::global["charinitinfoFile"].c_str());
 		return false;
 	}
 
@@ -58,22 +58,22 @@ bool CharInitInfo::init()
 
 			node = xml.getNextNode(node, NULL);
 		}
-		Zebra::logger->info("³õÊ¼»¯³õÊ¼ÎïÆ·ÏµÍ³³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–åˆå§‹ç‰©å“ç³»ç»ŸæˆåŠŸ");
 		rwlock.unlock();
 		return true;
 	}
 	rwlock.unlock();
 
-	Zebra::logger->error("¼ÓÔØ½ÇÉ«³õÊ¼ĞÅÏ¢ÅäÖÃÎÄ¼ş %s Ê§°Ü", Zebra::global["charinitinfoFile"].c_str());
+	Zebra::logger->error("åŠ è½½è§’è‰²åˆå§‹ä¿¡æ¯é…ç½®æ–‡ä»¶ %s å¤±è´¥", Zebra::global["charinitinfoFile"].c_str());
 	return false;
 }
 
 /**
- * \brief ¸ù¾İÖ°ÒµµÃµ½ĞÂÊÖÎïÆ·
+ * \brief æ ¹æ®èŒä¸šå¾—åˆ°æ–°æ‰‹ç‰©å“
  *
  *
- * \param profession: Ö°Òµ
- * \param objs: ¸ÃÖ°ÒµµÄĞÂÊÖÎïÆ·(Êä³ö)
+ * \param profession: èŒä¸š
+ * \param objs: è¯¥èŒä¸šçš„æ–°æ‰‹ç‰©å“(è¾“å‡º)
  */
 void CharInitInfo::get(const WORD profession, InitObjectVector &objs)
 {
@@ -97,7 +97,7 @@ void CharInitInfo::get(const WORD profession, InitObjectVector &objs)
 }
 
 /**
- * \brief Çå¿ÕĞÂÊÖÎïÆ·ÁĞ±í
+ * \brief æ¸…ç©ºæ–°æ‰‹ç‰©å“åˆ—è¡¨
  *
  *
  */

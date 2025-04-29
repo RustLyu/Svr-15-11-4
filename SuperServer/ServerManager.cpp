@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ServerManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ·şÎñÆ÷¹ÜÀíÈİÆ÷
+ * \brief å®ç°æœåŠ¡å™¨ç®¡ç†å®¹å™¨
  *
- * Õâ¸öÈİÆ÷°üÀ¨È«¾ÖÈİÆ÷ºÍÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷
+ * è¿™ä¸ªå®¹å™¨åŒ…æ‹¬å…¨å±€å®¹å™¨å’Œå”¯ä¸€æ€§éªŒè¯å®¹å™¨
  * 
  */
 
@@ -22,9 +22,9 @@
 ServerManager *ServerManager::instance = NULL;
 
 /**
- * \brief Ìí¼ÓÒ»¸ö·şÎñÆ÷Á¬½ÓÈÎÎñµ½ÈİÆ÷ÖĞ
+ * \brief æ·»åŠ ä¸€ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡åˆ°å®¹å™¨ä¸­
  *
- * \param task ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \param task æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  */
 void ServerManager::addServer(ServerTask *task)
 {
@@ -38,9 +38,9 @@ void ServerManager::addServer(ServerTask *task)
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÉ¾³ıÒ»¸ö·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief ä»å®¹å™¨ä¸­åˆ é™¤ä¸€ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
- * \param task ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \param task æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  */
 void ServerManager::removeServer(ServerTask *task)
 {
@@ -54,10 +54,10 @@ void ServerManager::removeServer(ServerTask *task)
 }
 
 /**
- * \brief ¸ù¾İ±àºÅ²éÕÒÒ»¸ö·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æ ¹æ®ç¼–å·æŸ¥æ‰¾ä¸€ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
- * \param wdServerID ·şÎñÆ÷±àºÅ
- * \return ·µ»ØÊÊºÏµÄ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
+ * \return è¿”å›é€‚åˆçš„æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  */
 ServerTask *ServerManager::getServer(WORD wdServerID)
 {
@@ -80,10 +80,10 @@ ServerTask *ServerManager::getServer(WORD wdServerID)
 }
 
 /**
- * \brief °ÑÒ»¸ö·şÎñÆ÷Á¬½ÓÈÎÎñÌí¼Óµ½Î¨Ò»ĞÔÈİÆ÷ÖĞ
+ * \brief æŠŠä¸€ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡æ·»åŠ åˆ°å”¯ä¸€æ€§å®¹å™¨ä¸­
  *
- * \param task ·şÎñÆ÷Á¬½ÓÈÎÎñ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦£¬Ò²¾ÍÊÇÎ¨Ò»ĞÔÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param task æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸï¼Œä¹Ÿå°±æ˜¯å”¯ä¸€æ€§éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::uniqueAdd(ServerTask *task)
 {
@@ -103,10 +103,10 @@ bool ServerManager::uniqueAdd(ServerTask *task)
 }
 
 /**
- * \brief ÑéÖ¤Õâ¸ö·şÎñÆ÷ÊÇ·ñÒÑ¾­Æô¶¯
+ * \brief éªŒè¯è¿™ä¸ªæœåŠ¡å™¨æ˜¯å¦å·²ç»å¯åŠ¨
  *
- * \param wdServerID ·şÎñÆ÷±àºÅ
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::uniqueVerify(const WORD wdServerID)
 {
@@ -124,10 +124,10 @@ bool ServerManager::uniqueVerify(const WORD wdServerID)
 }
 
 /**
- * \brief ´ÓÎ¨Ò»ĞÔÈİÆ÷ÖĞÉ¾³ıÒ»¸öÁ¬½ÓÈÎÎñ
+ * \brief ä»å”¯ä¸€æ€§å®¹å™¨ä¸­åˆ é™¤ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * \param task ·şÎñÆ÷Á¬½ÓÈÎÎñ
- * \return É¾³ıÊÇ·ñ³É¹¦
+ * \param task æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
+ * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::uniqueRemove(ServerTask *task)
 {
@@ -146,11 +146,11 @@ bool ServerManager::uniqueRemove(ServerTask *task)
 }
 
 /**
- * \brief ÏòÈİÆ÷ÖĞËùÓĞµÄ·şÎñÆ÷¹ã²¥Ö¸Áî
+ * \brief å‘å®¹å™¨ä¸­æ‰€æœ‰çš„æœåŠ¡å™¨å¹¿æ’­æŒ‡ä»¤
  *
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::broadcast(const void *pstrCmd, int nCmdLen)
 {
@@ -168,12 +168,12 @@ bool ServerManager::broadcast(const void *pstrCmd, int nCmdLen)
 }
 
 /**
- * \brief ¸ù¾İ·şÎñÆ÷±àºÅ¹ã²¥Ö¸Áî
+ * \brief æ ¹æ®æœåŠ¡å™¨ç¼–å·å¹¿æ’­æŒ‡ä»¤
  *
- * \param wdServerID ´ı¹ã²¥Ö¸ÁîµÄ·şÎñÆ÷±àºÅ
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param wdServerID å¾…å¹¿æ’­æŒ‡ä»¤çš„æœåŠ¡å™¨ç¼–å·
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::broadcastByID(const WORD wdServerID, const void *pstrCmd, int nCmdLen)
 {
@@ -195,12 +195,12 @@ bool ServerManager::broadcastByID(const WORD wdServerID, const void *pstrCmd, in
 }
 
 /**
- * \brief ¸ù¾İ·şÎñÆ÷ÀàĞÍ¹ã²¥Ö¸Áî
+ * \brief æ ¹æ®æœåŠ¡å™¨ç±»å‹å¹¿æ’­æŒ‡ä»¤
  *
- * \param wdType ´ı¹ã²¥Ö¸ÁîµÄ·şÎñÆ÷ÀàĞÍ
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param wdType å¾…å¹¿æ’­æŒ‡ä»¤çš„æœåŠ¡å™¨ç±»å‹
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool ServerManager::broadcastByType(const WORD wdType, const void *pstrCmd, int nCmdLen)
 {
@@ -219,8 +219,8 @@ bool ServerManager::broadcastByType(const WORD wdType, const void *pstrCmd, int 
 }
 
 /**
- * \brief Í³¼ÆÒ»¸öÇøµÄÔÚÏßÈËÊı
- * \return µÃµ½Ò»¸öÇøµÄµ±Ç°×ÜÔÚÏßÈËÊı
+ * \brief ç»Ÿè®¡ä¸€ä¸ªåŒºçš„åœ¨çº¿äººæ•°
+ * \return å¾—åˆ°ä¸€ä¸ªåŒºçš„å½“å‰æ€»åœ¨çº¿äººæ•°
  */
 const DWORD ServerManager::caculateOnlineNum()
 {
@@ -238,9 +238,9 @@ const DWORD ServerManager::caculateOnlineNum()
 }
 
 /**
- * \brief ÊÕµ½notifyOther»Ø¸´
- * \param srcID Ô´·şÎñÆ÷±àºÅ
- * \param wdServerID Ä¿µÄ·şÎñÆ÷±àºÅ
+ * \brief æ”¶åˆ°notifyOtherå›å¤
+ * \param srcID æºæœåŠ¡å™¨ç¼–å·
+ * \param wdServerID ç›®çš„æœåŠ¡å™¨ç¼–å·
  */
 void ServerManager::responseOther(const WORD srcID, const WORD wdServerID)
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zDatabase.cpp  $
  * \author  
  * \date 
- * \brief ZebraÓÎÏ·ÖĞËùÓĞ»ù±¾Êı¾İ½á¹¹µÄÉùÃ÷¶¨Òå
+ * \brief Zebraæ¸¸æˆä¸­æ‰€æœ‰åŸºæœ¬æ•°æ®ç»“æ„çš„å£°æ˜å®šä¹‰
  */
 
 #include "zDatabase.h"

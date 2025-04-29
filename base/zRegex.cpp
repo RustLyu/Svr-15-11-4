@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zRegex.cpp  $
  * \author  
  * \date 
- * \brief ÕıÔò±í´ïÊ½Àà¶¨Òå
+ * \brief æ­£åˆ™è¡¨è¾¾å¼ç±»å®šä¹‰
  *
  */
 
@@ -18,7 +18,7 @@ const int zRegex::REG_MULTILINE(REG_NEWLINE);
 const int zRegex::REG_DEFAULT(0);
 
 /**
- * \brief ¹¹Ôìº¯Êı 
+ * \brief æ„é€ å‡½æ•° 
  */
 zRegex::zRegex()
 {
@@ -28,7 +28,7 @@ zRegex::zRegex()
 }
 
 /**
- * \brief Îö¹¹º¯Êı 
+ * \brief ææ„å‡½æ•° 
  */
 zRegex::~zRegex()
 {
@@ -39,11 +39,11 @@ zRegex::~zRegex()
 }
 
 /**
- * \brief ÕıÔò±í´ïÊ½±àÒëº¯Êı
+ * \brief æ­£åˆ™è¡¨è¾¾å¼ç¼–è¯‘å‡½æ•°
  *
- * \param regex Òª±àÒëµÄÕıÔò±í´ïÊ½ 
- * \param flags ±àÒëÑ¡Ïî£¬Ä¿Ç°Ö§³Ö#REG_MULTILINE,#REG_DEFAULT,Èç¹ûÄã²»ÖªµÀÓÃÊ²Ã´½¨ÒéÓÃÄ¬ÈÏÖµ 
- * \return ±àÒëÊÇ·ñ³É¹¦ 
+ * \param regex è¦ç¼–è¯‘çš„æ­£åˆ™è¡¨è¾¾å¼ 
+ * \param flags ç¼–è¯‘é€‰é¡¹ï¼Œç›®å‰æ”¯æŒ#REG_MULTILINE,#REG_DEFAULT,å¦‚æœä½ ä¸çŸ¥é“ç”¨ä»€ä¹ˆå»ºè®®ç”¨é»˜è®¤å€¼ 
+ * \return ç¼–è¯‘æ˜¯å¦æˆåŠŸ 
  */
 bool zRegex::compile(const char * regex,int flags)
 {
@@ -69,10 +69,10 @@ bool zRegex::compile(const char * regex,int flags)
 }
 
 /**
- * \brief ¿ªÊ¼Æ¥Åä×Ö·û´®,ÔÚÆ¥ÅäÇ°Çë±£Ö¤ÒÑ¾­ÕıÈ·±àÒëÁËÕıÔò±í´ïÊ½#compile
+ * \brief å¼€å§‹åŒ¹é…å­—ç¬¦ä¸²,åœ¨åŒ¹é…å‰è¯·ä¿è¯å·²ç»æ­£ç¡®ç¼–è¯‘äº†æ­£åˆ™è¡¨è¾¾å¼#compile
  *
- * \param s ÒªÆ¥ÅäµÄ×Ö·û´®
- * \return Æ¥ÅäÊÇ·ñ³É¹¦ 
+ * \param s è¦åŒ¹é…çš„å­—ç¬¦ä¸²
+ * \return åŒ¹é…æ˜¯å¦æˆåŠŸ 
  */
 bool zRegex::match(const char *s)
 {
@@ -89,11 +89,11 @@ bool zRegex::match(const char *s)
 }
 
 /**
- * \brief µÃµ½Æ¥ÅäµÄ×Ó×Ö·û´®,ÔÚ´ËÖ®Ç°Çë±£Ö¤ÒÑ¾­ÕıÈ·µÃ½øĞĞÆ¥Åä#match
+ * \brief å¾—åˆ°åŒ¹é…çš„å­å­—ç¬¦ä¸²,åœ¨æ­¤ä¹‹å‰è¯·ä¿è¯å·²ç»æ­£ç¡®å¾—è¿›è¡ŒåŒ¹é…#match
  *
- * \param s µÃµ½µÄ×Ö·û´®½«·ÅÈësÖĞ
- * \param sub ×Ó×Ö·û´®µÄÎ»ÖÃ¡£×¢ÒâÆ¥ÅäµÄ×Ö·û´®Î»ÖÃÎª0£¬ÆäËû×Ó×Ö·û´®ÒÔ´ËÀàÍÆ.×î´óÖµÎª31
- * \return ·µ»Øs 
+ * \param s å¾—åˆ°çš„å­—ç¬¦ä¸²å°†æ”¾å…¥sä¸­
+ * \param sub å­å­—ç¬¦ä¸²çš„ä½ç½®ã€‚æ³¨æ„åŒ¹é…çš„å­—ç¬¦ä¸²ä½ç½®ä¸º0ï¼Œå…¶ä»–å­å­—ç¬¦ä¸²ä»¥æ­¤ç±»æ¨.æœ€å¤§å€¼ä¸º31
+ * \return è¿”å›s 
  */
 std::string &zRegex::getSub(std::string &s,int sub)
 {
@@ -112,8 +112,8 @@ std::string &zRegex::getSub(std::string &s,int sub)
 }
 
 /**
- * \brief µÃµ½´íÎóĞÅÏ¢ 
- * \return µ±½øĞĞ#compile»ò#matchÊ±·µ»Øfalse,¿ÉÒÔÓÃ´ËµÃµ½´íÎóĞÅÏ¢
+ * \brief å¾—åˆ°é”™è¯¯ä¿¡æ¯ 
+ * \return å½“è¿›è¡Œ#compileæˆ–#matchæ—¶è¿”å›false,å¯ä»¥ç”¨æ­¤å¾—åˆ°é”™è¯¯ä¿¡æ¯
  */
 const std::string & zRegex::getError()
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPClientTaskPool.h  $
  * \author  
  * \date 
- * \brief ·â×°ÊµÏÖÏß³Ì³Ø£¬ÓÃÓÚ´¦Àí¶àÁ¬½Ó·şÎñÆ÷
+ * \brief å°è£…å®ç°çº¿ç¨‹æ± ï¼Œç”¨äºå¤„ç†å¤šè¿æ¥æœåŠ¡å™¨
  *
  * 
  */
@@ -30,7 +30,7 @@ class zCheckwaitThread;
 class zTCPClientTaskThread;
 
 /**
- * \brief Á¬½ÓÏß³Ì³ØÀà£¬·â×°ÁËÒ»¸öÏß³Ì´¦Àí¶à¸öÁ¬½ÓµÄÏß³Ì³Ø¿ò¼Ü
+ * \brief è¿æ¥çº¿ç¨‹æ± ç±»ï¼Œå°è£…äº†ä¸€ä¸ªçº¿ç¨‹å¤„ç†å¤šä¸ªè¿æ¥çš„çº¿ç¨‹æ± æ¡†æ¶
  *
  */
 class zTCPClientTaskPool : private zNoncopyable
@@ -62,38 +62,38 @@ class zTCPClientTaskPool : private zNoncopyable
 		zTCPClientTaskThread *newThread();
 
 		/**
-		 * \brief Á¬½Ó¼ì²âÏß³Ì
+		 * \brief è¿æ¥æ£€æµ‹çº¿ç¨‹
 		 *
 		 */
 		zCheckconnectThread *checkconnectThread;;
 		/**
-		 * \brief Á¬½ÓµÈ´ı·µ»ØĞÅÏ¢µÄÏß³Ì
+		 * \brief è¿æ¥ç­‰å¾…è¿”å›ä¿¡æ¯çš„çº¿ç¨‹
 		 *
 		 */
 		zCheckwaitThread *checkwaitThread;;
 		/**
-		 * \brief ËùÓĞ³É¹¦Á¬½Ó´¦ÀíµÄÖ÷Ïß³Ì
+		 * \brief æ‰€æœ‰æˆåŠŸè¿æ¥å¤„ç†çš„ä¸»çº¿ç¨‹
 		 *
 		 */
 		zThreadGroup taskThreads;
 
 		/**
-		 * \brief Á¬½ÓÈÎÎñÁ´±í
+		 * \brief è¿æ¥ä»»åŠ¡é“¾è¡¨
 		 *
 		 */
 		typedef std::list<zTCPClientTask *, __gnu_cxx::__pool_alloc<zTCPClientTask *> > zTCPClientTaskContainer;
 
 		/**
-		 * \brief Á¬½ÓÈÎÎñÁ´±íµş´úÆ÷
+		 * \brief è¿æ¥ä»»åŠ¡é“¾è¡¨å ä»£å™¨
 		 *
 		 */
 		typedef zTCPClientTaskContainer::iterator zTCPClientTask_IT;
 
-		zMutex mlock;					/**< »¥³â±äÁ¿ */
-		zTCPClientTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
+		zMutex mlock;					/**< äº’æ–¥å˜é‡ */
+		zTCPClientTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
 
 	public:
-		int usleep_time;                                        /**< Ñ­»·µÈ´ıÊ±¼ä */
+		int usleep_time;                                        /**< å¾ªç¯ç­‰å¾…æ—¶é—´ */
 };
 
 #endif

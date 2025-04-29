@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneQuiz.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ¾ºÈü´¦ÀíµÄÀà
+ * \brief å®ç°ç«èµ›å¤„ç†çš„ç±»
  *
  * 
  */
@@ -18,7 +18,7 @@
 using namespace QuizDef;
 
 /**
- * \brief ±È½Ï½»Õ½ÎïÆ·
+ * \brief æ¯”è¾ƒäº¤æˆ˜ç‰©å“
  *
  */
 /*
@@ -37,12 +37,12 @@ class DareObjectCompare:public UserObjectCompare
 
 
 /**
- * \brief Ö´ĞĞÌôÕ½Ö¸Áî
+ * \brief æ‰§è¡ŒæŒ‘æˆ˜æŒ‡ä»¤
  *
  *
- * \param rev ÌôÕ½Ö¸Áî
- * \param cmdLen ÏûÏ¢³¤¶È
- * \return ÊÇ·ñ³É¹¦
+ * \param rev æŒ‘æˆ˜æŒ‡ä»¤
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneUser::doQuizCmd(const Cmd::stQuizUserCmd *rev,unsigned int cmdLen)
 {
@@ -58,12 +58,12 @@ bool SceneUser::doQuizCmd(const Cmd::stQuizUserCmd *rev,unsigned int cmdLen)
 				{
 					this->setState(zSceneEntry::SceneEntry_Hide);
 
-					//Í¨Öª9ÆÁÉ¾³ı¸Ã½ÇÉ«
+					//é€šçŸ¥9å±åˆ é™¤è¯¥è§’è‰²
 					Cmd::stRemoveUserMapScreenUserCmd remove;
 					remove.dwUserTempID = this->tempid;
 					this->scene->sendCmdToNine(this->getPosI(),&remove,sizeof(remove));
 
-					//ÒÆ³ıblock
+					//ç§»é™¤block
 					this->scene->clearBlock(this->getPos());	
 					this->isQuiz = true;
 				}
@@ -72,7 +72,7 @@ bool SceneUser::doQuizCmd(const Cmd::stQuizUserCmd *rev,unsigned int cmdLen)
 			}
 			break;
 		case Cmd::CREATE_QUIZ_PARA:
-			{//¼ì²éÒøÁ½£¬²¢·¢ËÍ¾ºÈü¿ªÊ¼Ö¸Áî¸øSession
+			{//æ£€æŸ¥é“¶ä¸¤ï¼Œå¹¶å‘é€ç«èµ›å¼€å§‹æŒ‡ä»¤ç»™Session
 				Cmd::stCreateQuiz* cmd = (Cmd::stCreateQuiz*)rev;
 				Cmd::Session::t_createQuiz_SceneSession send;
 				DWORD needMoney = 0;
@@ -85,13 +85,13 @@ bool SceneUser::doQuizCmd(const Cmd::stQuizUserCmd *rev,unsigned int cmdLen)
 
 				if (this->charbase.answerCount>5)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äú½ñÌìÒÑ¾­»Ø´ğ5´ÎÁËÅ¶,¸ÃĞİÏ¢ĞİÏ¢ÁË");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨ä»Šå¤©å·²ç»å›ç­”5æ¬¡äº†å“¦,è¯¥ä¼‘æ¯ä¼‘æ¯äº†");
 					return true;
 
 				}
 
 //				needMoney = (DWORD)(0.05*this->charbase.level * (0.5+0.5*0.02*this->charbase.level));
-//	½ğÇ®ÊÕÈ¡£¨Á½£©=¡¡int(½ÇÉ«µÈ¼¶/20 + 1) * £¨n + int(½ÇÉ«µÈ¼¶/30 + 1)£©
+//	é‡‘é’±æ”¶å–ï¼ˆä¸¤ï¼‰=ã€€int(è§’è‰²ç­‰çº§/20 + 1) * ï¼ˆn + int(è§’è‰²ç­‰çº§/30 + 1)ï¼‰
 				needMoney = (DWORD)((this->charbase.level/20+1) * ((this->charbase.answerCount)+(this->charbase.level/30+1)));
 				needMoney = needMoney * 100;
 /*
@@ -116,7 +116,7 @@ bool SceneUser::doQuizCmd(const Cmd::stQuizUserCmd *rev,unsigned int cmdLen)
 					else
 					{
 						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, 
-								"ÒøÁ½²»×ã %d ÎÄ£¬²»ÄÜ½øĞĞÎÊ´ğ¡£", needMoney);
+								"é“¶ä¸¤ä¸è¶³ %d æ–‡ï¼Œä¸èƒ½è¿›è¡Œé—®ç­”ã€‚", needMoney);
 					}
 
 					return true;
@@ -127,9 +127,9 @@ bool SceneUser::doQuizCmd(const Cmd::stQuizUserCmd *rev,unsigned int cmdLen)
 					if (needMoney>0)	
 					{
 						if (this->packs.checkMoney(needMoney) 
-								&& this->packs.removeMoney(needMoney,"´ğÌâ"))
+								&& this->packs.removeMoney(needMoney,"ç­”é¢˜"))
 						{
-							Zebra::logger->trace("[¸öÈË´ğÌâ]:%s ±¾´Î´ğÌâ»¨·Ñ%d, µÚ%d´Î´ğÌâ", 
+							Zebra::logger->trace("[ä¸ªäººç­”é¢˜]:%s æœ¬æ¬¡ç­”é¢˜èŠ±è´¹%d, ç¬¬%dæ¬¡ç­”é¢˜", 
 									this->name, needMoney, this->charbase.answerCount);
 
 							this->charbase.answerCount++;
@@ -138,27 +138,27 @@ bool SceneUser::doQuizCmd(const Cmd::stQuizUserCmd *rev,unsigned int cmdLen)
 							send.type = QuizDef::PERSONAL_QUIZ;
 							send.dwSubjects = subjects; 
 							sessionClient->sendCmd(&send, sizeof(send));
-							// ½øÈëÒşÉí×´Ì¬
+							// è¿›å…¥éšèº«çŠ¶æ€
 							this->setState(zSceneEntry::SceneEntry_Hide);
 
-							//Í¨Öª9ÆÁÉ¾³ı¸Ã½ÇÉ«
+							//é€šçŸ¥9å±åˆ é™¤è¯¥è§’è‰²
 							Cmd::stRemoveUserMapScreenUserCmd remove;
 							remove.dwUserTempID = this->tempid;
 							this->scene->sendCmdToNine(this->getPosI(),&remove,sizeof(remove));
 
-							//ÒÆ³ıblock
+							//ç§»é™¤block
 							this->scene->clearBlock(this->getPos());
 							this->isQuiz = true;
 						}
 						else
 						{
 							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, 
-								"ÒøÁ½²»×ã,²»ÄÜ½øÈëÖÇÁ¦ÎÊ´ğ");
+								"é“¶ä¸¤ä¸è¶³,ä¸èƒ½è¿›å…¥æ™ºåŠ›é—®ç­”");
 						}
 					}
 					else
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "µÈ¼¶²»×ã10¼¶,²»ÄÜ½øÈëÖÇÁ¦ÎÊ´ğ");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç­‰çº§ä¸è¶³10çº§,ä¸èƒ½è¿›å…¥æ™ºåŠ›é—®ç­”");
 					}	
 
 					return true;

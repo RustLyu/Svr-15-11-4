@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: LoginManager.h  $
  * \author  
  * \date 
- * \brief µÇÂ½Á¬½Ó¹ÜÀíÈİÆ÷
+ * \brief ç™»é™†è¿æ¥ç®¡ç†å®¹å™¨
  *
  * 
  */
@@ -19,9 +19,9 @@
 #include "DBAccessCommand.h"
 
 /**
- * \brief µÇÂ½Á¬½Ó¹ÜÀíÈİÆ÷
+ * \brief ç™»é™†è¿æ¥ç®¡ç†å®¹å™¨
  *
- * ¹ÜÀíËùÓĞµÄµÇÂ½Á¬½ÓµÄÈİÆ÷£¬·½±ã²éÕÒÁ¬½Ó
+ * ç®¡ç†æ‰€æœ‰çš„ç™»é™†è¿æ¥çš„å®¹å™¨ï¼Œæ–¹ä¾¿æŸ¥æ‰¾è¿æ¥
  *
  */
 class LoginManager
@@ -30,27 +30,27 @@ class LoginManager
 	public:
 
 		/**
-		 ** \brief Íø¹Ø×î´óÈİÄÉÓÃ»§ÊıÄ¿
+		 ** \brief ç½‘å…³æœ€å¤§å®¹çº³ç”¨æˆ·æ•°ç›®
 		 **
 		 **/
 		static DWORD maxGatewayUser;
 
 		/**
-		 * \brief ¶¨Òå»Øµ÷º¯ÊıÀà
+		 * \brief å®šä¹‰å›è°ƒå‡½æ•°ç±»
 		 *
 		 */
 		typedef zEntryCallback<LoginTask, void> LoginTaskCallback;
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~LoginManager() {};
 
 		/**
-		 * \brief »ñÈ¡¹ÜÀíÈİÆ÷µÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç®¡ç†å®¹å™¨çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * ÈİÆ÷ÊµÏÖÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * å®¹å™¨å®ç°äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 */
 		static LoginManager &getInstance()
 		{
@@ -61,7 +61,7 @@ class LoginManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -79,43 +79,43 @@ class LoginManager
 	private:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		LoginManager(){};
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static LoginManager *instance;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<DWORD, LoginTask *> LoginTaskHashmap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef LoginTaskHashmap::iterator LoginTaskHashmap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷³£Á¿µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨å¸¸é‡è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef LoginTaskHashmap::const_iterator LoginTaskHashmap_const_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef LoginTaskHashmap::value_type LoginTaskHashmap_pair;
 		/**
-		 * \brief »¥³â±äÁ¿£¬±£Ö¤Ô­×Ó·ÃÎÊÈİÆ÷
+		 * \brief äº’æ–¥å˜é‡ï¼Œä¿è¯åŸå­è®¿é—®å®¹å™¨
 		 *
 		 */
 		zMutex mlock;
 		/**
-		 * \brief ×ÓÁ¬½Ó¹ÜÀíÈİÆ÷ÀàĞÍ
+		 * \brief å­è¿æ¥ç®¡ç†å®¹å™¨ç±»å‹
 		 *
 		 */
 		LoginTaskHashmap loginTaskSet;

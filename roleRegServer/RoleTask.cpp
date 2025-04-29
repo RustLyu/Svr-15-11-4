@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleTask.cpp  $
  * \author 
  * \date 
- * \brief ¶¨ÒåÊı¾İ¿â·ÃÎÊ·şÎñÆ÷µÄÈÎÎñ
+ * \brief å®šä¹‰æ•°æ®åº“è®¿é—®æœåŠ¡å™¨çš„ä»»åŠ¡
  */
 
 #include <iostream>
@@ -24,7 +24,7 @@
 #include "Zebra.h"
 
 /**
- * \brief ·â×°Ò»¸öÈİÆ÷Àà
+ * \brief å°è£…ä¸€ä¸ªå®¹å™¨ç±»
  */
 class RoleDataContainer
 {
@@ -32,12 +32,12 @@ class RoleDataContainer
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		RoleDataContainer() {};
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		~RoleDataContainer()
 		{
@@ -47,9 +47,9 @@ class RoleDataContainer
 		}
 
 		/**
-		 * \brief Ìí¼ÓÊı¾İµ½ÈİÆ÷ÖĞ
-		 * \param data ´ıÌí¼ÓµÄÈİÆ÷
-		 * \return Ìí¼Óµ½ÈİÆ÷ÊÇ·ñ³É¹¦
+		 * \brief æ·»åŠ æ•°æ®åˆ°å®¹å™¨ä¸­
+		 * \param data å¾…æ·»åŠ çš„å®¹å™¨
+		 * \return æ·»åŠ åˆ°å®¹å™¨æ˜¯å¦æˆåŠŸ
 		 */
 		bool add(const RoleData &data)
 		{
@@ -57,20 +57,20 @@ class RoleDataContainer
 			container_type::const_iterator it = barrel.find(data.name);
 			if (it == barrel.end())
 			{
-				//Ã»ÓĞÕÒµ½
+				//æ²¡æœ‰æ‰¾åˆ°
 				std::pair<container_type::iterator, bool> p = barrel.insert(container_type::value_type(data.name, data));
 				return p.second;
 			}
 			else
 			{
-				//ÕÒµ½´æÔÚ
+				//æ‰¾åˆ°å­˜åœ¨
 				return false;
 			}
 		}
 
 		/**
-		 * \brief ´ÓÈİÆ÷ÖĞÉ¾³ıÖ¸¶¨Ãû³ÆµÄÄÚÈİ
-		 * \param name Ö¸¶¨É¾³ıµÄÃû³Æ
+		 * \brief ä»å®¹å™¨ä¸­åˆ é™¤æŒ‡å®šåç§°çš„å†…å®¹
+		 * \param name æŒ‡å®šåˆ é™¤çš„åç§°
 		 */
 		void remove(const char *name)
 		{
@@ -78,7 +78,7 @@ class RoleDataContainer
 			container_type::iterator it = barrel.find(name);
 			if (it != barrel.end())
 			{
-				//ÕÒµ½´æÔÚ
+				//æ‰¾åˆ°å­˜åœ¨
 				barrel.erase(it);
 			}
 		}
@@ -93,21 +93,21 @@ class RoleDataContainer
 			}
 		};
 		/**
-		 * \brief ÈİÆ÷ÀàĞÍ
+		 * \brief å®¹å™¨ç±»å‹
 		 */
 		typedef __gnu_cxx::hash_map<const char *, RoleData, __gnu_cxx::hash<const char *>, eqstr> container_type;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 */
 		zMutex mlock;
 		/**
-		 * \brief ÈİÆ÷±äÁ¿
+		 * \brief å®¹å™¨å˜é‡
 		 */
 		container_type barrel;
 
 };
 
-static RoleDataContainer SetRoleInfo; //´æ·Å½ÇÉ«ĞÅÏ¢µÄcontainer
+static RoleDataContainer SetRoleInfo; //å­˜æ”¾è§’è‰²ä¿¡æ¯çš„container
 
 int RoleTask::verifyConn()
 {
@@ -117,7 +117,7 @@ int RoleTask::verifyConn()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
@@ -125,7 +125,7 @@ int RoleTask::verifyConn()
 			t_LoginRoleReg *ptCmd = (t_LoginRoleReg *)pstrCmd;
 			if (CMD_LOGIN == ptCmd->cmd && PARA_LOGIN == ptCmd->para)
 			{
-				Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤");
+				Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯");
 				return 1;
 			}
 			else
@@ -152,10 +152,10 @@ int RoleTask::waitSync()
 }
 
 /**
- * \brief ½âÎöÀ´×Ô¸÷¸öÁ¬½ÓµÄÖ¸Áî
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \brief è§£ææ¥è‡ªå„ä¸ªè¿æ¥çš„æŒ‡ä»¤
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool RoleTask::msgParse(const Cmd::t_NullCmd * ptNullCmd, const unsigned int nCmdLen)
 {
@@ -173,10 +173,10 @@ bool RoleTask::msgParse(const Cmd::t_NullCmd * ptNullCmd, const unsigned int nCm
 }
 
 /**
- * \brief ½ÇÉ«µÄ´´½¨ÓëÉ¾³ı
- * \param ptNullCmd ´ı´¦ÀíÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´´½¨É¾³ı½ÇÉ«ÊÇ·ñ³É¹¦
+ * \brief è§’è‰²çš„åˆ›å»ºä¸åˆ é™¤
+ * \param ptNullCmd å¾…å¤„ç†æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return åˆ›å»ºåˆ é™¤è§’è‰²æ˜¯å¦æˆåŠŸ
  */
 bool RoleTask::msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -194,14 +194,14 @@ bool RoleTask::msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsig
 			Cmd.state = ptCmd->state;
 
 			unsigned int hash = URLManager::hashString(ptCmd->name);
-			Zebra::logger->debug("====±íÃû=====%s", URLManager::getInstance().roleregTableName(hash).c_str());
+			Zebra::logger->debug("====è¡¨å=====%s", URLManager::getInstance().roleregTableName(hash).c_str());
 			Zebra::logger->debug("hash=%u", hash);
 			Zebra::logger->debug("ptCmd->state=%u", ptCmd->state);
 
-			if (ptCmd->state & ROLEREG_STATE_TEST)//¼ì²â½ÇÉ«Ãû
+			if (ptCmd->state & ROLEREG_STATE_TEST)//æ£€æµ‹è§’è‰²å
 			{
 				RoleData tmpinfo;
-				//½«Êı¾İCOPYÒ»·İ
+				//å°†æ•°æ®COPYä¸€ä»½
 				tmpinfo.accid = ptCmd->accid;
 				tmpinfo.zone= ptCmd->gameZone.zone;
 				tmpinfo.game=  ptCmd->gameZone.game;
@@ -212,7 +212,7 @@ bool RoleTask::msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsig
 				Zebra::logger->debug("name=%s",	tmpinfo.name);
 				if (SetRoleInfo.add(tmpinfo))
 				{
-					//Ìí¼Ó³É¹¦£¬±íÊ¾Ô­À´Ã»ÓĞÊı¾İ
+					//æ·»åŠ æˆåŠŸï¼Œè¡¨ç¤ºåŸæ¥æ²¡æœ‰æ•°æ®
 					char where[128];
 					DWORD accID=0;
 					static const dbCol sel_con_define[]	= {
@@ -229,28 +229,28 @@ bool RoleTask::msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsig
 									URLManager::getInstance().roleregTableName(hash).c_str(), 
 									sel_con_define, where, NULL, 1, (unsigned char *)&accID))
 						{
-							//Ãû×ÖÒÑ´æÔÚÊı¾İ¿âÖĞ£¬Çå³ı»º³åÖĞµÄÊı¾İ
+							//åå­—å·²å­˜åœ¨æ•°æ®åº“ä¸­ï¼Œæ¸…é™¤ç¼“å†²ä¸­çš„æ•°æ®
 							SetRoleInfo.remove(tmpinfo.name);
 							Cmd.state |= ROLEREG_STATE_HAS;
-							Zebra::logger->debug("Ãû×ÖÒÑ´æÔÚÊı¾İ¿âÖĞ");
+							Zebra::logger->debug("åå­—å·²å­˜åœ¨æ•°æ®åº“ä¸­");
 						}
 						roleRegService::dbConnPool->putHandle(handle);
 					}
 					else
 					{
-						//»ñÈ¡Êı¾İ¿â¾ä±ú³ö´í£¬Çå³ı»º³åÖĞµÄÊı¾İ
+						//è·å–æ•°æ®åº“å¥æŸ„å‡ºé”™ï¼Œæ¸…é™¤ç¼“å†²ä¸­çš„æ•°æ®
 						SetRoleInfo.remove(tmpinfo.name);
 						Cmd.state |= ROLEREG_STATE_HAS;
-						Zebra::logger->debug("»ñÈ¡Êı¾İ¿â¾ä±ú³ö´í");
+						Zebra::logger->debug("è·å–æ•°æ®åº“å¥æŸ„å‡ºé”™");
 					}
 				}
 				else
 				{
 					Cmd.state |= ROLEREG_STATE_HAS;
-					Zebra::logger->debug("Ãû×ÖÒÑ´æÔÚ»º´æÖĞ");
+					Zebra::logger->debug("åå­—å·²å­˜åœ¨ç¼“å­˜ä¸­");
 				}
 			}
-			else if (ptCmd->state & ROLEREG_STATE_WRITE)//»ØĞ´
+			else if (ptCmd->state & ROLEREG_STATE_WRITE)//å›å†™
 			{
 				RoleData Tmpinfo;
 				Tmpinfo.accid = ptCmd->accid;
@@ -259,7 +259,7 @@ bool RoleTask::msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsig
 				strcpy(Tmpinfo.name, ptCmd->name);
 				Zebra::logger->debug("##########");
 				Zebra::logger->debug("name = %s ", Tmpinfo.name);
-				//Êı¾İ¿â±íµÄÊôĞÔ
+				//æ•°æ®åº“è¡¨çš„å±æ€§
 				static const dbCol creat_con_define[]	= {
 					{"`NAME`", zDBConnPool::DB_STR, sizeof(char[MAX_NAMESIZE])},
 					{"`GAME`", zDBConnPool::DB_WORD, sizeof(WORD)},
@@ -276,24 +276,24 @@ bool RoleTask::msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsig
 								creat_con_define, (unsigned char *)&Tmpinfo))
 					{
 						Cmd.state |= ROLEREG_STATE_OK;
-						Zebra::logger->debug("»ØĞ´Êı¾İ¿â³É¹¦");
+						Zebra::logger->debug("å›å†™æ•°æ®åº“æˆåŠŸ");
 					}
 					else
 					{
 						Cmd.state &= ~ROLEREG_STATE_OK;
-						Zebra::logger->debug("»ØĞ´Êı¾İ¿âÊ§°Ü");
+						Zebra::logger->debug("å›å†™æ•°æ®åº“å¤±è´¥");
 					}
 					roleRegService::dbConnPool->putHandle(handle);
 				}
 				else
 				{
 					Cmd.state &= ~ROLEREG_STATE_OK;
-					Zebra::logger->debug("»ñÈ¡¾ä±úÊ§°Ü");
+					Zebra::logger->debug("è·å–å¥æŸ„å¤±è´¥");
 				}
-				//Çå³ı½á¹¹ÖĞ¸Ã½ÇÉ«
+				//æ¸…é™¤ç»“æ„ä¸­è¯¥è§’è‰²
 				SetRoleInfo.remove(ptCmd->name);
 			}
-			else if (ptCmd->state & ROLEREG_STATE_CLEAN)//Çå³ı
+			else if (ptCmd->state & ROLEREG_STATE_CLEAN)//æ¸…é™¤
 			{
 				Zebra::logger->debug("name = %s ", ptCmd->name);
 				char cWhere[128];
@@ -307,19 +307,19 @@ bool RoleTask::msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsig
 									URLManager::getInstance().roleregTableName(hash).c_str(), cWhere))
 					{
 						Cmd.state &= ~ROLEREG_STATE_OK;
-						Zebra::logger->debug("É¾³ı½ÇÉ«%sÊ§°Ü", ptCmd->name);
+						Zebra::logger->debug("åˆ é™¤è§’è‰²%så¤±è´¥", ptCmd->name);
 					}
 					else
 					{
 						Cmd.state |= ROLEREG_STATE_OK;
-						Zebra::logger->debug("É¾³ı½ÇÉ«%s³É¹¦", ptCmd->name);
+						Zebra::logger->debug("åˆ é™¤è§’è‰²%sæˆåŠŸ", ptCmd->name);
 					}
 					roleRegService::dbConnPool->putHandle(handle);
 				}
 				else
 				{
 					Cmd.state &= ~ROLEREG_STATE_OK;
-					Zebra::logger->debug("»ñÈ¡¾ä±úÊ§°Ü");
+					Zebra::logger->debug("è·å–å¥æŸ„å¤±è´¥");
 				}
 			}
 

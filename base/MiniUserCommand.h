@@ -1,4 +1,4 @@
-#ifndef _MINI_USER_COMMAND_H_
+ï»¿#ifndef _MINI_USER_COMMAND_H_
 #define _MINI_USER_COMMAND_H_
 
 #include "zType.h"
@@ -10,7 +10,7 @@ namespace Cmd
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåĞ¡ÓÎÏ·ÃüÁî¿ªÊ¼
+/// å®šä¹‰å°æ¸¸æˆå‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stMiniGameUserCmd : public stNullUserCmd
@@ -23,7 +23,7 @@ struct stMiniGameUserCmd : public stNullUserCmd
 	BYTE subParam;
 };
 
-/*¹«¹²Ö¸Áî¿ªÊ¼***************************************/
+/*å…¬å…±æŒ‡ä»¤å¼€å§‹***************************************/
 
 enum MiniGameType
 {
@@ -137,8 +137,8 @@ stInvitCommonMiniGameCmd() : stCommonMiniGameCmd()
 {
 subParam = INVIT_COMMON_MINI_PARA;
 }
-DWORD tempID;//±»ÑûÇëÕß/ÑûÇëÕß ÁÙÊ±ID
-DWORD gameID;//ÓÎÏ·ÀàĞÍ
+DWORD tempID;//è¢«é‚€è¯·è€…/é‚€è¯·è€… ä¸´æ—¶ID
+DWORD gameID;//æ¸¸æˆç±»å‹
 };
 
 #define INVIT_RET_COMMON_MINI_PARA 2
@@ -148,8 +148,8 @@ stInvitRetCommonMiniGameCmd() : stCommonMiniGameCmd()
 {
 subParam = INVIT_RET_COMMON_MINI_PARA;
 }
-DWORD tempid;//ÑûÇëÕßÁÙÊ±ID
-BYTE ret;//0:²»Í¬Òâ 1:Í¬Òâ 2:ÆÁ±Î
+DWORD tempid;//é‚€è¯·è€…ä¸´æ—¶ID
+BYTE ret;//0:ä¸åŒæ„ 1:åŒæ„ 2:å±è”½
 };
 */
 
@@ -160,7 +160,7 @@ struct stLoginCommonMiniGameCmd : public stCommonMiniGameCmd
 	{
 		subParam = LOGIN_COMMON_MINI_PARA;
 	}
-	DWORD ret;//²ÎÊı/µÇÂ½ÊÇ·ñ³É¹¦
+	DWORD ret;//å‚æ•°/ç™»é™†æ˜¯å¦æˆåŠŸ
 };
 
 #define LOGOUT_COMMON_MINI_PARA 4
@@ -178,9 +178,9 @@ struct MiniRoomData
 	WORD gameNum;
 	WORD oneGameUserNum;
 	DWORD userNum;
-	DWORD money;//ÓÎÏ·±Ò»ùÊı
+	DWORD money;//æ¸¸æˆå¸åŸºæ•°
 };
-//·¿¼äÁĞ±í
+//æˆ¿é—´åˆ—è¡¨
 #define GAME_LIST_COMMON_MINI_PARA 5
 struct stGameListCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -188,11 +188,11 @@ struct stGameListCommonMiniGameCmd : public stCommonMiniGameCmd
 	{
 		subParam = GAME_LIST_COMMON_MINI_PARA;
 	}
-	DWORD num;//·¿¼äÊıÁ¿
+	DWORD num;//æˆ¿é—´æ•°é‡
 	MiniRoomData data[0];
 };
 
-//½øÈë·¿¼ä
+//è¿›å…¥æˆ¿é—´
 #define ENTER_ROOM_COMMON_MINI_PARA 6
 struct stEnterRoomCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -200,7 +200,7 @@ struct stEnterRoomCommonMiniGameCmd : public stCommonMiniGameCmd
 	{
 		subParam = ENTER_ROOM_COMMON_MINI_PARA;
 	}
-	MiniRoomID roomID;//·¿¼äºÅ
+	MiniRoomID roomID;//æˆ¿é—´å·
 };
 
 enum MiniUserState
@@ -216,7 +216,7 @@ struct MiniUserData
 {
 	DWORD id;
 	char name[MAX_NAMESIZE];
-	WORD face;//Í·Ïñ
+	WORD face;//å¤´åƒ
 	DWORD countryID;
 	MiniUserPosition pos;
 	BYTE state;
@@ -245,7 +245,7 @@ struct MiniUserData
 		return *this;
 	}
 };
-//Ìí¼Ó/¸üĞÂ·¿¼äÍæ¼ÒÁĞ±í
+//æ·»åŠ /æ›´æ–°æˆ¿é—´ç©å®¶åˆ—è¡¨
 #define ADD_ROOM_USER_COMMON_MINI_PARA 7
 struct stAddRoomUserCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -258,7 +258,7 @@ struct stAddRoomUserCommonMiniGameCmd : public stCommonMiniGameCmd
 	DWORD num;
 	MiniUserData data[0];
 };
-//Ìí¼Ó/¸üĞÂÒ»¸ö·¿¼äÍæ¼ÒÁĞ±í
+//æ·»åŠ /æ›´æ–°ä¸€ä¸ªæˆ¿é—´ç©å®¶åˆ—è¡¨
 #define ADD_ONE_ROOM_USER_COMMON_MINI_PARA 7
 struct stAddOneRoomUserCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -275,10 +275,10 @@ struct stAddOneRoomUserCommonMiniGameCmd : public stCommonMiniGameCmd
 struct MiniSeatData
 {
 	MiniSeatID seatID;
-	BYTE state;//0¹Ø±Õ 1´ò¿ª
-	BYTE isHost;//0·ñ 1ÊÇ 
+	BYTE state;//0å…³é—­ 1æ‰“å¼€
+	BYTE isHost;//0å¦ 1æ˜¯ 
 };
-//Ë¢ĞÂ×ùÎ»¿ª¹Ø×´Ì¬
+//åˆ·æ–°åº§ä½å¼€å…³çŠ¶æ€
 #define SEAT_STATE_COMMON_MINI_PARA 8
 struct stSeatStateCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -290,7 +290,7 @@ struct stSeatStateCommonMiniGameCmd : public stCommonMiniGameCmd
 	DWORD num;
 	MiniSeatData data[0];
 };
-//Ë¢ĞÂÒ»¸ö×ùÎ»¿ª¹Ø×´Ì¬
+//åˆ·æ–°ä¸€ä¸ªåº§ä½å¼€å…³çŠ¶æ€
 #define ONE_SEAT_STATE_COMMON_MINI_PARA 8
 struct stOneSeatStateCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -303,7 +303,7 @@ struct stOneSeatStateCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniSeatData data;
 };
 
-//Àë¿ª·¿¼ä
+//ç¦»å¼€æˆ¿é—´
 #define LEAVE_ROOM_COMMON_MINI_PARA 9
 struct stLeaveRoomCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -314,7 +314,7 @@ struct stLeaveRoomCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniRoomID roomID;
 };
 
-//×ø×À×Ó
+//åæ¡Œå­
 #define ENTER_GAME_COMMON_MINI_PARA 10
 struct stEnterGameCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -322,11 +322,11 @@ struct stEnterGameCommonMiniGameCmd : public stCommonMiniGameCmd
 	{
 		subParam = ENTER_GAME_COMMON_MINI_PARA;
 	}
-	MiniSeatID seatID;//×ùÎ»ºÅ
+	MiniSeatID seatID;//åº§ä½å·
 };
 
 /*
-//Ìí¼Ó/¸üĞÂÓÎÏ·Íæ¼ÒÁĞ±í
+//æ·»åŠ /æ›´æ–°æ¸¸æˆç©å®¶åˆ—è¡¨
 #define ADD_GAME_USER_COMMON_MINI_PARA 11
 struct stAddGameUserCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -340,7 +340,7 @@ struct stAddGameUserCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniUserData data[0];
 };
 
-//Ìí¼Ó/¸üĞÂÒ»¸öÓÎÏ·Íæ¼ÒÁĞ±í
+//æ·»åŠ /æ›´æ–°ä¸€ä¸ªæ¸¸æˆç©å®¶åˆ—è¡¨
 #define ADD_ONE_GAME_USER_COMMON_MINI_PARA 11
 struct stAddOneGameUserCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -355,7 +355,7 @@ struct stAddOneGameUserCommonMiniGameCmd : public stCommonMiniGameCmd
 };
 */
 
-//Àë¿ª×À×Ó
+//ç¦»å¼€æ¡Œå­
 #define LEAVE_GAME_COMMON_MINI_PARA 12
 struct stLeaveGameCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -367,7 +367,7 @@ struct stLeaveGameCommonMiniGameCmd : public stCommonMiniGameCmd
 };
 
 /*
-//³ÉÎªÓÎÏ·Ö÷³ÖÕß
+//æˆä¸ºæ¸¸æˆä¸»æŒè€…
 #define HOST_GAME_COMMON_MINI_PARA 13
 struct stHostGameCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -381,7 +381,7 @@ struct stHostGameCommonMiniGameCmd : public stCommonMiniGameCmd
 };
 */
 
-//´ò¿ª/¹Ø±ÕÄ³¸öÎ»×Ó
+//æ‰“å¼€/å…³é—­æŸä¸ªä½å­
 #define TOGGLE_SEAT_COMMON_MINI_PARA 14
 struct stToggleSeatCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -391,10 +391,10 @@ struct stToggleSeatCommonMiniGameCmd : public stCommonMiniGameCmd
 		open = 1;
 	}
 	MiniSeatID seatID;
-	BYTE open;//0¹Ø±Õ 1´ò¿ª
+	BYTE open;//0å…³é—­ 1æ‰“å¼€
 };
 
-//ÌßÄ³ÈË
+//è¸¢æŸäºº
 #define KICK_USER_COMMON_MINI_PARA 15
 struct stKickUserCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -407,7 +407,7 @@ struct stKickUserCommonMiniGameCmd : public stCommonMiniGameCmd
 	DWORD userID;
 };
 
-//ÇĞ»»×¼±¸/Î´×¼±¸×´Ì¬
+//åˆ‡æ¢å‡†å¤‡/æœªå‡†å¤‡çŠ¶æ€
 #define TOGGLE_READY_COMMON_MINI_PARA 16
 struct stToggleReadyCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -418,7 +418,7 @@ struct stToggleReadyCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniGameID gameID;
 };
 
-//½øÈë´óÌüÈ·ÈÏÏûÏ¢
+//è¿›å…¥å¤§å…ç¡®è®¤æ¶ˆæ¯
 #define LOGIN_RET_COMMON_MINI_PARA 17
 struct stLoginRetCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -427,10 +427,10 @@ struct stLoginRetCommonMiniGameCmd : public stCommonMiniGameCmd
 		subParam = LOGIN_RET_COMMON_MINI_PARA;
 		ret = 0;
 	}
-	BYTE ret;//1³É¹¦ 0Ê§°Ü
+	BYTE ret;//1æˆåŠŸ 0å¤±è´¥
 };
 
-//½øÈë·¿¼äÈ·ÈÏÏûÏ¢
+//è¿›å…¥æˆ¿é—´ç¡®è®¤æ¶ˆæ¯
 #define ENTER_ROOM_RET_COMMON_MINI_PARA 18
 struct stEnterRoomRetCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -439,11 +439,11 @@ struct stEnterRoomRetCommonMiniGameCmd : public stCommonMiniGameCmd
 		subParam = ENTER_ROOM_RET_COMMON_MINI_PARA;
 		ret = 0;
 	}
-	BYTE ret;//1³É¹¦ 0Ê§°Ü 2·¿¼äÒÑÂú 3ÒÑ¾­²Î¼Ó¸ÃÀàĞÍµÄÓÎÏ·
+	BYTE ret;//1æˆåŠŸ 0å¤±è´¥ 2æˆ¿é—´å·²æ»¡ 3å·²ç»å‚åŠ è¯¥ç±»å‹çš„æ¸¸æˆ
 	MiniRoomID roomID;
 };
 
-//½øÈëÓÎÏ·È·ÈÏÏûÏ¢
+//è¿›å…¥æ¸¸æˆç¡®è®¤æ¶ˆæ¯
 #define ENTER_GAME_RET_COMMON_MINI_PARA 19
 struct stEnterGameRetCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -452,11 +452,11 @@ struct stEnterGameRetCommonMiniGameCmd : public stCommonMiniGameCmd
 		subParam = ENTER_GAME_RET_COMMON_MINI_PARA;
 		ret = 0;
 	}
-	BYTE ret;//1³É¹¦ 0Ê§°Ü 2ÈËÊıÒÑÂú 3ÓÎÏ·ÒÑ¿ªÊ¼ 4×ùÎ»ÒÑÓĞÈË 5¶¹×Ó²»×ã 
+	BYTE ret;//1æˆåŠŸ 0å¤±è´¥ 2äººæ•°å·²æ»¡ 3æ¸¸æˆå·²å¼€å§‹ 4åº§ä½å·²æœ‰äºº 5è±†å­ä¸è¶³ 
 	MiniSeatID seatID;
 };
 
-//Ë¢ĞÂÍæ¼Ò×´Ì¬
+//åˆ·æ–°ç©å®¶çŠ¶æ€
 #define UPDATE_USER_STATE_COMMON_MINI_PARA 20
 struct stUpdateUserStateCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -466,12 +466,12 @@ struct stUpdateUserStateCommonMiniGameCmd : public stCommonMiniGameCmd
 		userID = 0;
 		state = MUS_NOTPLAY;
 	}
-	DWORD userID;//Íæ¼ÒID
-	BYTE state;//Íæ¼Ò×´Ì¬
-	MiniUserPosition pos;//µ±Ç°Î»ÖÃ
+	DWORD userID;//ç©å®¶ID
+	BYTE state;//ç©å®¶çŠ¶æ€
+	MiniUserPosition pos;//å½“å‰ä½ç½®
 };
 
-//ÓÎÏ·¿ªÊ¼
+//æ¸¸æˆå¼€å§‹
 #define GAME_START_COMMON_MINI_PARA 21
 struct stGameStartCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -482,7 +482,7 @@ struct stGameStartCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniGameID gameID;
 };
 
-//ÓÎÏ·½áÊø
+//æ¸¸æˆç»“æŸ
 #define GAME_END_COMMON_MINI_PARA 22
 struct stGameEndCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -493,7 +493,7 @@ struct stGameEndCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniGameID gameID;
 };
 
-//Í¨ÖªÓÎÏ·½á¹û/·ÖÊı
+//é€šçŸ¥æ¸¸æˆç»“æœ/åˆ†æ•°
 #define GAME_RESULT_COMMON_MINI_PARA 23
 struct stGameResultCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -508,7 +508,7 @@ struct stGameResultCommonMiniGameCmd : public stCommonMiniGameCmd
 };
 
 /*
-//ÇëÇóÍæ¼ÒµÄ·ÖÊı
+//è¯·æ±‚ç©å®¶çš„åˆ†æ•°
 #define REQ_SCORE_COMMON_MINI_PARA 24
 struct stReqScoreCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -523,7 +523,7 @@ struct stReqScoreCommonMiniGameCmd : public stCommonMiniGameCmd
 };
 */
 
-//·¢ËÍÍæ¼ÒµÄ·ÖÊı
+//å‘é€ç©å®¶çš„åˆ†æ•°
 #define USER_SCORE_COMMON_MINI_PARA 25
 struct stUserScoreCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -538,12 +538,12 @@ struct stUserScoreCommonMiniGameCmd : public stCommonMiniGameCmd
 
 enum MiniChatType
 {
-	MCT_NORMAL,//ÆÕÍ¨
-	MCT_SYS,//ÏµÍ³
-	MCT_POPUP//µ¯³ö´°¿Ú
+	MCT_NORMAL,//æ™®é€š
+	MCT_SYS,//ç³»ç»Ÿ
+	MCT_POPUP//å¼¹å‡ºçª—å£
 };
 
-//ÁÄÌì
+//èŠå¤©
 #define CHAT_COMMON_MINI_PARA 26
 struct stChatCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -555,12 +555,12 @@ struct stChatCommonMiniGameCmd : public stCommonMiniGameCmd
 		bzero(content, sizeof(content));
 	}
 	DWORD userID;
-	MiniUserPosition pos;//Ëµ»°Î»ÖÃ
-	BYTE type;//ÁÄÌìÀàĞÍ
+	MiniUserPosition pos;//è¯´è¯ä½ç½®
+	BYTE type;//èŠå¤©ç±»å‹
 	char content[64];
 };
 
-//ÇëÇó¸÷·¿¼äÊı¾İ
+//è¯·æ±‚å„æˆ¿é—´æ•°æ®
 #define REQ_ROOM_DATA_COMMON_MINI_PARA 27
 struct stReqRoomDataCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -570,7 +570,7 @@ struct stReqRoomDataCommonMiniGameCmd : public stCommonMiniGameCmd
 	}
 };
 
-//ÇëÇóÅÅĞĞ°ñ
+//è¯·æ±‚æ’è¡Œæ¦œ
 #define REQ_TOP_COMMON_MINI_PARA 28
 struct stReqTopCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -580,7 +580,7 @@ struct stReqTopCommonMiniGameCmd : public stCommonMiniGameCmd
 	}
 };
 
-//·¢ËÍÅÅĞĞ°ñ
+//å‘é€æ’è¡Œæ¦œ
 #define RET_TOP_COMMON_MINI_PARA 29
 struct stRetTopCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -593,7 +593,7 @@ struct stRetTopCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniUserData data[0];
 };
 
-//³äÓÎÏ·±Ò
+//å……æ¸¸æˆå¸
 #define DEPOSIT_COMMON_MINI_PARA 30
 struct stDepositCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -605,7 +605,7 @@ struct stDepositCommonMiniGameCmd : public stCommonMiniGameCmd
 	DWORD num;
 };
 
-//¶Ò»»ÒøÁ½
+//å…‘æ¢é“¶ä¸¤
 #define DRAW_COMMON_MINI_PARA 31
 struct stDrawCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -617,7 +617,7 @@ struct stDrawCommonMiniGameCmd : public stCommonMiniGameCmd
 	DWORD num;
 };
 
-//¶Ò»»ÒøÁ½·µ»Ø
+//å…‘æ¢é“¶ä¸¤è¿”å›
 #define DRAW_RET_COMMON_MINI_PARA 32
 struct stDrawRetCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -626,10 +626,10 @@ struct stDrawRetCommonMiniGameCmd : public stCommonMiniGameCmd
 		subParam = DRAW_RET_COMMON_MINI_PARA;
 		ret = 0;
 	}
-	BYTE ret;//0Ê§°Ü 1³É¹¦ 2²»×ã 3°ü¹üÂú
+	BYTE ret;//0å¤±è´¥ 1æˆåŠŸ 2ä¸è¶³ 3åŒ…è£¹æ»¡
 };
 
-//·¢ËÍÍæ¼Ò×Ô¼ºµÄĞÅÏ¢
+//å‘é€ç©å®¶è‡ªå·±çš„ä¿¡æ¯
 #define USER_DATA_COMMON_MINI_PARA 33
 struct stUserDataCommonMiniGameCmd : public stCommonMiniGameCmd
 {
@@ -640,9 +640,9 @@ struct stUserDataCommonMiniGameCmd : public stCommonMiniGameCmd
 	MiniUserData data;
 };
 
-/*¹«¹²Ö¸Áî½áÊø****************************************/
+/*å…¬å…±æŒ‡ä»¤ç»“æŸ****************************************/
 
-/*ÅÆÀàÖ¸Áî¿ªÊ¼**************************************/
+/*ç‰Œç±»æŒ‡ä»¤å¼€å§‹**************************************/
 class Card
 {
 	public:
@@ -688,7 +688,7 @@ struct stCardMiniGameCmd : public stMiniGameUserCmd
 	MiniGameID gameID;
 };
 
-//·¢ÅÆ
+//å‘ç‰Œ
 #define DEAL_CARD_MINI_PARA 1
 struct stDealCardMiniGameCmd : public stCardMiniGameCmd
 {
@@ -701,7 +701,7 @@ struct stDealCardMiniGameCmd : public stCardMiniGameCmd
 	Card cards[0];
 };
 
-//Í¨ÖªÄ³ÈË³öÅÆ
+//é€šçŸ¥æŸäººå‡ºç‰Œ
 #define NOTIFY_PUT_CARD_MINI_PARA 2
 struct stNotifyPutCardMiniGameCmd : public stCardMiniGameCmd
 {
@@ -713,7 +713,7 @@ struct stNotifyPutCardMiniGameCmd : public stCardMiniGameCmd
 	DWORD userID;
 };
 
-//³öÅÆ
+//å‡ºç‰Œ
 #define PUT_CARD_MINI_PARA 3
 struct stPutCardMiniGameCmd : public stCardMiniGameCmd
 {
@@ -728,7 +728,7 @@ struct stPutCardMiniGameCmd : public stCardMiniGameCmd
 	Card cards[0];
 };
 
-//Í¨ÖªÄ³ÈË½Ğ·Ö
+//é€šçŸ¥æŸäººå«åˆ†
 #define NOTIFY_POINT_DDZ_MINI_PARA 4
 struct stNotifyPointDDZMiniGameCmd : public stCardMiniGameCmd
 {
@@ -740,7 +740,7 @@ struct stNotifyPointDDZMiniGameCmd : public stCardMiniGameCmd
 	DWORD userID;
 };
 
-//¶·µØÖ÷½Ğ·Ö
+//æ–—åœ°ä¸»å«åˆ†
 #define POINT_DDZ_MINI_PARA 5
 struct stPointDDZMiniGameCmd : public stCardMiniGameCmd
 {
@@ -754,7 +754,7 @@ struct stPointDDZMiniGameCmd : public stCardMiniGameCmd
 	BYTE num;
 };
 
-//ÏÔÊ¾µ×ÅÆ
+//æ˜¾ç¤ºåº•ç‰Œ
 #define RESERVE_CARDS_DDZ_MINI_PARA 6
 struct stReserveCardsDDZMiniGameCmd : public stCardMiniGameCmd
 {
@@ -769,7 +769,7 @@ struct stReserveCardsDDZMiniGameCmd : public stCardMiniGameCmd
 	Card cards[0];
 };
 
-//Ì¯ÅÆ
+//æ‘Šç‰Œ
 #define SHOW_HAND_DDZ_MINI_PARA 6
 struct stShowHandDDZMiniGameCmd : public stCardMiniGameCmd
 {
@@ -784,10 +784,10 @@ struct stShowHandDDZMiniGameCmd : public stCardMiniGameCmd
 	Card cards[0];
 };
 
-/*ÅÆÀàÖ¸Áî½áÊø****************************************/
+/*ç‰Œç±»æŒ‡ä»¤ç»“æŸ****************************************/
 
 /*******************************************************/
-// ÑûÇë
+// é‚€è¯·
 #define INVITE_MINI_PARA 11
 struct stInviteMiniGame : public stMiniGameUserCmd
 {
@@ -795,11 +795,11 @@ struct stInviteMiniGame : public stMiniGameUserCmd
 	{
 		byParam = INVITE_MINI_PARA;
 	}
-	DWORD tempid;//ÑûÇëÕß/±»ÑûÇëÕßµÄÁÙÊ±ID
-	DWORD money;//¶Ä×¢
+	DWORD tempid;//é‚€è¯·è€…/è¢«é‚€è¯·è€…çš„ä¸´æ—¶ID
+	DWORD money;//èµŒæ³¨
 };
 
-// ÑûÇë»Ø¸´
+// é‚€è¯·å›å¤
 #define INVITE_RET_MINI_PARA 12
 struct stInviteRetMiniGame : public stMiniGameUserCmd
 {
@@ -807,12 +807,12 @@ struct stInviteRetMiniGame : public stMiniGameUserCmd
 	{
 		byParam = INVITE_RET_MINI_PARA;
 	}
-	DWORD tempid;//ÑûÇëÕßµÄÁÙÊ±ID
-	DWORD money;//¶Ä×¢
-	DWORD ret;//1:Í¬Òâ 0:²»Í¬Òâ
+	DWORD tempid;//é‚€è¯·è€…çš„ä¸´æ—¶ID
+	DWORD money;//èµŒæ³¨
+	DWORD ret;//1:åŒæ„ 0:ä¸åŒæ„
 };
 
-// ¿ªÊ¼ÓÎÏ·
+// å¼€å§‹æ¸¸æˆ
 #define START_MINI_PARA 13
 struct stStartMiniGame : public stMiniGameUserCmd
 {
@@ -820,11 +820,11 @@ struct stStartMiniGame : public stMiniGameUserCmd
 	{
 		byParam = START_MINI_PARA;
 	}
-	DWORD tempid;//¶Ô·½µÄÁÙÊ±ID
-	DWORD money;//¶Ä×¢
+	DWORD tempid;//å¯¹æ–¹çš„ä¸´æ—¶ID
+	DWORD money;//èµŒæ³¨
 };
 
-// Í£Ö¹É«×Ó
+// åœæ­¢è‰²å­
 #define STOP_DICE_MINI_PARA 14
 struct stStopDiceMiniGame : public stMiniGameUserCmd
 {
@@ -834,7 +834,7 @@ struct stStopDiceMiniGame : public stMiniGameUserCmd
 	}
 };
 
-// É«×ÓÊı×Ö
+// è‰²å­æ•°å­—
 #define DICE_NUM_MINI_PARA 15
 struct stDiceNumMiniGame : public stMiniGameUserCmd
 {
@@ -842,11 +842,11 @@ struct stDiceNumMiniGame : public stMiniGameUserCmd
 	{
 		byParam = DICE_NUM_MINI_PARA;
 	}
-	DWORD tempid;//ÖÀÉ«×ÓÈËµÄÁÙÊ±ID
+	DWORD tempid;//æ·è‰²å­äººçš„ä¸´æ—¶ID
 	DWORD num;
 };
 
-// ½á¹û
+// ç»“æœ
 #define RESULT_MINI_PARA 16
 struct stResultMiniGame : public stMiniGameUserCmd
 {
@@ -854,10 +854,10 @@ struct stResultMiniGame : public stMiniGameUserCmd
 	{
 		byParam = RESULT_MINI_PARA;
 	}
-	DWORD res;//0:Êä 1:Ó® 2:Æ½
+	DWORD res;//0:è¾“ 1:èµ¢ 2:å¹³
 };
 
-// ÓÎÏ·½áÊø //Ö÷¶¯Àë¿ªÓÎÏ·
+// æ¸¸æˆç»“æŸ //ä¸»åŠ¨ç¦»å¼€æ¸¸æˆ
 #define END_MINI_PARA 17
 struct stEndMiniGame : public stMiniGameUserCmd
 {
@@ -867,10 +867,10 @@ struct stEndMiniGame : public stMiniGameUserCmd
 
 		reason = 0;
 	}
-	DWORD reason;//½áÊøÔ­Òò 0:Õı³£½áÊø 1:¶Ô·½Àë¿ª
+	DWORD reason;//ç»“æŸåŸå›  0:æ­£å¸¸ç»“æŸ 1:å¯¹æ–¹ç¦»å¼€
 };
 
-// ¼ÌĞøÓÎÏ·
+// ç»§ç»­æ¸¸æˆ
 #define CONTINUE_MINI_PARA 18
 struct stContinueMiniGame : public stMiniGameUserCmd
 {
@@ -878,10 +878,10 @@ struct stContinueMiniGame : public stMiniGameUserCmd
 	{
 		byParam = CONTINUE_MINI_PARA;
 	}
-	DWORD ret;//0:²»¼ÌĞø 1:¼ÌĞø
+	DWORD ret;//0:ä¸ç»§ç»­ 1:ç»§ç»­
 };
 
-// Í¨Öª¿Í»§¶Ë½øÈëÓÎÏ·
+// é€šçŸ¥å®¢æˆ·ç«¯è¿›å…¥æ¸¸æˆ
 #define ENTER_MINI_PARA 19
 struct stEnterMiniGame : public stMiniGameUserCmd
 {
@@ -893,7 +893,7 @@ struct stEnterMiniGame : public stMiniGameUserCmd
 /*******************************************************/
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåĞ¡ÓÎÏ·ÃüÁî½áÊø
+/// å®šä¹‰å°æ¸¸æˆå‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 }

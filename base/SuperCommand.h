@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SuperCommand.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå·þÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+ * \brief å®šä¹‰æœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
  *
  */
 
@@ -30,7 +30,7 @@ namespace Cmd
 
 
 		//////////////////////////////////////////////////////////////
-		// ¶¨ÒåÆô¶¯Ïà¹ØÖ¸Áî
+		// å®šä¹‰å¯åŠ¨ç›¸å…³æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		const BYTE PARA_STARTUP_REQUEST = 1;
 		struct t_Startup_Request : t_NullCmd
@@ -139,12 +139,12 @@ namespace Cmd
 				: t_NullCmd(CMD_STARTUP, PARA_RESTART_SERVERENTRY_NOTIFYOTHER) {};
 		};
 		//////////////////////////////////////////////////////////////
-		// ¶¨ÒåÆô¶¯Ïà¹ØÖ¸Áî
+		// å®šä¹‰å¯åŠ¨ç›¸å…³æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 
 
 		//////////////////////////////////////////////////////////////
-		// ¶¨Òå·þÎñÆ÷¹ÜÀíÆ÷Óë¼Æ·Ñ·þÎñÆ÷½»»¥µÄÖ¸Áî
+		// å®šä¹‰æœåŠ¡å™¨ç®¡ç†å™¨ä¸Žè®¡è´¹æœåŠ¡å™¨äº¤äº’çš„æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		const BYTE PARA_BILL_NEWSESSION = 1;
 		struct t_NewSession_Bill : t_NullCmd
@@ -167,21 +167,21 @@ namespace Cmd
 				: t_NullCmd(CMD_BILL, PARA_BILL_IDINUSE) { bzero(name, sizeof(name)); };
 		};
 		//////////////////////////////////////////////////////////////
-		// ¶¨Òå·þÎñÆ÷¹ÜÀíÆ÷Óë¼Æ·Ñ·þÎñÆ÷½»»¥µÄÖ¸Áî
+		// å®šä¹‰æœåŠ¡å™¨ç®¡ç†å™¨ä¸Žè®¡è´¹æœåŠ¡å™¨äº¤äº’çš„æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 
 
 		//////////////////////////////////////////////////////////////
-		// ¶¨Òå·þÎñÆ÷¹ÜÀíÆ÷ÓëÍø¹Ø·þÎñÆ÷½»»¥µÄÖ¸Áî
+		// å®šä¹‰æœåŠ¡å™¨ç®¡ç†å™¨ä¸Žç½‘å…³æœåŠ¡å™¨äº¤äº’çš„æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 		const BYTE PARA_GATEWAY_GYLIST = 1;
 		struct t_GYList_Gateway : t_NullCmd
 		{
-			WORD wdServerID;			/**< ·þÎñÆ÷±àºÅ */
-			BYTE pstrIP[MAX_IP_LENGTH];	/**< ·þÎñÆ÷µØÖ· */
-			WORD wdPort;				/**< ·þÎñÆ÷¶Ë¿Ú */
-			WORD wdNumOnline;			/**< Íø¹ØÔÚÏßÈËÊý */
-			int  state;					/**< ·þÎñÆ÷×´Ì¬ */
+			WORD wdServerID;			/**< æœåŠ¡å™¨ç¼–å· */
+			BYTE pstrIP[MAX_IP_LENGTH];	/**< æœåŠ¡å™¨åœ°å€ */
+			WORD wdPort;				/**< æœåŠ¡å™¨ç«¯å£ */
+			WORD wdNumOnline;			/**< ç½‘å…³åœ¨çº¿äººæ•° */
+			int  state;					/**< æœåŠ¡å™¨çŠ¶æ€ */
 			DWORD zoneGameVersion;
 			t_GYList_Gateway()
 				: t_NullCmd(CMD_GATEWAY, PARA_GATEWAY_GYLIST) {};
@@ -206,35 +206,35 @@ namespace Cmd
 		const BYTE PARA_CHARNAME_GATEWAY = 4;
 		struct t_Charname_Gateway : t_NullCmd
 		{
-			WORD wdServerID;			/**< ·þÎñÆ÷±àºÅ */
-			DWORD accid;				/**< ÕËºÅ±àºÅ */
-			char name[MAX_NAMESIZE];	/**< ½ÇÉ«Ãû³Æ */
-			WORD state;					/**< ÉÏÃæ¸÷ÖÖ×´Ì¬µÄÎ»×éºÏ */
+			WORD wdServerID;			/**< æœåŠ¡å™¨ç¼–å· */
+			DWORD accid;				/**< è´¦å·ç¼–å· */
+			char name[MAX_NAMESIZE];	/**< è§’è‰²åç§° */
+			WORD state;					/**< ä¸Šé¢å„ç§çŠ¶æ€çš„ä½ç»„åˆ */
 
 			t_Charname_Gateway()
 				:t_NullCmd(CMD_GATEWAY, PARA_CHARNAME_GATEWAY) { }
 		};
 		//////////////////////////////////////////////////////////////
-		// ¶¨Òå·þÎñÆ÷¹ÜÀíÆ÷ÓëÍø¹Ø·þÎñÆ÷½»»¥µÄÖ¸Áî
+		// å®šä¹‰æœåŠ¡å™¨ç®¡ç†å™¨ä¸Žç½‘å…³æœåŠ¡å™¨äº¤äº’çš„æŒ‡ä»¤
 		//////////////////////////////////////////////////////////////
 
 		//////////////////////////////////////
-		///¹ú¼ÒÔÚÏßÈËÊýÏà¹ØÖ¸Áî
+		///å›½å®¶åœ¨çº¿äººæ•°ç›¸å…³æŒ‡ä»¤
 		//////////////////////////////////////
-		//ÇëÇó¹ú¼ÒÔÚÏßÈËÊýÐÅÏ¢
+		//è¯·æ±‚å›½å®¶åœ¨çº¿äººæ•°ä¿¡æ¯
 		const BYTE PARA_REQUEST_COUNTRYONLINE = 0;
 		struct t_Request_CountryOnline : t_NullCmd
 		{
-			QWORD 		rTimestamp;							//ÇëÇóÊ±¼ä´Á
+			QWORD 		rTimestamp;							//è¯·æ±‚æ—¶é—´æˆ³
 			DWORD		infoTempID;
 			t_Request_CountryOnline()
 				: t_NullCmd(CMD_COUNTRYONLINE, PARA_REQUEST_COUNTRYONLINE) {};
 		};
-		//¹ú¼ÒÔÚÏßÈËÊýÐÅÏ¢
+		//å›½å®¶åœ¨çº¿äººæ•°ä¿¡æ¯
 		const BYTE PARA_COUNTRYONLINE = 1;
 		struct t_CountryOnline : t_NullCmd
 		{
-			QWORD 		rTimestamp;							//ÇëÇóÊ±¼ä´Á
+			QWORD 		rTimestamp;							//è¯·æ±‚æ—¶é—´æˆ³
 			DWORD		infoTempID;
 			DWORD		OnlineNum;
 			struct Online
@@ -250,9 +250,9 @@ namespace Cmd
 			}
 		};
 		//////////////////////////////////////
-		///¹ú¼ÒÔÚÏßÈËÊýÏà¹ØÖ¸Áî
+		///å›½å®¶åœ¨çº¿äººæ•°ç›¸å…³æŒ‡ä»¤
 		//////////////////////////////////////
-		//ÇëÇó¹ú¼ÒÔÚÏßÈËÊýÐÅÏ¢
+		//è¯·æ±‚å›½å®¶åœ¨çº¿äººæ•°ä¿¡æ¯
 		
 		const BYTE PARA_SHUTDOWN =1;
 		struct t_shutdown_Super : t_NullCmd

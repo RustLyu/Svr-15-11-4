@@ -1,4 +1,4 @@
-#include "StockConsign.h"
+ï»¿#include "StockConsign.h"
 #include "TimeTick.h"
 
 bool Consign::sendWaitDataToUser(BillUser *pUser)
@@ -36,7 +36,7 @@ bool Consign::sendWaitDataToUser(BillUser *pUser)
 						waitgold->list[waitgold->size].dwNum = recordset->get(i)->get("num");
 						waitgold->list[waitgold->size].dwPrice = recordset->get(i)->get("price");
 						waitgold->list[waitgold->size].dwTime = recordset->get(i)->get("time");
-						//Zebra::logger->debug("%s(%d)Î´³É½»µÄ¸öÈË½ğ±ÒÎ¯ÍĞµ¥:%d,%d,%d,%d",pUser->name,pUser->id,waitgold->list[waitgold->size].id,waitgold->list[waitgold->size].dwNum,waitgold->list[waitgold->size].dwPrice,waitgold->list[waitgold->size].dwTime);
+						//Zebra::logger->debug("%s(%d)æœªæˆäº¤çš„ä¸ªäººé‡‘å¸å§”æ‰˜å•:%d,%d,%d,%d",pUser->name,pUser->id,waitgold->list[waitgold->size].id,waitgold->list[waitgold->size].dwNum,waitgold->list[waitgold->size].dwPrice,waitgold->list[waitgold->size].dwTime);
 						waitgold->size++;
 					}
 					if(waitgold->size)
@@ -70,7 +70,7 @@ bool Consign::sendWaitDataToUser(BillUser *pUser)
 						waitmoney->list[waitmoney->size].dwNum = recordset->get(i)->get("num");
 						waitmoney->list[waitmoney->size].dwPrice = recordset->get(i)->get("price");
 						waitmoney->list[waitmoney->size].dwTime = recordset->get(i)->get("time");
-						//Zebra::logger->debug("%s(%d)Î´³É½»µÄ¸öÈËÒø±ÒÎ¯ÍĞµ¥:%d,%d,%d,%d",pUser->name,pUser->id,waitmoney->list[waitmoney->size].id,waitmoney->list[waitmoney->size].dwNum,waitmoney->list[waitmoney->size].dwPrice,waitmoney->list[waitmoney->size].dwTime);
+						//Zebra::logger->debug("%s(%d)æœªæˆäº¤çš„ä¸ªäººé“¶å¸å§”æ‰˜å•:%d,%d,%d,%d",pUser->name,pUser->id,waitmoney->list[waitmoney->size].id,waitmoney->list[waitmoney->size].dwNum,waitmoney->list[waitmoney->size].dwPrice,waitmoney->list[waitmoney->size].dwTime);
 						waitmoney->size++;
 					}
 					if(waitmoney->size)
@@ -121,7 +121,7 @@ bool Consign::updateHistory(DWORD id, DWORD acc, DWORD num , DWORD commitprice,D
 		column.put("sysmoney", sysmoney);
 		if((unsigned int)-1 == BillService::dbConnPool->exeInsert(handle,historytbl, &column))
 		{
-			Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+			Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 			BillService::dbConnPool->putHandle(handle);
 			return false;
 		}      
@@ -129,11 +129,11 @@ bool Consign::updateHistory(DWORD id, DWORD acc, DWORD num , DWORD commitprice,D
 		{
 			if(type == Cmd::STOCK_GOLD)
 			{
-			BillUser::logger("¹ÉÆ±½ğ±ÒÀúÊ·",id,NULL,price,num,acc,NULL);
+			BillUser::logger("è‚¡ç¥¨é‡‘å¸å†å²",id,NULL,price,num,acc,NULL);
 			}
 			else if(type == Cmd::STOCK_MONEY)
 			{
-			BillUser::logger("¹ÉÆ±Òø±ÒÀúÊ·",id,NULL,price,num,acc,NULL);
+			BillUser::logger("è‚¡ç¥¨é“¶å¸å†å²",id,NULL,price,num,acc,NULL);
 			}
 		}
 		BillService::dbConnPool->putHandle(handle);
@@ -224,13 +224,13 @@ bool Consign::cancelListAll()
 					where.put("accid",oss.str());
 					if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,canceltbl, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						BillService::dbConnPool->putHandle(handle);
 						return false;
 					}      
 					else
 					{
-						BillUser::logger("¹ÉÆ±½ğ±Ò³·µ¥",accid,NULL,listid,(DWORD)(num*1.02f),0,NULL);
+						BillUser::logger("è‚¡ç¥¨é‡‘å¸æ’¤å•",accid,NULL,listid,(DWORD)(num*1.02f),0,NULL);
 					}
 				}
 				SAFE_DELETE(cancelset)
@@ -258,13 +258,13 @@ bool Consign::cancelListAll()
 					where.put("accid",oss.str());
 					if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,canceltbl, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						BillService::dbConnPool->putHandle(handle);
 						return false;
 					}      
 					else
 					{
-						BillUser::logger("¹ÉÆ±Òø±Ò³·µ¥",accid,NULL,listid,(DWORD)(num*1.02f),0,NULL);
+						BillUser::logger("è‚¡ç¥¨é“¶å¸æ’¤å•",accid,NULL,listid,(DWORD)(num*1.02f),0,NULL);
 					}
 				}
 				SAFE_DELETE(cancelset)
@@ -302,24 +302,24 @@ bool ConsignGoldManager::cancelList(BillUser *pUser , DWORD listid)
 				if(cancelset && !cancelset->empty())
 				{
 					DWORD num=cancelset->get(0)->get("num");
-					pUser->addGold(num,"¹ÉÆ±Âôµ¥³·Ïú");
+					pUser->addGold(num,"è‚¡ç¥¨å–å•æ’¤é”€");
 					if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,canceltbl, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						BillService::dbConnPool->putHandle(handle);
 						return false;
 					}      
 					else
 					{
 						pUser->increaseGoldListNum();
-						BillUser::logger("¹ÉÆ±½ğ±Ò³·µ¥",pUser->id,pUser->name,listid,num,0,NULL);
+						BillUser::logger("è‚¡ç¥¨é‡‘å¸æ’¤å•",pUser->id,pUser->name,listid,num,0,NULL);
 					}
 					send.byReturn=Cmd::STOCK_CANCEL_OK;
 					SAFE_DELETE(cancelset)
 				}
 				else
 				{
-					Zebra::logger->debug("%s(%d)³·Ïú²»´æÔÚµÄ½ğ±ÒÎ¯ÍĞµ¥:%d",pUser->account,pUser->id,listid);
+					Zebra::logger->debug("%s(%d)æ’¤é”€ä¸å­˜åœ¨çš„é‡‘å¸å§”æ‰˜å•:%d",pUser->account,pUser->id,listid);
 				}
 			}
 			BillService::dbConnPool->putHandle(handle);
@@ -370,11 +370,11 @@ bool ConsignGoldManager::trade()
 
 					if((unsigned int)-1 == BillService::dbConnPool->exeUpdate(handle,goldtbl, &column, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 					}
 					else
 					{
-						BillUser::logger("¹ÉÆ±½ğ±Ò",list.id,NULL,list.num,changegold-list.num,0,"Ö÷¶¯²¿·Ö½»Ò×");
+						BillUser::logger("è‚¡ç¥¨é‡‘å¸",list.id,NULL,list.num,changegold-list.num,0,"ä¸»åŠ¨éƒ¨åˆ†äº¤æ˜“");
 						updateHistory(list.id,list.accid,changegold-list.num,list.price,list.price,list.time,Cmd::STOCK_GOLD,sysmoney);
 					}
 				}
@@ -386,7 +386,7 @@ bool ConsignGoldManager::trade()
 					where.put("id",oss.str());
 					if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,goldtbl, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 					}      
 					else
 					{
@@ -395,7 +395,7 @@ bool ConsignGoldManager::trade()
 						{
 							pUser->increaseGoldListNum();
 						}
-						BillUser::logger("¹ÉÆ±½ğ±Ò",list.id,NULL,list.num,changegold-list.num,0,"Ö÷¶¯È«²¿½»Ò×");
+						BillUser::logger("è‚¡ç¥¨é‡‘å¸",list.id,NULL,list.num,changegold-list.num,0,"ä¸»åŠ¨å…¨éƒ¨äº¤æ˜“");
 						updateHistory(list.id,list.accid,changegold-list.num,list.price,list.price,list.time,Cmd::STOCK_GOLD,sysmoney);
 					}
 				}
@@ -427,7 +427,7 @@ bool ConsignGoldManager::trade(ConsignTrait &moneylist , DWORD &sysmoney)
 			DWORD getgold=0;
 			DWORD getmoney=0;
 			ConsignTrait list;
-			/// Ã¿´ÎÆ¥Åä´¦ÀíÒ»ÌõÂôµ¥
+			/// æ¯æ¬¡åŒ¹é…å¤„ç†ä¸€æ¡å–å•
 			while(moneylist.num/moneylist.price)
 			{
 				oss.str("");
@@ -448,7 +448,7 @@ bool ConsignGoldManager::trade(ConsignTrait &moneylist , DWORD &sysmoney)
 					if(int(list.num - moneylist.num / moneylist.price) >= 0)
 					{
 						getgold+=moneylist.num/moneylist.price;
-						//²î¼ÛÓÉÏµÍ³³Ôµô
+						//å·®ä»·ç”±ç³»ç»Ÿåƒæ‰
 						if(moneylist.price >= list.price)
 						{
 							getmoney=(DWORD)(moneylist.num/moneylist.price) * list.price;
@@ -487,11 +487,11 @@ bool ConsignGoldManager::trade(ConsignTrait &moneylist , DWORD &sysmoney)
 
 						if((unsigned int)-1 == BillService::dbConnPool->exeUpdate(handle,goldtbl, &column, &where))
 						{
-							Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+							Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						}      
 						else
 						{
-							BillUser::logger("¹ÉÆ±½ğ±Ò",list.id,NULL,list.num,changegold-list.num,0,"±»¶¯²¿·Ö½»Ò×");
+							BillUser::logger("è‚¡ç¥¨é‡‘å¸",list.id,NULL,list.num,changegold-list.num,0,"è¢«åŠ¨éƒ¨åˆ†äº¤æ˜“");
 							updateHistory(list.id,list.accid,changegold-list.num,list.price,/*moneylist.price,*/list.price,list.time,Cmd::STOCK_GOLD,sysmoney);
 							sysmoney=0;
 						}
@@ -504,7 +504,7 @@ bool ConsignGoldManager::trade(ConsignTrait &moneylist , DWORD &sysmoney)
 						where.put("id",oss.str());
 						if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,goldtbl, &where))
 						{
-							Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+							Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						}      
 						else
 						{
@@ -513,7 +513,7 @@ bool ConsignGoldManager::trade(ConsignTrait &moneylist , DWORD &sysmoney)
 							{
 								pUser->increaseGoldListNum();
 							}
-							BillUser::logger("¹ÉÆ±½ğ±Ò",list.id,NULL,list.num,changegold-list.num,0,"±»¶¯È«²¿½»Ò×");
+							BillUser::logger("è‚¡ç¥¨é‡‘å¸",list.id,NULL,list.num,changegold-list.num,0,"è¢«åŠ¨å…¨éƒ¨äº¤æ˜“");
 							updateHistory(list.id,list.accid,changegold-list.num,list.price,list.price,/*moneylist.price,*/list.time,Cmd::STOCK_GOLD,sysmoney);
 							sysmoney=0;
 						}
@@ -523,7 +523,7 @@ bool ConsignGoldManager::trade(ConsignTrait &moneylist , DWORD &sysmoney)
 						BillUser *pUser = BillUserManager::getInstance()->getUserByID(list.accid);
 						if(pUser)
 						{
-							pUser->addMoney(getmoney,"¹ÉÆ±µÃµ½");
+							pUser->addMoney(getmoney,"è‚¡ç¥¨å¾—åˆ°");
 						}
 						else
 						{
@@ -535,7 +535,7 @@ bool ConsignGoldManager::trade(ConsignTrait &moneylist , DWORD &sysmoney)
 						BillUser *pUser = BillUserManager::getInstance()->getUserByID(moneylist.accid);
 						if(pUser)
 						{
-							pUser->addGold(getgold,"¹ÉÆ±µÃµ½");
+							pUser->addGold(getgold,"è‚¡ç¥¨å¾—åˆ°");
 						}
 						else
 						{
@@ -639,24 +639,24 @@ bool ConsignMoneyManager::cancelList(BillUser *pUser , DWORD listid)
 				if(cancelset && !cancelset->empty())
 				{
 					DWORD num=cancelset->get(0)->get("num");
-					pUser->addMoney(num,"¹ÉÆ±Âòµ¥³·Ïú");
+					pUser->addMoney(num,"è‚¡ç¥¨ä¹°å•æ’¤é”€");
 					if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,canceltbl, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						BillService::dbConnPool->putHandle(handle);
 						return false;
 					}      
 					else
 					{
 						pUser->increaseMoneyListNum();
-						BillUser::logger("¹ÉÆ±Òø±Ò³·µ¥",pUser->id,pUser->name,listid,num,0,NULL);
+						BillUser::logger("è‚¡ç¥¨é“¶å¸æ’¤å•",pUser->id,pUser->name,listid,num,0,NULL);
 					}
 					send.byReturn=Cmd::STOCK_CANCEL_OK;
 					SAFE_DELETE(cancelset)
 				}
 				else
 				{
-					Zebra::logger->debug("%s(%d)³·Ïú²»´æÔÚµÄ½ğ±ÒÎ¯ÍĞµ¥:%d",pUser->account,pUser->id,listid);
+					Zebra::logger->debug("%s(%d)æ’¤é”€ä¸å­˜åœ¨çš„é‡‘å¸å§”æ‰˜å•:%d",pUser->account,pUser->id,listid);
 				}
 			}
 			BillService::dbConnPool->putHandle(handle);
@@ -707,11 +707,11 @@ bool ConsignMoneyManager::trade()
 
 					if((unsigned int)-1 == BillService::dbConnPool->exeUpdate(handle,moneytbl, &column, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 					}
 					else
 					{
-						BillUser::logger("¹ÉÆ±Òø±Ò",list.id,NULL,list.num,changemoney-list.num,0,"Ö÷¶¯²¿·Ö½»Ò×");
+						BillUser::logger("è‚¡ç¥¨é“¶å¸",list.id,NULL,list.num,changemoney-list.num,0,"ä¸»åŠ¨éƒ¨åˆ†äº¤æ˜“");
 						updateHistory(list.id,list.accid,changemoney-list.num,list.price,list.price,list.time,Cmd::STOCK_MONEY,sysmoney);
 					}
 				}
@@ -723,7 +723,7 @@ bool ConsignMoneyManager::trade()
 					where.put("id",oss.str());
 					if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,moneytbl, &where))
 					{
-						Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+						Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 					}      
 					else
 					{
@@ -732,14 +732,14 @@ bool ConsignMoneyManager::trade()
 						{
 							pUser->increaseMoneyListNum();
 						}
-						BillUser::logger("¹ÉÆ±Òø±Ò",list.id,NULL,list.num,changemoney-list.num,0,"Ö÷¶¯È«²¿½»Ò×");
+						BillUser::logger("è‚¡ç¥¨é“¶å¸",list.id,NULL,list.num,changemoney-list.num,0,"ä¸»åŠ¨å…¨éƒ¨äº¤æ˜“");
 						updateHistory(list.id,list.accid,changemoney-list.num,list.price,list.price,list.time,Cmd::STOCK_MONEY,sysmoney);
 					}
 				}
-				// Èç¹û³ö¼ÛÁ¬Ò»¸ö½ğ±ÒÒ²Âò²»µ½¾ÍÏµÍ³³·µ¥
+				// å¦‚æœå‡ºä»·è¿ä¸€ä¸ªé‡‘å¸ä¹Ÿä¹°ä¸åˆ°å°±ç³»ç»Ÿæ’¤å•
 				else if(list.num < list.price)
 				{
-					//²»¹»Âò×îºóÒ»¸ö½ğ±Ò,³·µ¥(²»¹ıÓ¦¸Ã²»»áÓĞÕâÖÖÏÖÏó)
+					//ä¸å¤Ÿä¹°æœ€åä¸€ä¸ªé‡‘å¸,æ’¤å•(ä¸è¿‡åº”è¯¥ä¸ä¼šæœ‰è¿™ç§ç°è±¡)
 					BillUser *pUser = BillUserManager::getInstance()->getUserByID(list.accid);
 					if(pUser)
 					{
@@ -774,7 +774,7 @@ bool ConsignMoneyManager::trade(ConsignTrait &goldlist , DWORD &sysmoney)
 			DWORD getgold=0;
 			DWORD getmoney=0;
 			ConsignTrait list;
-			/// Ã¿´ÎÆ¥Åä´¦ÀíÒ»ÌõÂòµ¥
+			/// æ¯æ¬¡åŒ¹é…å¤„ç†ä¸€æ¡ä¹°å•
 			while(goldlist.num)
 			{
 				oss.str("");
@@ -799,7 +799,7 @@ bool ConsignMoneyManager::trade(ConsignTrait &goldlist , DWORD &sysmoney)
 					if((int)(list.num - goldlist.num * list.price) >= 0)
 					{
 						getgold=goldlist.num;
-						//²î¼ÛÏµÍ³³Ôµô
+						//å·®ä»·ç³»ç»Ÿåƒæ‰
 						//getmoney+=goldlist.num * list.price;
 						if(list.price >= goldlist.price)
 						{
@@ -840,11 +840,11 @@ bool ConsignMoneyManager::trade(ConsignTrait &goldlist , DWORD &sysmoney)
 
 						if((unsigned int)-1 == BillService::dbConnPool->exeUpdate(handle,moneytbl, &column, &where))
 						{
-							Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+							Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						}      
 						else
 						{
-							BillUser::logger("¹ÉÆ±Òø±Ò",list.id,NULL,list.num,changemoney-list.num,0,"±»¶¯²¿·Ö½»Ò×");
+							BillUser::logger("è‚¡ç¥¨é“¶å¸",list.id,NULL,list.num,changemoney-list.num,0,"è¢«åŠ¨éƒ¨åˆ†äº¤æ˜“");
 							updateHistory(list.id,list.accid,changemoney-list.num,list.price,/*goldlist.price,*/list.price,list.time,Cmd::STOCK_MONEY,sysmoney);
 							sysmoney=0;
 						}
@@ -857,7 +857,7 @@ bool ConsignMoneyManager::trade(ConsignTrait &goldlist , DWORD &sysmoney)
 						where.put("id",oss.str());
 						if((unsigned int)-1 == BillService::dbConnPool->exeDelete(handle,moneytbl, &where))
 						{
-							Zebra::logger->debug("Êı¾İ¿â´íÎó!%s",__PRETTY_FUNCTION__);
+							Zebra::logger->debug("æ•°æ®åº“é”™è¯¯!%s",__PRETTY_FUNCTION__);
 						}      
 						else
 						{
@@ -866,14 +866,14 @@ bool ConsignMoneyManager::trade(ConsignTrait &goldlist , DWORD &sysmoney)
 							{
 								pUser->increaseMoneyListNum();
 							}
-							BillUser::logger("¹ÉÆ±Òø±Ò",list.id,NULL,list.num,changemoney-list.num,0,"±»¶¯È«²¿½»Ò×");
+							BillUser::logger("è‚¡ç¥¨é“¶å¸",list.id,NULL,list.num,changemoney-list.num,0,"è¢«åŠ¨å…¨éƒ¨äº¤æ˜“");
 							updateHistory(list.id,list.accid,changemoney-list.num,list.price,list.price,/*goldlist.price,*/list.time,Cmd::STOCK_MONEY,sysmoney);
 							sysmoney=0;
 						}
 					}
 					else
 					{
-						//²»¹»Âò×îºóÒ»¸ö½ğ±Ò,³·µ¥(²»¹ıÓ¦¸Ã²»»áÓĞÕâÖÖÏÖÏó)
+						//ä¸å¤Ÿä¹°æœ€åä¸€ä¸ªé‡‘å¸,æ’¤å•(ä¸è¿‡åº”è¯¥ä¸ä¼šæœ‰è¿™ç§ç°è±¡)
 						BillUser *pUser = BillUserManager::getInstance()->getUserByID(list.accid);
 						if(pUser)
 						{
@@ -885,7 +885,7 @@ bool ConsignMoneyManager::trade(ConsignTrait &goldlist , DWORD &sysmoney)
 						BillUser *pUser = BillUserManager::getInstance()->getUserByID(list.accid);
 						if(pUser)
 						{
-							pUser->addGold(getgold,"¹ÉÆ±µÃµ½");
+							pUser->addGold(getgold,"è‚¡ç¥¨å¾—åˆ°");
 						}
 						else
 						{
@@ -897,7 +897,7 @@ bool ConsignMoneyManager::trade(ConsignTrait &goldlist , DWORD &sysmoney)
 				BillUser *pUser = BillUserManager::getInstance()->getUserByID(goldlist.accid);
 				if(pUser)
 				{
-					pUser->addMoney(getmoney,"¹ÉÆ±µÃµ½");
+					pUser->addMoney(getmoney,"è‚¡ç¥¨å¾—åˆ°");
 				}
 				else
 				{
@@ -943,7 +943,7 @@ bool ConsignHistoryManager::init()
 
 	if ((connHandleID)-1 != handle)
 	{
-		//¶ÁÈ¡ÀúÊ·½ğ±Ò
+		//è¯»å–å†å²é‡‘å¸
 		FieldSet* history = BillService::metaData->getFields("CONSIGNGOLDHISTORY");
 		RecordSet* recordset = NULL;
 		std::ostringstream oss;         
@@ -969,13 +969,13 @@ bool ConsignHistoryManager::init()
 					trait.dwTotal = recordset->get(i)->get("num");
 					trait.dwPrice = recordset->get(i)->get("price");
 					trait.dwTime = recordset->get(i)->get("oktime");
-					//Zebra::logger->debug("ÀúÊ·½ğ±ÒÊı¾İ:(Ê±¼ä:%d,¼Û¸ñ:%d,³É½»Á¿:%d)",trait.dwTime,trait.dwPrice,trait.dwTotal);
+					//Zebra::logger->debug("å†å²é‡‘å¸æ•°æ®:(æ—¶é—´:%d,ä»·æ ¼:%d,æˆäº¤é‡:%d)",trait.dwTime,trait.dwPrice,trait.dwTotal);
 					historyGold.insert(HistoryIndex::value_type(trait.dwTime/3600,trait));
 				}
 			}
 			SAFE_DELETE(recordset);
 		}
-		//¶ÁÈ¡ÀúÊ·Òø±Ò
+		//è¯»å–å†å²é“¶å¸
 		history = BillService::metaData->getFields("CONSIGNMONEYHISTORY");
 		if(history)
 		{
@@ -996,7 +996,7 @@ bool ConsignHistoryManager::init()
 					trait.dwTotal = recordset->get(i)->get("num");
 					trait.dwPrice = recordset->get(i)->get("price");
 					trait.dwTime = recordset->get(i)->get("oktime");
-					//Zebra::logger->debug("ÀúÊ·Òø±ÒÊı¾İ:(Ê±¼ä:%d,¼Û¸ñ:%d,³É½»Á¿:%d)",trait.dwTime,trait.dwPrice,trait.dwTotal);
+					//Zebra::logger->debug("å†å²é“¶å¸æ•°æ®:(æ—¶é—´:%d,ä»·æ ¼:%d,æˆäº¤é‡:%d)",trait.dwTime,trait.dwPrice,trait.dwTotal);
 					historyMoney.insert(HistoryIndex::value_type(trait.dwTime/3600,trait));
 				}
 			}
@@ -1010,9 +1010,9 @@ bool ConsignHistoryManager::update()
 {
 	//if(_one_min(BillTimeTick::currentTime))
 	{
-		//Âô·½ÅÅ¼Û
+		//å–æ–¹æ’ä»·
 		ConsignGoldManager::getInstance()->init();
-		//Âò·½ÅÅ¼Û
+		//ä¹°æ–¹æ’ä»·
 		ConsignMoneyManager::getInstance()->init();
 		connHandleID handle = BillService::dbConnPool->getHandle();
 
@@ -1042,7 +1042,7 @@ bool ConsignHistoryManager::update()
 					newHistoryGold.dwPrice = recordset->get(0)->get("price");
 					newHistoryGold.dwTime = recordset->get(0)->get("oktime");
 					historyGold.insert(HistoryIndex::value_type(newHistoryGold.dwTime/3600,newHistoryGold));
-					//Zebra::logger->debug("×îĞÂÀúÊ·Êı¾İ:(Ê±¼ä:%d,¼Û¸ñ:%d,³É½»Á¿:%d",newHistoryGold.dwTime,newHistoryGold.dwPrice,newHistoryGold.dwTotal);
+					//Zebra::logger->debug("æœ€æ–°å†å²æ•°æ®:(æ—¶é—´:%d,ä»·æ ¼:%d,æˆäº¤é‡:%d",newHistoryGold.dwTime,newHistoryGold.dwPrice,newHistoryGold.dwTotal);
 				}
 			}
 			SAFE_DELETE(recordset);
@@ -1071,7 +1071,7 @@ bool ConsignHistoryManager::update()
 					newHistoryMoney.dwPrice = recordset->get(0)->get("price");
 					newHistoryMoney.dwTime = recordset->get(0)->get("oktime");
 					historyMoney.insert(HistoryIndex::value_type(newHistoryMoney.dwTime/3600,newHistoryMoney));
-					//Zebra::logger->debug("×îĞÂÀúÊ·Êı¾İ:(Ê±¼ä:%d,¼Û¸ñ:%d,³É½»Á¿:%d",newHistoryMoney.dwTime,newHistoryMoney.dwPrice,newHistoryMoney.dwTotal);
+					//Zebra::logger->debug("æœ€æ–°å†å²æ•°æ®:(æ—¶é—´:%d,ä»·æ ¼:%d,æˆäº¤é‡:%d",newHistoryMoney.dwTime,newHistoryMoney.dwPrice,newHistoryMoney.dwTotal);
 				}
 			}
 			SAFE_DELETE(recordset);
@@ -1084,7 +1084,7 @@ bool ConsignHistoryManager::sendDataToUser(BillUser *pUser , DWORD begintime,DWO
 {
 	if(pUser)
 	{
-		//TODO  ¶ÔnumµÄÏŞÖÆ
+		//TODO  å¯¹numçš„é™åˆ¶
 		if(num && num<=720)
 		{
 			static char Buf[sizeof(Cmd::stHistoryGoldStockUserCmd) + 720 * 60 * sizeof(Cmd::ConsignHistoryType)];
@@ -1099,7 +1099,7 @@ bool ConsignHistoryManager::sendDataToUser(BillUser *pUser , DWORD begintime,DWO
 				HistoryIndex::iterator iter;
 				for(iter = range.first;iter !=range.second;iter++)
 				{
-					//Zebra::logger->debug("Íæ¼ÒÇëÇó½ğ±ÒÀúÊ·Êı¾İ:(Ê±¼ä:%d,¼Û¸ñ:%d,³É½»Á¿:%d",iter->second.dwTime,iter->second.dwPrice,iter->second.dwTotal);
+					//Zebra::logger->debug("ç©å®¶è¯·æ±‚é‡‘å¸å†å²æ•°æ®:(æ—¶é—´:%d,ä»·æ ¼:%d,æˆäº¤é‡:%d",iter->second.dwTime,iter->second.dwPrice,iter->second.dwTotal);
 					bcopy(&iter->second,&sendgold->list[sendgold->size],sizeof(Cmd::ConsignHistoryType));
 					sendgold->size++;
 				}
@@ -1118,7 +1118,7 @@ bool ConsignHistoryManager::sendDataToUser(BillUser *pUser , DWORD begintime,DWO
 				HistoryIndex::iterator iter;
 				for(iter = range.first;iter !=range.second;iter++)
 				{
-					//Zebra::logger->debug("Íæ¼ÒÇëÇóÒø±ÒÀúÊ·Êı¾İ:(Ê±¼ä:%d,¼Û¸ñ:%d,³É½»Á¿:%d",iter->second.dwTime,iter->second.dwPrice,iter->second.dwTotal);
+					//Zebra::logger->debug("ç©å®¶è¯·æ±‚é“¶å¸å†å²æ•°æ®:(æ—¶é—´:%d,ä»·æ ¼:%d,æˆäº¤é‡:%d",iter->second.dwTime,iter->second.dwPrice,iter->second.dwTotal);
 					bcopy(&iter->second,&sendmoney->list[sendmoney->size],sizeof(Cmd::ConsignHistoryType));
 					sendmoney->size++;
 				}
@@ -1130,7 +1130,7 @@ bool ConsignHistoryManager::sendDataToUser(BillUser *pUser , DWORD begintime,DWO
 		}
 		else
 		{
-			//Ö»·¢ËÍ×îĞÂÉú³ÉµÄÊı¾İ
+			//åªå‘é€æœ€æ–°ç”Ÿæˆçš„æ•°æ®
 			bool need=false;
 			Cmd::stNewHistoryStockUserCmd send;
 			if(newHistoryGold.dwTime)
@@ -1155,14 +1155,14 @@ bool ConsignHistoryManager::sendSelfDataToUser(BillUser *pUser , DWORD begintime
 {
 	if(pUser)
 	{
-		//TODO  ¶ÔnumµÄÏŞÖÆ
+		//TODO  å¯¹numçš„é™åˆ¶
 		if(num && num<=720)
 		{
 			connHandleID handle = BillService::dbConnPool->getHandle();
 
 			if ((connHandleID)-1 != handle)
 			{
-				//¶ÁÈ¡ÀúÊ·½ğ±Ò
+				//è¯»å–å†å²é‡‘å¸
 				FieldSet* history = BillService::metaData->getFields("CONSIGNGOLDHISTORY");
 				RecordSet* recordset = NULL;
 				std::ostringstream oss;         
@@ -1193,7 +1193,7 @@ bool ConsignHistoryManager::sendSelfDataToUser(BillUser *pUser , DWORD begintime
 							sendgold->list[sendgold->size].wdPrice = recordset->get(i)->get("price");
 							sendgold->list[sendgold->size].dwCommitTime = recordset->get(i)->get("committime");
 							sendgold->list[sendgold->size].dwOkTime = recordset->get(i)->get("oktime");
-							//Zebra::logger->debug("Íæ¼Ò%s(%d)ÇëÇó×Ô¼º½ğ±ÒÀúÊ·Êı¾İ:%d,%d,%d,%d,%d",pUser->account,pUser->id,sendgold->list[sendgold->size].dwID,sendgold->list[sendgold->size].wdNum,sendgold->list[sendgold->size].wdCommitPrice,sendgold->list[sendgold->size].wdPrice,sendgold->list[sendgold->size].dwCommitTime,sendgold->list[sendgold->size].dwOkTime);
+							//Zebra::logger->debug("ç©å®¶%s(%d)è¯·æ±‚è‡ªå·±é‡‘å¸å†å²æ•°æ®:%d,%d,%d,%d,%d",pUser->account,pUser->id,sendgold->list[sendgold->size].dwID,sendgold->list[sendgold->size].wdNum,sendgold->list[sendgold->size].wdCommitPrice,sendgold->list[sendgold->size].wdPrice,sendgold->list[sendgold->size].dwCommitTime,sendgold->list[sendgold->size].dwOkTime);
 							sendgold->size++;
 						}
 						SAFE_DELETE(recordset);
@@ -1227,7 +1227,7 @@ bool ConsignHistoryManager::sendSelfDataToUser(BillUser *pUser , DWORD begintime
 							sendmoney->list[sendmoney->size].wdPrice = recordset->get(i)->get("price");
 							sendmoney->list[sendmoney->size].dwCommitTime = recordset->get(i)->get("committime");
 							sendmoney->list[sendmoney->size].dwOkTime = recordset->get(i)->get("oktime");
-							//Zebra::logger->debug("Íæ¼Ò%s(%d)ÇëÇó×Ô¼ºÒø±ÒÀúÊ·Êı¾İ:%d,%d,%d,%d,%d,%d",pUser->account,pUser->id,sendmoney->list[sendmoney->size].dwID,sendmoney->list[sendmoney->size].wdNum,sendmoney->list[sendmoney->size].wdCommitPrice,sendmoney->list[sendmoney->size].wdPrice,sendmoney->list[sendmoney->size].dwCommitTime,sendmoney->list[sendmoney->size].dwOkTime);
+							//Zebra::logger->debug("ç©å®¶%s(%d)è¯·æ±‚è‡ªå·±é“¶å¸å†å²æ•°æ®:%d,%d,%d,%d,%d,%d",pUser->account,pUser->id,sendmoney->list[sendmoney->size].dwID,sendmoney->list[sendmoney->size].wdNum,sendmoney->list[sendmoney->size].wdCommitPrice,sendmoney->list[sendmoney->size].wdPrice,sendmoney->list[sendmoney->size].dwCommitTime,sendmoney->list[sendmoney->size].dwOkTime);
 							sendmoney->size++;
 						}
 						SAFE_DELETE(recordset);
@@ -1242,7 +1242,7 @@ bool ConsignHistoryManager::sendSelfDataToUser(BillUser *pUser , DWORD begintime
 		}
 		else
 		{
-			Zebra::logger->debug("%uÇëÇó×Ô¼ºÀúÊ·Êı¾İÊıÁ¿´íÎó:%d",pUser->id,num);
+			Zebra::logger->debug("%uè¯·æ±‚è‡ªå·±å†å²æ•°æ®æ•°é‡é”™è¯¯:%d",pUser->id,num);
 		}
 	}
 	return true;
@@ -1268,7 +1268,7 @@ bool Consign::addGold(DWORD accid,DWORD num)
 			}
 			else
 			{
-				BillUser::logger("½ğ±Ò",accid,NULL,0,num,1,"¹ÉÆ±ÀëÏß½»Ò×");
+				BillUser::logger("é‡‘å¸",accid,NULL,0,num,1,"è‚¡ç¥¨ç¦»çº¿äº¤æ˜“");
 			}
 		}
 		BillService::dbConnPool->putHandle(handle);
@@ -1296,7 +1296,7 @@ bool Consign::addMoney(DWORD accid,DWORD num)
 			}
 			else
 			{
-				BillUser::logger("Òø±Ò",accid,NULL,0,num,1,"¹ÉÆ±ÀëÏß½»Ò×");
+				BillUser::logger("é“¶å¸",accid,NULL,0,num,1,"è‚¡ç¥¨ç¦»çº¿äº¤æ˜“");
 			}
 		}
 		BillService::dbConnPool->putHandle(handle);

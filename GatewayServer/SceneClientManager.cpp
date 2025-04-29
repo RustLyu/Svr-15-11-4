@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneClientManager.cpp $
  * \author  
  * \date 
- * \brief Íø¹Øµ½³¡¾°Êı¾İ»º³å·¢ËÍ
+ * \brief ç½‘å…³åˆ°åœºæ™¯æ•°æ®ç¼“å†²å‘é€
  *
  * 
  */
@@ -16,12 +16,12 @@
 #include "GatewayServer.h"
 
 /**
- ** \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+ ** \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
  **/
 SceneClientManager *SceneClientManager::instance = NULL;
 
 /**
- ** \brief ¹¹Ôìº¯Êı
+ ** \brief æ„é€ å‡½æ•°
  **/
 SceneClientManager::SceneClientManager()
 {
@@ -29,7 +29,7 @@ SceneClientManager::SceneClientManager()
 }
 
 /**
- ** \brief Îö¹¹º¯Êı
+ ** \brief ææ„å‡½æ•°
  **/
 SceneClientManager::~SceneClientManager()
 {
@@ -37,8 +37,8 @@ SceneClientManager::~SceneClientManager()
 }
 
 /**
- ** \brief ³õÊ¼»¯¹ÜÀíÆ÷
- ** \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ ** \brief åˆå§‹åŒ–ç®¡ç†å™¨
+ ** \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  **/
 bool SceneClientManager::init()
 {
@@ -51,10 +51,10 @@ bool SceneClientManager::init()
 
 	while(serverEntry)
 	{
-		SceneClient *sceneClient = new SceneClient("Scene·şÎñÆ÷", serverEntry);
+		SceneClient *sceneClient = new SceneClient("SceneæœåŠ¡å™¨", serverEntry);
 		if (NULL == sceneClient)
 		{
-			Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢Scene·şÎñÆ÷¿Í»§¶ËÊµÀı");
+			Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹SceneæœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 			return false;
 		}
 		sceneClientPool->put(sceneClient);
@@ -64,8 +64,8 @@ bool SceneClientManager::init()
 }
 
 /**
- ** \brief ÖÜÆÚ¼ä¸ô½øĞĞÁ¬½ÓµÄ¶ÏÏßÖØÁ¬¹¤×÷
- ** \param ct µ±Ç°Ê±¼ä
+ ** \brief å‘¨æœŸé—´éš”è¿›è¡Œè¿æ¥çš„æ–­çº¿é‡è¿å·¥ä½œ
+ ** \param ct å½“å‰æ—¶é—´
  **/
 void SceneClientManager::timeAction(const zTime &ct)
 {
@@ -78,8 +78,8 @@ void SceneClientManager::timeAction(const zTime &ct)
 }
 
 /**
- ** \brief ÏòÈİÆ÷ÖĞÌí¼ÓÒÑ¾­³É¹¦µÄÁ¬½Ó
- ** \param sceneClient ´ıÌí¼ÓµÄÁ¬½Ó
+ ** \brief å‘å®¹å™¨ä¸­æ·»åŠ å·²ç»æˆåŠŸçš„è¿æ¥
+ ** \param sceneClient å¾…æ·»åŠ çš„è¿æ¥
  **/
 void SceneClientManager::add(SceneClient *sceneClient)
 {
@@ -91,8 +91,8 @@ void SceneClientManager::add(SceneClient *sceneClient)
 }
 
 /**
- ** \brief ´ÓÈİÆ÷ÖĞÒÆ³ı¶Ï¿ªµÄÁ¬½Ó
- ** \param sceneClient ´ıÒÆ³ıµÄÁ¬½Ó
+ ** \brief ä»å®¹å™¨ä¸­ç§»é™¤æ–­å¼€çš„è¿æ¥
+ ** \param sceneClient å¾…ç§»é™¤çš„è¿æ¥
  **/
 void SceneClientManager::remove(SceneClient *sceneClient)
 {
@@ -108,9 +108,9 @@ void SceneClientManager::remove(SceneClient *sceneClient)
 }
 
 /**
- ** \brief Ïò³É¹¦µÄËùÓĞÁ¬½Ó¹ã²¥Ö¸Áî
- ** \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- ** \param nCmdLen ´ı¹ã²¥Ö¸ÁîµÄ³¤¶È
+ ** \brief å‘æˆåŠŸçš„æ‰€æœ‰è¿æ¥å¹¿æ’­æŒ‡ä»¤
+ ** \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ ** \param nCmdLen å¾…å¹¿æ’­æŒ‡ä»¤çš„é•¿åº¦
  **/
 bool SceneClientManager::broadcastOne(const void *pstrCmd, int nCmdLen)
 {

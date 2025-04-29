@@ -1,4 +1,4 @@
-#ifndef _CDES_H
+﻿#ifndef _CDES_H
 #define _CDES_H
 
 #include "des.h"

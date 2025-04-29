@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionServer.h $
  * \author  
  * \date 
- * \brief ÓÎÏ·È«¾ÖSession·şÎñÆ÷ 
+ * \brief æ¸¸æˆå…¨å±€SessionæœåŠ¡å™¨ 
  */
 
 #ifndef _SessionServer_h_
@@ -18,7 +18,7 @@ class zDBConnPool;
 class MetaData;
 
 /**
- * \brief ±éÀúÃ¿¸öÓÃ»§»á»°¸øÍ¬Ò»¹ú¼ÒµÄ½ÇÉ«·¢ËÍµ½³¡¾°
+ * \brief éå†æ¯ä¸ªç”¨æˆ·ä¼šè¯ç»™åŒä¸€å›½å®¶çš„è§’è‰²å‘é€åˆ°åœºæ™¯
  */
 struct OneCountryScene: public execEntry<UserSession>
 {
@@ -35,9 +35,9 @@ struct OneCountryScene: public execEntry<UserSession>
 	}
 
 	/**
-	 * \brief ±éÀúÃ¿¸öÓÃ»§»á»°¸øÍ¬Ò»¹ú¼ÒµÄ½ÇÉ«·¢ËÍ³¡¾°ÃüÁî
-	 * \param su ÓÃ»§»á»°
-	 * \return true ³É¹¦ false Ê§°Ü
+	 * \brief éå†æ¯ä¸ªç”¨æˆ·ä¼šè¯ç»™åŒä¸€å›½å®¶çš„è§’è‰²å‘é€åœºæ™¯å‘½ä»¤
+	 * \param su ç”¨æˆ·ä¼šè¯
+	 * \return true æˆåŠŸ false å¤±è´¥
 	 */
 	bool exec(UserSession *su)
 	{
@@ -76,9 +76,9 @@ struct worldMsg
 };
 
 /**
- * \brief Session·şÎñÀà
+ * \brief SessionæœåŠ¡ç±»
  *
- * ÓÎÏ·È«¾ÖµÄSession·şÎñÆ÷
+ * æ¸¸æˆå…¨å±€çš„SessionæœåŠ¡å™¨
  *
  */
 class SessionService : public zSubNetService
@@ -89,14 +89,14 @@ class SessionService : public zSubNetService
 		bool msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 
 		/**
-		 * \brief ´¿ĞéÎö¹¹º¯Êı
+		 * \brief çº¯è™šææ„å‡½æ•°
 		 *
 		 */
 		~SessionService()
 		{
 			instance = NULL;
 
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -117,11 +117,11 @@ class SessionService : public zSubNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * Õâ¸öÀàÊ¹ÓÃÁËSingleton£¬±£Ö¤Ò»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonï¼Œä¿è¯ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 *
-		 * \return ÀàµÄÎ¨Ò»ÊµÀı
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static SessionService &getInstance()
 		{
@@ -132,7 +132,7 @@ class SessionService : public zSubNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -147,7 +147,7 @@ class SessionService : public zSubNetService
 		}
 		
 		/**
-		 * \brief Ö¸ÏòÊı¾İ¿âÁ¬½Ó³ØÊµÀıµÄÖ¸Õë
+		 * \brief æŒ‡å‘æ•°æ®åº“è¿æ¥æ± å®ä¾‹çš„æŒ‡é’ˆ
 		 *
 		 */
 		static zDBConnPool *dbConnPool;
@@ -156,7 +156,7 @@ class SessionService : public zSubNetService
 		//bool checkGumu();
 
 		/**
-		 * \brief ¼ì²é¹ú¼ÒÇ¿Èõ
+		 * \brief æ£€æŸ¥å›½å®¶å¼ºå¼±
 		 *
 		 */
 		void checkCountry(struct tm &tmValue, bool donow = false);
@@ -170,26 +170,26 @@ class SessionService : public zSubNetService
 
 		static bool reportGm(const char * fromName, const char *msg, ...);
 
-		static DWORD emperorForbid[10];//»ÊµÛ½ûÑÔ¹ıµÄÍæ¼Ò
-		DWORD loadEmperorForbid();//´ÓÊı¾İ¿â¶Á
-		void saveEmperorForbid();//Ğ´Êı¾İ¿â
-		void clearEmperorForbid();//Ã¿ÌìÇå³ı¼ÇÂ¼
+		static DWORD emperorForbid[10];//çš‡å¸ç¦è¨€è¿‡çš„ç©å®¶
+		DWORD loadEmperorForbid();//ä»æ•°æ®åº“è¯»
+		void saveEmperorForbid();//å†™æ•°æ®åº“
+		void clearEmperorForbid();//æ¯å¤©æ¸…é™¤è®°å½•
 	private:
 
 		DWORD gumutime;
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static SessionService *instance;
 
-		zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		SessionService() : zSubNetService("Session·şÎñÆ÷", SESSIONSERVER)
+		SessionService() : zSubNetService("SessionæœåŠ¡å™¨", SESSIONSERVER)
 		{
 			taskPool = NULL;
 			bzero(&shutdown_time,sizeof(shutdown_time));

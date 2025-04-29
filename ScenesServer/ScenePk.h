@@ -1,4 +1,4 @@
-#ifndef _SCENEPK_H_
+ï»¿#ifndef _SCENEPK_H_
 #define _SCENEPK_H_
 
 #include "zTime.h"
@@ -12,7 +12,7 @@ struct SceneUser;
 struct SceneNpc;
 struct SceneEntryPk;
 
-//¼¼ÄÜÓ°ÏìµÄ×´Ì¬Êý¾Ý
+//æŠ€èƒ½å½±å“çš„çŠ¶æ€æ•°æ®
 struct SkillState
 {
 	SkillState();
@@ -21,164 +21,164 @@ struct SkillState
 	{
 		struct 
 		{
-			SWORD dvalue;		//ÉËº¦ÖµÔö¼Ó¹Ì¶¨ÊýÖµ1
-			SWORD dvaluep;		//ÉËº¦ÖµÔö¼Óx%2
-			SWORD pdefence;		//ÎïÀí·ÀÓùÊýÖµ±ä¸ü 57£¬86
-			SWORD pdefencep;	//ÎïÀí·ÀÓù±ä¸ü°Ù·Ö±È
-			SWORD updam;		//ÎïÀí¹¥»÷Ôö¼Ó¹Ì¶¨ÊýÖµ
-			SWORD updamp;		//ÎïÀí¹¥»÷Ôö¼Ó°Ù·Ö±È
-			SWORD umdam;		//·¨Êõ¹¥»÷Ôö¼Ó¹Ì¶¨ÊýÖµ
-			SWORD umdamp;		//·¨Êõ¹¥»÷Ôö¼Ó°Ù·Ö±È
-			SWORD dpdam;		//ÎïÀí¹¥»÷¼õÉÙ¹Ì¶¨ÊýÖµ
-			SWORD dpdamp;		//ÎïÀí¹¥»÷¼õÉÙ°Ù·Ö±È
-			SWORD dmdam;		//·¨Êõ¹¥»÷¼õÉÙ¹Ì¶¨ÊýÖµ
-			SWORD dmdamp;		//·¨Êõ¹¥»÷¼õÉÙ°Ù·Ö±È
-			SWORD updef;		//ÎïÀí·ÀÓùÔö¼Ó¹Ì¶¨ÊýÖµ
-			SWORD updefp;		//ÎïÀí·ÀÓùÔö¼Ó°Ù·Ö±È
-			SWORD umdef;		//·¨Êõ·ÀÓùÔö¼Ó¹Ì¶¨ÊýÖµ
-			SWORD umdefp;		//·¨Êõ·ÀÓùÔö¼Ó°Ù·Ö±È
-			SWORD dpdef;		//ÎïÀí·ÀÓù¼õÉÙ¹Ì¶¨ÊýÖµ
-			SWORD dpdefp;		//ÎïÀí·ÀÓù¼õÉÙ°Ù·Ö±È
-			SWORD dmdef;		//·¨Êõ·ÀÓù¼õÉÙ¹Ì¶¨ÊýÖµ
-			SWORD dmdefp;		//·¨Êõ·ÀÓù¼õÉÙ°Ù·Ö±È
-			SWORD topet;		//±äÎªËæ»úÐ¡¶¯Îï79
-			SWORD appenddam;	//²úÉú¶îÍâÉËº¦83
-			SWORD movespeed;	//ÒÆ¶¯ËÙ¶È±ä¸ü°Ù·Ö±È 16£¬56
-			SWORD mgspeed;		//¼õÉÙ¼¼ÄÜÊ©·Å¼ä¸ô17
-			SWORD coldp;		//¼õÉÙÏÝÈë±ù¶³×´Ì¬¼¸ÂÊ18
-			SWORD poisonp;		//¼õÉÙÏÝÈëÖÐ¶¾×´Ì¬¼¸ÂÊ19
-			SWORD petrifyp;		//¼õÉÙÏÝÈëÊ¯»¯×´Ì¬¼¸ÂÊ20
-			SWORD blindp;		//¼õÉÙÏÝÈëÊ§Ã÷×´Ì¬¼¸ÂÊ21
-			SWORD chaosp;		//¼õÉÙÏÝÈë»ìÂÒ×´Ì¬¼¸ÂÊ22
-			SWORD atrating;		//ÃüÖÐÂÊÔö¼Ó33,64
-			SWORD reduce_atrating;  // ÃüÖÐÂÊ¼õÉÙ ZJW¼ÓÈë
-			SWORD hpspeedup;	//ÉúÃüÖµ»Ö¸´ËÙ¶ÈÔö¼Ó34
-			SWORD mpspeedup;	//·¨ÊõÖµ»Ö¸´ËÙ¶ÈÔö¼Ó35
-			SWORD spspeedup;	//ÌåÁ¦Öµ»Ö¸´ËÙ¶ÈÔö¼Ó36
-			SWORD akdodge;		//ÉÁ±ÜÂÊÉÏÉý37
-			SWORD reduce_akdodge;  // ÉÁ±ÜÂÊÏÂ½µ
-			SWORD reflect;		//·´µ¯45
-			SWORD reflectp;		//·´µ¯x%46
-			SWORD reflect2;		//Îª·´µ¯°Ù·ÖÖ®¼¸µÄµÐÈËÉËº¦50
-			SWORD mdefence;		//·¨Êõ·ÀÓù±ä¸ü59£¬             // 40
-			SWORD mdefencep;	//·¨Êõ·ÀÓù±ä¸ü°Ù·Ö±Èx%
-			SWORD uattackspeed;	//¹¥»÷ËÙ¶ÈÌá¸ß°×·Ö±È
-			SWORD dattackspeed;	//¹¥»÷ËÙ¶È½µµÍ°×·Ö±È
-			SWORD sevendownp;	//½µµÍÏÝÈëÆß´ó×´Ì¬¼¸ÂÊ82
-			SWORD tsfdamp;		//ÉËº¦×ªÒÆ°Ù·Ö±È
-			SWORD tsfdam;		//ÉËº¦×ªÒÆÊýÖµ
-			SWORD passdam;		//±»¶¯£º¶îÍâÉËº¦117
-			SWORD maxhp;       //ÉúÃüÖµ×î´óÖµ±ä¸ü
-			SWORD maxmp;       //·¨ÊõÖµ×î´óÖµ±ä¸ü
-			SWORD maxsp;       //ÌåÁ¦Öµ×î´óÖµ±ä¸ü
-			SWORD pupdam;		//ÎïÀí¹¥»÷Ôö¼Ó¹Ì¶¨ÊýÖµ£¨±»¶¯£©
-			SWORD pumdam;		//·¨Êõ¹¥»÷Ôö¼Ó¹Ì¶¨ÊýÖµ£¨±»¶¯£©
-			SWORD pupdef;		//ÎïÀí·ÀÓùÔö¼Ó¹Ì¶¨ÊýÖµ£¨±»¶¯£©
-			SWORD pumdef;		//·¨Êõ·ÀÓùÔö¼Ó¹Ì¶¨ÊýÖµ£¨±»¶¯£©
-			SWORD supdam;		//¹­¼ýÀàÔö¼ÓÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(³¤Ð§)
-			SWORD spupdam;		//¹­¼ýÀàÔö¼ÓÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(±»¶¯)
-			SWORD spupdamp;		//¹­¼ýÀàÔö¼ÓÎïÀí¹¥»÷Á¦°Ù·Ö±È(±»¶¯)
-			SWORD rpupdam;		//¹÷×ÓÀàÔö¼ÓÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(±»¶¯)
-			SWORD lupdam;		//³¤Ð§ÎïÀí¹¥»÷Á¦ÔöÇ¿¹Ì¶¨Öµ
-			SWORD satrating;	//¹­¼ýÀàÌáÉýÃüÖÐÂÊ
-			SWORD patrating;   // Ôö¼ÓÃüÖÐÂÊ£¨±»¶¯£©
-			SWORD pattackspeed;	//Ôö¼Ó¹¥»÷ËÙ¶È£¨±»¶¯£©
-			SWORD upattribute;	//ÊôÐÔµãÔö¼Ó
-			SWORD tuling;      //ÍÁÁéÔöÇ¿
-			SWORD kulou;		//÷¼÷Ã¹­ÊÖÔöÇ¿
-			SWORD tianbing;    //Ìì±øÔöÇ¿
-			SWORD weaponupdamp; //ÌáÉýÎäÆ÷ÎïÀí¹¥»÷Á¦°Ù·Ö±È
-			SWORD weaponumdamp; //ÌáÉýÎäÆ÷·¨Êõ¹¥»÷Á¦°Ù·Ö±È
-			SWORD uppetdamage; //ÌáÉýÕÙ»½ÊÞµÄ¹¥»÷Á¦
-			SWORD uppetdefence; //ÌáÉýÕÙ»½ÊÞµÄ·ÀÓùÁ¦
-			SWORD pmaxhp;		//±»¶¯ÌáÉýÉúÃü×î´óÖµ
-			SWORD bang;			//Ôö¼ÓÈËÎïÊ©·Å³öÖØ»÷µÄ¼¸ÂÊ
-			SWORD theurgy_updam; //ÏÉÊõÔö¼ÓÎïÀí¹¥»÷Á¦
-			SWORD theurgy_updamp; //ÏÉÊõÔö¼ÓÎïÀí¹¥»÷Á¦°Ù·Ö±È
-			SWORD theurgy_updef; //ÏÉÊõÔö¼ÓÎïÀí·ÀÓùÁ¦
-			SWORD theurgy_umdefp; //ÏÉÊõÔö¼Ó·¨Êõ·ÀÓùÁ¦°Ù·Ö±È
-			SWORD theurgy_umdef; //ÏÉÊõÔö¼Ó·¨Êõ·ÀÓùÁ¦
-			SWORD theurgy_umdam; //ÏÉÊõÔö¼Ó·¨Êõ¹¥»÷Á¦
-			SWORD theurgy_umdamp; //ÏÉÊõÔö¼Ó·¨Êõ¹¥»÷Á¦°Ù·Ö±È
-			SWORD theurgy_updefp;//ÏÉÊõÔö¼ÓÎïÀí·ÀÓùÁ¦°Ù·Ö±È
-			SWORD theurgy_dpdef; //ÏÉÊõ½µµÍÎïÀí·ÀÓùÁ¦
-			SWORD theurgy_dmdef; //ÏÉÊõ½µµÍÎïÀí·ÀÓùÁ¦
-			SWORD theurgy_dpdam;		//ÎïÀí¹¥»÷¼õÉÙ¹Ì¶¨ÊýÖµ
-			SWORD theurgy_dmdam;		//·¨Êõ¹¥»÷¼õÉÙ¹Ì¶¨ÊýÖµ
-			SWORD hpupbylevel; //¸ù¾ÝÈËÎïµÈ¼¶ÌáÉý×î´óÑªÁ¿                    //80
-			SWORD reflect_ardor; // ·´µ¯×ÆÈÈ×´Ì¬¸ø¹¥»÷×Ô¼ºµÄµÐÈË
-			SWORD reflect_poison; //·´µ¯ÖÐ¶¾×´Ì¬¸ø¹¥»÷×Ô¼ºµÄµÐÈË
-			SWORD reflect_lull;  // ·´µ¯Âé±Ô×´Ì¬¸ø¹¥»÷×Ô¼ºµÄµÐÈË
-			SWORD reflect_frost; // ·´µ¯±ù¶³×´Ì¬¸ø¹¥»÷×Ô¼ºµÄµÐÈË
-			WORD introject_maxmdam; // ÕÙ»½ºÏÌåÔö¼ÓÄ§·¨¹¥»÷
-			WORD introject_maxpdam; // ÕÙ»½ºÏÌåÔö¼ÓÎïÀí¹¥»÷
-			WORD introject_mdam; // ÕÙ»½ºÏÌåÔö¼ÓÄ§·¨¹¥»÷
-			WORD introject_pdam; // ÕÙ»½ºÏÌåÔö¼ÓÎïÀí¹¥»÷
-			WORD introject_mdef; // ÕÙ»½ºÏÌåÔö¼ÓÄ§·¨·ÀÓù
-			WORD introject_pdef; // ÕÙ»½ºÏÌåÔö¼ÓÎïÀí·ÀÓù
-			WORD introject_maxhp; // ÕÙ»½ºÏÌåÔö¼ÓÉúÃüÉÏÏÞ
-			SWORD summonrelive; // ÕÙ»½ÊÞÖØÉú
-			SWORD pdamtodef;	// Îï¹¥×ªÎï·À
-			SWORD mdamtodef;	// Ä§¹¥×ªÄ§·À
-			SWORD pdeftodam;	// Îï·À×ªÎï¹¥
-			SWORD mdeftodam;	// Ä§·À×ªÄ§¹¥
-			SWORD sept_updamp;  // ÌáÉýÎïÀí¹¥»÷°Ù·Ö±È
-			SWORD sept_umdamp;	// ÌáÉýÄ§·¨¹¥»÷°Ù·Ö±È
-			SWORD sept_updefp;	// ÌáÉýÎïÀí·ÀÓù°Ù·Ö±È
-			SWORD sept_umdefp;	// ÌáÉý·¨Êõ·ÀÓù°Ù·Ö±È
-			SWORD sept_maxhp;	// ÌáÉýÉúÃü×î´óÖµ°Ù·Ö±È
-			SWORD sept_maxmp;	// ÌáÉý·¨Êõ×î´óÖµ°Ù·Ö±È
-			SWORD blazeappend; // »ðÑæÏµ·¨ÊõÉËº¦ÌáÉý±ÈÀýÇ§·ÖÖ®¼¸
-			SWORD pblazeappend; // »ðÑæÏµ·¨ÊõÉËº¦ÌáÉý±ÈÀýÇ§·ÖÖ®¼¸
-			SWORD levinappend; // À×µçÏµ·¨ÊõÉËº¦ÌáÉý±ÈÀýÇ§·ÖÖ®¼¸
-			SWORD plevinappend; // À×µçÏµ·¨ÊõÉËº¦ÌáÉý±ÈÀýÇ§·ÖÖ®¼¸(±»¶¯)
-			SWORD trapappend;  // ÏÝÚåÏµ·¨ÊõÉËº¦ÌáÉý±ÈÀýÇ§·ÖÖ®¼¸
-			SWORD iceappend;  // ÏÝÚåÏµ·¨ÊõÉËº¦ÌáÉý±ÈÀýÇ§·ÖÖ®¼¸
-			SWORD udef;			// ·ÀÓùÌáÉý¹Ì¶¨Öµ£¨ÎïÀíºÍ·¨Êõ¶¼Éý£©
-			SWORD magicattack;  // Á½ÒÇÐÄ·¨£¬¹¥»÷µÄÊ±ºò¸½´ø·¨ÊõÉËº¦
-			SWORD array_udamp; // Õó·¨µÄË«¹¥±ÈÂÊÌáÉý
-			SWORD array_ddefp; // Õó·¨µÄË«·À±ÈÂÊ½µµÍ
-			SWORD array_dmvspeed; // Õó·¨µÄÒÆ¶¯ËÙ¶È½µµÍ
-			SWORD upcon; //ÌáÉýÌåÖÊ
-			SWORD upint; //ÌáÉýÖÇÁ¦
-			SWORD updex; //ÌáÉýÃô½Ý
-			SWORD sword_udam; //ÌáÉý¹­¼ý¹¥»÷µÄÉËº¦µãÊý   // 110
-			SWORD attackaddhpnum; // ¹¥»÷Ôö¼Ó×Ô¼ºÉúÃüÖµÊýÄ¿
-			SWORD dodge;         // ÓÐÒ»¶¨¼¸ÂÊÉÁ±ÜµÐÈË¹¥»÷
-			SWORD reflect_icelull; // ·´µ¯Ò»¸öÂé±Ô×´Ì¬ ±ùÀ×¶ÜÓÃ
-			SWORD pumdamp;		//±»¶¯ÌáÉý·¨Êõ¹¥»÷Á¦°Ù·Ö±È
-			SWORD addmenp;   // Ôö¼Ó¾«Éñ°Ù·Ö±È
-			SWORD ice_umdefp; //±ù¼×ÓÃÌáÉýÄ§·¨·ÀÓù°Ù·Ö±È
-			SWORD protectdam; //±£»¤×´Ì¬Ö®ÉËº¦
-			SWORD protectUpAtt; //±£»¤×´Ì¬Ö®¹¥»÷·­±¶
-			SWORD unitarybattle; //Ò»ÔªÕó·¨Í¶ËÍÐ¡¼¼ÄÜµ½¶Ó³¤ÕýÔÚ¹¥»÷µÄµÐÈËÉíÉÏ£¬´ËÎªÍ¶ËÍµÄ¼¼ÄÜID
-			SWORD teamappend; //×é¶Ó¹¥»÷¼Ó³É£¬±äÁ¿Àï´æ·ÅµÄÊÇ×é¶Ó¶Ó³¤µÄID
-			SWORD nsc_updamp; //ÄæÊÖ´ÌµÄ×¨ÓÃ¼¼ÄÜÌáÉý×´Ì¬¡£
-			SWORD tgyt_updefp; //Ìú¹ÇÓùÌå×¨ÓÃ¼¼ÄÜÌáÉý×´Ì¬
-			SWORD tgzh_updef; //Ìú¹ÇÖ®»ê×¨ÓÃ¼¼ÄÜÌáÉý×´Ì¬
-			SWORD lm_updamp;   // Â³Ã§ÌáÉýÎïÀí¹¥»÷Á¦°Ù·Ö±È
-			SWORD upallattrib; // ÌáÉýËùÓÐÊôÐÔÊýÖµ
-			SWORD dnallattrib; // ËùÓÐÊôÐÔ½µµÍÊýÖµ
-			SWORD upstr;      // ÌáÉýÁ¦Á¿ÊôÐÔ°Ù·Ö±È
-			SWORD dpallattrib; // ËùÓÐÊôÐÔÏÂ½µ°Ù·Ö±È
-			SWORD upattribstr; // ÌáÉýÁ¦Á¿ÊôÐÔ°Ù·Ö±È
-			SWORD upattribcon; // ÌáÉýÌåÖÊÊôÐÔ°Ù·Ö±È
-			SWORD upattribmen; // ÌáÉý¾«ÉñÊôÐÔ°Ù·Ö±È
-			SWORD upattribdex; // ÌáÉýÃô½ÝÊôÐÔ°Ù·Ö±È
-			SWORD upattribint; // ÌáÉýÖÇÁ¦ÊôÐÔ°Ù·Ö±È
-			SWORD relive;    // ÔÙÉú
-			SWORD nowrelive; // Á¢¼´¸´»îÊ±»Ø¸´°Ù·Ö±È
-			SWORD brappenddam; //ÁÔÊÖÓ¡¼ÇËùÌá¹©µÄ¶îÍâÉËº¦Çå
-			SWORD dpintmen;   // ÖÇÁ¦¾«Éñ½µµÍ°Ù·Ö±È
-			SWORD dpstrdex;   // Á¦Á¿Ãô½Ý½µµÍ°Ù·Ö±È
-			SWORD enervation; // Ë¥Èõ
-			SWORD erupt;      // ÆÆ¸ª³ÁÖÛ×´Ì¬ Ä§Îï¹¥»÷·­300%³ÖÐøÊ±¼äÍêºó»á»ñµÃ¸´»îÐéÈõ×´Ì¬¡£
+			SWORD dvalue;		//ä¼¤å®³å€¼å¢žåŠ å›ºå®šæ•°å€¼1
+			SWORD dvaluep;		//ä¼¤å®³å€¼å¢žåŠ x%2
+			SWORD pdefence;		//ç‰©ç†é˜²å¾¡æ•°å€¼å˜æ›´ 57ï¼Œ86
+			SWORD pdefencep;	//ç‰©ç†é˜²å¾¡å˜æ›´ç™¾åˆ†æ¯”
+			SWORD updam;		//ç‰©ç†æ”»å‡»å¢žåŠ å›ºå®šæ•°å€¼
+			SWORD updamp;		//ç‰©ç†æ”»å‡»å¢žåŠ ç™¾åˆ†æ¯”
+			SWORD umdam;		//æ³•æœ¯æ”»å‡»å¢žåŠ å›ºå®šæ•°å€¼
+			SWORD umdamp;		//æ³•æœ¯æ”»å‡»å¢žåŠ ç™¾åˆ†æ¯”
+			SWORD dpdam;		//ç‰©ç†æ”»å‡»å‡å°‘å›ºå®šæ•°å€¼
+			SWORD dpdamp;		//ç‰©ç†æ”»å‡»å‡å°‘ç™¾åˆ†æ¯”
+			SWORD dmdam;		//æ³•æœ¯æ”»å‡»å‡å°‘å›ºå®šæ•°å€¼
+			SWORD dmdamp;		//æ³•æœ¯æ”»å‡»å‡å°‘ç™¾åˆ†æ¯”
+			SWORD updef;		//ç‰©ç†é˜²å¾¡å¢žåŠ å›ºå®šæ•°å€¼
+			SWORD updefp;		//ç‰©ç†é˜²å¾¡å¢žåŠ ç™¾åˆ†æ¯”
+			SWORD umdef;		//æ³•æœ¯é˜²å¾¡å¢žåŠ å›ºå®šæ•°å€¼
+			SWORD umdefp;		//æ³•æœ¯é˜²å¾¡å¢žåŠ ç™¾åˆ†æ¯”
+			SWORD dpdef;		//ç‰©ç†é˜²å¾¡å‡å°‘å›ºå®šæ•°å€¼
+			SWORD dpdefp;		//ç‰©ç†é˜²å¾¡å‡å°‘ç™¾åˆ†æ¯”
+			SWORD dmdef;		//æ³•æœ¯é˜²å¾¡å‡å°‘å›ºå®šæ•°å€¼
+			SWORD dmdefp;		//æ³•æœ¯é˜²å¾¡å‡å°‘ç™¾åˆ†æ¯”
+			SWORD topet;		//å˜ä¸ºéšæœºå°åŠ¨ç‰©79
+			SWORD appenddam;	//äº§ç”Ÿé¢å¤–ä¼¤å®³83
+			SWORD movespeed;	//ç§»åŠ¨é€Ÿåº¦å˜æ›´ç™¾åˆ†æ¯” 16ï¼Œ56
+			SWORD mgspeed;		//å‡å°‘æŠ€èƒ½æ–½æ”¾é—´éš”17
+			SWORD coldp;		//å‡å°‘é™·å…¥å†°å†»çŠ¶æ€å‡ çŽ‡18
+			SWORD poisonp;		//å‡å°‘é™·å…¥ä¸­æ¯’çŠ¶æ€å‡ çŽ‡19
+			SWORD petrifyp;		//å‡å°‘é™·å…¥çŸ³åŒ–çŠ¶æ€å‡ çŽ‡20
+			SWORD blindp;		//å‡å°‘é™·å…¥å¤±æ˜ŽçŠ¶æ€å‡ çŽ‡21
+			SWORD chaosp;		//å‡å°‘é™·å…¥æ··ä¹±çŠ¶æ€å‡ çŽ‡22
+			SWORD atrating;		//å‘½ä¸­çŽ‡å¢žåŠ 33,64
+			SWORD reduce_atrating;  // å‘½ä¸­çŽ‡å‡å°‘ ZJWåŠ å…¥
+			SWORD hpspeedup;	//ç”Ÿå‘½å€¼æ¢å¤é€Ÿåº¦å¢žåŠ 34
+			SWORD mpspeedup;	//æ³•æœ¯å€¼æ¢å¤é€Ÿåº¦å¢žåŠ 35
+			SWORD spspeedup;	//ä½“åŠ›å€¼æ¢å¤é€Ÿåº¦å¢žåŠ 36
+			SWORD akdodge;		//é—ªé¿çŽ‡ä¸Šå‡37
+			SWORD reduce_akdodge;  // é—ªé¿çŽ‡ä¸‹é™
+			SWORD reflect;		//åå¼¹45
+			SWORD reflectp;		//åå¼¹x%46
+			SWORD reflect2;		//ä¸ºåå¼¹ç™¾åˆ†ä¹‹å‡ çš„æ•Œäººä¼¤å®³50
+			SWORD mdefence;		//æ³•æœ¯é˜²å¾¡å˜æ›´59ï¼Œ             // 40
+			SWORD mdefencep;	//æ³•æœ¯é˜²å¾¡å˜æ›´ç™¾åˆ†æ¯”x%
+			SWORD uattackspeed;	//æ”»å‡»é€Ÿåº¦æé«˜ç™½åˆ†æ¯”
+			SWORD dattackspeed;	//æ”»å‡»é€Ÿåº¦é™ä½Žç™½åˆ†æ¯”
+			SWORD sevendownp;	//é™ä½Žé™·å…¥ä¸ƒå¤§çŠ¶æ€å‡ çŽ‡82
+			SWORD tsfdamp;		//ä¼¤å®³è½¬ç§»ç™¾åˆ†æ¯”
+			SWORD tsfdam;		//ä¼¤å®³è½¬ç§»æ•°å€¼
+			SWORD passdam;		//è¢«åŠ¨ï¼šé¢å¤–ä¼¤å®³117
+			SWORD maxhp;       //ç”Ÿå‘½å€¼æœ€å¤§å€¼å˜æ›´
+			SWORD maxmp;       //æ³•æœ¯å€¼æœ€å¤§å€¼å˜æ›´
+			SWORD maxsp;       //ä½“åŠ›å€¼æœ€å¤§å€¼å˜æ›´
+			SWORD pupdam;		//ç‰©ç†æ”»å‡»å¢žåŠ å›ºå®šæ•°å€¼ï¼ˆè¢«åŠ¨ï¼‰
+			SWORD pumdam;		//æ³•æœ¯æ”»å‡»å¢žåŠ å›ºå®šæ•°å€¼ï¼ˆè¢«åŠ¨ï¼‰
+			SWORD pupdef;		//ç‰©ç†é˜²å¾¡å¢žåŠ å›ºå®šæ•°å€¼ï¼ˆè¢«åŠ¨ï¼‰
+			SWORD pumdef;		//æ³•æœ¯é˜²å¾¡å¢žåŠ å›ºå®šæ•°å€¼ï¼ˆè¢«åŠ¨ï¼‰
+			SWORD supdam;		//å¼“ç®­ç±»å¢žåŠ ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(é•¿æ•ˆ)
+			SWORD spupdam;		//å¼“ç®­ç±»å¢žåŠ ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(è¢«åŠ¨)
+			SWORD spupdamp;		//å¼“ç®­ç±»å¢žåŠ ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”(è¢«åŠ¨)
+			SWORD rpupdam;		//æ£å­ç±»å¢žåŠ ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(è¢«åŠ¨)
+			SWORD lupdam;		//é•¿æ•ˆç‰©ç†æ”»å‡»åŠ›å¢žå¼ºå›ºå®šå€¼
+			SWORD satrating;	//å¼“ç®­ç±»æå‡å‘½ä¸­çŽ‡
+			SWORD patrating;   // å¢žåŠ å‘½ä¸­çŽ‡ï¼ˆè¢«åŠ¨ï¼‰
+			SWORD pattackspeed;	//å¢žåŠ æ”»å‡»é€Ÿåº¦ï¼ˆè¢«åŠ¨ï¼‰
+			SWORD upattribute;	//å±žæ€§ç‚¹å¢žåŠ 
+			SWORD tuling;      //åœŸçµå¢žå¼º
+			SWORD kulou;		//éª·é«…å¼“æ‰‹å¢žå¼º
+			SWORD tianbing;    //å¤©å…µå¢žå¼º
+			SWORD weaponupdamp; //æå‡æ­¦å™¨ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+			SWORD weaponumdamp; //æå‡æ­¦å™¨æ³•æœ¯æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+			SWORD uppetdamage; //æå‡å¬å”¤å…½çš„æ”»å‡»åŠ›
+			SWORD uppetdefence; //æå‡å¬å”¤å…½çš„é˜²å¾¡åŠ›
+			SWORD pmaxhp;		//è¢«åŠ¨æå‡ç”Ÿå‘½æœ€å¤§å€¼
+			SWORD bang;			//å¢žåŠ äººç‰©æ–½æ”¾å‡ºé‡å‡»çš„å‡ çŽ‡
+			SWORD theurgy_updam; //ä»™æœ¯å¢žåŠ ç‰©ç†æ”»å‡»åŠ›
+			SWORD theurgy_updamp; //ä»™æœ¯å¢žåŠ ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+			SWORD theurgy_updef; //ä»™æœ¯å¢žåŠ ç‰©ç†é˜²å¾¡åŠ›
+			SWORD theurgy_umdefp; //ä»™æœ¯å¢žåŠ æ³•æœ¯é˜²å¾¡åŠ›ç™¾åˆ†æ¯”
+			SWORD theurgy_umdef; //ä»™æœ¯å¢žåŠ æ³•æœ¯é˜²å¾¡åŠ›
+			SWORD theurgy_umdam; //ä»™æœ¯å¢žåŠ æ³•æœ¯æ”»å‡»åŠ›
+			SWORD theurgy_umdamp; //ä»™æœ¯å¢žåŠ æ³•æœ¯æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+			SWORD theurgy_updefp;//ä»™æœ¯å¢žåŠ ç‰©ç†é˜²å¾¡åŠ›ç™¾åˆ†æ¯”
+			SWORD theurgy_dpdef; //ä»™æœ¯é™ä½Žç‰©ç†é˜²å¾¡åŠ›
+			SWORD theurgy_dmdef; //ä»™æœ¯é™ä½Žç‰©ç†é˜²å¾¡åŠ›
+			SWORD theurgy_dpdam;		//ç‰©ç†æ”»å‡»å‡å°‘å›ºå®šæ•°å€¼
+			SWORD theurgy_dmdam;		//æ³•æœ¯æ”»å‡»å‡å°‘å›ºå®šæ•°å€¼
+			SWORD hpupbylevel; //æ ¹æ®äººç‰©ç­‰çº§æå‡æœ€å¤§è¡€é‡                    //80
+			SWORD reflect_ardor; // åå¼¹ç¼çƒ­çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„æ•Œäºº
+			SWORD reflect_poison; //åå¼¹ä¸­æ¯’çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„æ•Œäºº
+			SWORD reflect_lull;  // åå¼¹éº»ç—¹çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„æ•Œäºº
+			SWORD reflect_frost; // åå¼¹å†°å†»çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„æ•Œäºº
+			WORD introject_maxmdam; // å¬å”¤åˆä½“å¢žåŠ é­”æ³•æ”»å‡»
+			WORD introject_maxpdam; // å¬å”¤åˆä½“å¢žåŠ ç‰©ç†æ”»å‡»
+			WORD introject_mdam; // å¬å”¤åˆä½“å¢žåŠ é­”æ³•æ”»å‡»
+			WORD introject_pdam; // å¬å”¤åˆä½“å¢žåŠ ç‰©ç†æ”»å‡»
+			WORD introject_mdef; // å¬å”¤åˆä½“å¢žåŠ é­”æ³•é˜²å¾¡
+			WORD introject_pdef; // å¬å”¤åˆä½“å¢žåŠ ç‰©ç†é˜²å¾¡
+			WORD introject_maxhp; // å¬å”¤åˆä½“å¢žåŠ ç”Ÿå‘½ä¸Šé™
+			SWORD summonrelive; // å¬å”¤å…½é‡ç”Ÿ
+			SWORD pdamtodef;	// ç‰©æ”»è½¬ç‰©é˜²
+			SWORD mdamtodef;	// é­”æ”»è½¬é­”é˜²
+			SWORD pdeftodam;	// ç‰©é˜²è½¬ç‰©æ”»
+			SWORD mdeftodam;	// é­”é˜²è½¬é­”æ”»
+			SWORD sept_updamp;  // æå‡ç‰©ç†æ”»å‡»ç™¾åˆ†æ¯”
+			SWORD sept_umdamp;	// æå‡é­”æ³•æ”»å‡»ç™¾åˆ†æ¯”
+			SWORD sept_updefp;	// æå‡ç‰©ç†é˜²å¾¡ç™¾åˆ†æ¯”
+			SWORD sept_umdefp;	// æå‡æ³•æœ¯é˜²å¾¡ç™¾åˆ†æ¯”
+			SWORD sept_maxhp;	// æå‡ç”Ÿå‘½æœ€å¤§å€¼ç™¾åˆ†æ¯”
+			SWORD sept_maxmp;	// æå‡æ³•æœ¯æœ€å¤§å€¼ç™¾åˆ†æ¯”
+			SWORD blazeappend; // ç«ç„°ç³»æ³•æœ¯ä¼¤å®³æå‡æ¯”ä¾‹åƒåˆ†ä¹‹å‡ 
+			SWORD pblazeappend; // ç«ç„°ç³»æ³•æœ¯ä¼¤å®³æå‡æ¯”ä¾‹åƒåˆ†ä¹‹å‡ 
+			SWORD levinappend; // é›·ç”µç³»æ³•æœ¯ä¼¤å®³æå‡æ¯”ä¾‹åƒåˆ†ä¹‹å‡ 
+			SWORD plevinappend; // é›·ç”µç³»æ³•æœ¯ä¼¤å®³æå‡æ¯”ä¾‹åƒåˆ†ä¹‹å‡ (è¢«åŠ¨)
+			SWORD trapappend;  // é™·é˜±ç³»æ³•æœ¯ä¼¤å®³æå‡æ¯”ä¾‹åƒåˆ†ä¹‹å‡ 
+			SWORD iceappend;  // é™·é˜±ç³»æ³•æœ¯ä¼¤å®³æå‡æ¯”ä¾‹åƒåˆ†ä¹‹å‡ 
+			SWORD udef;			// é˜²å¾¡æå‡å›ºå®šå€¼ï¼ˆç‰©ç†å’Œæ³•æœ¯éƒ½å‡ï¼‰
+			SWORD magicattack;  // ä¸¤ä»ªå¿ƒæ³•ï¼Œæ”»å‡»çš„æ—¶å€™é™„å¸¦æ³•æœ¯ä¼¤å®³
+			SWORD array_udamp; // é˜µæ³•çš„åŒæ”»æ¯”çŽ‡æå‡
+			SWORD array_ddefp; // é˜µæ³•çš„åŒé˜²æ¯”çŽ‡é™ä½Ž
+			SWORD array_dmvspeed; // é˜µæ³•çš„ç§»åŠ¨é€Ÿåº¦é™ä½Ž
+			SWORD upcon; //æå‡ä½“è´¨
+			SWORD upint; //æå‡æ™ºåŠ›
+			SWORD updex; //æå‡æ•æ·
+			SWORD sword_udam; //æå‡å¼“ç®­æ”»å‡»çš„ä¼¤å®³ç‚¹æ•°   // 110
+			SWORD attackaddhpnum; // æ”»å‡»å¢žåŠ è‡ªå·±ç”Ÿå‘½å€¼æ•°ç›®
+			SWORD dodge;         // æœ‰ä¸€å®šå‡ çŽ‡é—ªé¿æ•Œäººæ”»å‡»
+			SWORD reflect_icelull; // åå¼¹ä¸€ä¸ªéº»ç—¹çŠ¶æ€ å†°é›·ç›¾ç”¨
+			SWORD pumdamp;		//è¢«åŠ¨æå‡æ³•æœ¯æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+			SWORD addmenp;   // å¢žåŠ ç²¾ç¥žç™¾åˆ†æ¯”
+			SWORD ice_umdefp; //å†°ç”²ç”¨æå‡é­”æ³•é˜²å¾¡ç™¾åˆ†æ¯”
+			SWORD protectdam; //ä¿æŠ¤çŠ¶æ€ä¹‹ä¼¤å®³
+			SWORD protectUpAtt; //ä¿æŠ¤çŠ¶æ€ä¹‹æ”»å‡»ç¿»å€
+			SWORD unitarybattle; //ä¸€å…ƒé˜µæ³•æŠ•é€å°æŠ€èƒ½åˆ°é˜Ÿé•¿æ­£åœ¨æ”»å‡»çš„æ•Œäººèº«ä¸Šï¼Œæ­¤ä¸ºæŠ•é€çš„æŠ€èƒ½ID
+			SWORD teamappend; //ç»„é˜Ÿæ”»å‡»åŠ æˆï¼Œå˜é‡é‡Œå­˜æ”¾çš„æ˜¯ç»„é˜Ÿé˜Ÿé•¿çš„ID
+			SWORD nsc_updamp; //é€†æ‰‹åˆºçš„ä¸“ç”¨æŠ€èƒ½æå‡çŠ¶æ€ã€‚
+			SWORD tgyt_updefp; //é“éª¨å¾¡ä½“ä¸“ç”¨æŠ€èƒ½æå‡çŠ¶æ€
+			SWORD tgzh_updef; //é“éª¨ä¹‹é­‚ä¸“ç”¨æŠ€èƒ½æå‡çŠ¶æ€
+			SWORD lm_updamp;   // é²èŽ½æå‡ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+			SWORD upallattrib; // æå‡æ‰€æœ‰å±žæ€§æ•°å€¼
+			SWORD dnallattrib; // æ‰€æœ‰å±žæ€§é™ä½Žæ•°å€¼
+			SWORD upstr;      // æå‡åŠ›é‡å±žæ€§ç™¾åˆ†æ¯”
+			SWORD dpallattrib; // æ‰€æœ‰å±žæ€§ä¸‹é™ç™¾åˆ†æ¯”
+			SWORD upattribstr; // æå‡åŠ›é‡å±žæ€§ç™¾åˆ†æ¯”
+			SWORD upattribcon; // æå‡ä½“è´¨å±žæ€§ç™¾åˆ†æ¯”
+			SWORD upattribmen; // æå‡ç²¾ç¥žå±žæ€§ç™¾åˆ†æ¯”
+			SWORD upattribdex; // æå‡æ•æ·å±žæ€§ç™¾åˆ†æ¯”
+			SWORD upattribint; // æå‡æ™ºåŠ›å±žæ€§ç™¾åˆ†æ¯”
+			SWORD relive;    // å†ç”Ÿ
+			SWORD nowrelive; // ç«‹å³å¤æ´»æ—¶å›žå¤ç™¾åˆ†æ¯”
+			SWORD brappenddam; //çŒŽæ‰‹å°è®°æ‰€æä¾›çš„é¢å¤–ä¼¤å®³æ¸…
+			SWORD dpintmen;   // æ™ºåŠ›ç²¾ç¥žé™ä½Žç™¾åˆ†æ¯”
+			SWORD dpstrdex;   // åŠ›é‡æ•æ·é™ä½Žç™¾åˆ†æ¯”
+			SWORD enervation; // è¡°å¼±
+			SWORD erupt;      // ç ´é‡œæ²‰èˆŸçŠ¶æ€ é­”ç‰©æ”»å‡»ç¿»300%æŒç»­æ—¶é—´å®ŒåŽä¼šèŽ·å¾—å¤æ´»è™šå¼±çŠ¶æ€ã€‚
 		};
 		SWORD swdValue[151];
 	};
 };
 
-//ÔÚÃ¿´Î»»×°±¸Ç°µ÷ÓÃ
+//åœ¨æ¯æ¬¡æ¢è£…å¤‡å‰è°ƒç”¨
 struct PkPreValue
 {
 	PkPreValue()
@@ -227,17 +227,17 @@ struct PkValue
 	{
 		struct 
 		{
-			DWORD	pdamage;					/// ÎïÀí¹¥»÷Á¦ *
-			DWORD	mdamage;					/// ·¨Êõ¹¥»÷Á¦ *
-			DWORD	pdefence;					/// ÎïÀí·ÀÓùÁ¦ *
-			DWORD	mdefence;					/// ·¨Êõ·ÀÓùÁ¦ *
-			DWORD	mcost;						/// ÏûºÄ·¨ÊõÖµ
-			DWORD	hpcost;						/// ÏûºÄÉúÃüÖµ
-			DWORD	spcost;						/// ÏûºÄÌåÁ¦Öµ
-			DWORD	exp;						/// ¾­ÑéÏûºÄ
-			DWORD	dvalue;						/// ÉËº¦Öµ
-			DWORD	dvaluep;					/// ÉËº¦ÖµÔö¼Ó°Ù·Ö±È
-			SWORD	damagebonus;				/// ¼¼ÄÜÉËº¦¼Ó³É
+			DWORD	pdamage;					/// ç‰©ç†æ”»å‡»åŠ› *
+			DWORD	mdamage;					/// æ³•æœ¯æ”»å‡»åŠ› *
+			DWORD	pdefence;					/// ç‰©ç†é˜²å¾¡åŠ› *
+			DWORD	mdefence;					/// æ³•æœ¯é˜²å¾¡åŠ› *
+			DWORD	mcost;						/// æ¶ˆè€—æ³•æœ¯å€¼
+			DWORD	hpcost;						/// æ¶ˆè€—ç”Ÿå‘½å€¼
+			DWORD	spcost;						/// æ¶ˆè€—ä½“åŠ›å€¼
+			DWORD	exp;						/// ç»éªŒæ¶ˆè€—
+			DWORD	dvalue;						/// ä¼¤å®³å€¼
+			DWORD	dvaluep;					/// ä¼¤å®³å€¼å¢žåŠ ç™¾åˆ†æ¯”
+			SWORD	damagebonus;				/// æŠ€èƒ½ä¼¤å®³åŠ æˆ
 		};
 		DWORD dwValue[11];
 	};
@@ -259,18 +259,18 @@ struct ScenePkState
 	}
 
 
-	//ÉÆ¶ñ¶È¼ì²éÊ±¼ä¼ä¸ô
+	//å–„æ¶åº¦æ£€æŸ¥æ—¶é—´é—´éš”
 	static const int goodnessPeriod = 60 * 1000;
 	zRTime tGood;
 
-	//×ÔÎÀÊ±¼ä¼ä¸ô
+	//è‡ªå«æ—¶é—´é—´éš”
 	static const int protectPeriod = 10 * 1000;
 	zRTime tProtect;
 
-	//×îºóÒ»´Î¼ì²é×´Ì¬µÄÊ±¼ä
+	//æœ€åŽä¸€æ¬¡æ£€æŸ¥çŠ¶æ€çš„æ—¶é—´
 	zRTime lastCheckGoodness;
 
-	//¹¥»÷ÈËºÍ×ÔÎÀÈË¼ÇÂ¼
+	//æ”»å‡»äººå’Œè‡ªå«äººè®°å½•
 	struct attProtect
 	{
 		DWORD	id;
@@ -287,7 +287,7 @@ struct ScenePkState
 	DWORD lastPTime;
 	DWORD lastMTime;
 	public:
-	//ºÃÈËÉ±ËÀµÚÒ»¸ö»µÈËµÄÊ±¼ä
+	//å¥½äººæ€æ­»ç¬¬ä¸€ä¸ªåäººçš„æ—¶é—´
 	zRTime tGoodNormal;
 	void clearProtect()
 	{

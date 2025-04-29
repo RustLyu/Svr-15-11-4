@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zDatabase.h  $
  * \author  
  * \date 
- * \brief ZebraÓÎÏ·ÖĞËùÓĞ»ù±¾Êı¾İ½á¹¹µÄÉùÃ÷¶¨Òå
+ * \brief Zebraæ¸¸æˆä¸­æ‰€æœ‰åŸºæœ¬æ•°æ®ç»“æ„çš„å£°æ˜å®šä¹‰
  */
 
 #ifndef _ZDATABASE_H_
@@ -31,94 +31,94 @@ struct ObjectBase{
 		return dwField0;
 	}
 	
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[64];		// Ãû³Æ
-	DWORD	dwField2;		// ×î´óÊıÁ¿
-	DWORD	dwField3;		// ÀàĞÍ
-	DWORD	dwField4;		// ĞèÒªĞÔ±ğ
-	DWORD	dwField5;		// ĞèÒªµÈ¼¶
-	DWORD	dwField6;		// µÀ¾ßµÈ¼¶
-	char	strField7[256];		// À¶É«±êÊ¶
-	char	strField8[256];		// ½ğÉ«±êÊ¶
-	DWORD	dwField9;		// ÅäºÏÎïÆ·
-	char	strField10[256];		// Ò©Æ·×÷ÓÃ
-	DWORD	dwField11;		// ×î´óÉúÃüÖµ
-	DWORD	dwField12;		// ×î´ó·¨ÊõÖµ
-	DWORD	dwField13;		// ×î´óÌåÁ¦Öµ
-	DWORD	dwField14;		// ×îĞ¡Îï¹¥
-	DWORD	dwField15;		// ×î´óÎï¹¥
-	DWORD	dwField16;		// ×îĞ¡Ä§¹¥
-	DWORD	dwField17;		// ×î´óÄ§¹¥
-	DWORD	dwField18;		// Îï·À
-	DWORD	dwField19;		// Ä§·À
-	DWORD	dwField20;		// ÉËº¦¼Ó³É
-	char	strField21[64];		// ¿×
-	DWORD	dwField22;		// ¹¥»÷ËÙ¶È
-	DWORD	dwField23;		// ÒÆ¶¯ËÙ¶È
-	DWORD	dwField24;		// ÃüÖĞÂÊ
-	DWORD	dwField25;		// ¶ã±ÜÂÊ
-	DWORD	dwField26;		// ¸ÄÔì
-	DWORD	dwField27;		// ºÏ³ÉµÈ¼¶
-	DWORD	dwField28;		// ´òÔì
-	char	strField29[32];		// ĞèÒª¼¼ÄÜ
-	char	strField30[1024];		// ĞèÒªÔ­ÁÏ
-	DWORD	dwField31;		// ×°±¸Î»ÖÃ
-	DWORD	dwField32;		// ÄÍ¾Ã¶È
-	DWORD	dwField33;		// ¼Û¸ñ
-	DWORD	dwField34;		// À¶É«×°±¸µôÂä¼¸ÂÊ
-	DWORD	dwField35;		// ½ğÉ«×°±¸µôÂä¼¸ÂÊ
-	DWORD	dwField36;		// ÑÕÉ«
-	DWORD	dwField37;		// ¸ñ×Ó¿í
-	DWORD	dwField38;		// ¸ñ×Ó¸ß
-	DWORD	dwField39;		// ½ğ×Ó
-	DWORD	dwField40;		// ºÏ³Éµ¥¼Û
-	DWORD	dwField41;		// ÖØ»÷
-	DWORD	dwField42;		// ÉñÊ¥¸ÅÂÊ
-	char	strField43[256];		// ÉñÊ¥±êÊ¶	
-};//µ¼³ö ObjectBase ³É¹¦£¬¹² 940 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[64];		// åç§°
+	DWORD	dwField2;		// æœ€å¤§æ•°é‡
+	DWORD	dwField3;		// ç±»å‹
+	DWORD	dwField4;		// éœ€è¦æ€§åˆ«
+	DWORD	dwField5;		// éœ€è¦ç­‰çº§
+	DWORD	dwField6;		// é“å…·ç­‰çº§
+	char	strField7[256];		// è“è‰²æ ‡è¯†
+	char	strField8[256];		// é‡‘è‰²æ ‡è¯†
+	DWORD	dwField9;		// é…åˆç‰©å“
+	char	strField10[256];		// è¯å“ä½œç”¨
+	DWORD	dwField11;		// æœ€å¤§ç”Ÿå‘½å€¼
+	DWORD	dwField12;		// æœ€å¤§æ³•æœ¯å€¼
+	DWORD	dwField13;		// æœ€å¤§ä½“åŠ›å€¼
+	DWORD	dwField14;		// æœ€å°ç‰©æ”»
+	DWORD	dwField15;		// æœ€å¤§ç‰©æ”»
+	DWORD	dwField16;		// æœ€å°é­”æ”»
+	DWORD	dwField17;		// æœ€å¤§é­”æ”»
+	DWORD	dwField18;		// ç‰©é˜²
+	DWORD	dwField19;		// é­”é˜²
+	DWORD	dwField20;		// ä¼¤å®³åŠ æˆ
+	char	strField21[64];		// å­”
+	DWORD	dwField22;		// æ”»å‡»é€Ÿåº¦
+	DWORD	dwField23;		// ç§»åŠ¨é€Ÿåº¦
+	DWORD	dwField24;		// å‘½ä¸­ç‡
+	DWORD	dwField25;		// èº²é¿ç‡
+	DWORD	dwField26;		// æ”¹é€ 
+	DWORD	dwField27;		// åˆæˆç­‰çº§
+	DWORD	dwField28;		// æ‰“é€ 
+	char	strField29[32];		// éœ€è¦æŠ€èƒ½
+	char	strField30[1024];		// éœ€è¦åŸæ–™
+	DWORD	dwField31;		// è£…å¤‡ä½ç½®
+	DWORD	dwField32;		// è€ä¹…åº¦
+	DWORD	dwField33;		// ä»·æ ¼
+	DWORD	dwField34;		// è“è‰²è£…å¤‡æ‰è½å‡ ç‡
+	DWORD	dwField35;		// é‡‘è‰²è£…å¤‡æ‰è½å‡ ç‡
+	DWORD	dwField36;		// é¢œè‰²
+	DWORD	dwField37;		// æ ¼å­å®½
+	DWORD	dwField38;		// æ ¼å­é«˜
+	DWORD	dwField39;		// é‡‘å­
+	DWORD	dwField40;		// åˆæˆå•ä»·
+	DWORD	dwField41;		// é‡å‡»
+	DWORD	dwField42;		// ç¥åœ£æ¦‚ç‡
+	char	strField43[256];		// ç¥åœ£æ ‡è¯†	
+};//å¯¼å‡º ObjectBase æˆåŠŸï¼Œå…± 940 æ¡è®°å½•
 
 /**
- * \brief ÎïÆ·»ù±¾±í
+ * \brief ç‰©å“åŸºæœ¬è¡¨
  */
 struct zObjectB:public zEntry
 {
-	DWORD maxnum;				// ×î´óÊıÁ¿
-	BYTE kind;					// ÀàĞÍ
-	BYTE sex;					// ĞèÒªĞÔ±ğ
-	WORD level;					// µÀ¾ßµÈ¼¶
-	std::vector<DWORD> blues;	//À¶É«±êÊ¶
-	std::vector<DWORD> golds;	//½ğÉ«±êÊ¶
-	WORD needobject;			// ÅäºÏÎïÆ·
+	DWORD maxnum;				// æœ€å¤§æ•°é‡
+	BYTE kind;					// ç±»å‹
+	BYTE sex;					// éœ€è¦æ€§åˆ«
+	WORD level;					// é“å…·ç­‰çº§
+	std::vector<DWORD> blues;	//è“è‰²æ ‡è¯†
+	std::vector<DWORD> golds;	//é‡‘è‰²æ ‡è¯†
+	WORD needobject;			// é…åˆç‰©å“
 	struct leechdom_t {
-		BYTE id; //¹¦ÄÜ±êÊ¶
-		WORD effect; //Ğ§¹û
-		WORD time; //Ê±¼ä
+		BYTE id; //åŠŸèƒ½æ ‡è¯†
+		WORD effect; //æ•ˆæœ
+		WORD time; //æ—¶é—´
 		leechdom_t(const std::string& _id="", const std::string& _effect="", const std::string& _time="") 
 			: id(atoi(_id.c_str())), effect(atoi(_effect.c_str())), time(atoi(_time.c_str()))
 		{ }
-	} leechdom ; 				// Ò©Æ·×÷ÓÃ
+	} leechdom ; 				// è¯å“ä½œç”¨
 
-	WORD needlevel;				// ĞèÒªµÈ¼¶
+	WORD needlevel;				// éœ€è¦ç­‰çº§
 
-	WORD maxhp;					// ×î´óÉúÃüÖµ
-	WORD maxmp;					// ×î´ó·¨ÊõÖµ
-	WORD maxsp;					// ×î´óÌåÁ¦Öµ
+	WORD maxhp;					// æœ€å¤§ç”Ÿå‘½å€¼
+	WORD maxmp;					// æœ€å¤§æ³•æœ¯å€¼
+	WORD maxsp;					// æœ€å¤§ä½“åŠ›å€¼
 
-	WORD pdamage;				// ×îĞ¡¹¥»÷Á¦
-	WORD maxpdamage;			// ×î´ó¹¥»÷Á¦
-	WORD mdamage;				// ×îĞ¡·¨Êõ¹¥»÷Á¦
-	WORD maxmdamage;			// ×î´ó·¨Êõ¹¥»÷Á¦
+	WORD pdamage;				// æœ€å°æ”»å‡»åŠ›
+	WORD maxpdamage;			// æœ€å¤§æ”»å‡»åŠ›
+	WORD mdamage;				// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	WORD maxmdamage;			// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
 
-	WORD pdefence;				// Îï·À
-	WORD mdefence;				// Ä§·À
-	WORD damagebonus;			// ÉËº¦¼Ó³É
+	WORD pdefence;				// ç‰©é˜²
+	WORD mdefence;				// é­”é˜²
+	WORD damagebonus;			// ä¼¤å®³åŠ æˆ
 	
-	WORD akspeed;				// ¹¥»÷ËÙ¶È
-	WORD mvspeed;				// ÒÆ¶¯ËÙ¶È
-	WORD atrating;				// ÃüÖĞÂÊ
-	WORD akdodge;				// ¶ã±ÜÂÊ
+	WORD akspeed;				// æ”»å‡»é€Ÿåº¦
+	WORD mvspeed;				// ç§»åŠ¨é€Ÿåº¦
+	WORD atrating;				// å‘½ä¸­ç‡
+	WORD akdodge;				// èº²é¿ç‡
 
-	DWORD color;				// ÑÕÉ«	
+	DWORD color;				// é¢œè‰²	
 	
 	struct socket
 	{
@@ -135,15 +135,15 @@ struct zObjectB:public zEntry
 				//if (odds) Zebra::logger->debug("odds:%d\tmin:%d\tmax:%d", odds, min, max);
 			}
 		}
-	} hole;						//¿×
+	} hole;						//å­”
 	
-	BYTE recast;				// ¸ÄÔì
+	BYTE recast;				// æ”¹é€ 
 
-	BYTE recastlevel; 			// ºÏ³ÉµÈ¼¶
-	WORD recastcost;			// ºÏ³Éµ¥¼Û
+	BYTE recastlevel; 			// åˆæˆç­‰çº§
+	WORD recastcost;			// åˆæˆå•ä»·
 	
 
-	WORD make;					// ´òÔì
+	WORD make;					// æ‰“é€ 
 	struct skills 
 	{
 		WORD id;
@@ -151,7 +151,7 @@ struct zObjectB:public zEntry
 		skills(const std::string& id_="0", const std::string& level_="0") : id(atoi(id_.c_str())), level(atoi(level_.c_str()))
 		{ }
 	};
-	skills need_skill;			// ĞèÒª¼¼ÄÜ
+	skills need_skill;			// éœ€è¦æŠ€èƒ½
 	
 	struct material
 	{
@@ -167,23 +167,23 @@ struct zObjectB:public zEntry
 		std::vector<stuff> stuffs;
 		typedef std::vector<stuff>::iterator stuffs_iterator;
 	};
-	material need_material;		// ĞèÒªÔ­ÁÏ
+	material need_material;		// éœ€è¦åŸæ–™
 	
-	BYTE setpos;				// ×°±¸Î»ÖÃ
-	WORD durability;			// ÄÍ¾Ã¶È
-	DWORD price;				// ¼Û¸ñ
-	DWORD bluerating;			// À¶É«×°±¸µôÂä¼¸ÂÊ
-	DWORD goldrating;			// ½ğÉ«×°±¸µôÂä¼¸ÂÊ
-	BYTE width;					// ¸ñ×Ó¿í
-	BYTE height;				// ¸ñ×Ó¸ß
+	BYTE setpos;				// è£…å¤‡ä½ç½®
+	WORD durability;			// è€ä¹…åº¦
+	DWORD price;				// ä»·æ ¼
+	DWORD bluerating;			// è“è‰²è£…å¤‡æ‰è½å‡ ç‡
+	DWORD goldrating;			// é‡‘è‰²è£…å¤‡æ‰è½å‡ ç‡
+	BYTE width;					// æ ¼å­å®½
+	BYTE height;				// æ ¼å­é«˜
 	union
 	{
-	DWORD cardpoint;			// ½ğ×Ó (ÒÑ¾­ÎŞÓÃ)
-	DWORD cointype;				// »õ±ÒÀàĞÍ
+	DWORD cardpoint;			// é‡‘å­ (å·²ç»æ— ç”¨)
+	DWORD cointype;				// è´§å¸ç±»å‹
 	};
-	WORD bang;					//ÖØ»÷
-	DWORD holyrating;			//ÉñÊ¥¸ÅÂÊ
-	std::vector<DWORD> holys;     //ÉñÊ¥±êÊ¶
+	WORD bang;					//é‡å‡»
+	DWORD holyrating;			//ç¥åœ£æ¦‚ç‡
+	std::vector<DWORD> holys;     //ç¥åœ£æ ‡è¯†
 	
 	void fill(ObjectBase &data)
 	{
@@ -306,56 +306,56 @@ struct ColorObjectBase{
 		return dwField0;
 	}
 	
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[64];		// Ãû³Æ
-	char	strField2[32];		// Á¬½Ó·û
-	char	strField3[128];		// ½ğÉ«Æ·ÖÊ
-	char	strField4[32];		// Á¦Á¿
-	char	strField5[32];		// ÖÇÁ¦
-	char	strField6[32];		// Ãô½İ
-	char	strField7[32];		// ¾«Éñ
-	char	strField8[32];		// ÌåÖÊ
-	char	strField9[32];		// ÎåĞĞÊôĞÔ
-	char	strField10[32];		// ×îĞ¡Îï¹¥
-	char	strField11[32];		// ×î´óÎï¹¥
-	char	strField12[32];		// ×îĞ¡Ä§¹¥
-	char	strField13[32];		// ×î´óÄ§¹¥
-	char	strField14[32];		// Îï·À
-	char	strField15[32];		// Ä§·À
-	char	strField16[32];		// ×î´óÉúÃüÖµ
-	char	strField17[32];		// ×î´ó·¨ÊõÖµ
-	char	strField18[32];		// ×î´óÌåÁ¦Öµ
-	char	strField19[32];		// ÒÆ¶¯ËÙ¶È
-	char	strField20[32];		// ÉúÃüÖµ»Ö¸´
-	char	strField21[32];		// ·¨ÊõÖµ»Ö¸´
-	char	strField22[32];		// ÌåÁ¦Öµ»Ö¸´
-	char	strField23[32];		// ¹¥»÷ËÙ¶È
-	char	strField24[32];		// Ôö¼ÓÎïÀí¹¥»÷Á¦
-	char	strField25[32];		// Ôö¼ÓÎïÀí·ÀÓùÁ¦
-	char	strField26[32];		// Ôö¼ÓÄ§·¨¹¥»÷Á¦
-	char	strField27[32];		// Ôö¼ÓÄ§·¨·ÀÓùÁ¦
-	char	strField28[32];		// ÃüÖĞÂÊ
-	char	strField29[32];		// ÉÁ±ÜÂÊ
-	char	strField30[32];		// ¿¹¶¾Ôö¼Ó
-	char	strField31[32];		// ¿¹Âé±ÔÔö¼Ó
-	char	strField32[32];		// ¿¹Ñ£ÔÎÔö¼Ó
-	char	strField33[32];		// ¿¹ÊÉÄ§Ôö¼Ó
-	char	strField34[32];		// ¿¹ÊÉÁ¦Ôö¼Ó
-	char	strField35[32];		// ¿¹»ìÂÒÔö¼Ó
-	char	strField36[32];		// ¿¹±ù¶³Ôö¼Ó
-	char	strField37[32];		// ¿¹Ê¯»¯Ôö¼Ó
-	char	strField38[32];		// ¿¹Ê§Ã÷Ôö¼Ó
-	char	strField39[32];		// ¿¹¶¨ÉíÔö¼Ó
-	char	strField40[32];		// ¿¹¼õËÙÔö¼Ó
-	char	strField41[32];		// ¿¹ÓÕ»óÔö¼Ó
-	char	strField42[32];		// »Ö¸´ÄÍ¾Ã¶È
-	char	strField43[32];		// ÖØ»÷
-	DWORD	dwField44;		// ÉñÊ¥×°±¸¼¸ÂÊ
-	char	strField45[1024];		// ¼¼ÄÜ¼Ó³É
-	char	strField46[32];		// È«Ïµ¼¼ÄÜ¼Ó³É
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[64];		// åç§°
+	char	strField2[32];		// è¿æ¥ç¬¦
+	char	strField3[128];		// é‡‘è‰²å“è´¨
+	char	strField4[32];		// åŠ›é‡
+	char	strField5[32];		// æ™ºåŠ›
+	char	strField6[32];		// æ•æ·
+	char	strField7[32];		// ç²¾ç¥
+	char	strField8[32];		// ä½“è´¨
+	char	strField9[32];		// äº”è¡Œå±æ€§
+	char	strField10[32];		// æœ€å°ç‰©æ”»
+	char	strField11[32];		// æœ€å¤§ç‰©æ”»
+	char	strField12[32];		// æœ€å°é­”æ”»
+	char	strField13[32];		// æœ€å¤§é­”æ”»
+	char	strField14[32];		// ç‰©é˜²
+	char	strField15[32];		// é­”é˜²
+	char	strField16[32];		// æœ€å¤§ç”Ÿå‘½å€¼
+	char	strField17[32];		// æœ€å¤§æ³•æœ¯å€¼
+	char	strField18[32];		// æœ€å¤§ä½“åŠ›å€¼
+	char	strField19[32];		// ç§»åŠ¨é€Ÿåº¦
+	char	strField20[32];		// ç”Ÿå‘½å€¼æ¢å¤
+	char	strField21[32];		// æ³•æœ¯å€¼æ¢å¤
+	char	strField22[32];		// ä½“åŠ›å€¼æ¢å¤
+	char	strField23[32];		// æ”»å‡»é€Ÿåº¦
+	char	strField24[32];		// å¢åŠ ç‰©ç†æ”»å‡»åŠ›
+	char	strField25[32];		// å¢åŠ ç‰©ç†é˜²å¾¡åŠ›
+	char	strField26[32];		// å¢åŠ é­”æ³•æ”»å‡»åŠ›
+	char	strField27[32];		// å¢åŠ é­”æ³•é˜²å¾¡åŠ›
+	char	strField28[32];		// å‘½ä¸­ç‡
+	char	strField29[32];		// é—ªé¿ç‡
+	char	strField30[32];		// æŠ—æ¯’å¢åŠ 
+	char	strField31[32];		// æŠ—éº»ç—¹å¢åŠ 
+	char	strField32[32];		// æŠ—çœ©æ™•å¢åŠ 
+	char	strField33[32];		// æŠ—å™¬é­”å¢åŠ 
+	char	strField34[32];		// æŠ—å™¬åŠ›å¢åŠ 
+	char	strField35[32];		// æŠ—æ··ä¹±å¢åŠ 
+	char	strField36[32];		// æŠ—å†°å†»å¢åŠ 
+	char	strField37[32];		// æŠ—çŸ³åŒ–å¢åŠ 
+	char	strField38[32];		// æŠ—å¤±æ˜å¢åŠ 
+	char	strField39[32];		// æŠ—å®šèº«å¢åŠ 
+	char	strField40[32];		// æŠ—å‡é€Ÿå¢åŠ 
+	char	strField41[32];		// æŠ—è¯±æƒ‘å¢åŠ 
+	char	strField42[32];		// æ¢å¤è€ä¹…åº¦
+	char	strField43[32];		// é‡å‡»
+	DWORD	dwField44;		// ç¥åœ£è£…å¤‡å‡ ç‡
+	char	strField45[1024];		// æŠ€èƒ½åŠ æˆ
+	char	strField46[32];		// å…¨ç³»æŠ€èƒ½åŠ æˆ
 };
 
-//Ò»¸ö·¶Î§ÖµµÃÃèÊö
+//ä¸€ä¸ªèŒƒå›´å€¼å¾—æè¿°
 struct rangeValue
 {
 	WORD min;
@@ -364,9 +364,9 @@ struct rangeValue
 
 struct luckRangeValue
 {
-	WORD per;	//ÊÇ·ñ²úÉú±¾ÊôĞÔµÄ¼¸ÂÊ
-	rangeValue data;	//²úÉúÊôĞÔÖµµÄËæ»ú·¶Î§
-	WORD sleightValue;	//¸ù¾İÊìÁ·¶È²úÉúµÄ¼ÓÈ¨Öµ
+	WORD per;	//æ˜¯å¦äº§ç”Ÿæœ¬å±æ€§çš„å‡ ç‡
+	rangeValue data;	//äº§ç”Ÿå±æ€§å€¼çš„éšæœºèŒƒå›´
+	WORD sleightValue;	//æ ¹æ®ç†Ÿç»ƒåº¦äº§ç”Ÿçš„åŠ æƒå€¼
 };
 
 static void fillRangeValue(const char *str,rangeValue &data)
@@ -413,9 +413,9 @@ static void fillLuckRangeValue(char *str,luckRangeValue &data)
 }
 
 struct skillbonus {
-	WORD odds; //¼¸ÂÊ
-	WORD id; //¼¼ÄÜ id
-	WORD level; // ¼¼ÄÜµÈ¼¶
+	WORD odds; //å‡ ç‡
+	WORD id; //æŠ€èƒ½ id
+	WORD level; // æŠ€èƒ½ç­‰çº§
 	skillbonus(std::string _odds="0", std::string _id="0", std::string _level="0") : odds(atoi(_odds.c_str())), id(atoi(_id.c_str())), level(atoi(_level.c_str()))
 	{ }
 }; 
@@ -423,74 +423,74 @@ struct skillbonus {
 template <class Base, WORD tt>
 struct zColorObjectB:public zEntry
 {
-	//std::string prefix;			// Ãû³Æ
-	char prefix[MAX_NAMESIZE];			// Ãû³Æ
-	//std::string joint;			// Á¬½Ó·û
-	char joint[MAX_NAMESIZE];			// Á¬½Ó·û
-	std::vector<WORD> golds;	// ½ğÉ«Æ·ÖÊ
+	//std::string prefix;			// åç§°
+	char prefix[MAX_NAMESIZE];			// åç§°
+	//std::string joint;			// è¿æ¥ç¬¦
+	char joint[MAX_NAMESIZE];			// è¿æ¥ç¬¦
+	std::vector<WORD> golds;	// é‡‘è‰²å“è´¨
 
 	union {
 		luckRangeValue _p1[5];
 		struct {
-			luckRangeValue str;			// Á¦Á¿
-			luckRangeValue inte;		// ÖÇÁ¦
-			luckRangeValue dex;			// Ãô½İ
-			luckRangeValue spi;			// ¾«Éñ
-			luckRangeValue con;			// ÌåÖÊ
+			luckRangeValue str;			// åŠ›é‡
+			luckRangeValue inte;		// æ™ºåŠ›
+			luckRangeValue dex;			// æ•æ·
+			luckRangeValue spi;			// ç²¾ç¥
+			luckRangeValue con;			// ä½“è´¨
 		};	
 	};
-	luckRangeValue five;		// ÎåĞĞÊôĞÔ
+	luckRangeValue five;		// äº”è¡Œå±æ€§
 	
-	rangeValue pdamage;			// ×îĞ¡Îï¹¥
-	rangeValue maxpdamage;		// ×î´óÎï¹¥
-	rangeValue mdamage;			// ×îĞ¡Ä§¹¥
-	rangeValue maxmdamage;		// ×î´óÄ§¹¥
-	rangeValue pdefence;			// Îï·À
-	rangeValue mdefence;			// Ä§·À
+	rangeValue pdamage;			// æœ€å°ç‰©æ”»
+	rangeValue maxpdamage;		// æœ€å¤§ç‰©æ”»
+	rangeValue mdamage;			// æœ€å°é­”æ”»
+	rangeValue maxmdamage;		// æœ€å¤§é­”æ”»
+	rangeValue pdefence;			// ç‰©é˜²
+	rangeValue mdefence;			// é­”é˜²
 	
-	luckRangeValue maxhp;		// ×î´óÉúÃüÖµ
-	luckRangeValue maxmp;		// ×î´ó·¨ÊõÖµ
-	luckRangeValue maxsp;		// ×î´óÌåÁ¦Öµ
+	luckRangeValue maxhp;		// æœ€å¤§ç”Ÿå‘½å€¼
+	luckRangeValue maxmp;		// æœ€å¤§æ³•æœ¯å€¼
+	luckRangeValue maxsp;		// æœ€å¤§ä½“åŠ›å€¼
 	
-	luckRangeValue mvspeed;		// ÒÆ¶¯ËÙ¶È
-	luckRangeValue hpr;			// ÉúÃüÖµ»Ö¸´
-	luckRangeValue mpr;			// ·¨ÊõÖµ»Ö¸´
-	luckRangeValue spr;			// ÌåÁ¦Öµ»Ö¸´
-	luckRangeValue akspeed;		// ¹¥»÷ËÙ¶È
+	luckRangeValue mvspeed;		// ç§»åŠ¨é€Ÿåº¦
+	luckRangeValue hpr;			// ç”Ÿå‘½å€¼æ¢å¤
+	luckRangeValue mpr;			// æ³•æœ¯å€¼æ¢å¤
+	luckRangeValue spr;			// ä½“åŠ›å€¼æ¢å¤
+	luckRangeValue akspeed;		// æ”»å‡»é€Ÿåº¦
 
 	union {
 		luckRangeValue _p2[18];
 		struct {
-			luckRangeValue pdam;		// Ôö¼ÓÎïÀí¹¥»÷Á¦
-			luckRangeValue pdef;		// Ôö¼ÓÎïÀí·ÀÓùÁ¦
-			luckRangeValue mdam;		// Ôö¼ÓÄ§·¨¹¥»÷Á¦
-			luckRangeValue mdef;		// Ôö¼ÓÄ§·¨·ÀÓùÁ¦
+			luckRangeValue pdam;		// å¢åŠ ç‰©ç†æ”»å‡»åŠ›
+			luckRangeValue pdef;		// å¢åŠ ç‰©ç†é˜²å¾¡åŠ›
+			luckRangeValue mdam;		// å¢åŠ é­”æ³•æ”»å‡»åŠ›
+			luckRangeValue mdef;		// å¢åŠ é­”æ³•é˜²å¾¡åŠ›
 			
-			luckRangeValue poisondef;	// ¿¹¶¾Ôö¼Ó
-			luckRangeValue lulldef;		// ¿¹Âé±ÔÔö¼Ó
-			luckRangeValue reeldef;		// ¿¹Ñ£ÔÎÔö¼Ó
-			luckRangeValue evildef;		// ¿¹ÊÉÄ§Ôö¼Ó
-			luckRangeValue bitedef;		// ¿¹ÊÉÁ¦Ôö¼Ó
-			luckRangeValue chaosdef;	// ¿¹»ìÂÒÔö¼Ó
-			luckRangeValue colddef;		// ¿¹±ù¶³Ôö¼Ó
-			luckRangeValue petrifydef;		// ¿¹Ê¯»¯Ôö¼Ó
-			luckRangeValue blinddef;		// ¿¹Ê§Ã÷Ôö¼Ó
-			luckRangeValue stabledef;		// ¿¹¶¨ÉíÔö¼Ó
-			luckRangeValue slowdef;		// ¿¹¼õËÙÔö¼Ó
-			luckRangeValue luredef;		// ¿¹ÓÕ»óÔö¼Ó
+			luckRangeValue poisondef;	// æŠ—æ¯’å¢åŠ 
+			luckRangeValue lulldef;		// æŠ—éº»ç—¹å¢åŠ 
+			luckRangeValue reeldef;		// æŠ—çœ©æ™•å¢åŠ 
+			luckRangeValue evildef;		// æŠ—å™¬é­”å¢åŠ 
+			luckRangeValue bitedef;		// æŠ—å™¬åŠ›å¢åŠ 
+			luckRangeValue chaosdef;	// æŠ—æ··ä¹±å¢åŠ 
+			luckRangeValue colddef;		// æŠ—å†°å†»å¢åŠ 
+			luckRangeValue petrifydef;		// æŠ—çŸ³åŒ–å¢åŠ 
+			luckRangeValue blinddef;		// æŠ—å¤±æ˜å¢åŠ 
+			luckRangeValue stabledef;		// æŠ—å®šèº«å¢åŠ 
+			luckRangeValue slowdef;		// æŠ—å‡é€Ÿå¢åŠ 
+			luckRangeValue luredef;		// æŠ—è¯±æƒ‘å¢åŠ 
 
-			luckRangeValue atrating;		// ÃüÖĞÂÊ
-			luckRangeValue akdodge;		// ÉÁ±ÜÂÊ
+			luckRangeValue atrating;		// å‘½ä¸­ç‡
+			luckRangeValue akdodge;		// é—ªé¿ç‡
 
 		};
 	};	
 	
-	luckRangeValue resumedur;		// »Ö¸´ÄÍ¾Ã¶È
-	luckRangeValue bang;		// ÖØ»÷
-	WORD holyrating;	//ÉñÊ¥×°±¸¼¸ÂÊ
+	luckRangeValue resumedur;		// æ¢å¤è€ä¹…åº¦
+	luckRangeValue bang;		// é‡å‡»
+	WORD holyrating;	//ç¥åœ£è£…å¤‡å‡ ç‡
 
-	std::vector<skillbonus> skill;	// ¼¼ÄÜ¼Ó³É
-	skillbonus skills;				// È«Ïµ¼¼ÄÜ¼Ó³É
+	std::vector<skillbonus> skill;	// æŠ€èƒ½åŠ æˆ
+	skillbonus skills;				// å…¨ç³»æŠ€èƒ½åŠ æˆ
 	
 	WORD type;
 
@@ -557,7 +557,7 @@ struct zColorObjectB:public zEntry
 
 		//Zebra::logger->debug("id:%d, name:%s", id, name);
 		#if 0
-		//»Ö¸´ÄÍ¾Ã¶È¸ñÊ½µ¥¶À´¦Àí
+		//æ¢å¤è€ä¹…åº¦æ ¼å¼å•ç‹¬å¤„ç†
 		{
 			std::vector<DWORD> num;
 			int i =zMisc::getAllNum(data.strField47,num);
@@ -625,15 +625,15 @@ struct SetObjectBase{
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[32];		// Ãû³Æ
-	char	strField2[64];		// Ì××°5
-	char	strField3[32];		// Ì××°4
-	char	strField4[32];		// Ì××°3
-	char	strField5[32];		// Ì××°2
-	char	strField6[32];		// Ì××°1
-	DWORD	dwField7;		// ÊôĞÔ±êÊ¶
-};//µ¼³ö SetObjectBase ³É¹¦£¬¹² 532 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[32];		// åç§°
+	char	strField2[64];		// å¥—è£…5
+	char	strField3[32];		// å¥—è£…4
+	char	strField4[32];		// å¥—è£…3
+	char	strField5[32];		// å¥—è£…2
+	char	strField6[32];		// å¥—è£…1
+	DWORD	dwField7;		// å±æ€§æ ‡è¯†
+};//å¯¼å‡º SetObjectBase æˆåŠŸï¼Œå…± 532 æ¡è®°å½•
 
 struct zSetObjectB:public zEntry
 {
@@ -687,22 +687,22 @@ struct FiveSetBase{
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// ÊôĞÔ±êÊ¶
-	char	strField1[16];		// ÎïÀíÉËº¦¼õÉÙx%
-	char	strField2[16];		// ·¨ÊõÉËº¦¼õÉÙx%
-	char	strField3[16];		// Ôö¼ÓÉËº¦Öµx%
-	char	strField4[16];		// ÉËº¦·´Éäx%
-	char	strField5[16];		// x%ºöÊÓÄ¿±ê·ÀÓù
-};//µ¼³ö FiveSetBase ³É¹¦£¬¹² 4 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// å±æ€§æ ‡è¯†
+	char	strField1[16];		// ç‰©ç†ä¼¤å®³å‡å°‘x%
+	char	strField2[16];		// æ³•æœ¯ä¼¤å®³å‡å°‘x%
+	char	strField3[16];		// å¢åŠ ä¼¤å®³å€¼x%
+	char	strField4[16];		// ä¼¤å®³åå°„x%
+	char	strField5[16];		// x%å¿½è§†ç›®æ ‡é˜²å¾¡
+};//å¯¼å‡º FiveSetBase æˆåŠŸï¼Œå…± 4 æ¡è®°å½•
 
 
 struct zFiveSetB:public zEntry
 {
-	rangeValue dpdam; //ÎïÀíÉËº¦¼õÉÙ%x
-	rangeValue dmdam; //·¨ÊõÉËº¦¼õÉÙ%x
-	rangeValue bdam; //Ôö¼ÓÉËº¦x%
-	rangeValue rdam; //ÉËº¦·´Éä%x
-	rangeValue ignoredef; //%xºöÊÓÄ¿±ê·ÀÓù
+	rangeValue dpdam; //ç‰©ç†ä¼¤å®³å‡å°‘%x
+	rangeValue dmdam; //æ³•æœ¯ä¼¤å®³å‡å°‘%x
+	rangeValue bdam; //å¢åŠ ä¼¤å®³x%
+	rangeValue rdam; //ä¼¤å®³åå°„%x
+	rangeValue ignoredef; //%xå¿½è§†ç›®æ ‡é˜²å¾¡
 
 	void fill(FiveSetBase& data)
 	{
@@ -728,45 +728,45 @@ struct HolyObjectBase{
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[64];		// Ãû³Æ
-	char	strField2[16];		// ÉñÊ¥Ò»»÷
-	char	strField3[16];		// Ôö¼ÓÉËº¦Öµx£¥
-	char	strField4[16];		// ÎåĞĞÊôĞÔÔö¼Ó
-	char	strField5[16];		// ÉúÃüÖµ»Ö¸´
-	char	strField6[16];		// ·¨ÊõÖµ»Ö¸´
-	char	strField7[16];		// ÌåÁ¦Öµ»Ö¸´
-	char	strField8[16];		// ¹¥»÷ËÙ¶È
-	char	strField9[16];		// ÒÆ¶¯ËÙ¶È
-	char	strField10[16];		// ÃüÖĞÂÊ
-	char	strField11[16];		// ÉÁ±ÜÂÊ
-	char	strField12[16];		// ¼¼ÄÜ¼Ó³É
-	char	strField13[16];		// È«Ïµ¼¼ÄÜ¼Ó³É
-	char	strField14[16];		// Ë«±¶¾­Ñé
-	char	strField15[16];		// Ôö¼Óµô±¦ÂÊ
-};//µ¼³ö HolyObjectBase ³É¹¦£¬¹² 705 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[64];		// åç§°
+	char	strField2[16];		// ç¥åœ£ä¸€å‡»
+	char	strField3[16];		// å¢åŠ ä¼¤å®³å€¼xï¼…
+	char	strField4[16];		// äº”è¡Œå±æ€§å¢åŠ 
+	char	strField5[16];		// ç”Ÿå‘½å€¼æ¢å¤
+	char	strField6[16];		// æ³•æœ¯å€¼æ¢å¤
+	char	strField7[16];		// ä½“åŠ›å€¼æ¢å¤
+	char	strField8[16];		// æ”»å‡»é€Ÿåº¦
+	char	strField9[16];		// ç§»åŠ¨é€Ÿåº¦
+	char	strField10[16];		// å‘½ä¸­ç‡
+	char	strField11[16];		// é—ªé¿ç‡
+	char	strField12[16];		// æŠ€èƒ½åŠ æˆ
+	char	strField13[16];		// å…¨ç³»æŠ€èƒ½åŠ æˆ
+	char	strField14[16];		// åŒå€ç»éªŒ
+	char	strField15[16];		// å¢åŠ æ‰å®ç‡
+};//å¯¼å‡º HolyObjectBase æˆåŠŸï¼Œå…± 705 æ¡è®°å½•
 
 struct zHolyObjectB:public zEntry
 {
-	WORD	holy;				// ÉñÊ¥Ò»»÷
-	luckRangeValue	damage;		// Ôö¼ÓÉËº¦Öµx£¥
-	luckRangeValue	fivepoint;		// ÎåĞĞÊôĞÔÔö¼Ó
+	WORD	holy;				// ç¥åœ£ä¸€å‡»
+	luckRangeValue	damage;		// å¢åŠ ä¼¤å®³å€¼xï¼…
+	luckRangeValue	fivepoint;		// äº”è¡Œå±æ€§å¢åŠ 
 
-	luckRangeValue hpr;			// ÉúÃüÖµ»Ö¸´
-	luckRangeValue mpr;			// ·¨ÊõÖµ»Ö¸´
-	luckRangeValue spr;			// ÌåÁ¦Öµ»Ö¸´
+	luckRangeValue hpr;			// ç”Ÿå‘½å€¼æ¢å¤
+	luckRangeValue mpr;			// æ³•æœ¯å€¼æ¢å¤
+	luckRangeValue spr;			// ä½“åŠ›å€¼æ¢å¤
 
-	luckRangeValue akspeed;		// ¹¥»÷ËÙ¶È
-	luckRangeValue mvspeed;		// ÒÆ¶¯ËÙ¶È
+	luckRangeValue akspeed;		// æ”»å‡»é€Ÿåº¦
+	luckRangeValue mvspeed;		// ç§»åŠ¨é€Ÿåº¦
 	
-	luckRangeValue atrating;		// ÃüÖĞÂÊ
-	luckRangeValue akdodge;			// ÉÁ±ÜÂÊ
+	luckRangeValue atrating;		// å‘½ä¸­ç‡
+	luckRangeValue akdodge;			// é—ªé¿ç‡
 
-	std::vector<skillbonus> skill;	// ¼¼ÄÜ¼Ó³É
-	skillbonus skills;				// È«Ïµ¼¼ÄÜ¼Ó³É
+	std::vector<skillbonus> skill;	// æŠ€èƒ½åŠ æˆ
+	skillbonus skills;				// å…¨ç³»æŠ€èƒ½åŠ æˆ
 
-	luckRangeValue doublexp;		//%xË«±¶¾­Ñé
-	luckRangeValue mf; 			//µô±¦ÂÊ
+	luckRangeValue doublexp;		//%xåŒå€ç»éªŒ
+	luckRangeValue mf; 			//æ‰å®ç‡
 	
 	void fill(HolyObjectBase &data)
 	{
@@ -822,42 +822,42 @@ struct UpgradeObjectBase{
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// ±àºÅ
-	DWORD	dwField1;		// ÎïÆ·ID
-	char	strField2[64];		// Ãû³Æ
-	DWORD	dwField3;		// ÀàĞÍ
-	DWORD	dwField4;		// Éı¼¶Ô­ÁÏ
-	DWORD	dwField5;		// ĞèÒªÒø×Ó
-	DWORD	dwField6;		// ¶ÔÓ¦³É¹¦ÂÊ
-	DWORD	dwField7;		// ×îĞ¡Îï¹¥Ôö¼Ó
-	DWORD	dwField8;		// ×î´óÎï¹¥Ôö¼Ó
-	DWORD	dwField9;		// ×îĞ¡Ä§¹¥Ôö¼Ó
-	DWORD	dwField10;		// ×î´óÄ§¹¥Ôö¼Ó
-	DWORD	dwField11;		// Îï·ÀÔö¼Ó
-	DWORD	dwField12;		// Ä§·ÀÔö¼Ó
-	DWORD	dwField13;		// ÉúÃüÖµÔö¼Ó
-};//µ¼³ö UpgradeObjectBase ³É¹¦£¬¹² 6345 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	DWORD	dwField1;		// ç‰©å“ID
+	char	strField2[64];		// åç§°
+	DWORD	dwField3;		// ç±»å‹
+	DWORD	dwField4;		// å‡çº§åŸæ–™
+	DWORD	dwField5;		// éœ€è¦é“¶å­
+	DWORD	dwField6;		// å¯¹åº”æˆåŠŸç‡
+	DWORD	dwField7;		// æœ€å°ç‰©æ”»å¢åŠ 
+	DWORD	dwField8;		// æœ€å¤§ç‰©æ”»å¢åŠ 
+	DWORD	dwField9;		// æœ€å°é­”æ”»å¢åŠ 
+	DWORD	dwField10;		// æœ€å¤§é­”æ”»å¢åŠ 
+	DWORD	dwField11;		// ç‰©é˜²å¢åŠ 
+	DWORD	dwField12;		// é­”é˜²å¢åŠ 
+	DWORD	dwField13;		// ç”Ÿå‘½å€¼å¢åŠ 
+};//å¯¼å‡º UpgradeObjectBase æˆåŠŸï¼Œå…± 6345 æ¡è®°å½•
 
 
 struct zUpgradeObjectB:public zEntry
 {
-	DWORD dwObjectID;		// ÎïÆ·ID
-	WORD level;		// ÀàĞÍ
+	DWORD dwObjectID;		// ç‰©å“ID
+	WORD level;		// ç±»å‹
 	
-	WORD stuff;		// Éı¼¶Ô­ÁÏ
+	WORD stuff;		// å‡çº§åŸæ–™
 	
-	WORD gold;		// ĞèÒªÒø×Ó
+	WORD gold;		// éœ€è¦é“¶å­
 	
-	WORD odds;		// ¶ÔÓ¦³É¹¦ÂÊ
+	WORD odds;		// å¯¹åº”æˆåŠŸç‡
 	
-	WORD pdamage;				// ×îĞ¡¹¥»÷Á¦
-	WORD maxpdamage;			// ×î´ó¹¥»÷Á¦
-	WORD mdamage;				// ×îĞ¡·¨Êõ¹¥»÷Á¦
-	WORD maxmdamage;			// ×î´ó·¨Êõ¹¥»÷Á¦
+	WORD pdamage;				// æœ€å°æ”»å‡»åŠ›
+	WORD maxpdamage;			// æœ€å¤§æ”»å‡»åŠ›
+	WORD mdamage;				// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	WORD maxmdamage;			// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
 
-	WORD pdefence;				// Îï·À
-	WORD mdefence;				// Ä§·À
-	WORD maxhp;					// ×î´óÉúÃüÖµ
+	WORD pdefence;				// ç‰©é˜²
+	WORD mdefence;				// é­”é˜²
+	WORD maxhp;					// æœ€å¤§ç”Ÿå‘½å€¼
 	
 	void fill(UpgradeObjectBase  &data)
 	{
@@ -895,49 +895,49 @@ struct NpcBase
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[32];		// Ãû³Æ
-	DWORD	dwField2;		// ÀàĞÍ
-	DWORD	dwField3;		// µÈ¼¶
-	DWORD	dwField4;		// ÉúÃüÖµ
-	DWORD	dwField5;		// ¾­ÑéÖµ
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[32];		// åç§°
+	DWORD	dwField2;		// ç±»å‹
+	DWORD	dwField3;		// ç­‰çº§
+	DWORD	dwField4;		// ç”Ÿå‘½å€¼
+	DWORD	dwField5;		// ç»éªŒå€¼
 
-	DWORD	dwField6;		// Á¦
-	DWORD	dwField7;		// ÖÇ
-	DWORD	dwField8;		// Ãô½İ
-	DWORD	dwField9;		// ¾«Éñ
-	DWORD	dwField10;		// ÌåÖÊ
-	DWORD	dwField11;		// ÌåÖÊ
+	DWORD	dwField6;		// åŠ›
+	DWORD	dwField7;		// æ™º
+	DWORD	dwField8;		// æ•æ·
+	DWORD	dwField9;		// ç²¾ç¥
+	DWORD	dwField10;		// ä½“è´¨
+	DWORD	dwField11;		// ä½“è´¨
 
-	DWORD	dwField12;		// ÑÕÉ«
+	DWORD	dwField12;		// é¢œè‰²
 	DWORD	dwField13;		// ai
-	DWORD	dwField14;		// ÒÆ¶¯¼ä¸ô
-	DWORD	dwField15;		// ¹¥»÷¼ä¸ô
-	DWORD	dwField16;		// ×îĞ¡ÎïÀí·ÀÓùÁ¦
-	DWORD	dwField17;		// ×î´óÎïÀí·ÀÓùÁ¦
-	DWORD	dwField18;		// ×îĞ¡·¨Êõ·ÀÓùÁ¦
-	DWORD	dwField19;		// ×î´ó·¨Êõ·ÀÓùÁ¦
-	DWORD	dwField20;		// ÎåĞĞÊôĞÔ
-	DWORD	dwField21;		// ÎåĞĞµãÊı
-	char	strField22[1024];		// ¹¥»÷ÀàĞÍ
-	DWORD	dwField23;		// ×îĞ¡·¨Êõ¹¥»÷
-	DWORD	dwField24;		// ×î´ó·¨Êõ¹¥»÷
-	DWORD	dwField25;		// ×îĞ¡¹¥»÷Á¦
-	DWORD	dwField26;		// ×î´ó¹¥»÷Á¦
-	DWORD	dwField27;		// ¼¼ÄÜ
-	char	strField28[4096];		// Ğ¯´øÎïÆ·
-	DWORD	dwField29;		// »êÆÇÖ®Ê¯¼¸ÂÊ
-	char	strField30[1024];		// Ê¹ÓÃ¼¼ÄÜ
-	char	strField31[1024];		// ×´Ì¬
-	DWORD	dwField32;		// ¶ã±ÜÂÊ
-	DWORD	dwField33;		// ÃüÖĞÂÊ
-	DWORD	dwField34;		// Í¼Æ¬
-	DWORD	dwField35;		// Æ·ÖÊ
-	DWORD	dwField36;		// ¹ÖÎïÀà±ğ
-	DWORD	dwField37;		// Ö½ÍŞÍŞÍ¼Æ¬
-	char	strField38[64];		// »ØÑª
-	DWORD	dwField39;		// ¶ş½øÖÆ±êÖ¾
-	DWORD	dwField40;		// ¶ş½øÖÆ±êÖ¾
+	DWORD	dwField14;		// ç§»åŠ¨é—´éš”
+	DWORD	dwField15;		// æ”»å‡»é—´éš”
+	DWORD	dwField16;		// æœ€å°ç‰©ç†é˜²å¾¡åŠ›
+	DWORD	dwField17;		// æœ€å¤§ç‰©ç†é˜²å¾¡åŠ›
+	DWORD	dwField18;		// æœ€å°æ³•æœ¯é˜²å¾¡åŠ›
+	DWORD	dwField19;		// æœ€å¤§æ³•æœ¯é˜²å¾¡åŠ›
+	DWORD	dwField20;		// äº”è¡Œå±æ€§
+	DWORD	dwField21;		// äº”è¡Œç‚¹æ•°
+	char	strField22[1024];		// æ”»å‡»ç±»å‹
+	DWORD	dwField23;		// æœ€å°æ³•æœ¯æ”»å‡»
+	DWORD	dwField24;		// æœ€å¤§æ³•æœ¯æ”»å‡»
+	DWORD	dwField25;		// æœ€å°æ”»å‡»åŠ›
+	DWORD	dwField26;		// æœ€å¤§æ”»å‡»åŠ›
+	DWORD	dwField27;		// æŠ€èƒ½
+	char	strField28[4096];		// æºå¸¦ç‰©å“
+	DWORD	dwField29;		// é­‚é­„ä¹‹çŸ³å‡ ç‡
+	char	strField30[1024];		// ä½¿ç”¨æŠ€èƒ½
+	char	strField31[1024];		// çŠ¶æ€
+	DWORD	dwField32;		// èº²é¿ç‡
+	DWORD	dwField33;		// å‘½ä¸­ç‡
+	DWORD	dwField34;		// å›¾ç‰‡
+	DWORD	dwField35;		// å“è´¨
+	DWORD	dwField36;		// æ€ªç‰©ç±»åˆ«
+	DWORD	dwField37;		// çº¸å¨ƒå¨ƒå›¾ç‰‡
+	char	strField38[64];		// å›è¡€
+	DWORD	dwField39;		// äºŒè¿›åˆ¶æ ‡å¿—
+	DWORD	dwField40;		// äºŒè¿›åˆ¶æ ‡å¿—
 };
 
 struct CarryObject
@@ -1002,11 +1002,11 @@ struct NpcCarryObject : private zNoncopyable
 	}
 
 	/**
-	 * \brief ÎïÆ·µôÂä´¦Àí
-	 * \param nlo npcĞ¯´øÎïÆ·¼¯ºÏ
-	 * \param value µôÂäÂÊ´òÕÛ±È
-	 * \param value1 µôÂäÂÊÔö¼Ó
-	 * \param value2 Òø×ÓµôÂäÂÊÔö¼Ó
+	 * \brief ç‰©å“æ‰è½å¤„ç†
+	 * \param nlo npcæºå¸¦ç‰©å“é›†åˆ
+	 * \param value æ‰è½ç‡æ‰“æŠ˜æ¯”
+	 * \param value1 æ‰è½ç‡å¢åŠ 
+	 * \param value2 é“¶å­æ‰è½ç‡å¢åŠ 
 	 */
 	void lost(NpcLostObject &nlo, int value=1, int value1=0, int value2=0, int vcharm = 0, int vlucky = 0, int player_level=0, bool double_drop=false, int level_double_drop=0)
 	{
@@ -1051,11 +1051,11 @@ struct NpcCarryObject : private zNoncopyable
 		//mlock.unlock();
 	}
 	/**
-	 * \brief È«²¿ÎïÆ·µôÂä´¦Àí
-	 * \param nlo npcĞ¯´øÎïÆ·¼¯ºÏ
-	 * \param value µôÂäÂÊ´òÕÛ±È
-	 * \param value1 µôÂäÂÊÔö¼Ó
-	 * \param value2 Òø×ÓµôÂäÂÊÔö¼Ó
+	 * \brief å…¨éƒ¨ç‰©å“æ‰è½å¤„ç†
+	 * \param nlo npcæºå¸¦ç‰©å“é›†åˆ
+	 * \param value æ‰è½ç‡æ‰“æŠ˜æ¯”
+	 * \param value1 æ‰è½ç‡å¢åŠ 
+	 * \param value2 é“¶å­æ‰è½ç‡å¢åŠ 
 	 */
 	void lostAll(NpcLostObject &nlo)
 	{
@@ -1066,11 +1066,11 @@ struct NpcCarryObject : private zNoncopyable
 	}
 
 	/**
-	 * \brief ×°±¸ÎïÆ·È«²¿µôÂä´¦Àí(ÂÌ¹Ö×¨ÓÃ)
-	 * \param nlo npcĞ¯´øÎïÆ·¼¯ºÏ
-	 * \param value µôÂäÂÊ´òÕÛ±È
-	 * \param value1 µôÂäÂÊÔö¼Ó
-	 * \param value2 Òø×ÓµôÂäÂÊÔö¼Ó
+	 * \brief è£…å¤‡ç‰©å“å…¨éƒ¨æ‰è½å¤„ç†(ç»¿æ€ªä¸“ç”¨)
+	 * \param nlo npcæºå¸¦ç‰©å“é›†åˆ
+	 * \param value æ‰è½ç‡æ‰“æŠ˜æ¯”
+	 * \param value1 æ‰è½ç‡å¢åŠ 
+	 * \param value2 é“¶å­æ‰è½ç‡å¢åŠ 
 	 */
 	void lostGreen(NpcLostObject &nlo, int value=1, int value1=0, int value2=0, int vcharm = 0, int vlucky = 0);
 	private:
@@ -1096,57 +1096,57 @@ struct aTypeS{
 
 enum
 {
-	NPC_TYPE_HUMAN		= 0,	///ÈËĞÍ
-	NPC_TYPE_NORMAL		= 1,	/// ÆÕÍ¨ÀàĞÍ
-	NPC_TYPE_BBOSS		= 2,	/// ´óBossÀàĞÍ
-	NPC_TYPE_LBOSS		= 3,	/// Ğ¡BossÀàĞÍ
-	NPC_TYPE_BACKBONE	= 4,	/// ¾«Ó¢ÀàĞÍ
-	NPC_TYPE_GOLD		= 5,	/// »Æ½ğÀàĞÍ
-	NPC_TYPE_TRADE		= 6,	/// ÂòÂôÀàĞÍ
-	NPC_TYPE_TASK		= 7,	/// ÈÎÎñÀàĞÍ
-	NPC_TYPE_GUARD		= 8,	/// Ê¿±øÀàĞÍ
-	NPC_TYPE_PET		= 9,	/// ³èÎïÀàĞÍ
-	NPC_TYPE_BACKBONEBUG= 10,	/// ¾«¹ÖÀàĞÍ
-	NPC_TYPE_SUMMONS	= 11,	/// ÕÙ»½ÀàĞÍ
-	NPC_TYPE_TOTEM		= 12,	/// Í¼ÌÚÀàĞÍ
-	NPC_TYPE_AGGRANDIZEMENT = 13,/// Ç¿»¯ÀàĞÍ
-	NPC_TYPE_ABERRANCE	= 14,	/// ±äÒìÀàĞÍ
-	NPC_TYPE_STORAGE	= 15,	/// ²Ö¿âÀàĞÍ
-	NPC_TYPE_ROADSIGN	= 16,	/// Â·±êÀàĞÍ
-	NPC_TYPE_TREASURE	= 17,	/// ±¦ÏäÀàĞÍ
-	NPC_TYPE_WILDHORSE	= 18,	/// Ò°ÂíÀàĞÍ
-	NPC_TYPE_MOBILETRADE	= 19,	/// Á÷ÀËĞ¡··
-	NPC_TYPE_LIVENPC	= 20,	/// Éú»înpc£¨²»Õ½¶·£¬¹¥³ÇÊ±ÏûÊ§£©
-	NPC_TYPE_DUCKHIT	= 21,	/// ¶×ÏÂ²ÅÄÜ´òµÄnpc
-	NPC_TYPE_BANNER		= 22,	/// ÆìÖÄÀàĞÍ
-	NPC_TYPE_TRAP		= 23,	/// ÏİÚåÀàĞÍ
-	NPC_TYPE_MAILBOX	=24,	///ÓÊÏä
-	NPC_TYPE_AUCTION	=25,	///ÅÄÂô¹ÜÀíÔ±
-	NPC_TYPE_UNIONGUARD	=26,	///°ï»áÊØÎÀ
-	NPC_TYPE_SOLDIER	=27,	///Ê¿±ø£¬Ö»¹¥»÷Íâ¹úÈË
-	NPC_TYPE_UNIONATTACKER	=28,	///¹¥·½Ê¿±ø
-	NPC_TYPE_SURFACE = 29,	/// µØ±íÀàĞÍ
-	NPC_TYPE_CARTOONPET = 30,	/// ÌæÉí±¦±¦
-	NPC_TYPE_PBOSS = 31,	/// ×ÏÉ«BOSS
-	NPC_TYPE_RESOURCE = 32  /// ×ÊÔ´ÀàNPC
+	NPC_TYPE_HUMAN		= 0,	///äººå‹
+	NPC_TYPE_NORMAL		= 1,	/// æ™®é€šç±»å‹
+	NPC_TYPE_BBOSS		= 2,	/// å¤§Bossç±»å‹
+	NPC_TYPE_LBOSS		= 3,	/// å°Bossç±»å‹
+	NPC_TYPE_BACKBONE	= 4,	/// ç²¾è‹±ç±»å‹
+	NPC_TYPE_GOLD		= 5,	/// é»„é‡‘ç±»å‹
+	NPC_TYPE_TRADE		= 6,	/// ä¹°å–ç±»å‹
+	NPC_TYPE_TASK		= 7,	/// ä»»åŠ¡ç±»å‹
+	NPC_TYPE_GUARD		= 8,	/// å£«å…µç±»å‹
+	NPC_TYPE_PET		= 9,	/// å® ç‰©ç±»å‹
+	NPC_TYPE_BACKBONEBUG= 10,	/// ç²¾æ€ªç±»å‹
+	NPC_TYPE_SUMMONS	= 11,	/// å¬å”¤ç±»å‹
+	NPC_TYPE_TOTEM		= 12,	/// å›¾è…¾ç±»å‹
+	NPC_TYPE_AGGRANDIZEMENT = 13,/// å¼ºåŒ–ç±»å‹
+	NPC_TYPE_ABERRANCE	= 14,	/// å˜å¼‚ç±»å‹
+	NPC_TYPE_STORAGE	= 15,	/// ä»“åº“ç±»å‹
+	NPC_TYPE_ROADSIGN	= 16,	/// è·¯æ ‡ç±»å‹
+	NPC_TYPE_TREASURE	= 17,	/// å®ç®±ç±»å‹
+	NPC_TYPE_WILDHORSE	= 18,	/// é‡é©¬ç±»å‹
+	NPC_TYPE_MOBILETRADE	= 19,	/// æµæµªå°è´©
+	NPC_TYPE_LIVENPC	= 20,	/// ç”Ÿæ´»npcï¼ˆä¸æˆ˜æ–—ï¼Œæ”»åŸæ—¶æ¶ˆå¤±ï¼‰
+	NPC_TYPE_DUCKHIT	= 21,	/// è¹²ä¸‹æ‰èƒ½æ‰“çš„npc
+	NPC_TYPE_BANNER		= 22,	/// æ——å¸œç±»å‹
+	NPC_TYPE_TRAP		= 23,	/// é™·é˜±ç±»å‹
+	NPC_TYPE_MAILBOX	=24,	///é‚®ç®±
+	NPC_TYPE_AUCTION	=25,	///æ‹å–ç®¡ç†å‘˜
+	NPC_TYPE_UNIONGUARD	=26,	///å¸®ä¼šå®ˆå«
+	NPC_TYPE_SOLDIER	=27,	///å£«å…µï¼Œåªæ”»å‡»å¤–å›½äºº
+	NPC_TYPE_UNIONATTACKER	=28,	///æ”»æ–¹å£«å…µ
+	NPC_TYPE_SURFACE = 29,	/// åœ°è¡¨ç±»å‹
+	NPC_TYPE_CARTOONPET = 30,	/// æ›¿èº«å®å®
+	NPC_TYPE_PBOSS = 31,	/// ç´«è‰²BOSS
+	NPC_TYPE_RESOURCE = 32  /// èµ„æºç±»NPC
 };
 
 enum
 {
-	NPC_ATYPE_NEAR		= 1,	/// ½ü¾àÀë¹¥»÷
-	NPC_ATYPE_FAR		= 2,	/// Ô¶¾àÀë¹¥»÷
-	NPC_ATYPE_MFAR		= 3,	/// ·¨ÊõÔ¶³Ì¹¥»÷
-	NPC_ATYPE_MNEAR		= 4,	/// ·¨Êõ½üÉí¹¥»÷
-	NPC_ATYPE_NOACTION  = 5		/// ÎŞ¹¥»÷¶¯×÷
+	NPC_ATYPE_NEAR		= 1,	/// è¿‘è·ç¦»æ”»å‡»
+	NPC_ATYPE_FAR		= 2,	/// è¿œè·ç¦»æ”»å‡»
+	NPC_ATYPE_MFAR		= 3,	/// æ³•æœ¯è¿œç¨‹æ”»å‡»
+	NPC_ATYPE_MNEAR		= 4,	/// æ³•æœ¯è¿‘èº«æ”»å‡»
+	NPC_ATYPE_NOACTION  = 5		/// æ— æ”»å‡»åŠ¨ä½œ
 };
 
-///npcÊ¹ÓÃÒ»¸ö¼¼ÄÜµÄÃèÊö
+///npcä½¿ç”¨ä¸€ä¸ªæŠ€èƒ½çš„æè¿°
 struct npcSkill
 {
-	DWORD id;///¼¼ÄÜid
-	int needLevel;///¼¼ÄÜid
-	int rate;///Ê¹ÓÃ¼¸ÂÊ
-	int coefficient;///Éı¼¶ÏµÊı
+	DWORD id;///æŠ€èƒ½id
+	int needLevel;///æŠ€èƒ½id
+	int rate;///ä½¿ç”¨å‡ ç‡
+	int coefficient;///å‡çº§ç³»æ•°
 
 	npcSkill():id(0),needLevel(0),rate(0),coefficient(0){}
 	npcSkill(const npcSkill &skill)
@@ -1197,51 +1197,51 @@ struct npcRecover
 };
 
 /**
- * \brief Npc»ù±¾±í¸ñÊı¾İ
+ * \brief NpcåŸºæœ¬è¡¨æ ¼æ•°æ®
  *
  */
 struct zNpcB : public zEntry
 {
-	DWORD	kind;				// ÀàĞÍ
-	DWORD	level;				// µÈ¼¶
-	DWORD	hp;					// ÉúÃüÖµ
-	DWORD	exp;				// ¾­ÑéÖµ
-	DWORD	str;				// Á¦Á¿
-	DWORD   inte;				// ÖÇÁ¦
-	DWORD   dex;				// Ãô½İ
-	DWORD   men;				// ¾«Éñ
-	DWORD   con;				// ÌåÖÊ
-	DWORD   cri;				// ±©»÷
-	DWORD	color;				// ÑÕÉ«
+	DWORD	kind;				// ç±»å‹
+	DWORD	level;				// ç­‰çº§
+	DWORD	hp;					// ç”Ÿå‘½å€¼
+	DWORD	exp;				// ç»éªŒå€¼
+	DWORD	str;				// åŠ›é‡
+	DWORD   inte;				// æ™ºåŠ›
+	DWORD   dex;				// æ•æ·
+	DWORD   men;				// ç²¾ç¥
+	DWORD   con;				// ä½“è´¨
+	DWORD   cri;				// æš´å‡»
+	DWORD	color;				// é¢œè‰²
 	DWORD	ai;					// ai
-	DWORD	distance;			// ÒÆ¶¯¼ä¸ô
-	DWORD	adistance;			// ¹¥»÷¼ä¸ô
-	DWORD	pdefence;			// ×îĞ¡ÎïÀí·ÀÓùÁ¦
-	DWORD	maxpdefence;		// ×î´óÎïÀí·ÀÓùÁ¦
-	DWORD	mdefence;			// ×îĞ¡·¨Êõ·ÀÓùÁ¦
-	DWORD	maxmdefence;		// ×î´ó·¨Êõ·ÀÓùÁ¦
-	DWORD	five;				// ÎåĞĞÊôĞÔ
-	DWORD   fivepoint;			// ÎåĞĞµãÊı
-	std::vector<aTypeS> atypelist;	// ¹¥»÷ÀàĞÍ
-	DWORD	mdamage;			// ×îĞ¡·¨Êõ¹¥»÷
-	DWORD	maxmdamage;			// ×î´ó·¨Êõ¹¥»÷
-	DWORD	damage;				// ×îĞ¡¹¥»÷Á¦
-	DWORD	maxdamage;			// ×î´ó¹¥»÷Á¦
-	DWORD	skill;				// ¼¼ÄÜ
-	//char	object[1024 + 1];	// Ğ¯´øÎïÆ·
+	DWORD	distance;			// ç§»åŠ¨é—´éš”
+	DWORD	adistance;			// æ”»å‡»é—´éš”
+	DWORD	pdefence;			// æœ€å°ç‰©ç†é˜²å¾¡åŠ›
+	DWORD	maxpdefence;		// æœ€å¤§ç‰©ç†é˜²å¾¡åŠ›
+	DWORD	mdefence;			// æœ€å°æ³•æœ¯é˜²å¾¡åŠ›
+	DWORD	maxmdefence;		// æœ€å¤§æ³•æœ¯é˜²å¾¡åŠ›
+	DWORD	five;				// äº”è¡Œå±æ€§
+	DWORD   fivepoint;			// äº”è¡Œç‚¹æ•°
+	std::vector<aTypeS> atypelist;	// æ”»å‡»ç±»å‹
+	DWORD	mdamage;			// æœ€å°æ³•æœ¯æ”»å‡»
+	DWORD	maxmdamage;			// æœ€å¤§æ³•æœ¯æ”»å‡»
+	DWORD	damage;				// æœ€å°æ”»å‡»åŠ›
+	DWORD	maxdamage;			// æœ€å¤§æ”»å‡»åŠ›
+	DWORD	skill;				// æŠ€èƒ½
+	//char	object[1024 + 1];	// æºå¸¦ç‰©å“
 	NpcCarryObject nco;
-	DWORD	soulrate;			// »êÆÇÖ®Ê¯¼¸ÂÊ
-	char	skills[1024];		// Ê¹ÓÃ¼¼ÄÜ
-	char	state[1024];		// ×´Ì¬
-	DWORD	dodge;				// ¶ã±ÜÂÊ
-	DWORD	rating;				// ÃüÖĞÂÊ
-	DWORD	pic;				// Í¼Æ¬
-	DWORD	trait;				//Æ·ÖÊ
-	DWORD	bear_type;			//¹ÖÎïÀà±ğ
-	DWORD	pet_pic;			//³èÎïÍ¼Æ¬
+	DWORD	soulrate;			// é­‚é­„ä¹‹çŸ³å‡ ç‡
+	char	skills[1024];		// ä½¿ç”¨æŠ€èƒ½
+	char	state[1024];		// çŠ¶æ€
+	DWORD	dodge;				// èº²é¿ç‡
+	DWORD	rating;				// å‘½ä¸­ç‡
+	DWORD	pic;				// å›¾ç‰‡
+	DWORD	trait;				//å“è´¨
+	DWORD	bear_type;			//æ€ªç‰©ç±»åˆ«
+	DWORD	pet_pic;			//å® ç‰©å›¾ç‰‡
 	npcRecover recover;
-	DWORD	flags;			//¶ş½øÖÆ±êÖ¾£¬Ä¿Ç°ÓĞÒ»¸ö£¬¿É²»¿É±»Íâ¹úÈËÉ±
-	DWORD	allyVisit;			//¿É±»ÃË¹ú·ÃÎÊµÄµÈ¼¶ 0£º²»¿É·ÃÎÊ 1£º1¼¶¿É·ÃÎÊ 2£º2¼¶¿É·ÃÎÊ
+	DWORD	flags;			//äºŒè¿›åˆ¶æ ‡å¿—ï¼Œç›®å‰æœ‰ä¸€ä¸ªï¼Œå¯ä¸å¯è¢«å¤–å›½äººæ€
+	DWORD	allyVisit;			//å¯è¢«ç›Ÿå›½è®¿é—®çš„ç­‰çº§ 0ï¼šä¸å¯è®¿é—® 1ï¼š1çº§å¯è®¿é—® 2ï¼š2çº§å¯è®¿é—®
 
 	std::map<int, std::vector<npcSkill> > skillMap;
 	
@@ -1296,11 +1296,11 @@ struct zNpcB : public zEntry
 	}
 
 	/**
-	 * \brief ¸ù¾İÀàĞÍËæ»úÈ¡³öÒ»¸önpc¼¼ÄÜµÄÃèÊö
+	 * \brief æ ¹æ®ç±»å‹éšæœºå–å‡ºä¸€ä¸ªnpcæŠ€èƒ½çš„æè¿°
 	 *
-	 * \param type ¼¼ÄÜÀàĞÍ
-	 * \param skill ·µ»ØÖµ£¬È¡µÃµÄ¼¼ÄÜÃèÊö
-	 * \return ÊÇ·ñÈ¡µÃ³É¹¦
+	 * \param type æŠ€èƒ½ç±»å‹
+	 * \param skill è¿”å›å€¼ï¼Œå–å¾—çš„æŠ€èƒ½æè¿°
+	 * \return æ˜¯å¦å–å¾—æˆåŠŸ
 	 */
 	bool getRandomSkillByType(int type, npcSkill &skill)
 	{
@@ -1311,11 +1311,11 @@ struct zNpcB : public zEntry
 	}
 
 	/**
-	 * \brief È¡µÃËùÓĞ¿ÉÓÃµÄ¼¼ÄÜID
+	 * \brief å–å¾—æ‰€æœ‰å¯ç”¨çš„æŠ€èƒ½ID
 	 *
 	 *
-	 * \param list ¼¼ÄÜIDÁĞ±í
-	 * \return bool ÊÇ·ñÓĞ¼¼ÄÜ
+	 * \param list æŠ€èƒ½IDåˆ—è¡¨
+	 * \return bool æ˜¯å¦æœ‰æŠ€èƒ½
 	 */
 	bool getAllSkills(std::vector<DWORD> & list, WORD level)
 	{
@@ -1331,11 +1331,11 @@ struct zNpcB : public zEntry
 	}
 
 	/**
-	 * \brief Ôö¼ÓÒ»¸önpc¼¼ÄÜ
-	 * \param type ¼¼ÄÜ·ÖÀà
-	 * \param id ÒªÔö¼ÓµÄ¼¼ÄÜid
-	 * \param rate Ê©·Å¼¸ÂÊ
-	 * \param coefficient ÏµÊı
+	 * \brief å¢åŠ ä¸€ä¸ªnpcæŠ€èƒ½
+	 * \param type æŠ€èƒ½åˆ†ç±»
+	 * \param id è¦å¢åŠ çš„æŠ€èƒ½id
+	 * \param rate æ–½æ”¾å‡ ç‡
+	 * \param coefficient ç³»æ•°
 	 */
 	void addSkill(int type, DWORD id, int needLevel, int rate, int coefficient = 0)
 	{
@@ -1348,11 +1348,11 @@ struct zNpcB : public zEntry
 	}
 
 	/**
-	 * \brief É¾³ıÒ»¸önpc¼¼ÄÜ
+	 * \brief åˆ é™¤ä¸€ä¸ªnpcæŠ€èƒ½
 	 *
 	 *
-	 * \param id ÒªÉ¾³ıµÄ¼¼ÄÜid
-	 * \return npcÃ»ÓĞ¸Ã¼¼ÄÜÔò·µ»Øfalse
+	 * \param id è¦åˆ é™¤çš„æŠ€èƒ½id
+	 * \return npcæ²¡æœ‰è¯¥æŠ€èƒ½åˆ™è¿”å›false
 	 */
 	bool delSkill(DWORD id)
 	{
@@ -1374,11 +1374,11 @@ struct zNpcB : public zEntry
 	}
 
 	/**
-	 * \brief ÉèÖÃnpcµÄ¹¥»÷ÀàĞÍ
+	 * \brief è®¾ç½®npcçš„æ”»å‡»ç±»å‹
 	 *
 	 *
-	 * \param data ´«ÈëµÄ×Ö·û´®
-	 * \param size ×Ö·û´®´óĞ¡
+	 * \param data ä¼ å…¥çš„å­—ç¬¦ä¸²
+	 * \param size å­—ç¬¦ä¸²å¤§å°
 	 */
 	void setAType(const char *data , int size)
 	{
@@ -1408,7 +1408,7 @@ struct zNpcB : public zEntry
 			}
 			atypelist.push_back(aValue);
 #ifdef _DEBUGLOG
-			Zebra::logger->error("NPC¹¥»÷ÀàĞÍ: id=%u name=%s atype=%u action=%u ", id, name, aValue.byValue[0], aValue.byValue[1]);
+			Zebra::logger->error("NPCæ”»å‡»ç±»å‹: id=%u name=%s atype=%u action=%u ", id, name, aValue.byValue[0], aValue.byValue[1]);
 #endif
 		}
 #ifdef _DEBUGLOG
@@ -1418,10 +1418,10 @@ struct zNpcB : public zEntry
 	}
 
 	/**
-	 * \brief È¡µÃnpcµÄ¹¥»÷ÀàĞÍºÍ¶¯»­ÀàĞÍ
+	 * \brief å–å¾—npcçš„æ”»å‡»ç±»å‹å’ŒåŠ¨ç”»ç±»å‹
 	 *
 	 *
-	 * \param type Êä³ö ¹¥»÷ÀàĞÍ
+	 * \param type è¾“å‡º æ”»å‡»ç±»å‹
 	 * \param action
 	 */
 	void getATypeAndAction(BYTE &type, BYTE &action)
@@ -1439,10 +1439,10 @@ struct zNpcB : public zEntry
 	}
 
 	/**
-	 * \brief ¸ù¾İ±í¸ñÖĞ¶Á³öµÄÊı¾İÌî³äzNpcB½á¹¹
+	 * \brief æ ¹æ®è¡¨æ ¼ä¸­è¯»å‡ºçš„æ•°æ®å¡«å……zNpcBç»“æ„
 	 *
 	 *
-	 * \param npc ´Ó±íÖĞ¶Á³öµÄÊı¾İ
+	 * \param npc ä»è¡¨ä¸­è¯»å‡ºçš„æ•°æ®
 	 */
 	void fill(const NpcBase &npc)
 	{
@@ -1452,7 +1452,7 @@ struct zNpcB : public zEntry
 		level=				npc.dwField3;
 		hp=					npc.dwField4;
 #ifdef _DEBUGLOG
-		Zebra::logger->error("npc¼ÓÔØname=%s hp=%u", name, hp);
+		Zebra::logger->error("npcåŠ è½½name=%s hp=%u", name, hp);
 #endif
 		exp=				npc.dwField5;
 		str=				npc.dwField6;
@@ -1478,13 +1478,13 @@ struct zNpcB : public zEntry
 		maxdamage=			npc.dwField26;
 		skill=				npc.dwField27;
 		if (!nco.set(npc.strField28))
-			Zebra::logger->error("Npc±í¸ñĞ¯´øÎïÆ·¸ñÊ½½âÎö´íÎó£º%u, %s, \'%s\'", id, name, npc.strField28);
+			Zebra::logger->error("Npcè¡¨æ ¼æºå¸¦ç‰©å“æ ¼å¼è§£æé”™è¯¯ï¼š%u, %s, \'%s\'", id, name, npc.strField28);
 		soulrate=			npc.dwField29;
 #ifdef _XWL_DEBUG
 		//parseSkills("1:1-0-50-1,3-0-50-1;2:280-0-30-1;3:282-0-20-1,284-0-100-1;");
 		//parseSkills("1:1-12-50-1;");
 		parseSkills(npc.strField30);
-		//Zebra::logger->error("npcB::fill():½âÎönpc¼¼ÄÜ³ö´í npcid=%u skills=%s", id, npc.strField30);
+		//Zebra::logger->error("npcB::fill():è§£ænpcæŠ€èƒ½å‡ºé”™ npcid=%u skills=%s", id, npc.strField30);
 #else
 		parseSkills(npc.strField30);
 		//parseSkills("1:141-20-1,281-20-1;2:284-20-1;3:1-20-1,211-20-1;");
@@ -1552,7 +1552,7 @@ struct zNpcB : public zEntry
 };
 
 //------------------------------------
-// ÈËÎï¾­ÑéBase
+// äººç‰©ç»éªŒBase
 //------------------------------------
 struct ExperienceBase
 {
@@ -1560,14 +1560,14 @@ struct ExperienceBase
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// µÈ¼¶
-	DWORD	dwField1;		// ĞèÒª¾­Ñé
-};//µ¼³ö ÈËÎï¾­ÑéBase ³É¹¦£¬¹² 300 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç­‰çº§
+	DWORD	dwField1;		// éœ€è¦ç»éªŒ
+};//å¯¼å‡º äººç‰©ç»éªŒBase æˆåŠŸï¼Œå…± 300 æ¡è®°å½•
 
 struct zExperienceB : public zEntry
 {
-	DWORD	level;				// µÈ¼¶
-	QWORD	nextexp;			//ĞèÒª¾­Ñé
+	DWORD	level;				// ç­‰çº§
+	QWORD	nextexp;			//éœ€è¦ç»éªŒ
 
 	void fill(const ExperienceBase &data)
 	{
@@ -1583,7 +1583,7 @@ struct zExperienceB : public zEntry
 	}
 };
 //------------------------------------
-// ÈÙÓşÔö¼Ó±í
+// è£èª‰å¢åŠ è¡¨
 //------------------------------------
 struct HonorBase
 {
@@ -1591,14 +1591,14 @@ struct HonorBase
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// µÈ¼¶
-	DWORD	dwField1;		// ĞèÒª¾­Ñé
-};//µ¼³ö ÈËÎï¾­ÑéBase ³É¹¦£¬¹² 300 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç­‰çº§
+	DWORD	dwField1;		// éœ€è¦ç»éªŒ
+};//å¯¼å‡º äººç‰©ç»éªŒBase æˆåŠŸï¼Œå…± 300 æ¡è®°å½•
 
 struct zHonorB : public zEntry
 {
-	DWORD	level;				// µÈ¼¶
-	QWORD	value;			//ĞèÒª¾­Ñé
+	DWORD	level;				// ç­‰çº§
+	QWORD	value;			//éœ€è¦ç»éªŒ
 
 	void fill(const HonorBase &data)
 	{
@@ -1618,7 +1618,7 @@ struct zHonorB : public zEntry
 // SkillBase
 //------------------------------------
 /**
- * \brief ¸ù¾İ¼¼ÄÜÀàĞÍºÍµÈ¼¶¼ÆËãÒ»¸öÁÙÊ±Î¨Ò»±àºÅ
+ * \brief æ ¹æ®æŠ€èƒ½ç±»å‹å’Œç­‰çº§è®¡ç®—ä¸€ä¸ªä¸´æ—¶å”¯ä¸€ç¼–å·
  *
  */
 #define skill_hash(type, level) ((type - 1) * 10 + level)
@@ -1630,31 +1630,31 @@ struct SkillBase
 		return skill_hash(dwField0 , dwField2);
 	}
 
-	DWORD	dwField0;			// ¼¼ÄÜID
-	char	strField1[32];		// ¼¼ÄÜÃû³Æ
-	DWORD	dwField2;			// ¼¼ÄÜµÈ¼¶
-	DWORD	dwField3;			// ¼¼ÄÜÏµ±ğ
-	DWORD	dwField4;			// ¼¼ÄÜÊ÷±ğ
-	DWORD	dwField5;			// ĞèÒª±¾Ïß¼¼ÄÜµãÊı
-	DWORD	dwField6;			// Ç°Ìá¼¼ÄÜÒ»
-	DWORD	dwField7;			// Ç°Ìá¼¼ÄÜÒ»µÈ¼¶
-	DWORD	dwField8;			// Ç°Ìá¼¼ÄÜ¶ş
-	DWORD	dwField9;			// Ç°Ìá¼¼ÄÜ¶şµÈ¼¶
-	DWORD	dwField10;			// Ç°Ìá¼¼ÄÜÈı
-	DWORD	dwField11;			// Ç°Ìá¼¼ÄÜÈıµÈ¼¶
-	DWORD	dwField12;			// ¼ä¸ôÊ±¼ä
-	DWORD	dwField13;			// ¹¥»÷·½Ê½
-	DWORD	dwField14;			// ÄÜ·ñÆïÂíÊ¹ÓÃ
-	DWORD	dwField15;			// ĞèÒªÎïÆ·
-	char	strField16[128];	// ĞèÒªÎäÆ÷
-	DWORD	dwField17;			// ÏûºÄÌåÁ¦Öµ
-	DWORD	dwField18;			// ÏûºÄ·¨ÊõÖµ
-	DWORD	dwField19;			// ÏûºÄÉúÃüÖµ
-	DWORD	dwField20;			// ÉËº¦¼Ó³É
-	char	strField21[1024];	// Ğ§¹û
-	DWORD	dwField22;			// ÏûºÄÎïÆ·ÀàĞÍ
-	DWORD	dwField23;			// ÎïÆ·ÏûºÄÊıÁ¿
-};//µ¼³ö SkillBase ³É¹¦£¬¹² 1 Ìõ¼ÇÂ¼
+	DWORD	dwField0;			// æŠ€èƒ½ID
+	char	strField1[32];		// æŠ€èƒ½åç§°
+	DWORD	dwField2;			// æŠ€èƒ½ç­‰çº§
+	DWORD	dwField3;			// æŠ€èƒ½ç³»åˆ«
+	DWORD	dwField4;			// æŠ€èƒ½æ ‘åˆ«
+	DWORD	dwField5;			// éœ€è¦æœ¬çº¿æŠ€èƒ½ç‚¹æ•°
+	DWORD	dwField6;			// å‰ææŠ€èƒ½ä¸€
+	DWORD	dwField7;			// å‰ææŠ€èƒ½ä¸€ç­‰çº§
+	DWORD	dwField8;			// å‰ææŠ€èƒ½äºŒ
+	DWORD	dwField9;			// å‰ææŠ€èƒ½äºŒç­‰çº§
+	DWORD	dwField10;			// å‰ææŠ€èƒ½ä¸‰
+	DWORD	dwField11;			// å‰ææŠ€èƒ½ä¸‰ç­‰çº§
+	DWORD	dwField12;			// é—´éš”æ—¶é—´
+	DWORD	dwField13;			// æ”»å‡»æ–¹å¼
+	DWORD	dwField14;			// èƒ½å¦éª‘é©¬ä½¿ç”¨
+	DWORD	dwField15;			// éœ€è¦ç‰©å“
+	char	strField16[128];	// éœ€è¦æ­¦å™¨
+	DWORD	dwField17;			// æ¶ˆè€—ä½“åŠ›å€¼
+	DWORD	dwField18;			// æ¶ˆè€—æ³•æœ¯å€¼
+	DWORD	dwField19;			// æ¶ˆè€—ç”Ÿå‘½å€¼
+	DWORD	dwField20;			// ä¼¤å®³åŠ æˆ
+	char	strField21[1024];	// æ•ˆæœ
+	DWORD	dwField22;			// æ¶ˆè€—ç‰©å“ç±»å‹
+	DWORD	dwField23;			// ç‰©å“æ¶ˆè€—æ•°é‡
+};//å¯¼å‡º SkillBase æˆåŠŸï¼Œå…± 1 æ¡è®°å½•
 
 #define BENIGNED_SKILL_STATE 2
 #define BAD_SKILL_STATE 4
@@ -1693,13 +1693,13 @@ struct SkillStatus
 	}
 	union {
 		struct {
-			WORD id;//¼¼ÄÜid
-			WORD target;//Ä¿±ê
-			WORD center;//ÖĞĞÄµã
-			WORD range;//·¶Î§
-			WORD mode;//·ÉĞĞÄ£Ê½
-			WORD clear;//ÄÜ·ñÇå³ı
-			WORD isInjure;//ÊÇ·ñĞèÒªÉËº¦¼ÆËã
+			WORD id;//æŠ€èƒ½id
+			WORD target;//ç›®æ ‡
+			WORD center;//ä¸­å¿ƒç‚¹
+			WORD range;//èŒƒå›´
+			WORD mode;//é£è¡Œæ¨¡å¼
+			WORD clear;//èƒ½å¦æ¸…é™¤
+			WORD isInjure;//æ˜¯å¦éœ€è¦ä¼¤å®³è®¡ç®—
 		};
 		WORD status[7];
 	};
@@ -1724,7 +1724,7 @@ struct zSkillB : public zEntry
 		std::vector<std::string> v_fir;
 		Zebra::stringtok(v_fir , data , ":");
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("ĞèÒªÎäÆ÷[%s]size=[%d]" , data, v_fir.size());
+		Zebra::logger->debug("éœ€è¦æ­¦å™¨[%s]size=[%d]" , data, v_fir.size());
 #endif 
 		for(std::vector<std::string>::iterator iter = v_fir.begin() ; iter != v_fir.end() ; iter++)
 		{
@@ -1756,7 +1756,7 @@ struct zSkillB : public zEntry
 			Zebra::stringtok(v_thi , iter_1->c_str() , "-");
 			if(v_thi.size() != 7)
 			{
-				//Zebra::logger->debug("²Ù×÷!=7");
+				//Zebra::logger->debug("æ“ä½œ!=7");
 				continue;
 				//return false;
 			}
@@ -1770,7 +1770,7 @@ struct zSkillB : public zEntry
 			iter_1 ++;
 			if(iter_1 == v_sec.end())
 			{
-				//Zebra::logger->debug("¿Õ²Ù×÷");
+				//Zebra::logger->debug("ç©ºæ“ä½œ");
 				skillStatus.push_back(status);
 				continue;
 			}
@@ -1783,7 +1783,7 @@ struct zSkillB : public zEntry
 				Zebra::stringtok(v_fiv , iter_3->c_str() , "-");
 				if(v_fiv.size() != 5)
 				{
-					//Zebra::logger->debug("ÔªËØ¸öÊı²»¶Ô");
+					//Zebra::logger->debug("å…ƒç´ ä¸ªæ•°ä¸å¯¹");
 					continue;
 					//return false;
 				}
@@ -1801,59 +1801,59 @@ struct zSkillB : public zEntry
 		}
 		return true;
 	}
-	DWORD	skillid;						//¼¼ÄÜID
-	DWORD	level;							//¼¼ÄÜµÈ¼¶
-	DWORD	kind;							//¼¼ÄÜÏµ±ğ
-	DWORD	subkind;						//¼¼ÄÜÊ÷±ğ
-	DWORD	needpoint;						//ĞèÒª±¾Ïß¼¼ÄÜµãÊı
-	DWORD	preskill1;						//Ç°Ìá¼¼ÄÜ1
-	DWORD	preskilllevel1;					//Ç°Ìá¼¼ÄÜ¼¶±ğ1
-	DWORD	preskill2;						//Ç°Ìá¼¼ÄÜ2
-	DWORD	preskilllevel2;					//Ç°Ìá¼¼ÄÜ¼¶±ğ2
-	DWORD	preskill3;						//Ç°Ìá¼¼ÄÜ3
-	DWORD	preskilllevel3;					//Ç°Ìá¼¼ÄÜ¼¶±ğ3
-	DWORD	dtime;							//¼ä¸ôÊ±¼ä
-	DWORD	usetype;						//¹¥»÷·½Ê½
-	DWORD	ride;							//¿É·ñÆïÂíÊ¹ÓÃ
-	DWORD	useBook;						//ĞèÒªÎïÆ·
-	DWORD	spcost;							//ÏûºÄÌåÁ¦Öµ
-	DWORD	mpcost;							//ÏûºÄ·¨ÊõÖµ
-	DWORD	hpcost;							//ÏûºÄÉúÃüÖµ
-	DWORD	damnum;							//ÉËº¦¼Ó³É
-	DWORD	objcost;						//ÏûºÄÎïÆ·ÀàĞÍ
-	DWORD	objnum;							//ÏûºÄÎïÆ·ÊıÁ¿
-	std::vector<SkillStatus> skillStatus;	//Ğ§¹û
-	std::vector<WORD> weaponlist;			//ÎäÆ÷ÁĞ±í
+	DWORD	skillid;						//æŠ€èƒ½ID
+	DWORD	level;							//æŠ€èƒ½ç­‰çº§
+	DWORD	kind;							//æŠ€èƒ½ç³»åˆ«
+	DWORD	subkind;						//æŠ€èƒ½æ ‘åˆ«
+	DWORD	needpoint;						//éœ€è¦æœ¬çº¿æŠ€èƒ½ç‚¹æ•°
+	DWORD	preskill1;						//å‰ææŠ€èƒ½1
+	DWORD	preskilllevel1;					//å‰ææŠ€èƒ½çº§åˆ«1
+	DWORD	preskill2;						//å‰ææŠ€èƒ½2
+	DWORD	preskilllevel2;					//å‰ææŠ€èƒ½çº§åˆ«2
+	DWORD	preskill3;						//å‰ææŠ€èƒ½3
+	DWORD	preskilllevel3;					//å‰ææŠ€èƒ½çº§åˆ«3
+	DWORD	dtime;							//é—´éš”æ—¶é—´
+	DWORD	usetype;						//æ”»å‡»æ–¹å¼
+	DWORD	ride;							//å¯å¦éª‘é©¬ä½¿ç”¨
+	DWORD	useBook;						//éœ€è¦ç‰©å“
+	DWORD	spcost;							//æ¶ˆè€—ä½“åŠ›å€¼
+	DWORD	mpcost;							//æ¶ˆè€—æ³•æœ¯å€¼
+	DWORD	hpcost;							//æ¶ˆè€—ç”Ÿå‘½å€¼
+	DWORD	damnum;							//ä¼¤å®³åŠ æˆ
+	DWORD	objcost;						//æ¶ˆè€—ç‰©å“ç±»å‹
+	DWORD	objnum;							//æ¶ˆè€—ç‰©å“æ•°é‡
+	std::vector<SkillStatus> skillStatus;	//æ•ˆæœ
+	std::vector<WORD> weaponlist;			//æ­¦å™¨åˆ—è¡¨
 	
 
 
 	void fill(const SkillBase &data)
 	{
 		id=skill_hash(data.dwField0 , data.dwField2);
-		skillid=data.dwField0;								//¼¼ÄÜID
+		skillid=data.dwField0;								//æŠ€èƒ½ID
 		strncpy(name , data.strField1 , MAX_NAMESIZE);
-		level			= data.dwField2;					//¼¼ÄÜµÈ¼¶
-		kind			= data.dwField3;					//¼¼ÄÜÏµ±ğ
-		subkind			= data.dwField4;					//¼¼ÄÜÊ÷±ğ
-		needpoint		= data.dwField5;					//ĞèÒª±¾Ïß¼¼ÄÜµãÊı
-		preskill1		= data.dwField6;					//Ç°Ìá¼¼ÄÜ1
-		preskilllevel1	= data.dwField7;;					//Ç°Ìá¼¼ÄÜ¼¶±ğ1
-		preskill2		= data.dwField8;					//Ç°Ìá¼¼ÄÜ2
-		preskilllevel2	= data.dwField9;					//Ç°Ìá¼¼ÄÜ¼¶±ğ2
-		preskill3		= data.dwField10;					//Ç°Ìá¼¼ÄÜ3
-		preskilllevel3	= data.dwField11;					//Ç°Ìá¼¼ÄÜ¼¶±ğ3
-		dtime			= data.dwField12;					//¼ä¸ôÊ±¼ä
-		usetype			= data.dwField13;					//¹¥»÷·½Ê½
-		ride			= data.dwField14;					//¿É·ñÆïÂíÊ¹ÓÃ
-		useBook			= data.dwField15;					//Ñ§Ï°ĞèÒªÎïÆ·
-		set_weaponlist(data.strField16);					//ĞèÒªÎäÆ÷
-		spcost			= data.dwField17;					//ÏûºÄÌåÁ¦Öµ
-		mpcost			= data.dwField18;					//ÏûºÄ·¨ÊõÖµ
-		hpcost			= data.dwField19;					//ÏûºÄÉúÃüÖµ
-		damnum			= data.dwField20;					//ÉËº¦¼Ó³É
+		level			= data.dwField2;					//æŠ€èƒ½ç­‰çº§
+		kind			= data.dwField3;					//æŠ€èƒ½ç³»åˆ«
+		subkind			= data.dwField4;					//æŠ€èƒ½æ ‘åˆ«
+		needpoint		= data.dwField5;					//éœ€è¦æœ¬çº¿æŠ€èƒ½ç‚¹æ•°
+		preskill1		= data.dwField6;					//å‰ææŠ€èƒ½1
+		preskilllevel1	= data.dwField7;;					//å‰ææŠ€èƒ½çº§åˆ«1
+		preskill2		= data.dwField8;					//å‰ææŠ€èƒ½2
+		preskilllevel2	= data.dwField9;					//å‰ææŠ€èƒ½çº§åˆ«2
+		preskill3		= data.dwField10;					//å‰ææŠ€èƒ½3
+		preskilllevel3	= data.dwField11;					//å‰ææŠ€èƒ½çº§åˆ«3
+		dtime			= data.dwField12;					//é—´éš”æ—¶é—´
+		usetype			= data.dwField13;					//æ”»å‡»æ–¹å¼
+		ride			= data.dwField14;					//å¯å¦éª‘é©¬ä½¿ç”¨
+		useBook			= data.dwField15;					//å­¦ä¹ éœ€è¦ç‰©å“
+		set_weaponlist(data.strField16);					//éœ€è¦æ­¦å™¨
+		spcost			= data.dwField17;					//æ¶ˆè€—ä½“åŠ›å€¼
+		mpcost			= data.dwField18;					//æ¶ˆè€—æ³•æœ¯å€¼
+		hpcost			= data.dwField19;					//æ¶ˆè€—ç”Ÿå‘½å€¼
+		damnum			= data.dwField20;					//ä¼¤å®³åŠ æˆ
 		set_skillState(data.strField21);
-		objcost			= data.dwField22;					//ÏûºÄÎïÆ·ÀàĞÍ
-		objnum			= data.dwField23;					//ÏûºÄÎïÆ·ÊıÁ¿
+		objcost			= data.dwField22;					//æ¶ˆè€—ç‰©å“ç±»å‹
+		objnum			= data.dwField23;					//æ¶ˆè€—ç‰©å“æ•°é‡
 
 #ifdef _DEBUGLOG
 		Zebra::logger->debug("skillid=%ld:", skillid);
@@ -1874,27 +1874,27 @@ struct zSkillB : public zEntry
 	{
 		id = 0;
 		skillid = 0;
-		bzero(name , sizeof(name));				//ËµÃ÷
-		level			= 0;					//¼¼ÄÜµÈ¼¶
-		kind			= 0;					//¼¼ÄÜÏµ±ğ
-		subkind			= 0;					//¼¼ÄÜÊ÷±ğ
-		needpoint		= 0;					//ĞèÒª±¾Ïß¼¼ÄÜµãÊı
-		preskill1		= 0;					//Ç°Ìá¼¼ÄÜ1
-		preskilllevel1	= 0;					//Ç°Ìá¼¼ÄÜ¼¶±ğ1
-		preskill2		= 0;					//Ç°Ìá¼¼ÄÜ2
-		preskilllevel2	= 0;					//Ç°Ìá¼¼ÄÜ¼¶±ğ2
-		preskill3		= 0;					//Ç°Ìá¼¼ÄÜ3
-		preskilllevel3	= 0;					//Ç°Ìá¼¼ÄÜ¼¶±ğ3
-		dtime			= 0;					//¼ä¸ôÊ±¼ä
-		usetype			= 0;					//¹¥»÷·½Ê½
-		ride			= 0;					//¿É·ñÆïÂíÊ¹ÓÃ
-		useBook			= 0;					//ĞèÒªÎïÆ·
-		spcost			= 0;					//ÏûºÄÌåÁ¦Öµ
-		mpcost			= 0;					//ÏûºÄ·¨ÊõÖµ
-		hpcost			= 0;					//ÏûºÄÉúÃüÖµ
-		damnum			= 0;					//ÉËº¦¼Ó³É
-		objcost			= 0;					//ÏûºÄÎïÆ·ÀàĞÍ
-		objnum			= 0;					//ÏûºÄÎïÆ·ÊıÁ¿
+		bzero(name , sizeof(name));				//è¯´æ˜
+		level			= 0;					//æŠ€èƒ½ç­‰çº§
+		kind			= 0;					//æŠ€èƒ½ç³»åˆ«
+		subkind			= 0;					//æŠ€èƒ½æ ‘åˆ«
+		needpoint		= 0;					//éœ€è¦æœ¬çº¿æŠ€èƒ½ç‚¹æ•°
+		preskill1		= 0;					//å‰ææŠ€èƒ½1
+		preskilllevel1	= 0;					//å‰ææŠ€èƒ½çº§åˆ«1
+		preskill2		= 0;					//å‰ææŠ€èƒ½2
+		preskilllevel2	= 0;					//å‰ææŠ€èƒ½çº§åˆ«2
+		preskill3		= 0;					//å‰ææŠ€èƒ½3
+		preskilllevel3	= 0;					//å‰ææŠ€èƒ½çº§åˆ«3
+		dtime			= 0;					//é—´éš”æ—¶é—´
+		usetype			= 0;					//æ”»å‡»æ–¹å¼
+		ride			= 0;					//å¯å¦éª‘é©¬ä½¿ç”¨
+		useBook			= 0;					//éœ€è¦ç‰©å“
+		spcost			= 0;					//æ¶ˆè€—ä½“åŠ›å€¼
+		mpcost			= 0;					//æ¶ˆè€—æ³•æœ¯å€¼
+		hpcost			= 0;					//æ¶ˆè€—ç”Ÿå‘½å€¼
+		damnum			= 0;					//ä¼¤å®³åŠ æˆ
+		objcost			= 0;					//æ¶ˆè€—ç‰©å“ç±»å‹
+		objnum			= 0;					//æ¶ˆè€—ç‰©å“æ•°é‡
 	}
 
 };
@@ -1906,20 +1906,20 @@ struct LiveSkillBase{
 		return ((0xffff & dwField11) << 16) | (0xffff & dwField0);
 	}
 
-	DWORD	dwField0;		// ¼¼ÄÜID
-	char	strField1[64];		// ¼¼ÄÜÃû³Æ
-	DWORD	dwField2;		// ĞèÒª¹¤¾ß
-	DWORD	dwField3;		// ³õÊ¼¼¼ÄÜ
-	DWORD	dwField4;		// ¶ÔÓ¦Í¼ËØ
-	DWORD	dwField5;		// Àà±ğ
-	DWORD	dwField6;		// ¼¼ÄÜÉı¼¶¾­Ñé
-	DWORD	dwField7;		// ¿É·ñÉı¼¶
-	DWORD	dwField8;		// ½ø½×¼¼ÄÜ
-	DWORD	dwField9;		// Ç°Ìá¼¼ÄÜID
-	DWORD	dwField10;		// ËùĞèÇ°Ìá¼¼ÄÜµÈ¼¶
-	DWORD	dwField11;		// ¼¼ÄÜµÈ¼¶
-	char	strField12[32];		// ¼¼ÄÜ³ÆºÅ
-	char	strField13[256];		// »ñµÃÎïÆ·
+	DWORD	dwField0;		// æŠ€èƒ½ID
+	char	strField1[64];		// æŠ€èƒ½åç§°
+	DWORD	dwField2;		// éœ€è¦å·¥å…·
+	DWORD	dwField3;		// åˆå§‹æŠ€èƒ½
+	DWORD	dwField4;		// å¯¹åº”å›¾ç´ 
+	DWORD	dwField5;		// ç±»åˆ«
+	DWORD	dwField6;		// æŠ€èƒ½å‡çº§ç»éªŒ
+	DWORD	dwField7;		// å¯å¦å‡çº§
+	DWORD	dwField8;		// è¿›é˜¶æŠ€èƒ½
+	DWORD	dwField9;		// å‰ææŠ€èƒ½ID
+	DWORD	dwField10;		// æ‰€éœ€å‰ææŠ€èƒ½ç­‰çº§
+	DWORD	dwField11;		// æŠ€èƒ½ç­‰çº§
+	char	strField12[32];		// æŠ€èƒ½ç§°å·
+	char	strField13[256];		// è·å¾—ç‰©å“
 };
 
 struct zLiveSkillB : public zEntry
@@ -1932,30 +1932,30 @@ struct zLiveSkillB : public zEntry
 		MAX_LEVEL = 30,
 	};
 			
-	//DWORD skill_id; //¼¼ÄÜ±êÊ¶
-	//DWORD level; //¼¼ÄÜµÈ¼¶
+	//DWORD skill_id; //æŠ€èƒ½æ ‡è¯†
+	//DWORD level; //æŠ€èƒ½ç­‰çº§
 	//WORD should be enough
-	WORD skill_id; //¼¼ÄÜ±êÊ¶
-	WORD level; //¼¼ÄÜµÈ¼¶
-	DWORD point; //Éı¼¶ËùĞè¼¼ÄÜµã
-	DWORD weapon_kind; //ÎäÆ÷ÖÖÀà
-	//std::string name; //¼¼ÄÜÃû³Æ
-	std::string title; //³ÆºÅ
-	bool orig; //³õÊ¼¼¼ÄÜ
-	bool upgrade; //ÄÜ·ñÉı¼¶
-	DWORD kind; //¼¼ÄÜÀà±ğ
-	DWORD basic_skill_id; //Ç°Ìá¼¼ÄÜid
-	DWORD basic_skill_level; //Ç°Ìá¼¼ÄÜµÈ¼¶]
-	DWORD up_skill_id; //½ø½×¼¼ÄÜid
+	WORD skill_id; //æŠ€èƒ½æ ‡è¯†
+	WORD level; //æŠ€èƒ½ç­‰çº§
+	DWORD point; //å‡çº§æ‰€éœ€æŠ€èƒ½ç‚¹
+	DWORD weapon_kind; //æ­¦å™¨ç§ç±»
+	//std::string name; //æŠ€èƒ½åç§°
+	std::string title; //ç§°å·
+	bool orig; //åˆå§‹æŠ€èƒ½
+	bool upgrade; //èƒ½å¦å‡çº§
+	DWORD kind; //æŠ€èƒ½ç±»åˆ«
+	DWORD basic_skill_id; //å‰ææŠ€èƒ½id
+	DWORD basic_skill_level; //å‰ææŠ€èƒ½ç­‰çº§]
+	DWORD up_skill_id; //è¿›é˜¶æŠ€èƒ½id
 	DWORD map_kind;
 	
 	class ITEM 
 	{
 	public:
-		DWORD item; //»ñµÃÎïÆ·
-		DWORD odds;	//¼¸ÂÊ
-		DWORD min_number; //×îĞ¡ÊıÁ¿
-		DWORD max_number; //×î´óÊıÁ¿
+		DWORD item; //è·å¾—ç‰©å“
+		DWORD odds;	//å‡ ç‡
+		DWORD min_number; //æœ€å°æ•°é‡
+		DWORD max_number; //æœ€å¤§æ•°é‡
 
 		ITEM( const std::string& odds_, const std::string& item_, const std::string& number_) : item(atoi(item_.c_str())), odds(atoi(odds_.c_str())), min_number(0), max_number(0)
 		{
@@ -1965,19 +1965,19 @@ struct zLiveSkillB : public zEntry
 				min_number = atoi(number_.substr(0, pos).c_str());
 				max_number = atoi(number_.substr(pos+strlen("-")).c_str());
 			}
-			//if (item) Zebra::logger->debug("ÀÍ¶¯»ñµÃÎïÆ·Êı¾İ:ID(%d), ¼¸ÂÊ(%d), ¸öÊı(%d-%d)", item, odds, min_number, max_number);
+			//if (item) Zebra::logger->debug("åŠ³åŠ¨è·å¾—ç‰©å“æ•°æ®:ID(%d), å‡ ç‡(%d), ä¸ªæ•°(%d-%d)", item, odds, min_number, max_number);
 		}
 	}; 
 		
 	typedef std::vector<ITEM> ITEMS;
 	ITEMS items;
 	
-	BYTE min_point_bonus; //×îĞ¡Ôö¼Ó¼¼ÄÜµã
-	BYTE max_point_bonus; //×î´óÔö¼Ó¼¼ÄÜµã
-	BYTE exp_bonus; //½±Àø¾­Ñé
-	BYTE max_level; //×î´óµÈ¼¶
+	BYTE min_point_bonus; //æœ€å°å¢åŠ æŠ€èƒ½ç‚¹
+	BYTE max_point_bonus; //æœ€å¤§å¢åŠ æŠ€èƒ½ç‚¹
+	BYTE exp_bonus; //å¥–åŠ±ç»éªŒ
+	BYTE max_level; //æœ€å¤§ç­‰çº§
 
-	zLiveSkillB() : zEntry(), skill_id(0), level(0), point(0), weapon_kind(0), /*name("Î´Öª"),*/ title(""), orig(false), upgrade(false),
+	zLiveSkillB() : zEntry(), skill_id(0), level(0), point(0), weapon_kind(0), /*name("æœªçŸ¥"),*/ title(""), orig(false), upgrade(false),
 					kind(1), basic_skill_id(0), basic_skill_level(0), up_skill_id(0), map_kind(0), 
 					min_point_bonus(MIN_POINT_BONUS), max_point_bonus(MAX_POINT_BONUS), exp_bonus(MAX_EXP_BONUS), 
 					max_level(MAX_LEVEL)
@@ -2025,46 +2025,46 @@ struct SoulStoneBase{
 		return dwField2;
 	}
 	
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[32];		// Ãû³Æ
-	DWORD	dwField2;		// Æ·ÖÊ
-	char	strField3[16];		// x%ÎüÊÕÉúÃüÖµy
-	char	strField4[16];		// x%ÎüÊÕ·¨ÊõÖµy
-	char	strField5[16];		// ×ª»»x%ÉúÃüÖµÎª·¨ÊõÖµ¼õÉÙ
-	char	strField6[16];		// Ôö¼ÓÒø×ÓµôÂäx%
-	char	strField7[16];		// x%Ë«±¶¾­Ñé
-	char	strField8[16];		// Ôö¼Óµô±¦ÂÊx%
-	char	strField9[16];		// ¿¹¶¾Ôö¼Ó
-	char	strField10[16];		// ¿¹Âé±ÔÔö¼Ó
-	char	strField11[16];		// ¿¹Ñ£ÔÎÔö¼Ó
-	char	strField12[16];		// ¿¹ÊÉÄ§Ôö¼Ó
-	char	strField13[16];		// ¿¹ÊÉÁ¦Ôö¼Ó
-	char	strField14[16];		// ¿¹»ìÂÒÔö¼Ó
-	char	strField15[16];		// ¿¹±ù¶³Ôö¼Ó
-	char	strField16[16];		// ¿¹Ê¯»¯Ôö¼Ó
-	char	strField17[16];		// ¿¹Ê§Ã÷Ôö¼Ó
-	char	strField18[16];		// ¿¹¶¨ÉíÔö¼Ó
-	char	strField19[16];		// ¿¹¼õËÙÔö¼Ó
-	char	strField20[16];		// ¿¹ÓÕ»óÔö¼Ó
-	char	strField21[16];		// ÖĞ¶¾Ôö¼Ó
-	char	strField22[16];		// Âé±ÔÔö¼Ó
-	char	strField23[16];		// Ñ£ÔÎÔö¼Ó
-	char	strField24[16];		// ÊÉÄ§Ôö¼Ó
-	char	strField25[16];		// ÊÉÁ¦Ôö¼Ó
-	char	strField26[16];		// »ìÂÒÔö¼Ó
-	char	strField27[16];		// ±ù¶³Ôö¼Ó
-	char	strField28[16];		// Ê¯»¯Ôö¼Ó
-	char	strField29[16];		// Ê§Ã÷Ôö¼Ó
-	char	strField30[16];		// ¶¨ÉíÔö¼Ó
-	char	strField31[16];		// ¼õËÙÔö¼Ó
-	char	strField32[16];		// ÓÕ»óÔö¼Ó
-	DWORD	dwField33;		// ĞèÇóµÈ¼¶
-	char	strField34[16];		// Á¦Á¿
-	char	strField35[16];		// ÖÇÁ¦
-	char	strField36[16];		// Ãô½İ
-	char	strField37[16];		// ¾«Éñ
-	char	strField38[16];		// ÌåÖÊ 	
-};//µ¼³ö SoulStoneBase ³É¹¦£¬¹² 40 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[32];		// åç§°
+	DWORD	dwField2;		// å“è´¨
+	char	strField3[16];		// x%å¸æ”¶ç”Ÿå‘½å€¼y
+	char	strField4[16];		// x%å¸æ”¶æ³•æœ¯å€¼y
+	char	strField5[16];		// è½¬æ¢x%ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼å‡å°‘
+	char	strField6[16];		// å¢åŠ é“¶å­æ‰è½x%
+	char	strField7[16];		// x%åŒå€ç»éªŒ
+	char	strField8[16];		// å¢åŠ æ‰å®ç‡x%
+	char	strField9[16];		// æŠ—æ¯’å¢åŠ 
+	char	strField10[16];		// æŠ—éº»ç—¹å¢åŠ 
+	char	strField11[16];		// æŠ—çœ©æ™•å¢åŠ 
+	char	strField12[16];		// æŠ—å™¬é­”å¢åŠ 
+	char	strField13[16];		// æŠ—å™¬åŠ›å¢åŠ 
+	char	strField14[16];		// æŠ—æ··ä¹±å¢åŠ 
+	char	strField15[16];		// æŠ—å†°å†»å¢åŠ 
+	char	strField16[16];		// æŠ—çŸ³åŒ–å¢åŠ 
+	char	strField17[16];		// æŠ—å¤±æ˜å¢åŠ 
+	char	strField18[16];		// æŠ—å®šèº«å¢åŠ 
+	char	strField19[16];		// æŠ—å‡é€Ÿå¢åŠ 
+	char	strField20[16];		// æŠ—è¯±æƒ‘å¢åŠ 
+	char	strField21[16];		// ä¸­æ¯’å¢åŠ 
+	char	strField22[16];		// éº»ç—¹å¢åŠ 
+	char	strField23[16];		// çœ©æ™•å¢åŠ 
+	char	strField24[16];		// å™¬é­”å¢åŠ 
+	char	strField25[16];		// å™¬åŠ›å¢åŠ 
+	char	strField26[16];		// æ··ä¹±å¢åŠ 
+	char	strField27[16];		// å†°å†»å¢åŠ 
+	char	strField28[16];		// çŸ³åŒ–å¢åŠ 
+	char	strField29[16];		// å¤±æ˜å¢åŠ 
+	char	strField30[16];		// å®šèº«å¢åŠ 
+	char	strField31[16];		// å‡é€Ÿå¢åŠ 
+	char	strField32[16];		// è¯±æƒ‘å¢åŠ 
+	DWORD	dwField33;		// éœ€æ±‚ç­‰çº§
+	char	strField34[16];		// åŠ›é‡
+	char	strField35[16];		// æ™ºåŠ›
+	char	strField36[16];		// æ•æ·
+	char	strField37[16];		// ç²¾ç¥
+	char	strField38[16];		// ä½“è´¨ 	
+};//å¯¼å‡º SoulStoneBase æˆåŠŸï¼Œå…± 40 æ¡è®°å½•
 
 
 
@@ -2077,47 +2077,47 @@ struct zSoulStoneB : public zEntry
 	{ 
 		rangeValue odds; 
 		rangeValue effect; 
-	} hpleech, mpleech; ////x%ÎüÊÕÉúÃüÖµy, x%ÎüÊÕ·¨ÊõÖµy
+	} hpleech, mpleech; ////x%å¸æ”¶ç”Ÿå‘½å€¼y, x%å¸æ”¶æ³•æœ¯å€¼y
 	
-	rangeValue hptomp; //×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
+	rangeValue hptomp; //è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
 
-	rangeValue incgold; //Ôö¼ÓÒø×ÓµôÂäx%
-	rangeValue doublexp; //x%Ë«±¶¾­Ñé		
-	rangeValue mf; //Ôö¼Óµô±¦ÂÊx%
+	rangeValue incgold; //å¢åŠ é“¶å­æ‰è½x%
+	rangeValue doublexp; //x%åŒå€ç»éªŒ		
+	rangeValue mf; //å¢åŠ æ‰å®ç‡x%
 	
-	rangeValue poisondef; //¿¹¶¾Ôö¼Ó
-	rangeValue lulldef; //¿¹Âé±ÔÔö¼Ó
-	rangeValue reeldef; //¿¹Ñ£ÔÎÔö¼Ó
-	rangeValue evildef; //¿¹ÊÉÄ§Ôö¼Ó
-	rangeValue bitedef; //¿¹ÊÉÁ¦Ôö¼Ó
-	rangeValue chaosdef; //¿¹»ìÂÒÔö¼Ó
-	rangeValue colddef; //¿¹±ù¶³Ôö¼Ó
-	rangeValue petrifydef; //¿¹Ê¯»¯Ôö¼Ó
-	rangeValue blinddef; //¿¹Ê§Ã÷Ôö¼Ó
-	rangeValue stabledef; //¿¹¶¨ÉíÔö¼Ó
-	rangeValue slowdef; //¿¹¼õËÙÔö¼Ó
-	rangeValue luredef; //¿¹ÓÕ»óÔö¼Ó
+	rangeValue poisondef; //æŠ—æ¯’å¢åŠ 
+	rangeValue lulldef; //æŠ—éº»ç—¹å¢åŠ 
+	rangeValue reeldef; //æŠ—çœ©æ™•å¢åŠ 
+	rangeValue evildef; //æŠ—å™¬é­”å¢åŠ 
+	rangeValue bitedef; //æŠ—å™¬åŠ›å¢åŠ 
+	rangeValue chaosdef; //æŠ—æ··ä¹±å¢åŠ 
+	rangeValue colddef; //æŠ—å†°å†»å¢åŠ 
+	rangeValue petrifydef; //æŠ—çŸ³åŒ–å¢åŠ 
+	rangeValue blinddef; //æŠ—å¤±æ˜å¢åŠ 
+	rangeValue stabledef; //æŠ—å®šèº«å¢åŠ 
+	rangeValue slowdef; //æŠ—å‡é€Ÿå¢åŠ 
+	rangeValue luredef; //æŠ—è¯±æƒ‘å¢åŠ 
 
-	rangeValue poison; //ÖĞ¶¾Ôö¼Ó
-	rangeValue lull; //Âé±ÔÔö¼Ó
-	rangeValue reel; //Ñ£ÔÎÔö¼Ó
-	rangeValue evil; //ÊÉÄ§Ôö¼Ó
-	rangeValue bite; //ÊÉÁ¦Ôö¼Ó
-	rangeValue chaos; //»ìÂÒÔö¼Ó
-	rangeValue cold; //±ù¶³Ôö¼Ó
-	rangeValue petrify; //Ê¯»¯Ôö¼Ó
-	rangeValue blind; //Ê§Ã÷Ôö¼Ó
-	rangeValue stable; //¶¨ÉíÔö¼Ó
-	rangeValue slow; //¼õËÙÔö¼Ó
-	rangeValue lure; //ÓÕ»óÔö¼Ó
+	rangeValue poison; //ä¸­æ¯’å¢åŠ 
+	rangeValue lull; //éº»ç—¹å¢åŠ 
+	rangeValue reel; //çœ©æ™•å¢åŠ 
+	rangeValue evil; //å™¬é­”å¢åŠ 
+	rangeValue bite; //å™¬åŠ›å¢åŠ 
+	rangeValue chaos; //æ··ä¹±å¢åŠ 
+	rangeValue cold; //å†°å†»å¢åŠ 
+	rangeValue petrify; //çŸ³åŒ–å¢åŠ 
+	rangeValue blind; //å¤±æ˜å¢åŠ 
+	rangeValue stable; //å®šèº«å¢åŠ 
+	rangeValue slow; //å‡é€Ÿå¢åŠ 
+	rangeValue lure; //è¯±æƒ‘å¢åŠ 
 	
 	WORD level; 	
 
-	rangeValue str;			// Á¦Á¿
-	rangeValue inte;		// ÖÇÁ¦
-	rangeValue dex;			// Ãô½İ
-	rangeValue spi;			// ¾«Éñ
-	rangeValue con;			// ÌåÖÊ
+	rangeValue str;			// åŠ›é‡
+	rangeValue inte;		// æ™ºåŠ›
+	rangeValue dex;			// æ•æ·
+	rangeValue spi;			// ç²¾ç¥
+	rangeValue con;			// ä½“è´¨
 	
 	zSoulStoneB() : zEntry()
 	{
@@ -2193,13 +2193,13 @@ struct HairStyle{
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[32];		// Ãû³Æ
-	DWORD	dwField2;		// ĞÔ±ğ
-	DWORD	dwField3;		// ¶¯×÷·¢ĞÍÍ¼Æ¬
-	DWORD	dwField4;		// Ö½ÍŞÍŞ·¢ĞÍÍ¼Æ¬
-	DWORD	dwField5;		// ·ÑÓÃ
-};//µ¼³ö HairStyle ³É¹¦£¬¹² 10 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[32];		// åç§°
+	DWORD	dwField2;		// æ€§åˆ«
+	DWORD	dwField3;		// åŠ¨ä½œå‘å‹å›¾ç‰‡
+	DWORD	dwField4;		// çº¸å¨ƒå¨ƒå‘å‹å›¾ç‰‡
+	DWORD	dwField5;		// è´¹ç”¨
+};//å¯¼å‡º HairStyle æˆåŠŸï¼Œå…± 10 æ¡è®°å½•
 struct zHairStyleB : public zEntry
 {
 	DWORD cost;
@@ -2221,13 +2221,13 @@ struct zHairStyleB : public zEntry
 struct HairColour{
 	const DWORD getUniqueID() const
 	{
-		return dwField2 & 0x00FFFFFF;//·¢É«×ö
+		return dwField2 & 0x00FFFFFF;//å‘è‰²åš
 	}
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[32];		// Ãû³Æ
-	DWORD	dwField2;		// ÑÕÉ«
-	DWORD	dwField3;		// ·ÑÓÃ
-};//µ¼³ö HairColour ³É¹¦£¬¹² 4 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[32];		// åç§°
+	DWORD	dwField2;		// é¢œè‰²
+	DWORD	dwField3;		// è´¹ç”¨
+};//å¯¼å‡º HairColour æˆåŠŸï¼Œå…± 4 æ¡è®°å½•
 struct zHairColourB : public zEntry
 {
 	DWORD color;
@@ -2239,7 +2239,7 @@ struct zHairColourB : public zEntry
 	}
 	void fill(const HairColour& base)
 	{
-		id = base.dwField2 & 0x00FFFFFF;//·¢É«×ö
+		id = base.dwField2 & 0x00FFFFFF;//å‘è‰²åš
 		strncpy(name, base.strField1, MAX_NAMESIZE);
 		color=base.dwField2;
 		cost=base.dwField3;
@@ -2253,12 +2253,12 @@ struct HeadList{
 	{
 		return dwField0;
 	}
-	DWORD	dwField0;		// ±àºÅ
-	char	strField1[16];		// Í·ÏñÃû
-	DWORD	dwField2;		// ĞÔ±ğ
-	DWORD	dwField3;		// Í·Ïñ±àºÅ
-	DWORD	dwField4;		// ·ÑÓÃ
-};//µ¼³ö HeadList ³É¹¦£¬¹² 10 Ìõ¼ÇÂ¼
+	DWORD	dwField0;		// ç¼–å·
+	char	strField1[16];		// å¤´åƒå
+	DWORD	dwField2;		// æ€§åˆ«
+	DWORD	dwField3;		// å¤´åƒç¼–å·
+	DWORD	dwField4;		// è´¹ç”¨
+};//å¯¼å‡º HeadList æˆåŠŸï¼Œå…± 10 æ¡è®°å½•
 struct zHeadListB : public zEntry
 {
 	DWORD sex;
@@ -2290,43 +2290,43 @@ struct PetBase{
 		return dwField0;
 	}
 	DWORD	dwField0;		// id
-	DWORD	dwField1;		// µÈ¼¶
-	DWORD	dwField2;		// ÀàĞÍ
-	DWORD	dwField3;		// ¾­ÑéÖµ
-	DWORD	dwField4;		// ÉúÃüÖµ
-	DWORD	dwField5;		// Îï¹¥ÏÂÏŞ
-	DWORD	dwField6;		// Îï¹¥ÉÏÏŞ
-	DWORD	dwField7;		// Ä§¹¥ÏÂÏŞ
-	DWORD	dwField8;		// Ä§¹¥ÉÏÏŞ
-	DWORD	dwField9;		// Îï·À
-	DWORD	dwField10;		// Ä§·À
-	DWORD	dwField11;		// ÖØ»÷
-	DWORD	dwField12;		// Á¦Á¿
-	DWORD	dwField13;		// ÖÇÁ¦
-	DWORD	dwField14;		// Ãô½İ
-	DWORD	dwField15;		// ¾«Éñ
-	DWORD	dwField16;		// ÌåÖÊ		
+	DWORD	dwField1;		// ç­‰çº§
+	DWORD	dwField2;		// ç±»å‹
+	DWORD	dwField3;		// ç»éªŒå€¼
+	DWORD	dwField4;		// ç”Ÿå‘½å€¼
+	DWORD	dwField5;		// ç‰©æ”»ä¸‹é™
+	DWORD	dwField6;		// ç‰©æ”»ä¸Šé™
+	DWORD	dwField7;		// é­”æ”»ä¸‹é™
+	DWORD	dwField8;		// é­”æ”»ä¸Šé™
+	DWORD	dwField9;		// ç‰©é˜²
+	DWORD	dwField10;		// é­”é˜²
+	DWORD	dwField11;		// é‡å‡»
+	DWORD	dwField12;		// åŠ›é‡
+	DWORD	dwField13;		// æ™ºåŠ›
+	DWORD	dwField14;		// æ•æ·
+	DWORD	dwField15;		// ç²¾ç¥
+	DWORD	dwField16;		// ä½“è´¨		
 };
 
 struct zPetB : public zEntry
 {
 	DWORD base_id;		// id
-	DWORD lv;       	// µÈ¼¶
-	DWORD type;     	// ÀàĞÍ
-	DWORD exp;      	// ¾­ÑéÖµ
-	DWORD hp;       	// ÉúÃüÖµ
-	DWORD atk;      	// Îï¹¥ÏÂÏŞ
-	DWORD maxatk;   	// Îï¹¥ÉÏÏŞ
-	DWORD matk;     	// Ä§¹¥ÏÂÏŞ
-	DWORD maxmatk;  	// Ä§¹¥ÉÏÏŞ
-	DWORD def;      	// Îï·À
-	DWORD mdef;     	// Ä§·À
-	DWORD cri;      	// ÖØ»÷
-	DWORD str;      	// Á¦Á¿
-	DWORD intel;    	// ÖÇÁ¦
-	DWORD agi;      	// Ãô½İ
-	DWORD men;      	// ¾«Éñ
-	DWORD vit;		// ÌåÖÊ		
+	DWORD lv;       	// ç­‰çº§
+	DWORD type;     	// ç±»å‹
+	DWORD exp;      	// ç»éªŒå€¼
+	DWORD hp;       	// ç”Ÿå‘½å€¼
+	DWORD atk;      	// ç‰©æ”»ä¸‹é™
+	DWORD maxatk;   	// ç‰©æ”»ä¸Šé™
+	DWORD matk;     	// é­”æ”»ä¸‹é™
+	DWORD maxmatk;  	// é­”æ”»ä¸Šé™
+	DWORD def;      	// ç‰©é˜²
+	DWORD mdef;     	// é­”é˜²
+	DWORD cri;      	// é‡å‡»
+	DWORD str;      	// åŠ›é‡
+	DWORD intel;    	// æ™ºåŠ›
+	DWORD agi;      	// æ•æ·
+	DWORD men;      	// ç²¾ç¥
+	DWORD vit;		// ä½“è´¨		
 
 	zPetB() : zEntry()
 	{
@@ -2382,10 +2382,10 @@ struct CountryMaterial{
 		return dwField1+dwField3;
 	}
 	
-	DWORD	dwField0;		// ±àºÅ
-	DWORD	dwField1;		// ÎïÆ·ID
-	DWORD	dwField2;		// ²ÄÁÏÀàĞÍ
-	DWORD	dwField3;		// ÎïÆ·Àà±ğ
+	DWORD	dwField0;		// ç¼–å·
+	DWORD	dwField1;		// ç‰©å“ID
+	DWORD	dwField2;		// ææ–™ç±»å‹
+	DWORD	dwField3;		// ç‰©å“ç±»åˆ«
 };
 struct zCountryMaterialB : public zEntry
 {

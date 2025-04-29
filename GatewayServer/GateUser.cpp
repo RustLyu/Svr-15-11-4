@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GateUser.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍø¹ØÓÃ»§Àà
+ * \brief å®ç°ç½‘å…³ç”¨æˆ·ç±»
  */
 
 #include "GateUser.h"
@@ -54,7 +54,7 @@ GateUser::~GateUser()
 
 
 /**
- * \brief Ğ¶ÔØÒ»¸öÍø¹ØÓÃ»§µÄĞÅÏ¢
+ * \brief å¸è½½ä¸€ä¸ªç½‘å…³ç”¨æˆ·çš„ä¿¡æ¯
  *
  *
  */
@@ -79,7 +79,7 @@ void GateUser::final()
 }
 
 /**
- * \brief Ë¢ĞÂ½ÇÉ«ĞÅÏ¢
+ * \brief åˆ·æ–°è§’è‰²ä¿¡æ¯
  *
  */
 void GateUser::refreshCharInfo()
@@ -95,7 +95,7 @@ void GateUser::refreshCharInfo()
 	{
 		if (size >  0 && size <= (int)(zSocket::MAX_DATASIZE - sizeof(stUserInfoUserCmd) - 100))
 		{
-			//Zebra::logger->debug("Éú³ÉÍ¼ĞÎÑéÖ¤Âë£º%s", jpegPassport);
+			//Zebra::logger->debug("ç”Ÿæˆå›¾å½¢éªŒè¯ç ï¼š%s", jpegPassport);
 			cmd->size = size;
 			bcopy(ret, cmd->data, size);
 		}
@@ -108,23 +108,23 @@ void GateUser::refreshCharInfo()
 }
 
 /**
- * \brief ÑéÖ¤Âë¼ì²â
+ * \brief éªŒè¯ç æ£€æµ‹
  *
  *
- * \param passport: ÑéÖ¤ÂëĞòÁĞ
- * \return ÑéÖ¤ÊÇ·ñÍ¨¹ı
+ * \param passport: éªŒè¯ç åºåˆ—
+ * \return éªŒè¯æ˜¯å¦é€šè¿‡
  */
 bool GateUser::checkPassport(const char *passport)
 {
 #if 0
 	if (0 == strncmp(jpegPassport, passport, sizeof(jpegPassport)))
 	{
-		Zebra::logger->debug("ÑéÖ¤ÂëÊäÈë³É¹¦");
+		Zebra::logger->debug("éªŒè¯ç è¾“å…¥æˆåŠŸ");
 		return true;
 	}
 	else
 	{
-		Zebra::logger->error("ÑéÖ¤Âë´íÎó");
+		Zebra::logger->error("éªŒè¯ç é”™è¯¯");
 		using namespace Cmd;
 		stServerReturnLoginFailedCmd cmd;
 		cmd.byReturnCode=LOGIN_RETURN_JPEG_PASSPORT;
@@ -140,7 +140,7 @@ bool GateUser::checkPassport(const char *passport)
 }
 
 /**
- * \brief ÉèÖÃÓÎÏ·×´Ì¬
+ * \brief è®¾ç½®æ¸¸æˆçŠ¶æ€
  *
  *
  */
@@ -161,10 +161,10 @@ void GateUser::playState(SceneClient *s , DWORD scene_tempid)
 }
 
 /**
- * \brief ¶ÔÑ¡Ôñµ½Ò»¸ö½ÇÉ«½øĞĞ³õÊ¼´¦Àí
+ * \brief å¯¹é€‰æ‹©åˆ°ä¸€ä¸ªè§’è‰²è¿›è¡Œåˆå§‹å¤„ç†
  *
  *
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool GateUser::beginSelect()
 {
@@ -178,10 +178,10 @@ bool GateUser::beginSelect()
 		if(this->scene)
 		{
 		}
-		//½«ÓÃ»§¼ÓÈë¹ÜÀíÆ÷
+		//å°†ç”¨æˆ·åŠ å…¥ç®¡ç†å™¨
 		if(GateUserManager::getInstance()->addUserOnlyByAccID(this))
 		{
-			//ÏòRecordServerÇëÇóÈËÎïÑ¡ÔñĞÅÏ¢
+			//å‘RecordServerè¯·æ±‚äººç‰©é€‰æ‹©ä¿¡æ¯
 			Cmd::Record::t_Get_SelectInfo_GateRecord send;
 			send.accid=accid;
 			if(recordClient->sendCmd(&send,sizeof(send)))
@@ -196,17 +196,17 @@ bool GateUser::beginSelect()
 				return false;
 			}
 		}
-		Zebra::logger->error("Ìí¼ÓÕÊºÅ(%ld)Ê§°Ü",accid);
+		Zebra::logger->error("æ·»åŠ å¸å·(%ld)å¤±è´¥",accid);
 
 
-		//´ËÊ±µÄÓÃ»§¿ÉÄÜÊÇÎŞĞ§,Ò²¿ÉÄÜÓÃ»§ÒÑ¾­ÔÚ±ğµÄÍø¹ØµÇÂ½,²»ÄÜ¶ÔSesionºÍ³¡¾°½øĞĞĞ¶ÔØ(³öÏÖdown»úÒ»´Î,Ô­ÒòÎ´Öª)
+		//æ­¤æ—¶çš„ç”¨æˆ·å¯èƒ½æ˜¯æ— æ•ˆ,ä¹Ÿå¯èƒ½ç”¨æˆ·å·²ç»åœ¨åˆ«çš„ç½‘å…³ç™»é™†,ä¸èƒ½å¯¹Sesionå’Œåœºæ™¯è¿›è¡Œå¸è½½(å‡ºç°downæœºä¸€æ¬¡,åŸå› æœªçŸ¥)
 		/*
 		GateUser *pUser = GateUserManager::getInstance()->getUserByAccID(accid);
 		if (pUser)
 		{
 			if(sessionClient)
 			{
-				//ÇåÀíSessionÖĞÊı¾İ
+				//æ¸…ç†Sessionä¸­æ•°æ®
 				Cmd::Session::t_unregUser_GateSession send;
 				send.dwUserID=pUser->id;
 				send.dwSceneTempID=pUser->sceneTempID;
@@ -215,7 +215,7 @@ bool GateUser::beginSelect()
 			}
 			if (pUser->scene)
 			{
-				//ÇåÀíSceneÖĞÊı¾İ
+				//æ¸…ç†Sceneä¸­æ•°æ®
 				Cmd::Scene::t_Unreg_LoginScene scnd;
 				scnd.dwUserID=pUser->id;
 				scnd.dwSceneTempID=pUser->sceneTempID;
@@ -230,7 +230,7 @@ bool GateUser::beginSelect()
 }
 
 /**
- * \brief ¿ªÊ¼ÓÎÏ·
+ * \brief å¼€å§‹æ¸¸æˆ
  *
  *
  * \return true
@@ -242,7 +242,7 @@ bool GateUser::beginGame()
 
 
 /**
- * \brief Ö¸Áî¹ıÂÇ
+ * \brief æŒ‡ä»¤è¿‡è™‘
  *
  *
  * \return true
@@ -259,8 +259,8 @@ void GateUser::cmdFilter(Cmd::stNullUserCmd *cmd,DWORD &type,char *name,DWORD &c
 				type=rev->dwType;
 				strncpy(name,rev->pstrName,MAX_NAMESIZE);
 				/**
-				 * \brief Õë¶ÔÁÄÌìÖ¸ÁîÏÈÑ¹ËõÏÂÖ¸Áî
-				 * ÕâÑù½ÚÊ¡Ñ¹ËõºÍ¼ÓÃÜ
+				 * \brief é’ˆå¯¹èŠå¤©æŒ‡ä»¤å…ˆå‹ç¼©ä¸‹æŒ‡ä»¤
+				 * è¿™æ ·èŠ‚çœå‹ç¼©å’ŒåŠ å¯†
 				 *
 				 */
 				BYTE buf[zSocket::MAX_DATASIZE];//={0};
@@ -311,12 +311,12 @@ void GateUser::cmdFilter(Cmd::stNullUserCmd *cmd,DWORD &type,char *name,DWORD &c
 	}
 }
 /**
- * \brief ·¢ËÍÊı¾İ¸ø¿Í»§¶Ë
+ * \brief å‘é€æ•°æ®ç»™å®¢æˆ·ç«¯
  *
  *
- * \param pstrCmd: ·¢ËÍµÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pstrCmd: å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool GateUser::sendCmd(const void *pstrCmd, const unsigned int nCmdLen,const unsigned int type,const char *strName,const bool hasPacked)
 {
@@ -332,8 +332,8 @@ bool GateUser::sendCmd(const void *pstrCmd, const unsigned int nCmdLen,const uns
 					{
 						stChannelChatUserCmd *rev = (stChannelChatUserCmd *)pstrCmd;
 						/**
-						 * \brief Õë¶ÔÁÄÌìÖ¸ÁîÏÈÑ¹ËõÏÂÖ¸Áî
-						 * ÕâÑù½ÚÊ¡Ñ¹ËõºÍ¼ÓÃÜ
+						 * \brief é’ˆå¯¹èŠå¤©æŒ‡ä»¤å…ˆå‹ç¼©ä¸‹æŒ‡ä»¤
+						 * è¿™æ ·èŠ‚çœå‹ç¼©å’ŒåŠ å¯†
 						 *
 						 */
 						BYTE buf[zSocket::MAX_DATASIZE];//={0};
@@ -362,7 +362,7 @@ bool GateUser::sendCmd(const void *pstrCmd, const unsigned int nCmdLen,const uns
 							bcopy(rev->tobject_array,temp,rev->size * sizeof(stTradeObject));
 						}
 						cmdLen = cmdLen - (MAX_NAMESIZE - nameLen) - (MAX_CHATINFO - chatLen);
-						//ÏµÍ³ÉèÖÃ¼ì²é
+						//ç³»ç»Ÿè®¾ç½®æ£€æŸ¥
 						if(!this->checkChatCmd(rev->dwType,rev->pstrName)) return true; 
 						if(gatewaytask)
 						{
@@ -416,12 +416,12 @@ bool GateUser::sendCmd(const void *pstrCmd, const unsigned int nCmdLen,const uns
 }
 
 /**
- * \brief Íø¹Ø×¢ÏúÒ»¸öÓÃ»§
+ * \brief ç½‘å…³æ³¨é”€ä¸€ä¸ªç”¨æˆ·
  *
  */
 void GateUser::unreg(bool out)
 {
-	//·ÀÖ¹Ëø¼ÓµÄÌ«´ó
+	//é˜²æ­¢é”åŠ çš„å¤ªå¤§
 	bool need=false;
 	lock();
 	if(out)
@@ -439,7 +439,7 @@ void GateUser::unreg(bool out)
 		{
 			this->scene->removeIndex(this , sceneTempID);
 		}
-		Zebra::logger->trace("×¢Ïú%s(%ld)",name,id);
+		Zebra::logger->trace("æ³¨é”€%s(%ld)",name,id);
 		//*
 	}
 	unlock();
@@ -460,10 +460,10 @@ void GateUser::unreg(bool out)
 }
 
 /**
- * \brief Íø¹Ø×¢²áÒ»¸öÓÃ»§
+ * \brief ç½‘å…³æ³¨å†Œä¸€ä¸ªç”¨æˆ·
  *
  *
- * \param charno: ½ÇÉ«ĞòºÅ
+ * \param charno: è§’è‰²åºå·
  */
 void GateUser::reg(int charno)
 {
@@ -485,10 +485,10 @@ void GateUser::reg(int charno)
 }
 
 /**
- * \brief ½«Ò»¸ö½ÇÉ«Ìí¼Óµ½ºÚÃûµ¥
+ * \brief å°†ä¸€ä¸ªè§’è‰²æ·»åŠ åˆ°é»‘åå•
  *
  *
- * \param name: ½ÇÉ«Ãû³Æ
+ * \param name: è§’è‰²åç§°
  */
 void GateUser::addBlackList(const char *name)
 {
@@ -498,10 +498,10 @@ void GateUser::addBlackList(const char *name)
 }
 
 /**
- * \brief ½«Ò»¸ö½ÇÉ«´ÓºÚÃûµ¥ÖĞÉ¾³ı
+ * \brief å°†ä¸€ä¸ªè§’è‰²ä»é»‘åå•ä¸­åˆ é™¤
  *
  *
- * \param name: ½ÇÉ«Ãû³Æ
+ * \param name: è§’è‰²åç§°
  */
 void GateUser::removeBlackList(const char *name)
 {
@@ -513,7 +513,7 @@ void GateUser::removeBlackList(const char *name)
 }
 
 /**
- * \brief ÖĞ¶ÏÁ¬½Ó
+ * \brief ä¸­æ–­è¿æ¥
  *
  */
 void GateUser::Terminate()
@@ -523,7 +523,7 @@ void GateUser::Terminate()
 }
 
 /**
-	 * \brief »ñÈ¡ÕÊºÅ
+	 * \brief è·å–å¸å·
 	 *
 	 */
 const char* GateUser::getAccount()
@@ -584,10 +584,10 @@ void GateSelectUserSession::setSelectUserInfo(const Cmd::Record::t_Ret_SelectInf
 	}
 }
 /**
- * \brief ±£´æÓÃ»§Ñ¡ÔñµÄ½ÇÉ«
+ * \brief ä¿å­˜ç”¨æˆ·é€‰æ‹©çš„è§’è‰²
  *
  *
- * \param info: Ñ¡ÔñµÄ½ÇÉ«ĞÅÏ¢
+ * \param info: é€‰æ‹©çš„è§’è‰²ä¿¡æ¯
  */
 void GateSelectUserSession::putSelectUserInfo(const Cmd::SelectUserInfo &info)
 {
@@ -692,7 +692,7 @@ bool GateUser::checkChatCmd(DWORD type, const char *strName)
 		default:
 			break;
 	}
-	// ´¦ÀíºÚÃûµ¥ÏûÏ¢
+	// å¤„ç†é»‘åå•æ¶ˆæ¯
 	std::set<std::string>::iterator sIterator;
 
 	rwlock.rdlock();

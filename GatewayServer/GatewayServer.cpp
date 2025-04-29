@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GatewayServer.cpp $
  * \author  
  * \date
- * \brief zebraÏîÄ¿Gateway·şÎñÆ÷,¸ºÔğÓÃ»§Ö¸Áî¼ì²é×ª·¢¡¢¼ÓÃÜ½âÃÜµÈ
+ * \brief zebraé¡¹ç›®GatewayæœåŠ¡å™¨,è´Ÿè´£ç”¨æˆ·æŒ‡ä»¤æ£€æŸ¥è½¬å‘ã€åŠ å¯†è§£å¯†ç­‰
  */
 
 #include "zSubNetService.h"
@@ -32,31 +32,31 @@ bool GatewayService::service_stock=true;
 unsigned int merge_version = 0;
 
 /**
- * \brief ³õÊ¼»¯ÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–ç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zService::init</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zService::init</code>
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool GatewayService::init()
 {
 	Zebra::logger->trace("GatewayService::init");
 	verify_client_version = atoi(VERSION_STRING);
-	Zebra::logger->info("·şÎñÆ÷°æ±¾ºÅ:%d",verify_client_version);
-	//Èç¹û·şÎñÆ÷²»ÒªÇóĞ£¶Ô°æ±¾¾Í²»¶Ô°æ±¾
+	Zebra::logger->info("æœåŠ¡å™¨ç‰ˆæœ¬å·:%d",verify_client_version);
+	//å¦‚æœæœåŠ¡å™¨ä¸è¦æ±‚æ ¡å¯¹ç‰ˆæœ¬å°±ä¸å¯¹ç‰ˆæœ¬
 	/*
 	if(verify_client_version==0)
 		verify_client_version=Cmd::GAME_VERSION;
 	// */	
 	//Zebra::logger->debug(__PRETTY_FUNCTION__);
 	
-	//¼ÓÔØ¹ú¼ÒÃû³Æ(µØÍ¼)ĞÅÏ¢
+	//åŠ è½½å›½å®¶åç§°(åœ°å›¾)ä¿¡æ¯
 	if(!country_info.init())
 	{
-		Zebra::logger->error("¼ÓÔØµØÍ¼Ãû³ÆÊ§°Ü!");
+		Zebra::logger->error("åŠ è½½åœ°å›¾åç§°å¤±è´¥!");
 	}
 
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -78,47 +78,47 @@ bool GatewayService::init()
 
 	const Cmd::Super::ServerEntry *serverEntry = NULL;
 	
-	//Á¬½ÓSession·şÎñÆ÷
+	//è¿æ¥SessionæœåŠ¡å™¨
 	serverEntry = getServerEntryByType(SESSIONSERVER);
 	if (NULL == serverEntry)
 	{
-		Zebra::logger->error("²»ÄÜÕÒµ½Session·şÎñÆ÷Ïà¹ØĞÅÏ¢£¬²»ÄÜÁ¬½ÓSession·şÎñÆ÷");
+		Zebra::logger->error("ä¸èƒ½æ‰¾åˆ°SessionæœåŠ¡å™¨ç›¸å…³ä¿¡æ¯ï¼Œä¸èƒ½è¿æ¥SessionæœåŠ¡å™¨");
 		return false;
 	}
-	sessionClient = new SessionClient("Session·şÎñÆ÷", serverEntry->pstrExtIP, serverEntry->wdExtPort);
+	sessionClient = new SessionClient("SessionæœåŠ¡å™¨", serverEntry->pstrExtIP, serverEntry->wdExtPort);
 	if (NULL == sessionClient)
 	{
-		Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢Session·şÎñÆ÷¿Í»§¶ËÊµÀı");
+		Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹SessionæœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 		return false;
 	}
 	if (!sessionClient->connectToSessionServer())
 	{
-		Zebra::logger->error("Á¬½ÓSession·şÎñÆ÷Ê§°Ü %s", __PRETTY_FUNCTION__);
+		Zebra::logger->error("è¿æ¥SessionæœåŠ¡å™¨å¤±è´¥ %s", __PRETTY_FUNCTION__);
 		//return false;
 	}
 	sessionClient->start();
 
-	//Á¬½Ó¼Æ·Ñ·şÎñÆ÷
+	//è¿æ¥è®¡è´¹æœåŠ¡å™¨
 	serverEntry = getServerEntryByType(BILLSERVER);
 	if (NULL == serverEntry)
 	{
-		Zebra::logger->error("²»ÄÜÕÒµ½¼Æ·Ñ·şÎñÆ÷Ïà¹ØĞÅÏ¢£¬²»ÄÜÁ¬½Ó¼Æ·Ñ·şÎñÆ÷");
+		Zebra::logger->error("ä¸èƒ½æ‰¾åˆ°è®¡è´¹æœåŠ¡å™¨ç›¸å…³ä¿¡æ¯ï¼Œä¸èƒ½è¿æ¥è®¡è´¹æœåŠ¡å™¨");
 		return false;
 	}
-	accountClient = new BillClient("¼Æ·Ñ·şÎñÆ÷", serverEntry->pstrExtIP, serverEntry->wdExtPort,serverEntry->wdServerID);
+	accountClient = new BillClient("è®¡è´¹æœåŠ¡å™¨", serverEntry->pstrExtIP, serverEntry->wdExtPort,serverEntry->wdServerID);
 	if (NULL == accountClient)
 	{
-		Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢¼Æ·Ñ·şÎñÆ÷¿Í»§¶ËÊµÀı");
+		Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹è®¡è´¹æœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 		return false;
 	}
 	if (!accountClient->connectToBillServer())
 	{
-		Zebra::logger->error("Á¬½Ó¼Æ·Ñ·şÎñÆ÷Ê§°Ü %s", __PRETTY_FUNCTION__);
+		Zebra::logger->error("è¿æ¥è®¡è´¹æœåŠ¡å™¨å¤±è´¥ %s", __PRETTY_FUNCTION__);
 		return false;
 	}
 	accountClient->start();
 
-	//Á¬½ÓËùÓĞµÄ³¡¾°·şÎñÆ÷
+	//è¿æ¥æ‰€æœ‰çš„åœºæ™¯æœåŠ¡å™¨
 	serverEntry = getServerEntryByType(SCENESSERVER);
 	if(serverEntry)
 	{
@@ -126,42 +126,42 @@ bool GatewayService::init()
 			return false;
 	}	
 
-	//Á¬½ÓËùÓĞµÄµµ°¸·şÎñÆ÷
+	//è¿æ¥æ‰€æœ‰çš„æ¡£æ¡ˆæœåŠ¡å™¨
 	serverEntry = getServerEntryByType(RECORDSERVER);
 	if (NULL == serverEntry)
 	{
-		Zebra::logger->error("²»ÄÜÕÒµ½Record·şÎñÆ÷Ïà¹ØĞÅÏ¢£¬²»ÄÜÁ¬½ÓRecord·şÎñÆ÷");
+		Zebra::logger->error("ä¸èƒ½æ‰¾åˆ°RecordæœåŠ¡å™¨ç›¸å…³ä¿¡æ¯ï¼Œä¸èƒ½è¿æ¥RecordæœåŠ¡å™¨");
 		return false;
 	}
-	recordClient = new RecordClient("Record·şÎñÆ÷", serverEntry->pstrExtIP, serverEntry->wdExtPort);
+	recordClient = new RecordClient("RecordæœåŠ¡å™¨", serverEntry->pstrExtIP, serverEntry->wdExtPort);
 	if (NULL == recordClient)
 	{
-		Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢Record·şÎñÆ÷¿Í»§¶ËÊµÀı");
+		Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹RecordæœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 		return false;
 	}
 	if (!recordClient->connectToRecordServer())
 	{
-		Zebra::logger->error("Á¬½ÓRecord·şÎñÆ÷Ê§°Ü %s", __PRETTY_FUNCTION__);
+		Zebra::logger->error("è¿æ¥RecordæœåŠ¡å™¨å¤±è´¥ %s", __PRETTY_FUNCTION__);
 		return false;
 	}
 	recordClient->start();
 
-	//Á¬½ÓĞ¡ÓÎÏ··şÎñÆ÷
+	//è¿æ¥å°æ¸¸æˆæœåŠ¡å™¨
 	serverEntry = getServerEntryByType(MINISERVER);
 	if (NULL == serverEntry)
 	{
-		Zebra::logger->error("²»ÄÜÕÒµ½Ğ¡ÓÎÏ··şÎñÆ÷Ïà¹ØĞÅÏ¢£¬²»ÄÜÁ¬½ÓĞ¡ÓÎÏ··şÎñÆ÷");
+		Zebra::logger->error("ä¸èƒ½æ‰¾åˆ°å°æ¸¸æˆæœåŠ¡å™¨ç›¸å…³ä¿¡æ¯ï¼Œä¸èƒ½è¿æ¥å°æ¸¸æˆæœåŠ¡å™¨");
 		return false;
 	}
-	miniClient = new MiniClient("Ğ¡ÓÎÏ··şÎñÆ÷", serverEntry->pstrExtIP, serverEntry->wdExtPort,serverEntry->wdServerID);
+	miniClient = new MiniClient("å°æ¸¸æˆæœåŠ¡å™¨", serverEntry->pstrExtIP, serverEntry->wdExtPort,serverEntry->wdServerID);
 	if (NULL == miniClient)
 	{
-		Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢Ğ¡ÓÎÏ··şÎñÆ÷¿Í»§¶ËÊµÀı");
+		Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹å°æ¸¸æˆæœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 		return false;
 	}
 	if (!miniClient->connectToMiniServer())
 	{
-		Zebra::logger->error("Á¬½ÓĞ¡ÓÎÏ··şÎñÆ÷Ê§°Ü %s", __PRETTY_FUNCTION__);
+		Zebra::logger->error("è¿æ¥å°æ¸¸æˆæœåŠ¡å™¨å¤±è´¥ %s", __PRETTY_FUNCTION__);
 		return false;
 	}
 	miniClient->start();
@@ -175,23 +175,23 @@ bool GatewayService::init()
 }
 
 /**
- * \brief ĞÂ½¨Á¢Ò»¸öÁ¬½ÓÈÎÎñ
+ * \brief æ–°å»ºç«‹ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zNetService::newTCPTask</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zNetService::newTCPTask</code>
  *
- * \param sock TCP/IPÁ¬½Ó
- * \param addr µØÖ·
+ * \param sock TCP/IPè¿æ¥
+ * \param addr åœ°å€
  */
 void GatewayService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	Zebra::logger->trace("GatewayService::newTCPTask");
 	GatewayTask *tcpTask = new GatewayTask(taskPool, sock, addr);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
@@ -208,7 +208,7 @@ bool GatewayService::notifyLoginServer()
 	if(!GatewayService::getInstance().isTerminate())
 	{
 		tCmd.wdNumOnline = getPoolSize();
-		Zebra::logger->debug("Íø¹ØÄ¿Ç°ÔÚÏßÈËÊı:%d",tCmd.wdNumOnline);
+		Zebra::logger->debug("ç½‘å…³ç›®å‰åœ¨çº¿äººæ•°:%d",tCmd.wdNumOnline);
 	}
 	else
 	{
@@ -221,14 +221,14 @@ bool GatewayService::notifyLoginServer()
 }
 
 /**
- * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
  *
- * ÕâĞ©Ö¸ÁîÊÇÍø¹ØºÍ·şÎñÆ÷¹ÜÀíÆ÷½»»¥µÄÖ¸Áî<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zSubNetService::msgParse_SuperService</code>
+ * è¿™äº›æŒ‡ä»¤æ˜¯ç½‘å…³å’ŒæœåŠ¡å™¨ç®¡ç†å™¨äº¤äº’çš„æŒ‡ä»¤<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zSubNetService::msgParse_SuperService</code>
  *
- * \param ptNullCmd ´ı½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ı½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool GatewayService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -257,9 +257,9 @@ bool GatewayService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, cons
 					{
 						if (rev->state & ROLEREG_STATE_HAS)
 						{
-							//´´½¨½ÇÉ«Ê§°Ü£¬½ÇÉ«Ãû³ÆÖØ¸´
+							//åˆ›å»ºè§’è‰²å¤±è´¥ï¼Œè§’è‰²åç§°é‡å¤
 							pUser->nameRepeat();
-							Zebra::logger->trace("½ÇÉ«ÃûÖØ¸´ GatewayService::msgParse_SuperService");
+							Zebra::logger->trace("è§’è‰²åé‡å¤ GatewayService::msgParse_SuperService");
 						}
 						else
 						{
@@ -279,9 +279,9 @@ bool GatewayService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, cons
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨
  *
- * ÊµÏÖÁË´¿Ğéº¯Êı<code>zService::final</code>
+ * å®ç°äº†çº¯è™šå‡½æ•°<code>zService::final</code>
  *
  */
 void GatewayService::final()
@@ -297,7 +297,7 @@ void GatewayService::final()
 		taskPool->final();
 		SAFE_DELETE(taskPool);
 	}
-	//±ØĞë·ÅÔÙtaskPoolÖ®ºó´¦Àí,·ñÔò»ádown»ú
+	//å¿…é¡»æ”¾å†taskPoolä¹‹åå¤„ç†,å¦åˆ™ä¼šdownæœº
 	//SceneClientManager::getInstance().final();
 	SceneClientManager::delInstance();
 	// */
@@ -324,7 +324,7 @@ void GatewayService::final()
 }
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  *
  */
 static struct argp_option gateway_options[] =
@@ -341,12 +341,12 @@ static struct argp_option gateway_options[] =
 };
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
  *
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t gateway_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -399,13 +399,13 @@ static error_t gateway_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char gateway_doc[] = "\nGatewayServer\n" "\tÍø¹Ø·şÎñÆ÷¡£";
+static char gateway_doc[] = "\nGatewayServer\n" "\tç½‘å…³æœåŠ¡å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -413,7 +413,7 @@ const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild time      :\t" __DATE__ ", " __TIME__;
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  *
  */
 class GatewayConfile:public zConfile
@@ -436,7 +436,7 @@ class GatewayConfile:public zConfile
 };
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶ï¼Œä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  *
  */
 void GatewayService::reloadConfig()
@@ -449,7 +449,7 @@ void GatewayService::reloadConfig()
 	else
 		GatewayService::getInstance().rolereg_verify = false;
 	
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -463,32 +463,32 @@ void GatewayService::reloadConfig()
 	
 	if(!country_info.reload())
 	{
-		Zebra::logger->error("ÖØĞÂ¼ÓÔØ¹ú¼ÒÅäÖÃ!");
+		Zebra::logger->error("é‡æ–°åŠ è½½å›½å®¶é…ç½®!");
 	}
 
 	merge_version = atoi(Zebra::global["merge_version"].c_str());
 	#ifdef _ZJW_DEBUG
-	Zebra::logger->debug("[ºÏÇø]: ÖØĞÂ¼ÓÔØºÏÇø°æ±¾ºÅ", merge_version);
+	Zebra::logger->debug("[åˆåŒº]: é‡æ–°åŠ è½½åˆåŒºç‰ˆæœ¬å·", merge_version);
 	#endif	
 }
 
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
+ * \brief ä¸»ç¨‹åºå…¥å£
  *
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("GatewayServer");
 
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["logfilename"] = "/tmp/gatewayserver.log";
 	Zebra::global["sceneinfofile"] = "ScenesServer/scenesinfo.xml";
 	Zebra::global["countryorder"] = "0";
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	GatewayConfile gc;
 	if (!gc.parse("GatewayServer"))
 		return EXIT_FAILURE;
@@ -498,7 +498,7 @@ int main(int argc, char **argv)
 		GatewayService::getInstance().rolereg_verify = true;
 	else
 		GatewayService::getInstance().rolereg_verify = false;
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -512,18 +512,18 @@ int main(int argc, char **argv)
 
 	merge_version = atoi(Zebra::global["merge_version"].c_str());
 
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(gateway_options, gateway_parse_opt, 0, gateway_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();

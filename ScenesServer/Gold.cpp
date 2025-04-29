@@ -1,4 +1,4 @@
-#include "SceneUser.h"
+ï»¿#include "SceneUser.h"
 #include "SceneNpcManager.h"
 #include "NpcTrade.h"
 #include "RebuildObject.h"
@@ -13,7 +13,7 @@ bool SceneUser::npcTradeGold(Cmd::stBuyObjectNpcTradeUserCmd *ptCmd,zObjectB *ba
 	SceneNpc * n = SceneNpcManager::getMe().getNpcByTempID(npc_dwNpcTempID);
 	if (!n)
 	{
-		Zebra::logger->debug("[½»Ò×:Íæ¼Ò<------ÉÌµê]%s ½»Ò×Ê±£¬ÕÒ²»µ½¸Ãnpc tempID=%u", name, npc_dwNpcTempID);
+		Zebra::logger->debug("[äº¤æ˜“:ç©å®¶<------å•†åº—]%s äº¤æ˜“æ—¶ï¼Œæ‰¾ä¸åˆ°è¯¥npc tempID=%u", name, npc_dwNpcTempID);
 		return false;
 	}
 	DWORD need_gold=0;
@@ -58,7 +58,7 @@ bool SceneUser::npcTradeGold(Cmd::stBuyObjectNpcTradeUserCmd *ptCmd,zObjectB *ba
 
 					if (packs.addObject(o, true, AUTO_PACK)) {
 						free = o->data.dwNum;
-						//Èç¹ûÊÇË«±¶¾­ÑéµÀ¾ßºÍÈÙÓşµÀ¾ßĞèÒª°ó¶¨
+						//å¦‚æœæ˜¯åŒå€ç»éªŒé“å…·å’Œè£èª‰é“å…·éœ€è¦ç»‘å®š
 						o->checkBind();
 						Cmd::stAddObjectPropertyUserCmd status;
 						status.byActionType = Cmd::EQUIPACTION_OBTAIN;
@@ -88,38 +88,38 @@ bool SceneUser::npcTradeGold(Cmd::stBuyObjectNpcTradeUserCmd *ptCmd,zObjectB *ba
 					}
 					if(need_gold)
 					{
-						std::string disc = "Âò¶«Î÷:"; 
+						std::string disc = "ä¹°ä¸œè¥¿:"; 
 						disc += o->base->name;
 						if (!packs.removeGold(need_gold,disc.c_str())) {
-							Zebra::logger->fatal("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s)Âò%sÊ±½ğ±Ò¼ÆËã´íÎó!", name, o->base->name);
+							Zebra::logger->fatal("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s)ä¹°%sæ—¶é‡‘å¸è®¡ç®—é”™è¯¯!", name, o->base->name);
 						}
 					}
 					if(need_ticket)
 					{
-						std::string disc = "Âò¶«Î÷:"; 
+						std::string disc = "ä¹°ä¸œè¥¿:"; 
 						disc += o->base->name;
 						if (!packs.removeTicket(need_ticket,disc.c_str())) {
-							Zebra::logger->fatal("[½»Ò×:Íæ¼Ò<------ÉÌµê]ÓÃ»§(%s)Âò%sÊ±µãÈ¯Ëã´íÎó!", name, o->base->name);
+							Zebra::logger->fatal("[äº¤æ˜“:ç©å®¶<------å•†åº—]ç”¨æˆ·(%s)ä¹°%sæ—¶ç‚¹åˆ¸ç®—é”™è¯¯!", name, o->base->name);
 						}
 					}
 					zObject::logger(o->createid,o->data.qwThisID,o->data.strName,o->data.dwNum,count,1,n->id,n->name,this->id,this->name,"buy_npc",o->base,o->data.kind,o->data.upgrade);
 					if(need_gold && !need_ticket)
 					{
-						//Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "µÃµ½ÎïÆ· %s(%d)¸ö , »¨·Ñ½ğ×Ó%d¸ö,",o->name , count,need_gold);
-						Channel::sendGold(this, Cmd::INFO_TYPE_GAME , need_gold,"µÃµ½ÎïÆ· %s(%d)¸ö , »¨·Ñ½ğ×Ó",o->name , count);
+						//Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "å¾—åˆ°ç‰©å“ %s(%d)ä¸ª , èŠ±è´¹é‡‘å­%dä¸ª,",o->name , count,need_gold);
+						Channel::sendGold(this, Cmd::INFO_TYPE_GAME , need_gold,"å¾—åˆ°ç‰©å“ %s(%d)ä¸ª , èŠ±è´¹é‡‘å­",o->name , count);
 					}
 					else if(need_gold && need_ticket)
 					{
-						Channel::sendGold(this, Cmd::INFO_TYPE_GAME , need_gold,"µÃµ½ÎïÆ· %s(%d)¸ö , »¨·Ñ»ı·Ö%d,»¨·Ñ½ğ×Ó",o->name , count,need_ticket);
-						//Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "µÃµ½ÎïÆ· %s(%d)¸ö , »¨·Ñ½ğ×Ó%d¸ö,»¨·Ñ»ı·Ö%d¸ö",o->name , count,need_gold);
+						Channel::sendGold(this, Cmd::INFO_TYPE_GAME , need_gold,"å¾—åˆ°ç‰©å“ %s(%d)ä¸ª , èŠ±è´¹ç§¯åˆ†%d,èŠ±è´¹é‡‘å­",o->name , count,need_ticket);
+						//Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "å¾—åˆ°ç‰©å“ %s(%d)ä¸ª , èŠ±è´¹é‡‘å­%dä¸ª,èŠ±è´¹ç§¯åˆ†%dä¸ª",o->name , count,need_gold);
 					}
 					else
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "µÃµ½ÎïÆ· %s(%d)¸ö , »¨·Ñ»ı·Ö%d¸ö",o->name , count,need_ticket);
+						Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "å¾—åˆ°ç‰©å“ %s(%d)ä¸ª , èŠ±è´¹ç§¯åˆ†%dä¸ª",o->name , count,need_ticket);
 					}
 				}
 				if (!free) { //package is full
-					//Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ÄãµÄ°ü¹üÒÑÂú");
+					//Channel::sendSys(this , Cmd::INFO_TYPE_FAIL, "ä½ çš„åŒ…è£¹å·²æ»¡");
 					zObject::destroy(o);
 				}									
 			}
@@ -127,7 +127,7 @@ bool SceneUser::npcTradeGold(Cmd::stBuyObjectNpcTradeUserCmd *ptCmd,zObjectB *ba
 	}
 	else
 	{
-		Channel::sendSys(this,Cmd::INFO_TYPE_GAME,"ÄúµÄ½ğ×Ó²»×ã");
+		Channel::sendSys(this,Cmd::INFO_TYPE_GAME,"æ‚¨çš„é‡‘å­ä¸è¶³");
 	}
 	return true;
 }

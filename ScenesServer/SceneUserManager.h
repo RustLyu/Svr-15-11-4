@@ -1,4 +1,4 @@
-#ifndef _SCENEUSERMANAGER_H_
+ï»¿#ifndef _SCENEUSERMANAGER_H_
 #define _SCENEUSERMANAGER_H_
 
 #include "SceneUser.h"
@@ -41,7 +41,7 @@ class SceneRecycleUserManager: public zEntryManager< zEntryID >
 {
 	private:
 		/**
-		 ** \brief ¹ÜÀíÆ÷·ÃÎÊ»¥³âËø
+		 ** \brief ç®¡ç†å™¨è®¿é—®äº’æ–¥é”
 		 **/
 		zRWLock rwlock;
 		static SceneRecycleUserManager *instance;
@@ -56,8 +56,8 @@ class SceneRecycleUserManager: public zEntryManager< zEntryID >
 		bool canReg(DWORD id);
 		void refresh();
 		/**
-		 ** \brief ¶ÔÃ¿¸öÓÃ»§Ö´ĞĞ
-		 ** \param exec Ö´ĞĞ½Ó¿Ú
+		 ** \brief å¯¹æ¯ä¸ªç”¨æˆ·æ‰§è¡Œ
+		 ** \param exec æ‰§è¡Œæ¥å£
 		 **/
 		template <class YourUserEntry>
 			bool execEveryUser(execEntry<YourUserEntry> &exec)

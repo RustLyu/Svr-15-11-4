@@ -1,4 +1,4 @@
-#ifndef _MY_IDEA_H
+﻿#ifndef _MY_IDEA_H
 #define _MY_IDEA_H
 
 #define IDEA_INT unsigned int

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoClientManager.h $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷ĞÅÏ¢²É¼¯Á¬½ÓµÄ¿Í»§¶Ë¹ÜÀíÈİÆ÷
+ * \brief å®šä¹‰æœåŠ¡å™¨ä¿¡æ¯é‡‡é›†è¿æ¥çš„å®¢æˆ·ç«¯ç®¡ç†å®¹å™¨
  */
 
 
@@ -18,7 +18,7 @@
 #include "zTime.h"
 
 /**
- * \brief ¶¨Òå·şÎñÆ÷ĞÅÏ¢²É¼¯Á¬½ÓµÄ¿Í»§¶Ë¹ÜÀíÈİÆ÷
+ * \brief å®šä¹‰æœåŠ¡å™¨ä¿¡æ¯é‡‡é›†è¿æ¥çš„å®¢æˆ·ç«¯ç®¡ç†å®¹å™¨
  */
 class InfoClientManager
 {
@@ -28,8 +28,8 @@ class InfoClientManager
 		~InfoClientManager();
 
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
-		 * \return ÀàµÄÎ¨Ò»ÊµÀıÒıÓÃ
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹å¼•ç”¨
 		 */
 		static InfoClientManager &getInstance()
 		{
@@ -40,7 +40,7 @@ class InfoClientManager
 		}
 
 		/**
-		 * \brief Ïú»ÙÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é”€æ¯ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static void delInstance()
 		{
@@ -59,24 +59,24 @@ class InfoClientManager
 		static InfoClientManager *instance;
 
 		/**
-		 * \brief ¿Í»§¶ËÁ¬½Ó¹ÜÀí³Ø
+		 * \brief å®¢æˆ·ç«¯è¿æ¥ç®¡ç†æ± 
 		 */
 		zTCPClientTaskPool *infoClientPool;
 		/**
-		 * \brief ½øĞĞ¶ÏÏßÖØÁ¬¼ì²âµÄÊ±¼ä¼ÇÂ¼
+		 * \brief è¿›è¡Œæ–­çº¿é‡è¿æ£€æµ‹çš„æ—¶é—´è®°å½•
 		 */
 		zTime actionTimer;
 
 		/**
-		 * \brief ´æ·ÅÁ¬½ÓÒÑ¾­³É¹¦µÄÁ¬½ÓÈİÆ÷ÀàĞÍ
+		 * \brief å­˜æ”¾è¿æ¥å·²ç»æˆåŠŸçš„è¿æ¥å®¹å™¨ç±»å‹
 		 */
 		typedef std::vector<InfoClient *> InfoClientContainer;
 		/**
-		 * \brief ´æ·ÅÁ¬½ÓÒÑ¾­³É¹¦µÄÁ¬½ÓÈİÆ÷
+		 * \brief å­˜æ”¾è¿æ¥å·²ç»æˆåŠŸçš„è¿æ¥å®¹å™¨
 		 */
 		InfoClientContainer allClients;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 */
 		zMutex mlock;
 

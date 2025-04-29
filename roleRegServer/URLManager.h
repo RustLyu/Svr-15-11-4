@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: URLManager.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå¹ÜÀíÊı¾İ¿âÁ¬½ÓurlµÄÀà
+ * \brief å®šä¹‰ç®¡ç†æ•°æ®åº“è¿æ¥urlçš„ç±»
  *
  *
  */
@@ -18,7 +18,7 @@
 #include "Zebra.h"
 
 /**
- * \brief MysqlÁ¬½Óurl
+ * \brief Mysqlè¿æ¥url
  *
  */
 struct URL
@@ -29,7 +29,7 @@ struct URL
 };
 
 /**
- * \brief MysqlÁ¬½Ó¹ÜÀíÈİÆ÷µÄ»Øµ÷º¯Êı
+ * \brief Mysqlè¿æ¥ç®¡ç†å®¹å™¨çš„å›è°ƒå‡½æ•°
  *
  */
 struct URLCallback
@@ -39,7 +39,7 @@ struct URLCallback
 };
 
 /**
- * \brief MysqlÁ¬½Ó¹ÜÀíÈİÆ÷
+ * \brief Mysqlè¿æ¥ç®¡ç†å®¹å™¨
  *
  */
 class URLManager

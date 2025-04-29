@@ -1,11 +1,11 @@
-#include "CartoonPet.h"
+ï»¿#include "CartoonPet.h"
 #include "SceneUser.h"
 #include "SessionClient.h"
 #include "TimeTick.h"
 #include "Chat.h"
 
 /*
- * \brief ¹¹Ôì
+ * \brief æ„é€ 
  *
  */
 CartoonPet::CartoonPet(Scene *scene, zNpcB *npc, const t_NpcDefine *define, const SceneNpcType type, const SceneEntryType entrytype, zNpcB *abase) : ScenePet(scene, npc, define, type, entrytype, abase),_5_sec(5)
@@ -23,9 +23,9 @@ CartoonPet::CartoonPet(Scene *scene, zNpcB *npc, const t_NpcDefine *define, cons
 }
 
 /*
- * \brief ÉèÖÃ±¦±¦Ö÷ÈË
+ * \brief è®¾ç½®å®å®ä¸»äºº
  * 
- * \param master Ö÷ÈË
+ * \param master ä¸»äºº
  */
 void CartoonPet::setMaster(SceneEntryPk * master)
 {
@@ -35,10 +35,10 @@ void CartoonPet::setMaster(SceneEntryPk * master)
 }
 
 /*
- * \brief ÉèÖÃ±¦±¦Ö÷ÈË
+ * \brief è®¾ç½®å®å®ä¸»äºº
  * 
- * \param id Ö÷ÈËID
- * \param type Ö÷ÈËÀàĞÍ
+ * \param id ä¸»äººID
+ * \param type ä¸»äººç±»å‹
  */
 void CartoonPet::setMaster(DWORD id, DWORD type)
 {
@@ -48,7 +48,7 @@ void CartoonPet::setMaster(DWORD id, DWORD type)
 }
 
 /*
- * \brief ÉèÖÃ±¦±¦ID
+ * \brief è®¾ç½®å®å®ID
  * 
  * \param id ID
  */
@@ -58,26 +58,26 @@ void CartoonPet::setCartoonID(DWORD id)
 }
 
 /*
- * \brief ÉèÖÃÊÍ·Å¾­ÑéµÄËÙÂÊ
+ * \brief è®¾ç½®é‡Šæ”¾ç»éªŒçš„é€Ÿç‡
  * 
- * \param rate ËÙÂÊ£¬Ò»´ÎÊÍ·ÅÊıÁ¿£ºµÈ¼¶*ËÙÂÊ
+ * \param rate é€Ÿç‡ï¼Œä¸€æ¬¡é‡Šæ”¾æ•°é‡ï¼šç­‰çº§*é€Ÿç‡
  */
 void CartoonPet::setExpRate(BYTE rate)
 {
 	expRate = rate;
 	if (3==rate)
-		Channel::sendNine(this, "HOHO~ÎÒµÄÖ÷ÈËÉÏÏßÁË£¬ÎÒÒª¼ÓÓÍ£¬»ñµÃ1.5±¶µÄ¾­Ñé~");
+		Channel::sendNine(this, "HOHO~æˆ‘çš„ä¸»äººä¸Šçº¿äº†ï¼Œæˆ‘è¦åŠ æ²¹ï¼Œè·å¾—1.5å€çš„ç»éªŒ~");
 	else if (2==rate)
-		Channel::sendNine(this, "OH~Ö÷ÈËÏÂÏßÁË£¬ÕæÃ»¾¢~");
+		Channel::sendNine(this, "OH~ä¸»äººä¸‹çº¿äº†ï¼ŒçœŸæ²¡åŠ²~");
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("[³èÎï]%s ÉèÖÃ¾­Ñé±¶ÂÊ %u", name, expRate);
+	//Zebra::logger->debug("[å® ç‰©]%s è®¾ç½®ç»éªŒå€ç‡ %u", name, expRate);
 #endif
 }
 
 /*
- * \brief ÊÕÆğ,ÊÕÆğÊ±Òª±£´æ
+ * \brief æ”¶èµ·,æ”¶èµ·æ—¶è¦ä¿å­˜
  * 
- * \param saveType ±£´æÀàĞÍ
+ * \param saveType ä¿å­˜ç±»å‹
  */
 void CartoonPet::putAway(Cmd::Session::saveType saveType)
 {
@@ -92,9 +92,9 @@ void CartoonPet::putAway(Cmd::Session::saveType saveType)
 }
 
 /*
- * \brief ÊÇ±»ÊÕÑøµÄ»¹ÊÇ×Ô¼ºµÄ
+ * \brief æ˜¯è¢«æ”¶å…»çš„è¿˜æ˜¯è‡ªå·±çš„
  * 
- * \return ÊÇ±»ÊÕÑøµÄ»¹ÊÇ×Ô¼ºµÄ
+ * \return æ˜¯è¢«æ”¶å…»çš„è¿˜æ˜¯è‡ªå·±çš„
  */
 bool CartoonPet::isAdopted()
 {
@@ -102,8 +102,8 @@ bool CartoonPet::isAdopted()
 }
 
 /*
- * \brief ±£´æÊı¾İµ½Êı¾İ¿â
- * \param type ±£´æÀàĞÍ
+ * \brief ä¿å­˜æ•°æ®åˆ°æ•°æ®åº“
+ * \param type ä¿å­˜ç±»å‹
  * 
  */
 void CartoonPet::save(Cmd::Session::saveType type)
@@ -141,7 +141,7 @@ void CartoonPet::save(Cmd::Session::saveType type)
 		case Cmd::Session::SAVE_TYPE_RETURN:
 		case Cmd::Session::SAVE_TYPE_TIMEOVER:
 		case Cmd::Session::SAVE_TYPE_SYN:
-			cartoonData.addExp = 0;//Çå³ı¾­Ñé
+			cartoonData.addExp = 0;//æ¸…é™¤ç»éªŒ
 			break;
 		default:
 			break;
@@ -149,7 +149,7 @@ void CartoonPet::save(Cmd::Session::saveType type)
 }
 
 /*
- * \brief ÌáÈ¡¾­Ñéµ½Ö÷ÈËÉíÉÏ
+ * \brief æå–ç»éªŒåˆ°ä¸»äººèº«ä¸Š
  * 
  */
 void CartoonPet::drawExp()
@@ -162,8 +162,8 @@ void CartoonPet::drawExp()
 }
 
 /*
- * \brief ĞĞ¶¯£¬²»Õ½¶·£¬Ö»¸úËæ
- * Ã¿15ÃëÊÍ·ÅÒ»´Î¾­Ñé
+ * \brief è¡ŒåŠ¨ï¼Œä¸æˆ˜æ–—ï¼Œåªè·Ÿéš
+ * æ¯15ç§’é‡Šæ”¾ä¸€æ¬¡ç»éªŒ
  * 
  */
 bool CartoonPet::normalAction()
@@ -183,16 +183,16 @@ bool CartoonPet::normalAction()
 			}
 			cartoonData.time -= 5;
 
-			if (0==_5_sec_count%3)//±»ÁìÑøµÄ£¬Ã¿15ÃëÊÍ·Å¾­Ñé
+			if (0==_5_sec_count%3)//è¢«é¢†å…»çš„ï¼Œæ¯15ç§’é‡Šæ”¾ç»éªŒ
 				releaseExp();
 
-			if (0==_5_sec_count%60)//5·ÖÖÓ´æµµ
+			if (0==_5_sec_count%60)//5åˆ†é’Ÿå­˜æ¡£
 			{
 				save(Cmd::Session::SAVE_TYPE_SYN);
 			}
 		}
-		/* //²»¼ÆËã¾«ÆøÖµÁË
-		else if (0==_5_sec_count%12)//Á·¼¶µÄ£¬Ã¿1·ÖÖÓ¼õsp1
+		/* //ä¸è®¡ç®—ç²¾æ°”å€¼äº†
+		else if (0==_5_sec_count%12)//ç»ƒçº§çš„ï¼Œæ¯1åˆ†é’Ÿå‡sp1
 		{
 			if (cartoonData.sp)
 			{
@@ -217,23 +217,23 @@ bool CartoonPet::normalAction()
 }
 
 /*
- * \brief ÊÍ·Å¾­Ñé
+ * \brief é‡Šæ”¾ç»éªŒ
  * 
  */
 void CartoonPet::releaseExp()
 {
-	//¹Ì¶¨¾­Ñé=0.15*(2*Ö÷ÈË½ÇÉ«µ±Ç°µÈ¼¶^2)/4 +1  È¡Õû
+	//å›ºå®šç»éªŒ=0.15*(2*ä¸»äººè§’è‰²å½“å‰ç­‰çº§^2)/4 +1  å–æ•´
 	if (0==cartoonData.time) return;
 	DWORD n = (2*cartoonData.masterLevel*cartoonData.masterLevel)*15/100/4+1;
 	cartoonData.addExp += n;
 
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("[³èÎï]%s ÊÍ·Å¾­Ñé %u,ÏÖÔÚ %u", name, n, cartoonData.addExp);
+	//Zebra::logger->debug("[å® ç‰©]%s é‡Šæ”¾ç»éªŒ %u,ç°åœ¨ %u", name, n, cartoonData.addExp);
 #endif
 }
 
 /*
- * \brief ·¢ËÍ±¦±¦Êı¾İ
+ * \brief å‘é€å®å®æ•°æ®
  * 
  */
 void CartoonPet::sendData()
@@ -260,7 +260,7 @@ void CartoonPet::sendData()
 }
 
 /*
- * \brief ·¢ËÍ±¦±¦Êı¾İ
+ * \brief å‘é€å®å®æ•°æ®
  * 
  */
 void CartoonPet::sendHpExp()
@@ -283,10 +283,10 @@ void CartoonPet::sendHpExp()
 }
 
 /*
- * \brief ±¦±¦¼Ó¾­Ñé
- * \param num ÊıÁ¿
+ * \brief å®å®åŠ ç»éªŒ
+ * \param num æ•°é‡
  * 
- * \return ÊÇ·ñÉı¼¶(Î´ÓÃ)
+ * \return æ˜¯å¦å‡çº§(æœªç”¨)
  */
 bool CartoonPet::addExp(DWORD num)
 {
@@ -306,7 +306,7 @@ bool CartoonPet::addExp(DWORD num)
 }
 
 /*
- * \brief ±¦±¦Éı¼¶
+ * \brief å®å®å‡çº§
  * 
  */
 void CartoonPet::levelUp()
@@ -340,16 +340,16 @@ void CartoonPet::levelUp()
 	if (notify)
 	{
 		if (id==9005)
-			Channel::sendNine(this, "Ö÷ÈË~ÎÒ¶¼Éıµ½%u¼¶ÁË£¬¸Ã¸øÎÒÕÒ¸ö°éÁË°É~~", cartoonData.lv);
+			Channel::sendNine(this, "ä¸»äºº~æˆ‘éƒ½å‡åˆ°%uçº§äº†ï¼Œè¯¥ç»™æˆ‘æ‰¾ä¸ªä¼´äº†å§~~", cartoonData.lv);
 		else
-			Channel::sendNine(this, "Ö÷ÈË~ÎÒÉıµ½%u¼¶À²£¡", cartoonData.lv);
+			Channel::sendNine(this, "ä¸»äºº~æˆ‘å‡åˆ°%uçº§å•¦ï¼", cartoonData.lv);
 	}
 }
 
 /*
- * \brief µÃµ½±¦±¦µÄµÈ¼¶
+ * \brief å¾—åˆ°å®å®çš„ç­‰çº§
  * 
- * \return µÈ¼¶
+ * \return ç­‰çº§
  */
 DWORD CartoonPet::getLevel() const
 {
@@ -357,9 +357,9 @@ DWORD CartoonPet::getLevel() const
 }
 
 /*
- * \brief µÃµ½±¦±¦µÄÊı¾İ
+ * \brief å¾—åˆ°å®å®çš„æ•°æ®
  * 
- * \return Êı¾İ
+ * \return æ•°æ®
  */
 Cmd::t_CartoonData& CartoonPet::getCartoonData()
 {
@@ -367,9 +367,9 @@ Cmd::t_CartoonData& CartoonPet::getCartoonData()
 }
 
 /*
- * \brief ÉèÖÃ±¦±¦µÄÊı¾İ
+ * \brief è®¾ç½®å®å®çš„æ•°æ®
  * 
- * \param data Êı¾İ
+ * \param data æ•°æ®
  *
  */
 void CartoonPet::setCartoonData(Cmd::t_CartoonData& data)
@@ -390,23 +390,23 @@ void CartoonPet::setCartoonData(Cmd::t_CartoonData& data)
 }
 
 /*
- * \brief Ö÷ÈË¿ç·şÊ±£¬±£´æÆäÊÕÑøµÄ±¦±¦µÄÁÙÊ±Êı¾İ
+ * \brief ä¸»äººè·¨æœæ—¶ï¼Œä¿å­˜å…¶æ”¶å…»çš„å®å®çš„ä¸´æ—¶æ•°æ®
  * 
- * \param dest ±£´æµØÖ·
+ * \param dest ä¿å­˜åœ°å€
  *
- * \return Êı¾İ´óĞ¡
+ * \return æ•°æ®å¤§å°
  */
 DWORD CartoonPet::save(BYTE * dest)
 {
 	*((DWORD *)dest) = cartoonID;//ID
-	bcopy(&cartoonData, dest+sizeof(DWORD), sizeof(Cmd::t_CartoonData));//Êı¾İ
+	bcopy(&cartoonData, dest+sizeof(DWORD), sizeof(Cmd::t_CartoonData));//æ•°æ®
 	return sizeof(DWORD)+sizeof(Cmd::t_CartoonData);
 }
 
 /*
- * \brief »Ö¸´SP
+ * \brief æ¢å¤SP
  * 
- * \param num ÊıÁ¿
+ * \param num æ•°é‡
  *
  */
 void CartoonPet::recoverSp(DWORD num)
@@ -419,9 +419,9 @@ void CartoonPet::recoverSp(DWORD num)
 }
 
 /*
- * \brief ÉèÖÃ±¦±¦µÄÃû×Ö
+ * \brief è®¾ç½®å®å®çš„åå­—
  * 
- * \param name Ãû×Ö
+ * \param name åå­—
  *
  */
 void CartoonPet::setName(char * n)
@@ -434,9 +434,9 @@ void CartoonPet::setName(char * n)
 }
 
 /*
- * \brief ¸øÊÕÑøµÄ³èÎïÔö¼Ó¿ÉÌáÈ¡µÄ¾­Ñé
+ * \brief ç»™æ”¶å…»çš„å® ç‰©å¢åŠ å¯æå–çš„ç»éªŒ
  *
- * \param num ÊıÁ¿
+ * \param num æ•°é‡
  *
  */
 void CartoonPet::releaseExp(DWORD num)
@@ -448,7 +448,7 @@ void CartoonPet::releaseExp(DWORD num)
 
 void CartoonPet::delMyself()
 {
-	Zebra::logger->debug("[³èÎï]cartoon %s ÒòÕÒ²»µ½Ö÷ÈË¶øÉ¾³ı", name);
+	Zebra::logger->debug("[å® ç‰©]cartoon %s å› æ‰¾ä¸åˆ°ä¸»äººè€Œåˆ é™¤", name);
 	save(isAdopted()?Cmd::Session::SAVE_TYPE_RETURN:Cmd::Session::SAVE_TYPE_TIMETICK);
 	setClearState();
 }

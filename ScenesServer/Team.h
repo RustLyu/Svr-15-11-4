@@ -1,4 +1,4 @@
-#ifndef _SCENETEAM_H_
+ï»¿#ifndef _SCENETEAM_H_
 #define _SCENETEAM_H_
 
 
@@ -8,12 +8,12 @@
 #include "zRWLock.h"
 #include "zSceneEntry.h"
 
-//ÈÙÓşÄ£Ê½ĞèÒªµÄµÈ¼¶ÏŞÖÆ
+//è£èª‰æ¨¡å¼éœ€è¦çš„ç­‰çº§é™åˆ¶
 #define TEAM_HONOR_MEMBER_LEVEL 50
 #define TEAM_HONOR_LEADER_LEVEL 31
 
 /**
- * \brief ×é¶Ó³ÉÔ±½á¹¹
+ * \brief ç»„é˜Ÿæˆå‘˜ç»“æ„
  */
 struct TeamMember 
 {
@@ -24,7 +24,7 @@ struct TeamMember
 	DWORD begintime;
 
 	/**
-	 * \brief ¹¹Ôì³õÊ¼»¯½á¹¹
+	 * \brief æ„é€ åˆå§‹åŒ–ç»“æ„
 	 */
 	TeamMember()
 	{
@@ -36,7 +36,7 @@ struct TeamMember
 };
 
 /**
- * \brief ¶ÓÎé±éÀú·½·¨
+ * \brief é˜Ÿä¼éå†æ–¹æ³•
  */
 struct TeamMemExec
 {
@@ -48,11 +48,11 @@ struct SceneUser;
 
 struct Team
 {
-	/// ¶¨Òå×î´ó³ÉÔ±Êı
+	/// å®šä¹‰æœ€å¤§æˆå‘˜æ•°
 	static const  int MaxMember = 6;
 
 	/**
-	 * \brief ¹¹Ôìº¯Êı³õÊ¼»¯Ïà¹ØÊôĞÔ
+	 * \brief æ„é€ å‡½æ•°åˆå§‹åŒ–ç›¸å…³å±æ€§
 	 */
 	Team()
 	{
@@ -62,15 +62,15 @@ struct Team
 		current_obj_owner=0; 
 	}
 
-	/// ÔÊĞí×é¶Ó±êÖ¾
+	/// å…è®¸ç»„é˜Ÿæ ‡å¿—
 	bool isOpen;
 
-	/// Õâ¸öÊÇ¶Ó³¤µÄtempid Èç¹ûÒª¸Ä±äÇëÍ¨Öª·şÎñ¶ËÈ«Ìå³ÉÔ±
+	/// è¿™ä¸ªæ˜¯é˜Ÿé•¿çš„tempid å¦‚æœè¦æ”¹å˜è¯·é€šçŸ¥æœåŠ¡ç«¯å…¨ä½“æˆå‘˜
 	DWORD leader; 
-	//ÂÖÁ÷ÎïÆ·µôÂäÊ±µ±Ç°µôÂäµÄĞòºÅ
+	//è½®æµç‰©å“æ‰è½æ—¶å½“å‰æ‰è½çš„åºå·
 	DWORD current_obj_owner;
 
-	/// Æ½¾ù¾­Ñé²ÎÊı
+	/// å¹³å‡ç»éªŒå‚æ•°
 	DWORD averageExp;
 	private:
 	friend class TeamCondition;
@@ -79,18 +79,18 @@ struct Team
 	friend class QuestList;
 	friend class SceneNpc;
 
-	/// ¶ÓÎé³ÉÔ±±í
+	/// é˜Ÿä¼æˆå‘˜è¡¨
 	std::vector<TeamMember> member;
 
-	/// ÀëÏß³ÉÔ±ÁÙÊ±µÇ¼Ç±í
+	/// ç¦»çº¿æˆå‘˜ä¸´æ—¶ç™»è®°è¡¨
 	std::vector<TeamMember> offline_member;
 
-	/// ¶ÓÎé¶ÁĞ´Ëø
+	/// é˜Ÿä¼è¯»å†™é”
 	zRWLock rwlock;
 	
 	public:
 	/**
-	 * \brief »ñÈ¡¶ÓÎéÈËÊı
+	 * \brief è·å–é˜Ÿä¼äººæ•°
 	 */
 	int getSize()
 	{
@@ -98,7 +98,7 @@ struct Team
 	}
 
 	/**
-	 * \brief Çå³ıËùÓĞµÄ¶ÓÔ±
+	 * \brief æ¸…é™¤æ‰€æœ‰çš„é˜Ÿå‘˜
 	 */
 	void Clear()
 	{

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zLogger.cpp  $
  * \author  
  * \date 
- * \brief ZebraÏîÄ¿ÈÕÖ¾ÏµÍ³¶¨ÒåÎÄ¼ş
+ * \brief Zebraé¡¹ç›®æ—¥å¿—ç³»ç»Ÿå®šä¹‰æ–‡ä»¶
  *
  */
 
@@ -89,7 +89,7 @@ bool LocalDailyRollingFileAppender::relinkfile(log4cxx::helpers::Pool& pool)
 		if(!S_ISLNK(statbuf.st_mode))
 		{
 			std::string msg = symlinkname;
-			msg += "ÎÄ¼şÒÑ´æÔÚ£¬µ«²»ÊÇ·ûºÅÁ´½Ó";
+			msg += "æ–‡ä»¶å·²å­˜åœ¨ï¼Œä½†ä¸æ˜¯ç¬¦å·é“¾æ¥";
 			log4cxx::helpers::LogLog::warn(LOG4CXX_STR(msg));
 			return false;
 		}
@@ -101,7 +101,7 @@ bool LocalDailyRollingFileAppender::relinkfile(log4cxx::helpers::Pool& pool)
 	if(-1 == ::symlink(filename.c_str(),symlinkname.c_str()))
 	{
 		std::string msg = symlinkname;
-		msg += "´´½¨·ûºÅÁ´½ÓÊ§°Ü";
+		msg += "åˆ›å»ºç¬¦å·é“¾æ¥å¤±è´¥";
 		msg += symlinkname;
 		msg += "-->>";
 		msg += filename;
@@ -292,8 +292,8 @@ const zLogger::zLevel *  zLogger::zLevel::DEBUG=new zLevel(log4cxx::Level::DEBUG
 const zLogger::zLevel *  zLogger::zLevel::ALL=new zLevel(log4cxx::Level::ALL_INT);
 */
 /**
- * \brief zLevel¹¹Ôìº¯Êı
- * \param  level µÈ¼¶Êı×Ö£¬ÀàÄÚ²¿¶¨Òå
+ * \brief zLevelæ„é€ å‡½æ•°
+ * \param  level ç­‰çº§æ•°å­—ï¼Œç±»å†…éƒ¨å®šä¹‰
  */
 //zLogger::zLevel::zLevel(LevelPtr level):zlevel(level)
 //{
@@ -303,14 +303,14 @@ const zLogger::zLevel *  zLogger::zLevel::ALL=new zLevel(log4cxx::Level::ALL_INT
 //TimeZonePtr zLogger::zLoggerLocalFileAppender::tz(TimeZone::getDefault());
 
 /**
- * \brief ¹¹ÔìÒ»¸ö±¾µØÎÄ¼şAppender 
+ * \brief æ„é€ ä¸€ä¸ªæœ¬åœ°æ–‡ä»¶Appender 
  */
 //zLogger::zLoggerLocalFileAppender::zLoggerLocalFileAppender()
 //{
 //}
 
 /**
- * \brief Îö¹¹Ê±£¬»ØÊÕDateFormatÄÚ´æ
+ * \brief ææ„æ—¶ï¼Œå›æ”¶DateFormatå†…å­˜
  */
 //zLogger::zLoggerLocalFileAppender::~zLoggerLocalFileAppender()
 //{
@@ -318,9 +318,9 @@ const zLogger::zLevel *  zLogger::zLevel::ALL=new zLevel(log4cxx::Level::ALL_INT
 //}
 
 /**
- * \brief ÉèÖÃÊ±Çø
+ * \brief è®¾ç½®æ—¶åŒº
  *
- * \param timeZone Ê±Çø×Ö·û´® 
+ * \param timeZone æ—¶åŒºå­—ç¬¦ä¸² 
  */
 //void zLogger::zLoggerLocalFileAppender::setTimeZone(const std::string &timeZone)
 //{
@@ -328,12 +328,12 @@ const zLogger::zLevel *  zLogger::zLevel::ALL=new zLevel(log4cxx::Level::ALL_INT
 //}
 
 /**
- * \brief ¼¤»îËùÉèÖÃµÄÑ¡Ïî
+ * \brief æ¿€æ´»æ‰€è®¾ç½®çš„é€‰é¡¹
  */
 //void zLogger::zLoggerLocalFileAppender::activateOptions()
 //{
 //	log4cxx::PatternLayoutPtr rc = ZEBRA_NEW log4cxx::PatternLayout("\%d{\%y\%m\%d-\%H:\%M:%S }%c %5p: %m%n");
-	//ÉèÖÃÊ±ÇøºÍÔ¤¶¨ÎÄ¼ş
+	//è®¾ç½®æ—¶åŒºå’Œé¢„å®šæ–‡ä»¶
 /*	rc.setTimeZone(tz);
 	std::string ss;
 	zRTime::getLocalTZ(ss);
@@ -341,7 +341,7 @@ const zLogger::zLevel *  zLogger::zLevel::ALL=new zLevel(log4cxx::Level::ALL_INT
 	strncpy(tzstr,"TZ=",3);
 	strncpy(tzstr+3,ss.c_str(),60);
 	DailyRollingFileAppender::activateOptions();
-*/	//ÓÉÓÚDailyRollingFileAppender::activateOptions()»áĞŞ¸ÄÊ±Çø»·¾³±äÁ¿£¬¹ÊÖ´ĞĞÍêºóÔÙĞŞ¸Ä»ØÀ´ 
+*/	//ç”±äºDailyRollingFileAppender::activateOptions()ä¼šä¿®æ”¹æ—¶åŒºç¯å¢ƒå˜é‡ï¼Œæ•…æ‰§è¡Œå®Œåå†ä¿®æ”¹å›æ¥ 
 /*	putenv(tzstr);
 	tzset();
 	if (!datePattern.empty() && !fileName.empty())
@@ -359,9 +359,9 @@ const zLogger::zLevel *  zLogger::zLevel::ALL=new zLevel(log4cxx::Level::ALL_INT
 }*/
 
 /**
- * \brief ¹¹ÔìÒ»¸özLogger 
+ * \brief æ„é€ ä¸€ä¸ªzLogger 
  *
- * \param  name zLoggerµÄÃû×Ö£¬½«»á³öÏÖÔÚÊä³öµÄÈÕÖ¾ÖĞµÄÃ¿Ò»ĞĞ
+ * \param  name zLoggerçš„åå­—ï¼Œå°†ä¼šå‡ºç°åœ¨è¾“å‡ºçš„æ—¥å¿—ä¸­çš„æ¯ä¸€è¡Œ
  */
 zLogger::zLogger(const std::string &name)
 {
@@ -375,15 +375,15 @@ zLogger::zLogger(const std::string &name)
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 zLogger::~zLogger()
 {
 }
 
 /**
- * \brief µÃµ½LoggerµÄÃû×Ö£¬Ëü³öÏÖÔÚÃ¿ÌõÈÕÖ¾ĞÅÏ¢ÖĞ
- * \return	LoggerÃû×Ö
+ * \brief å¾—åˆ°Loggerçš„åå­—ï¼Œå®ƒå‡ºç°åœ¨æ¯æ¡æ—¥å¿—ä¿¡æ¯ä¸­
+ * \return	Loggeråå­—
  */
 const log4cxx::LogString & zLogger::getName()
 {
@@ -391,8 +391,8 @@ const log4cxx::LogString & zLogger::getName()
 }
 
 /**
- * \brief ÉèÖÃLoggerµÄÃû×Ö£¬Ëü³öÏÖÔÚÃ¿ÌõÈÕÖ¾ĞÅÏ¢ÖĞ
- * \param Òª±»ÉèÖÃµÄÃû×Ö
+ * \brief è®¾ç½®Loggerçš„åå­—ï¼Œå®ƒå‡ºç°åœ¨æ¯æ¡æ—¥å¿—ä¿¡æ¯ä¸­
+ * \param è¦è¢«è®¾ç½®çš„åå­—
  */
 void zLogger::setName(const std::string & Name)
 {
@@ -403,8 +403,8 @@ void zLogger::setName(const std::string & Name)
 }
 
 /**
- * \brief Ìí¼Ó¿ØÖÆÌ¨Êä³öLog
- * \return	³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+ * \brief æ·»åŠ æ§åˆ¶å°è¾“å‡ºLog
+ * \return	æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
  */
 bool zLogger::addConsoleLog()
 {
@@ -423,7 +423,7 @@ bool zLogger::addConsoleLog()
 }
 
 /**
- * \brief ÒÆ³ı¿ØÖÆÌ¨LogÊä³ö
+ * \brief ç§»é™¤æ§åˆ¶å°Logè¾“å‡º
  */
 void zLogger::removeConsoleLog()
 {
@@ -433,10 +433,10 @@ void zLogger::removeConsoleLog()
 }
 
 /**
- * \brief ¼ÓÒ»¸ö±¾µØÎÄ¼şLogÊä³ö
+ * \brief åŠ ä¸€ä¸ªæœ¬åœ°æ–‡ä»¶Logè¾“å‡º
  *
- * \param file ÒªÊä³öµÄÎÄ¼şÃû£¬Logger»á×Ô¶¯µØÌí¼ÓÊ±¼äºó×º 
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \param file è¦è¾“å‡ºçš„æ–‡ä»¶åï¼ŒLoggerä¼šè‡ªåŠ¨åœ°æ·»åŠ æ—¶é—´åç¼€ 
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::addLocalFileLog(const std::string &filename)
 {
@@ -457,8 +457,8 @@ bool zLogger::addLocalFileLog(const std::string &filename)
 }
 
 /**
- * \brief ÒÆ³öÒ»¸ö±¾µØÎÄ¼şLogÊä³ö
- * \param file ÒªÒÆ³ıµÄLogÎÄ¼şÃû 
+ * \brief ç§»å‡ºä¸€ä¸ªæœ¬åœ°æ–‡ä»¶Logè¾“å‡º
+ * \param file è¦ç§»é™¤çš„Logæ–‡ä»¶å 
  */
 void zLogger::removeLocalFileLog(const std::string &file)
 {
@@ -468,9 +468,9 @@ void zLogger::removeLocalFileLog(const std::string &file)
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öSyslogÊä³ö
- * \param host Syslog·şÎñÆ÷µØÖ·,Ä¬ÈÏÎª±¾Ö÷»ú
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief æ·»åŠ ä¸€ä¸ªSyslogè¾“å‡º
+ * \param host SyslogæœåŠ¡å™¨åœ°å€,é»˜è®¤ä¸ºæœ¬ä¸»æœº
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::addSysLog(const std::string & host="127.0.0.1")
 {
@@ -485,8 +485,8 @@ bool zLogger::addSysLog(const std::string & host="127.0.0.1")
 }
 
 /**
- * \brief ÒÆ³ıÒ»¸öSyslogÊä³ö
- * \param host ÒªÒÆ³ıµÄSyslog·şÎñÆ÷µØÖ·,Ä¬ÈÏÎª±¾Ö÷»ú
+ * \brief ç§»é™¤ä¸€ä¸ªSyslogè¾“å‡º
+ * \param host è¦ç§»é™¤çš„SyslogæœåŠ¡å™¨åœ°å€,é»˜è®¤ä¸ºæœ¬ä¸»æœº
  */
 void zLogger::removeSysLog(const std::string & host="127.0.0.1")
 {
@@ -506,8 +506,8 @@ do	\
 }while(false)
 
 /**
- * \brief ÉèÖÃĞ´ÈÕÖ¾µÈ¼¶
- * \param  zLevelPtr ÈÕÖ¾µÈ¼¶.²Î¼û #zLogger::zLevel
+ * \brief è®¾ç½®å†™æ—¥å¿—ç­‰çº§
+ * \param  zLevelPtr æ—¥å¿—ç­‰çº§.å‚è§ #zLogger::zLevel
  */
 //void zLogger::setLevel(const log4cxx::zLevel * zLevelPtr)
 //{
@@ -515,8 +515,8 @@ do	\
 //}
 
 /**
- * \brief ÉèÖÃĞ´ÈÕÖ¾µÈ¼¶
- * \param  level ÈÕÖ¾µÈ¼¶
+ * \brief è®¾ç½®å†™æ—¥å¿—ç­‰çº§
+ * \param  level æ—¥å¿—ç­‰çº§
  */
 void zLogger::setLevel(const std::string &level)
 {
@@ -545,10 +545,10 @@ void zLogger::setLevel(const std::string &level)
 }
 
 /**
- * \brief Ğ´ÈÕÖ¾
- * \param  zLevelPtr ÈÕÖ¾µÈ¼¶²Î¼û #zLogger::zLevel
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™æ—¥å¿—
+ * \param  zLevelPtr æ—¥å¿—ç­‰çº§å‚è§ #zLogger::zLevel
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 /*bool zLogger::log(const log4cxx::zLevel * zLevelPtr,const char * pattern, ...)
 {
@@ -561,10 +561,10 @@ void zLogger::setLevel(const std::string &level)
 }*/
 
 /**
- * \brief Ç¿ÖÆĞ´ÈÕÖ¾,²»ÊÜÈÕÖ¾µÈ¼¶ÏŞÖÆ
- * \param  zLevelPtr ÈÕÖ¾µÈ¼¶²Î¼û #zLogger::zLevel
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å¼ºåˆ¶å†™æ—¥å¿—,ä¸å—æ—¥å¿—ç­‰çº§é™åˆ¶
+ * \param  zLevelPtr æ—¥å¿—ç­‰çº§å‚è§ #zLogger::zLevel
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 /*bool zLogger::forceLog(const log4cxx::zLevel * zLevelPtr,const char * pattern, ...)
 {
@@ -577,9 +577,9 @@ void zLogger::setLevel(const std::string &level)
 }
 */
 /**
- * \brief Ğ´fatal³ÌĞòÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™fatalç¨‹åºæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::fatal(const char * pattern, ...)
 {
@@ -592,9 +592,9 @@ bool zLogger::fatal(const char * pattern, ...)
 }
 
 /**
- * \brief Ğ´error³ÌĞòÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™errorç¨‹åºæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::error(const char * pattern, ...)
 {
@@ -607,9 +607,9 @@ bool zLogger::error(const char * pattern, ...)
 }
 
 /**
- * \brief Ğ´error³ÌĞòÈÕÖ¾
- * \param  buf Êä³öÄÚÈİ
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™errorç¨‹åºæ—¥å¿—
+ * \param  buf è¾“å‡ºå†…å®¹
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::error_out(const char * buf)
 {
@@ -620,9 +620,9 @@ bool zLogger::error_out(const char * buf)
 }
 
 /**
- * \brief Ğ´warn³ÌĞòÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™warnç¨‹åºæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::warn(const char * pattern, ...)
 {
@@ -635,9 +635,9 @@ bool zLogger::warn(const char * pattern, ...)
 }
 
 /**
- * \brief Ğ´info³ÌĞòÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™infoç¨‹åºæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::info(const char * pattern, ...)
 {
@@ -650,9 +650,9 @@ bool zLogger::info(const char * pattern, ...)
 }
 
 /**
- * \brief Ğ´debug³ÌĞòÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™debugç¨‹åºæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::debug(const char * pattern, ...)
 {
@@ -665,9 +665,9 @@ bool zLogger::debug(const char * pattern, ...)
 }
 
 /**
- * \brief Ğ´alarmÓÎÏ·ÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™alarmæ¸¸æˆæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 /*bool zLogger::alarm(const char * pattern, ...)
 {
@@ -680,9 +680,9 @@ bool zLogger::debug(const char * pattern, ...)
 }
 */
 /**
- * \brief Ğ´iffyÓÎÏ·ÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™iffyæ¸¸æˆæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 /*bool zLogger::iffy(const char * pattern, ...)
 {
@@ -695,9 +695,9 @@ bool zLogger::debug(const char * pattern, ...)
 }
 */
 /**
- * \brief Ğ´traceÓÎÏ·ÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™traceæ¸¸æˆæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 bool zLogger::trace(const char * pattern, ...)
 {
@@ -710,9 +710,9 @@ bool zLogger::trace(const char * pattern, ...)
 }
 
 /**
- * \brief Ğ´gbugÓÎÏ·ÈÕÖ¾
- * \param  pattern Êä³ö¸ñÊ½·¶Àı£¬ÓëprintfÒ»Ñù
- * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \brief å†™gbugæ¸¸æˆæ—¥å¿—
+ * \param  pattern è¾“å‡ºæ ¼å¼èŒƒä¾‹ï¼Œä¸printfä¸€æ ·
+ * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */
 /*bool zLogger::gbug(const char * pattern, ...)
 {

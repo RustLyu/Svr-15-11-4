@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CVote.cpp  $
  * \author   
  * \date 
- * \brief Í¶Æ±¹ÜÀíÏµÍ³ÊµÏÖ
+ * \brief æŠ•ç¥¨ç®¡ç†ç³»ç»Ÿå®ç°
  *
  * 
  */
@@ -80,7 +80,7 @@ bool CVoteM::load()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 
@@ -114,7 +114,7 @@ bool CVoteM::load()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÊı¾İ¼ÓÔØÊ§°Ü£¬VOTE±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶æ•°æ®åŠ è½½å¤±è´¥ï¼ŒVOTEè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -163,7 +163,7 @@ bool CVoteM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "µ±Ç°Ã»ÓĞÈÎºÎÍ¶Æ±");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å½“å‰æ²¡æœ‰ä»»ä½•æŠ•ç¥¨");
 				}
 			}
 			break;
@@ -177,7 +177,7 @@ bool CVoteM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¸ÃÍ¶Æ±ÒÑÎŞĞ§");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯¥æŠ•ç¥¨å·²æ— æ•ˆ");
 				}
 			}
 			break;
@@ -358,7 +358,7 @@ void CVote::writeDatabase()
 		
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 
@@ -380,7 +380,7 @@ void CVote::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("Í¶Æ±Êı¾İ±£´æÊ§°Ü£¬VOTE±í²»´æÔÚ");
+		Zebra::logger->error("æŠ•ç¥¨æ•°æ®ä¿å­˜å¤±è´¥ï¼ŒVOTEè¡¨ä¸å­˜åœ¨");
 		return;
 	}	
 }
@@ -401,7 +401,7 @@ bool CVote::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{       
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -418,7 +418,7 @@ bool CVote::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("Ìí¼ÓÍ¶Æ±¼ÇÂ¼Ê§°Ü£¬VOTE±í²»´æÔÚ");
+		Zebra::logger->error("æ·»åŠ æŠ•ç¥¨è®°å½•å¤±è´¥ï¼ŒVOTEè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -435,7 +435,7 @@ bool CVote::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -472,7 +472,7 @@ bool CVote::loadItemFromDB()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 
@@ -510,7 +510,7 @@ bool CVote::loadItemFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("Í¶Æ±ÏêÏ¸Êı¾İ¼ÓÔØÊ§°Ü£¬VOTEITEM±í²»´æÔÚ");
+		Zebra::logger->error("æŠ•ç¥¨è¯¦ç»†æ•°æ®åŠ è½½å¤±è´¥ï¼ŒVOTEITEMè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -542,7 +542,7 @@ void CVote::setReadyState()
 	rwlock.wrlock();
 	this->dwStatus = CVote::VOTE_READY;
 	rwlock.unlock();
-	Zebra::logger->trace("[Í¶Æ±]:(%d,%d) VOTE_READY", this->dwCountryID, this->dwType);
+	Zebra::logger->trace("[æŠ•ç¥¨]:(%d,%d) VOTE_READY", this->dwCountryID, this->dwType);
 }
 
 void CVote::setActiveState()
@@ -550,7 +550,7 @@ void CVote::setActiveState()
 	rwlock.wrlock();
 	this->dwStatus = CVote::VOTE_ACTIVE;
 	rwlock.unlock();
-	Zebra::logger->trace("[Í¶Æ±]:(%d,%d) VOTE_ACTIVE", this->dwCountryID, this->dwType);
+	Zebra::logger->trace("[æŠ•ç¥¨]:(%d,%d) VOTE_ACTIVE", this->dwCountryID, this->dwType);
 	this->writeDatabase();
 }
 
@@ -564,10 +564,10 @@ void CVote::setReadyOverState()
 	rwlock.wrlock();
 	this->dwStatus = CVote::VOTE_READY_OVER;
 	rwlock.unlock();
-	Zebra::logger->trace("[Í¶Æ±]:(%d,%d) VOTE_READY", this->dwCountryID, this->dwType);
+	Zebra::logger->trace("[æŠ•ç¥¨]:(%d,%d) VOTE_READY", this->dwCountryID, this->dwType);
 
 	this->clearVoted();
-	// TODO,¸ù¾İÑ¡ÏîÇ°ÎåÎ»µÄÅÅÃû£¬¸üĞÂ¹ú¼Ò¿Æ¼¼×´Ì¬
+	// TODO,æ ¹æ®é€‰é¡¹å‰äº”ä½çš„æ’åï¼Œæ›´æ–°å›½å®¶ç§‘æŠ€çŠ¶æ€
 	std::sort(items.begin(), items.end(), lessBallot);
 	CCountry* pCountry = CCountryM::getMe().find(this->dwCountryID);
 	
@@ -595,7 +595,7 @@ void CVote::setOverState()
 	rwlock.wrlock();
 	this->dwStatus = CVote::VOTE_OVER;
 	rwlock.unlock();
-	Zebra::logger->trace("[Í¶Æ±]:(%d,%d) VOTE_OVER", this->dwCountryID, this->dwType);
+	Zebra::logger->trace("[æŠ•ç¥¨]:(%d,%d) VOTE_OVER", this->dwCountryID, this->dwType);
 	this->writeDatabase();
 }
 
@@ -621,14 +621,14 @@ void CVote::vote(UserSession* pUser, DWORD dwOption)
 			{
 				items[i]->dwBallot++;
 				items[i]->writeDatabase();
-				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Í¶Æ±³É¹¦");
+				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æŠ•ç¥¨æˆåŠŸ");
 				break;
 			}
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "²»ÄÜÖØ¸´Í¶Æ±");
+		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ä¸èƒ½é‡å¤æŠ•ç¥¨");
 	}
 }	
 
@@ -647,7 +647,7 @@ bool CVote::addVoted(DWORD dwCharID)
 
 		if ((connHandleID)-1 == handle)
 		{       
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -663,7 +663,7 @@ bool CVote::addVoted(DWORD dwCharID)
 	}
 	else
 	{
-		Zebra::logger->error("Ìí¼ÓÍæ¼ÒÍ¶Æ±¼ÇÂ¼Ê§°Ü£¬VOTEDPLAYER±í²»´æÔÚ");
+		Zebra::logger->error("æ·»åŠ ç©å®¶æŠ•ç¥¨è®°å½•å¤±è´¥ï¼ŒVOTEDPLAYERè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -685,7 +685,7 @@ bool CVote::clearVoted()
 		connHandleID handle = SessionService::dbConnPool->getHandle();
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -702,7 +702,7 @@ bool CVote::clearVoted()
 	}
 	else
 	{
-		Zebra::logger->error("Çå³ıÍæ¼ÒÍ¶Æ±¼ÇÂ¼Ê§°Ü£¬VOTEDPLAYER±í²»´æÔÚ");
+		Zebra::logger->error("æ¸…é™¤ç©å®¶æŠ•ç¥¨è®°å½•å¤±è´¥ï¼ŒVOTEDPLAYERè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -752,7 +752,7 @@ void CVoteItem::writeDatabase()
 		
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 		else
@@ -763,7 +763,7 @@ void CVoteItem::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("Í¶Æ±ÏêÏ¸Êı¾İ±£´æÊ§°Ü£¬VOTEITEM±í²»´æÔÚ");
+		Zebra::logger->error("æŠ•ç¥¨è¯¦ç»†æ•°æ®ä¿å­˜å¤±è´¥ï¼ŒVOTEITEMè¡¨ä¸å­˜åœ¨");
 		return;
 	}	
 }
@@ -785,7 +785,7 @@ bool CVoteItem::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{       
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -801,7 +801,7 @@ bool CVoteItem::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("Ìí¼ÓÍ¶Æ±¼ÇÂ¼Ê§°Ü£¬VOTEITEM±í²»´æÔÚ");
+		Zebra::logger->error("æ·»åŠ æŠ•ç¥¨è®°å½•å¤±è´¥ï¼ŒVOTEITEMè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -823,7 +823,7 @@ bool CVoteItem::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 

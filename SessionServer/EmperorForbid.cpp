@@ -1,4 +1,4 @@
-#include "EmperorForbid.h"
+ï»¿#include "EmperorForbid.h"
 #include "SessionServer.h"
 #include "zDBConnPool.h"
 
@@ -24,7 +24,7 @@ void EmperorForbid::loadDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("EmperorForbid::loadDB(): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("EmperorForbid::loadDB(): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 
@@ -40,7 +40,7 @@ void EmperorForbid::loadDB()
 	}
 
 	SessionService::dbConnPool->putHandle(handle);
-	Zebra::logger->trace("¼ÓÔØ %u ¸ö»ÊµÛ½ûÑÔĞÅÏ¢", list.size());
+	Zebra::logger->trace("åŠ è½½ %u ä¸ªçš‡å¸ç¦è¨€ä¿¡æ¯", list.size());
 }
 
 void EmperorForbid::writeDB()
@@ -48,7 +48,7 @@ void EmperorForbid::writeDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("EmperorForbid::writeDB(): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("EmperorForbid::writeDB(): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 
@@ -59,7 +59,7 @@ void EmperorForbid::writeDB()
 
 	SessionService::dbConnPool->exeUpdate(handle, "`EMPERORFORBID`", data_define, (BYTE *)&d[0], NULL);
 	SessionService::dbConnPool->putHandle(handle);
-	Zebra::logger->trace("±£´æ %u ¸ö»ÊµÛ½ûÑÔĞÅÏ¢", list.size());
+	Zebra::logger->trace("ä¿å­˜ %u ä¸ªçš‡å¸ç¦è¨€ä¿¡æ¯", list.size());
 }
 
 void EmperorForbid::clear()

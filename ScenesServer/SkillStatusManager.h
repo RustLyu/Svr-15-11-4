@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file
  * \version  $Id: SkillStatusManager.h $
  * \author  
  * \date 
- * \brief ���弼��״̬������ͷ�ļ�
+ * \brief 定义技能状态管理器头文件
  *
  */
 
@@ -18,57 +18,57 @@ struct SceneEntryPk;
 struct PkValue;
 struct SkillState;
 
-/// �����ƶ�����ö��
+/// 技能善恶类型枚举
 enum {
 	SKILL_GOOD=0,
 	SKILL_BAD=1
 };
 
-/// ����״̬����ö��
+/// 技能状态类型枚举
 enum {
-	SKILL_TYPE_INITIAVITE=1,	// ��������
-	SKILL_TYPE_RECOVERY=2,		// ��ʱ��������
-	SKILL_TYPE_PASSIVENESS=3	// ���ñ�������
+	SKILL_TYPE_INITIAVITE=1,	// 攻击技能
+	SKILL_TYPE_RECOVERY=2,		// 临时被动技能
+	SKILL_TYPE_PASSIVENESS=3	// 永久被动技能
 };
 
-/// ����״̬��������ֵö��
+/// 技能状态处理返回值枚举
 enum {
-	SKILL_ACTIVE	=	1,	//	�ӵ��MAP��
-	SKILL_RECOVERY,			//  �ӵ���ʱ����MAP��
-	SKILL_PASSIVENESS,		//	�ӵ����ñ���MAP��
-	SKILL_RETURN,			//	���ӵ��κ�MAP��
-	SKILL_BREAK,			//	������Ͷ�Ų���
+	SKILL_ACTIVE	=	1,	//	加到活动MAP中
+	SKILL_RECOVERY,			//  加到临时被动MAP中
+	SKILL_PASSIVENESS,		//	加到永久被动MAP中
+	SKILL_RETURN,			//	不加到任何MAP中
+	SKILL_BREAK,			//	不继续投放操作
 };
 
-/// ����״ִ̬�в���ö��
+/// 技能状态执行步骤枚举
 enum {
-	ACTION_STEP_DOPASS=	0,	// һ������״̬�Ŀ�ʼ����
-	ACTION_STEP_START=	1,	// һ������״̬�Ŀ�ʼ����
-	ACTION_STEP_TIMER,		// һ������״̬�Ķ�ʱ����
-	ACTION_STEP_STOP,		// һ������״̬��ֹͣ����
-	ACTION_STEP_CLEAR,		// һ������״̬���ⲿ���
-	ACTION_STEP_RELOAD		// һ������״̬����������
+	ACTION_STEP_DOPASS=	0,	// 一个技能状态的开始步骤
+	ACTION_STEP_START=	1,	// 一个技能状态的开始步骤
+	ACTION_STEP_TIMER,		// 一个技能状态的定时步骤
+	ACTION_STEP_STOP,		// 一个技能状态的停止步骤
+	ACTION_STEP_CLEAR,		// 一个技能状态被外部清除
+	ACTION_STEP_RELOAD		// 一个技能状态被重新载入
 };
 
-/// ����״̬�����Ŀ����
-#define SKILLSTATENUMBER 325   /// ����״̬�����
+/// 技能状态最大数目定义
+#define SKILLSTATENUMBER 325   /// 技能状态最大编号
 
 /**
- * \brief  ����״̬Ԫ������
+ * \brief  技能状态元素载体
  * \author fqnewman
  */
 struct SkillStatusCarrier
 {
-		/// ���ܲ���
+		/// 技能操作
 		const SkillStatus *status;
-		/// �����ֵ�
+		/// 技能字典
 		const zSkillB *skillbase;
-		/// �յ��Ĺ�����Ϣ
+		/// 收到的攻击消息
 		Cmd::stAttackMagicUserCmd revCmd;
-		/// �����ߵ�ָ��
+		/// 攻击者的指针
 		SceneEntryPk *attacker;
 		/**
-		 * \brief  ���캯������ʼ����������
+		 * \brief  构造函数，初始化所有属性
 		 * \author fqnewman
 		 */
 		SkillStatusCarrier()
@@ -80,61 +80,61 @@ struct SkillStatusCarrier
 };
 
 /**
- * \brief  ����״̬Ԫ��
+ * \brief  技能状态元素
  * \author fqnewman
  */
 struct SkillStatusElement
 {
-	/// ״̬�� id
+	/// 状态的 id
 	WORD  id;
 
-	/// ״̬��������
+	/// 状态发生几率
 	WORD percent;
 
-	/// ״̬��Ӱ����ֵ
+	/// 状态的影响数值
 	WORD value;
 
-	/// ״̬�ĳ���ʱ��
+	/// 状态的持续时间
 	QWORD qwTime;
 
-	/// ״ִ̬�еĲ����־
+	/// 状态执行的步骤标志
 	WORD state;
 
 
-	///�����ߵ���ʱID;
+	///攻击者的临时ID;
 	DWORD dwTempID;
 
-	///�����ߵ�ID
+	///攻击者的ID
 	DWORD dwAttackerID;
 
-	///����ID
+	///技能ID
 	DWORD dwSkillID;
 
-	///ִ��ʱ��
+	///执行时长
 	DWORD dwTime;
 
-	///ִ�в���
+	///执行步骤
 	BYTE  byStep;
 	
-	///�ƶ�����
+	///善恶类型
 	BYTE  byGoodnessType;
 	
-	///���ܵĻ������
+	///技能的互斥大类
 	BYTE  byMutexType;
 
-	///�Ƿ�ˢ����������1Ϊˢ��0Ϊ��
+	///是否刷新人物属性1为刷新0为否
 	BYTE  refresh;
 
-	///�����ߵ�����
+	///攻击者的类型
 	zSceneEntry::SceneEntryType attacktype;
 
 	/**
-	 * \brief  ����״̬Ԫ�ع��캯����ʼ����������
+	 * \brief  技能状态元素构造函数初始化所有属性
 	 * \author fqnewman
 	 */
 	SkillStatusElement()
 	{
-		id			= 0;					//״̬��id;
+		id			= 0;					//状态的id;
 		percent		= 0;
 		value		= 0;
 		qwTime		= 0;
@@ -148,33 +148,33 @@ struct SkillStatusElement
 };
 
 /**
- * \brief  ����״̬������
+ * \brief  技能状态管理器
  * \author fqnewman
  */
 class SkillStatusManager
 {
 private:
-	/// ��������״̬�б�
+	/// 主动技能状态列表
 	std::map<DWORD, SkillStatusElement> _activeElement;
 
-	/// ��ʱ��������״̬�б�
+	/// 临时被动技能状态列表
 	std::map<DWORD, SkillStatusElement> _recoveryElement;
 
-	/// ���ñ�������״̬�б�
+	/// 永久被动技能状态列表
 	std::map<DWORD, SkillStatusElement> _passivenessElement;
 
-	/// ���Ͷ���
+	/// 类型定义
 	typedef std::map<DWORD, SkillStatusElement>::value_type VALUE_TYPE;
 
 	/**
-	 * \brief  ����״̬�����б�
+	 * \brief  技能状态函数列表
 	 * \author fqnewman
 	 */
 	struct{
 		BYTE (* func)(SceneEntryPk *, SkillStatusElement &);
 	}funlist[SKILLSTATENUMBER+1];
 
-	/// ����״̬����������
+	/// 技能状态管理器属主
 	SceneEntryPk *entry;
 	bool bclearActiveSkillStatus;
 

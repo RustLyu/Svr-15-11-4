@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: GuardNpc.cpp 6808 2006-06-08 06:14:12Z xwl $
  * \author	liqingyu,liqingyu@zhengtu.com
  * \date		2005-06-15
- * \brief		»¤ïÚ
+ * \brief		æŠ¤é•–
  * 
  */
 
@@ -16,15 +16,15 @@
 #include "SessionClient.h"
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
- * ³õÊ¼»¯Ïà¹Ø±äÁ¿
- * \param scene npcËùÔÚµÄ³¡¾°
- * \param npc »ù±¾Êı¾İ
- * \param define ¶¨ÒåÊı¾İ
- * \param type ÀàĞÍ
- * \param entrytype ³¡¾°ÀàĞÍ 
- * \param abase ÔöÇ¿npc×ÖµäÊı¾İ
+ * åˆå§‹åŒ–ç›¸å…³å˜é‡
+ * \param scene npcæ‰€åœ¨çš„åœºæ™¯
+ * \param npc åŸºæœ¬æ•°æ®
+ * \param define å®šä¹‰æ•°æ®
+ * \param type ç±»å‹
+ * \param entrytype åœºæ™¯ç±»å‹ 
+ * \param abase å¢å¼ºnpcå­—å…¸æ•°æ®
  */
 GuardNpc::GuardNpc(Scene *scene, zNpcB *npc, const t_NpcDefine *define, const SceneNpcType type, const SceneEntryType entrytype, zNpcB *abase) :
 	ScenePet(scene, npc, define, type, entrytype, abase), _exp(0), _gold(0), _status(0),  _time(SceneTimeTick::currentTime)
@@ -34,9 +34,9 @@ GuardNpc::GuardNpc(Scene *scene, zNpcB *npc, const t_NpcDefine *define, const Sc
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
- * ÖØÖÃÏà¹Ø±äÁ¿
+ * é‡ç½®ç›¸å…³å˜é‡
  *
  */
 GuardNpc::~GuardNpc()
@@ -45,10 +45,10 @@ GuardNpc::~GuardNpc()
 }
 
 /**     
- * \brief  ÉèÖÃïÚ³µËùÓĞÕß
+ * \brief  è®¾ç½®é•–è½¦æ‰€æœ‰è€…
  *
- * \param user: ½ÓïÚÈË
- * \return ÎŞ
+ * \param user: æ¥é•–äºº
+ * \return æ— 
  */   
 void GuardNpc::owner(SceneUser* user)
 {
@@ -57,7 +57,7 @@ void GuardNpc::owner(SceneUser* user)
 	_name = user->name;
 	user->guard = this;
 	/*
-	Zebra::logger->debug("[ïÚ³µ] %s, %u, %s(%u, %u), %s(%u, %u) ½ÓïÚ _gold=%u",
+	Zebra::logger->debug("[é•–è½¦] %s, %u, %s(%u, %u), %s(%u, %u) æ¥é•– _gold=%u",
 					_name.c_str(),
 					tempid, name, getPos().x, getPos().y,
 					user ? user->name : "NULL", user ? user->getPos().x : 0, user ? user->getPos().y : 0,
@@ -66,9 +66,9 @@ void GuardNpc::owner(SceneUser* user)
 }	
 
 /**     
- * \brief  È¡µÃïÚ³µËùÓĞÕß
+ * \brief  å–å¾—é•–è½¦æ‰€æœ‰è€…
  *
- * \return  ½ÓïÚÈË
+ * \return  æ¥é•–äºº
  */   
 SceneUser* GuardNpc::owner()
 {
@@ -77,25 +77,25 @@ SceneUser* GuardNpc::owner()
 }
 
 /**     
- * \brief  ÉèÖÃïÚ³µ½ğ¶î
+ * \brief  è®¾ç½®é•–è½¦é‡‘é¢
  *
- * \param money: ½ğ¶î
- * \return ÎŞ
+ * \param money: é‡‘é¢
+ * \return æ— 
  */   	
 void GuardNpc::gold(int money)
 {
 	/*
 	if (_gold)
-		Zebra::logger->trace("[ïÚ³µ]%s µÄ %s ½ğÇ®¸Ä±ä %u->%u", _name.c_str(), name, _gold, money);
+		Zebra::logger->trace("[é•–è½¦]%s çš„ %s é‡‘é’±æ”¹å˜ %u->%u", _name.c_str(), name, _gold, money);
 		*/
 
 	_gold = money;
 }
 
 /**     
- * \brief  È¡µÃïÚ³µ½ğ¶î
+ * \brief  å–å¾—é•–è½¦é‡‘é¢
  *
- * \return  ½ğ¶î
+ * \return  é‡‘é¢
  */
 int GuardNpc::gold() const
 {
@@ -103,10 +103,10 @@ int GuardNpc::gold() const
 }
 
 /**     
- * \brief  ÉèÖÃïÚ³µ¾­Ñé
+ * \brief  è®¾ç½®é•–è½¦ç»éªŒ
  *
- * \param experience: ¾­Ñé
- * \return ÎŞ
+ * \param experience: ç»éªŒ
+ * \return æ— 
  */   
 void GuardNpc::exp(int experience)
 {
@@ -114,9 +114,9 @@ void GuardNpc::exp(int experience)
 }
 
 /**     
- * \brief  È¡µÃïÚ³µ¾­Ñé
+ * \brief  å–å¾—é•–è½¦ç»éªŒ
  *
- * \return ¾­Ñé
+ * \return ç»éªŒ
  */
 int GuardNpc::exp() const
 {
@@ -124,11 +124,11 @@ int GuardNpc::exp() const
 }
 
 /**     
- * \brief ÔËïÚÊ§°Ü
+ * \brief è¿é•–å¤±è´¥
  *
- * ÉèÖÃ¸Ã´ÎÔËïÚÊ§°Ü
+ * è®¾ç½®è¯¥æ¬¡è¿é•–å¤±è´¥
  *
- * \return ÎŞ
+ * \return æ— 
  */
 void GuardNpc::reset()
 {
@@ -152,16 +152,16 @@ void GuardNpc::reset()
 	_time = SceneTimeTick::currentTime;
 	_time.addDelay(3*60*1000); //three mins 
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("[ïÚ³µ]%s ïÚ³µ reset time:%d", _name.c_str(), _time.sec()-SceneTimeTick::currentTime.sec());
+	//Zebra::logger->debug("[é•–è½¦]%s é•–è½¦ reset time:%d", _name.c_str(), _time.sec()-SceneTimeTick::currentTime.sec());
 #endif
 }
 
 /**     
- * \brief ×´Ì¬¼ì²é
+ * \brief çŠ¶æ€æ£€æŸ¥
  *
- * »Øµ÷º¯Êı,¶¨ÆÚ¼ì²éÔËïÚ×´Ì¬,²¢×öÏàÓ¦´¦Àí
+ * å›è°ƒå‡½æ•°,å®šæœŸæ£€æŸ¥è¿é•–çŠ¶æ€,å¹¶åšç›¸åº”å¤„ç†
  *
- * \return ÎŞ
+ * \return æ— 
  */
 void GuardNpc::check()
 {
@@ -175,15 +175,15 @@ void GuardNpc::check()
 		{
 			if (_owner)
 			{
-				Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "ÄãÀë»¤ËÍÄ¿±êÌ«Ô¶ÁË£¬»áÓĞÎ£ÏÕµÄ!");
-				Channel::sendSys(_owner, Cmd::INFO_TYPE_EXP, "ÄãÀë»¤ËÍÄ¿±êÌ«Ô¶ÁË");
+				Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "ä½ ç¦»æŠ¤é€ç›®æ ‡å¤ªè¿œäº†ï¼Œä¼šæœ‰å±é™©çš„!");
+				Channel::sendSys(_owner, Cmd::INFO_TYPE_EXP, "ä½ ç¦»æŠ¤é€ç›®æ ‡å¤ªè¿œäº†");
 				if (_owner->getState() == zSceneEntry::SceneEntry_Normal)
 					masterIsAlive = true;
 			}
 
 			moveAction = false;
 			/*
-			Zebra::logger->debug("[ïÚ³µ] %s, %u, %s(%u, %u), %s(%u, %u) _gold=%u, 0 -> 1",
+			Zebra::logger->debug("[é•–è½¦] %s, %u, %s(%u, %u), %s(%u, %u) _gold=%u, 0 -> 1",
 							_name.c_str(),
 					tempid, name, getPos().x, getPos().y,
 					_owner ? _owner->name : "NULL", _owner ? _owner->getPos().x : 0, _owner ? _owner->getPos().y : 0,
@@ -205,7 +205,7 @@ void GuardNpc::check()
 			_status = 0;
 
 			/*
-			Zebra::logger->debug("[ïÚ³µ] %s, %u, %s(%u, %u), %s(%u, %u) _gold=%u, 1 -> 0",
+			Zebra::logger->debug("[é•–è½¦] %s, %u, %s(%u, %u), %s(%u, %u) _gold=%u, 1 -> 0",
 							_name.c_str(),
 					tempid, name, getPos().x, getPos().y,
 					_owner ? _owner->name : "NULL", _owner ? _owner->getPos().x : 0, _owner ? _owner->getPos().y : 0,
@@ -215,7 +215,7 @@ void GuardNpc::check()
 		else if (!_owner && (SceneTimeTick::currentTime>_time))
 		{
 			/*
-			Zebra::logger->debug("[ïÚ³µ] %s, %u, %s(%u, %u), %s(%u, %u) _gold=%u, 1 -> 2, 3·ÖÖÓÃ»ÕÒµ½Ö÷ÈË£¬ÔËïÚÊ§°Ü",
+			Zebra::logger->debug("[é•–è½¦] %s, %u, %s(%u, %u), %s(%u, %u) _gold=%u, 1 -> 2, 3åˆ†é’Ÿæ²¡æ‰¾åˆ°ä¸»äººï¼Œè¿é•–å¤±è´¥",
 							_name.c_str(),
 					tempid, name, getPos().x, getPos().y,
 					_owner ? _owner->name : "NULL", _owner ? _owner->getPos().x : 0, _owner ? _owner->getPos().y : 0,
@@ -234,8 +234,8 @@ void GuardNpc::check()
 
 
 	if (_status != 1  && _owner && (abs(pos.x-_owner->getPos().x) > SCREEN_WIDTH || abs(pos.y-_owner->getPos().y) > SCREEN_HEIGHT)) {
-		Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "ÄãÀë»¤ËÍÄ¿±êÌ«Ô¶ÁË£¬»áÓĞÎ£ÏÕµÄ!");
-		Channel::sendSys(_owner, Cmd::INFO_TYPE_EXP, "ÄãÀë»¤ËÍÄ¿±êÌ«Ô¶ÁË");
+		Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "ä½ ç¦»æŠ¤é€ç›®æ ‡å¤ªè¿œäº†ï¼Œä¼šæœ‰å±é™©çš„!");
+		Channel::sendSys(_owner, Cmd::INFO_TYPE_EXP, "ä½ ç¦»æŠ¤é€ç›®æ ‡å¤ªè¿œäº†");
 		moveAction = false;
 		_status = 1;
 	}
@@ -243,7 +243,7 @@ void GuardNpc::check()
 
 	/*
 	if (_status !=2 && _owner && (abs(pos.x-_owner->getPos().x) > 2*SCREEN_WIDTH || abs(pos.y-_owner->getPos().y) > 2*SCREEN_HEIGHT)) {
-		Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "ÓÉÓÚÄãÀëïÚ³µÌ«Ô¶ÁË£¬Õâ´Î»¤ïÚÊ§°ÜÁË");
+		Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "ç”±äºä½ ç¦»é•–è½¦å¤ªè¿œäº†ï¼Œè¿™æ¬¡æŠ¤é•–å¤±è´¥äº†");
 		OnOther event(2);
 		EventTable::instance().execute(*_owner, event);
 		reset();
@@ -271,11 +271,11 @@ void GuardNpc::check()
 }
 
 /**     
- * \brief ïÚ³µËÀÍö
+ * \brief é•–è½¦æ­»äº¡
  *
- * »Øµ÷º¯Êı,ÔÚïÚ³µ±»»÷»ÙÊ±µ÷ÓÃ,½±Àø½ÙïÚÕß
- * ]param attacker Ğ×ÊÖ
- * \return ÎŞ
+ * å›è°ƒå‡½æ•°,åœ¨é•–è½¦è¢«å‡»æ¯æ—¶è°ƒç”¨,å¥–åŠ±åŠ«é•–è€…
+ * ]param attacker å‡¶æ‰‹
+ * \return æ— 
  */
 void GuardNpc::on_death(SceneEntryPk* attacker)
 {
@@ -297,24 +297,24 @@ void GuardNpc::on_death(SceneEntryPk* attacker)
 		send.dwType = Cmd::CHAT_TYPE_NINE;
 		send.dwChatTime = ctv.sec();
 		if (((SceneUser *)m)->mask.is_masking())
-			snprintf((char *)send.pstrChat, MAX_CHATINFO, "ÃÉÃæÈË ½ÙïÚ³É¹¦£¬»ñµÃÒø×Ó%d", _gold);	
+			snprintf((char *)send.pstrChat, MAX_CHATINFO, "è’™é¢äºº åŠ«é•–æˆåŠŸï¼Œè·å¾—é“¶å­%d", _gold);	
 		else
-			snprintf((char *)send.pstrChat, MAX_CHATINFO, "%s½ÙïÚ³É¹¦£¬»ñµÃÒø×Ó%d", m->name, _gold);	
-		strncpy((char *)send.pstrName, "»¤ïÚ", MAX_NAMESIZE);
+			snprintf((char *)send.pstrChat, MAX_CHATINFO, "%såŠ«é•–æˆåŠŸï¼Œè·å¾—é“¶å­%d", m->name, _gold);	
+		strncpy((char *)send.pstrName, "æŠ¤é•–", MAX_NAMESIZE);
 		scene->sendCmdToNine(getPosI(), &send, sizeof(send));	
-		Zebra::logger->debug("%s½ÙïÚ³É¹¦£¬»ñµÃÒø×Ó%d", m->name, _gold);
+		Zebra::logger->debug("%såŠ«é•–æˆåŠŸï¼Œè·å¾—é“¶å­%d", m->name, _gold);
 */
 		char info[MAX_CHATINFO];
 		memset(info, 0, MAX_CHATINFO);
-		snprintf(info,  MAX_CHATINFO, "ÄãÇÀ½Ù³É¹¦£¬»ñµÃÒø×Ó"); 
+		snprintf(info,  MAX_CHATINFO, "ä½ æŠ¢åŠ«æˆåŠŸï¼Œè·å¾—é“¶å­"); 
 
-		if (((SceneUser*)m)->charbase.country!=scene->getCountryID())//ÔÚÍâ¹ú½ØïÚ²ÅÓĞÇ®
-			((SceneUser*)m)->packs.addMoney(getRobGold(), "ÇÀ½Ù»ñµÃ",info);
+		if (((SceneUser*)m)->charbase.country!=scene->getCountryID())//åœ¨å¤–å›½æˆªé•–æ‰æœ‰é’±
+			((SceneUser*)m)->packs.addMoney(getRobGold(), "æŠ¢åŠ«è·å¾—",info);
 	}
 
 	SceneUser * _owner = (SceneUser *)getMaster();
 	/*
-	Zebra::logger->debug("[ïÚ³µ] %s, %u, %s(%u, %u), %s(%u, %u), ËÀÍö£¬É±ÊÖ %s _gold=%u",
+	Zebra::logger->debug("[é•–è½¦] %s, %u, %s(%u, %u), %s(%u, %u), æ­»äº¡ï¼Œæ€æ‰‹ %s _gold=%u",
 							_name.c_str(),
 			tempid, name, getPos().x, getPos().y,
 			_owner ? _owner->name : "NULL", _owner ? _owner->getPos().x : 0, _owner ? _owner->getPos().y : 0,
@@ -324,7 +324,7 @@ void GuardNpc::on_death(SceneEntryPk* attacker)
 	if (_owner) {
 		OnOther event(2);
 		EventTable::instance().execute(*_owner, event);
-		Channel::sendSys(_owner, Cmd::INFO_TYPE_EXP, "ÄãµÄ»¤ËÍÄ¿±êËÀÍö");
+		Channel::sendSys(_owner, Cmd::INFO_TYPE_EXP, "ä½ çš„æŠ¤é€ç›®æ ‡æ­»äº¡");
 	}
 	else
 	{
@@ -339,11 +339,11 @@ void GuardNpc::on_death(SceneEntryPk* attacker)
 }
 
 /**     
- * \brief ïÚ³µµ½´ï
+ * \brief é•–è½¦åˆ°è¾¾
  *
- * »Øµ÷º¯Êı,ÔÚïÚ³µµ½´ïÄ¿µÄµØÊ±±»µ÷ÓÃ,½±Àø»¤ïÚÕß
+ * å›è°ƒå‡½æ•°,åœ¨é•–è½¦åˆ°è¾¾ç›®çš„åœ°æ—¶è¢«è°ƒç”¨,å¥–åŠ±æŠ¤é•–è€…
  *
- * \return ÎŞ
+ * \return æ— 
  */
 void GuardNpc::on_reached()
 {
@@ -362,7 +362,7 @@ void GuardNpc::on_reached()
 		}
 	}
 	/*
-	Zebra::logger->debug("[ïÚ³µ] %s, %u, %s(%u, %u), %s(%u, %u), ³É¹¦ÔËµ½ _gold=%u",
+	Zebra::logger->debug("[é•–è½¦] %s, %u, %s(%u, %u), %s(%u, %u), æˆåŠŸè¿åˆ° _gold=%u",
 							_name.c_str(),
 			tempid, name, getPos().x, getPos().y,
 			_owner ? _owner->name : "NULL", _owner ? _owner->getPos().x : 0, _owner ? _owner->getPos().y : 0,
@@ -370,7 +370,7 @@ void GuardNpc::on_reached()
 			*/
 /*
 	if (_owner) {
-		Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "»¤ïÚ³É¹¦£¬»ñµÃ¾­Ñé%d", _exp);
+		Channel::sendSys(_owner, Cmd::INFO_TYPE_GAME, "æŠ¤é•–æˆåŠŸï¼Œè·å¾—ç»éªŒ%d", _exp);
 		//add exp bonus	
 		_owner->charbase.exp += _exp;
 		ScenePk::attackRTExp(_owner, _exp);
@@ -395,9 +395,9 @@ void GuardNpc::map(const std::string& name)
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñ¿ÉÒÔÒÆ¶¯
+ * \brief æ£€æŸ¥æ˜¯å¦å¯ä»¥ç§»åŠ¨
  *
- * \return ÊÇ·ñ¿ÉÒÔÒÆ¶¯
+ * \return æ˜¯å¦å¯ä»¥ç§»åŠ¨
  */
 bool GuardNpc::canMove()
 {
@@ -405,9 +405,9 @@ bool GuardNpc::canMove()
 }
 
 /**
- * \brief ÏòÖ÷ÈËÒÆ¶¯£¬²¢¼ì²é¾àÀë
+ * \brief å‘ä¸»äººç§»åŠ¨ï¼Œå¹¶æ£€æŸ¥è·ç¦»
  *
- * \return ÊÇ·ñÒÆ¶¯³É¹¦
+ * \return æ˜¯å¦ç§»åŠ¨æˆåŠŸ
  */
 bool GuardNpc::moveToMaster()
 {
@@ -438,7 +438,7 @@ bool GuardNpc::moveToMaster()
 		if (master->scene == scene)
 		{
 			check();
-			if (!getMaster()) return true;//ÔËïÚ³É¹¦É¾³ıÁËÖ÷ÈË
+			if (!getMaster()) return true;//è¿é•–æˆåŠŸåˆ é™¤äº†ä¸»äºº
 
 			if ((scene->zPosShortRange(getPos(), master->getPos(), npc_pet_chase_region)))
 				return false;
@@ -470,11 +470,11 @@ bool GuardNpc::moveToMaster()
 }
 
 /*
- * \brief ±£´æ»¤ÎÀNPCµÄÊı¾İµ½Ö¸¶¨Î»ÖÃ£¨¿ç·şÊ±ÓÃ£©
+ * \brief ä¿å­˜æŠ¤å«NPCçš„æ•°æ®åˆ°æŒ‡å®šä½ç½®ï¼ˆè·¨æœæ—¶ç”¨ï¼‰
  *
- * \param dest Ä¿µÄµØÖ·
+ * \param dest ç›®çš„åœ°å€
  *
- * \return Êı¾İ´óĞ¡
+ * \return æ•°æ®å¤§å°
  */
 DWORD GuardNpc::save(BYTE * dest)
 {

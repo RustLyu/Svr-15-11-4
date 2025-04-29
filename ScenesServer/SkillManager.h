@@ -1,4 +1,4 @@
-#ifndef _SKILLMANAGER_H_
+ï»¿#ifndef _SKILLMANAGER_H_
 #define _SKILLMANAGER_H_
 
 #include "zType.h"
@@ -7,7 +7,7 @@
 
 
 /**
- * \brief  ¼¼ÄÜ¹ÜÀíÆ÷»ùÀà
+ * \brief  æŠ€èƒ½ç®¡ç†å™¨åŸºç±»
  */
 class SkillManager : public zEntryManager < zEntryID, zEntryTempID >
 {
@@ -17,7 +17,7 @@ class SkillManager : public zEntryManager < zEntryID, zEntryTempID >
 };
 
 /**
- * \brief  »Øµ÷»ùÀà
+ * \brief  å›è°ƒåŸºç±»
  */
 class UserSkillExec
 {
@@ -27,7 +27,7 @@ class UserSkillExec
 
 
 /**
- * \brief  ¼¼ÄÜ¹ÜÀíÆ÷»ùÀà
+ * \brief  æŠ€èƒ½ç®¡ç†å™¨åŸºç±»
  */
 class UserSkillM : private SkillManager
 {

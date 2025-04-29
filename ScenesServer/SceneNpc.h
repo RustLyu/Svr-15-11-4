@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneNpc.h $
  * \author  
  * \date 
- * \brief ¶¨ÒåNpc
+ * \brief å®šä¹‰Npc
  *
  * 
  */
@@ -17,7 +17,7 @@
 #include "Command.h"
 #include "zTime.h"
 #include "zUniqueID.h"
-//ÕÙ»½³èÎï
+//å¬å”¤å® ç‰©
 #include <set>
 #include <map>
 #include "SceneEntryPk.h"
@@ -28,7 +28,7 @@ class SceneUser;
 class NpcAIController;
 class SceneNpc;
 
-//ĞèÒª½øĞĞAI¶¯×÷µÄnpc
+//éœ€è¦è¿›è¡ŒAIåŠ¨ä½œçš„npc
 #ifdef _POOL_ALLOC_
 typedef std::set<SceneNpc *, std::less<SceneNpc *>, __gnu_cxx::__pool_alloc<SceneNpc *> > MonkeyNpcs;
 #else
@@ -59,7 +59,7 @@ struct t_expRec
 	}
 };
 
-/* Ò»Ğ©ÌØÊânpcµÄID */
+/* ä¸€äº›ç‰¹æ®Šnpcçš„ID */
 const unsigned int COUNTRY_MAIN_FLAG = 58001;
 const unsigned int COUNTRY_SEC_FLAG  =  58002;
 const unsigned int COUNTRY_MAIN_GEN = 58200;
@@ -69,12 +69,12 @@ const unsigned int COUNTRY_KING_SEC_FLAG = 58006;
 const unsigned int COUNTRY_EMPEROR_MAIN_GEN = 58203;
 const unsigned int COUNTRY_EMPEROR_SEC_GEN = 58204;
 
-const unsigned int ALLY_GUARDNPC = 54100;//ÃË¹úïÚ³µ
-const unsigned int EMPEROR_HORSE_ID = 3202;//»ÊµÛµÄÂíID
-const unsigned int KING_HORSE_ID = 3204;//¹úÍõµÄÂíID
+const unsigned int ALLY_GUARDNPC = 54100;//ç›Ÿå›½é•–è½¦
+const unsigned int EMPEROR_HORSE_ID = 3202;//çš‡å¸çš„é©¬ID
+const unsigned int KING_HORSE_ID = 3204;//å›½ç‹çš„é©¬ID
 
 /**
- * \brief ¶¨ÒåNpc
+ * \brief å®šä¹‰Npc
  *
  */
 class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
@@ -84,100 +84,100 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	static const DWORD maxUniqueID = 100000;
 
 	public:
-	bool isMainGeneral();//ÊÇ·ñ´ó½«¾üÍõ
+	bool isMainGeneral();//æ˜¯å¦å¤§å°†å†›ç‹
 
-	zRTime reliveTime;//¸´»îÊ±¼ä
+	zRTime reliveTime;//å¤æ´»æ—¶é—´
 
-	int targetDistance;//Óëµ±Ç°Ä¿±êµÄ×î¶Ì¾àÀë
-	int closeCount;//×·Öğ¼ÆÊı£¬10²½ÒÔÄÚ×î¶Ì¾àÀëÃ»ÓĞ¼õÉÙÔòÈÏÎªÄ¿±ê²»¿Éµ½´ï
+	int targetDistance;//ä¸å½“å‰ç›®æ ‡çš„æœ€çŸ­è·ç¦»
+	int closeCount;//è¿½é€è®¡æ•°ï¼Œ10æ­¥ä»¥å†…æœ€çŸ­è·ç¦»æ²¡æœ‰å‡å°‘åˆ™è®¤ä¸ºç›®æ ‡ä¸å¯åˆ°è¾¾
 
-	std::list<ScenePet *> semipetList;//°ë³èÎïÁĞ±í
+	std::list<ScenePet *> semipetList;//åŠå® ç‰©åˆ—è¡¨
 
 	/**
-	 * \brief ¶¨ÒåNpc¸ú×Ù×´Ì¬
+	 * \brief å®šä¹‰Npcè·Ÿè¸ªçŠ¶æ€
 	 *
 	 */
 	enum SceneNpcChase
 	{
-		CHASE_NONE,			/// Ã»ÓĞ¸ú×Ù×´Ì¬
-		CHASE_ATTACK,		/// ¸ú×Ù¹¥»÷×´Ì¬
-		CHASE_NOATTACK		/// ÆÕÍ¨¸ú×Ù×´Ì¬
+		CHASE_NONE,			/// æ²¡æœ‰è·Ÿè¸ªçŠ¶æ€
+		CHASE_ATTACK,		/// è·Ÿè¸ªæ”»å‡»çŠ¶æ€
+		CHASE_NOATTACK		/// æ™®é€šè·Ÿè¸ªçŠ¶æ€
 	};
 
 	/**
-	 * \brief NpcÀàĞÍ
-	 * ¾²Ì¬µÄ»¹ÊÇ¶¯Ì¬·ÖÅäµÄ
+	 * \brief Npcç±»å‹
+	 * é™æ€çš„è¿˜æ˜¯åŠ¨æ€åˆ†é…çš„
 	 */
 	enum SceneNpcType
 	{
-		STATIC,				/// ¾²Ì¬µÄ
-		GANG				/// ¶¯Ì¬µÄ
+		STATIC,				/// é™æ€çš„
+		GANG				/// åŠ¨æ€çš„
 	};
 
 	/**
-	 * \brief Npc»ù±¾Êı¾İ
+	 * \brief NpcåŸºæœ¬æ•°æ®
 	 *
 	 */
 	zNpcB *npc;
 
 	/**
-	 * \brief ÔöÇ¿Npc»ù±¾Êı¾İ
+	 * \brief å¢å¼ºNpcåŸºæœ¬æ•°æ®
 	 *
 	 */
 	zNpcB *anpc;
 
 	/**
-	 * \brief Npc¶¨ÒåÊı¾İ
+	 * \brief Npcå®šä¹‰æ•°æ®
 	 *
 	 */
 	const t_NpcDefine *define;
 
 	/**
-	 * \brief npcµ±Ç°ÉúÃüÖµ
+	 * \brief npcå½“å‰ç”Ÿå‘½å€¼
 	 *
 	 */
 	DWORD hp;
 
-	///ÉÏ´Î·¢ËÍÊ±µÄhp
+	///ä¸Šæ¬¡å‘é€æ—¶çš„hp
 	DWORD lasthp;
 
-	///»ØÑª±ê¼Ç
+	///å›è¡€æ ‡è®°
 	bool needRecover;
-	///ÏÂ´Î»ØÑªµÄÊ±¼ä
-	zRTime rcvTimePet;//³èÎïĞİÏ¢
-	zRTime rcvTimeUnder30;//hp30ÒÔÏÂ
-	zRTime rcvTimeRest;//ÍÑÀëÕ½¶·
-	//hp30ÒÔÏÂ»ØÑª
+	///ä¸‹æ¬¡å›è¡€çš„æ—¶é—´
+	zRTime rcvTimePet;//å® ç‰©ä¼‘æ¯
+	zRTime rcvTimeUnder30;//hp30ä»¥ä¸‹
+	zRTime rcvTimeRest;//è„±ç¦»æˆ˜æ–—
+	//hp30ä»¥ä¸‹å›è¡€
 	bool recoverUnder30;
-	//½áÊøÕ½¶·»ØÑª
+	//ç»“æŸæˆ˜æ–—å›è¡€
 	//bool recoverLeaveBattle;
 
 	bool checkRecoverTime(const zRTime& ct);
 	void setRecoverTime(const zRTime& ct, int delay);
 
 	virtual bool recover();
-	/// npcµÄÉúÃü½áÊøÊ±¼ä(Èç¹ûÃ»ÉèÖÃ¾ÍÊÇÆä´´½¨Ê±¼ä)
+	/// npcçš„ç”Ÿå‘½ç»“æŸæ—¶é—´(å¦‚æœæ²¡è®¾ç½®å°±æ˜¯å…¶åˆ›å»ºæ—¶é—´)
 	DWORD dwStandTime;
 
-	///npcµÄÉúÃü³ÖĞøÊ±¼ä
+	///npcçš„ç”Ÿå‘½æŒç»­æ—¶é—´
 	DWORD dwStandTimeCount;
 
-	///¸½¼Ó×îĞ¡¹¥»÷Á¦
+	///é™„åŠ æœ€å°æ”»å‡»åŠ›
 	WORD appendMinDamage;
 
-	///¸½¼Ó×î´ó¹¥»÷Á¦
+	///é™„åŠ æœ€å¤§æ”»å‡»åŠ›
 	WORD appendMaxDamage;
 
-	///ÊÇ·ñÒÑ¾­Ëø¶¨Ä¿±ê
+	///æ˜¯å¦å·²ç»é”å®šç›®æ ‡
 	bool lockTarget;
 
-	///¹¥³ÇµÄnpc£¬Ëæ¹¥³ÇÒ»ÆğÉ¾³ı
+	///æ”»åŸçš„npcï¼Œéšæ”»åŸä¸€èµ·åˆ é™¤
 	bool isRushNpc;
 
-	///¸ù¾İÅäÖÃÕÙ»½ÆäËûnpc
+	///æ ¹æ®é…ç½®å¬å”¤å…¶ä»–npc
 	int summonByNpcMap(std::map<DWORD, std::pair<DWORD, DWORD> > map);
 
-	///ÊÇ·ñÕÙ»½¹ı
+	///æ˜¯å¦å¬å”¤è¿‡
 	bool summoned;
 
 	bool setCurTarget(SceneEntryPk *, bool=false);
@@ -231,31 +231,31 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	void clearStateToNine(WORD state);
 	void setStateToNine(WORD state);
 	/**
-	 * \brief ÈÃ³èÎïÖØÉú
+	 * \brief è®©å® ç‰©é‡ç”Ÿ
 	 * \author fqnewman
 	 */
 	virtual void relivePet(){};
 
-	DWORD catchme; ///ÎüÒı¹ÖÎï¹¥»÷×Ô¼º
-	int boostupPet; /// ÔöÇ¿±ÈÀı
-	DWORD boostupPetMDef; //ÔöÇ¿³èÎïµÄ·¨Êõ·ÀÓù
-	DWORD boostupSummon; ///ÕÙ»½ÊŞ¹¥»÷¼ÓÇ¿
-	DWORD boostupHpMaxP;  ///Ôö¼ÓÉúÃüÖµÉÏÏŞ
-	DWORD dwReduceDam;  /// ÕÙ»½ÊŞÉËº¦¿Û¼õ
-	DWORD giddy;   ///¹¥»÷µÄÊ±ºòÊ¹¶Ô·½Ñ£ÔÎµÄ¼¸ÂÊ
+	DWORD catchme; ///å¸å¼•æ€ªç‰©æ”»å‡»è‡ªå·±
+	int boostupPet; /// å¢å¼ºæ¯”ä¾‹
+	DWORD boostupPetMDef; //å¢å¼ºå® ç‰©çš„æ³•æœ¯é˜²å¾¡
+	DWORD boostupSummon; ///å¬å”¤å…½æ”»å‡»åŠ å¼º
+	DWORD boostupHpMaxP;  ///å¢åŠ ç”Ÿå‘½å€¼ä¸Šé™
+	DWORD dwReduceDam;  /// å¬å”¤å…½ä¼¤å®³æ‰£å‡
+	DWORD giddy;   ///æ”»å‡»çš„æ—¶å€™ä½¿å¯¹æ–¹çœ©æ™•çš„å‡ ç‡
 
-	BYTE notifystep; //ÂÌBOSSÍ¨Öª²½Öè
+	BYTE notifystep; //ç»¿BOSSé€šçŸ¥æ­¥éª¤
 
 	//*
 	static void AI(const zRTime& ctv, MonkeyNpcs &affectNpc,const DWORD group , const bool every);
 
 	/**
-	 * \brief Ç¿ÖÆ¸ú×ÙÓÃ»§£¬Èç¹û¹ÖÒÑ¾­ÔÚ¸ú×ÙÓÃ»§£¬ÄÇÃ´ÓĞ45%µÄ¼¸ÂÊ½«Ä¿±ê×ª»»³ÉÄ¿Ç°µÄÓÃ»§
-	 * \param pAtt Òª¸ú×ÙµÄ¶ÔÏó
+	 * \brief å¼ºåˆ¶è·Ÿè¸ªç”¨æˆ·ï¼Œå¦‚æœæ€ªå·²ç»åœ¨è·Ÿè¸ªç”¨æˆ·ï¼Œé‚£ä¹ˆæœ‰45%çš„å‡ ç‡å°†ç›®æ ‡è½¬æ¢æˆç›®å‰çš„ç”¨æˆ·
+	 * \param pAtt è¦è·Ÿè¸ªçš„å¯¹è±¡
 	 */
 	bool forceChaseUser(SceneEntryPk *pAtt);
 	/**
-	 * \brief ½«¿Í»§¶ËÏûÏ¢×ª·¢µ½»á»°·şÎñÆ÷
+	 * \brief å°†å®¢æˆ·ç«¯æ¶ˆæ¯è½¬å‘åˆ°ä¼šè¯æœåŠ¡å™¨
 	 * \author fqnewman
 	 */
 	bool forwardSession(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen);
@@ -274,7 +274,7 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	bool hideAction();
 	bool moveable(const zPos &tempPos, const zPos &destPos,  int radius);
 	bool move(const int direct, const int step);
-	bool warp(const zPos &pos,bool ignore=false);//Ìø×ª
+	bool warp(const zPos &pos,bool ignore=false);//è·³è½¬
 	void jumpTo(zPos &newPos);
 	bool gotoFindPath(const zPos &srcPos, const zPos &destPos);
 	bool goTo(const zPos &pos);
@@ -284,227 +284,227 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	void refreshExpmapAttackTime(SceneUser* pAtt);
 
 	/**
-	 * \brief ¸Ä±ä½ÇÉ«µÄhp
-	 * \param hp ±ä¸üµÄHP
+	 * \brief æ”¹å˜è§’è‰²çš„hp
+	 * \param hp å˜æ›´çš„HP
 	 * \author fqnewman
 	 */
 	void changeHP(const SDWORD &hp);
 
 	/**
-	 * \brief Ôì³ÉÖ±½ÓÉËº¦
-	 * \param pAtt ¹¥»÷Õß
-	 * \param dam ÉËº¦Öµ
-	 * \param notify Í¨ÖªÉËº¦ÏÔÊ¾
+	 * \brief é€ æˆç›´æ¥ä¼¤å®³
+	 * \param pAtt æ”»å‡»è€…
+	 * \param dam ä¼¤å®³å€¼
+	 * \param notify é€šçŸ¥ä¼¤å®³æ˜¾ç¤º
 	 * \author fqnewman
 	 */
 	SWORD directDamage(SceneEntryPk *pAtt, const SDWORD &dam, bool notify=false);
 
 	/**
-	 * \brief ¸Ä±ä½ÇÉ«µÄsp
-	 * \param sp ±ä¸üµÄSP
+	 * \brief æ”¹å˜è§’è‰²çš„sp
+	 * \param sp å˜æ›´çš„SP
 	 * \author fqnewman
 	 */
 	void changeSP(const SDWORD &sp);
 
 	/**
-	 * \brief ¸Ä±ä½ÇÉ«µÄmp
-	 * \param mp ±ä¸üµÄMP
+	 * \brief æ”¹å˜è§’è‰²çš„mp
+	 * \param mp å˜æ›´çš„MP
 	 * \author fqnewman
 	 */
 	void changeMP(const SDWORD &mp);
 
 	/**
-	 * \brief ÔÚ±»×Ô¼º¹¥»÷Ö®Ç°µÄ´¦Àí£¬°üÀ¨£¬×°±¸ËğºÄ´¦Àí£¬¹¥»÷ÓĞĞ§¼¸ÂÊÅĞ¶ÏµÈ
-	 * \param pUser ¹¥»÷Õß
-	 * \param rev ±¾´Î¹¥»÷µÄ´¥·¢Ö¸Áî
-	 * \param physics ÊÇ·ñÎïÀí¹¥»÷
-	 * \param good ÎªtrueÔò±ØÖĞ£¬ÎªfalseĞèÒªÅĞ¶Ï»Ø±ÜÂÊ
+	 * \brief åœ¨è¢«è‡ªå·±æ”»å‡»ä¹‹å‰çš„å¤„ç†ï¼ŒåŒ…æ‹¬ï¼Œè£…å¤‡æŸè€—å¤„ç†ï¼Œæ”»å‡»æœ‰æ•ˆå‡ ç‡åˆ¤æ–­ç­‰
+	 * \param pUser æ”»å‡»è€…
+	 * \param rev æœ¬æ¬¡æ”»å‡»çš„è§¦å‘æŒ‡ä»¤
+	 * \param physics æ˜¯å¦ç‰©ç†æ”»å‡»
+	 * \param good ä¸ºtrueåˆ™å¿…ä¸­ï¼Œä¸ºfalseéœ€è¦åˆ¤æ–­å›é¿ç‡
 	 * \author fqnewman
-	 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+	 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 	 */
 	bool preAttackMe(SceneEntryPk *pUser, const Cmd::stAttackMagicUserCmd *rev, bool physics=true, const bool good = false);
 
 	/**
-	 * \brief ½ÇÉ«±»¹¥»÷
-	 * \param pEntry ¹¥»÷Õß
-	 * \param rev ±¾´Î¹¥»÷µÄ´¥·¢ÏûÏ¢
-	 * \param physics ÊÇ·ñÎïÀí¹¥»÷
+	 * \brief è§’è‰²è¢«æ”»å‡»
+	 * \param pEntry æ”»å‡»è€…
+	 * \param rev æœ¬æ¬¡æ”»å‡»çš„è§¦å‘æ¶ˆæ¯
+	 * \param physics æ˜¯å¦ç‰©ç†æ”»å‡»
 	 * \author fqnewman
-	 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+	 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 	 */
 	bool AttackMe(SceneEntryPk *pEntry, const Cmd::stAttackMagicUserCmd *rev, bool physics=true, SWORD rangDamageBonus=0);
 
 	/**
-	 * \brief ½ÇÉ«±»»÷ÍËN¸ñ
-	 * \param dwAttTempID ¹¥»÷ÕßµÄÁÙÊ±ID
-	 * \param grids ºóÍË¼¸¸ñ
+	 * \brief è§’è‰²è¢«å‡»é€€Næ ¼
+	 * \param dwAttTempID æ”»å‡»è€…çš„ä¸´æ—¶ID
+	 * \param grids åé€€å‡ æ ¼
 	 * \author fqnewman
 	 */
 	void standBack(const DWORD dwAttTempID, DWORD grids);
 
 	/**
-	 * \brief ½«¹¥»÷Ä¿±ê»»³ÉdwTempIDËùÖ¸ÏòµÄ½ÇÉ«Íæ¼Ò
-	 * \param dwTempID Ä¿±ê½ÇÉ«µÄÁÙÊ±ID
+	 * \brief å°†æ”»å‡»ç›®æ ‡æ¢æˆdwTempIDæ‰€æŒ‡å‘çš„è§’è‰²ç©å®¶
+	 * \param dwTempID ç›®æ ‡è§’è‰²çš„ä¸´æ—¶ID
 	 * \author fqnewman
 	 */
 	void changeAttackTarget(const DWORD &dwTempID);
 
 	/**
-	 * \brief ÈÃ½ÇÉ«ËÀÍö
+	 * \brief è®©è§’è‰²æ­»äº¡
 	 * \author fqnewman
 	 */
 	void toDie(const DWORD &dwTempID);
 
 	/**
-	 * \brief Í¨Öª¿Í»§¶ËÉúÃüÖµµÄ±ä»¯
+	 * \brief é€šçŸ¥å®¢æˆ·ç«¯ç”Ÿå‘½å€¼çš„å˜åŒ–
 	 * \author fqnewman
 	 */
 	void attackRTHpAndMp();
 
 	/**
-	 * \brief ·¢ËÍnpcÑª²Û
+	 * \brief å‘é€npcè¡€æ§½
 	 * \author whj
 	 */
 	void showHP(SceneUser *pUser, DWORD npchp);
 
 	/**
-	 * \brief ¼ì²éÍæ¼ÒÊÇ·ñ¹¥»÷¹ı¸Ãnpc
+	 * \brief æ£€æŸ¥ç©å®¶æ˜¯å¦æ”»å‡»è¿‡è¯¥npc
 	 * \author whj
 	 */
 	bool isAttackMe(SceneEntryPk *);
 	/**
-	 * \brief ÅĞ¶Ï½ÇÉ«ÊÇ·ñËÀÍö
+	 * \brief åˆ¤æ–­è§’è‰²æ˜¯å¦æ­»äº¡
 	 * \author fqnewman
-	 * \return trueÎªËÀÍö
+	 * \return trueä¸ºæ­»äº¡
 	 */
 	bool isDie();
 	/**
-	 * \brief »ñÈ¡½ÇÉ«µÄ¼¶±ğ
+	 * \brief è·å–è§’è‰²çš„çº§åˆ«
 	 * \author fqnewman
 	 */
 	virtual DWORD getLevel() const;
 
 	/**
-	 * \brief ĞèÒªµÄÖ°ÒµÀàĞÍ£¬¾ö¶¨¿ÉÒÔÊ¹ÓÃµÄ¼¼ÄÜÀàĞÍ
+	 * \brief éœ€è¦çš„èŒä¸šç±»å‹ï¼Œå†³å®šå¯ä»¥ä½¿ç”¨çš„æŠ€èƒ½ç±»å‹
 	 * \author fqnewman
 	 */
 	bool needType(const DWORD &needtype);
 
 	/**
-	 * \brief ĞèÒªµÄÖ°ÒµÀàĞÍ£¬¾ö¶¨¿ÉÒÔÊ¹ÓÃµÄ¼¼ÄÜÀàĞÍ
+	 * \brief éœ€è¦çš„èŒä¸šç±»å‹ï¼Œå†³å®šå¯ä»¥ä½¿ç”¨çš„æŠ€èƒ½ç±»å‹
 	 * \author fqnewman
 	 */
 	bool addSkillToMe(zSkill *skill);
 
 	/**
-	 * \brief ÊÇ·ñÓĞ¸Ã¼¼ÄÜĞèÒªµÄÎäÆ÷
+	 * \brief æ˜¯å¦æœ‰è¯¥æŠ€èƒ½éœ€è¦çš„æ­¦å™¨
 	 * \author fqnewman
-	 * \return true ÓĞ false Ã»ÓĞ
+	 * \return true æœ‰ false æ²¡æœ‰
 	 */
 	bool needWeapon(DWORD skillid);
 
 	/**
-	 * \brief ÊÇ·ñPkÇøÓò
-	 * \other PKÏà¹ØÈË
+	 * \brief æ˜¯å¦PkåŒºåŸŸ
+	 * \other PKç›¸å…³äºº
 	 * \author fqnewman
-	 * \return true ÊÇ false ·ñ
+	 * \return true æ˜¯ false å¦
 	 */
 	virtual bool isPkZone(SceneEntryPk *other=NULL);
 
 	/**
-	 * \brief ÒÀÀµÎïÆ·ÏûºÄĞÍ·¨Êõ
-	 * \param object ÏûºÄÎïÆ·µÄÀàĞÍ
-	 * \param num ÏûºÄÎïÆ·µÄÊıÁ¿
+	 * \brief ä¾èµ–ç‰©å“æ¶ˆè€—å‹æ³•æœ¯
+	 * \param object æ¶ˆè€—ç‰©å“çš„ç±»å‹
+	 * \param num æ¶ˆè€—ç‰©å“çš„æ•°é‡
 	 * \author fqnewman
-	 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+	 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 	 */
 	bool reduce(const DWORD &object, const BYTE num);
 
 	/**
-	 * \brief ¼ì²é¿ÉÏûºÄÎïÆ·ÊÇ·ñ×ã¹»
-	 * \param object ÏûºÄÎïÆ·µÄÀàĞÍ
-	 * \param num ÏûºÄÎïÆ·µÄÊıÁ¿
+	 * \brief æ£€æŸ¥å¯æ¶ˆè€—ç‰©å“æ˜¯å¦è¶³å¤Ÿ
+	 * \param object æ¶ˆè€—ç‰©å“çš„ç±»å‹
+	 * \param num æ¶ˆè€—ç‰©å“çš„æ•°é‡
 	 * \author fqnewman
-	 * \return true ×ã¹» false ²»¹»
+	 * \return true è¶³å¤Ÿ false ä¸å¤Ÿ
 	 */
 	bool checkReduce(const DWORD &object, const BYTE num);
 
 	/**
-	 * \brief Ê©·Å¼¼ÄÜËùµ¼ÖÂµÄÏûºÄMP,HP,SP
-	 * \param base ¼¼ÄÜ»ù±¾ÊôĞÔ¶ÔÏó
+	 * \brief æ–½æ”¾æŠ€èƒ½æ‰€å¯¼è‡´çš„æ¶ˆè€—MP,HP,SP
+	 * \param base æŠ€èƒ½åŸºæœ¬å±æ€§å¯¹è±¡
 	 * \author fqnewman
-	 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+	 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 	 */
 	bool doSkillCost(const zSkillB *base);
 
 	/**
-	 * \brief ¼ì²éÊ©·Å¼¼ÄÜËùµ¼ÖÂµÄÏûºÄMP,HP,SPÊÇ·ñ×ã¹»
-	 * \param base ¼¼ÄÜ»ù±¾ÊôĞÔ¶ÔÏó
+	 * \brief æ£€æŸ¥æ–½æ”¾æŠ€èƒ½æ‰€å¯¼è‡´çš„æ¶ˆè€—MP,HP,SPæ˜¯å¦è¶³å¤Ÿ
+	 * \param base æŠ€èƒ½åŸºæœ¬å±æ€§å¯¹è±¡
 	 * \author fqnewman
-	 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+	 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 	 */
 	bool checkSkillCost(const zSkillB *base);
 
 	/**
-	 * \brief ¼ì²é×ÔÉíµÄÊ©·Å³É¹¦¼¸ÂÊ£¬¾ö¶¨Õâ´Î¼¼ÄÜÊÇ·ñ¿ÉÒÔÊ©·Å
+	 * \brief æ£€æŸ¥è‡ªèº«çš„æ–½æ”¾æˆåŠŸå‡ ç‡ï¼Œå†³å®šè¿™æ¬¡æŠ€èƒ½æ˜¯å¦å¯ä»¥æ–½æ”¾
 	 * \author fqnewman
-	 * \return true ³É¹¦ false Ê§°Ü
+	 * \return true æˆåŠŸ false å¤±è´¥
 	 */
 	bool checkPercent();
 
 	/**
-	 * \brief ÅĞ¶ÏÊÇ·ñÊÇµĞÈË
+	 * \brief åˆ¤æ–­æ˜¯å¦æ˜¯æ•Œäºº
 	 * \author fqnewman
-	 * \return true ÊÇ false ²»ÊÇ
+	 * \return true æ˜¯ false ä¸æ˜¯
 	 */
 	//bool isEnemy(SceneUser *pUser);
 
 	/**
-	 * \brief ËÀÍöºó¸øÌØ¶¨½ÇÉ«Ôö¼Ó¶îÍâ¾­Ñé,°üÀ¨»¤±£ºÍ×°±¸µÄ¶îÍâ¾­Ñé
-	 * \param wdExp ·ÖÅäµ½µÄ¾­Ñé
-	 * \param pUser ·ÖÅä¶ÔÏó
-	 * \return ÖØĞÂ¼ÆËãºóµÄ¾­ÑéÖµ
+	 * \brief æ­»äº¡åç»™ç‰¹å®šè§’è‰²å¢åŠ é¢å¤–ç»éªŒ,åŒ…æ‹¬æŠ¤ä¿å’Œè£…å¤‡çš„é¢å¤–ç»éªŒ
+	 * \param wdExp åˆ†é…åˆ°çš„ç»éªŒ
+	 * \param pUser åˆ†é…å¯¹è±¡
+	 * \return é‡æ–°è®¡ç®—åçš„ç»éªŒå€¼
 	 */
 	DWORD addOtherExp(DWORD wdExp , SceneUser *pUser);
 
 	/**
-	 * \brief ÖØÖÃ×î´óµÄhp
+	 * \brief é‡ç½®æœ€å¤§çš„hp
 	 * \author fqnewman
 	 */
 	virtual void changeAndRefreshHMS(bool lock=true, bool sendData=true);
 
 	/**
-	 * \brief ¸ù¾İµÈ¼¶²î±ğÖØĞÂ¼ÆËã¾­Ñé
-	 * \param wdExp ·ÖÅäµ½µÄ¾­ÑéÖµ
-	 * \param char_level ½ÇÉ«µÈ¼¶
-	 * \return ÖØĞÂ¼ÆËãºóµÄ¾­ÑéÖµ
+	 * \brief æ ¹æ®ç­‰çº§å·®åˆ«é‡æ–°è®¡ç®—ç»éªŒ
+	 * \param wdExp åˆ†é…åˆ°çš„ç»éªŒå€¼
+	 * \param char_level è§’è‰²ç­‰çº§
+	 * \return é‡æ–°è®¡ç®—åçš„ç»éªŒå€¼
 	 */
 	DWORD levelExp(DWORD wdExp , DWORD char_level);
 
 	/**
-	 * \brief ÖØĞÂ·¢ËÍ±¾NPCµÄµØÍ¼Êı¾İ
+	 * \brief é‡æ–°å‘é€æœ¬NPCçš„åœ°å›¾æ•°æ®
 	 */
 	void reSendMyMapData();
 
-	//ÉèÖÃ³èÎïµÄÖ÷ÈË
+	//è®¾ç½®å® ç‰©çš„ä¸»äºº
 	virtual void setMaster(SceneEntryPk *){}
 
-	//»ñÈ¡³èÎïµÄÖ÷ÈË
+	//è·å–å® ç‰©çš„ä¸»äºº
 	virtual SceneEntryPk *getMaster() {return 0;}
 	/**
-	 * \brief µÃµ½×îÉÏ²ãµÄÖ÷ÈË
+	 * \brief å¾—åˆ°æœ€ä¸Šå±‚çš„ä¸»äºº
 	 *
-	 * \return Ö÷ÈË
+	 * \return ä¸»äºº
 	 */
 	virtual SceneEntryPk *getTopMaster(){return this;}
 
-	//ÇĞ»»³¡¾°
+	//åˆ‡æ¢åœºæ™¯
 	bool changeMap(Scene *newScene,const zPos &pos);
 	void setAspeedRate(float rate);
 	void resetAspeedRate();
 
 	/**
-	 * \brief Í¨ÖªÑ¡ÖĞ×Ô¼ºµÄÓÃ»§µÄhpºÍmp·¢Éú±ä»¯
+	 * \brief é€šçŸ¥é€‰ä¸­è‡ªå·±çš„ç”¨æˆ·çš„hpå’Œmpå‘ç”Ÿå˜åŒ–
 	 */
 	void sendtoSelectedHpAndMp();
 	void sendtoSelectedState(DWORD state , WORD value , WORD time);
@@ -512,7 +512,7 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	bool createRush();
 	virtual bool moveToMaster();
 
-	//AIÏà¹ØµÄ·½·¨
+	//AIç›¸å…³çš„æ–¹æ³•
 	void setSpeedRate(float rate);
 	float getSpeedRate();
 	void resetSpeedRate();
@@ -562,7 +562,7 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	virtual bool randomMove();
 	void randomChat(NpcChatType type);
 
-	//»Øµ÷µã
+	//å›è°ƒç‚¹
 	virtual void on_reached() { }
 	virtual void on_death(SceneEntryPk* att){}
 	virtual void check() { }
@@ -571,10 +571,10 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 
 	virtual void clearMaster();
 
-	//zPos actPos;//»î¶¯Î»ÖÃ
-	//unsigned int actRegionX,actRegionY;//»î¶¯·¶Î§
+	//zPos actPos;//æ´»åŠ¨ä½ç½®
+	//unsigned int actRegionX,actRegionY;//æ´»åŠ¨èŒƒå›´
 	//t_NpcAIDefine oldAI;
-	///npc¿ØÖÆÆ÷µÄÖ¸Õë
+	///npcæ§åˆ¶å™¨çš„æŒ‡é’ˆ
 	NpcAIController * AIC;
 	bool setScript(int id);
 	void clearScript();
@@ -582,9 +582,9 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 
 	BYTE getAType();
 
-	///npcAI±êÖ¾
+	///npcAIæ ‡å¿—
 	DWORD aif;
-	///³èÎïµÄAIÄ£Ê½
+	///å® ç‰©çš„AIæ¨¡å¼
 	//WORD petAI;
 	ScenePet * summonPet(DWORD, Cmd::petType, DWORD, DWORD, const char *, DWORD, zPos pos=zPos(0,0), BYTE dir=4);
 	bool killOnePet(ScenePet *);
@@ -609,7 +609,7 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	virtual DWORD getMaxHP();
 	virtual DWORD getBaseMaxHP();
 
-	///´Î¹¥»÷Ä¿±ê
+	///æ¬¡æ”»å‡»ç›®æ ‡
 	DWORD secondTargetType;
 	DWORD secondTargetID;
 	bool setSecondTarget(SceneEntryPk *);
@@ -621,130 +621,130 @@ class SceneNpc : public SceneEntryPk, public zAStar<>, public zAStar<2>
 	void goToRandomScreen();
 
 	/**
-	 * \brief ÎïÆ·±£»¤
+	 * \brief ç‰©å“ä¿æŠ¤
 	 *
 	 */
 	DWORD dwNpcLockedUser;
 protected:
-	/// NPCËÑË÷µĞÈËµÄ·¶Î§
+	/// NPCæœç´¢æ•Œäººçš„èŒƒå›´
 	static const int npc_search_region = 5;
-	/// NPCÔ¶ÀëÄ¿±ê·ÅÆú×·×ÙµÄ·¶Î§
+	/// NPCè¿œç¦»ç›®æ ‡æ”¾å¼ƒè¿½è¸ªçš„èŒƒå›´
 	static const int npc_lost_target_region = 12;
-	/// NPCÔ¶Àë»î¶¯·¶Î§·ÅÆú×·×ÙµÄ¾àÀë
+	/// NPCè¿œç¦»æ´»åŠ¨èŒƒå›´æ”¾å¼ƒè¿½è¸ªçš„è·ç¦»
 	static const int npc_out_of_range_region = 20;
-	/// NPCÖ÷¶¯ËÑË÷Ä¿±êµÄ·¶Î§
+	/// NPCä¸»åŠ¨æœç´¢ç›®æ ‡çš„èŒƒå›´
 	static const int npc_chase_region = 6;
-	/// ³èÎï±£³ÖÔÚÖ÷ÈËÉí±ßµÄ·¶Î§
+	/// å® ç‰©ä¿æŒåœ¨ä¸»äººèº«è¾¹çš„èŒƒå›´
 	static const int npc_pet_chase_region = 2;
-	/// ³èÎïÀëÖ÷ÈË³¬¹ı´Ë¾àÀëÔò¼ÓËÙ
+	/// å® ç‰©ç¦»ä¸»äººè¶…è¿‡æ­¤è·ç¦»åˆ™åŠ é€Ÿ
 	static const int npc_pet_run_region = 4;
-	/// ³èÎïÀëÖ÷ÈË³¬¹ı´Ë¾àÀëÔòÌø×ª
+	/// å® ç‰©ç¦»ä¸»äººè¶…è¿‡æ­¤è·ç¦»åˆ™è·³è½¬
 	static const int npc_pet_warp_region = 6;
-	/// Ô¶³Ìnpc¹¥»÷·¶Î§
+	/// è¿œç¨‹npcæ”»å‡»èŒƒå›´
 	static const int npc_far_attack_range = 6;
 private:
 	/**
-	 * \brief NPC¿ÉÇå³ı
+	 * \brief NPCå¯æ¸…é™¤
 	 *
 	 */
 	bool clearMe;
 
-	///npcµ±Ç°µÄAI
+	///npcå½“å‰çš„AI
 	t_NpcAIDefine AIDefine;
 
-	///npcµÄÖ÷ÈË
+	///npcçš„ä¸»äºº
 	//SceneUser * master;
 
-	///ÒÆ¶¯ËÙ¶È±¶ÂÊ
+	///ç§»åŠ¨é€Ÿåº¦å€ç‡
 	float speedRate;
-	///¹¥»÷ËÙ¶È±¶ÂÊ
+	///æ”»å‡»é€Ÿåº¦å€ç‡
 	float aspeedRate;
 
-	///ÊÇ·ñÒÑ¾­ÒòÎªhp<20%ÌáÉıÁËÒÆ¶¯ËÙ¶È
+	///æ˜¯å¦å·²ç»å› ä¸ºhp<20%æå‡äº†ç§»åŠ¨é€Ÿåº¦
 	bool speedUpUnder20;
 
-	///ÊÇ·ñÒÑ¾­ÒòÎªhp<50%ÌáÉıÁË¹¥»÷ËÙ¶È
+	///æ˜¯å¦å·²ç»å› ä¸ºhp<50%æå‡äº†æ”»å‡»é€Ÿåº¦
 	bool aspeedUpUnder50;
 
 
 	bool processDeath(SceneEntryPk *pAtt);
 
-	///ÊÇ·ñÕıÔÚºóÍËÖĞ(ms)
+	///æ˜¯å¦æ­£åœ¨åé€€ä¸­(ms)
 	int backOffing;
 
 	/**
-	 * \brief µÚÒ»´Î±»¹¥»÷Ê±¼ä(²âÊÔÓÃ
+	 * \brief ç¬¬ä¸€æ¬¡è¢«æ”»å‡»æ—¶é—´(æµ‹è¯•ç”¨
 	 *
 	 */
-	/// µÚÒ»´Î±»¹¥»÷µÄÊ±¼ä
+	/// ç¬¬ä¸€æ¬¡è¢«æ”»å‡»çš„æ—¶é—´
 	zRTime first_time;
 
-	///°ëÃë¶¨Ê±Æ÷
+	///åŠç§’å®šæ—¶å™¨
 	Timer _half_sec;
 
-	///1Ãë¶¨Ê±Æ÷
+	///1ç§’å®šæ—¶å™¨
 	Timer _one_sec;
 
-	///3Ãë¶¨Ê±Æ÷
+	///3ç§’å®šæ—¶å™¨
 	Timer _3_sec;
 
 	/**
-	 * \brief ¸ú×Ù·½Ê½
+	 * \brief è·Ÿè¸ªæ–¹å¼
 	 *
 	 */
-	///npcµÄ¸ú×Ù·½Ê½
+	///npcçš„è·Ÿè¸ªæ–¹å¼
 	SceneNpcChase chaseMode;
 
 	//DWORD	dwNpcChasedEntryType;
 	/**
-	 * \brief Ëù¸ú×ÙÄ¿±êµÄµÄ±àºÅ
+	 * \brief æ‰€è·Ÿè¸ªç›®æ ‡çš„çš„ç¼–å·
 	 *
 	 */
 	//DWORD curTarget;
 	//DWORD	dwNpcChasedEntryID;
 
 	/**
-	 * \brief ÎïÆ·±£»¤Ê±¼ä
+	 * \brief ç‰©å“ä¿æŠ¤æ—¶é—´
 	 *
 	 */
 	zRTime lockedUserTime;
 	/**
-	 * \brief ÏÂÒ»´ÎÒÆ¶¯Ê±¼ä
+	 * \brief ä¸‹ä¸€æ¬¡ç§»åŠ¨æ—¶é—´
 	 *
 	 */
 	zRTime nextMoveTime;
 	/**
-	 * \brief ÏÂÒ»´Î¹¥»÷Ê±¼ä
+	 * \brief ä¸‹ä¸€æ¬¡æ”»å‡»æ—¶é—´
 	 *
 	 */
 	zRTime nextAttackTime;
 
-	///½áÊøÒşÉí×´Ì¬µÄÊ±¼ä
+	///ç»“æŸéšèº«çŠ¶æ€çš„æ—¶é—´
 	zRTime showTime;
 
 	/**
-	 * \brief ÊÇ·ñ¿ÉÒÔµôÂäÎïÆ·
+	 * \brief æ˜¯å¦å¯ä»¥æ‰è½ç‰©å“
 	 *
 	 */
 	bool lostObject;
 
-	//ÊÇ·ñ½øĞĞ¹ÖÎï¹¥³ÇµÄÅĞ¶Ï
+	//æ˜¯å¦è¿›è¡Œæ€ªç‰©æ”»åŸçš„åˆ¤æ–­
 	bool mayRush;
 
 	/**
-	 * \brief NpcÀàĞÍ
-	 * ¾²Ì¬µÄ»¹ÊÇ¶¯Ì¬·ÖÅäµÄ
+	 * \brief Npcç±»å‹
+	 * é™æ€çš„è¿˜æ˜¯åŠ¨æ€åˆ†é…çš„
 	 */
 	const SceneNpcType type;
 
 	/**
-	 * \brief ÁÙÊ±±àºÅµÄÏßĞÔ·ÖÅäÆ÷
-	 * Ö÷ÒªÔÚ´´½¨¾²Ì¬NpcµÄÊ±ºòĞèÒªÊ¹ÓÃ
+	 * \brief ä¸´æ—¶ç¼–å·çš„çº¿æ€§åˆ†é…å™¨
+	 * ä¸»è¦åœ¨åˆ›å»ºé™æ€Npcçš„æ—¶å€™éœ€è¦ä½¿ç”¨
 	 */
 	static DWORD serialID;
 	/**
-	 * \brief ÁÙÊ±±àºÅµÄÎ¨Ò»·ÖÅäÆ÷
-	 * Ö÷ÒªÔÚ´´½¨¶¯Ì¬NpcµÄÊ±ºòĞèÒªÊ¹ÓÃ
+	 * \brief ä¸´æ—¶ç¼–å·çš„å”¯ä¸€åˆ†é…å™¨
+	 * ä¸»è¦åœ¨åˆ›å»ºåŠ¨æ€Npcçš„æ—¶å€™éœ€è¦ä½¿ç”¨
 	 */
 	static zUniqueDWORDID uniqueID;
 
@@ -753,23 +753,23 @@ private:
 	typedef NpcHpHashmap::iterator NpcHpHashmap_iterator;
 	typedef NpcHpHashmap::const_iterator NpcHpHashmap_const_iterator;
 	typedef NpcHpHashmap::value_type NpcHpHashmap_pair;
-	///¾­ÑéÖµÁĞ±í
-	///¿ÉÒÔ·Öµ½¸Ãnpc¾­ÑéµÄÍæ¼ÒÁĞ±í
+	///ç»éªŒå€¼åˆ—è¡¨
+	///å¯ä»¥åˆ†åˆ°è¯¥npcç»éªŒçš„ç©å®¶åˆ—è¡¨
 	NpcHpHashmap expmap;
 
 
 public:
 	/**
-	 * \brief ÉèÖÃ½ÇÉ«µÄµ±Ç°×´Ì¬£¬²¢¸ù¾İµ±Ç°×´Ì¬³ÊÏÖ½ÇÉ«µÄÌØĞ§»òÕß¹Ø±ÕÌØĞ§
-	 * \param state ×´Ì¬ID ¸ù¾İenum SceneEntryStateÈ¡Öµ
-	 * \param isShow ÊÇ·ñÏÔÊ¾Ğ§¹û
+	 * \brief è®¾ç½®è§’è‰²çš„å½“å‰çŠ¶æ€ï¼Œå¹¶æ ¹æ®å½“å‰çŠ¶æ€å‘ˆç°è§’è‰²çš„ç‰¹æ•ˆæˆ–è€…å…³é—­ç‰¹æ•ˆ
+	 * \param state çŠ¶æ€ID æ ¹æ®enum SceneEntryStateå–å€¼
+	 * \param isShow æ˜¯å¦æ˜¾ç¤ºæ•ˆæœ
 	 * \author fqnewman
-	 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+	 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 	 */
 	void showCurrentEffect(const WORD &state, bool isShow,bool notify=true);
 	/**
-	 * \brief NPCÊ¬ÌåµÄÊ¹ÓÃ×´Ì¬
-	 * trueÎªÒÑ¾­±»Ê¹ÓÃ
+	 * \brief NPCå°¸ä½“çš„ä½¿ç”¨çŠ¶æ€
+	 * trueä¸ºå·²ç»è¢«ä½¿ç”¨
 	 */
 	bool isUse;
 };

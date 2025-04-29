@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SuperServer.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ·şÎñÆ÷¹ÜÀíÆ÷
+ * \brief å®ç°æœåŠ¡å™¨ç®¡ç†å™¨
  *
- * ¶ÔÒ»¸öÇøÖĞµÄËùÓĞ·şÎñÆ÷½øĞĞ¹ÜÀí
+ * å¯¹ä¸€ä¸ªåŒºä¸­çš„æ‰€æœ‰æœåŠ¡å™¨è¿›è¡Œç®¡ç†
  * 
  */
 
@@ -40,9 +40,9 @@ zDBConnPool *SuperService::dbConnPool = NULL;
 SuperService *SuperService::instance = NULL;
 
 /**
- * \brief ´ÓÊı¾İ¿âÖĞ»ñÈ¡·şÎñÆ÷ĞÅÏ¢
+ * \brief ä»æ•°æ®åº“ä¸­è·å–æœåŠ¡å™¨ä¿¡æ¯
  *
- * Èç¹ûÊı¾İ¿âÖĞÃ»ÓĞ·şÎñÆ÷¹ÜÀíÆ÷µÄĞÅÏ¢£¬ĞèÒª³õÊ¼»¯Ò»Ìõ¼ÇÂ¼
+ * å¦‚æœæ•°æ®åº“ä¸­æ²¡æœ‰æœåŠ¡å™¨ç®¡ç†å™¨çš„ä¿¡æ¯ï¼Œéœ€è¦åˆå§‹åŒ–ä¸€æ¡è®°å½•
  *
  */
 bool SuperService::getServerInfo()
@@ -74,7 +74,7 @@ bool SuperService::getServerInfo()
 	connHandleID handle = dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ´ÓÊı¾İ¿âÁ¬½Ó³Ø»ñÈ¡Á¬½Ó¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½ä»æ•°æ®åº“è¿æ¥æ± è·å–è¿æ¥å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
@@ -82,7 +82,7 @@ bool SuperService::getServerInfo()
 	unsigned int retcode = dbConnPool->exeSelect(handle, "`SERVERLIST`", col_define, where, NULL,(unsigned char **)&pData);
 	if ((unsigned int)1 == retcode && pData)
 	{
-		//Ö»ÓĞÒ»ÌõÂú×ãÌõ¼şµÄ¼ÇÂ¼
+		//åªæœ‰ä¸€æ¡æ»¡è¶³æ¡ä»¶çš„è®°å½•
 		if (strcmp(pstrIP, pData->pstrIP) == 0)
 		{
 			wdServerID = pData->wdServerID;
@@ -95,7 +95,7 @@ bool SuperService::getServerInfo()
 		}
 		else
 		{
-			Zebra::logger->error("Êı¾İ¿âÖĞµÄ¼ÇÂ¼²»·ûºÏ£º%s, %s", pstrIP, pData->pstrIP);
+			Zebra::logger->error("æ•°æ®åº“ä¸­çš„è®°å½•ä¸ç¬¦åˆï¼š%s, %s", pstrIP, pData->pstrIP);
 			SAFE_DELETE_VEC(pData);
 			dbConnPool->putHandle(handle);
 			return false;
@@ -103,8 +103,8 @@ bool SuperService::getServerInfo()
 	}
 	else if(0 == retcode)
 	{
-		//Êı¾İ¿âÖĞÃ»ÓĞ¼ÇÂ¼£¬¸ù¾İÒ»Ğ©È±Ê¡ĞÅÏ¢£¬Éú³ÉÒ»Ìõ¼ÇÂ¼
-		strncpy(pstrName, "·şÎñÆ÷¹ÜÀíÆ÷", sizeof(pstrName) - 1);
+		//æ•°æ®åº“ä¸­æ²¡æœ‰è®°å½•ï¼Œæ ¹æ®ä¸€äº›ç¼ºçœä¿¡æ¯ï¼Œç”Ÿæˆä¸€æ¡è®°å½•
+		strncpy(pstrName, "æœåŠ¡å™¨ç®¡ç†å™¨", sizeof(pstrName) - 1);
 		wdExtPort = wdPort = 10000;
 
 		bzero(&data, sizeof(data));
@@ -117,15 +117,15 @@ bool SuperService::getServerInfo()
 		data.wdExtPort = wdExtPort;
 		if ((unsigned int)-1 == dbConnPool->exeInsert(handle, "`SERVERLIST`", col_define, (const unsigned char *)&data))
 		{
-			Zebra::logger->error("ÏòÊı¾İ¿âÖĞ²åÈë·şÎñÆ÷ĞÅÏ¢¼ÇÂ¼Ê§°Ü");
+			Zebra::logger->error("å‘æ•°æ®åº“ä¸­æ’å…¥æœåŠ¡å™¨ä¿¡æ¯è®°å½•å¤±è´¥");
 			dbConnPool->putHandle(handle);
 			return false;
 		}
 	}
 	else
 	{
-		//²éÑ¯³ö´í£¬»òÕß¼ÇÂ¼Ì«¶à
-		Zebra::logger->error("²éÑ¯Êı¾İ³ö´í£¬»òÕßÊı¾İ¿âÖĞ·şÎñÆ÷¹ÜÀíÆ÷µÄ¼ÇÂ¼Ì«¶à£¬ĞèÒªÕûÀí");
+		//æŸ¥è¯¢å‡ºé”™ï¼Œæˆ–è€…è®°å½•å¤ªå¤š
+		Zebra::logger->error("æŸ¥è¯¢æ•°æ®å‡ºé”™ï¼Œæˆ–è€…æ•°æ®åº“ä¸­æœåŠ¡å™¨ç®¡ç†å™¨çš„è®°å½•å¤ªå¤šï¼Œéœ€è¦æ•´ç†");
 		SAFE_DELETE_VEC(pData);
 		dbConnPool->putHandle(handle);
 		return false;
@@ -136,11 +136,11 @@ bool SuperService::getServerInfo()
 }
 
 /**
- * \brief ³õÊ¼»¯ÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–ç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zService::init</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zService::init</code>
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SuperService::init()
 {
@@ -150,7 +150,7 @@ bool SuperService::init()
 	if (NULL == dbConnPool
 			|| !dbConnPool->putURL(0, Zebra::global["mysql"].c_str(), false))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü");
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥");
 		return false;
 	}
 
@@ -169,7 +169,7 @@ bool SuperService::init()
 	if (!InfoClientManager::getInstance().init())
 		return false;
 
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -191,30 +191,30 @@ bool SuperService::init()
 }
 
 /**
- * \brief ĞÂ½¨Á¢Ò»¸öÁ¬½ÓÈÎÎñ
+ * \brief æ–°å»ºç«‹ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zNetService::newTCPTask</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zNetService::newTCPTask</code>
  *
- * \param sock TCP/IPÁ¬½Ó
- * \param addr µØÖ·
+ * \param sock TCP/IPè¿æ¥
+ * \param addr åœ°å€
  */
 void SuperService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	ServerTask *tcpTask = new ServerTask(taskPool, sock, addr);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zService::final</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zService::final</code>
  *
  */
 void SuperService::final()
@@ -246,7 +246,7 @@ void SuperService::final()
 }
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  *
  */
 static struct argp_option super_options[] =
@@ -260,12 +260,12 @@ static struct argp_option super_options[] =
 };
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
  *
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t super_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -303,13 +303,13 @@ static error_t super_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char super_doc[] = "\nSuperServer\n" "\t·şÎñÆ÷¹ÜÀíÆ÷¡£";
+static char super_doc[] = "\nSuperServer\n" "\tæœåŠ¡å™¨ç®¡ç†å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -317,7 +317,7 @@ const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild time      :\t" __DATE__ ", " __TIME__;
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  *
  */
 class SuperConfile:public zConfile
@@ -340,7 +340,7 @@ class SuperConfile:public zConfile
 };
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶ï¼Œä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  *
  */
 void SuperService::reloadConfig()
@@ -348,7 +348,7 @@ void SuperService::reloadConfig()
 	Zebra::logger->debug("%s", __PRETTY_FUNCTION__);
 	SuperConfile sc;
 	sc.parse("SuperServer");
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -360,27 +360,27 @@ void SuperService::reloadConfig()
 }
 
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
+ * \brief ä¸»ç¨‹åºå…¥å£
  *
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("SuperServer");
 
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["loginServerListFile"] = "SuperServer/loginServerList.xml";
 	Zebra::global["mysql"] = "mysql://Zebra:Zebra@192.168.1.162:3306/SuperServer";
 	Zebra::global["logfilename"] = "/tmp/superserver.log";
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	SuperConfile sc;
 	if (!sc.parse("SuperServer"))
 		return EXIT_FAILURE;
 
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -389,18 +389,18 @@ int main(int argc, char **argv)
 	{
 		zTCPTask::analysis._switch = false;
 	}
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(super_options, super_parse_opt, 0, super_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();

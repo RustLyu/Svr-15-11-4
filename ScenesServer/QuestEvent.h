@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestEvent.h  $
  * \author
  * \date	2005-03-31
- * \brief	ÈÎÎñÏµÍ³
+ * \brief	ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
 
@@ -23,9 +23,9 @@ class Condition;
 class Action;
 
 /**
- * \brief ´¥·¢ÊÂ¼ş
+ * \brief è§¦å‘äº‹ä»¶
  *
- * ·â×°ÁË¶ÔÈÎÎñ½Å±¾´¥·¢µÄÊÂ¼şµÄ´¦Àí
+ * å°è£…äº†å¯¹ä»»åŠ¡è„šæœ¬è§¦å‘çš„äº‹ä»¶çš„å¤„ç†
  *
  */
 class Event
@@ -48,9 +48,9 @@ public:
 	int state(SceneUser& user);
 
 	/**     
-	 * \brief   È¡µÃÊÂ¼şid
+	 * \brief   å–å¾—äº‹ä»¶id
 	 *      
-	 * \return ÊÂ¼şid
+	 * \return äº‹ä»¶id
 	 */
 	DWORD id() const
 	{
@@ -125,9 +125,9 @@ private:
 };
 
 /**
- * \brief ÊÂ¼ş´¥·¢Æ÷
+ * \brief äº‹ä»¶è§¦å‘å™¨
  *
- *´¥·¢ÊÂ¼şÄ£°å,Ìá¹©¶Ô²»Í¬´¥·¢ÊÂ¼şÀàĞÍµÄÍ³Ò»´¦Àí
+ *è§¦å‘äº‹ä»¶æ¨¡æ¿,æä¾›å¯¹ä¸åŒè§¦å‘äº‹ä»¶ç±»å‹çš„ç»Ÿä¸€å¤„ç†
  *
  */
 template<typename T>
@@ -135,18 +135,18 @@ class EventTrigger
 {
 public:
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
 	 */    
 	EventTrigger(DWORD id) : _id(id)
 	{ }
 
 	/**     
-	 * \brief   È¡µÃÊÂ¼şid
+	 * \brief   å–å¾—äº‹ä»¶id
 	 *      
-	 * \return ÊÂ¼şid
+	 * \return äº‹ä»¶id
 	 */		
 	DWORD id() const
 	{
@@ -154,9 +154,9 @@ public:
 	}
 	
 	/**     
-	 * \brief   È¡µÃÊÂ¼şÄ¿Â¼
+	 * \brief   å–å¾—äº‹ä»¶ç›®å½•
 	 *      
-	 * \return ÊÂ¼şÄ¿Â¼
+	 * \return äº‹ä»¶ç›®å½•
 	 */
 	static const std::string& dir()
 	{
@@ -169,9 +169,9 @@ private:
 
 namespace Trigger {
 	/**
-	 * \brief Ê¹ÓÃ´¥·¢ÊÂ¼ş
+	 * \brief ä½¿ç”¨è§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÊ¹ÓÃÎïÆ·Ê±±»´¥·¢
+	 *åœ¨ä½¿ç”¨ç‰©å“æ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Use
@@ -181,9 +181,9 @@ namespace Trigger {
 	};
 	
 	/**
-	 * \brief É±ËÀ´¥·¢ÊÂ¼ş
+	 * \brief æ€æ­»è§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÉ±ËÀNPCÊ±±»´¥·¢
+	 *åœ¨æ€æ­»NPCæ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Kill
@@ -193,9 +193,9 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief É±ËÀ´¥·¢ÊÂ¼ş
+	 * \brief æ€æ­»è§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÉ±ËÀNPCÊ±±»´¥·¢
+	 *åœ¨æ€æ­»NPCæ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class KillByLevel
@@ -205,9 +205,9 @@ namespace Trigger {
 	};
 	
 	/**
-	 * \brief É±ËÀ´¥·¢ÊÂ¼ş(Ç××ÔÉ±µÄ)
+	 * \brief æ€æ­»è§¦å‘äº‹ä»¶(äº²è‡ªæ€çš„)
 	 *
-	 *ÔÚÉ±ËÀNPCÊ±±»´¥·¢
+	 *åœ¨æ€æ­»NPCæ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class KillBySelf
@@ -217,9 +217,9 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief Ê°È¡´¥·¢ÊÂ¼ş
+	 * \brief æ‹¾å–è§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÊ°È¡ÎïÆ·Ê±±»´¥·¢
+	 *åœ¨æ‹¾å–ç‰©å“æ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Get
@@ -229,9 +229,9 @@ namespace Trigger {
 	};
 		
 	/**
-	 * \brief ·ÃÎÊ´¥·¢ÊÂ¼ş
+	 * \brief è®¿é—®è§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚ·ÃÎÊNPCÊ±±»´¥·¢
+	 *åœ¨è®¿é—®NPCæ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Visit
@@ -241,9 +241,9 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief ËÀÍö´¥·¢ÊÂ¼ş
+	 * \brief æ­»äº¡è§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÓÃ»§ËÀÍöÊ±±»´¥·¢
+	 *åœ¨ç”¨æˆ·æ­»äº¡æ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Die
@@ -253,9 +253,9 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief ÆïÂí´¥·¢ÊÂ¼ş
+	 * \brief éª‘é©¬è§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÓÃ»§ÆïÂíÊ±±»´¥·¢
+	 *åœ¨ç”¨æˆ·éª‘é©¬æ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Ride
@@ -265,9 +265,9 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief ÍË³ö´¥·¢ÊÂ¼ş
+	 * \brief é€€å‡ºè§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÓÃ»§ÍË³öÊ±±»´¥·¢
+	 *åœ¨ç”¨æˆ·é€€å‡ºæ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Quit
@@ -277,9 +277,9 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief ¶¨Ê±´¥·¢ÊÂ¼ş
+	 * \brief å®šæ—¶è§¦å‘äº‹ä»¶
 	 *
-	 *ĞèÒª¶¨Ê±´¦ÀíµÄÈÎÎñ
+	 *éœ€è¦å®šæ—¶å¤„ç†çš„ä»»åŠ¡
 	 *
 	 */	
 	class Timer
@@ -289,9 +289,9 @@ namespace Trigger {
 	};
 	
 	/**
-	 * \brief ¶ªÆú´¥·¢ÊÂ¼ş
+	 * \brief ä¸¢å¼ƒè§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÓÃ»§¶ªÆúÎïÆ·Ê±±»´¥·¢
+	 *åœ¨ç”¨æˆ·ä¸¢å¼ƒç‰©å“æ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Drop
@@ -301,9 +301,9 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief ½øÈëÓÎÏ·´¥·¢ÊÂ¼ş
+	 * \brief è¿›å…¥æ¸¸æˆè§¦å‘äº‹ä»¶
 	 *
-	 *ÔÚÓÃ»§½øÈëÓÎÏ·Ê±±»´¥·¢
+	 *åœ¨ç”¨æˆ·è¿›å…¥æ¸¸æˆæ—¶è¢«è§¦å‘
 	 *
 	 */	
 	class Enter
@@ -313,7 +313,7 @@ namespace Trigger {
 	};
 
 	/**
-	 * \brief ÆäËû´¥·¢ÊÂ¼ş
+	 * \brief å…¶ä»–è§¦å‘äº‹ä»¶
 	 *
 	 */	
 	class Other
@@ -339,9 +339,9 @@ typedef EventTrigger<Trigger::Enter> OnEnter;
 typedef EventTrigger<Trigger::Other> OnOther;
 
 /**
- * \brief ·ÃÎÊ´¥·¢ÊÂ¼ş
+ * \brief è®¿é—®è§¦å‘äº‹ä»¶
  *
- *ÔÚ·ÃÎÊNPCÊ±±»´¥·¢
+ *åœ¨è®¿é—®NPCæ—¶è¢«è§¦å‘
  *
  */	
 template <typename T>
@@ -349,21 +349,21 @@ class EventTrigger2 : public EventTrigger<T>
 {
 public:	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *  
-	 * param id : ·ÃÎÊµÄnpc id
-	 * param quest_id : ÈÎÎñid
-	 * param offset : ÈÎÎñ·ÖÖ§ 
+	 * param id : è®¿é—®çš„npc id
+	 * param quest_id : ä»»åŠ¡id
+	 * param offset : ä»»åŠ¡åˆ†æ”¯ 
 	 */    
 	EventTrigger2(DWORD id, DWORD quest_id = 0, DWORD offset = 0) : EventTrigger<T>(id), _quest_id(quest_id), _offset(offset)
 	{ }
 
 	/**     
-	 * \brief   È¡µÃÊÂ¼ş¶ÔÓ¦µÄÈÎÎñid
+	 * \brief   å–å¾—äº‹ä»¶å¯¹åº”çš„ä»»åŠ¡id
 	 *      
-	 * \return ÈÎÎñid
+	 * \return ä»»åŠ¡id
 	 */	
 	DWORD quest_id() const
 	{
@@ -371,9 +371,9 @@ public:
 	}
 	
 	/**     
-	 * \brief   È¡µÃÊÂ¼ş¶ÔÓ¦µÄÈÎÎñ·ÖÖ§
+	 * \brief   å–å¾—äº‹ä»¶å¯¹åº”çš„ä»»åŠ¡åˆ†æ”¯
 	 *      
-	 * \return ÈÎÎñ·ÖÖ§
+	 * \return ä»»åŠ¡åˆ†æ”¯
 	 */	
 	DWORD offset() const
 	{
@@ -389,9 +389,9 @@ typedef EventTrigger2<Trigger::Use> OnUse;
 typedef EventTrigger2<Trigger::Visit> OnVisit;
 
 /**
- * \brief ÊÂ¼ş¹ÜÀíÆ÷
+ * \brief äº‹ä»¶ç®¡ç†å™¨
  *
- *¹ÜÀí²»Í¬ÀàĞÍµÄÊÂ¼şÁĞ±í,²¢Ìá¹©Í³Ò»µÄ´¦Àí·½Ê½
+ *ç®¡ç†ä¸åŒç±»å‹çš„äº‹ä»¶åˆ—è¡¨,å¹¶æä¾›ç»Ÿä¸€çš„å¤„ç†æ–¹å¼
  *
  */	
 template <typename E>
@@ -401,9 +401,9 @@ public:
 	typedef EventManager<E> self_t;
 
 	/**     
-	 * \brief  µ¥¼şÄ£Ê½,±£Ö¤ÊÂ¼ş¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
+	 * \brief  å•ä»¶æ¨¡å¼,ä¿è¯äº‹ä»¶ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
 	 *      
-	 * \return ÊÂ¼ş¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
+	 * \return äº‹ä»¶ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
 	 */		
 	static self_t& instance() 
 	{
@@ -412,13 +412,13 @@ public:
 	}
 
 	/**     
-	 * \brief  Ö´ĞĞÈÎÎñ
+	 * \brief  æ‰§è¡Œä»»åŠ¡
 	 *
-	 * ²éÕÒ¶ÔÓ¦µÄÈÎÎñÊÂ¼ş²¢Ö´ĞĞ
+	 * æŸ¥æ‰¾å¯¹åº”çš„ä»»åŠ¡äº‹ä»¶å¹¶æ‰§è¡Œ
 	 *      
-	 * \param user: ÇëÇóµÄÓÃ»§
-	 * \param event:ÈÎÎñÊÂ¼ş
-	 * \return ´¦Àí½á¹û
+	 * \param user: è¯·æ±‚çš„ç”¨æˆ·
+	 * \param event:ä»»åŠ¡äº‹ä»¶
+	 * \return å¤„ç†ç»“æœ
 	 */	
 	int execute(SceneUser& user, E& event)
 	{
@@ -432,33 +432,33 @@ public:
 	}
 
 	/**     
-	 * \brief  Ö´ĞĞÈÎÎñ
+	 * \brief  æ‰§è¡Œä»»åŠ¡
 	 *
-	 * ²éÕÒ¶ÔÓ¦µÄÈÎÎñÊÂ¼ş²¢Ö´ĞĞ
+	 * æŸ¥æ‰¾å¯¹åº”çš„ä»»åŠ¡äº‹ä»¶å¹¶æ‰§è¡Œ
 	 *      
-	 * \param event:ÈÎÎñÊÂ¼ş
-	 * \return ´¦Àí½á¹û
+	 * \param event:ä»»åŠ¡äº‹ä»¶
+	 * \return å¤„ç†ç»“æœ
 	 */		
 	int execute(E& event);
 
 	/**     
-	 * \brief  ÈÎÎñ×´Ì¬
+	 * \brief  ä»»åŠ¡çŠ¶æ€
 	 *
-	 * È¡µÃÓÃ»§Ä³ÈÎÎñµÄ×´Ì¬
+	 * å–å¾—ç”¨æˆ·æŸä»»åŠ¡çš„çŠ¶æ€
 	 *      
-	 * \param user: ÇëÇóµÄÓÃ»§
-	 * \param event: ²éÑ¯µÄÈÎÎñ
-	 * \return ÈÎÎñ×´Ì¬
+	 * \param user: è¯·æ±‚çš„ç”¨æˆ·
+	 * \param event: æŸ¥è¯¢çš„ä»»åŠ¡
+	 * \return ä»»åŠ¡çŠ¶æ€
 	 */	
 	int state(SceneUser& user, E& event);
 
 	/**     
-	 * \brief  ½âÎöÈÎÎñ½Å±¾
+	 * \brief  è§£æä»»åŠ¡è„šæœ¬
 	 *
-	 * ½âÎöÈÎÎñ½Å±¾,Éú³É¶ÔÓ¦µÄÊÂ¼ş½á¹¹
+	 * è§£æä»»åŠ¡è„šæœ¬,ç”Ÿæˆå¯¹åº”çš„äº‹ä»¶ç»“æ„
 	 *      
-	 * \param file_name: ÎÄ¼şÃû
-	 * \return true±íÊ¾½âÎö½Å±¾³É¹¦,false±íÊ¾½âÎö½Å±¾Ê§°Ü
+	 * \param file_name: æ–‡ä»¶å
+	 * \return trueè¡¨ç¤ºè§£æè„šæœ¬æˆåŠŸ,falseè¡¨ç¤ºè§£æè„šæœ¬å¤±è´¥
 	 */  	
 	bool parse(const std::string& file_name) 
 	{
@@ -479,16 +479,16 @@ private:
 	__gnu_cxx::hash_map<DWORD, Event> _events;	
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *  
 	 */    
 	EventManager()
 	{ }
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */
 	~EventManager()
@@ -501,13 +501,13 @@ template<typename E>
 EventManager<E>* EventManager<E>::_instance = NULL;
 
 /**     
- * \brief  Ö´ĞĞÈÎÎñ
+ * \brief  æ‰§è¡Œä»»åŠ¡
  *
- * Ä£°åÆ«ÌØ»¯,Ö´ĞĞÌØ¶¨µÄ·ÃÎÊÀàĞÍ´¥·¢ÈÎÎñÊÂ¼ş
+ * æ¨¡æ¿åç‰¹åŒ–,æ‰§è¡Œç‰¹å®šçš„è®¿é—®ç±»å‹è§¦å‘ä»»åŠ¡äº‹ä»¶
  *      
- * \param user: ÇëÇóµÄÓÃ»§
- * \param event:ÈÎÎñÊÂ¼ş
- * \return ´¦Àí½á¹û
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param event:ä»»åŠ¡äº‹ä»¶
+ * \return å¤„ç†ç»“æœ
  */	
 template<>
 inline int EventManager<OnVisit>::execute(SceneUser& user, OnVisit& event)
@@ -540,13 +540,13 @@ inline int EventManager<OnUse>::execute(SceneUser& user, OnUse& event)
 }
 
 /**     
- * \brief  ÈÎÎñ×´Ì¬
+ * \brief  ä»»åŠ¡çŠ¶æ€
  *
- * È¡µÃÓÃ»§Ä³ÈÎÎñµÄ×´Ì¬
+ * å–å¾—ç”¨æˆ·æŸä»»åŠ¡çš„çŠ¶æ€
  *      
- * \param user: ÇëÇóµÄÓÃ»§
- * \param event: ²éÑ¯µÄÈÎÎñ
- * \return ÈÎÎñ×´Ì¬
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param event: æŸ¥è¯¢çš„ä»»åŠ¡
+ * \return ä»»åŠ¡çŠ¶æ€
  */	
 template<>
 inline int EventManager<OnVisit>::state(SceneUser& user, OnVisit& event)
@@ -560,12 +560,12 @@ inline int EventManager<OnVisit>::state(SceneUser& user, OnVisit& event)
 }
 
 /**     
- * \brief  Ö´ĞĞÈÎÎñ
+ * \brief  æ‰§è¡Œä»»åŠ¡
  *
- * Ä£°åÆ«ÌØ»¯,Ö´ĞĞÌØ¶¨µÄ¶¨Ê±´¥·¢ÈÎÎñÊÂ¼ş
+ * æ¨¡æ¿åç‰¹åŒ–,æ‰§è¡Œç‰¹å®šçš„å®šæ—¶è§¦å‘ä»»åŠ¡äº‹ä»¶
  *      
- * \param event:ÈÎÎñÊÂ¼ş
- * \return ´¦Àí½á¹û
+ * \param event:ä»»åŠ¡äº‹ä»¶
+ * \return å¤„ç†ç»“æœ
  */	
 template<>
 inline int EventManager<OnTimer>::execute(OnTimer& event)

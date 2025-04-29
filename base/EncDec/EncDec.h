@@ -1,4 +1,4 @@
-#ifndef _ENCDEC_H
+﻿#ifndef _ENCDEC_H
 #define _ENCDEC_H
 
 #ifndef _MY_RC5_H

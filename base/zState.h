@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file	zState.h
  * \version  	$Id$
  * \author  	
  * \date 	
- * \brief 	¶¨ÒåÓĞÏŞ×´Ì¬»úµÄ×´Ì¬½Ó¿Ú
+ * \brief 	å®šä¹‰æœ‰é™çŠ¶æ€æœºçš„çŠ¶æ€æ¥å£
  *
  * 
  */
@@ -26,16 +26,16 @@ class State
 	public:
 
 		/**
-		 * \brief ×´Ì¬Ãû³Æ 
+		 * \brief çŠ¶æ€åç§° 
 		 *
 		 */
 		std::string name;
 
 		/**
-		 * \brief State¹¹Ôìº¯Êı 
+		 * \brief Stateæ„é€ å‡½æ•° 
 		 *
 		 *
-		 * \param timeout ¸Ã×´Ì¬³¬¹ı¸ÃÖµ,Ôò¹ıÆÚ
+		 * \param timeout è¯¥çŠ¶æ€è¶…è¿‡è¯¥å€¼,åˆ™è¿‡æœŸ
 		 * \return 
 		 */
 		State(int timeout=0)
@@ -44,9 +44,9 @@ class State
 
 
 		/**
-		 * \brief ÉèÖÃ×´Ì¬»úÖ¸Õë 
+		 * \brief è®¾ç½®çŠ¶æ€æœºæŒ‡é’ˆ 
 		 *
-		 * \param m ÓµÓĞ¸Ã×´Ì¬µÄ×´Ì¬»úÖ¸Õë
+		 * \param m æ‹¥æœ‰è¯¥çŠ¶æ€çš„çŠ¶æ€æœºæŒ‡é’ˆ
 		 */
 		void set_machine(StateMachine<T>* m)
 		{
@@ -54,12 +54,12 @@ class State
 		}
 
 		/**
-		 * \brief ¼ÓÈëÊÂ¼ş´¦Àíº¯Êı 
+		 * \brief åŠ å…¥äº‹ä»¶å¤„ç†å‡½æ•° 
 		 *
 		 *
-		 * \param ename ÊÂ¼şÃû³Æ
-		 * \param eh ÊÂ¼ş´¦ÀíµÄWrapÀà
-		 * \return Ìí¼Ó³É¹¦,·µ»ØTRUE, ·ñÔò, ·µ»ØFALSE
+		 * \param ename äº‹ä»¶åç§°
+		 * \param eh äº‹ä»¶å¤„ç†çš„Wrapç±»
+		 * \return æ·»åŠ æˆåŠŸ,è¿”å›TRUE, å¦åˆ™, è¿”å›FALSE
 		 */
 		bool addHandler(const std::string& ename, EventHandler<T> eh)
 		{
@@ -68,22 +68,22 @@ class State
 		}
 
 		/**
-		 * \brief ·ÖÅÉÊÂ¼ş 
+		 * \brief åˆ†æ´¾äº‹ä»¶ 
 		 *
 		 *
-		 * \param ev ÊÂ¼şÖ¸Õë
-		 * \return ÊÂ¼ş±»´¦Àí·µ»ØTRUE, Ã»ÓĞ±»´¦Àí·µ»ØFALSE
+		 * \param ev äº‹ä»¶æŒ‡é’ˆ
+		 * \return äº‹ä»¶è¢«å¤„ç†è¿”å›TRUE, æ²¡æœ‰è¢«å¤„ç†è¿”å›FALSE
 		 */
 		bool dispatch_event(Event* ev)
 		{
 			EventIter et = handlers.find(ev->get_name());	
 			if (et!=handlers.end())
 			{
-				// Ö´ĞĞµ±Ç°×´Ì¬ÊÕµ½¸ÃÊÂ¼şÊ±µÄÊÂ¼ş´¦Àíº¯Êı
+				// æ‰§è¡Œå½“å‰çŠ¶æ€æ”¶åˆ°è¯¥äº‹ä»¶æ—¶çš„äº‹ä»¶å¤„ç†å‡½æ•°
 				EventHandler<T> eh = (EventHandler<T>)et->second;
 				eh.action(ev);
 				
-				// Ìø×ªµ½ÏÂÒ»×´Ì¬
+				// è·³è½¬åˆ°ä¸‹ä¸€çŠ¶æ€
 				TnsIter ti = transitions.find(ev->get_name());
 				machine->set_act(ti->second);
 #ifdef _ZJW_DEBUG				
@@ -103,13 +103,13 @@ class State
 		
 
 		/**
-		 * \brief Ìí¼Ó×´Ì¬×ª»»±íÏî
+		 * \brief æ·»åŠ çŠ¶æ€è½¬æ¢è¡¨é¡¹
 		 *
 		 *
-		 * \param evname ÊÂ¼şÃû³Æ
-		 * \param eh  ÊÂ¼ş´¦Àíº¯Êı
-		 * \param nextstatename ÏÂÒ»×´Ì¬Ãû³Æ,Ä¬ÈÏÎªover×´Ì¬
-		 * \return Ìí¼Ó³É¹¦·µ»ØTRUE, ·ñÔòÎªFALSE 
+		 * \param evname äº‹ä»¶åç§°
+		 * \param eh  äº‹ä»¶å¤„ç†å‡½æ•°
+		 * \param nextstatename ä¸‹ä¸€çŠ¶æ€åç§°,é»˜è®¤ä¸ºoverçŠ¶æ€
+		 * \return æ·»åŠ æˆåŠŸè¿”å›TRUE, å¦åˆ™ä¸ºFALSE 
 		 */
 		bool add_transition(const std::string& evname, EventHandler<T> eh, 
 				const std::string& nextstatename="over")
@@ -128,9 +128,9 @@ class State
 
 
 		/**
-		 * \brief ÅĞ¶Ï¸Ã×´Ì¬ÊÇ·ñ³¬Ê± 
+		 * \brief åˆ¤æ–­è¯¥çŠ¶æ€æ˜¯å¦è¶…æ—¶ 
 		 *
-		 * \return ³¬Ê±·µ»ØTRUE, ·ñÔòÎªFALSE 
+		 * \return è¶…æ—¶è¿”å›TRUE, å¦åˆ™ä¸ºFALSE 
 		 */
 		bool is_timeout()
 		{

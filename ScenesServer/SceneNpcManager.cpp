@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneNpcManager.cpp  $
  * \author  
  * \date 
- * \brief Npc¹ÜÀíÈİÆ÷
+ * \brief Npcç®¡ç†å®¹å™¨
  *
  * 
  */
@@ -13,11 +13,11 @@
 #include "SceneNpcManager.h"
 #include "Scene.h"
 
-/// SceneNpcManagerµÄÎ¨Ò»ÊµÀı
+/// SceneNpcManagerçš„å”¯ä¸€å®ä¾‹
 SceneNpcManager *SceneNpcManager::snm(NULL);
 
 /**
- * \brief ³õÊ¼»¯
+ * \brief åˆå§‹åŒ–
  *
  */
 bool SceneNpcManager::init()
@@ -26,32 +26,32 @@ bool SceneNpcManager::init()
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */
 SceneNpcManager::SceneNpcManager()
 {
 	if (!loadNpcCommonChatTable())
-		Zebra::logger->error("¶ÁÈ¡npcËµ»°ÄÚÈİÊ§°Ü");
+		Zebra::logger->error("è¯»å–npcè¯´è¯å†…å®¹å¤±è´¥");
 #ifdef _ZJW_DEBUG	
-	Zebra::logger->debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SceneNpcManger¹¹Ôì");
+	Zebra::logger->debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SceneNpcMangeræ„é€ ");
 #endif		
 }
 
 SceneNpcManager::~SceneNpcManager()
 {
 #ifdef _ZJW_DEBUG	
-	Zebra::logger->debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SceneNpcMangerÎö¹¹");
+	Zebra::logger->debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SceneNpcMangerææ„");
 #endif		
 
 }
 
 /**
- * \brief Ïò¹ÜÀíÆ÷Ìí¼ÓÒ»¸önpc
+ * \brief å‘ç®¡ç†å™¨æ·»åŠ ä¸€ä¸ªnpc
  *
  *
- * \param sceneNpc ÒªÌí¼ÓµÄnpcÖ¸Õë
- * \return ÊÇ·ñÌí¼Ó³É¹¦
+ * \param sceneNpc è¦æ·»åŠ çš„npcæŒ‡é’ˆ
+ * \return æ˜¯å¦æ·»åŠ æˆåŠŸ
  */
 bool SceneNpcManager::addSceneNpc(SceneNpc *sceneNpc)
 {
@@ -63,11 +63,11 @@ bool SceneNpcManager::addSceneNpc(SceneNpc *sceneNpc)
 }
 
 /**
- * \brief Ìí¼ÓÌØÊânpc
- * ÌØÊânpc°üÀ¨³èÎï¡¢boss¡¢ÓĞ¹Ì¶¨½Å±¾µÄnpc
+ * \brief æ·»åŠ ç‰¹æ®Šnpc
+ * ç‰¹æ®ŠnpcåŒ…æ‹¬å® ç‰©ã€bossã€æœ‰å›ºå®šè„šæœ¬çš„npc
  *
- * \param sceneNpc ÒªÌí¼ÓµÄnpc
- * \return ÊÇ·ñÌí¼Ó³É¹¦
+ * \param sceneNpc è¦æ·»åŠ çš„npc
+ * \return æ˜¯å¦æ·»åŠ æˆåŠŸ
  */
 bool SceneNpcManager::addSpecialNpc(SceneNpc *sceneNpc, bool force)
 {
@@ -76,7 +76,7 @@ bool SceneNpcManager::addSpecialNpc(SceneNpc *sceneNpc, bool force)
 	{
 		specialNpc.insert(sceneNpc);
 #ifdef _XWL_DEBUG
-		//Zebra::logger->debug("addSceneNpc(): Ôö¼ÓÌØÊânpc %s", sceneNpc->name);
+		//Zebra::logger->debug("addSceneNpc(): å¢åŠ ç‰¹æ®Šnpc %s", sceneNpc->name);
 #endif
 		rwlock.unlock();
 		return true;
@@ -86,10 +86,10 @@ bool SceneNpcManager::addSpecialNpc(SceneNpc *sceneNpc, bool force)
 }
 
 /**
- * \brief É¾³ıÒ»¸önpc
+ * \brief åˆ é™¤ä¸€ä¸ªnpc
  *
  *
- * \param sceneNpc ÒªÉ¾³ıµÄnpc
+ * \param sceneNpc è¦åˆ é™¤çš„npc
  * \return 
  */
 void SceneNpcManager::removeSceneNpc(SceneNpc *sceneNpc)
@@ -100,10 +100,10 @@ void SceneNpcManager::removeSceneNpc(SceneNpc *sceneNpc)
 }
 
 /**
- * \brief É¾³ıÒ»¸öÌØÊânpc
+ * \brief åˆ é™¤ä¸€ä¸ªç‰¹æ®Šnpc
  *
  *
- * \param sceneNpc ÒªÉ¾³ıµÄnpc
+ * \param sceneNpc è¦åˆ é™¤çš„npc
  * \return 
  */
 void SceneNpcManager::removeSpecialNpc(SceneNpc *sceneNpc)
@@ -113,13 +113,13 @@ void SceneNpcManager::removeSpecialNpc(SceneNpc *sceneNpc)
 	rwlock.wrlock();
 	specialNpc.erase(sceneNpc);
 #ifdef _XWL_DEBUG
-	//Zebra::logger->debug("removeSpecialNpc(): É¾³ıÌØÊânpc %s(%u)", sceneNpc->name, sceneNpc->tempid);
+	//Zebra::logger->debug("removeSpecialNpc(): åˆ é™¤ç‰¹æ®Šnpc %s(%u)", sceneNpc->name, sceneNpc->tempid);
 #endif
 	rwlock.unlock();
 }
 
 /**
- * \brief ¹Ø±ÕËùÓĞµÄ¹¦ÄÜNPCÎªÍ£»ú×ö×¼±¸
+ * \brief å…³é—­æ‰€æœ‰çš„åŠŸèƒ½NPCä¸ºåœæœºåšå‡†å¤‡
  */
 void SceneNpcManager::closeFunctionNpc()
 {
@@ -160,11 +160,11 @@ void SceneNpcManager::closeFunctionNpc()
 
 
 /**
- * \brief ¸ù¾İÁÙÊ±idµÃµ½npcµÄÖ¸Õë
+ * \brief æ ¹æ®ä¸´æ—¶idå¾—åˆ°npcçš„æŒ‡é’ˆ
  *
  *
- * \param tempid npcµÄÁÙÊ±id
- * \return ÕÒµ½µÄÖ¸Õë£¬Ê§°Ü·µ»Ø0
+ * \param tempid npcçš„ä¸´æ—¶id
+ * \return æ‰¾åˆ°çš„æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneNpc *SceneNpcManager::getNpcByTempID(DWORD tempid)
 {
@@ -175,9 +175,9 @@ SceneNpc *SceneNpcManager::getNpcByTempID(DWORD tempid)
 }
 
 /**
- * \brief µÃµ½SceneNpcManagerµÄÊµÀı
+ * \brief å¾—åˆ°SceneNpcManagerçš„å®ä¾‹
  *
- * \return SceneNpcManagerµÄÊµÀıÒıÓÃ
+ * \return SceneNpcManagerçš„å®ä¾‹å¼•ç”¨
  */
 SceneNpcManager &SceneNpcManager::getMe()
 {
@@ -189,7 +189,7 @@ SceneNpcManager &SceneNpcManager::getMe()
 }
 
 /**
- * \brief É¾³ıSceneNpcManagerµÄÎ¨Ò»ÊµÀı
+ * \brief åˆ é™¤SceneNpcManagerçš„å”¯ä¸€å®ä¾‹
  */
 void SceneNpcManager::destroyMe()
 {
@@ -197,10 +197,10 @@ void SceneNpcManager::destroyMe()
 }
 
 /**
- * \brief É¾³ıÒ»¸ö³¡¾°ÄÚµÄËùÓĞnpc 
+ * \brief åˆ é™¤ä¸€ä¸ªåœºæ™¯å†…çš„æ‰€æœ‰npc 
  *
  *
- * \param scene ÒªÉ¾³ınpcµÄ³¡¾°
+ * \param scene è¦åˆ é™¤npcçš„åœºæ™¯
  * \return 
  */
 void SceneNpcManager::removeNpcInOneScene(Scene *scene)
@@ -243,16 +243,16 @@ void SceneNpcManager::SpecialAI()
 }
 
 /**
- * \brief ¶ÁÈ¡npcËµ»°ÄÚÈİ
+ * \brief è¯»å–npcè¯´è¯å†…å®¹
  *
- * \return ÊÇ·ñ¶ÁÈ¡³É¹¦
+ * \return æ˜¯å¦è¯»å–æˆåŠŸ
  */
 bool SceneNpcManager::loadNpcCommonChatTable()
 {
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["mapdir"] + "NpcCommonChat.xml"))
 	{
-		Zebra::logger->error("²»ÄÜ¶ÁÈ¡npcÁÄÌìÄÚÈİÎÄ¼ş %s", (Zebra::global["mapdir"] + "NpcCommonChat.xml").c_str());
+		Zebra::logger->error("ä¸èƒ½è¯»å–npcèŠå¤©å†…å®¹æ–‡ä»¶ %s", (Zebra::global["mapdir"] + "NpcCommonChat.xml").c_str());
 		return false;
 	}
 
@@ -286,16 +286,16 @@ bool SceneNpcManager::loadNpcCommonChatTable()
 		chatNode = xml.getNextNode(chatNode, "chat");
 	}
 
-	Zebra::logger->info("¼ÓÔØnpcËæ»úÁÄÌìÎÄ¼ş³É¹¦£¬¹²%dÀà%dÌõ", NpcCommonChatTable.size(), itemCount);
+	Zebra::logger->info("åŠ è½½npcéšæœºèŠå¤©æ–‡ä»¶æˆåŠŸï¼Œå…±%dç±»%dæ¡", NpcCommonChatTable.size(), itemCount);
 	return true;
 }
 
 /**
- * \brief Ëæ»úµÃµ½Ò»¾änpcËµµÄ»°
+ * \brief éšæœºå¾—åˆ°ä¸€å¥npcè¯´çš„è¯
  *
- * \param type ÒªÈ¡µÃµÄËµ»°ÀàĞÍ
- * \param content Êä³ö£¬È¡µÃµÄÄÚÈİ
- * \return µÃµ½µÄËµ»°ÄÚÈİ
+ * \param type è¦å–å¾—çš„è¯´è¯ç±»å‹
+ * \param content è¾“å‡ºï¼Œå–å¾—çš„å†…å®¹
+ * \return å¾—åˆ°çš„è¯´è¯å†…å®¹
  */
 bool SceneNpcManager::getNpcCommonChat(DWORD type, char * content)
 {

@@ -1,4 +1,4 @@
-#include "Gift.h"
+ï»¿#include "Gift.h"
 #include "zDBConnPool.h"
 #include "SessionServer.h"
 //#include "Session.h"
@@ -34,8 +34,8 @@ Gift::Gift(){}
 
 bool Gift::init()
 {
-	Zebra::logger->debug("[Gift]¼ÓÔØÔËÓª»î¶¯ %u ¸ö", loadActList());
-	Zebra::logger->debug("[Gift]¼ÓÔØ»ñ½±ÁĞ±í %u ¸ö", loadGiftList());
+	Zebra::logger->debug("[Gift]åŠ è½½è¿è¥æ´»åŠ¨ %u ä¸ª", loadActList());
+	Zebra::logger->debug("[Gift]åŠ è½½è·å¥–åˆ—è¡¨ %u ä¸ª", loadGiftList());
 
 	return true;
 }
@@ -45,13 +45,13 @@ DWORD Gift::loadActList()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[Gift]loadActList: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[Gift]loadActList: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return 0;
 	}
 
 	actList.clear();
 
-	//µÃµ½»î¶¯ÁĞ±í
+	//å¾—åˆ°æ´»åŠ¨åˆ—è¡¨
 
 	actInfo *info;
 	DWORD ret = SessionService::dbConnPool->exeSelect(handle, "`ACT`", act_define, "", "ID DESC", (BYTE **)&info);
@@ -72,13 +72,13 @@ DWORD Gift::loadGiftList()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{               
-		Zebra::logger->error("[Gift]loadGiftList: µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("[Gift]loadGiftList: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return 0;
 	}
 
 	giftList.clear();
 
-	//µÃµ½»î¶¯ÁĞ±í
+	//å¾—åˆ°æ´»åŠ¨åˆ—è¡¨
 
 	Cmd::Session::giftInfo *info;
 	DWORD ret = SessionService::dbConnPool->exeSelect(handle, "`GIFT`", gift_define, "", 0, (BYTE **)&info);
@@ -186,7 +186,7 @@ bool Gift::doGiftCmd(UserSession *pUser, const Cmd::stNullUserCmd *cmd, const un
 							connHandleID handle = SessionService::dbConnPool->getHandle();
 							if ((connHandleID)-1 == handle)
 							{               
-									Zebra::logger->error("[Gift]doGiftCmd(GET_ITEM_GIFT_PARA): µÃµ½Êı¾İ¿â¾ä±úÊ§°Ü");
+									Zebra::logger->error("[Gift]doGiftCmd(GET_ITEM_GIFT_PARA): å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 									return false;
 							}
 
@@ -202,10 +202,10 @@ bool Gift::doGiftCmd(UserSession *pUser, const Cmd::stNullUserCmd *cmd, const un
 							SessionService::dbConnPool->exeUpdate(handle, "`GIFT`", gift_got_define, &st, where);
 							SessionService::dbConnPool->putHandle(handle);
 
-							pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%u¼ş½±Æ·ÒÑ¾­·¢ËÍÖÁÓÊÏä£¬Çëµ½´«µİÕß´¦ÁìÈ¡", i);
+							pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%uä»¶å¥–å“å·²ç»å‘é€è‡³é‚®ç®±ï¼Œè¯·åˆ°ä¼ é€’è€…å¤„é¢†å–", i);
 					}
 					else
-							pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô²»Æğ£¬ÄúÃ»ÓĞ½±Æ·");
+							pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹ä¸èµ·ï¼Œæ‚¨æ²¡æœ‰å¥–å“");
 			}
 			break;
 		default:

@@ -1,4 +1,4 @@
-#include "CardPattern.h"
+﻿#include "CardPattern.h"
 
 class m_sort
 {
@@ -35,7 +35,7 @@ bool CardPattern::match_pattern(const DWORD &packNum, const Cmd::Card *cards, co
 	sort(m.begin(), m.end(), m_sort());
 
 	//for (vector<pair<DWORD, Cmd::Card> >::iterator it=m.begin(); it!=m.end(); it++)
-	//	Zebra::logger->debug("%u �� %u", it->first, it->second.number()+2);
+	//	Zebra::logger->debug("%u 个 %u", it->first, it->second.number()+2);
 
 	pat.unitNum = m.begin()->first;
 	pat.value = m.begin()->second;
@@ -66,7 +66,7 @@ bool CardPattern::match_pattern(const DWORD &packNum, const Cmd::Card *cards, co
 	if (pat.serialNum>1)
 		if (5>pat.unitNum*pat.serialNum) return false;
 
-	if (pat.unitNum==3 && pat.serialNum!=m.size())//3˳
+	if (pat.unitNum==3 && pat.serialNum!=m.size())//3顺
 	{
 		if (num==pat.serialNum*4)
 			pat.add = pat.unitNum;

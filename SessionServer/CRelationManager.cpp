@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CRelationManager.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåºÃÓÑ¹ØÏµ¹ÜÀíÀà
+ * \brief å®šä¹‰å¥½å‹å…³ç³»ç®¡ç†ç±»
  *
  */
 #include <vector>
@@ -18,7 +18,7 @@
 #include "CUnion.h"
 
 /**
-* \brief ¹ØÏµ³ÉÔ±¹¹Ôìº¯Êı
+* \brief å…³ç³»æˆå‘˜æ„é€ å‡½æ•°
 * \author fqnewman
 */
 CRelation::CRelation()
@@ -27,7 +27,7 @@ CRelation::CRelation()
 }
 
 /**
-* \brief ·¢ËÍÍ¨Öª¸ø³¡¾°£¬Í¨Öª¸üĞÂÏà¹ØµÄÉç»á¹ØÏµ×Ö¶ÎÒÔ¼°ÔÚ³¡¾°×öĞ´¶ÔÓ¦µÄ´¦Àí
+* \brief å‘é€é€šçŸ¥ç»™åœºæ™¯ï¼Œé€šçŸ¥æ›´æ–°ç›¸å…³çš„ç¤¾ä¼šå…³ç³»å­—æ®µä»¥åŠåœ¨åœºæ™¯åšå†™å¯¹åº”çš„å¤„ç†
 * \author fqnewman
 */
 void CRelation::sendNotifyToScene()
@@ -52,9 +52,9 @@ void CRelation::sendNotifyToScene()
 }
 
 /**
-* \brief ³ÉÔ±ÊÇ·ñÔÚÏß
+* \brief æˆå‘˜æ˜¯å¦åœ¨çº¿
 * \author fqnewman
-* \return true ÔÚÏß  false ²»ÔÚÏß
+* \return true åœ¨çº¿  false ä¸åœ¨çº¿
 */
 bool CRelation::isOnline()
 {
@@ -64,7 +64,7 @@ bool CRelation::isOnline()
 }
 
 /**
-* \brief Îö¹¹º¯Êı
+* \brief ææ„å‡½æ•°
 * \author fqnewman
 */
 CRelationManager::~CRelationManager()
@@ -79,7 +79,7 @@ CRelationManager::~CRelationManager()
 		temp = (CRelation *)it->second;
 		if (temp)
 		{
-			//updateDBRecord(temp); //¸üĞÂÊı¾İ
+			//updateDBRecord(temp); //æ›´æ–°æ•°æ®
 			UserSession*	pUser = NULL;
 			pUser = UserSessionManager::getInstance()->getUserByID(temp->id);
 
@@ -102,8 +102,8 @@ CRelationManager::~CRelationManager()
 }
 
 /**
-* \brief ÉèÖÃ¹ØÁªµÄÓÃ»§£¬¼òµ¥¹ØÏµ¹ÜÀíÆ÷µÄÓµÓĞÕß
-* \param pUser ËùÓĞÕß
+* \brief è®¾ç½®å…³è”çš„ç”¨æˆ·ï¼Œç®€å•å…³ç³»ç®¡ç†å™¨çš„æ‹¥æœ‰è€…
+* \param pUser æ‰€æœ‰è€…
 * \author fqnewman
 */
 void CRelationManager::setUser(UserSession *pUser)
@@ -114,7 +114,7 @@ void CRelationManager::setUser(UserSession *pUser)
 }
 
 /**
-* \brief ¹ÜÀíÆ÷³õÊ¼»¯£¬ÓÉÓÚÕâÊÂÇé×ÜÊÇ·¢ÉúÔÚ½ÇÉ«ÉÏÏßµÄÊ±ºòËùÒÔ1¼ÓÔØÊı¾İ¿â£¬2·¢ËÍ¹ØÏµÁĞ±í¸ø¿Í»§¶Ë£¬3·¢ËÍºÚÃûµ¥¸øÍø¹Ø
+* \brief ç®¡ç†å™¨åˆå§‹åŒ–ï¼Œç”±äºè¿™äº‹æƒ…æ€»æ˜¯å‘ç”Ÿåœ¨è§’è‰²ä¸Šçº¿çš„æ—¶å€™æ‰€ä»¥1åŠ è½½æ•°æ®åº“ï¼Œ2å‘é€å…³ç³»åˆ—è¡¨ç»™å®¢æˆ·ç«¯ï¼Œ3å‘é€é»‘åå•ç»™ç½‘å…³
 * \author fqnewman
 */
 void CRelationManager::init()
@@ -128,7 +128,7 @@ void CRelationManager::init()
 }
 
 /**
-* \brief ·¢ËÍ¼òµ¥Éç»á¹ØÏµÁĞ±í
+* \brief å‘é€ç®€å•ç¤¾ä¼šå…³ç³»åˆ—è¡¨
 * \author fqnewman
 */
 void CRelationManager::sendRelationList()
@@ -184,7 +184,7 @@ void CRelationManager::sendRelationList()
 		count++;
 		if (400==count)
 		{
-			goto breakRation; // µ±¼ÇÂ¼³¬¹ı100µÄÊ±ºò»á³¬¹ıÃüÁî·¢ËÍµÄ×î´óÏŞÖÆ
+			goto breakRation; // å½“è®°å½•è¶…è¿‡100çš„æ—¶å€™ä¼šè¶…è¿‡å‘½ä»¤å‘é€çš„æœ€å¤§é™åˆ¶
 		}
 	}
 breakRation:
@@ -194,8 +194,8 @@ breakRation:
 }
 
 /**
-* \brief ÔÚÏß´¦Àí
-* \param dwID ÉÏÏß½ÇÉ«µÄ id
+* \brief åœ¨çº¿å¤„ç†
+* \param dwID ä¸Šçº¿è§’è‰²çš„ id
 * \author fqnewman
 */
 void CRelationManager::online(const DWORD dwID)
@@ -224,27 +224,27 @@ void CRelationManager::online(const DWORD dwID)
 				{
 					case Cmd::RELATION_TYPE_LOVE:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "ÅäÅ¼¡¡%s¡¡ÉÏÏßÁË", pUser->name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "é…å¶ã€€%sã€€ä¸Šçº¿äº†", pUser->name);
 						}
 						break;
 					case Cmd::RELATION_TYPE_BAD:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "»µµ°¡¡%s¡¡ÉÏÏßÁË", pUser->name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "åè›‹ã€€%sã€€ä¸Šçº¿äº†", pUser->name);
 						}
 						break;
 					case Cmd::RELATION_TYPE_FRIEND:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "ºÃÓÑ¡¡%s¡¡ÉÏÏßÁË", pUser->name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "å¥½å‹ã€€%sã€€ä¸Šçº¿äº†", pUser->name);
 						}
 						break;
 					case Cmd::RELATION_TYPE_ENEMY:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "³ğÈË¡¡%s¡¡ÉÏÏßÁË", pUser->name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "ä»‡äººã€€%sã€€ä¸Šçº¿äº†", pUser->name);
 						}
 						break;
 					default:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "%s¡¡ÉÏÏßÁË", pUser->name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "%sã€€ä¸Šçº¿äº†", pUser->name);
 						}
 						break;
 				}
@@ -256,8 +256,8 @@ void CRelationManager::online(const DWORD dwID)
 }
 
 /**
-* \brief ÏÂÏß´¦Àí
-* \param dwID ÏÂÏß½ÇÉ«µÄ id
+* \brief ä¸‹çº¿å¤„ç†
+* \param dwID ä¸‹çº¿è§’è‰²çš„ id
 * \author fqnewman
 */
 void CRelationManager::offline(const DWORD dwID, const char* name)
@@ -279,27 +279,27 @@ void CRelationManager::offline(const DWORD dwID, const char* name)
 				{
 					case Cmd::RELATION_TYPE_LOVE:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "ÅäÅ¼¡¡%s¡¡ÏÂÏßÁË", name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "é…å¶ã€€%sã€€ä¸‹çº¿äº†", name);
 						}
 						break;
 					case Cmd::RELATION_TYPE_BAD:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "»µµ°¡¡%s¡¡ÏÂÏßÁË", name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "åè›‹ã€€%sã€€ä¸‹çº¿äº†", name);
 						}
 						break;
 					case Cmd::RELATION_TYPE_FRIEND:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "ºÃÓÑ¡¡%s¡¡ÏÂÏßÁË", name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "å¥½å‹ã€€%sã€€ä¸‹çº¿äº†", name);
 						}
 						break;
 					case Cmd::RELATION_TYPE_ENEMY:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "³ğÈË¡¡%s¡¡ÏÂÏßÁË", name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "ä»‡äººã€€%sã€€ä¸‹çº¿äº†", name);
 						}
 						break;
 					default:
 						{
-							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "%s¡¡ÏÂÏßÁË", name);
+							this->user->sendSysChat(Cmd::INFO_TYPE_SYS, "%sã€€ä¸‹çº¿äº†", name);
 						}
 						break;
 				}
@@ -314,7 +314,7 @@ void CRelationManager::offline(const DWORD dwID, const char* name)
 }
 
 /**
-* \brief ´ÓÊı¾İ¿â¼ÓÔØ±¾½ÇÉ«ËùÓĞµÄÉç»á¹ØÏµID
+* \brief ä»æ•°æ®åº“åŠ è½½æœ¬è§’è‰²æ‰€æœ‰çš„ç¤¾ä¼šå…³ç³»ID
 * \author fqnewman
 */
 void CRelationManager::loadFromDatabase()
@@ -331,13 +331,13 @@ void CRelationManager::loadFromDatabase()
 		{ NULL, 0, 0}
 	};
 	struct {
-		DWORD	dwCharID;						// »áÔ±±àºÅ
-		DWORD	dwRelationID;					// ¹ØÏµID
-		char	relationName[MAX_NAMESIZE+1];	// ¹ØÏµÃû³Æ
-		BYTE	byType;							// ¹ØÏµÀàĞÍ
-		WORD	wdDegree;                		// ÓÑºÃ¶È
-		DWORD	dwLastTime;						// ×îºó×é¶ÓÊ±¼ä
-		WORD	wdOccupation;					// Ö°Òµ
+		DWORD	dwCharID;						// ä¼šå‘˜ç¼–å·
+		DWORD	dwRelationID;					// å…³ç³»ID
+		char	relationName[MAX_NAMESIZE+1];	// å…³ç³»åç§°
+		BYTE	byType;							// å…³ç³»ç±»å‹
+		WORD	wdDegree;                		// å‹å¥½åº¦
+		DWORD	dwLastTime;						// æœ€åç»„é˜Ÿæ—¶é—´
+		WORD	wdOccupation;					// èŒä¸š
 	} __attribute__ ((packed))
 	* relationList, *tempPoint;
 	
@@ -346,7 +346,7 @@ void CRelationManager::loadFromDatabase()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -358,7 +358,7 @@ void CRelationManager::loadFromDatabase()
 	
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("²éÑ¯´íÎó:%d£¬¼ÓÔØ¼òµ¥Éç»á¹ØÏµÊ§°Ü¡£", retcode);
+		Zebra::logger->error("æŸ¥è¯¢é”™è¯¯:%dï¼ŒåŠ è½½ç®€å•ç¤¾ä¼šå…³ç³»å¤±è´¥ã€‚", retcode);
 		return;
 	}
 
@@ -408,11 +408,11 @@ void CRelationManager::loadFromDatabase()
 							//rwlock.wrlock();
 							if (!addEntry(relation))
 							{
-								Zebra::logger->error("Ìí¼Ó[%u:%s]Éç»á¹ØÏµ[%u:%s]½øÈë¹ÜÀíÆ÷Ê§°Ü!",user->id, user->name, relation->id,relation->name);
+								Zebra::logger->error("æ·»åŠ [%u:%s]ç¤¾ä¼šå…³ç³»[%u:%s]è¿›å…¥ç®¡ç†å™¨å¤±è´¥!",user->id, user->name, relation->id,relation->name);
 							}
 								
 
-							// ¶Ô×îºó×é¶ÓÊ±¼ä³¬¹ı×î´ó¼ä¸ôµÄ¹ØÏµ½øĞĞÓÑºÃ¶È¿Û¼õ
+							// å¯¹æœ€åç»„é˜Ÿæ—¶é—´è¶…è¿‡æœ€å¤§é—´éš”çš„å…³ç³»è¿›è¡Œå‹å¥½åº¦æ‰£å‡
 							zRTime ctv;
 							DWORD curTime = ctv.sec();
 
@@ -442,18 +442,18 @@ void CRelationManager::loadFromDatabase()
 						}
 						else
 						{
-							Zebra::logger->error("ÑÏÖØ´íÎóÔÚ×°ÔØºÃÓÑÁĞ±íµÄÊ±ºòÎŞ·¨·ÖÅä³öÄÚ´æ");
+							Zebra::logger->error("ä¸¥é‡é”™è¯¯åœ¨è£…è½½å¥½å‹åˆ—è¡¨çš„æ—¶å€™æ— æ³•åˆ†é…å‡ºå†…å­˜");
 						}
 					}
 					break;
 				case Cmd::RELATION_TYPE_OVER:
 					{
 						deleteDBRecord(tempPoint->dwRelationID);
-						user->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "%sÒÑ¾­ÓëÄã¶÷¶ÏÒå¾ø",tempPoint->relationName);
+						user->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "%så·²ç»ä¸ä½ æ©æ–­ä¹‰ç»",tempPoint->relationName);
 					}
 					break;
 				default:
-					Zebra::logger->error("%sµÄ¼òµ¥Éç»á¹ØÏµ%sÀàĞÍ²»ÕıÈ·type=%u",user->name,tempPoint->relationName, tempPoint->byType);
+					Zebra::logger->error("%sçš„ç®€å•ç¤¾ä¼šå…³ç³»%sç±»å‹ä¸æ­£ç¡®type=%u",user->name,tempPoint->relationName, tempPoint->byType);
 					break;
 
 			}
@@ -465,8 +465,8 @@ void CRelationManager::loadFromDatabase()
 }
 
 /**
-* \brief  É¾³ıÖ¸¶¨½ÇÉ«µÄÊı¾İ¿â¼ÇÂ¼
-* \param dwID ±»É¾³ıµÄ½ÇÉ«µÄID
+* \brief  åˆ é™¤æŒ‡å®šè§’è‰²çš„æ•°æ®åº“è®°å½•
+* \param dwID è¢«åˆ é™¤çš„è§’è‰²çš„ID
 * \author fqnewman
 */
 void CRelationManager::deleteDBRecord(const DWORD dwID)
@@ -477,7 +477,7 @@ void CRelationManager::deleteDBRecord(const DWORD dwID)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -487,15 +487,15 @@ void CRelationManager::deleteDBRecord(const DWORD dwID)
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->debug("%sÉ¾³ı¹ØÏµ¼ÇÂ¼Ê§°Ü %u", user->name,dwID);
+		Zebra::logger->debug("%såˆ é™¤å…³ç³»è®°å½•å¤±è´¥ %u", user->name,dwID);
 		return;
 	}
 	return;
 }
 
 /**
-* \brief ²åÈëÒ»¸öĞÂµÄ¼òµ¥Éç»á¹ØÏµ¼ÇÂ¼
-* \param relation ¼òµ¥Éç»á¹ØÏµ¶ÔÏó
+* \brief æ’å…¥ä¸€ä¸ªæ–°çš„ç®€å•ç¤¾ä¼šå…³ç³»è®°å½•
+* \param relation ç®€å•ç¤¾ä¼šå…³ç³»å¯¹è±¡
 * \author fqnewman
 */
 bool CRelationManager::insertDBRecord(const CRelation *relation)
@@ -512,24 +512,24 @@ bool CRelationManager::insertDBRecord(const CRelation *relation)
 		{ NULL, 0, 0}
 	};
 	struct {
-		DWORD	dwCharID;						// »áÔ±±àºÅ
-		DWORD	dwRelationID;					// ¹ØÏµID
-		char	relationName[MAX_NAMESIZE+1];	// ¹ØÏµÃû³Æ
-		BYTE	byType;							// ¹ØÏµÀàĞÍ
-		WORD	wdDegree;                		// ÓÑºÃ¶È
-		DWORD	dwLastTime;						// ×îºó×é¶ÓÊ±¼ä
-		WORD	wdOccupation;					// Ö°Òµ
+		DWORD	dwCharID;						// ä¼šå‘˜ç¼–å·
+		DWORD	dwRelationID;					// å…³ç³»ID
+		char	relationName[MAX_NAMESIZE+1];	// å…³ç³»åç§°
+		BYTE	byType;							// å…³ç³»ç±»å‹
+		WORD	wdDegree;                		// å‹å¥½åº¦
+		DWORD	dwLastTime;						// æœ€åç»„é˜Ÿæ—¶é—´
+		WORD	wdOccupation;					// èŒä¸š
 	} __attribute__ ((packed))
 	createrelation_data;
 
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
-	//²åÈëÊı¾İ¿â½ÇÉ«ĞÅÏ¢
+	//æ’å…¥æ•°æ®åº“è§’è‰²ä¿¡æ¯
 	bzero(&createrelation_data, sizeof(createrelation_data));
 
 	//rwlock.rdlock();
@@ -549,7 +549,7 @@ bool CRelationManager::insertDBRecord(const CRelation *relation)
 
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("Ôö¼ÓºÃÓÑ¼ÇÂ¼Êı¾İ¿â³ö´í");
+		Zebra::logger->error("å¢åŠ å¥½å‹è®°å½•æ•°æ®åº“å‡ºé”™");
 		return false;
 	}
 	
@@ -557,8 +557,8 @@ bool CRelationManager::insertDBRecord(const CRelation *relation)
 }
 
 /**
-* \brief ¸üĞÂ¼òµ¥Éç»á¹ØÏµ¼ÇÂ¼
-* \param relation ¼òµ¥Éç»á¹ØÏµ¶ÔÏó
+* \brief æ›´æ–°ç®€å•ç¤¾ä¼šå…³ç³»è®°å½•
+* \param relation ç®€å•ç¤¾ä¼šå…³ç³»å¯¹è±¡
 * \author fqnewman
 */
 void CRelationManager::updateDBRecord(const CRelation *relation)
@@ -572,10 +572,10 @@ void CRelationManager::updateDBRecord(const CRelation *relation)
 		{ NULL, 0, 0}
 	};
 	struct {
-		BYTE	byType;							// ¹ØÏµÀàĞÍ
-		WORD	wdDegree;                		// ÓÑºÃ¶È
-		DWORD	dwLastTime;						// ×îºó×é¶ÓÊ±¼ä
-		WORD	wdOccupation;					// Ö°Òµ
+		BYTE	byType;							// å…³ç³»ç±»å‹
+		WORD	wdDegree;                		// å‹å¥½åº¦
+		DWORD	dwLastTime;						// æœ€åç»„é˜Ÿæ—¶é—´
+		WORD	wdOccupation;					// èŒä¸š
 	} __attribute__ ((packed))
 	update_data;
 	char where[128];
@@ -583,7 +583,7 @@ void CRelationManager::updateDBRecord(const CRelation *relation)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -599,13 +599,13 @@ void CRelationManager::updateDBRecord(const CRelation *relation)
 
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("CRelationManager::updateDBRecord() ĞŞ¸ÄºÃÓÑµµ°¸Ê§°ÜCHARID = %u RELATIONID = %u retcode =%u", user->id, relation->id, retcode);
+		Zebra::logger->error("CRelationManager::updateDBRecord() ä¿®æ”¹å¥½å‹æ¡£æ¡ˆå¤±è´¥CHARID = %u RELATIONID = %u retcode =%u", user->id, relation->id, retcode);
 	}
 }
 
 /**
-* \brief ¸üĞÂÖ¸¶¨Éç»á¹ØÏµ½ÇÉ«µÄ¶Ô¶Ë½ÇÉ«µÄÊı¾İ¿â¼ÇÂ¼
-* \param relation Éç»á¹ØÏµ¶ÔÏó
+* \brief æ›´æ–°æŒ‡å®šç¤¾ä¼šå…³ç³»è§’è‰²çš„å¯¹ç«¯è§’è‰²çš„æ•°æ®åº“è®°å½•
+* \param relation ç¤¾ä¼šå…³ç³»å¯¹è±¡
 * \author fqnewman
 */
 void CRelationManager::updateOtherOfflineUserDBRecord(const CRelation *relation)
@@ -619,10 +619,10 @@ void CRelationManager::updateOtherOfflineUserDBRecord(const CRelation *relation)
 		{ NULL, 0, 0}
 	};
 	struct {
-		BYTE	byType;							// ¹ØÏµÀàĞÍ
-		WORD	wdDegree;                		// ÓÑºÃ¶È
-		DWORD	dwLastTime;						// ×îºó×é¶ÓÊ±¼ä
-		WORD	wdOccupation;					// Ö°Òµ
+		BYTE	byType;							// å…³ç³»ç±»å‹
+		WORD	wdDegree;                		// å‹å¥½åº¦
+		DWORD	dwLastTime;						// æœ€åç»„é˜Ÿæ—¶é—´
+		WORD	wdOccupation;					// èŒä¸š
 	} __attribute__ ((packed))
 	update_data;
 	char where[128];
@@ -630,7 +630,7 @@ void CRelationManager::updateOtherOfflineUserDBRecord(const CRelation *relation)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -646,8 +646,8 @@ void CRelationManager::updateOtherOfflineUserDBRecord(const CRelation *relation)
 }
 
 /**
-* \brief Ğ´ÀëÏß¿ª³ıÍ¨Öª£¬ ½«Êı¾İ¿âÖĞµÄ¶Ô·½¼ÇÂ¼Ğ´³ÉRELATION_TYPE_OVERÏÂ´ÎÓÃ»§ÉÏÏßµÄÊ±ºò½«»á½øĞĞÍ¨Öª
-* \param relation ±»´¦ÀíµÄÉç»á¹ØÏµ¶ÔÏó
+* \brief å†™ç¦»çº¿å¼€é™¤é€šçŸ¥ï¼Œ å°†æ•°æ®åº“ä¸­çš„å¯¹æ–¹è®°å½•å†™æˆRELATION_TYPE_OVERä¸‹æ¬¡ç”¨æˆ·ä¸Šçº¿çš„æ—¶å€™å°†ä¼šè¿›è¡Œé€šçŸ¥
+* \param relation è¢«å¤„ç†çš„ç¤¾ä¼šå…³ç³»å¯¹è±¡
 * \author fqnewman
 */
 void CRelationManager::writeOfflineNotify(const CRelation *relation)
@@ -663,7 +663,7 @@ void CRelationManager::writeOfflineNotify(const CRelation *relation)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -677,9 +677,9 @@ void CRelationManager::writeOfflineNotify(const CRelation *relation)
 }
 
 /**
-* \brief ·¢ËÍ×´Ì¬¸Ä±äÏûÏ¢¸ø¿Í»§¶Ë
-* \param relation Éç»á¹ØÏµ¶ÔÏó
-* \param byState µ±Ç°×´Ì¬
+* \brief å‘é€çŠ¶æ€æ”¹å˜æ¶ˆæ¯ç»™å®¢æˆ·ç«¯
+* \param relation ç¤¾ä¼šå…³ç³»å¯¹è±¡
+* \param byState å½“å‰çŠ¶æ€
 * \author fqnewman
 */
 void CRelationManager::sendStatusChange(const CRelation *relation, const BYTE byState)
@@ -726,8 +726,8 @@ void CRelationManager::sendStatusChange(const CRelation *relation, const BYTE by
 }
 
 /**
-* \brief É¾³ı¼òµ¥Éç»á¹ØÏµ
-* \param name ±»É¾³ıÕßµÄÃû×Ö
+* \brief åˆ é™¤ç®€å•ç¤¾ä¼šå…³ç³»
+* \param name è¢«åˆ é™¤è€…çš„åå­—
 * \author fqnewman
 */
 void CRelationManager::removeRelation(const char * name)
@@ -783,8 +783,8 @@ CRelation* CRelationManager::getMarryRelation()
 }
 
 /**
-* \brief Ôö¼ÓÒ»¸öºÚÃûµ¥ÀàĞÍµÄ¹ØÏµ
-* \param name ÉÏºÚÃûµ¥Õß
+* \brief å¢åŠ ä¸€ä¸ªé»‘åå•ç±»å‹çš„å…³ç³»
+* \param name ä¸Šé»‘åå•è€…
 * \author fqnewman
 */
 void CRelationManager::addBadRelation(const char *name)
@@ -796,13 +796,13 @@ void CRelationManager::addBadRelation(const char *name)
 	{
 		if (Cmd::RELATION_TYPE_BAD == relation->type)
 		{
-			user->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑ¾­ÔÚºÚÃûµ¥ÁĞ±íÖĞ");
+			user->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²ç»åœ¨é»‘åå•åˆ—è¡¨ä¸­");
 		}
 		else
 		{
 			if(Cmd::RELATION_TYPE_LOVE == relation->type)
 			{
-				user->sendSysChat(Cmd::INFO_TYPE_FAIL, "±ØĞëÏÈÀë»é²ÅÄÜ½«Æä¼ÓÈëºÚÃûµ¥£¡");
+				user->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¿…é¡»å…ˆç¦»å©šæ‰èƒ½å°†å…¶åŠ å…¥é»‘åå•ï¼");
 				return;
 			}
 			UserSession *otherUser = NULL;
@@ -810,7 +810,7 @@ void CRelationManager::addBadRelation(const char *name)
 			if (otherUser) 
 			{
 				otherUser->relationManager.removeRelation(user->name);
-				otherUser->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "%sÑ¡ÔñºÍÄã¶÷¶ÏÒå¾ø",user->name);
+				otherUser->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "%sé€‰æ‹©å’Œä½ æ©æ–­ä¹‰ç»",user->name);
 			}
 			else
 			{
@@ -851,29 +851,29 @@ void CRelationManager::addBadRelation(const char *name)
 				//else
 				//{
 
-				//	if (user) user->sendSysChat(Cmd::INFO_TYPE_GAME, "½« %s ¼ÓÈëºÚÃûµ¥Ê§°Ü", name);
+				//	if (user) user->sendSysChat(Cmd::INFO_TYPE_GAME, "å°† %s åŠ å…¥é»‘åå•å¤±è´¥", name);
 				//	SAFE_DELETE(relation);
 				//}
 			}
 
-			if (user) user->sendSysChat(Cmd::INFO_TYPE_GAME, "½« %s ¼ÓÈëÁËºÚÃûµ¥", name);
+			if (user) user->sendSysChat(Cmd::INFO_TYPE_GAME, "å°† %s åŠ å…¥äº†é»‘åå•", name);
 		}
 		else
 		{
-			if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÈË²»ÔÚÏßÎŞ·¨È·ÈÏ");
+			if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "äººä¸åœ¨çº¿æ— æ³•ç¡®è®¤");
 		}
 	}
 }
 
 /**
-* \brief Ôö¼ÓÒ»¸ö³ğÈËµ½Éç»á¹ØÏµÖĞ
-* \param name ÉÏ³ğÈËÃûµ¥Õß
+* \brief å¢åŠ ä¸€ä¸ªä»‡äººåˆ°ç¤¾ä¼šå…³ç³»ä¸­
+* \param name ä¸Šä»‡äººåå•è€…
 * \author fqnewman
 */
 
 /**
-* \brief Ôö¼ÓÒ»¸öºÚÃûµ¥ÀàĞÍµÄ¹ØÏµ
-* \param name ÉÏºÚÃûµ¥Õß
+* \brief å¢åŠ ä¸€ä¸ªé»‘åå•ç±»å‹çš„å…³ç³»
+* \param name ä¸Šé»‘åå•è€…
 * \author fqnewman
 */
 void CRelationManager::addEnemyRelation(const char *name)
@@ -934,15 +934,15 @@ void CRelationManager::addEnemyRelation(const char *name)
 				sendStatusChange(relation,Cmd::RELATION_ADD);
 			}
 
-			if (user) user->sendSysChat(Cmd::INFO_TYPE_GAME, "½« %s ¼ÓÈëÁË³ğÈËÁĞ±í", name);
+			if (user) user->sendSysChat(Cmd::INFO_TYPE_GAME, "å°† %s åŠ å…¥äº†ä»‡äººåˆ—è¡¨", name);
 		}
 	}
 }
 
 /**
-* \brief ¸Ä±äÉç»á¹ØÏµÀàĞÍ£¬·¢ËÍÍ¨Öª²¢¸üĞÂÊı¾İ¿â¼ÇÂ¼
-* \param name ¶Ô¶ËÃû³Æ
-* \param type Éç»á¹ØÏµÀàĞÍ
+* \brief æ”¹å˜ç¤¾ä¼šå…³ç³»ç±»å‹ï¼Œå‘é€é€šçŸ¥å¹¶æ›´æ–°æ•°æ®åº“è®°å½•
+* \param name å¯¹ç«¯åç§°
+* \param type ç¤¾ä¼šå…³ç³»ç±»å‹
 * \author fqnewman
 */
 void CRelationManager::changeRelationType(const char * name, const BYTE type)
@@ -973,9 +973,9 @@ void CRelationManager::changeRelationType(const char * name, const BYTE type)
 }
 
 /**
-* \brief Ôö¼ÓÒ»¸öĞÂµÄÉç»á¹ØÏµÀàĞÍ
-* \param dwID ¶Ô¶Ë½ÇÉ«id
-* \param type Éç»á¹ØÏµÀàĞÍ
+* \brief å¢åŠ ä¸€ä¸ªæ–°çš„ç¤¾ä¼šå…³ç³»ç±»å‹
+* \param dwID å¯¹ç«¯è§’è‰²id
+* \param type ç¤¾ä¼šå…³ç³»ç±»å‹
 * \author fqnewman
 */
 void CRelationManager::addRelation(const DWORD dwID, const BYTE type)
@@ -991,7 +991,7 @@ void CRelationManager::addRelation(const DWORD dwID, const BYTE type)
 		{
 			if (relation->type == type)
 			{
-				user->sendSysChat(Cmd::INFO_TYPE_FAIL, "Íæ¼ÒÒÑ¾­ÔÚÁĞ±íÖĞ");
+				user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç©å®¶å·²ç»åœ¨åˆ—è¡¨ä¸­");
 			}
 			else
 			{
@@ -1031,16 +1031,16 @@ void CRelationManager::addRelation(const DWORD dwID, const BYTE type)
 	}
 	else
 	{
-		if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÈË²»ÔÚÏßÎŞ·¨È·ÈÏ");
+		if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "äººä¸åœ¨çº¿æ— æ³•ç¡®è®¤");
 	}
 }
 
 /**
-* \brief ´¦ÀíGateway×ª·¢¹ıÀ´µÄ¿Í»§¶ËÏûÏ¢
-* \param ptNullCmd ÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç†Gatewayè½¬å‘è¿‡æ¥çš„å®¢æˆ·ç«¯æ¶ˆæ¯
+* \param ptNullCmd æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦ÀíÍê±Ï£¬ false ²»ÔÚ´¦Àí·¶Î§Ö®ÖĞ
+* \return true å¤„ç†å®Œæ¯•ï¼Œ false ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹ä¸­
 */
 bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -1063,7 +1063,7 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 								{
 									removeRelation(relation->name);
 									otherUser->relationManager.removeRelation(user->name);
-									otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%sÑ¡ÔñºÍÄãÀë»é",user->name);
+									otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%sé€‰æ‹©å’Œä½ ç¦»å©š",user->name);
 									otherUser->updateConsort();
 								}
 								else
@@ -1087,7 +1087,7 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 									{
 										if(!strncmp(rev->name,user->name, MAX_NAMESIZE))
 										{
-											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜ°Ñ×Ô¼º¼ÓÈëÃûµ¥ÖĞ?");
+											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½æŠŠè‡ªå·±åŠ å…¥åå•ä¸­?");
 											return true;
 										}
 
@@ -1104,7 +1104,7 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 										}
 										else
 										{
-											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "Ãûµ¥ÁĞ±íÒÑÂú£¡");
+											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "åå•åˆ—è¡¨å·²æ»¡ï¼");
 										}
 										return true;
 									}
@@ -1119,13 +1119,13 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 											{
 												case Cmd::RELATION_TYPE_FRIEND:
 													{
-														otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½²»Í¬ÒâÓëÄã½áÎªºÃÓÑ");
+														otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åŒæ„ä¸ä½ ç»“ä¸ºå¥½å‹");
 														return true;
 													}
 													break;
 												case Cmd::RELATION_TYPE_LOVE:
 													{
-														otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½²»Í¬ÒâÓëÄã½áÎª·òÆŞ");
+														otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åŒæ„ä¸ä½ ç»“ä¸ºå¤«å¦»");
 													}
 													break;
 												default:
@@ -1148,20 +1148,20 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 													otherUser->relationManager.addRelation(user->id, rev->type);
 													if (rev->type != Cmd::RELATION_TYPE_LOVE)
 													{
-														otherUser->sendSysChat(Cmd::INFO_TYPE_ADDFRIEND, "ÄãÓë %s Òå½á½ğÀ¼£¬³ÉÎªºÃÓÑ", user->name);
-														user->sendSysChat(Cmd::INFO_TYPE_ADDFRIEND, "ÄãÓë %s Òå½á½ğÀ¼£¬³ÉÎªºÃÓÑ", otherUser->name);
+														otherUser->sendSysChat(Cmd::INFO_TYPE_ADDFRIEND, "ä½ ä¸ %s ä¹‰ç»“é‡‘å…°ï¼Œæˆä¸ºå¥½å‹", user->name);
+														user->sendSysChat(Cmd::INFO_TYPE_ADDFRIEND, "ä½ ä¸ %s ä¹‰ç»“é‡‘å…°ï¼Œæˆä¸ºå¥½å‹", otherUser->name);
 													}
 												}
 												else
 												{
-													user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÎÒµÄºÃÓÑÁĞ±íÒÑÂú");
-													otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ºÃÓÑÁĞ±íÒÑÂú");
+													user->sendSysChat(Cmd::INFO_TYPE_FAIL, "æˆ‘çš„å¥½å‹åˆ—è¡¨å·²æ»¡");
+													otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å¥½å‹åˆ—è¡¨å·²æ»¡");
 												}
 											}
 											else
 											{
-												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ºÃÓÑÁĞ±íÒÑÂú");
-												otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÄºÃÓÑÁĞ±íÒÑÂú");
+												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å¥½å‹åˆ—è¡¨å·²æ»¡");
+												otherUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ çš„å¥½å‹åˆ—è¡¨å·²æ»¡");
 											}
 										}
 									}
@@ -1170,7 +1170,7 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 									{
 										if(!strncmp(rev->name,user->name, MAX_NAMESIZE))
 										{
-											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÔÚ¿ªÍæĞ¦Âğ£¿¼Ó×Ô¼ºÎªºÃÓÑ£¡");
+											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ åœ¨å¼€ç©ç¬‘å—ï¼ŸåŠ è‡ªå·±ä¸ºå¥½å‹ï¼");
 											return true;
 										}
 										CRelation *relation = NULL;
@@ -1179,7 +1179,7 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 										{
 											if (!strncmp(rev->name,relation->name, MAX_NAMESIZE) && Cmd::RELATION_TYPE_BAD != relation->type)
 											{
-												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑ¾­ÔÚÄãµÄºÃÓÑÁĞ±íÖĞÁË£¬ÎŞĞèÔÙÌí¼Ó£¡");
+												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²ç»åœ¨ä½ çš„å¥½å‹åˆ—è¡¨ä¸­äº†ï¼Œæ— éœ€å†æ·»åŠ ï¼");
 												return true;
 											}
 										}
@@ -1191,17 +1191,17 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 											if (isset_state(otherUser->sysSetting , Cmd::USER_SETTING_FRIEND))
 											{
 
-												user->sendSysChat(Cmd::INFO_TYPE_GAME, "ºÃÓÑÇëÇóÒÑ·¢ËÍ£¬µÈ´ı¶Ô·½Ó¦´ğ!");
+												user->sendSysChat(Cmd::INFO_TYPE_GAME, "å¥½å‹è¯·æ±‚å·²å‘é€ï¼Œç­‰å¾…å¯¹æ–¹åº”ç­”!");
 												rev->userid = user->id;
 												strncpy(rev->name,user->name,MAX_NAMESIZE);
 												otherUser->sendCmdToMe(rev,sizeof(Cmd::stRelationStatusCmd));
 											}
 											else
-												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½Ìí¼ÓºÃÓÑÎ´¿ªÆô");
+												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹æ·»åŠ å¥½å‹æœªå¼€å¯");
 										}
 										else
 										{
-											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½²»ÔÚÏß²»ÄÜÏìÓ¦ÄãµÄÑûÇë");
+											user->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åœ¨çº¿ä¸èƒ½å“åº”ä½ çš„é‚€è¯·");
 										}
 
 									}
@@ -1215,13 +1215,13 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 								
 										if (Cmd::RELATION_TYPE_BAD == type || Cmd::RELATION_TYPE_ENEMY == type)
 										{
-											removeRelation(rev->name); // É¾³ıºÚÃûµ¥³ÉÔ±
+											removeRelation(rev->name); // åˆ é™¤é»‘åå•æˆå‘˜
 										}
 										else
 										{
 											if(Cmd::RELATION_TYPE_LOVE == type)
 											{
-												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã±ØĞëµ½ÃñÕş¹ÙÄÇÀïÈ¥°ìÀíÀë»éÊÖĞø£¡");
+												user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å¿…é¡»åˆ°æ°‘æ”¿å®˜é‚£é‡Œå»åŠç†ç¦»å©šæ‰‹ç»­ï¼");
 												return true;
 											}
 											UserSession *otherUser = NULL;
@@ -1230,13 +1230,13 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 											{
 												removeRelation(rev->name);
 												otherUser->relationManager.removeRelation(user->name);
-												otherUser->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "%sÑ¡ÔñÓëÄã¸îÏ¯¶Ï½»",user->name);
-												user->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "ÄãÑ¡ÔñÓë %s ¸îÏ¯¶Ï½»", otherUser->name);
+												otherUser->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "%sé€‰æ‹©ä¸ä½ å‰²å¸­æ–­äº¤",user->name);
+												user->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "ä½ é€‰æ‹©ä¸ %s å‰²å¸­æ–­äº¤", otherUser->name);
 												otherUser->updateConsort();
 											}
 											else
 											{
-												user->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "ÄãÑ¡ÔñÓë %s ¸îÏ¯¶Ï½»", rev->name);
+												user->sendSysChat(Cmd::INFO_TYPE_BREAKFRIEND, "ä½ é€‰æ‹©ä¸ %s å‰²å¸­æ–­äº¤", rev->name);
 												CRelation *relation = NULL;
 
 												relation = (CRelation *)getEntryByName(rev->name);
@@ -1264,15 +1264,15 @@ bool CRelationManager::processUserMessage(const Cmd::stNullUserCmd *ptNullCmd, c
 }
 
 /**
-* \brief ·¢ËÍÁÄÌìÏûÏ¢¸ø×Ô¼ºµÄËùÓĞ¼òµ¥Éç»á¹ØÏµ£¬Èç¹û²»ÔÚÏßÔò´æÎªÀëÏßÏûÏ¢
-* \param pCmd ÁÄÌìÏûÏ¢
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€èŠå¤©æ¶ˆæ¯ç»™è‡ªå·±çš„æ‰€æœ‰ç®€å•ç¤¾ä¼šå…³ç³»ï¼Œå¦‚æœä¸åœ¨çº¿åˆ™å­˜ä¸ºç¦»çº¿æ¶ˆæ¯
+* \param pCmd èŠå¤©æ¶ˆæ¯
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CRelationManager::sendChatToMyFriend(const Cmd::stChannelChatUserCmd *pCmd, const unsigned int cmdLen)
 {
 	//rwlock.rdlock();
-	user->sendCmdToMe(pCmd, cmdLen);  // ×ª·¢Ò»ÌõÏûÏ¢¸ø×Ô¼º£¬ÒÔÃâ¿´²»µ½×Ô¼ºµÄÁÄÌì¼ÇÂ¼
+	user->sendCmdToMe(pCmd, cmdLen);  // è½¬å‘ä¸€æ¡æ¶ˆæ¯ç»™è‡ªå·±ï¼Œä»¥å…çœ‹ä¸åˆ°è‡ªå·±çš„èŠå¤©è®°å½•
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
 	{
 		CRelation *temp = (CRelation *)it->second;
@@ -1297,17 +1297,17 @@ void CRelationManager::sendChatToMyFriend(const Cmd::stChannelChatUserCmd *pCmd,
 }
 
 /**
-* \brief ·¢ËÍÏûÏ¢¸ø×Ô¼ºµÄËùÓĞ¼òµ¥Éç»á¹ØÏµ
-* \param pCmd ÏûÏ¢
-* \param cmdLen ÏûÏ¢³¤¶È
-* \param sendMe ÊÇ·ñ·¢¸ø×Ô¼º
+* \brief å‘é€æ¶ˆæ¯ç»™è‡ªå·±çš„æ‰€æœ‰ç®€å•ç¤¾ä¼šå…³ç³»
+* \param pCmd æ¶ˆæ¯
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
+* \param sendMe æ˜¯å¦å‘ç»™è‡ªå·±
 * \author xwl
 */
 void CRelationManager::sendCmdToMyFriend(const void *pCmd, const DWORD cmdLen, bool sendMe)
 {
 	//rwlock.rdlock();
 	if (sendMe)
-		user->sendCmdToMe(pCmd, cmdLen);  // ×ª·¢Ò»ÌõÏûÏ¢¸ø×Ô¼º
+		user->sendCmdToMe(pCmd, cmdLen);  // è½¬å‘ä¸€æ¡æ¶ˆæ¯ç»™è‡ªå·±
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
 	{
 		CRelation *temp = (CRelation *)it->second;
@@ -1328,17 +1328,17 @@ void CRelationManager::sendCmdToMyFriend(const void *pCmd, const DWORD cmdLen, b
 }
 
 /**
-* \brief ·¢ËÍÏûÏ¢¸ø×Ô¼ºµÄËùÓĞ¼òµ¥Éç»á¹ØÏµ
-* \param pCmd ÏûÏ¢
-* \param cmdLen ÏûÏ¢³¤¶È
-* \param sendMe ÊÇ·ñ·¢¸ø×Ô¼º
+* \brief å‘é€æ¶ˆæ¯ç»™è‡ªå·±çš„æ‰€æœ‰ç®€å•ç¤¾ä¼šå…³ç³»
+* \param pCmd æ¶ˆæ¯
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
+* \param sendMe æ˜¯å¦å‘ç»™è‡ªå·±
 * \author xwl
 */
 void CRelationManager::sendCmdToMyFriendExcept(const void *pCmd, const DWORD cmdLen, bool sendMe, const char * except)
 {
 	//rwlock.rdlock();
 	if (sendMe)
-		user->sendCmdToMe(pCmd, cmdLen);  // ×ª·¢Ò»ÌõÏûÏ¢¸ø×Ô¼º
+		user->sendCmdToMe(pCmd, cmdLen);  // è½¬å‘ä¸€æ¡æ¶ˆæ¯ç»™è‡ªå·±
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
 	{
 		CRelation *temp = (CRelation *)it->second;
@@ -1359,9 +1359,9 @@ void CRelationManager::sendCmdToMyFriendExcept(const void *pCmd, const DWORD cmd
 }
 
 /**
-* \brief ·¢ËÍË½ÁÄÏûÏ¢¸øºÃÓÑ£¬Èç¹û¶Ô·½²»ÔÚÔò´æÎªÀëÏßÏûÏ¢
-* \param  pCmd ÁÄÌìÏûÏ¢
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€ç§èŠæ¶ˆæ¯ç»™å¥½å‹ï¼Œå¦‚æœå¯¹æ–¹ä¸åœ¨åˆ™å­˜ä¸ºç¦»çº¿æ¶ˆæ¯
+* \param  pCmd èŠå¤©æ¶ˆæ¯
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 * \return 
 */
@@ -1393,9 +1393,9 @@ void CRelationManager::sendPrivateChatToFriend(const Cmd::stChannelChatUserCmd *
 }
 
 /**
-* \brief  ·¢ËÍºÚÃûµ¥²Ù×÷ÏûÏ¢µ½GateWay
-* \param name ²Ù×÷µÄ½ÇÉ«Ãû³Æ
-* \param oper ²Ù×÷ÀàĞÍ Cmd::Session::BLACK_LIST_ADD£¬ Cmd::Session::BLACK_LIST_REMOVE
+* \brief  å‘é€é»‘åå•æ“ä½œæ¶ˆæ¯åˆ°GateWay
+* \param name æ“ä½œçš„è§’è‰²åç§°
+* \param oper æ“ä½œç±»å‹ Cmd::Session::BLACK_LIST_ADDï¼Œ Cmd::Session::BLACK_LIST_REMOVE
 * \author fqnewman
 */
 void CRelationManager::sendBlackListToGateway(const char *name, const BYTE oper)
@@ -1411,7 +1411,7 @@ void CRelationManager::sendBlackListToGateway(const char *name, const BYTE oper)
 }
 
 /**
-* \brief  ·¢ËÍËùÓĞµÄºÚÃûµ¥ÁĞ±íµ½Gateway
+* \brief  å‘é€æ‰€æœ‰çš„é»‘åå•åˆ—è¡¨åˆ°Gateway
 * \author fqnewman
 */
 void CRelationManager::sendAllBlackListToGateway()
@@ -1432,10 +1432,10 @@ void CRelationManager::sendAllBlackListToGateway()
 }
 
 /**
-* \brief ¸ù¾İ¶Ô¶Ë¹ØÏµÃû»ñÈ¡¹ØÏµ¶ÔÏó
-* \param name ¶Ô¶Ë¹ØÏµÃû
+* \brief æ ¹æ®å¯¹ç«¯å…³ç³»åè·å–å…³ç³»å¯¹è±¡
+* \param name å¯¹ç«¯å…³ç³»å
 * \author fqnewman
-* \return ¼òµ¥Éç»á¹ØÏµ¶ÔÏó
+* \return ç®€å•ç¤¾ä¼šå…³ç³»å¯¹è±¡
 */
 CRelation * CRelationManager::getRelationByName(const char *name)
 {
@@ -1443,10 +1443,10 @@ CRelation * CRelationManager::getRelationByName(const char *name)
 }
 
 /**
-* \brief ¸ù¾İ¶Ô¶Ë¹ØÏµID»ñÈ¡¹ØÏµ¶ÔÏó
-* \param  dwRelationID ¶Ô¶Ë¹ØÏµID
+* \brief æ ¹æ®å¯¹ç«¯å…³ç³»IDè·å–å…³ç³»å¯¹è±¡
+* \param  dwRelationID å¯¹ç«¯å…³ç³»ID
 * \author fqnewman
-* \return ¼òµ¥Éç»á¹ØÏµ¶ÔÏó
+* \return ç®€å•ç¤¾ä¼šå…³ç³»å¯¹è±¡
 */
 CRelation* CRelationManager::getRelationByID(DWORD dwRelationID)
 {
@@ -1454,8 +1454,8 @@ CRelation* CRelationManager::getRelationByID(DWORD dwRelationID)
 }
 
 /**
-* \brief ÉèÖÃÓÑºÃ¶È
-* \param rev ÓÑºÃ¶ÈÉèÖÃÇëÇóÏûÏ¢
+* \brief è®¾ç½®å‹å¥½åº¦
+* \param rev å‹å¥½åº¦è®¾ç½®è¯·æ±‚æ¶ˆæ¯
 * \author fqnewman
 */
 void CRelationManager::setFriendDegree(Cmd::Session::t_CountFriendDegree_SceneSession *rev)
@@ -1468,14 +1468,14 @@ void CRelationManager::setFriendDegree(Cmd::Session::t_CountFriendDegree_SceneSe
 		if (rel)
 		{
 #ifdef _DEBUGLOG
-			Zebra::logger->info("ÉèÖÃÓÑºÃ¶È£ºÉèÖÃ%s Óë %s µÄ %u ÓÑºÃ¶ÈÎª %d", this->user->name, rel->name, rel->type, rev->namelist[i].wdDegree);
+			Zebra::logger->info("è®¾ç½®å‹å¥½åº¦ï¼šè®¾ç½®%s ä¸ %s çš„ %u å‹å¥½åº¦ä¸º %d", this->user->name, rel->name, rel->type, rev->namelist[i].wdDegree);
 #endif
 			if (rel->type == rev->namelist[i].byType)
 			{
 				if (rel->level < rev->namelist[i].wdDegree)
 				{
 #ifdef _DEBUGLOG
-				Zebra::logger->info("ÉèÖÃÓÑºÃ¶È£º³É¹¦ÉèÖÃ");
+				Zebra::logger->info("è®¾ç½®å‹å¥½åº¦ï¼šæˆåŠŸè®¾ç½®");
 #endif
 					UserSession *otherUser = NULL;
 					zRTime ctv;
@@ -1500,10 +1500,10 @@ void CRelationManager::setFriendDegree(Cmd::Session::t_CountFriendDegree_SceneSe
 }
 
 /**
-* \brief ÉèÖÃ¶Ô¶ËÓÑºÃ¶È£¬Ö÷ÒªÓÃÀ´×öË«±ßÓÑºÃ¶ÈÍ¬²½
-* \param dwUserID ¶Ô¶Ë½ÇÉ«id
-* \param wdDegree ÓÑºÃ¶È
-* \param currTime µ±Ç°Ê±¼ä
+* \brief è®¾ç½®å¯¹ç«¯å‹å¥½åº¦ï¼Œä¸»è¦ç”¨æ¥åšåŒè¾¹å‹å¥½åº¦åŒæ­¥
+* \param dwUserID å¯¹ç«¯è§’è‰²id
+* \param wdDegree å‹å¥½åº¦
+* \param currTime å½“å‰æ—¶é—´
 * \author fqnewman
 */
 void CRelationManager::setFriendDegreeByOtherUser(const DWORD dwUserID, const WORD wdDegree, const DWORD currTime)

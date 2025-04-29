@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zMisc.h  $
  * \author  
  * \date 
- * \brief ·â×°Ò»Ğ©³£ÓÃº¯Êı
+ * \brief å°è£…ä¸€äº›å¸¸ç”¨å‡½æ•°
  *
  * 
  */
@@ -32,16 +32,16 @@ struct odds_t
 };
 
 enum ServerType {
-	UNKNOWNSERVER	=	0,		/**< Î´Öª·şÎñÆ÷ÀàĞÍ */
-	SUPERSERVER	=	1,		/**< ·şÎñÆ÷¹ÜÀíÆ÷ */
-	LOGINSERVER	=	10,		/**< µÇÂ½·şÎñÆ÷ */
-	RECORDSERVER	=	11,		/**< µµ°¸·şÎñÆ÷ */
-	BILLSERVER	=	12,		/**< ¼Æ·Ñ·şÎñÆ÷ */
-	SESSIONSERVER	=	20,		/**< Session·şÎñÆ÷ */
-	SCENESSERVER	=	21,		/**< ³¡¾°·şÎñÆ÷ */
-	GATEWAYSERVER	=	22,		/**< Íø¹Ø·şÎñÆ÷ */
-	MINISERVER	=	23,		/**< Ğ¡ÓÎÏ··şÎñÆ÷ */
-	MAX_SERVERTYPE				/**< ·şÎñÆ÷ÀàĞÍµÄ×î´ó±àºÅ */
+	UNKNOWNSERVER	=	0,		/**< æœªçŸ¥æœåŠ¡å™¨ç±»å‹ */
+	SUPERSERVER	=	1,		/**< æœåŠ¡å™¨ç®¡ç†å™¨ */
+	LOGINSERVER	=	10,		/**< ç™»é™†æœåŠ¡å™¨ */
+	RECORDSERVER	=	11,		/**< æ¡£æ¡ˆæœåŠ¡å™¨ */
+	BILLSERVER	=	12,		/**< è®¡è´¹æœåŠ¡å™¨ */
+	SESSIONSERVER	=	20,		/**< SessionæœåŠ¡å™¨ */
+	SCENESSERVER	=	21,		/**< åœºæ™¯æœåŠ¡å™¨ */
+	GATEWAYSERVER	=	22,		/**< ç½‘å…³æœåŠ¡å™¨ */
+	MINISERVER	=	23,		/**< å°æ¸¸æˆæœåŠ¡å™¨ */
+	MAX_SERVERTYPE				/**< æœåŠ¡å™¨ç±»å‹çš„æœ€å¤§ç¼–å· */
 };
 
 namespace Misc
@@ -87,11 +87,11 @@ namespace Misc
 	};
 
 	/**
-	 * \brief  ·Ö¸ôÓÉ¶ş¼¶·Ö¸ô·û·Ö¸ôµÄ×Ö·û´®
-	 * \param list ´ı·Ö¸ôµÄ×Ö·û´®
-	 * \param dest ´æ´¢·Ö¸ô½á¹û£¬±ØĞëÂú×ãÌØ¶¨µÄÓïÒåÒªÇó
-	 * \param separator_up Ò»¼¶·Ö¸ô·û
-	 * \param separator_down ¶ş¼¶·Ö¸ô·û		 
+	 * \brief  åˆ†éš”ç”±äºŒçº§åˆ†éš”ç¬¦åˆ†éš”çš„å­—ç¬¦ä¸²
+	 * \param list å¾…åˆ†éš”çš„å­—ç¬¦ä¸²
+	 * \param dest å­˜å‚¨åˆ†éš”ç»“æœï¼Œå¿…é¡»æ»¡è¶³ç‰¹å®šçš„è¯­ä¹‰è¦æ±‚
+	 * \param separator_up ä¸€çº§åˆ†éš”ç¬¦
+	 * \param separator_down äºŒçº§åˆ†éš”ç¬¦		 
 	 * \author liqingyu 
 	 */
 	template <template <typename> class P = Parse>
@@ -150,7 +150,7 @@ namespace Zebra
 class zMisc
 {
 	public:	
-		//´Ó×Ö·û´®ÖĞ²éÕÒµÚpos(´ÓÁã¿ªÊ¼)¸öÊı×Ö£¬Èç¹ûÎ´ÕÒµ½·µ»ØdefValue
+		//ä»å­—ç¬¦ä¸²ä¸­æŸ¥æ‰¾ç¬¬pos(ä»é›¶å¼€å§‹)ä¸ªæ•°å­—ï¼Œå¦‚æœæœªæ‰¾åˆ°è¿”å›defValue
 		template <typename T>
 		static WORD getAllNum(const char *s,std::vector<T> & data)
 		{
@@ -175,7 +175,7 @@ class zMisc
 			return count;
 		}
 
-		//Ëæ»ú²úÉúmin~maxÖ®¼äµÄÊı×Ö£¬°ü¹üminºÍmax
+		//éšæœºäº§ç”Ÿmin~maxä¹‹é—´çš„æ•°å­—ï¼ŒåŒ…è£¹minå’Œmax
 		static int randBetween(int min,int max)
 		{
 			if(min==max)
@@ -186,7 +186,7 @@ class zMisc
 				return min + (int) (((double) max - (double)min + 1.0) * rand_r(&Zebra::seedp) / (RAND_MAX + 1.0));
 		}
 
-		//»ñÈ¡¼¸·ÖÖ®µÄ¼¸ÂÊ
+		//è·å–å‡ åˆ†ä¹‹çš„å‡ ç‡
 		static bool selectByOdds(const unsigned int upNum, const unsigned int downNum)
 		{
 			unsigned int m_rand;
@@ -197,37 +197,37 @@ class zMisc
 			return (m_rand <= upNum);
 		}
 
-		//»ñÈ¡¼¸·ÖÖ®¼¸µÄ¼¸ÂÊ
+		//è·å–å‡ åˆ†ä¹‹å‡ çš„å‡ ç‡
 		static bool selectByt_Odds(const odds_t &odds)
 		{
 			return selectByOdds(odds.upNum, odds.downNum);
 		}
 
-		//»ñÈ¡°Ù·ÖÖ®µÄ¼¸ÂÊ
+		//è·å–ç™¾åˆ†ä¹‹çš„å‡ ç‡
 		static bool selectByPercent(const unsigned int percent)
 		{
 			return selectByOdds(percent, 100);
 		}
 
-		//»ñÈ¡Íò·ÖÖ®µÄ¼¸ÂÊ
+		//è·å–ä¸‡åˆ†ä¹‹çš„å‡ ç‡
 		static bool selectByTenTh(const unsigned int tenth)
 		{
 			return selectByOdds(tenth, 10000);
 		}
 
-		//»ñÈ¡Ê®Íò·ÖÖ®µÄ¼¸ÂÊ
+		//è·å–åä¸‡åˆ†ä¹‹çš„å‡ ç‡
 		static bool selectByLakh(const unsigned int lakh)
 		{
 			return selectByOdds(lakh, 100000);
 		}
 
-		//»ñÈ¡ÒÚ·ÖÖ®Ö®µÄ¼¸ÂÊ
+		//è·å–äº¿åˆ†ä¹‹ä¹‹çš„å‡ ç‡
 		static bool selectByOneHM(const unsigned int lakh)
 		{
 			return selectByOdds(lakh, 100000000);
 		}
 
-		//»ñÈ¡µ±Ç°Ê±¼ä×Ö·û´®£¬ĞèÒª¸ø¶¨¸ñÊ½
+		//è·å–å½“å‰æ—¶é—´å­—ç¬¦ä¸²ï¼Œéœ€è¦ç»™å®šæ ¼å¼
 		static void getCurrentTimeString(char *buffer, const int bufferlen, const char *format)
 		{
 			time_t now;
@@ -251,7 +251,7 @@ class zMisc
 		}
 		
 		/**
-		 * \brief É¾³ıÄ¿Â¼Ê÷
+		 * \brief åˆ é™¤ç›®å½•æ ‘
 		 * \author fqnewman
 		 */
 		static bool rmDirTree(std::string path)
@@ -298,13 +298,13 @@ struct singleton_default
 template <typename T>
 typename singleton_default<T>::object_type singleton_default<T>::obj;
 
-//ÊÖ¶¯µ÷ÓÃ¹¹Ôìº¯Êı£¬²»·ÖÅäÄÚ´æ
+//æ‰‹åŠ¨è°ƒç”¨æ„é€ å‡½æ•°ï¼Œä¸åˆ†é…å†…å­˜
 	template<class _T1> 
 inline	void constructInPlace(_T1  *_Ptr)
 {
 	new (static_cast<void*>(_Ptr)) _T1();
 }
-/// ÉùÃ÷±ä³¤Ö¸Áî
+/// å£°æ˜å˜é•¿æŒ‡ä»¤
 #define BUFFER_CMD(cmd,name,len) char buffer##name[len];\
 				cmd *name=(cmd *)buffer##name;constructInPlace(name);
 

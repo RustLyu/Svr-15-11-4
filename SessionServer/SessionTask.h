@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionTask.h $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½Á¬½ÓÈÎÎñ
+ * \brief å®šä¹‰ç™»é™†è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -21,7 +21,7 @@
 class UserSession;
 
 /**
- * \brief ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
  */
 class SessionTask : public zEntry, public zTCPTask , public MessageQueue
@@ -30,11 +30,11 @@ class SessionTask : public zEntry, public zTCPTask , public MessageQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		SessionTask(
 				zTCPTaskPool *pool,
@@ -47,7 +47,7 @@ class SessionTask : public zEntry, public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		virtual ~SessionTask();
@@ -62,11 +62,11 @@ class SessionTask : public zEntry, public zTCPTask , public MessageQueue
 		bool cmdMsgParse(const Cmd::t_NullCmd *, const unsigned int);
 
 		/**
-		 * \brief ·µ»Ø·şÎñÆ÷±àºÅ
+		 * \brief è¿”å›æœåŠ¡å™¨ç¼–å·
 		 *
-		 * ±àºÅÔÚÒ»¸öÇøÖĞÊÇÎ¨Ò»µÄ£¬±£´æÔÚ·şÎñÆ÷¹ÜÀíÆ÷ÖĞ
+		 * ç¼–å·åœ¨ä¸€ä¸ªåŒºä¸­æ˜¯å”¯ä¸€çš„ï¼Œä¿å­˜åœ¨æœåŠ¡å™¨ç®¡ç†å™¨ä¸­
 		 *
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getID() const
 		{
@@ -74,9 +74,9 @@ class SessionTask : public zEntry, public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief ·µ»Ø·şÎñÆ÷ÀàĞÍ
+		 * \brief è¿”å›æœåŠ¡å™¨ç±»å‹
 		 *
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{
@@ -87,34 +87,34 @@ class SessionTask : public zEntry, public zTCPTask , public MessageQueue
 	private:
 
 		/**
-		 * \brief ·şÎñÆ÷±àºÅ
+		 * \brief æœåŠ¡å™¨ç¼–å·
 		 *
 		 */
 		WORD wdServerID;
 
 		/**
-		 * \brief ·şÎñÆ÷ÀàĞÍ
+		 * \brief æœåŠ¡å™¨ç±»å‹
 		 *
 		 */
 		WORD wdServerType;
-		///ÉèÖÃ»ØÊÕ±êÖ¾
+		///è®¾ç½®å›æ”¶æ ‡å¿—
 		int recycle_state;
 
 		bool verifyLogin(const Cmd::Session::t_LoginSession *ptCmd);
 
 		/**
-		 * \brief É¾³ı½ÇÉ«µÄ´¦Àí
+		 * \brief åˆ é™¤è§’è‰²çš„å¤„ç†
 		 *
-		 * ´Ó½ÇÉ«ÏàÓ¦µÄÉç»á¹ØÏµÖĞ°ÑËüÉ¾³ı£¬Èç¹û½ÇÉ«ÊÇÄ³Ò»Éç»á¹ØÏµµÄ½¨Á¢ÕßÔò²»ÔÊĞíÉ¾³ı¸Ã½ÇÉ«
-		 * Èç¹ûÔÊĞíÉ¾³ı£¬ÔòÍ¨ÖªGATEWAYÈÃÆä´Óµµ°¸ÖĞÉ¾³ı¡£Èç¹û²»ÔÊĞíÉ¾³ı£¬Ôò·¢ËÍÒ»ÌõÍ¨ÖªÃüÁî¸ø¿Í»§¶Ë¡£
+		 * ä»è§’è‰²ç›¸åº”çš„ç¤¾ä¼šå…³ç³»ä¸­æŠŠå®ƒåˆ é™¤ï¼Œå¦‚æœè§’è‰²æ˜¯æŸä¸€ç¤¾ä¼šå…³ç³»çš„å»ºç«‹è€…åˆ™ä¸å…è®¸åˆ é™¤è¯¥è§’è‰²
+		 * å¦‚æœå…è®¸åˆ é™¤ï¼Œåˆ™é€šçŸ¥GATEWAYè®©å…¶ä»æ¡£æ¡ˆä¸­åˆ é™¤ã€‚å¦‚æœä¸å…è®¸åˆ é™¤ï¼Œåˆ™å‘é€ä¸€æ¡é€šçŸ¥å‘½ä»¤ç»™å®¢æˆ·ç«¯ã€‚
 		 *
 		 *
 		 */
 		bool del_role(const Cmd::t_NullCmd* cmd, const unsigned int cmdLen);
 		/**
-		 * \brief ¸ü»»¹ú¼®
+		 * \brief æ›´æ¢å›½ç±
 		 *
-		 * \param dwUserID : ¸ü»»¹ú¼®µÄÓÃ»§ID
+		 * \param dwUserID : æ›´æ¢å›½ç±çš„ç”¨æˆ·ID
 		 *
 		 */
 		bool change_country(const Cmd::Session::t_changeCountry_SceneSession* cmd);

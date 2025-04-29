@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file CDare.h
  * \version  $Id: CDare.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå¼Ò×åÀà£¬¼Ò×å¹ÜÀíÆ÷
+ * \brief å®šä¹‰å®¶æ—ç±»ï¼Œå®¶æ—ç®¡ç†å™¨
  *
  */
 
@@ -41,9 +41,9 @@ extern int dare_winner_gold_sept;
 typedef zUniqueID<DWORD> zUniqueDWORDID;
 
 /**
- * \brief ¶ÔÕ½¼ÇÂ¼¹ÜÀíÀà
+ * \brief å¯¹æˆ˜è®°å½•ç®¡ç†ç±»
  *
- * ¹ÜÀí¶ÔÕ½¼ÇÂ¼µÄÈİÆ÷,Ê¹ÓÃSingletonÄ£Ê½
+ * ç®¡ç†å¯¹æˆ˜è®°å½•çš„å®¹å™¨,ä½¿ç”¨Singletonæ¨¡å¼
  */
 class CDareM:public zEntryManager<zEntryTempID>, 
 	     public Singleton<CDareM>
@@ -83,133 +83,133 @@ class CDareM:public zEntryManager<zEntryTempID>,
 		static void destroyMe();
 
 		/**
-		 * \brief ¶ÔÕ½¹ÜÀíÆ÷µÄ¶¨Ê±Æ÷»Øµ÷º¯Êı
+		 * \brief å¯¹æˆ˜ç®¡ç†å™¨çš„å®šæ—¶å™¨å›è°ƒå‡½æ•°
 		 *
-		 * ¶¨Ê±±éÀúËùÓĞ¶ÔÕ½¼ÇÂ¼£¬É¾³ıÎŞĞ§¼ÇÂ¼£¬½áÊø´ïµ½Ê±¼äµÄ¶ÔÕ½µÈÏà¹Ø´¦Àí¡£
+		 * å®šæ—¶éå†æ‰€æœ‰å¯¹æˆ˜è®°å½•ï¼Œåˆ é™¤æ— æ•ˆè®°å½•ï¼Œç»“æŸè¾¾åˆ°æ—¶é—´çš„å¯¹æˆ˜ç­‰ç›¸å…³å¤„ç†ã€‚
 		 */
 		void timer();
 
 
 		/**
-		 * \brief ´¦ÀíÓÃ»§µÄ¶ÔÕ½ÃüÁî
+		 * \brief å¤„ç†ç”¨æˆ·çš„å¯¹æˆ˜å‘½ä»¤
 		 *
-		 * \param pUser ·¢ËÍ¸ÃÃüÁîµÄÍæ¼ÒÏà¶ÔÓ¦µÄUserSession¶ÔÏó
-		 * \param ptNullCmd ÊÕµ½µÄÃüÁî
-		 * \param cmdLen ÃüÁî³¤¶È
-		 * \return ÊÇ¶ÔÕ½ÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»ØÎªtrue, ·ñÔòÎªfalse
+		 * \param pUser å‘é€è¯¥å‘½ä»¤çš„ç©å®¶ç›¸å¯¹åº”çš„UserSessionå¯¹è±¡
+		 * \param ptNullCmd æ”¶åˆ°çš„å‘½ä»¤
+		 * \param cmdLen å‘½ä»¤é•¿åº¦
+		 * \return æ˜¯å¯¹æˆ˜å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›ä¸ºtrue, å¦åˆ™ä¸ºfalse
 		 *
 		 */
 		bool processUserMessage(UserSession *pUser, const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen);
 
 		
 		/**
-		 * \brief ´¦ÀíÓÃ»§µÄ¼Ò×åËæÒâÕ½¶ÔÕ½ÃüÁî
+		 * \brief å¤„ç†ç”¨æˆ·çš„å®¶æ—éšæ„æˆ˜å¯¹æˆ˜å‘½ä»¤
 		 *
-		 * \param pUser ·¢ËÍ¸ÃÃüÁîµÄÍæ¼ÒÏà¶ÔÓ¦µÄUserSession¶ÔÏó
-		 * \param ptNullCmd ÊÕµ½µÄÃüÁî
-		 * \param cmdLen ÃüÁî³¤¶È
-		 * \return ÊÇ¶ÔÕ½ÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»ØÎªtrue, ·ñÔòÎªfalse
+		 * \param pUser å‘é€è¯¥å‘½ä»¤çš„ç©å®¶ç›¸å¯¹åº”çš„UserSessionå¯¹è±¡
+		 * \param ptNullCmd æ”¶åˆ°çš„å‘½ä»¤
+		 * \param cmdLen å‘½ä»¤é•¿åº¦
+		 * \return æ˜¯å¯¹æˆ˜å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›ä¸ºtrue, å¦åˆ™ä¸ºfalse
 		 *
 		 */
 		bool processSeptDare(UserSession *pUser, Cmd::stActiveDareCmd *pCmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ´¦ÀíÓÃ»§µÄ°ï»áËæÒâÕ½¶ÔÕ½ÃüÁî
+		 * \brief å¤„ç†ç”¨æˆ·çš„å¸®ä¼šéšæ„æˆ˜å¯¹æˆ˜å‘½ä»¤
 		 *
-		 * \param pUser ·¢ËÍ¸ÃÃüÁîµÄÍæ¼ÒÏà¶ÔÓ¦µÄUserSession¶ÔÏó
-		 * \param ptNullCmd ÊÕµ½µÄÃüÁî
-		 * \param cmdLen ÃüÁî³¤¶È
-		 * \return ÊÇ¶ÔÕ½ÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»ØÎªtrue, ·ñÔòÎªfalse
+		 * \param pUser å‘é€è¯¥å‘½ä»¤çš„ç©å®¶ç›¸å¯¹åº”çš„UserSessionå¯¹è±¡
+		 * \param ptNullCmd æ”¶åˆ°çš„å‘½ä»¤
+		 * \param cmdLen å‘½ä»¤é•¿åº¦
+		 * \return æ˜¯å¯¹æˆ˜å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›ä¸ºtrue, å¦åˆ™ä¸ºfalse
 		 *
 		 */
 		bool processUnionDare(UserSession *pUser, Cmd::stActiveDareCmd *pCmd, const unsigned int cmdLen);
 
 
 		/**
-		 * \brief ´¦Àí³¡¾°·¢ËÍ¹ıÀ´µÄ·şÎñÆ÷¼äÏûÏ¢
+		 * \brief å¤„ç†åœºæ™¯å‘é€è¿‡æ¥çš„æœåŠ¡å™¨é—´æ¶ˆæ¯
 		 *
-		 * \param cmd ³¡¾°·şÎñÆ÷·¢ËÍ¹ıÀ´µÄÃüÁîÖ¸Áî
-		 * \param cmdLen ÃüÁî³¤¶È
+		 * \param cmd åœºæ™¯æœåŠ¡å™¨å‘é€è¿‡æ¥çš„å‘½ä»¤æŒ‡ä»¤
+		 * \param cmdLen å‘½ä»¤é•¿åº¦
 		 *
-		 * \return ÊÇÒÑ¶¨ÒåµÄ·şÎñÆ÷¼äÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»Øtrue, ·ñÔòÎªfalse.
+		 * \return æ˜¯å·²å®šä¹‰çš„æœåŠ¡å™¨é—´å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›true, å¦åˆ™ä¸ºfalse.
 		 *
 		 */
 		bool processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ²éÕÒ·ûºÏÌõ¼şµÄ¶ÔÕ½¼ÇÂ¼
+		 * \brief æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„å¯¹æˆ˜è®°å½•
 		 *
-		 *  µ±ID2Îª0Ê±£¬²éÕÒÊÇ·ñÓĞID1²ÎÕ½µÄ¼ÇÂ¼¡£dwType²ÎÊı±ØĞëÊäÈë¡£
+		 *  å½“ID2ä¸º0æ—¶ï¼ŒæŸ¥æ‰¾æ˜¯å¦æœ‰ID1å‚æˆ˜çš„è®°å½•ã€‚dwTypeå‚æ•°å¿…é¡»è¾“å…¥ã€‚
 		 *
-		 * \param dwType ¶ÔÕ½ÀàĞÍ:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
-		 * \param dwID1  ¹¥·½ID
-		 * \param dwID2  ÊØ·½ID
+		 * \param dwType å¯¹æˆ˜ç±»å‹:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
+		 * \param dwID1  æ”»æ–¹ID
+		 * \param dwID2  å®ˆæ–¹ID
 		 *
-		 * \return ÕÒµ½Ôò·µ»Ø¶ÔÓ¦¶ÔÕ½¼ÇÂ¼µÄÖ¸Õë
+		 * \return æ‰¾åˆ°åˆ™è¿”å›å¯¹åº”å¯¹æˆ˜è®°å½•çš„æŒ‡é’ˆ
 		 */
 		CDare * findDareRecord(DWORD dwType, DWORD dwID1, DWORD dwID2);
 		CDare*  findDareRecordByFull(DWORD dwType, DWORD dwDefID, std::vector<DWORD>& vDareList);
 
 		/**
-		 * \brief ²éÕÒ¸ÃÉç»á¹ØÏµÖ¸¶¨µÄµÄ¶ÔÕ½¼ÇÂ¼,²»¹Ü¸ÃÉç»á¹ØÏµ´¦ÓÚ¹¥·½»¹ÊÇÊØ·½
+		 * \brief æŸ¥æ‰¾è¯¥ç¤¾ä¼šå…³ç³»æŒ‡å®šçš„çš„å¯¹æˆ˜è®°å½•,ä¸ç®¡è¯¥ç¤¾ä¼šå…³ç³»å¤„äºæ”»æ–¹è¿˜æ˜¯å®ˆæ–¹
 		 *
-		 * \param dwType ¶ÔÕ½ÀàĞÍ:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
-		 * \param dwID  Éç»á¹ØÏµID
+		 * \param dwType å¯¹æˆ˜ç±»å‹:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
+		 * \param dwID  ç¤¾ä¼šå…³ç³»ID
 		 *
-		 * \return ÕÒµ½Ôò·µ»Ø¶ÔÓ¦¶ÔÕ½¼ÇÂ¼µÄÖ¸Õë
+		 * \return æ‰¾åˆ°åˆ™è¿”å›å¯¹åº”å¯¹æˆ˜è®°å½•çš„æŒ‡é’ˆ
 		 */
 		CDare*  findDareRecordByID(DWORD dwType, DWORD dwID);
 		
 		/**
-		 * \brief ²éÕÒ·ûºÏÌõ¼şµÄ¶ÔÕ½¼ÇÂ¼
+		 * \brief æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„å¯¹æˆ˜è®°å½•
 		 *
-		 *  r1,r2Ã»ÓĞË³ĞòÏŞÖÆ£¬²»Çø±ğÄÄÒ»¸örÊÇÌôÕ½·½µÄÃû³Æ
-		 *  µ±r2ÎªNULLÊ±£¬²éÕÒÊÇ·ñÓĞr1²ÎÕ½µÄ¼ÇÂ¼¡£dwType²ÎÊı±ØĞëÊäÈë¡£
+		 *  r1,r2æ²¡æœ‰é¡ºåºé™åˆ¶ï¼Œä¸åŒºåˆ«å“ªä¸€ä¸ªræ˜¯æŒ‘æˆ˜æ–¹çš„åç§°
+		 *  å½“r2ä¸ºNULLæ—¶ï¼ŒæŸ¥æ‰¾æ˜¯å¦æœ‰r1å‚æˆ˜çš„è®°å½•ã€‚dwTypeå‚æ•°å¿…é¡»è¾“å…¥ã€‚
 		 *
-		 * \param dwType ¶ÔÕ½ÀàĞÍ:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
-		 * \param r1  Éç»á¹ØÏµÃû³Æ1
-		 * \param r2  Éç»á¹ØÏµÃû³Æ2
+		 * \param dwType å¯¹æˆ˜ç±»å‹:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
+		 * \param r1  ç¤¾ä¼šå…³ç³»åç§°1
+		 * \param r2  ç¤¾ä¼šå…³ç³»åç§°2
 		 *
-		 * \return ÕÒµ½Ôò·µ»Ø¶ÔÓ¦¶ÔÕ½¼ÇÂ¼µÄÖ¸Õë
+		 * \return æ‰¾åˆ°åˆ™è¿”å›å¯¹åº”å¯¹æˆ˜è®°å½•çš„æŒ‡é’ˆ
 		 */
 
 		CDare * findDareRecordByRelationName(DWORD dwType, const char* r1, const char* r2);
 
 		/**
-		 * \brief ²éÕÒ·ûºÏÌõ¼şµÄ¶ÔÕ½¼ÇÂ¼
+		 * \brief æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„å¯¹æˆ˜è®°å½•
 		 *
-		 *  ID1,ID2Ã»ÓĞË³ĞòÏŞÖÆ£¬²»Çø±ğÄÄÒ»¸öIDÊÇÌôÕ½·½µÄID¡£
-		 *  µ±ID2Îª0Ê±£¬²éÕÒÊÇ·ñÓĞID1²ÎÕ½µÄ¼ÇÂ¼¡£dwType²ÎÊı±ØĞëÊäÈë¡£
+		 *  ID1,ID2æ²¡æœ‰é¡ºåºé™åˆ¶ï¼Œä¸åŒºåˆ«å“ªä¸€ä¸ªIDæ˜¯æŒ‘æˆ˜æ–¹çš„IDã€‚
+		 *  å½“ID2ä¸º0æ—¶ï¼ŒæŸ¥æ‰¾æ˜¯å¦æœ‰ID1å‚æˆ˜çš„è®°å½•ã€‚dwTypeå‚æ•°å¿…é¡»è¾“å…¥ã€‚
 		 *
-		 * \param dwType ¶ÔÕ½ÀàĞÍ:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
-		 * \param dwUserID1  Íæ¼ÒID1
-		 * \param dwUserID2  Íæ¼ÒID2
+		 * \param dwType å¯¹æˆ˜ç±»å‹:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
+		 * \param dwUserID1  ç©å®¶ID1
+		 * \param dwUserID2  ç©å®¶ID2
 		 *
-		 * \return ÕÒµ½Ôò·µ»Ø¶ÔÓ¦¶ÔÕ½¼ÇÂ¼µÄÖ¸Õë
+		 * \return æ‰¾åˆ°åˆ™è¿”å›å¯¹åº”å¯¹æˆ˜è®°å½•çš„æŒ‡é’ˆ
 		 */
 		CDare*  findDareRecordByUser(DWORD dwType, DWORD dwUserID1, DWORD dwUserID2);
 
 
 		/**
-		 * \brief ¼ÓÈëĞÂµÄ¶ÔÕ½¼ÇÂ¼
+		 * \brief åŠ å…¥æ–°çš„å¯¹æˆ˜è®°å½•
 		 *
-		 * \param pCmd ¶ÔÕ½ÇëÇóÃüÁî
-		 * \param dwType ¶ÔÕ½ÀàĞÍ
-		 * \param dwID1 ÌôÕ½ÕßÉç»á¹ØÏµID
-		 * \param dwID2 Ó¦Õ½ÕßÉç»á¹ØÏµID
-		 * \param dwUserID ÌôÕ½ÕßID
+		 * \param pCmd å¯¹æˆ˜è¯·æ±‚å‘½ä»¤
+		 * \param dwType å¯¹æˆ˜ç±»å‹
+		 * \param dwID1 æŒ‘æˆ˜è€…ç¤¾ä¼šå…³ç³»ID
+		 * \param dwID2 åº”æˆ˜è€…ç¤¾ä¼šå…³ç³»ID
+		 * \param dwUserID æŒ‘æˆ˜è€…ID
 		 *
-		 * \return Ã»ÓĞÖØ¸´¼ÇÂ¼£¬²¢¼ÓÈë³É¹¦£¬·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \return æ²¡æœ‰é‡å¤è®°å½•ï¼Œå¹¶åŠ å…¥æˆåŠŸï¼Œè¿”å›true,å¦åˆ™è¿”å›false
 		 *
 		 */
 		bool addNewDareRecord(Cmd::stActiveDareCmd *pCmd, DWORD dwType, DWORD dwID1, DWORD dwID2, DWORD dwUserID);
 
 		/**
-		  * \brief ÓÃ»§ÉÏÏß´¦Àí
+		  * \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†
 		  *
-		  * ÓÃ»§ÉÏÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¶ÔÕ½×´Ì¬£¬²¢×öÏàÓ¦´¦Àí
+		  * ç”¨æˆ·ä¸Šçº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„å¯¹æˆ˜çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†
 		  *
-		  * \param pUser ÉÏÏßÓÃ»§
+		  * \param pUser ä¸Šçº¿ç”¨æˆ·
 		  *
 		  */
 		void userOnline(UserSession* pUser);
@@ -217,23 +217,23 @@ class CDareM:public zEntryManager<zEntryTempID>,
 		void userOnlineCountry(UserSession* pUser);
 
 		/**
-		 * \brief ´¦Àí³¡¾°»Ø¸´µÄt_activeDareÃüÁî
+		 * \brief å¤„ç†åœºæ™¯å›å¤çš„t_activeDareå‘½ä»¤
 		 *
-		 * \param cmd ¶ÔÕ½¼ÇÂ¼
+		 * \param cmd å¯¹æˆ˜è®°å½•
 		 */
 		void activeDare_sceneSession(Cmd::Session::t_activeDare_SceneSession* cmd);
 
 		/**
-		 * \brief ´¦Àí³¡¾°·¢¹ıÀ´µÄÕ½¶·Ê±µÄPKÕ½¹ûÃüÁî
+		 * \brief å¤„ç†åœºæ™¯å‘è¿‡æ¥çš„æˆ˜æ–—æ—¶çš„PKæˆ˜æœå‘½ä»¤
 		 *
-		 * \param cmd ÃüÁîÖ¸Õë
+		 * \param cmd å‘½ä»¤æŒ‡é’ˆ
 		 */
 		void darePk_sceneSession(Cmd::Session::t_darePk_SceneSession* cmd);
 		
 		/**
-		 * \brief ´¦Àí³¡¾°·¢¹ıÀ´µÄĞÂ½¨¶ÔÕ½µÄÃüÁî
+		 * \brief å¤„ç†åœºæ™¯å‘è¿‡æ¥çš„æ–°å»ºå¯¹æˆ˜çš„å‘½ä»¤
 		 *
-		 * \param pCmd ÃüÁîÖ¸Õë
+		 * \param pCmd å‘½ä»¤æŒ‡é’ˆ
 		 */
 
 		void createDare_sceneSession(Cmd::Session::t_createDare_SceneSession* pCmd, std::vector<DWORD>& dare_list);
@@ -245,40 +245,40 @@ class CDareM:public zEntryManager<zEntryTempID>,
 class CDare:public zEntry
 {
 	protected:
-		zRWLock rwlock;                             // ¶ÁĞ´Ëø
+		zRWLock rwlock;                             // è¯»å†™é”
 
 		/**
-		 * \brief ¼ÆËã²¢·¢ËÍ½±½ğ
+		 * \brief è®¡ç®—å¹¶å‘é€å¥–é‡‘
 		 *
-		 *  ¸Ãº¯ÊıÄ¿Ç°Ö»±»setWaitBountyStateº¯Êıµ÷ÓÃ
+		 *  è¯¥å‡½æ•°ç›®å‰åªè¢«setWaitBountyStateå‡½æ•°è°ƒç”¨
 		 *
-		 * \return ·¢ËÍ½±½ğ³É¹¦£¬·µ»ØTRUE, ·ñÔò·µ»ØÊ§°Ü¡£
+		 * \return å‘é€å¥–é‡‘æˆåŠŸï¼Œè¿”å›TRUE, å¦åˆ™è¿”å›å¤±è´¥ã€‚
 		 */
 		virtual bool computeResult();
 
-		virtual char* getFirstName(){return NULL;}    	// ÌôÕ½ÕßÉç»á¹ØÏµµÄÃû×Ö
-		virtual DWORD getSecondUserID(){return 0;}  	// Ó¦Õ½ÕßÍæ¼ÒµÄID
+		virtual char* getFirstName(){return NULL;}    	// æŒ‘æˆ˜è€…ç¤¾ä¼šå…³ç³»çš„åå­—
+		virtual DWORD getSecondUserID(){return 0;}  	// åº”æˆ˜è€…ç©å®¶çš„ID
 
-		/// ¶ÔÕ½½øĞĞÊ±¼ä
+		/// å¯¹æˆ˜è¿›è¡Œæ—¶é—´
 		DWORD active_time;
 
-		/// ¶ÔÕ½Ç°µÄµÈ´ıÊ±¼ä
+		/// å¯¹æˆ˜å‰çš„ç­‰å¾…æ—¶é—´
 		DWORD ready_time;
 
-		// ¶ÔÕ½¿ªÊ¼Ê±¼ä
+		// å¯¹æˆ˜å¼€å§‹æ—¶é—´
 		time_t	start_time;
 
 	public:
 		enum{
-			DARE_READY,		// ÑûÇëµÈ´ı×´Ì¬
-			DARE_READY_QUESTION,    // µÈ´ı±»ÌôÕ½Õß»ØÓ¦×´Ì¬      
-			DARE_READY_ACTIVE,      // µÈ´ı¿Û³ıÓ¦Õ½Õß½ğ±Ò£¬Èç¹ûÊ§°Ü£¬Ôò½øÈëDARE_RETURN_GOLD
-			DARE_RETURN_GOLD,       // Èç¹û½ğ±Ò²»¹»£¬Ôò°ÑÔ¤ÏÈ¿Û³ıµÄÌôÕ½·½µÄ½ğÇ®·µ»¹¸øËû¡£²¢½øÈëDARE_OVER×´Ì¬¡£
-			DARE_ACTIVE,		// ½»Õ½×´Ì¬
-			DARE_DATAPROCESS,	// Êı¾İ´¦Àí×´Ì¬,ÔİÊ±Î´ÓÃ
-			DARE_READY_OVER,        // ½áÊø¶ÔÕ½£¬Í¨Öª³¡¾°È¡ÏûËùÓĞÈËµÄ¶ÔÕ½×´Ì¬£¬²¢¼ÆËãÊäÓ®,
-			DARE_WAIT_BOUNTY,       // Èç¹ûÓ®·½°ïÖ÷²»ÔÚÏß£¬´¦ÓÚÕâ¸ö×´Ì¬£¬¸ÃÍæ¼ÒÉÏÏßºó£¬°Ñ½±Àø·¢·Å¸øËû
-			DARE_OVER		// ½áÊøÇå³ı×´Ì¬
+			DARE_READY,		// é‚€è¯·ç­‰å¾…çŠ¶æ€
+			DARE_READY_QUESTION,    // ç­‰å¾…è¢«æŒ‘æˆ˜è€…å›åº”çŠ¶æ€      
+			DARE_READY_ACTIVE,      // ç­‰å¾…æ‰£é™¤åº”æˆ˜è€…é‡‘å¸ï¼Œå¦‚æœå¤±è´¥ï¼Œåˆ™è¿›å…¥DARE_RETURN_GOLD
+			DARE_RETURN_GOLD,       // å¦‚æœé‡‘å¸ä¸å¤Ÿï¼Œåˆ™æŠŠé¢„å…ˆæ‰£é™¤çš„æŒ‘æˆ˜æ–¹çš„é‡‘é’±è¿”è¿˜ç»™ä»–ã€‚å¹¶è¿›å…¥DARE_OVERçŠ¶æ€ã€‚
+			DARE_ACTIVE,		// äº¤æˆ˜çŠ¶æ€
+			DARE_DATAPROCESS,	// æ•°æ®å¤„ç†çŠ¶æ€,æš‚æ—¶æœªç”¨
+			DARE_READY_OVER,        // ç»“æŸå¯¹æˆ˜ï¼Œé€šçŸ¥åœºæ™¯å–æ¶ˆæ‰€æœ‰äººçš„å¯¹æˆ˜çŠ¶æ€ï¼Œå¹¶è®¡ç®—è¾“èµ¢,
+			DARE_WAIT_BOUNTY,       // å¦‚æœèµ¢æ–¹å¸®ä¸»ä¸åœ¨çº¿ï¼Œå¤„äºè¿™ä¸ªçŠ¶æ€ï¼Œè¯¥ç©å®¶ä¸Šçº¿åï¼ŒæŠŠå¥–åŠ±å‘æ”¾ç»™ä»–
+			DARE_OVER		// ç»“æŸæ¸…é™¤çŠ¶æ€
 		};
 
 		CDare(DWORD active_time, DWORD ready_time); 
@@ -286,19 +286,19 @@ class CDare:public zEntry
 		virtual ~CDare();
 
 		/**
-		 * \brief Ê±¼äÊÂ¼ş´¦Àí»Øµ÷º¯Êı£¬ÓÉTimeTick.cppÖĞº¯Êı»Øµ÷
+		 * \brief æ—¶é—´äº‹ä»¶å¤„ç†å›è°ƒå‡½æ•°ï¼Œç”±TimeTick.cppä¸­å‡½æ•°å›è°ƒ
 		 *
-		 *  µ±¶ÔÕ½´¦ÓÚDARE_READY×´Ì¬Îå·ÖÖÓ£¬ÔòÈ¡Ïû¶ÔÕ½£¬²¢½øÈëDARE_RETURN_GOLD×´Ì¬
-		 *  µ±¶ÔÕ½´¦ÓÚDARE_READY_QUESTION  µ±¶ÔÕ½´¦ÓÚDARE_READY
+		 *  å½“å¯¹æˆ˜å¤„äºDARE_READYçŠ¶æ€äº”åˆ†é’Ÿï¼Œåˆ™å–æ¶ˆå¯¹æˆ˜ï¼Œå¹¶è¿›å…¥DARE_RETURN_GOLDçŠ¶æ€
+		 *  å½“å¯¹æˆ˜å¤„äºDARE_READY_QUESTION  å½“å¯¹æˆ˜å¤„äºDARE_READY
 		 *
 		 *
 		 */
-		virtual void timer();	//Ê±¼äÊÂ¼ş´¦Àí»Øµ÷
+		virtual void timer();	//æ—¶é—´äº‹ä»¶å¤„ç†å›è°ƒ
 
 
-		// ÒÔÏÂÎªÉèÖÃ¶ÔÕ½×´Ì¬µÄ´¦Àí·½·¨¡£¶ÔÕ½×´Ì¬¾ßÌå²é¿´¶ÔÕ½ÏµÍ³×´Ì¬×ª»»Í¼
-		// ×´Ì¬×ª»»º¯ÊıÄ¬ÈÏÇé¿ö£¬½Ô²»ĞèÒªÖØÔØ¡£Ö»ĞèÖØÔØÖ¸¶¨µÄ¼¸¸ö·½·¨¡£
-		// Èç¹ûÄãÏëÊµÏÖÒ»¸öÓëÄ¬ÈÏĞĞÎª²»Í¬µÄ×´Ì¬×ª»»¹ı³Ì¡£¿ÉÄÜĞèÒªÖØÔØËùÓĞ×´Ì¬×ª»»·½·¨
+		// ä»¥ä¸‹ä¸ºè®¾ç½®å¯¹æˆ˜çŠ¶æ€çš„å¤„ç†æ–¹æ³•ã€‚å¯¹æˆ˜çŠ¶æ€å…·ä½“æŸ¥çœ‹å¯¹æˆ˜ç³»ç»ŸçŠ¶æ€è½¬æ¢å›¾
+		// çŠ¶æ€è½¬æ¢å‡½æ•°é»˜è®¤æƒ…å†µï¼Œçš†ä¸éœ€è¦é‡è½½ã€‚åªéœ€é‡è½½æŒ‡å®šçš„å‡ ä¸ªæ–¹æ³•ã€‚
+		// å¦‚æœä½ æƒ³å®ç°ä¸€ä¸ªä¸é»˜è®¤è¡Œä¸ºä¸åŒçš„çŠ¶æ€è½¬æ¢è¿‡ç¨‹ã€‚å¯èƒ½éœ€è¦é‡è½½æ‰€æœ‰çŠ¶æ€è½¬æ¢æ–¹æ³•
 		
 		virtual void setReadyState();
 		virtual void setReadyQuestionState();
@@ -314,25 +314,25 @@ class CDare:public zEntry
 		virtual void addFirstID(DWORD dwID)=0;
 		virtual bool isInvalid() {return false; }
 		
-		// ¸ÃÉç»á¹ØÏµÊÇ·ñÊôÓÚ¸Ã¶ÔÕ½¼ÇÂ¼µÄ¹¥·½
+		// è¯¥ç¤¾ä¼šå…³ç³»æ˜¯å¦å±äºè¯¥å¯¹æˆ˜è®°å½•çš„æ”»æ–¹
 		virtual bool isAtt(DWORD dwID);
 		
 		virtual void notifyWarResult(int winner_type) = 0;
 
 		/**
-		 * \brief ·¢ËÍ¶ÔÕ½½øĞĞ×´Ì¬¸ø³¡¾°
+		 * \brief å‘é€å¯¹æˆ˜è¿›è¡ŒçŠ¶æ€ç»™åœºæ™¯
 		 *
-		 *  ³¡¾°¶ÔÏàÓ¦Íæ¼ÒÌí¼Ó¶ÔÕ½¼ÇÂ¼£¬ÔÚsendNineToMeÊ±£¬½øĞĞ¶ÔÕ½×´Ì¬µÄ¼ÆËã,¸Ã
-		 *  º¯ÊıÖ»ÔÚÓÃ»§ÉÏÏß´¦ÀíÊ±±»µ÷ÓÃ¡£
+		 *  åœºæ™¯å¯¹ç›¸åº”ç©å®¶æ·»åŠ å¯¹æˆ˜è®°å½•ï¼Œåœ¨sendNineToMeæ—¶ï¼Œè¿›è¡Œå¯¹æˆ˜çŠ¶æ€çš„è®¡ç®—,è¯¥
+		 *  å‡½æ•°åªåœ¨ç”¨æˆ·ä¸Šçº¿å¤„ç†æ—¶è¢«è°ƒç”¨ã€‚
 		 *
 		 */
 		virtual void sendActiveStateToScene(UserSession* pUser);
 
 
 		/**
-		  * \brief ·¢ËÍÃüÁî¸øËùÓĞ²ÎÓë¸Ã¶ÔÕ½µÄÍæ¼Ò
+		  * \brief å‘é€å‘½ä»¤ç»™æ‰€æœ‰å‚ä¸è¯¥å¯¹æˆ˜çš„ç©å®¶
 		  *
-		  * ·¢ËÍ¶ÔÕ½ÃüÁî¸ø³¡¾°¡£ÓÉsetActiveStateºÍsetReadyOverStateº¯Êıµ÷ÓÃ
+		  * å‘é€å¯¹æˆ˜å‘½ä»¤ç»™åœºæ™¯ã€‚ç”±setActiveStateå’ŒsetReadyOverStateå‡½æ•°è°ƒç”¨
 		  *
 		  */
 		virtual void 
@@ -340,9 +340,9 @@ class CDare:public zEntry
 				unsigned int cmdLen, unsigned int relationID) = 0;
 
 		/**
-		  * \brief ÅĞ¶ÏÊÇ·ñÈÔÔÚ¶ÔÕ½Ê±ÆÚ
+		  * \brief åˆ¤æ–­æ˜¯å¦ä»åœ¨å¯¹æˆ˜æ—¶æœŸ
 		  *
-		  * \return Èç¹ûÈÔÔÚ¶ÔÕ½Ê±ÆÚ£¬·µ»ØTRUE,·ñÔò·µ»ØFALSE
+		  * \return å¦‚æœä»åœ¨å¯¹æˆ˜æ—¶æœŸï¼Œè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
 		  */
 		virtual bool isActivePeriod()
 		{
@@ -351,9 +351,9 @@ class CDare:public zEntry
 		}
 
 		/**
-		  * \brief ÅĞ¶ÏÊÇ·ñÈÔÔÚ×¼±¸ÆÚ
+		  * \brief åˆ¤æ–­æ˜¯å¦ä»åœ¨å‡†å¤‡æœŸ
 		  *
-		  * \return Èç¹ûÈÔÔÚ×¼±¸ÆÚÊ±ÆÚ£¬·µ»ØTRUE,·ñÔò·µ»ØFALSE
+		  * \return å¦‚æœä»åœ¨å‡†å¤‡æœŸæ—¶æœŸï¼Œè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
 		  */
 		virtual bool isReadyPeriod()
 		{
@@ -361,7 +361,7 @@ class CDare:public zEntry
 		}
 
 		/**
-		  * \brief ¸üĞÂ¼ÆÊıÆ÷
+		  * \brief æ›´æ–°è®¡æ•°å™¨
 		  *
 		  */
 		virtual void updateTime()
@@ -372,35 +372,35 @@ class CDare:public zEntry
 		}
 
 		/**
-		 * \brief Õ½¶·¼Ó·Ö
+		 * \brief æˆ˜æ–—åŠ åˆ†
 		 *
-		 *  µ÷ÓÃÒ»´Î£¬¸øÏàÓ¦µÄÉç»áÍÅ¶Ó¼ÓÉÏPKÈËÊıÒ»ÈË¡£µÃ·Ö¹«Ê½ÈçÏÂ£º
+		 *  è°ƒç”¨ä¸€æ¬¡ï¼Œç»™ç›¸åº”çš„ç¤¾ä¼šå›¢é˜ŸåŠ ä¸ŠPKäººæ•°ä¸€äººã€‚å¾—åˆ†å…¬å¼å¦‚ä¸‹ï¼š
 		 *  grade = grade + user.level/10;
 		 *
-		 * \param pAtt ¹¥»÷·½
-		 * \param pDef ·ÀÊØ·½
+		 * \param pAtt æ”»å‡»æ–¹
+		 * \param pDef é˜²å®ˆæ–¹
 		 */
 		virtual void addGrade(UserSession* pAtt, UserSession* pDef) = 0;
 
 		void	printState();
 
 
-		DWORD type;		// Õ½¶·ÀàĞÍ:Cmd::UNION_DARE, Cmd::SCHOOL_DARE, Cmd::SEPT_DARE
+		DWORD type;		// æˆ˜æ–—ç±»å‹:Cmd::UNION_DARE, Cmd::SCHOOL_DARE, Cmd::SEPT_DARE
 		
-		//DWORD firstID;		// ÌôÕ½·½Éç»á¹ØÏµID1
-		std::vector<DWORD> attList;	// ÌôÕ½·½ÁĞ±í
-		DWORD secondID;		// ·ÀÊØ·½Éç»á¹ØÏµID2
+		//DWORD firstID;		// æŒ‘æˆ˜æ–¹ç¤¾ä¼šå…³ç³»ID1
+		std::vector<DWORD> attList;	// æŒ‘æˆ˜æ–¹åˆ—è¡¨
+		DWORD secondID;		// é˜²å®ˆæ–¹ç¤¾ä¼šå…³ç³»ID2
 
-		DWORD userid1;     	// ÌôÕ½ÕßID
-		DWORD userid2;     	// Ó¦Õ½ÕßID
-		DWORD grade1;           // ¶ÔÕ½ÍÅÌå1µÄËùµÃ·ÖÊı
-		DWORD grade2;		// ¶ÔÕ½ÍÅÌå2µÄËùµÃ·ÖÊı
-		DWORD pk1;              // Éç»á¹ØÏµ1PKÈËÊı
-		DWORD pk2;              // Éç»á¹ØÏµ2PKÈËÊı
-		DWORD count;		// ¼ÇÊıµ¥Î»ÎªÃë
-		BYTE  state;       	// Ëù´¦×´Ì¬
-		DWORD dwWinnerID;	// ×îÖÕµÄÓ®¼ÒID£¬ÓÃÓÚ¶à¸ö¹¥·½Ê±Ê¹ÓÃ
-		bool  isAntiAtt;	// ÉèÖÃ·´¹¥±êÖ¾
+		DWORD userid1;     	// æŒ‘æˆ˜è€…ID
+		DWORD userid2;     	// åº”æˆ˜è€…ID
+		DWORD grade1;           // å¯¹æˆ˜å›¢ä½“1çš„æ‰€å¾—åˆ†æ•°
+		DWORD grade2;		// å¯¹æˆ˜å›¢ä½“2çš„æ‰€å¾—åˆ†æ•°
+		DWORD pk1;              // ç¤¾ä¼šå…³ç³»1PKäººæ•°
+		DWORD pk2;              // ç¤¾ä¼šå…³ç³»2PKäººæ•°
+		DWORD count;		// è®°æ•°å•ä½ä¸ºç§’
+		BYTE  state;       	// æ‰€å¤„çŠ¶æ€
+		DWORD dwWinnerID;	// æœ€ç»ˆçš„èµ¢å®¶IDï¼Œç”¨äºå¤šä¸ªæ”»æ–¹æ—¶ä½¿ç”¨
+		bool  isAntiAtt;	// è®¾ç½®åæ”»æ ‡å¿—
 };
 
 
@@ -412,7 +412,7 @@ class CDareUnion : public CDare
 		virtual ~CDareUnion();
 
 	public:		
-		// ÒÔÏÂÎªÉèÖÃ¶ÔÕ½×´Ì¬µÄ´¦Àí·½·¨¡£¶ÔÕ½×´Ì¬¾ßÌå²é¿´¶ÔÕ½ÏµÍ³×´Ì¬×ª»»Í¼
+		// ä»¥ä¸‹ä¸ºè®¾ç½®å¯¹æˆ˜çŠ¶æ€çš„å¤„ç†æ–¹æ³•ã€‚å¯¹æˆ˜çŠ¶æ€å…·ä½“æŸ¥çœ‹å¯¹æˆ˜ç³»ç»ŸçŠ¶æ€è½¬æ¢å›¾
 		virtual void setSecondID(DWORD dwID);
 		virtual void addFirstID(DWORD dwID);
 
@@ -421,13 +421,13 @@ class CDareUnion : public CDare
 		virtual void notifyWarResult(int winner_type);
 
 		/**
-		 * \brief Õ½¶·¼Ó·Ö
+		 * \brief æˆ˜æ–—åŠ åˆ†
 		 *
-		 *  µ÷ÓÃÒ»´Î£¬¸øÏàÓ¦µÄÉç»áÍÅ¶Ó¼ÓÉÏPKÈËÊıÒ»ÈË¡£µÃ·Ö¹«Ê½ÈçÏÂ£º
+		 *  è°ƒç”¨ä¸€æ¬¡ï¼Œç»™ç›¸åº”çš„ç¤¾ä¼šå›¢é˜ŸåŠ ä¸ŠPKäººæ•°ä¸€äººã€‚å¾—åˆ†å…¬å¼å¦‚ä¸‹ï¼š
 		 *  grade = grade + user.level/10;
 		 *
-		 * \param pAtt ¹¥»÷·½
-		 * \param pDef ·ÀÊØ·½
+		 * \param pAtt æ”»å‡»æ–¹
+		 * \param pDef é˜²å®ˆæ–¹
 		 */
 		virtual void addGrade(UserSession* pAtt, UserSession* pDef);
 
@@ -446,7 +446,7 @@ class CDareSchool : public CDare
 		virtual ~CDareSchool();
 
 	public:		
-		// ÒÔÏÂÎªÉèÖÃ¶ÔÕ½×´Ì¬µÄ´¦Àí·½·¨¡£¶ÔÕ½×´Ì¬¾ßÌå²é¿´¶ÔÕ½ÏµÍ³×´Ì¬×ª»»Í¼
+		// ä»¥ä¸‹ä¸ºè®¾ç½®å¯¹æˆ˜çŠ¶æ€çš„å¤„ç†æ–¹æ³•ã€‚å¯¹æˆ˜çŠ¶æ€å…·ä½“æŸ¥çœ‹å¯¹æˆ˜ç³»ç»ŸçŠ¶æ€è½¬æ¢å›¾
 		virtual void setSecondID(DWORD dwID);
 		virtual void addFirstID(DWORD dwID);
 		
@@ -455,13 +455,13 @@ class CDareSchool : public CDare
 		virtual void notifyWarResult(int winner_type);
 
 		/**
-		 * \brief Õ½¶·¼Ó·Ö
+		 * \brief æˆ˜æ–—åŠ åˆ†
 		 *
-		 *  µ÷ÓÃÒ»´Î£¬¸øÏàÓ¦µÄÉç»áÍÅ¶Ó¼ÓÉÏPKÈËÊıÒ»ÈË¡£µÃ·Ö¹«Ê½ÈçÏÂ£º
+		 *  è°ƒç”¨ä¸€æ¬¡ï¼Œç»™ç›¸åº”çš„ç¤¾ä¼šå›¢é˜ŸåŠ ä¸ŠPKäººæ•°ä¸€äººã€‚å¾—åˆ†å…¬å¼å¦‚ä¸‹ï¼š
 		 *  grade = grade + user.level/10;
 		 *
-		 * \param pAtt ¹¥»÷·½
-		 * \param pDef ·ÀÊØ·½
+		 * \param pAtt æ”»å‡»æ–¹
+		 * \param pDef é˜²å®ˆæ–¹
 		 */
 		virtual void addGrade(UserSession* pAtt, UserSession* pDef);
 
@@ -498,23 +498,23 @@ class CDareUnionCity : public CDareUnion
 		virtual void setReadyOverState();
 
 		/**
-  		  * \brief ¶ÔÕ½½á¹ûÍ¨Öª
+  		  * \brief å¯¹æˆ˜ç»“æœé€šçŸ¥
 		  *
-		  * \param winner_type ½á¹ûÀàĞÍ:0 ÌôÕ½ÕßÊ¤£¬ 1 Ó¦Õ½ÕßÊ¤£¬ 2 Õ½Æ½
+		  * \param winner_type ç»“æœç±»å‹:0 æŒ‘æˆ˜è€…èƒœï¼Œ 1 åº”æˆ˜è€…èƒœï¼Œ 2 æˆ˜å¹³
 		  *		  
 		  */
  		virtual void notifyWarResult(int winner_type){};
 
-		virtual void timer();	//Ê±¼äÊÂ¼ş´¦Àí»Øµ÷
+		virtual void timer();	//æ—¶é—´äº‹ä»¶å¤„ç†å›è°ƒ
 
 		/**
-		 * \brief Õ½¶·¼Ó·Ö
+		 * \brief æˆ˜æ–—åŠ åˆ†
 		 *
-		 *  µ÷ÓÃÒ»´Î£¬¸øÏàÓ¦µÄÉç»áÍÅ¶Ó¼ÓÉÏPKÈËÊıÒ»ÈË¡£µÃ·Ö¹«Ê½ÈçÏÂ£º
+		 *  è°ƒç”¨ä¸€æ¬¡ï¼Œç»™ç›¸åº”çš„ç¤¾ä¼šå›¢é˜ŸåŠ ä¸ŠPKäººæ•°ä¸€äººã€‚å¾—åˆ†å…¬å¼å¦‚ä¸‹ï¼š
 		 *  grade = grade + user.level/10;
 		 *
-		 * \param pAtt ¹¥»÷·½
-		 * \param pDef ·ÀÊØ·½
+		 * \param pAtt æ”»å‡»æ–¹
+		 * \param pDef é˜²å®ˆæ–¹
 		 */
 		virtual void addGrade(UserSession* pAtt, UserSession* pDef){};
 		int last_fulltime;
@@ -528,7 +528,7 @@ class CDareCountry : public CDare
 		virtual ~CDareCountry();
 
 	public:		
-		// ÒÔÏÂÎªÉèÖÃ¶ÔÕ½×´Ì¬µÄ´¦Àí·½·¨¡£¶ÔÕ½×´Ì¬¾ßÌå²é¿´¶ÔÕ½ÏµÍ³×´Ì¬×ª»»Í¼
+		// ä»¥ä¸‹ä¸ºè®¾ç½®å¯¹æˆ˜çŠ¶æ€çš„å¤„ç†æ–¹æ³•ã€‚å¯¹æˆ˜çŠ¶æ€å…·ä½“æŸ¥çœ‹å¯¹æˆ˜ç³»ç»ŸçŠ¶æ€è½¬æ¢å›¾
 		virtual void setSecondID(DWORD dwID);
 		virtual void addFirstID(DWORD dwID);
 		virtual void sendCmdToAllDarePlayer(Cmd::Session::t_enterWar_SceneSession* cmd, unsigned int cmdLen, unsigned int relationID);
@@ -554,7 +554,7 @@ class CDareAntiCountry : public CDareCountry
 		virtual ~CDareAntiCountry();
 
 	public:		
-		// Ö»ÖØÔØ½áÊø´¦Àí.
+		// åªé‡è½½ç»“æŸå¤„ç†.
 		virtual void setReadyOverState();
 };
 

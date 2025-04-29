@@ -1,12 +1,12 @@
-#include "Team.h"
+ï»¿#include "Team.h"
 #include "Session.h"
 #include "SessionManager.h"
 
 
 /**
- * \brief Ìí¼Ó³ÉÔ±
- * \param userid ½ÇÉ«id
- * \return true ³É¹¦ false Ê§°Ü
+ * \brief æ·»åŠ æˆå‘˜
+ * \param userid è§’è‰²id
+ * \return true æˆåŠŸ false å¤±è´¥
  */
 bool Team::addMember(const DWORD userid)
 {
@@ -20,15 +20,15 @@ bool Team::addMember(const DWORD userid)
 	if(bret)
 	{
 		pUser->teamid = leaderid;
-		//Zebra::logger->debug("Ìí¼Ó¶ÓÔ±(%u , %u)" , pUser->teamid , pUser->id); 
+		//Zebra::logger->debug("æ·»åŠ é˜Ÿå‘˜(%u , %u)" , pUser->teamid , pUser->id); 
 	}
 	return bret;
 }
 
 /**
- * \brief É¾³ı³ÉÔ±
- * \param userid ½ÇÉ«id
- * \return true ³É¹¦
+ * \brief åˆ é™¤æˆå‘˜
+ * \param userid è§’è‰²id
+ * \return true æˆåŠŸ
  */
 bool Team::delMember(const DWORD userid)
 {
@@ -36,16 +36,16 @@ bool Team::delMember(const DWORD userid)
 	UserSession *pUser=UserSessionManager::getInstance()->getUserByID(userid);
 	if(pUser)
 	{
-		//Zebra::logger->debug("É¾³ı¶ÓÔ±(%u , %u)" , pUser->teamid , pUser->id); 
+		//Zebra::logger->debug("åˆ é™¤é˜Ÿå‘˜(%u , %u)" , pUser->teamid , pUser->id); 
 		pUser->teamid = 0;
 	}
 	return true;
 }
 
 /**
- * \brief ÉèÖÃ¶Ó³¤
- * \param leader ¶Ó³¤id
- * \return true ³É¹¦ false Ê§°Ü
+ * \brief è®¾ç½®é˜Ÿé•¿
+ * \param leader é˜Ÿé•¿id
+ * \return true æˆåŠŸ false å¤±è´¥
  */
 bool Team::setLeader(const DWORD leader)
 {
@@ -54,8 +54,8 @@ bool Team::setLeader(const DWORD leader)
 }
 
 /**
- * \brief É¾³ı¶ÓÎé
- * \return true ³É¹¦ false Ê§°Ü
+ * \brief åˆ é™¤é˜Ÿä¼
+ * \return true æˆåŠŸ false å¤±è´¥
  */
 bool Team::delTeam()
 {
@@ -65,7 +65,7 @@ bool Team::delTeam()
 		UserSession *pUser=UserSessionManager::getInstance()->getUserByID(*iter);
 		if(pUser)
 		{
-			//Zebra::logger->debug("¶ÓÎé½âÉ¢É¾³ı¶ÓÔ±(%u , %u)" , pUser->teamid , pUser->id); 
+			//Zebra::logger->debug("é˜Ÿä¼è§£æ•£åˆ é™¤é˜Ÿå‘˜(%u , %u)" , pUser->teamid , pUser->id); 
 			pUser->teamid = 0;
 		}
 	}
@@ -73,12 +73,12 @@ bool Team::delTeam()
 	return true;
 }
 
-/// È«¾Ö¶ÓÎéË÷Òı
+/// å…¨å±€é˜Ÿä¼ç´¢å¼•
 GlobalTeamIndex *GlobalTeamIndex::instance = NULL;
 
 /**
- * \brief »ñÈ¡È«¾Ö¶ÓÎéË÷ÒıÎ¨Ò»ÊµÀı
- * \return È«¾Ö¶ÓÎéË÷Òı¶ÔÏó
+ * \brief è·å–å…¨å±€é˜Ÿä¼ç´¢å¼•å”¯ä¸€å®ä¾‹
+ * \return å…¨å±€é˜Ÿä¼ç´¢å¼•å¯¹è±¡
  */
 GlobalTeamIndex *GlobalTeamIndex::getInstance()
 {
@@ -90,7 +90,7 @@ GlobalTeamIndex *GlobalTeamIndex::getInstance()
 }
 
 /**
- * \brief É¾³ıÊµÀı
+ * \brief åˆ é™¤å®ä¾‹
  */
 void GlobalTeamIndex::delInstance()
 {
@@ -98,10 +98,10 @@ void GlobalTeamIndex::delInstance()
 }
 
 /**
- * \brief Ôö¼Ó³ÉÔ±
- * \param leaderid ¶Ó³¤id
- * \param userid ¶ÓÔ±ID
- * \return true ³É¹¦ false Ê§°Ü
+ * \brief å¢åŠ æˆå‘˜
+ * \param leaderid é˜Ÿé•¿id
+ * \param userid é˜Ÿå‘˜ID
+ * \return true æˆåŠŸ false å¤±è´¥
  */
 bool GlobalTeamIndex::addMember(const DWORD leaderid , const DWORD userid)
 {
@@ -130,10 +130,10 @@ bool GlobalTeamIndex::addMember(const DWORD leaderid , const DWORD userid)
 }
 
 /**
- * \brief É¾³ı³ÉÔ±
- * \param leaderid ¶Ó³¤id
- * \param userid ¶ÓÔ±ID
- * \return true ³É¹¦ false Ê§°Ü
+ * \brief åˆ é™¤æˆå‘˜
+ * \param leaderid é˜Ÿé•¿id
+ * \param userid é˜Ÿå‘˜ID
+ * \return true æˆåŠŸ false å¤±è´¥
  */
 bool GlobalTeamIndex::delMember(const DWORD leaderid , const DWORD userid)
 {

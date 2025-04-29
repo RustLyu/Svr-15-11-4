@@ -1,4 +1,4 @@
-#include "Top100.h"
+ï»¿#include "Top100.h"
 #include "MiniServer.h"
 #include "MiniUser.h"
 #include "zMetaData.h"
@@ -13,7 +13,7 @@ bool Top100::init()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("Top100::init()²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("Top100::init()ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 

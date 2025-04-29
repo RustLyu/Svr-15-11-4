@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillClient.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ¼Æ·Ñ¿Í»§¶Ë
+ * \brief å®žçŽ°è®¡è´¹å®¢æˆ·ç«¯
  */
 
 #include <cstdio>
@@ -18,7 +18,7 @@
 #include "UserCommand.h"
 
 /**
- * \brief ¹¹Ôìº¯Êý
+ * \brief æž„é€ å‡½æ•°
  */
 BillClient::BillClient(
 		const std::string &ip,
@@ -31,7 +31,7 @@ BillClient::BillClient(
 }
 
 /**
- * \brief Îö¹¹º¯Êý
+ * \brief æžæž„å‡½æ•°
  */
 BillClient::~BillClient() {}
 
@@ -43,7 +43,7 @@ int BillClient::checkRebound()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êý¾Ý°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓÐÊý¾ÝÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»Žç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æŽ¥è¿”å›ž
 			return 0;
 		else
 		{
@@ -51,7 +51,7 @@ int BillClient::checkRebound()
 			t_logon_OK *ptCmd = (t_logon_OK *)pstrCmd;
 			if (CMD_USER_LOGON == ptCmd->cmd)
 			{
-				Zebra::logger->debug("µÇÂ½Æ½Ì¨¼Æ·Ñ·þÎñÆ÷³É¹¦£¬ÊÕµ½ÇøµÄ±àºÅ£º%u(%u, %u), %s, %u",
+				Zebra::logger->debug("ç™»é™†å¹³å°è®¡è´¹æœåŠ¡å™¨æˆåŠŸï¼Œæ”¶åˆ°åŒºçš„ç¼–å·ï¼š%u(%u, %u), %s, %u",
 						ptCmd->gameZone.id,
 						ptCmd->gameZone.game,
 						ptCmd->gameZone.zone,
@@ -66,7 +66,7 @@ int BillClient::checkRebound()
 			}
 			else
 			{
-				Zebra::logger->debug("µÇÂ½Æ½Ì¨¼Æ·Ñ·þÎñÆ÷Ê§°Ü");
+				Zebra::logger->debug("ç™»é™†å¹³å°è®¡è´¹æœåŠ¡å™¨å¤±è´¥");
 				return -1;
 			}
 		}
@@ -101,7 +101,7 @@ bool BillClient::action(BillData *bd)
 	bool ret = false;
 	switch(bd->at)
 	{
-		case AT_CONSUME://Ïû·ÑÇëÇó
+		case AT_CONSUME://æ¶ˆè´¹è¯·æ±‚
 			{
 				BillData *new_bd = BillCache::getInstance().add(bd, gameZone_str);
 				if (new_bd)
@@ -126,9 +126,9 @@ bool BillClient::action(BillData *bd)
 				}
 			}
 			break;
-			case AT_FILLIN://³äÖµ
+			case AT_FILLIN://å……å€¼
 			break;
-			case AT_MCARD://ÔÂ¿¨
+			case AT_MCARD://æœˆå¡
 			{
 				BillData *new_bd = BillCache::getInstance().add(bd, gameZone_str);
 				if (new_bd)
@@ -153,7 +153,7 @@ bool BillClient::action(BillData *bd)
 				}
 			}
 			break;
-			case AT_SCARD://×¨Çø¿¨
+			case AT_SCARD://ä¸“åŒºå¡
 			{
 			   BillData *new_bd = BillCache::getInstance().add(bd, gameZone_str);
 			   if (new_bd)
@@ -175,7 +175,7 @@ bool BillClient::action(BillData *bd)
 					}
 			}
 			break;
-			case AT_PCARD://µÀ¾ß¿¨
+			case AT_PCARD://é“å…·å¡
 			{
 			   BillData *new_bd = BillCache::getInstance().add(bd, gameZone_str);
 			   if (new_bd)
@@ -197,7 +197,7 @@ bool BillClient::action(BillData *bd)
 					}
 			}
 			break;
-			case AT_QBALANCE://²éÑ¯
+			case AT_QBALANCE://æŸ¥è¯¢
 			{
 				BillData *new_bd = BillCache::getInstance().add(bd, gameZone_str);
 				if (new_bd)
@@ -217,7 +217,7 @@ bool BillClient::action(BillData *bd)
 			}
 			break;
 			default:
-				Zebra::logger->debug("ÎÞÐ§²ÎÊý");
+				Zebra::logger->debug("æ— æ•ˆå‚æ•°");
 	}
 	return ret;
 }
@@ -241,7 +241,7 @@ bool BillClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 				{
 					switch (bd->at)
 					{
-						case AT_CONSUME://Ïû·Ñ
+						case AT_CONSUME://æ¶ˆè´¹
 								bd->result = pCmd->ret;
 								bd->balance = pCmd->balance;
 								bd->bonus = pCmd->bonus;
@@ -251,7 +251,7 @@ bool BillClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 								pCmd->tid, retval ? RET_OK : RET_FAIL, bd->uid, AT_CONSUME,
 								BillClientManager::getInstance().source, bd->point, bd->remark);
 						break;
-						case AT_SCARD://×¨Çø¿¨
+						case AT_SCARD://ä¸“åŒºå¡
 								bd->result = pCmd->ret;
 								bd->subat = pCmd->subat;
 								bd->balance = pCmd->balance;
@@ -260,7 +260,7 @@ bool BillClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 								pCmd->tid, retval ? RET_OK : RET_FAIL, bd->uid, AT_SCARD,
 								BillClientManager::getInstance().source, bd->remark);
 						break;
-						case AT_PCARD://µÀ¾ß¿¨
+						case AT_PCARD://é“å…·å¡
 								bd->result = pCmd->ret;
 								bd->subat = pCmd->subat;
 								retval = bc.action(bd);
@@ -268,11 +268,11 @@ bool BillClient::cmdMsgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 								pCmd->tid, retval ? RET_OK : RET_FAIL, bd->uid, AT_PCARD, 
 								BillClientManager::getInstance().source, bd->remark);
 						break;
-						case AT_MCARD://ÔÂ¿¨
+						case AT_MCARD://æœˆå¡
 						break;
-						case AT_FILLIN://³äÖµ
+						case AT_FILLIN://å……å€¼
 						break;
-						case AT_QBALANCE://²éÑ¯
+						case AT_QBALANCE://æŸ¥è¯¢
 						{
 								bd->result = pCmd->ret;
 								bd->balance = pCmd->balance;

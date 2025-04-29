@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Horse.cpp  $
  * \author 
  * \date 	
- * \brief 	ÂíÆ¥Ïà¹Ø
+ * \brief 	é©¬åŒ¹ç›¸å…³
  *
  * 
  */
@@ -14,11 +14,11 @@
 #include "TimeTick.h"
 
 /**     
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
- * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+ * åˆå§‹åŒ–ç›¸å…³å˜é‡
  *      
- * \param user: ÂíÆ¥ÓµÓĞÕß
+ * \param user: é©¬åŒ¹æ‹¥æœ‰è€…
  */  
 Horse::Horse(SceneUser& user) : _owner(user), _horse(0), _mount(false)
 {
@@ -27,7 +27,7 @@ Horse::Horse(SceneUser& user) : _owner(user), _horse(0), _mount(false)
 }
 
 /**     
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */  
 Horse::~Horse()
@@ -36,10 +36,10 @@ Horse::~Horse()
 }
 
 /**     
- * \brief ÉèÖÃÂíÆ¥µÄÖÖÀà
+ * \brief è®¾ç½®é©¬åŒ¹çš„ç§ç±»
  *
- * \param horse_id: ÂíÆ¥ÖÖÀà
- * \return ÎŞ
+ * \param horse_id: é©¬åŒ¹ç§ç±»
+ * \return æ— 
  */  
 void Horse::horse(DWORD horse_id)
 {
@@ -86,7 +86,7 @@ void Horse::horse(DWORD horse_id)
 		}
 		else
 		{
-			Zebra::logger->debug("Ã»ÓĞÕÒµ½id=%dµÄÂí",horse_id);
+			Zebra::logger->debug("æ²¡æœ‰æ‰¾åˆ°id=%dçš„é©¬",horse_id);
 		}
 	}
 	else
@@ -108,10 +108,10 @@ void Horse::horse(DWORD horse_id)
 }
 
 /**     
- * \brief ÉèÖÃÂíÆ¥µÄÖÖÀà
+ * \brief è®¾ç½®é©¬åŒ¹çš„ç§ç±»
  *
- * \param horse_id: ÂíÆ¥ÖÖÀà
- * \return ÎŞ
+ * \param horse_id: é©¬åŒ¹ç§ç±»
+ * \return æ— 
  */  
 bool Horse::horse(t_Object & obj)
 {
@@ -119,22 +119,22 @@ bool Horse::horse(t_Object & obj)
 
 	if (!horse())
 	{   
-		Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "Äã»¹Ã»ÓĞÂí£¬²»ÄÜÊ¹ÓÃÂí¼×");
+		Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "ä½ è¿˜æ²¡æœ‰é©¬ï¼Œä¸èƒ½ä½¿ç”¨é©¬ç”²");
 		return false;
 	}
 
 	DWORD horse_id = 0, needLevel = 0;
 	switch (obj.dwObjectID)
 	{
-		case 880://100¼¶
+		case 880://100çº§
 			horse_id = 3203;
 			needLevel = 100;
 			break;
-		case 878://120¼¶
+		case 878://120çº§
 			horse_id = 3201;
 			needLevel = 120;
 			break;
-		case 883://130¼¶
+		case 883://130çº§
 			horse_id = 3205;
 			needLevel = 130;
 			break;
@@ -156,14 +156,14 @@ bool Horse::horse(t_Object & obj)
 			break;
 		default:
 			{
-				Zebra::logger->debug("ÂíÆ¥id²»¶Ô");
+				Zebra::logger->debug("é©¬åŒ¹idä¸å¯¹");
 				return false;
 			}
 	}
 
 	if (_owner.charbase.level<needLevel)
 	{
-		Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "ÄãµÄµÈ¼¶²»¹»");
+		Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "ä½ çš„ç­‰çº§ä¸å¤Ÿ");
 		return false;
 	}
 
@@ -247,9 +247,9 @@ bool Horse::horse(t_Object & obj)
 }
 
 /**     
- * \brief È¡µÃÂíÆ¥µÄÖÖÀà
+ * \brief å–å¾—é©¬åŒ¹çš„ç§ç±»
  *
- * \return ÂíÆ¥ÖÖÀà
+ * \return é©¬åŒ¹ç§ç±»
  */  
 DWORD Horse::horse() const
 {
@@ -257,11 +257,11 @@ DWORD Horse::horse() const
 }
 
 /**     
- * \brief ÇĞ»»ÓÃ»§µÄÆïÂí×´Ì¬
+ * \brief åˆ‡æ¢ç”¨æˆ·çš„éª‘é©¬çŠ¶æ€
  *
- * \param flag: ÓÃ»§ÒªÇóÉÏÂí»¹ÊÇÏÂÂí
- * \param send: ÊÇ·ñĞèÒªÍ¨Öª¿Í»§¶Ë,ËÀÍöÏÂÂí²»ĞèÒªÍ¨Öª¿Í»§¶Ë,ÒªÔÚÖØÉúµÄÊ±ºòË¢ĞÂÏÂÈ¥
- * \return ÎŞ
+ * \param flag: ç”¨æˆ·è¦æ±‚ä¸Šé©¬è¿˜æ˜¯ä¸‹é©¬
+ * \param send: æ˜¯å¦éœ€è¦é€šçŸ¥å®¢æˆ·ç«¯,æ­»äº¡ä¸‹é©¬ä¸éœ€è¦é€šçŸ¥å®¢æˆ·ç«¯,è¦åœ¨é‡ç”Ÿçš„æ—¶å€™åˆ·æ–°ä¸‹å»
+ * \return æ— 
  */ 
 void Horse::mount(bool flag , bool send)
 {
@@ -282,24 +282,24 @@ void Horse::mount(bool flag , bool send)
 	//ride up
 	if (flag && !_mount) {
 		if (_owner.charbase.level < 30 ) {
-			Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "Äã²»Âú 30 ¼¶£¬²»ÄÜÆïÂí¡£");
+			Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "ä½ ä¸æ»¡ 30 çº§ï¼Œä¸èƒ½éª‘é©¬ã€‚");
 			return;
 		}
 
-		putAway();//È¡Ïû¸úËæ
+		putAway();//å–æ¶ˆè·Ÿéš
 		_owner.setUState(Cmd::USTATE_RIDE);
 		_mount = true;
 		/*
 		if (checkSummonTime())
 		{
-			putAway();//È¡Ïû¸úËæ
+			putAway();//å–æ¶ˆè·Ÿéš
 			_owner.setUState(Cmd::USTATE_RIDE);
 			_mount = true;
 			_owner.sendMeToNine();
 		}
 		else
 		{
-			Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "ÄúµÄÂíÕıÔÚĞİÏ¢");
+			Channel::sendSys(&_owner, Cmd::INFO_TYPE_FAIL, "æ‚¨çš„é©¬æ­£åœ¨ä¼‘æ¯");
 			return;
 		}
 		*/
@@ -319,9 +319,9 @@ void Horse::mount(bool flag , bool send)
 }
 
 /**     
- * \brief ·µ»ØÓÃ»§µÄÆïÂí×´Ì¬
+ * \brief è¿”å›ç”¨æˆ·çš„éª‘é©¬çŠ¶æ€
  *
- * \return ÓÃ»§ÊÇ·ñÆïÂí
+ * \return ç”¨æˆ·æ˜¯å¦éª‘é©¬
  */ 
 bool Horse::mount() const
 {
@@ -329,10 +329,10 @@ bool Horse::mount() const
 }
 
 /**     
- * \brief ¶ÁÈ¡ÓÃ»§µÄÂíÆ¥ĞÅÏ¢
+ * \brief è¯»å–ç”¨æˆ·çš„é©¬åŒ¹ä¿¡æ¯
  *
- * \param d ¶ş½øÖÆµµ°¸ÄÚÈİ
- * \return ¶ÁµµµÄ¶ş½øÖÆ³¤¶È
+ * \param d äºŒè¿›åˆ¶æ¡£æ¡ˆå†…å®¹
+ * \return è¯»æ¡£çš„äºŒè¿›åˆ¶é•¿åº¦
  */ 
 int Horse::load(unsigned char* d)
 {
@@ -354,8 +354,8 @@ int Horse::load(unsigned char* d)
 			data.state = Cmd::HORSE_STATE_PUTUP;
 	}
 
-	//ĞŞÕı´íÎóÊı¾İ
-	if (data.id!=data.horseid)//npcIDºÍµÀ¾ßID²»·û
+	//ä¿®æ­£é”™è¯¯æ•°æ®
+	if (data.id!=data.horseid)//npcIDå’Œé“å…·IDä¸ç¬¦
 		data.horseid = data.id;
 	/*
 	   _horse = *data & 0xffff;
@@ -371,10 +371,10 @@ int Horse::load(unsigned char* d)
 }
 
 /**     
- * \brief ´æ´¢ÓÃ»§µÄÂíÆ¥ĞÅÏ¢
+ * \brief å­˜å‚¨ç”¨æˆ·çš„é©¬åŒ¹ä¿¡æ¯
  *
- * \param d: ¶ş½øÖÆµµ°¸ÄÚÈİ
- * \return ´æµµµÄ¶ş½øÖÆ³¤¶È
+ * \param d: äºŒè¿›åˆ¶æ¡£æ¡ˆå†…å®¹
+ * \return å­˜æ¡£çš„äºŒè¿›åˆ¶é•¿åº¦
  */ 
 int Horse::save(unsigned char *d)
 {
@@ -390,10 +390,10 @@ int Horse::save(unsigned char *d)
 }
 
 /**
- * \brief ÉèÖÃÏÂ´ÎÕÙ»½ÂíÆ¥µÄÑÓ³Ù
+ * \brief è®¾ç½®ä¸‹æ¬¡å¬å”¤é©¬åŒ¹çš„å»¶è¿Ÿ
  *
  *
- * \param delay ÑÓ³ÙÊ±¼ä
+ * \param delay å»¶è¿Ÿæ—¶é—´
  */
 void Horse::setSummonTime(int delay)
 {
@@ -402,9 +402,9 @@ void Horse::setSummonTime(int delay)
 }
 
 /**
- * \brief ÉèÖÃÏÂ´ÎÕÙ»½ÂíÆ¥µÄÑÓ³Ù
+ * \brief è®¾ç½®ä¸‹æ¬¡å¬å”¤é©¬åŒ¹çš„å»¶è¿Ÿ
  *
- * \return ¼ì²éÊÇ·ñ¿ÉÒÔÕÙ»½ÂíÆ¥
+ * \return æ£€æŸ¥æ˜¯å¦å¯ä»¥å¬å”¤é©¬åŒ¹
  */
 bool Horse::checkSummonTime()
 {
@@ -412,8 +412,8 @@ bool Horse::checkSummonTime()
 }
 
 /**
- * \brief ÕÙ»½³öÀ´¸úËæÖ÷ÈË
- * \return ÊÇ·ñ³É¹¦
+ * \brief å¬å”¤å‡ºæ¥è·Ÿéšä¸»äºº
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool Horse::comeOut()
 {
@@ -432,9 +432,9 @@ bool Horse::comeOut()
 }
 
 /**
- * \brief ÊÕÆğÂíÆ¥
+ * \brief æ”¶èµ·é©¬åŒ¹
  *
- * \return ÊÇ·ñ³É¹¦£¬Ã»ÓĞÂíÆ¥·µ»ØÊ§°Ü
+ * \return æ˜¯å¦æˆåŠŸï¼Œæ²¡æœ‰é©¬åŒ¹è¿”å›å¤±è´¥
  */
 bool Horse::putAway()
 {
@@ -451,9 +451,9 @@ bool Horse::putAway()
 }
 
 /**
- * \brief ¼ì²éÂíÊÇ·ñÔÚ¸úËæ×´Ì¬
+ * \brief æ£€æŸ¥é©¬æ˜¯å¦åœ¨è·ŸéšçŠ¶æ€
  *
- * \return ÊÇ·ñÔÚ¸úËæ
+ * \return æ˜¯å¦åœ¨è·Ÿéš
  */
 bool Horse::isFollowing()
 {
@@ -461,10 +461,10 @@ bool Horse::isFollowing()
 }
 
 /**
- * \brief Ìî³äÂíµÄĞÅÏ¢
+ * \brief å¡«å……é©¬çš„ä¿¡æ¯
  *
  *
- * \param d ĞÅÏ¢½á¹¹µØÖ·
+ * \param d ä¿¡æ¯ç»“æ„åœ°å€
  */
 bool Horse::full_HorseDataStruct(Cmd::t_HorseData *d)
 {
@@ -497,7 +497,7 @@ bool Horse::full_HorseDataStruct(Cmd::t_HorseData *d)
 }
 
 /**
- * \brief Ïò¿Í»§¶Ë·¢ËÍÊı¾İ
+ * \brief å‘å®¢æˆ·ç«¯å‘é€æ•°æ®
  *
  */
 void Horse::sendData()
@@ -508,13 +508,13 @@ void Horse::sendData()
 	full_HorseDataStruct(&ret.data);
 	ret.id = ret.data.id;
 	_owner.sendCmdToMe(&ret, sizeof(ret));
-	Zebra::logger->debug("·¢ËÍÂíÆ¥ĞÅÏ¢ name=%s id=%u horseid=%u state=%u time=%u", data.name, data.id, data.horseid, data.state, data.callTime);
+	Zebra::logger->debug("å‘é€é©¬åŒ¹ä¿¡æ¯ name=%s id=%u horseid=%u state=%u time=%u", data.name, data.id, data.horseid, data.state, data.callTime);
 }
 
 /**
- * \brief ÅĞ¶Ï¸ÃÂíÊÇ·ñ¿ÉÒÔÕ½¶·
+ * \brief åˆ¤æ–­è¯¥é©¬æ˜¯å¦å¯ä»¥æˆ˜æ–—
  *
- * \return ÊÇ·ñ¿ÉÒÔÕ½¶·
+ * \return æ˜¯å¦å¯ä»¥æˆ˜æ–—
  */
 bool Horse::canFight()
 {

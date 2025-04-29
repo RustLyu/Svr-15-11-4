@@ -1,4 +1,4 @@
-#include "Zebra.h"
+﻿#include "Zebra.h"
 #include "zDatabaseManager.h"
 
 template <class data,class datafile>

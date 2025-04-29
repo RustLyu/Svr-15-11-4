@@ -1,4 +1,4 @@
-#ifndef _BILLUSERMANAGER_H_
+ï»¿#ifndef _BILLUSERMANAGER_H_
 #define _BILLUSERMANAGER_H_
 #include "BillUser.h"
 #include "zEntryManager.h"
@@ -60,8 +60,8 @@ class BillUserManager :public zEntryManager< zEntryID>
 
 	public:
 		/**
-		 * \brief »á»°³¬Ê±Ê±¼ä
-		 * µ¥Î»£¬Ãë
+		 * \brief ä¼šè¯è¶…æ—¶æ—¶é—´
+		 * å•ä½ï¼Œç§’
 		 */
 		void update();
 		void removeUserByGatewayID(BillTask *task);

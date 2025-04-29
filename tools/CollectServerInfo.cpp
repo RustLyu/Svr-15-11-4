@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CollectServerInfo.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊÕ¼¯·şÎñÆ÷ĞÅÏ¢Àà
+ * \brief å®šä¹‰æ”¶é›†æœåŠ¡å™¨ä¿¡æ¯ç±»
  */
 
 #include <errno.h>
@@ -25,9 +25,9 @@
 #include "zXMLParser.h"
 
 /**
- * \brief »ñÈ¡·şÎñÆ÷ËùÓĞĞÅÏ¢
- * ÕâĞ©ĞÅÏ¢°üÀ¨Íø¿¨ĞÅÏ¢£¬ÄÚ´æĞÅÏ¢£¬CPUĞÅÏ¢£¬ÏµÍ³ĞÅÏ¢ÒÔ¼°½ø³ÌĞÅÏ¢
- * °´ÕÕxml¸ñÊ½Êä³öµ½Ò»¸öÊı¾İ»º³å
+ * \brief è·å–æœåŠ¡å™¨æ‰€æœ‰ä¿¡æ¯
+ * è¿™äº›ä¿¡æ¯åŒ…æ‹¬ç½‘å¡ä¿¡æ¯ï¼Œå†…å­˜ä¿¡æ¯ï¼ŒCPUä¿¡æ¯ï¼Œç³»ç»Ÿä¿¡æ¯ä»¥åŠè¿›ç¨‹ä¿¡æ¯
+ * æŒ‰ç…§xmlæ ¼å¼è¾“å‡ºåˆ°ä¸€ä¸ªæ•°æ®ç¼“å†²
  */
 void ServerInfo::getServerInfo(std::string &xmlStr)
 {
@@ -184,8 +184,8 @@ void ServerInfo::getServerInfo(std::string &xmlStr)
 }
 
 /**
- * \brief »ñµÃ¸÷CPUÊ¹ÓÃÂÊ
- * \return CUPµÄÊıÁ¿
+ * \brief è·å¾—å„CPUä½¿ç”¨ç‡
+ * \return CUPçš„æ•°é‡
  */
 int ServerInfo::getCpuInfo()
 {
@@ -226,8 +226,8 @@ int ServerInfo::getCpuInfo()
 }
 
 /**
- * \brief »ñµÃ¸÷Íø¿¨Á÷Á¿
- * \return »ñÈ¡µ½µÄÍø¿¨ĞÅÏ¢ÊıÁ¿
+ * \brief è·å¾—å„ç½‘å¡æµé‡
+ * \return è·å–åˆ°çš„ç½‘å¡ä¿¡æ¯æ•°é‡
  */
 ServerInfo::NetIfInfo::size_type ServerInfo::getNetStat()
 {

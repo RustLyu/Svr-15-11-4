@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zHttpTaskPool.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊµÏÖÇáÁ¿¼¶(lightweight)µÄhttp·şÎñ¿ò¼Ü
+ * \brief å®šä¹‰å®ç°è½»é‡çº§(lightweight)çš„httpæœåŠ¡æ¡†æ¶
  */
 
 
@@ -24,7 +24,7 @@
 #include "zString.h"
 
 /**
- * \brief ¶¨ÒåÊµÏÖÇáÁ¿¼¶(lightweight)µÄhttp·şÎñ¿ò¼ÜÀà
+ * \brief å®šä¹‰å®ç°è½»é‡çº§(lightweight)çš„httpæœåŠ¡æ¡†æ¶ç±»
  */
 class zHttpTaskPool : private zNoncopyable
 {
@@ -32,14 +32,14 @@ class zHttpTaskPool : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		zHttpTaskPool()
 		{
 		};
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬Ïú»ÙÒ»¸öÏß³Ì³Ø¶ÔÏó
+		 * \brief ææ„å‡½æ•°ï¼Œé”€æ¯ä¸€ä¸ªçº¿ç¨‹æ± å¯¹è±¡
 		 *
 		 */
 		~zHttpTaskPool()
@@ -53,8 +53,8 @@ class zHttpTaskPool : private zNoncopyable
 
 	private:
 
-		static const int maxHttpThreads = 8;					/**< ×î´óÑéÖ¤Ïß³ÌÊıÁ¿ */
-		zThreadGroup httpThreads;								/**< http·şÎñ´¦ÀíÏß³Ì×é */
+		static const int maxHttpThreads = 8;					/**< æœ€å¤§éªŒè¯çº¿ç¨‹æ•°é‡ */
+		zThreadGroup httpThreads;								/**< httpæœåŠ¡å¤„ç†çº¿ç¨‹ç»„ */
 
 };
 

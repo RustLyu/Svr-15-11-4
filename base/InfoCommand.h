@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoCommand.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷ĞÅÏ¢²É¼¯Ö¸Áî
+ * \brief å®šä¹‰æœåŠ¡å™¨ä¿¡æ¯é‡‡é›†æŒ‡ä»¤
  */
 
 #ifndef _InfoCommand_h
@@ -23,7 +23,7 @@ namespace Cmd
 		const BYTE CMD_GMTOOL = 3;
 
 		///////////////////////////////////////
-		///µÇÈë·şÎñÆ÷Ö¸Áî
+		///ç™»å…¥æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////
 		const BYTE PARA_LOGIN = 1;
 		struct t_LoginCmd : t_NullCmd
@@ -44,10 +44,10 @@ namespace Cmd
 				: t_NullCmd(CMD_LOGIN, PARA_LOGIN_OK) {};
 		};
 		///////////////////////////////////////
-		///µÇÈë·şÎñÆ÷Ö¸Áî
+		///ç™»å…¥æœåŠ¡å™¨æŒ‡ä»¤
 		///////////////////////////////////////
 
-		//ÇëÇóÔÚÏßÈËÊıĞÅÏ¢
+		//è¯·æ±‚åœ¨çº¿äººæ•°ä¿¡æ¯
 		const BYTE PARA_REQUEST_ONLINENUM = 3;
 		struct t_Request_OnlineNum : t_NullCmd
 		{
@@ -55,7 +55,7 @@ namespace Cmd
 			
 			t_Request_OnlineNum() : t_NullCmd(CMD_INFO, PARA_REQUEST_ONLINENUM) { }
 		};
-		//ÇøµÄ×ÜÈËÊı
+		//åŒºçš„æ€»äººæ•°
 		const BYTE PARA_ONLINENUM =4;
 		struct t_OnlineNum : t_NullCmd
 		{
@@ -68,7 +68,7 @@ namespace Cmd
 			
 			t_OnlineNum() : t_NullCmd(CMD_INFO, PARA_ONLINENUM) { }	
 		};
-		//ÇøÖĞÃ¿¸ö¹ú¼ÒµÄÈËÊı
+		//åŒºä¸­æ¯ä¸ªå›½å®¶çš„äººæ•°
 		const BYTE PARA_COUNTRY_ONLINENUM = 5;
 		struct t_Country_OnlineNum : t_NullCmd
 		{

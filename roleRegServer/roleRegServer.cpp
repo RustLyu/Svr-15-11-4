@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: roleRegServer.cpp  $
  * \author  
  * \date 
- * \brief ½ÇÉ«Î¨Ò»ĞÔÑéÖ¤·şÎñÆ÷
+ * \brief è§’è‰²å”¯ä¸€æ€§éªŒè¯æœåŠ¡å™¨
  */
 
 #include <iostream>
@@ -34,7 +34,7 @@ struct MURLCallback : public URLCallback
 	{
 		if (!roleRegService::dbConnPool->putURL(url.hashcode, url.url.c_str(), url.supportTransactions))
 		{
-			Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü %s", url.url.c_str());
+			Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥ %s", url.url.c_str());
 			return false;
 		}
 		return true;
@@ -52,7 +52,7 @@ bool roleRegService::init()
 		return false;
 	} 
 
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -75,11 +75,11 @@ void roleRegService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	RoleTask *tcpTask = new RoleTask(taskPool, sock, addr);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
@@ -91,7 +91,7 @@ void roleRegService::final()
 	URLManager::delInstance();
 }
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  */
 static struct argp_option dbaccess_options[] =
 {
@@ -102,11 +102,11 @@ static struct argp_option dbaccess_options[] =
 };
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t dbaccess_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -134,18 +134,18 @@ static error_t dbaccess_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  */
-static char dbaccess_doc[] = "\nroleRegServer\n" "\tÊı¾İ¿â·ÃÎÊ·şÎñÆ÷¡£";
+static char dbaccess_doc[] = "\nroleRegServer\n" "\tæ•°æ®åº“è®¿é—®æœåŠ¡å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild version   :\t" _S(BUILD_STRING);
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  */
 class roleRegConfile : public zConfile
 {
@@ -205,7 +205,7 @@ class roleRegConfile : public zConfile
 };
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş,ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶,ä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  */
 void roleRegService::reloadConfig()
 {
@@ -214,37 +214,37 @@ void roleRegService::reloadConfig()
 }
 
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \brief ä¸»ç¨‹åºå…¥å£
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("roleRegServer");
 
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["client_port"] = "9900";
 	Zebra::global["logfilename"] = "/tmp/roleregserver.log";
 	Zebra::global["dbCount"] = "16";
 	Zebra::global["tableCount"] = "16";
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	roleRegConfile sc;
 	if (!sc.parse("roleRegServer"))
 		return EXIT_FAILURE;
 
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(dbaccess_options, dbaccess_parse_opt, 0, dbaccess_doc);
 	zArg::getArg()->parse(argc, argv);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();

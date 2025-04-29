@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GatewayTask.cpp $
  * \author 
  * \date
- * \brief ¶¨ÒåµÇÂ½Á¬½ÓÈÎÎñ
+ * \brief å®šä¹‰ç™»é™†è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -42,11 +42,11 @@ extern unsigned int merge_version;
 
 #define checkTimeInterval 30000
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
- * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
- * \param sock TCP/IPÌ×½Ó¿Ú
- * \param addr µØÖ·
+ * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+ * \param sock TCP/IPå¥—æ¥å£
+ * \param addr åœ°å€
  */
 GatewayTask::GatewayTask(
 		zTCPTaskPool *pool,
@@ -86,7 +86,7 @@ GatewayTask::GatewayTask(
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 GatewayTask::~GatewayTask()
@@ -111,9 +111,9 @@ GatewayTask::~GatewayTask()
 }
 
 /**
- * \brief ÑéÖ¤°æ±¾ºÅ
- * \param ptNullCmd ´ıÑéÖ¤µÄÖ¸Áî
- * \return ÑéÖ¤°æ±¾ºÅÂëÊÇ·ñ³É¹¦
+ * \brief éªŒè¯ç‰ˆæœ¬å·
+ * \param ptNullCmd å¾…éªŒè¯çš„æŒ‡ä»¤
+ * \return éªŒè¯ç‰ˆæœ¬å·ç æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::verifyVersion(const Cmd::stNullUserCmd *ptNullCmd)
 {
@@ -125,27 +125,27 @@ bool GatewayTask::verifyVersion(const Cmd::stNullUserCmd *ptNullCmd)
 		stUserVerifyVerCmd *ptCmd = (stUserVerifyVerCmd *)ptNullCmd;
 		if (GatewayService::getInstance().verify_client_version == 0 || ptCmd->version >= GatewayService::getInstance().verify_client_version)
 		{
-			Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ı°æ±¾ºÅÑéÖ¤[%u]",ptCmd->version);
+			Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡ç‰ˆæœ¬å·éªŒè¯[%u]",ptCmd->version);
 			return true;
 		}
 		else
 		{
-			Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÃ»ÓĞÍ¨¹ı°æ±¾ºÅÑéÖ¤[%u][%u]",ptCmd->version,GatewayService::getInstance().verify_client_version);
+			Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥æ²¡æœ‰é€šè¿‡ç‰ˆæœ¬å·éªŒè¯[%u][%u]",ptCmd->version,GatewayService::getInstance().verify_client_version);
 			return false;
 		}
 		/*
 		*/
 	}
 
-	Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÃ»ÓĞÍ¨¹ı°æ±¾ºÅÑéÖ¤");
+	Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æ²¡æœ‰é€šè¿‡ç‰ˆæœ¬å·éªŒè¯");
 	return false;
 }
 
 /**
- * \brief ÑéÖ¤µÇÂ½Íø¹ØÖ¸Áî
- * ÑéÖ¤µÇÂ½Íø¹ØµÄÖ¸Áî
- * \param ptNullCmd ´ıÑéÖ¤µÄµÇÂ½Ö¸Áî
- * \return ÑéÖ¤µÇÂ½Ö¸ÁîÊÇ·ñ³É¹¦
+ * \brief éªŒè¯ç™»é™†ç½‘å…³æŒ‡ä»¤
+ * éªŒè¯ç™»é™†ç½‘å…³çš„æŒ‡ä»¤
+ * \param ptNullCmd å¾…éªŒè¯çš„ç™»é™†æŒ‡ä»¤
+ * \return éªŒè¯ç™»é™†æŒ‡ä»¤æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::verifyACCID(const Cmd::stNullUserCmd *ptNullCmd)
 {
@@ -155,7 +155,7 @@ bool GatewayTask::verifyACCID(const Cmd::stNullUserCmd *ptNullCmd)
 			&& PASSWD_LOGON_USERCMD_PARA == ptNullCmd->byParam)
 	{
 		stPasswdLogonUserCmd *ptCmd = (stPasswdLogonUserCmd *)ptNullCmd;
-		Zebra::logger->trace("ÓÃ»§µÇÂ¼£º%u %u", ptCmd->loginTempID, ptCmd->dwUserID);
+		Zebra::logger->trace("ç”¨æˆ·ç™»å½•ï¼š%u %u", ptCmd->loginTempID, ptCmd->dwUserID);
 		DES_cblock des_key;
 		if (LoginSessionManager::getInstance().verify(ptCmd->loginTempID, ptCmd->dwUserID,numPassword, &des_key))
 		{
@@ -165,10 +165,10 @@ bool GatewayTask::verifyACCID(const Cmd::stNullUserCmd *ptNullCmd)
 			if (numPassword[0])
 			{
 				numPwd = atoi(numPassword);
-				Zebra::logger->debug("[²Æ±£]: %s Êı×ÖÃÜÂëÎª: %u", account, numPwd);
+				Zebra::logger->debug("[è´¢ä¿]: %s æ•°å­—å¯†ç ä¸º: %u", account, numPwd);
 			}
 
-			//ÉèÖÃzSocketµÄ¼ÓÃÜÃÜÔ¿
+			//è®¾ç½®zSocketçš„åŠ å¯†å¯†é’¥
 			mSocket.setEncMethod(CEncrypt::ENCDEC_DES);
 			mSocket.set_key_des(&des_key);
 
@@ -176,21 +176,21 @@ bool GatewayTask::verifyACCID(const Cmd::stNullUserCmd *ptNullCmd)
 			send.dwMergeVersion = merge_version;
 			sendCmd(&send, sizeof(send));
 
-			//Zebra::logger->debug("ÉèÖÃdesÃÜÔ¿£º%u %u %u %u %u %u %u %u", des_key[0], des_key[1], des_key[2], des_key[3], des_key[4], des_key[5], des_key[6], des_key[7]);
+			//Zebra::logger->debug("è®¾ç½®deså¯†é’¥ï¼š%u %u %u %u %u %u %u %u", des_key[0], des_key[1], des_key[2], des_key[3], des_key[4], des_key[5], des_key[6], des_key[7]);
 
-			//Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¬²½ÑéÖ¤³É¹¦£¬µÈ´ı¼Æ·Ñ·şÎñÆ÷·µ»Ø");
+			//Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥åŒæ­¥éªŒè¯æˆåŠŸï¼Œç­‰å¾…è®¡è´¹æœåŠ¡å™¨è¿”å›");
 			return true;
 		}
 	}
 
-	Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÍ¬²½ÑéÖ¤Ê§°Ü");
+	Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥åŒæ­¥éªŒè¯å¤±è´¥");
 	return false;
 }
 
 /**
- * \brief Á¬½ÓÈ·ÈÏ
+ * \brief è¿æ¥ç¡®è®¤
  *
- * \return Èç¹ûÃ»ÓĞÊı¾İ·µ»Ø0,ÑéÖ¤³É¹¦·µ»Ø1,ÑéÖ¤Ê§°Ü·µ»Ø-1
+ * \return å¦‚æœæ²¡æœ‰æ•°æ®è¿”å›0,éªŒè¯æˆåŠŸè¿”å›1,éªŒè¯å¤±è´¥è¿”å›-1
  */
 int GatewayTask::verifyConn()
 {
@@ -203,7 +203,7 @@ int GatewayTask::verifyConn()
 			unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 			int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 			if (nCmdLen <= 0)
-				//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+				//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 				return 0;
 			else
 			{
@@ -224,7 +224,7 @@ int GatewayTask::verifyConn()
 				}
 				else
 				{
-					Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÑéÖ¤Ê§°Ü");
+					Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥éªŒè¯å¤±è´¥");
 					return -1;
 				}
 			}
@@ -235,10 +235,10 @@ int GatewayTask::verifyConn()
 }
 
 /**
- * \brief Á¬½ÓÍ¬²½µÈ´ı
+ * \brief è¿æ¥åŒæ­¥ç­‰å¾…
  *
  *
- * \return ´íÎó·µ»Ø-1,³É¹¦·µ»Ø1,¼ÌĞøµÈ´ı·µ»Ø0
+ * \return é”™è¯¯è¿”å›-1,æˆåŠŸè¿”å›1,ç»§ç»­ç­‰å¾…è¿”å›0
  */
 int GatewayTask::waitSync()
 {
@@ -258,7 +258,7 @@ int GatewayTask::waitSync()
 			break;
 		case ACCOUNTVERIFY_WAITING:
 			{
-				//ÎŞÏŞÆÚµÈ´ı¼Æ·ÑÑéÖ¤Í¨¹ı
+				//æ— é™æœŸç­‰å¾…è®¡è´¹éªŒè¯é€šè¿‡
 			}
 			break;
 		case ACCOUNTVERIFY_SUCCESS:
@@ -277,16 +277,16 @@ int GatewayTask::waitSync()
 }
 
 /**
- * \brief ÓÃ»§ÏÂÏß
+ * \brief ç”¨æˆ·ä¸‹çº¿
  *
- * \return 1:¿ÉÒÔ»ØÊÕ,2¼ÌĞøÑÓÊ±
+ * \return 1:å¯ä»¥å›æ”¶,2ç»§ç»­å»¶æ—¶
  */
 int GatewayTask::recycleConn()
 {
 	/*
 	if(recycle_wait == 5000)
 	{
-		//Í¨Öª¼Æ·Ñ·şÎñÆ÷ÓÃ»§ÏÂÏß
+		//é€šçŸ¥è®¡è´¹æœåŠ¡å™¨ç”¨æˆ·ä¸‹çº¿
 		using namespace Cmd::Bill;
 		t_Logout_Gateway tCmd;
 
@@ -302,7 +302,7 @@ int GatewayTask::recycleConn()
 	}
 	else
 	{
-		//Í¨Öª¼Æ·Ñ·şÎñÆ÷ÓÃ»§ÏÂÏß
+		//é€šçŸ¥è®¡è´¹æœåŠ¡å™¨ç”¨æˆ·ä¸‹çº¿
 		using namespace Cmd::Bill;
 		t_Logout_Gateway tCmd;
 
@@ -315,15 +315,15 @@ int GatewayTask::recycleConn()
 }
 
 /**
- * \brief ĞèÒªÖ÷¶¯¶Ï¿ª¿Í»§¶ËµÄÁ¬½Ó
+ * \brief éœ€è¦ä¸»åŠ¨æ–­å¼€å®¢æˆ·ç«¯çš„è¿æ¥
  *
- * \param method Á¬½Ó¶Ï¿ª·½Ê½
+ * \param method è¿æ¥æ–­å¼€æ–¹å¼
  */
 void GatewayTask::Terminate(const TerminateMethod method)
 {
 	if(pUser)
 	{
-		Zebra::logger->trace("ÓÃ»§Terminate(%ld,%ld,%s)×¢Ïú,ip=%s",pUser->accid,pUser->id,pUser->name,getIP());
+		Zebra::logger->trace("ç”¨æˆ·Terminate(%ld,%ld,%s)æ³¨é”€,ip=%s",pUser->accid,pUser->id,pUser->name,getIP());
 
 		Cmd::Mini::t_UserLogout_Gateway s;
 		s.userID = pUser->id;
@@ -337,13 +337,13 @@ void GatewayTask::Terminate(const TerminateMethod method)
 	}
 	else
 	{
-		Zebra::logger->trace("×¢Ïúµ«ÓÃ»§ÒÑ¾­²»´æÔÚ");
+		Zebra::logger->trace("æ³¨é”€ä½†ç”¨æˆ·å·²ç»ä¸å­˜åœ¨");
 	}
 	// */
 	zTCPTask::Terminate(method);
 }
 /**
- * \brief ĞÂÓÃ»§µÇÂ½
+ * \brief æ–°ç”¨æˆ·ç™»é™†
  *
  */
 void GatewayTask::addToContainer()
@@ -351,7 +351,7 @@ void GatewayTask::addToContainer()
 	GateUser *pUser=new GateUser(this->accid,this);
 	if(pUser)
 	{
-		//·¢ËÍÓÎÏ·Ê±¼ä£¬¿ªÊ¼¼ÆÊ±
+		//å‘é€æ¸¸æˆæ—¶é—´ï¼Œå¼€å§‹è®¡æ—¶
 		using namespace Cmd;
 		stGameTimeTimerUserCmd cmd;
 		cmd.qwGameTime = Zebra::qwGameTime;
@@ -372,7 +372,7 @@ void GatewayTask::addToContainer()
 		pUser->sendCmd(ciu , sizeof(Cmd::stCountryInfoUserCmd) + ciu->size *sizeof(Cmd::Country_Info));
 		if(pUser->beginSelect())
 		{
-			//Í¨ÖªµÇÂ½·şÎñÆ÷£¬Íø¹ØÁ¬½ÓÊı
+			//é€šçŸ¥ç™»é™†æœåŠ¡å™¨ï¼Œç½‘å…³è¿æ¥æ•°
 			GatewayService::getInstance().notifyLoginServer();
 		}
 		else {
@@ -385,20 +385,20 @@ void GatewayTask::addToContainer()
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÉ¾³ı
+ * \brief ä»å®¹å™¨ä¸­åˆ é™¤
  *
  */
 void GatewayTask::removeFromContainer()
 {
-	//Í¨ÖªµÇÂ½·şÎñÆ÷£¬Íø¹ØÁ¬½ÓÊı
+	//é€šçŸ¥ç™»é™†æœåŠ¡å™¨ï¼Œç½‘å…³è¿æ¥æ•°
 	GatewayService::getInstance().notifyLoginServer();
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÁ¬½ÓÏß³Ì
+ * \brief æ·»åŠ ä¸€ä¸ªè¿æ¥çº¿ç¨‹
  *
  *
- * \return ³É¹¦·µ»Øture,·ñÔò·µ»Øfalse
+ * \return æˆåŠŸè¿”å›ture,å¦åˆ™è¿”å›false
  */
 bool GatewayTask::uniqueAdd()
 {
@@ -406,10 +406,10 @@ bool GatewayTask::uniqueAdd()
 }
 
 /**
- * \brief É¾³ıÒ»¸öÁ¬½ÓÏß³Ì
+ * \brief åˆ é™¤ä¸€ä¸ªè¿æ¥çº¿ç¨‹
  *
  *
- * \return ³É¹¦·µ»Øture,·ñÔò·µ»Øfalse
+ * \return æˆåŠŸè¿”å›ture,å¦åˆ™è¿”å›false
  */
 bool GatewayTask::uniqueRemove()
 {
@@ -417,12 +417,12 @@ bool GatewayTask::uniqueRemove()
 }
 
 /**
- * \brief ³¡¾°ÓÃ»§½«ÏûÏ¢×ª·¢µ½Bill
+ * \brief åœºæ™¯ç”¨æˆ·å°†æ¶ˆæ¯è½¬å‘åˆ°Bill
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::forwardBillScene(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -435,18 +435,18 @@ bool GatewayTask::forwardBillScene(const Cmd::stNullUserCmd *ptNullCmd, const un
 		sendCmd->size=nCmdLen;
 		bcopy(ptNullCmd,sendCmd->data,nCmdLen);
 		accountClient->sendCmd(buf,sizeof(Cmd::Bill::t_Scene_ForwardBill)+nCmdLen);
-		//Zebra::logger->debug("×ª·¢%ldµÄÏûÏ¢µ½%ld³¡¾°",pUser->id,pUser->sceneTempID);
+		//Zebra::logger->debug("è½¬å‘%ldçš„æ¶ˆæ¯åˆ°%ldåœºæ™¯",pUser->id,pUser->sceneTempID);
 		return true;
 	}
 	return false;
 }
 /**
- * \brief ½«ÏûÏ¢×ª·¢µ½Bill
+ * \brief å°†æ¶ˆæ¯è½¬å‘åˆ°Bill
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::forwardBill(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -459,18 +459,18 @@ bool GatewayTask::forwardBill(const Cmd::stNullUserCmd *ptNullCmd, const unsigne
 		sendCmd->size=nCmdLen;
 		bcopy(ptNullCmd,sendCmd->data,nCmdLen);
 		accountClient->sendCmd(buf,sizeof(Cmd::Bill::t_Bill_ForwardBill)+nCmdLen);
-		//Zebra::logger->debug("×ª·¢%ldµÄÏûÏ¢µ½%ld³¡¾°",pUser->id,pUser->sceneTempID);
+		//Zebra::logger->debug("è½¬å‘%ldçš„æ¶ˆæ¯åˆ°%ldåœºæ™¯",pUser->id,pUser->sceneTempID);
 		return true;
 	}
 	return false;
 }
 /**
- * \brief ½«BillµÄÏûÏ¢×ª·¢µ½³¡¾°
+ * \brief å°†Billçš„æ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::forwardSceneBill(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -484,19 +484,19 @@ bool GatewayTask::forwardSceneBill(const Cmd::stNullUserCmd *ptNullCmd, const un
 		sendCmd->size=nCmdLen;
 		bcopy(ptNullCmd,sendCmd->data,nCmdLen);
 		pUser->scene->sendCmd(buf,sizeof(Cmd::Scene::t_Bill_ForwardScene)+nCmdLen);
-		//Zebra::logger->debug("×ª·¢%ldµÄÏûÏ¢µ½%ld³¡¾°",pUser->id,pUser->sceneTempID);
+		//Zebra::logger->debug("è½¬å‘%ldçš„æ¶ˆæ¯åˆ°%ldåœºæ™¯",pUser->id,pUser->sceneTempID);
 		return true;
 	}
 	return false;
 }
 
 /**
- * \brief ½«ÏûÏ¢×ª·¢µ½Ğ¡ÓÎÏ··şÎñÆ÷
+ * \brief å°†æ¶ˆæ¯è½¬å‘åˆ°å°æ¸¸æˆæœåŠ¡å™¨
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::forwardMini(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -509,19 +509,19 @@ bool GatewayTask::forwardMini(const Cmd::stNullUserCmd *ptNullCmd, const unsigne
 		sendCmd->size=nCmdLen;
 		bcopy(ptNullCmd, sendCmd->data, nCmdLen);
 		miniClient->sendCmd(buf, sizeof(Cmd::Mini::t_Mini_UserForwardMini)+nCmdLen);
-		Zebra::logger->debug("×ª·¢%ldµÄÏûÏ¢µ½Mini·şÎñÆ÷", pUser->id);
+		Zebra::logger->debug("è½¬å‘%ldçš„æ¶ˆæ¯åˆ°MiniæœåŠ¡å™¨", pUser->id);
 		return true;
 	}   
 	return false;
 }
 
 /**
- * \brief ½«ÏûÏ¢×ª·¢µ½³¡¾°
+ * \brief å°†æ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::forwardScene(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -535,19 +535,19 @@ bool GatewayTask::forwardScene(const Cmd::stNullUserCmd *ptNullCmd, const unsign
 		sendCmd->size=nCmdLen;
 		bcopy(ptNullCmd,sendCmd->data,nCmdLen);
 		pUser->scene->sendCmd(buf,sizeof(Cmd::Scene::t_Scene_ForwardScene)+nCmdLen);
-		//Zebra::logger->debug("×ª·¢%ldµÄÏûÏ¢µ½%ld³¡¾°",pUser->id,pUser->sceneTempID);
+		//Zebra::logger->debug("è½¬å‘%ldçš„æ¶ˆæ¯åˆ°%ldåœºæ™¯",pUser->id,pUser->sceneTempID);
 		return true;
 	}
 	return false;
 }
 
 /**
- * \brief ½«ÏûÏ¢×ª·¢µ½Session
+ * \brief å°†æ¶ˆæ¯è½¬å‘åˆ°Session
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::forwardSession(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -560,19 +560,19 @@ bool GatewayTask::forwardSession(const Cmd::stNullUserCmd *ptNullCmd, const unsi
 		sendCmd->size=nCmdLen;
 		bcopy(ptNullCmd,sendCmd->data,nCmdLen);
 		sessionClient->sendCmd(buf,sizeof(Cmd::Session::t_Session_ForwardUser)+nCmdLen);
-		//Zebra::logger->debug("×ª·¢%ldµÄÏûÏ¢µ½Session·şÎñÆ÷",pUser->id,pUser->sceneTempID);
+		//Zebra::logger->debug("è½¬å‘%ldçš„æ¶ˆæ¯åˆ°SessionæœåŠ¡å™¨",pUser->id,pUser->sceneTempID);
 		return true;
 	}
 	return false;
 }
 
 /**
- * \brief ½âÎöÑ¡ÔñÏûÏ¢
+ * \brief è§£æé€‰æ‹©æ¶ˆæ¯
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -584,18 +584,18 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 			{
 				stCheckNameSelectUserCmd *rev=(stCheckNameSelectUserCmd *)ptNullCmd;
 
-				//´Ê»ã¹ıÂË
+				//è¯æ±‡è¿‡æ»¤
 				if (! (wordFilter::getInstance().doFilter(rev->name, 16) && checkNewName(rev->name)))
 				{
 					Cmd::stCheckNameSelectUserCmd ret;
-					ret.err_code = 2;//±íÊ¾Ãû×ÖÖĞ°üº¬½ûÖ¹µÄ´Ê»ã
+					ret.err_code = 2;//è¡¨ç¤ºåå­—ä¸­åŒ…å«ç¦æ­¢çš„è¯æ±‡
 					strncpy(ret.name, rev->name, MAX_NAMESIZE);
 					sendCmd(&ret, sizeof(ret));
 					return true;
 				}
 
 				/*
-				//TODO:Î¨Ò»ĞÔÑéÖ¤·şÎñÆ÷£¬ÔİÊ±Ã»ÓĞ£¬²»¿¼ÂÇ
+				//TODO:å”¯ä¸€æ€§éªŒè¯æœåŠ¡å™¨ï¼Œæš‚æ—¶æ²¡æœ‰ï¼Œä¸è€ƒè™‘
 				if (GatewayService::getInstance().rolereg_verify)
 				{
 					using namespace Cmd::RoleReg;
@@ -610,7 +610,7 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 				Cmd::Record::t_CheckName_GateRecord send;
 				strncpy(send.name, rev->name, MAX_NAMESIZE-1);
 				send.accid = pUser->accid;
-				//·¢ËÍµ½RecordServerÑéÖ¤
+				//å‘é€åˆ°RecordServeréªŒè¯
 				return recordClient->sendCmd(&send, sizeof(send));
 			}
 			break;
@@ -618,29 +618,29 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 			{
 				stCreateSelectUserCmd *rev=(stCreateSelectUserCmd *)ptNullCmd;
 				
-					Zebra::logger->trace("´´½¨½ÇÉ«£º%u, %s, %u", pUser->accid, rev->strUserName, rev->charType);
+					Zebra::logger->trace("åˆ›å»ºè§’è‰²ï¼š%u, %s, %u", pUser->accid, rev->strUserName, rev->charType);
 					if (!pUser->charInfoFull())
 					{
 						if(strlen(rev->strUserName) > 16)
 						{
-							Zebra::logger->trace("Ãû×Ö³¤¶ÈÌ«³¤(%d)" , strlen(rev->strUserName));
+							Zebra::logger->trace("åå­—é•¿åº¦å¤ªé•¿(%d)" , strlen(rev->strUserName));
 							return true;
 						}
-						//½ÇÉ«ÊıÁ¿Ã»ÓĞÂú£¬»¹¿ÉÒÔÔÙ½¨Á¢½ÇÉ«
+						//è§’è‰²æ•°é‡æ²¡æœ‰æ»¡ï¼Œè¿˜å¯ä»¥å†å»ºç«‹è§’è‰²
 						pUser->createCharCmd.accid = pUser->accid;
 						bzero(pUser->createCharCmd.name, sizeof(pUser->createCharCmd.name));
 						strncpy(pUser->createCharCmd.name, rev->strUserName, MAX_NAMESIZE - 1);
 						pUser->createCharCmd.type = rev->charType;
-						//Í··¢·¢ĞÍÒÔ¼°ÑÕÉ«
+						//å¤´å‘å‘å‹ä»¥åŠé¢œè‰²
 						pUser->createCharCmd.hair = rev->byHairType;
 						pUser->createCharCmd.hair = pUser->createCharCmd.hair << 24;
 						pUser->createCharCmd.hair = (pUser->createCharCmd.hair & HAIRTYPE_MASK) | (rev->byRGB & HAIRRGB_MASK);
 						//if(rev->country >11)
 #define country_info GatewayService::getInstance().country_info
-						//Zebra::logger->debug("¹ú¼ÒĞÅÏ¢ÊıÁ¿%u" , country_info.getCountrySize());
+						//Zebra::logger->debug("å›½å®¶ä¿¡æ¯æ•°é‡%u" , country_info.getCountrySize());
 						if(rev->country && rev->country !=country_info.getCountryID(rev->country))
 						{
-							Zebra::logger->trace("¹ú¼ÒÊı¾İ²»ºÏ·¨");
+							Zebra::logger->trace("å›½å®¶æ•°æ®ä¸åˆæ³•");
 							return true;
 						}
 						if (!country_info.isEnableRegister(rev->country))
@@ -658,7 +658,7 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 						pUser->createCharCmd.createip = this->getAddr();
 						if(rev->five >=FIVE_NONE)
 						{
-							Zebra::logger->trace("ÎåĞĞÖ÷ÊôĞÔ²»ºÏ·¨");
+							Zebra::logger->trace("äº”è¡Œä¸»å±æ€§ä¸åˆæ³•");
 							return true;
 						}
 						pUser->createCharCmd.five = rev->five;
@@ -681,7 +681,7 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 						pUser->createState();
 					}
 					else
-						Zebra::logger->trace("½ÇÉ«ĞÅÏ¢Âú£¬²»ÄÜÔÙ´´½¨½ÇÉ«ÁË");
+						Zebra::logger->trace("è§’è‰²ä¿¡æ¯æ»¡ï¼Œä¸èƒ½å†åˆ›å»ºè§’è‰²äº†");
 
 				return true;
 			}
@@ -692,21 +692,21 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 				{
 					stLoginSelectUserCmd *rev=(stLoginSelectUserCmd *)ptNullCmd;
 					SelectUserInfo *userinfo=pUser->getSelectUserInfo(rev->charNo);
-					Zebra::logger->trace("ÊÕµ½%ldµÄµÚ%d¸öµÇÂ¼ÓÃ»§Ö¸Áî",pUser->accid,rev->charNo);
+					Zebra::logger->trace("æ”¶åˆ°%ldçš„ç¬¬%dä¸ªç™»å½•ç”¨æˆ·æŒ‡ä»¤",pUser->accid,rev->charNo);
 					if(!userinfo)
 					{
-						Zebra::logger->debug("ÊÕµ½²»´æÔÚµÄ½ÇÉ«,¿ÉÄÜÊÇ¶ñÒâ¹¥»÷!");
+						Zebra::logger->debug("æ”¶åˆ°ä¸å­˜åœ¨çš„è§’è‰²,å¯èƒ½æ˜¯æ¶æ„æ”»å‡»!");
 						return true;
 					}
 					if(userinfo->bitmask & CHARBASE_FORBID)
 					{
-						Zebra::logger->debug("ÊÕµ½ÒÑ¾­±»·âºÅµÄ½ÇÉ«,¿ÉÄÜÊÇ¶ñÒâ¹¥»÷!");
+						Zebra::logger->debug("æ”¶åˆ°å·²ç»è¢«å°å·çš„è§’è‰²,å¯èƒ½æ˜¯æ¶æ„æ”»å‡»!");
 						return true;
 					}
 
 					if (!GatewayService::getInstance().country_info.isEnableLogin(userinfo->country))
 					{
-						Zebra::logger->debug("¹ú¼Ò²»ÔÊĞíµÇÂ½ %u, %u", pUser->accid, userinfo->country);
+						Zebra::logger->debug("å›½å®¶ä¸å…è®¸ç™»é™† %u, %u", pUser->accid, userinfo->country);
 						Cmd::stDisableLoginCountryCmd send;
 						send.status = Cmd::FALSE_LOGIN_COUNTRY;
 						pUser->sendCmd(&send, sizeof(send));
@@ -720,28 +720,28 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 							pUser->id=userinfo->id;
 							pUser->face=userinfo->face;
 							strncpy(pUser->name,userinfo->name,MAX_NAMESIZE);
-							//¼ÓÈë½ÇÉ«£¬·ÖÅäÁÙÊ±ID
+							//åŠ å…¥è§’è‰²ï¼Œåˆ†é…ä¸´æ—¶ID
 							if(GateUserManager::getInstance()->addUser(pUser) && GateUserManager::getInstance()->addCountryUser(pUser))
 							{
-								Zebra::logger->trace("×¢²á %u, %s", pUser->accid,userinfo->name);
-								//×¢²á½ÇÉ«
+								Zebra::logger->trace("æ³¨å†Œ %u, %s", pUser->accid,userinfo->name);
+								//æ³¨å†Œè§’è‰²
 								pUser->reg(rev->charNo);
 								return true;
 							}
 							else
 							{
-								Zebra::logger->debug("Ñ¡Ôñ%sÊ±Ìí¼ÓÓÃ»§Ê§°Ü",userinfo->name);
+								Zebra::logger->debug("é€‰æ‹©%sæ—¶æ·»åŠ ç”¨æˆ·å¤±è´¥",userinfo->name);
 							}
 						}
 						else
-							Zebra::logger->debug("ÓÃ»§%s(%ld)ÖØ¸´Ñ¡Ôñ½ÇÉ«",userinfo->name,userinfo->id);
+							Zebra::logger->debug("ç”¨æˆ·%s(%ld)é‡å¤é€‰æ‹©è§’è‰²",userinfo->name,userinfo->id);
 					}
 					else
-						Zebra::logger->debug("ÑéÖ¤Í¼ĞÎÑéÖ¤ÂëÊ§°Ü %u",pUser->accid);
+						Zebra::logger->debug("éªŒè¯å›¾å½¢éªŒè¯ç å¤±è´¥ %u",pUser->accid);
 				}
 				else
 				{
-					Zebra::logger->debug("ÓÃ»§%s(%ld)ÕıÔÚÍË³ö×´Ì¬",pUser->name,pUser->id);
+					Zebra::logger->debug("ç”¨æˆ·%s(%ld)æ­£åœ¨é€€å‡ºçŠ¶æ€",pUser->name,pUser->id);
 				}
 				return true;
 			}
@@ -752,12 +752,12 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 				SelectUserInfo *userinfo=pUser->getSelectUserInfo(rev->charNo);
 				if(!userinfo)
 				{
-					Zebra::logger->debug("ÊÕµ½²»´æÔÚµÄ½ÇÉ«,¿ÉÄÜÊÇ¶ñÒâ¹¥»÷!");
+					Zebra::logger->debug("æ”¶åˆ°ä¸å­˜åœ¨çš„è§’è‰²,å¯èƒ½æ˜¯æ¶æ„æ”»å‡»!");
 					return true;
 				}
-				//debug°æ±¾È¥µôÊı×ÖÃÜÂë¹¦ÄÜ
+				//debugç‰ˆæœ¬å»æ‰æ•°å­—å¯†ç åŠŸèƒ½
 #ifndef _ALL_SUPER_GM 
-				//Èç¹ûÆôÓÃÊı×ÖÃÜÂë
+				//å¦‚æœå¯ç”¨æ•°å­—å¯†ç 
 				if(numPassword[0] && strncmp(numPassword,rev->numPassword,sizeof(numPassword)) != 0)
 				{
 					stDeleteErrorSelectUserCmd ret;
@@ -767,7 +767,7 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 #endif
 				if(pUser->tempid == 0 && userinfo && userinfo->id!=0)
 				{
-					Zebra::logger->info("ÓÃ»§(%s,%d)É¾³ı½ÇÉ«",userinfo->name , userinfo->id);
+					Zebra::logger->info("ç”¨æˆ·(%s,%d)åˆ é™¤è§’è‰²",userinfo->name , userinfo->id);
 					//Cmd::Record::t_DelChar_GateRecord send;
 					Cmd::Session::t_DelChar_GateSession send;
 					send.accid=pUser->accid;
@@ -783,7 +783,7 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 					//recordClient->sendCmd(&send,sizeof(send));
 				}
 				else
-					Zebra::logger->debug("ÓÃ»§%s(%ld)É¾³ı½ÇÉ«Ê§°Ü",userinfo->name , userinfo->id);
+					Zebra::logger->debug("ç”¨æˆ·%s(%ld)åˆ é™¤è§’è‰²å¤±è´¥",userinfo->name , userinfo->id);
 				return true;
 			}
 			break;
@@ -820,12 +820,12 @@ bool GatewayTask::msgParse_Select(const Cmd::stNullUserCmd *ptNullCmd, const uns
 }
 
 /**
- * \brief ½âÎöÊ±¼äÏûÏ¢
+ * \brief è§£ææ—¶é—´æ¶ˆæ¯
  *
  *
- * \param ptNullCmd: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::msgParse_Time(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -845,15 +845,15 @@ bool GatewayTask::msgParse_Time(const Cmd::stNullUserCmd *ptNullCmd, const unsig
 				{   
 					if(this->pUser)
 					{
-						Zebra::logger->trace("¿Í»§¶ËÓÎÏ·Ê±¼äÌ«¿ì£¬Ê¹ÓÃÁË¼ÓËÙÆ÷£¬ĞèÒª¶Ï¿ªÁ¬½Ó£¨accid = %u, %u, %llu£©", this->pUser->accid, ptNullCmd->dwTimestamp, rev->qwGameTime - (qwGameTime + (GatewayTimeTick::currentTime.sec() - GameTimeSyn.sec())));
+						Zebra::logger->trace("å®¢æˆ·ç«¯æ¸¸æˆæ—¶é—´å¤ªå¿«ï¼Œä½¿ç”¨äº†åŠ é€Ÿå™¨ï¼Œéœ€è¦æ–­å¼€è¿æ¥ï¼ˆaccid = %u, %u, %lluï¼‰", this->pUser->accid, ptNullCmd->dwTimestamp, rev->qwGameTime - (qwGameTime + (GatewayTimeTick::currentTime.sec() - GameTimeSyn.sec())));
 					}
-					Zebra::logger->debug("ÓÎÏ·Ê±¼ä:(accid=%u,%llu,%llu)", accid,rev->qwGameTime, qwGameTime + (GatewayTimeTick::currentTime.sec() - GameTimeSyn.sec()));
+					Zebra::logger->debug("æ¸¸æˆæ—¶é—´:(accid=%u,%llu,%llu)", accid,rev->qwGameTime, qwGameTime + (GatewayTimeTick::currentTime.sec() - GameTimeSyn.sec()));
 					Terminate();
 				}
 				if(!haveCheckTime)
 					haveCheckTime = true;
 				else
-					Zebra::logger->warn("Ğ£¶ÔÊ±¼ä±ê¼Ç´íÎó(accid=%u)", accid);
+					Zebra::logger->warn("æ ¡å¯¹æ—¶é—´æ ‡è®°é”™è¯¯(accid=%u)", accid);
 				return true;
 			}
 			break;
@@ -871,10 +871,10 @@ bool GatewayTask::msgParse_Time(const Cmd::stNullUserCmd *ptNullCmd, const unsig
 }
 
 /**
- * \brief ¼ì²âÊ±¼ä
+ * \brief æ£€æµ‹æ—¶é—´
  *
- * \param ct: µ±Ç°Ê±¼ä
- * \return ÊÇ·ñÍ¨¹ı¼ì²â
+ * \param ct: å½“å‰æ—¶é—´
+ * \return æ˜¯å¦é€šè¿‡æ£€æµ‹
  */
 bool GatewayTask::checkTime(const zRTime &ct)
 {
@@ -884,7 +884,7 @@ bool GatewayTask::checkTime(const zRTime &ct)
 		{
 			if (haveCheckTime)
 			{
-				//Ğ£¶ÔÊ±¼ä
+				//æ ¡å¯¹æ—¶é—´
 				if(_retset_gametime(ct))
 				{
 					Cmd::stGameTimeTimerUserCmd cmd;
@@ -893,7 +893,7 @@ bool GatewayTask::checkTime(const zRTime &ct)
 						cmd.qwGameTime = qwGameTime + (GatewayTimeTick::currentTime.sec() - GameTimeSyn.sec());
 						sendCmd(&cmd, sizeof(cmd));
 					}
-					//×¼±¸ÖØĞÂÉèÖÃÍ¬²½Ê±¼ä
+					//å‡†å¤‡é‡æ–°è®¾ç½®åŒæ­¥æ—¶é—´
 					dwTimestampServer=0;
 				}
 				haveCheckTime = false;
@@ -902,7 +902,7 @@ bool GatewayTask::checkTime(const zRTime &ct)
 			}
 			else
 			{
-				Zebra::logger->trace("¿Í»§¶ËÖ¸¶¨Ê±¼äÄÚÃ»ÓĞ·µ»ØĞ£¶ÔÊ±¼äÖ¸Áî£¨accid = %u, snd_queue_size = %u£©,×¢Ïú", accid, mSocket.snd_queue_size());
+				Zebra::logger->trace("å®¢æˆ·ç«¯æŒ‡å®šæ—¶é—´å†…æ²¡æœ‰è¿”å›æ ¡å¯¹æ—¶é—´æŒ‡ä»¤ï¼ˆaccid = %u, snd_queue_size = %uï¼‰,æ³¨é”€", accid, mSocket.snd_queue_size());
 				TerminateWait();
 			}
 
@@ -915,11 +915,11 @@ bool GatewayTask::checkTime(const zRTime &ct)
 }
 
 /**
- * \brief ¶Ô¿Í»§¶Ë·¢ËÍ¹ıÀ´µÄÖ¸Áî½øĞĞ¼ì²â
- * Ö÷Òª¼ì²âÊ±¼ä´ÁµÈ£¬¶Ô¼ÓËÙÆ÷µÈ½øĞĞ·ÀÖ¹
- * \param pCmd ´ı¼ì²âµÄÖ¸Áî
- * \param ct µ±Ç°Ê±¼ä
- * \return ¼ì²âÊÇ·ñ³É¹¦
+ * \brief å¯¹å®¢æˆ·ç«¯å‘é€è¿‡æ¥çš„æŒ‡ä»¤è¿›è¡Œæ£€æµ‹
+ * ä¸»è¦æ£€æµ‹æ—¶é—´æˆ³ç­‰ï¼Œå¯¹åŠ é€Ÿå™¨ç­‰è¿›è¡Œé˜²æ­¢
+ * \param pCmd å¾…æ£€æµ‹çš„æŒ‡ä»¤
+ * \param ct å½“å‰æ—¶é—´
+ * \return æ£€æµ‹æ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::checkUserCmd(const Cmd::stNullUserCmd *pCmd, const zRTime &ct)
 {
@@ -927,7 +927,7 @@ bool GatewayTask::checkUserCmd(const Cmd::stNullUserCmd *pCmd, const zRTime &ct)
 	{
 		if(abs((dwTimestampServer + pCmd->dwTimestamp) - ct.msecs()) > sampleInterval_error_msecs)
 		{
-			Zebra::logger->trace("¿Í»§¶ËÖ¸ÁîÊ±¼äÌ«¿ì£¬Ê¹ÓÃÁË¼ÓËÙÆ÷£¬ĞèÒª¶Ï¿ªÁ¬½Ó£¨accid = %u, %d, %llu£©", accid, (dwTimestampServer + pCmd->dwTimestamp) - ct.msecs(), initTime.elapse(ct));
+			Zebra::logger->trace("å®¢æˆ·ç«¯æŒ‡ä»¤æ—¶é—´å¤ªå¿«ï¼Œä½¿ç”¨äº†åŠ é€Ÿå™¨ï¼Œéœ€è¦æ–­å¼€è¿æ¥ï¼ˆaccid = %u, %d, %lluï¼‰", accid, (dwTimestampServer + pCmd->dwTimestamp) - ct.msecs(), initTime.elapse(ct));
 			v_lastSampleTime = pCmd->dwTimestamp + sampleInterval;
 			dwTimestampServer = ct.msecs() - pCmd->dwTimestamp;
 			return false;
@@ -938,7 +938,7 @@ bool GatewayTask::checkUserCmd(const Cmd::stNullUserCmd *pCmd, const zRTime &ct)
 			/*
 			if(v_samplePackets > 30)
 			{
-				Zebra::logger->debug("%dºÁÃëÊÕµ½Ö¸Áî¸öÊı%d",sampleInterval , v_samplePackets);
+				Zebra::logger->debug("%dæ¯«ç§’æ”¶åˆ°æŒ‡ä»¤ä¸ªæ•°%d",sampleInterval , v_samplePackets);
 			}
 			// */
 			v_samplePackets = 0;
@@ -947,14 +947,14 @@ bool GatewayTask::checkUserCmd(const Cmd::stNullUserCmd *pCmd, const zRTime &ct)
 			v_samplePackets++;
 		if (v_samplePackets > maxSamplePPS)
 		{
-			Zebra::logger->trace("¿Í»§¶ËÖ¸Áî·¢ËÍ¹ı¿ì£¬ĞèÒª¶Ï¿ªÁ¬½Ó£¨accid = %u, %u/%uºÁÃë£©", accid, v_samplePackets, sampleInterval);
+			Zebra::logger->trace("å®¢æˆ·ç«¯æŒ‡ä»¤å‘é€è¿‡å¿«ï¼Œéœ€è¦æ–­å¼€è¿æ¥ï¼ˆaccid = %u, %u/%uæ¯«ç§’ï¼‰", accid, v_samplePackets, sampleInterval);
 			return false;
 		}
 		/*
 		int interval = pCmd->dwTimestamp - initTime.elapse(ct);
 		if (interval > 1200)
 		{
-			Zebra::logger->trace("¿Í»§¶ËÊ±¼äÌ«¿ì£¬¿ÉÄÜÊ¹ÓÃÁË¼ÓËÙÆ÷£¬¶Ï¿ªÁ¬½Ó£¨accid = %u, %u, %llu£©", accid, pCmd->dwTimestamp, initTime.elapse(ct));
+			Zebra::logger->trace("å®¢æˆ·ç«¯æ—¶é—´å¤ªå¿«ï¼Œå¯èƒ½ä½¿ç”¨äº†åŠ é€Ÿå™¨ï¼Œæ–­å¼€è¿æ¥ï¼ˆaccid = %u, %u, %lluï¼‰", accid, pCmd->dwTimestamp, initTime.elapse(ct));
 			return false;
 		}
 		// */
@@ -964,17 +964,17 @@ bool GatewayTask::checkUserCmd(const Cmd::stNullUserCmd *pCmd, const zRTime &ct)
 }
 
 /**
- * \brief ½âÎöÏûÏ¢
+ * \brief è§£ææ¶ˆæ¯
  *
- * \param ptNull: ĞèÒª×ª·¢µÄÖ¸Áî
- * \param nCmdLen: Ö¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNull: éœ€è¦è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmdLen)
 {
 	using namespace Cmd;
 	const stNullUserCmd *ptNullCmd = (const stNullUserCmd *)ptNull;
-	//Zebra::logger->debug("ÊÕµ½Ö¸Áî:%d,%d",ptNullCmd->byCmd , ptNullCmd->byParam);
+	//Zebra::logger->debug("æ”¶åˆ°æŒ‡ä»¤:%d,%d",ptNullCmd->byCmd , ptNullCmd->byParam);
 
 /*
 	static DWORD dwTimestamp;
@@ -1007,7 +1007,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					{
 						if(pUser && pUser->isPlayState())
 						{
-							Zebra::logger->trace("%s(%ld)Ğ¡ÍË",pUser->name,pUser->id);
+							Zebra::logger->trace("%s(%ld)å°é€€",pUser->name,pUser->id);
 							pUser->backSelect=true;
 							pUser->unreg();
 						}
@@ -1026,7 +1026,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						}
 					}
 					else
-						Zebra::logger->trace("%s(%ld)²»ÔÙÑ¡ÔñÓÃ»§×´Ì¬,·¢ËÍÑ¡ÔñÓÃ»§ÏµÁĞÖ¸Áî",pUser->name,pUser->id);
+						Zebra::logger->trace("%s(%ld)ä¸å†é€‰æ‹©ç”¨æˆ·çŠ¶æ€,å‘é€é€‰æ‹©ç”¨æˆ·ç³»åˆ—æŒ‡ä»¤",pUser->name,pUser->id);
 					return true;
 				}
 				break;
@@ -1043,7 +1043,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 				{
 					if(pUser && pUser->isPlayState())
 					{
-						//Èç¹ûÊÇÆÕÍ¨ÁÄÌìÏûÏ¢Ôò½øĞĞ´Ê»ã¹ıÂË
+						//å¦‚æœæ˜¯æ™®é€šèŠå¤©æ¶ˆæ¯åˆ™è¿›è¡Œè¯æ±‡è¿‡æ»¤
 						if (ALL_CHAT_USERCMD_PARAMETER == ptNullCmd->byParam)
 						{
 							Cmd::stChannelChatUserCmd *rev = (Cmd::stChannelChatUserCmd *)ptNullCmd;
@@ -1059,7 +1059,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 									send.dwChatTime = ctv.sec();
 									bzero(send.pstrName, sizeof(send.pstrName));
 									bzero(send.pstrChat, sizeof(send.pstrChat));
-									strncpy((char *)send.pstrChat, "¶Ô²»Æğ£¬¸ÃÆµµÀ3ÃëÖÓ¿ÉÒÔ·¢ÑÔÒ»´Î",MAX_CHATINFO-1);
+									strncpy((char *)send.pstrChat, "å¯¹ä¸èµ·ï¼Œè¯¥é¢‘é“3ç§’é’Ÿå¯ä»¥å‘è¨€ä¸€æ¬¡",MAX_CHATINFO-1);
 
 									pUser->sendCmd(&send, sizeof(send));
 									return true;
@@ -1078,7 +1078,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 									send.dwChatTime = ctv.sec();
 									bzero(send.pstrName, sizeof(send.pstrName));
 									bzero(send.pstrChat, sizeof(send.pstrChat));
-									strncpy((char *)send.pstrChat, "¶Ô²»Æğ£¬ÄúËµ»°Ì«¿ìÁË£¬Çë²»ÒªË¢ÆÁ",MAX_CHATINFO-1);
+									strncpy((char *)send.pstrChat, "å¯¹ä¸èµ·ï¼Œæ‚¨è¯´è¯å¤ªå¿«äº†ï¼Œè¯·ä¸è¦åˆ·å±",MAX_CHATINFO-1);
 
 									pUser->sendCmd(&send, sizeof(send));
 									return true;
@@ -1131,7 +1131,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 								if(forwardSession(ptNullCmd , nCmdLen))
 								{
 #ifdef _ZJW_DEBUG
-									Zebra::logger->debug("ÊÕµ½½»Ò×ÎïÆ·²éÑ¯ÃüÁî,×ª·¢µ½»á»°");
+									Zebra::logger->debug("æ”¶åˆ°äº¤æ˜“ç‰©å“æŸ¥è¯¢å‘½ä»¤,è½¬å‘åˆ°ä¼šè¯");
 #endif							
 									return true;
 								}
@@ -1145,18 +1145,18 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
 				break;
-			case UNION_USERCMD: // ½«ÏûÏ¢×ª·¢µ½»á»°·şÎñÆ÷ÔÚÄÇÀï´¦Àí°ï»áÊÂÎñ¡£
+			case UNION_USERCMD: // å°†æ¶ˆæ¯è½¬å‘åˆ°ä¼šè¯æœåŠ¡å™¨åœ¨é‚£é‡Œå¤„ç†å¸®ä¼šäº‹åŠ¡ã€‚
 				{
 					if(pUser && pUser->isPlayState())
 					{
 						switch(ptNullCmd->byParam)
 						{
-							case CREATE_UNION_PARA:			// ½¨Á¢°ï»á
+							case CREATE_UNION_PARA:			// å»ºç«‹å¸®ä¼š
 								{
 									Cmd::stCreateUnionCmd * cmd = (stCreateUnionCmd *)ptNullCmd;
 									if (!checkNewName(cmd->UnionName))
@@ -1168,18 +1168,18 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 										send.dwChatTime = ctv.sec();
 										bzero(send.pstrName, sizeof(send.pstrName));
 										bzero(send.pstrChat, sizeof(send.pstrChat));
-										strncpy((char *)send.pstrChat, "¶Ô²»Æğ£¬°ï»áÃû×Ö²»ºÏ·¨£¬ÇëÊ¹ÓÃ×ÖÄ¸¡¢Êı×ÖºÍºº×Ö",MAX_CHATINFO-1);
+										strncpy((char *)send.pstrChat, "å¯¹ä¸èµ·ï¼Œå¸®ä¼šåå­—ä¸åˆæ³•ï¼Œè¯·ä½¿ç”¨å­—æ¯ã€æ•°å­—å’Œæ±‰å­—",MAX_CHATINFO-1);
 
 										sendCmd(&send, sizeof(send));
 										return true;
 									}
 								}
-							case UNION_STATUS_CHECK_PARA:	// °ï»á×´Ì¬¼ì²éÅĞ¶Ï´ËÈËÊÇ·ñ¿ÉÒÔ½¨Á¢ĞÂ°ï»á
-							case ADD_MEMBER_TO_UNION_PARA:		// ÑûÇëÍæ¼Ò¼ÓÈë°ï»á
-							case ENTER_UNION_CITY_AREA_PARA: // ½øÈë°ï»áËùµÃ³ÇÊĞ°ïÊô³¡¾°
+							case UNION_STATUS_CHECK_PARA:	// å¸®ä¼šçŠ¶æ€æ£€æŸ¥åˆ¤æ–­æ­¤äººæ˜¯å¦å¯ä»¥å»ºç«‹æ–°å¸®ä¼š
+							case ADD_MEMBER_TO_UNION_PARA:		// é‚€è¯·ç©å®¶åŠ å…¥å¸®ä¼š
+							case ENTER_UNION_CITY_AREA_PARA: // è¿›å…¥å¸®ä¼šæ‰€å¾—åŸå¸‚å¸®å±åœºæ™¯
 							case QUESTION_UNION_CITY_INFO_PARA:
-							case CONTRIBUTE_UNION_PARA: // °ï»á¾èÏ×
-								{// ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+							case CONTRIBUTE_UNION_PARA: // å¸®ä¼šæçŒ®
+								{// ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 									if(forwardScene(ptNullCmd , nCmdLen))
 									{
 										return true;
@@ -1199,7 +1199,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1208,7 +1208,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 				{
 					if (pUser==NULL || !pUser->isPlayState())
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",
 								ptNullCmd->byCmd,ptNullCmd->byParam);
 						return true;
 					}
@@ -1234,7 +1234,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 									send.dwChatTime = ctv.sec();
 									bzero(send.pstrName, sizeof(send.pstrName));
 									bzero(send.pstrChat, sizeof(send.pstrChat));
-									strncpy((char *)send.pstrChat, "¶Ô²»Æğ£¬Êı×ÖÃÜÂë²»ÕıÈ·",MAX_CHATINFO-1);
+									strncpy((char *)send.pstrChat, "å¯¹ä¸èµ·ï¼Œæ•°å­—å¯†ç ä¸æ­£ç¡®",MAX_CHATINFO-1);
 
 									pUser->sendCmd(&send, sizeof(send));
 								}
@@ -1259,7 +1259,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 									send.dwChatTime = ctv.sec();
 									bzero(send.pstrName, sizeof(send.pstrName));
 									bzero(send.pstrChat, sizeof(send.pstrChat));
-									strncpy((char *)send.pstrChat, "¶Ô²»Æğ£¬Êı×ÖÃÜÂë²»ÕıÈ·",MAX_CHATINFO-1);
+									strncpy((char *)send.pstrChat, "å¯¹ä¸èµ·ï¼Œæ•°å­—å¯†ç ä¸æ­£ç¡®",MAX_CHATINFO-1);
 
 									pUser->sendCmd(&send, sizeof(send));
 								}
@@ -1284,7 +1284,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 									send.dwChatTime = ctv.sec();
 									bzero(send.pstrName, sizeof(send.pstrName));
 									bzero(send.pstrChat, sizeof(send.pstrChat));
-									strncpy((char *)send.pstrChat, "¶Ô²»Æğ£¬Êı×ÖÃÜÂë²»ÕıÈ·",MAX_CHATINFO-1);
+									strncpy((char *)send.pstrChat, "å¯¹ä¸èµ·ï¼Œæ•°å­—å¯†ç ä¸æ­£ç¡®",MAX_CHATINFO-1);
 
 									pUser->sendCmd(&send, sizeof(send));
 								}
@@ -1292,7 +1292,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 							break;
 						default:
 							{
-								// ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+								// ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 								if(forwardScene(ptNullCmd , nCmdLen))
 								{
 									return true;
@@ -1314,10 +1314,10 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 							case CONTRIBUTE_COUNTRY_MATERIAL:
 							case CANCEL_COUNTRY_PARA:
 							case APPLY_COUNTRY_PARA:
-							case CHANGE_COUNTRY_PARA:// ±ä¸ü¹ú¼®
+							case CHANGE_COUNTRY_PARA:// å˜æ›´å›½ç±
 							case REQUEST_COUNTRY_POWER_PARA:
 								{
-									// ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+									// ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 									if(forwardScene(ptNullCmd , nCmdLen))
 									{
 										return true;
@@ -1365,7 +1365,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1400,7 +1400,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1428,7 +1428,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 							break;
 						case REQ_ARMY_LIST_PARA:
 							{
-								// ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+								// ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 								if(forwardScene(ptNullCmd , nCmdLen))
 								{
 									return true;
@@ -1448,7 +1448,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 				}
 				else
 				{
-					Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+					Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 				}
 				break;
 			case GEM_USERCMD:
@@ -1478,21 +1478,21 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 				}
 				break;
-			case DARE_USERCMD: // Õ½¶·ÏûÏ¢×ª·¢µ½»á»°·şÎñÆ÷
+			case DARE_USERCMD: // æˆ˜æ–—æ¶ˆæ¯è½¬å‘åˆ°ä¼šè¯æœåŠ¡å™¨
 				{
 					if (pUser && pUser->isPlayState())
 					{
 						switch (ptNullCmd->byParam)
 						{
-							case ACTIVE_DARE_PARA: // ·¢ÆğÌôÕ½
+							case ACTIVE_DARE_PARA: // å‘èµ·æŒ‘æˆ˜
 							case QUERY_DARE_LIST_PARA:
-							case NOTIFY_DARE_PARA: // Õ½¶·Ïà¹ØÍ¨Öª
+							case NOTIFY_DARE_PARA: // æˆ˜æ–—ç›¸å…³é€šçŸ¥
 							case GET_UNION_CITY_TAX_PARA:
-								{//ÒÔÉÏÏûÏ¢×ª·¢µ½»á»°·şÎñÆ÷´¦Àí
+								{//ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°ä¼šè¯æœåŠ¡å™¨å¤„ç†
 									if (forwardSession(ptNullCmd, nCmdLen))
 									{
 										return true;
@@ -1519,21 +1519,21 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
 				break;
-			case NPCDARE_USERCMD: // Õ½¶·ÏûÏ¢×ª·¢µ½»á»°·şÎñÆ÷
+			case NPCDARE_USERCMD: // æˆ˜æ–—æ¶ˆæ¯è½¬å‘åˆ°ä¼šè¯æœåŠ¡å™¨
 				{
 					if (pUser && pUser->isPlayState())
 					{
 						switch (ptNullCmd->byParam)
 						{
 							case QUESTION_NPCDARE_INFO_PARA:
-							case NPCDARE_DARE_PARA: // ·¢ÆğÌôÕ½
+							case NPCDARE_DARE_PARA: // å‘èµ·æŒ‘æˆ˜
 							case NPCDARE_GETGOLD_PARA:
-								{//ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+								{//ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 									if (forwardScene(ptNullCmd, nCmdLen))
 									{
 										return true;
@@ -1552,7 +1552,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1563,7 +1563,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					{
 						switch(ptNullCmd->byParam)
 						{
-							case CREATE_SEPT_PARA:			// ½¨Á¢¼Ò×å
+							case CREATE_SEPT_PARA:			// å»ºç«‹å®¶æ—
 								{
 									Cmd::stCreateSeptCmd * cmd = (stCreateSeptCmd *)ptNullCmd;
 									if (!checkNewName(cmd->SeptName))
@@ -1575,15 +1575,15 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 										send.dwChatTime = ctv.sec();
 										bzero(send.pstrName, sizeof(send.pstrName));
 										bzero(send.pstrChat, sizeof(send.pstrChat));
-										strncpy((char *)send.pstrChat, "¶Ô²»Æğ£¬¼Ò×åÃû×Ö²»ºÏ·¨£¬ÇëÊ¹ÓÃ×ÖÄ¸¡¢Êı×ÖºÍºº×Ö",MAX_CHATINFO-1);
+										strncpy((char *)send.pstrChat, "å¯¹ä¸èµ·ï¼Œå®¶æ—åå­—ä¸åˆæ³•ï¼Œè¯·ä½¿ç”¨å­—æ¯ã€æ•°å­—å’Œæ±‰å­—",MAX_CHATINFO-1);
 
 										sendCmd(&send, sizeof(send));
 										return true;
 									}
 								}
-							case SEPT_STATUS_CHECK_PARA:	// ¼Ò×å×´Ì¬¼ì²éÅĞ¶Ï´ËÈËÊÇ·ñ¿ÉÒÔ½¨Á¢ĞÂ¼Ò×å
-							case ADD_MEMBER_TO_SEPT_PARA:	// ÑûÇëÍæ¼Ò¼ÓÈë¼Ò×å
-								{							// ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+							case SEPT_STATUS_CHECK_PARA:	// å®¶æ—çŠ¶æ€æ£€æŸ¥åˆ¤æ–­æ­¤äººæ˜¯å¦å¯ä»¥å»ºç«‹æ–°å®¶æ—
+							case ADD_MEMBER_TO_SEPT_PARA:	// é‚€è¯·ç©å®¶åŠ å…¥å®¶æ—
+								{							// ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 									if(forwardScene(ptNullCmd , nCmdLen))
 									{
 										return true;
@@ -1603,7 +1603,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1615,7 +1615,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						switch(ptNullCmd->byParam)
 						{
 							case MARRY_STATUS_CHECK_PARA:
-								{		// ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+								{		// ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 									if(forwardScene(ptNullCmd , nCmdLen))
 									{
 										return true;
@@ -1635,7 +1635,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1652,7 +1652,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 							case Cmd::SCHOOL_STATUS_CHECK_PARA:
 							case Cmd::CREATE_SCHOOL_PARA:
 							case Cmd::ADD_MEMBER_TO_SCHOOL_PARA:
-								{		// ÒÔÉÏÏûÏ¢×ª·¢µ½³¡¾°·şÎñÆ÷´¦Àí
+								{		// ä»¥ä¸Šæ¶ˆæ¯è½¬å‘åˆ°åœºæ™¯æœåŠ¡å™¨å¤„ç†
 									if(forwardScene(ptNullCmd , nCmdLen))
 									{
 										return true;
@@ -1671,7 +1671,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1692,7 +1692,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						}
 						else
 						{
-							Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+							Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 						}
 					}
 					else
@@ -1706,7 +1706,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						}
 						else
 						{
-							Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+							Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 						}
 					}
 					return true;
@@ -1715,7 +1715,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 			case MAGIC_USERCMD:
 				{
 #ifdef _DEBUGLOG
-					Zebra::logger->debug("¹¥»÷Ö¸ÁîÊ±¼ä´Á:%ld" , ptNullCmd->dwTimestamp);
+					Zebra::logger->debug("æ”»å‡»æŒ‡ä»¤æ—¶é—´æˆ³:%ld" , ptNullCmd->dwTimestamp);
 #endif
 					zRTime ctv;
 					if (ptNullCmd->byParam == Cmd::MAGIC_USERCMD_PARA)
@@ -1731,7 +1731,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						}
 						else
 						{
-							Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+							Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 						}
 					}
 					else
@@ -1745,7 +1745,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						}
 						else
 						{
-							Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+							Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 						}
 					}
 					return true;
@@ -1773,7 +1773,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 							break;
 						default:
 							{
-								Zebra::logger->error("ÎŞĞ§µÄDATA_USERCMD´Ó¿Í»§¶Ë·¢ËÍ¹ıÀ´byParam=%u", ptNullCmd->byParam);
+								Zebra::logger->error("æ— æ•ˆçš„DATA_USERCMDä»å®¢æˆ·ç«¯å‘é€è¿‡æ¥byParam=%u", ptNullCmd->byParam);
 							}
 							break;
 					}
@@ -1794,25 +1794,25 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 							send.dwChatTime = ctv.sec();
 							bzero(send.pstrName, sizeof(send.pstrName));
 							bzero(send.pstrChat, sizeof(send.pstrChat));
-							strncpy((char *)send.pstrChat, "³èÎïÃû×Ö²»ºÏ·¨£¬ÇëÊ¹ÓÃ×ÖÄ¸¡¢Êı×ÖºÍºº×Ö",MAX_CHATINFO-1);
+							strncpy((char *)send.pstrChat, "å® ç‰©åå­—ä¸åˆæ³•ï¼Œè¯·ä½¿ç”¨å­—æ¯ã€æ•°å­—å’Œæ±‰å­—",MAX_CHATINFO-1);
 
 							sendCmd(&send, sizeof(send));
 							return true;
 						}
 					}
 				}
-				//×¢ÒâÕâÀïÃ»ÓĞbreak
+				//æ³¨æ„è¿™é‡Œæ²¡æœ‰break
 			case PROPERTY_USERCMD:
 #ifdef _DEBUGLOG
-				if (ptNullCmd->byCmd == PROPERTY_USERCMD) Zebra::logger->error("ÊÕµ½ÈËÎïÊôĞÔ²Ù×÷Ö¸Áî£¡");
+				if (ptNullCmd->byCmd == PROPERTY_USERCMD) Zebra::logger->error("æ”¶åˆ°äººç‰©å±æ€§æ“ä½œæŒ‡ä»¤ï¼");
 #endif
-				//×¢ÒâÕâÀïÃ»ÓĞbreak
+				//æ³¨æ„è¿™é‡Œæ²¡æœ‰break
 			case RELIVE_USERCMD:
-				//×¢ÒâÕâÀïÃ»ÓĞbreak
+				//æ³¨æ„è¿™é‡Œæ²¡æœ‰break
 			case TRADE_USERCMD:
-				//×¢ÒâÕâÀïÃ»ÓĞbreak
+				//æ³¨æ„è¿™é‡Œæ²¡æœ‰break
 			case MAPSCREEN_USERCMD:
-				//×¢ÒâÕâÀïÃ»ÓĞbreak
+				//æ³¨æ„è¿™é‡Œæ²¡æœ‰break
 			case TASK_USERCMD: 
 				{
 					if(pUser && pUser->isPlayState())
@@ -1824,7 +1824,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					}
 					else
 					{
-							Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+							Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					}
 					return true;
 				}
@@ -1842,14 +1842,14 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 								{
 								}
 								break;
-								//ÇëÇó¶Ò»»½ğ±Ò
+								//è¯·æ±‚å…‘æ¢é‡‘å¸
 								case REQUEST_REDEEM_GOLD_PARA:
 								{
 									using namespace Bill;
 									stRequestRedeemGold* cmd = (stRequestRedeemGold*)ptNullCmd;
 									if((int)cmd->dwNum < 0)
 									{
-										Zebra::logger->error("ÇëÇó¶Ò»»½ğ±Ò(accid=%d),ÊıÁ¿%d,ÊÇ¸ºÊı,Íâ¹ÒËùÖÂ",this->accid,cmd->dwNum);
+										Zebra::logger->error("è¯·æ±‚å…‘æ¢é‡‘å¸(accid=%d),æ•°é‡%d,æ˜¯è´Ÿæ•°,å¤–æŒ‚æ‰€è‡´",this->accid,cmd->dwNum);
 										return true;
 									}
 
@@ -1864,10 +1864,10 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 
 									send.point = cmd->dwNum;
 									accountClient->sendCmd(&send, sizeof(send));	
-									//Zebra::logger->debug("ÇëÇó¶Ò»»½ğ±Ò(accid=%d),ÊıÁ¿%d",this->accid,cmd->dwNum);
+									//Zebra::logger->debug("è¯·æ±‚å…‘æ¢é‡‘å¸(accid=%d),æ•°é‡%d",this->accid,cmd->dwNum);
 								}
 								break;
-								//ÇëÇó¶Ò»»ÔÂ¿¨
+								//è¯·æ±‚å…‘æ¢æœˆå¡
 								case REQUEST_REDEEM_MONTH_CARD_PARA:
 								{
 									using namespace Bill;
@@ -1881,10 +1881,10 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 										send.charid = this->pUser->id;
 									}
 									accountClient->sendCmd(&send, sizeof(send));	
-									//Zebra::logger->debug("ÇëÇó¶Ò»»ÔÂ¿¨(accid=%d)",this->accid);
+									//Zebra::logger->debug("è¯·æ±‚å…‘æ¢æœˆå¡(accid=%d)",this->accid);
 								}
 								break;
-								//ÇëÇó²éÑ¯µã¿¨
+								//è¯·æ±‚æŸ¥è¯¢ç‚¹å¡
 								case REQUEST_POINT_PARA:
 								{
 									t_Request_Point_Gateway send;
@@ -1895,7 +1895,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 										send.charid = this->pUser->id;
 									}
 									accountClient->sendCmd(&send, sizeof(send));	
-									//Zebra::logger->debug("ÇëÇó²éÑ¯Ê£ÓàµãÊı(accid=%d)",this->accid);
+									//Zebra::logger->debug("è¯·æ±‚æŸ¥è¯¢å‰©ä½™ç‚¹æ•°(accid=%d)",this->accid);
 								}
 								break;
 								case CONSUME_CARD_PARA:
@@ -1907,7 +1907,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 									strncpy(send.cardid,rev->cardid,sizeof(send.cardid));
 									send.accid = this->accid;
 									accountClient->sendCmd(&send, sizeof(send));	
-									Zebra::logger->debug("%s(%u)ÇëÇóÏû·ÑµÀ¾ß¿¨:%s,ÀàĞÍ:%d",pUser->name , pUser->id,rev->cardid,rev->type);
+									Zebra::logger->debug("%s(%u)è¯·æ±‚æ¶ˆè´¹é“å…·å¡:%s,ç±»å‹:%d",pUser->name , pUser->id,rev->cardid,rev->type);
 									return true;
 								}
 								break;
@@ -1921,14 +1921,14 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 					{
 						stStopServiceGold ret;
 						this->sendCmd(&ret,sizeof(ret));
-						Zebra::logger->debug("½ğ±ÒÏµÍ³Í£Ö¹Î¬»¤");
+						Zebra::logger->debug("é‡‘å¸ç³»ç»Ÿåœæ­¢ç»´æŠ¤");
 					}
 					
 					return true;
 				}
 				break;
 			case QUIZ_USERCMD:
-				{//´ğÌâÃüÁî
+				{//ç­”é¢˜å‘½ä»¤
 					switch(ptNullCmd->byParam)
 					{
 						case ANSWER_QUIZ_PARA:
@@ -2014,14 +2014,14 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						}
 						else
 						{
-							Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+							Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 						}
 					}
 					else
 					{
 						stStopServiceStockUserCmd ret;
 						this->sendCmd(&ret,sizeof(ret));
-						Zebra::logger->debug("¹ÉÆ±ÏµÍ³Í£Ö¹Î¬»¤");
+						Zebra::logger->debug("è‚¡ç¥¨ç³»ç»Ÿåœæ­¢ç»´æŠ¤");
 					}
 					return true;
 				}
@@ -2048,14 +2048,14 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						}
 						else
 						{
-							Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+							Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d,%d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 						}
 					}
 					else
 					{
 						stStopServiceStockUserCmd ret;
 						this->sendCmd(&ret,sizeof(ret));
-						Zebra::logger->debug("¹ÉÆ±ÏµÍ³Í£Ö¹Î¬»¤");
+						Zebra::logger->debug("è‚¡ç¥¨ç³»ç»Ÿåœæ­¢ç»´æŠ¤");
 					}
 					return true;
 				}
@@ -2066,7 +2066,7 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 						if(forwardSession(ptNullCmd, nCmdLen))
 							return true;
 					else
-						Zebra::logger->error("Á¬½Ó×´Ì¬²»ÕıÈ·,ºöÂÔÕâÌõÖ¸Áî(%d, %d)",ptNullCmd->byCmd,ptNullCmd->byParam);
+						Zebra::logger->error("è¿æ¥çŠ¶æ€ä¸æ­£ç¡®,å¿½ç•¥è¿™æ¡æŒ‡ä»¤(%d, %d)",ptNullCmd->byCmd,ptNullCmd->byParam);
 					return true;
 				}
 				break;
@@ -2143,11 +2143,11 @@ bool GatewayTask::msgParse(const Cmd::t_NullCmd *ptNull, const unsigned int nCmd
 }
 
 /**
- * \brief ¼ì²éĞÂ´´½¨µÄÈËÎïÃû×ÖÊÇ·ñºÏ·¨
+ * \brief æ£€æŸ¥æ–°åˆ›å»ºçš„äººç‰©åå­—æ˜¯å¦åˆæ³•
  *
  *
- * \param newName ĞÂÃû×Ö
- * \return ÊÇ·ñºÏ·¨
+ * \param newName æ–°åå­—
+ * \return æ˜¯å¦åˆæ³•
  */
 bool GatewayTask::checkNewName(char * newName)
 {
@@ -2158,23 +2158,23 @@ bool GatewayTask::checkNewName(char * newName)
 	while (newName[i]!=0 && i<strlen(newName) && i<16)
 	{
 		BYTE a = newName[i];
-		if (a<0x80)//ascÂë
+		if (a<0x80)//ascç 
 		{
 			if (!((a>='0' && a<='9') || (a>='A' && a<='Z') || (a>='a' && a<='z')))
 				return false;
 		}
-		else//ºº×Ö
+		else//æ±‰å­—
 		{
 			if (!(i<strlen(newName)-1 && i<15)) return false;
 
 			BYTE b = newName[i+1];
-			if (b==0x7F || b<0x40 || b>0xFE)//Î²×Ö½ÚÔÚ 40-FE Ö®¼ä£¬ÌŞ³ı xx7F Ò»ÌõÏß
+			if (b==0x7F || b<0x40 || b>0xFE)//å°¾å­—èŠ‚åœ¨ 40-FE ä¹‹é—´ï¼Œå‰”é™¤ xx7F ä¸€æ¡çº¿
 				return false;
 
 			WORD val = (a<<8)|b;
-			if (!((val>=0xB0A1 && val<=0xF7FE)))//GB 2312 ºº×Ö 6763 ¸ö
-						//||(val>=0xB140 && val<=0xA0FE)//CJKºº×Ö 6080 ¸ö
-						//||(val>=0xAA40 && val<=0xFEA0)))//CJK ºº×ÖºÍÔö²¹µÄºº×Ö 8160 ¸ö
+			if (!((val>=0xB0A1 && val<=0xF7FE)))//GB 2312 æ±‰å­— 6763 ä¸ª
+						//||(val>=0xB140 && val<=0xA0FE)//CJKæ±‰å­— 6080 ä¸ª
+						//||(val>=0xAA40 && val<=0xFEA0)))//CJK æ±‰å­—å’Œå¢è¡¥çš„æ±‰å­— 8160 ä¸ª
 				return false;
 			i++;
 		}
@@ -2182,7 +2182,7 @@ bool GatewayTask::checkNewName(char * newName)
 	}
 
 	if ((!wordFilter::getInstance().doFilter(newName, 16))
-			||strstr(newName, "ÃÉÃæÈË")
+			||strstr(newName, "è’™é¢äºº")
 			||strstr(newName, "GM")
 			||strstr(newName, "GameMaster"))
 		return false;

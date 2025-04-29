@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CUnion.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ°ï»á¹ÜÀí¹¦ÄÜ
+ * \brief å®ç°å¸®ä¼šç®¡ç†åŠŸèƒ½
  *
  */
 
@@ -29,10 +29,10 @@ using namespace UnionDef;
 class CUnionSort 
 {               
 	public: 
-		char  unionName[MAX_NAMESIZE];           // °ï»áÃû³Æ
-		DWORD dwMana;                         // °ï»áÍşÍû
-		DWORD dwOrder;                          // °ï»áÅÅÃû
-		DWORD dwCountryID;                      // ËùÊô¹ú¼Ò
+		char  unionName[MAX_NAMESIZE];           // å¸®ä¼šåç§°
+		DWORD dwMana;                         // å¸®ä¼šå¨æœ›
+		DWORD dwOrder;                          // å¸®ä¼šæ’å
+		DWORD dwCountryID;                      // æ‰€å±å›½å®¶
 
 		CUnionSort()
 		{               
@@ -73,7 +73,7 @@ class CUnionSort
 //==[CUnionMember]==================================================
 
 /**
-* \brief °ï»á³ÉÔ±¹¹Ôìº¯Êı£¬³õÊ¼»¯»ù±¾ÊôĞÔ
+* \brief å¸®ä¼šæˆå‘˜æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–åŸºæœ¬å±æ€§
 * \author fqnewman
 */
 CUnionMember::CUnionMember()
@@ -83,8 +83,8 @@ CUnionMember::CUnionMember()
 }
 
 /**
-* \brief °ï»á³ÉÔ±³õÊ¼»¯
-* \param info ³ÉÔ±ĞÅÏ¢½á¹¹
+* \brief å¸®ä¼šæˆå‘˜åˆå§‹åŒ–
+* \param info æˆå‘˜ä¿¡æ¯ç»“æ„
 * \author fqnewman
 */
 void CUnionMember::init(const stUnionMemberInfo& info)
@@ -98,13 +98,13 @@ void CUnionMember::init(const stUnionMemberInfo& info)
 	WD2BA(info.wdPower, byPower);
 	wdOccupation = info.wdOccupation;
 	septid = info.dwSeptID;
-	byStatus = CUnionMember::Offline;                  // »áÔ±×´Ì¬
+	byStatus = CUnionMember::Offline;                  // ä¼šå‘˜çŠ¶æ€
 	rwlock.unlock();
 }
 
 /**
-* \brief »ñÈ¡³ÉÔ±µÄ»ù±¾ĞÅÏ¢
-* \param info ·µ»ØµÄĞÅÏ¢½á¹¹
+* \brief è·å–æˆå‘˜çš„åŸºæœ¬ä¿¡æ¯
+* \param info è¿”å›çš„ä¿¡æ¯ç»“æ„
 * \author fqnewman,zjw
 */
 void CUnionMember::getMemberBaseInfo(struct Cmd::stUnionRember& info)
@@ -137,7 +137,7 @@ void CUnionMember::getMemberBaseInfo(struct Cmd::stUnionRember& info)
 }
 
 /**
-* \brief ·¢ËÍ³ÉÔ±µÄ°ï»áÊı¾İ¸ø¿Í»§¶Ë
+* \brief å‘é€æˆå‘˜çš„å¸®ä¼šæ•°æ®ç»™å®¢æˆ·ç«¯
 * \author fqnewman
 */
 void CUnionMember::sendUserUnionPrivateData()
@@ -145,7 +145,7 @@ void CUnionMember::sendUserUnionPrivateData()
 	Cmd::stReturnUnionMemberInfoCmd ret;
 
 	rwlock.rdlock();
-	strncpy(ret.alias,aliasname,MAX_NAMESIZE);     // ±ğÃû
+	strncpy(ret.alias,aliasname,MAX_NAMESIZE);     // åˆ«å
 	ret.byPower[0]=byPower[0];
 	ret.byPower[1]=byPower[1];
 	rwlock.unlock();
@@ -155,9 +155,9 @@ void CUnionMember::sendUserUnionPrivateData()
 }
 
 /**
-* \brief ·¢ËÍÏûÏ¢¸ø³ÉÔ±¶ÔÓ¦µÄ¿Í»§¶Ë
-* \param  pstrCmd ÏûÏ¢Ìå
-* \param  nCmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€æ¶ˆæ¯ç»™æˆå‘˜å¯¹åº”çš„å®¢æˆ·ç«¯
+* \param  pstrCmd æ¶ˆæ¯ä½“
+* \param  nCmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CUnionMember::sendCmdToMe(const Cmd::stNullUserCmd *pstrCmd, const unsigned int nCmdLen)
@@ -170,7 +170,7 @@ void CUnionMember::sendCmdToMe(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 		{
 
 #ifdef _ZJW_DEBJG
-			Zebra::logger->debug("·¢ËÍ°ï»á¹«¸æ¸ø:%s", pUser->name);
+			Zebra::logger->debug("å‘é€å¸®ä¼šå…¬å‘Šç»™:%s", pUser->name);
 #endif	
 		}	
 		pUser->sendCmdToMe(pstrCmd,nCmdLen);
@@ -190,7 +190,7 @@ void CUnionMember::sendCmdToMe(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 }
 
 /**
-* \brief ¸üĞÂ³ÉÔ±µÄÊı¾İ¿â´æµµ
+* \brief æ›´æ–°æˆå‘˜çš„æ•°æ®åº“å­˜æ¡£
 * \author fqnewman
 */
 void CUnionMember::writeDatabase()
@@ -203,9 +203,9 @@ void CUnionMember::writeDatabase()
 	};
 
 	struct {
-		char  aliasname[MAX_NAMESIZE+1]; 		// »áÔ±±ğÃû
-		WORD  wdPower;                			// »áÔ±È¨ÏŞ
-		WORD  wdOccupation;						// »áÔ±µÄÖ°Òµ
+		char  aliasname[MAX_NAMESIZE+1]; 		// ä¼šå‘˜åˆ«å
+		WORD  wdPower;                			// ä¼šå‘˜æƒé™
+		WORD  wdOccupation;						// ä¼šå‘˜çš„èŒä¸š
 	} __attribute__ ((packed))
 	updateunionmember_data;
 	char where[128];
@@ -213,7 +213,7 @@ void CUnionMember::writeDatabase()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -234,12 +234,12 @@ void CUnionMember::writeDatabase()
 
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("CUnionMember ĞŞ¸Ä»áÔ±µµ°¸Ê§°Ü£ºUNIONID=%u CHARID=%u retcode=%u", myUnion->getID(), id, retcode);
+		Zebra::logger->error("CUnionMember ä¿®æ”¹ä¼šå‘˜æ¡£æ¡ˆå¤±è´¥ï¼šUNIONID=%u CHARID=%u retcode=%u", myUnion->getID(), id, retcode);
 	}
 }
 
 /**
-* \brief ½«³ÉÔ±¼ÇÂ¼²åÈëÊı¾İ¿â
+* \brief å°†æˆå‘˜è®°å½•æ’å…¥æ•°æ®åº“
 * \author fqnewman
 */
 void CUnionMember::insertDatabase()
@@ -255,12 +255,12 @@ void CUnionMember::insertDatabase()
 		{ NULL, 0, 0}
 	};
 	struct {
-		DWORD dwUnionID;						// °ï»á±àºÅ
-		DWORD	dwCharID;						// »áÔ±½ÇÉ«ID
-		char  name[MAX_NAMESIZE+1];           // »áÔ±Ãû³Æ
-		char  aliasname[MAX_NAMESIZE+1]; 		// »áÔ±±ğÃû
-		WORD  wdPower;                		// »áÔ±È¨ÏŞ
-		WORD  wdOccupation;						// »áÔ±½ÇÉ«
+		DWORD dwUnionID;						// å¸®ä¼šç¼–å·
+		DWORD	dwCharID;						// ä¼šå‘˜è§’è‰²ID
+		char  name[MAX_NAMESIZE+1];           // ä¼šå‘˜åç§°
+		char  aliasname[MAX_NAMESIZE+1]; 		// ä¼šå‘˜åˆ«å
+		WORD  wdPower;                		// ä¼šå‘˜æƒé™
+		WORD  wdOccupation;						// ä¼šå‘˜è§’è‰²
 		DWORD dwSeptID;
 	} __attribute__ ((packed))
 	createunionmember_data;
@@ -268,11 +268,11 @@ void CUnionMember::insertDatabase()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
-	//²åÈëÊı¾İ¿â½ÇÉ«ĞÅÏ¢
+	//æ’å…¥æ•°æ®åº“è§’è‰²ä¿¡æ¯
 	bzero(&createunionmember_data, sizeof(createunionmember_data));
 
 	rwlock.rdlock();
@@ -293,13 +293,13 @@ void CUnionMember::insertDatabase()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("²åÈë°ï»á³ÉÔ±Êı¾İ¿â³ö´í %u %u, %s", myUnion->getID(), id, aliasname);
+		Zebra::logger->error("æ’å…¥å¸®ä¼šæˆå‘˜æ•°æ®åº“å‡ºé”™ %u %u, %s", myUnion->getID(), id, aliasname);
 	}
 	return;
 }
 
 /**
- * \brief ¸üĞÂÊı¾İµ½³¡¾°
+ * \brief æ›´æ–°æ•°æ®åˆ°åœºæ™¯
  *
  *
  * \param 
@@ -322,14 +322,14 @@ void CUnionMember::update_data()
 	UserSession* pUser  = UserSessionManager::getInstance()->getUserByID(id);
 	if (pUser)
 	{
-		// TODO:ÅĞ¶ÏÊÇ·ñÊÇ³ÇÖ÷»ò¹úÍõ
+		// TODO:åˆ¤æ–­æ˜¯å¦æ˜¯åŸä¸»æˆ–å›½ç‹
 		if (this->myUnion->master && this->myUnion->master->id == pUser->id)  
-		{//ÊÇ°ïÖ÷
+		{//æ˜¯å¸®ä¸»
 			send.unionmaster = true;
 			send.dwActionPoint = this->myUnion->getActionPoint();
 
 			if (CCityM::getMe().find(pUser->country, KING_CITY_ID, this->myUnion->id) !=NULL)
-			{//ÊÇ¹úÍõ
+			{//æ˜¯å›½ç‹
 				CCountry* pCountry = CCountryM::getMe().find(pUser->country);
 				if (pCountry) pCountry->updateKing(pUser);
 
@@ -355,7 +355,7 @@ void CUnionMember::update_data()
 }
 
 /**
-* \brief Îö¹¹º¯Êı£¬Îö¹¹µÄÊ±ºòË¢ĞÂ³ÉÔ±µÄÊı¾İ¿â´æµµ
+* \brief ææ„å‡½æ•°ï¼Œææ„çš„æ—¶å€™åˆ·æ–°æˆå‘˜çš„æ•°æ®åº“å­˜æ¡£
 * \author fqnewman
 */
 CUnionMember::~CUnionMember()
@@ -368,7 +368,7 @@ void CUnionMember::sendUnionDare(UserSession* pDareUser, const char* fromName, D
 	UserSession* pUser = UserSessionManager::getInstance()->getUserByID(this->id);
 
 	if (pUser && pDareUser)
-	{//ÕÒµ½ÓĞĞ§Ó¦Õ½Õß,ÏòÆä·¢ËÍÌôÕ½Ñ¯ÎÊÃüÁî
+	{//æ‰¾åˆ°æœ‰æ•ˆåº”æˆ˜è€…,å‘å…¶å‘é€æŒ‘æˆ˜è¯¢é—®å‘½ä»¤
 		Cmd::stActiveDareCmd send;
 
 		send.dwMsgType = Cmd::DARE_QUESTION;
@@ -380,14 +380,14 @@ void CUnionMember::sendUnionDare(UserSession* pDareUser, const char* fromName, D
 
 		pUser->sendCmdToMe(&send, sizeof(send));
 #ifdef _ZJW_DEBUG                   
-		Zebra::logger->debug("ÏòÓ¦Õ½Õß·¢³öÑ¯ÎÊ¡£");
+		Zebra::logger->debug("å‘åº”æˆ˜è€…å‘å‡ºè¯¢é—®ã€‚");
 #endif
 	}
 }
 
 /**
-* \brief ÉèÖÃ³ÉÔ±µÄËùÊô°ï»á¶ÔÏó
-* \param pUnion °ï»á¶ÔÏóÖ¸Õë
+* \brief è®¾ç½®æˆå‘˜çš„æ‰€å±å¸®ä¼šå¯¹è±¡
+* \param pUnion å¸®ä¼šå¯¹è±¡æŒ‡é’ˆ
 * \author fqnewman
 */
 void CUnionMember::setUnion(CUnion * pUnion)
@@ -398,10 +398,10 @@ void CUnionMember::setUnion(CUnion * pUnion)
 }
 
 /**
-* \brief ¼ì²é³ÉÔ±ÊÇ·ñ¾ßÓĞÄ³ÏîÈ¨Á¦
-* \param power Ëù¼ì²éµÄÈ¨ÀûÏî
+* \brief æ£€æŸ¥æˆå‘˜æ˜¯å¦å…·æœ‰æŸé¡¹æƒåŠ›
+* \param power æ‰€æ£€æŸ¥çš„æƒåˆ©é¡¹
 * \author fqnewman
-* \return trueÓĞÈ¨£¬ falseÎŞÈ¨
+* \return trueæœ‰æƒï¼Œ falseæ— æƒ
 */
 bool CUnionMember::havePower(const int power)
 {
@@ -414,8 +414,8 @@ void  CUnionMember::setPower(const int power)
 }
 
 /**
-* \brief ·¢ËÍÁÄÌìÏûÏ¢¸ø³ÉÔ±µÄ¿Í»§¶Ë
-* \param message ÏûÏ¢Ìå
+* \brief å‘é€èŠå¤©æ¶ˆæ¯ç»™æˆå‘˜çš„å®¢æˆ·ç«¯
+* \param message æ¶ˆæ¯ä½“
 * \author fqnewman
 */
 void CUnionMember::sendMessageToMe(const char *message)
@@ -425,9 +425,9 @@ void CUnionMember::sendMessageToMe(const char *message)
 }
 
 /**
-* \brief ½«±¾³ÉÔ±µÄÊı¾İ¿â¼ÇÂ¼´Ó¿âÖĞÉ¾³ı
+* \brief å°†æœ¬æˆå‘˜çš„æ•°æ®åº“è®°å½•ä»åº“ä¸­åˆ é™¤
 * \author fqnewman
-* \return true ³É¹¦£¬ false Ê§°Ü
+* \return true æˆåŠŸï¼Œ false å¤±è´¥
 */
 bool CUnionMember::deleteMeFromDB()
 {
@@ -436,7 +436,7 @@ bool CUnionMember::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -446,7 +446,7 @@ bool CUnionMember::deleteMeFromDB()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->debug("É¾³ı°ï»á³ÉÔ±Ê§°Ü %u", id);
+		Zebra::logger->debug("åˆ é™¤å¸®ä¼šæˆå‘˜å¤±è´¥ %u", id);
 		return false;
 	}
 	else
@@ -457,8 +457,8 @@ bool CUnionMember::deleteMeFromDB()
 }
 
 /**
-* \brief ½â³ı³ÉÔ±Óë°ï»áµÄ¹ØÏµ
-* \param notify Í¨Öª±êÖ¾£¬Îªtrue±íÊ¾ÒªÍ¨ÖªËùÓĞµÄÔÚÏß³ÉÔ±£¬Îªflase±íÊ¾²»Í¨Öª
+* \brief è§£é™¤æˆå‘˜ä¸å¸®ä¼šçš„å…³ç³»
+* \param notify é€šçŸ¥æ ‡å¿—ï¼Œä¸ºtrueè¡¨ç¤ºè¦é€šçŸ¥æ‰€æœ‰çš„åœ¨çº¿æˆå‘˜ï¼Œä¸ºflaseè¡¨ç¤ºä¸é€šçŸ¥
 * \author fqnewman
 */
 void CUnionMember::fireMe(const bool notify, const bool checksept)
@@ -467,13 +467,13 @@ void CUnionMember::fireMe(const bool notify, const bool checksept)
 	{
 		if (!CUnionM::getMe().removeMemberIndex(name))
 		{
-			Zebra::logger->error("[°ï»á]:%s Ö´ĞĞremoveMemberIndexÊ§°Ü", name);
+			Zebra::logger->error("[å¸®ä¼š]:%s æ‰§è¡ŒremoveMemberIndexå¤±è´¥", name);
 		}
 		
 		if (notify) 
 		{
 			myUnion->notifyMemberFire(name,aliasname);
-			myUnion->sendUnionNotify("%s(%s) Àë¿ªÁË°ï»á", name, aliasname);	
+			myUnion->sendUnionNotify("%s(%s) ç¦»å¼€äº†å¸®ä¼š", name, aliasname);	
 		}
 
 		CSept* pSept = CSeptM::getMe().getSeptByID(this->septid);
@@ -489,14 +489,14 @@ void CUnionMember::fireMe(const bool notify, const bool checksept)
 			send.dwCharID = id;
 
 			send.dwMapTempID = pUser->scene->tempid;
-			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireUnionMember_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireUnionMember_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 			pUser->unionid = 0;
 		}
 	}
 }
 
 /**
-* \brief ·¢ËÍÓÃ»§µÄ°ï»á³ÉÔ±Êı¾İ
+* \brief å‘é€ç”¨æˆ·çš„å¸®ä¼šæˆå‘˜æ•°æ®
 * \author fqnewman
 */
 void CUnionMember::sendUserUnionData()
@@ -504,9 +504,9 @@ void CUnionMember::sendUserUnionData()
 	UserSession *pUser = UserSessionManager::getInstance()->getUserByID(id);
 	if (myUnion && pUser)
 	{
-		myUnion->sendUnionInfoToUser(pUser); // ·¢ËÍ°ï»áµÄĞÅÏ¢¸øµ±Ç°³ÉÔ±
-		sendUserUnionPrivateData();         // ·¢ËÍµ±Ç°»áÔ±µÄ¸öÈËĞÅÏ¢¸øµ±Ç°³ÉÔ±
-		myUnion->sendUnionMemberList(pUser); // ·¢ËÍ°ï»áµÄ³ÉÔ±ÁĞ±í¸øµ±Ç°³ÉÔ±
+		myUnion->sendUnionInfoToUser(pUser); // å‘é€å¸®ä¼šçš„ä¿¡æ¯ç»™å½“å‰æˆå‘˜
+		sendUserUnionPrivateData();         // å‘é€å½“å‰ä¼šå‘˜çš„ä¸ªäººä¿¡æ¯ç»™å½“å‰æˆå‘˜
+		myUnion->sendUnionMemberList(pUser); // å‘é€å¸®ä¼šçš„æˆå‘˜åˆ—è¡¨ç»™å½“å‰æˆå‘˜
 	}
 }
 
@@ -520,9 +520,9 @@ void CUnionMember::change_aliasname(const char* newaliasname)
 }
 
 /**
-* \brief ÅĞ¶Ï³ÉÔ±ÊÇ·ñÔÚÏß
+* \brief åˆ¤æ–­æˆå‘˜æ˜¯å¦åœ¨çº¿
 * \author fqnewman
-* \return trueÔÚÏß  false ²»ÔÚÏß
+* \return trueåœ¨çº¿  false ä¸åœ¨çº¿
 */
 bool CUnionMember::isOnline()
 {
@@ -530,8 +530,8 @@ bool CUnionMember::isOnline()
 }
 
 /** 
-* \brief ³ÉÔ±ÉÏÏß´¦Àí
-* \param status ³ÉÔ±µÄÉÏÏß×´Ì¬
+* \brief æˆå‘˜ä¸Šçº¿å¤„ç†
+* \param status æˆå‘˜çš„ä¸Šçº¿çŠ¶æ€
 * \author fqnewman
 */
 void CUnionMember::online(const unsigned int status)
@@ -587,12 +587,12 @@ void CUnionMember::online(const unsigned int status)
 	}
 	else
 	{
-		Zebra::logger->error("ÔÚ°ï»á³ÉÔ±%sÕÒ²»µ½×Ô¼ºµÄ°ï»á¶ÔÏó",send.name);
+		Zebra::logger->error("åœ¨å¸®ä¼šæˆå‘˜%sæ‰¾ä¸åˆ°è‡ªå·±çš„å¸®ä¼šå¯¹è±¡",send.name);
 	}
 }
 
 /**
-* \brief ³ÉÔ±ÏÂÏß´¦Àí
+* \brief æˆå‘˜ä¸‹çº¿å¤„ç†
 * \author fqnewman
 */
 void CUnionMember::offline()
@@ -609,15 +609,15 @@ void CUnionMember::offline()
 	if (myUnion) myUnion->sendCmdToAllMember(&send,sizeof(send));
 	else
 	{
-		Zebra::logger->error("ÔÚ°ï»á³ÉÔ±%sÕÒ²»µ½×Ô¼ºµÄ°ï»á¶ÔÏó",send.name);
+		Zebra::logger->error("åœ¨å¸®ä¼šæˆå‘˜%sæ‰¾ä¸åˆ°è‡ªå·±çš„å¸®ä¼šå¯¹è±¡",send.name);
 	}
 }
 
 //---------------------------------------new---------------------------------------------
 
 /**
-* \brief É¾³ıÊµÌå¸ù¾İÃû³Æ
-* \param name ÊµÌåÃû³Æ
+* \brief åˆ é™¤å®ä½“æ ¹æ®åç§°
+* \param name å®ä½“åç§°
 * \author fqnewman
 */
 void CUnion::removeEntryByName(const char * name)
@@ -627,8 +627,8 @@ void CUnion::removeEntryByName(const char * name)
 }
 
 /**
-* \brief °ï»á³õÊ¼»¯£¬¸ù¾İ´«ÈëÊı¾İ³õÊ¼»¯°ï»áµÄ»ù±¾ĞÅÏ¢
-* \param info °ï»áÊı¾İ½á¹¹
+* \brief å¸®ä¼šåˆå§‹åŒ–ï¼Œæ ¹æ®ä¼ å…¥æ•°æ®åˆå§‹åŒ–å¸®ä¼šçš„åŸºæœ¬ä¿¡æ¯
+* \param info å¸®ä¼šæ•°æ®ç»“æ„
 * \author fqnewman
 */
 void CUnion::init(const stUnionInfo & info)
@@ -652,8 +652,8 @@ void CUnion::init(const stUnionInfo & info)
 }
 
 /**
-* \brief ´´½¨Ò»¸ö°ï»áµÄ°ïÖ÷³ÉÔ±£¬·ÖÅäÈ¨ÏŞ
-* \param info °ï»á³ÉÔ±Êı¾İ½á¹¹
+* \brief åˆ›å»ºä¸€ä¸ªå¸®ä¼šçš„å¸®ä¸»æˆå‘˜ï¼Œåˆ†é…æƒé™
+* \param info å¸®ä¼šæˆå‘˜æ•°æ®ç»“æ„
 * \author fqnewman
 */
 CUnionMember * CUnion::addUnionMaster(const stUnionInfo& info)
@@ -676,10 +676,10 @@ CUnionMember * CUnion::addUnionMaster(const stUnionInfo& info)
 }
 
 /**
-* \brief ´´½¨²¢³õÊ¼»¯°ï»á³ÉÔ±
-* \param info °ï»á³ÉÔ±Êı¾İ½á¹¹
+* \brief åˆ›å»ºå¹¶åˆå§‹åŒ–å¸®ä¼šæˆå‘˜
+* \param info å¸®ä¼šæˆå‘˜æ•°æ®ç»“æ„
 * \author fqnewman
-* \return ³É¹¦·µ»ØĞÂ´´½¨µÄ°ï»á³ÉÔ±¶ÔÏó£¬Ê§°Ü·µ»ØNULL
+* \return æˆåŠŸè¿”å›æ–°åˆ›å»ºçš„å¸®ä¼šæˆå‘˜å¯¹è±¡ï¼Œå¤±è´¥è¿”å›NULL
 */
 CUnionMember * CUnion::addUnionMember(const stUnionMemberInfo& info)
 {
@@ -693,16 +693,16 @@ CUnionMember * CUnion::addUnionMember(const stUnionMemberInfo& info)
 		pMember->setUnion(this);
 		
 		if (info.wdPower == 0)
-		{//ÖØĞÂ³õÊ¼»¯°ï»á³ÉÔ±È¨ÏŞ
+		{//é‡æ–°åˆå§‹åŒ–å¸®ä¼šæˆå‘˜æƒé™
 			pMember->byPower[0] = 0x00;
 			pMember->byPower[1] = 0x00;
 
 			if (info.dwCharID == this->tempid)
-			{//ÉèÖÃ°ïÖ÷È¨ÏŞ
+			{//è®¾ç½®å¸®ä¸»æƒé™
 				SETMASTERPOWER(pMember->byPower);
 			}
 			else
-			{//ÉèÖÃÎª°ïÖÚÈ¨ÏŞ
+			{//è®¾ç½®ä¸ºå¸®ä¼—æƒé™
 				SETMEMBERPOWER(pMember->byPower);
 			}
 			pMember->writeDatabase();
@@ -711,18 +711,18 @@ CUnionMember * CUnion::addUnionMember(const stUnionMemberInfo& info)
 		rwlock.wrlock();
 		if (!addEntry(pMember))
 		{
-			Zebra::logger->debug("[°ï»á]: %s °ï»áÌí¼Ó³ÉÔ± %s ½ø°ï»á¹ÜÀíÆ÷Ê§°Ü", this->name, info.name);
+			Zebra::logger->debug("[å¸®ä¼š]: %s å¸®ä¼šæ·»åŠ æˆå‘˜ %s è¿›å¸®ä¼šç®¡ç†å™¨å¤±è´¥", this->name, info.name);
 		}
 		rwlock.unlock();
-		CUnionM::getMe().addMemberIndex(info.name, pMember);  // ÔÚCUnionMÖĞ¼ÓÈëË÷ÒıÕâÑù¿ÉÒÔÊ¹ÍâÃæµÄ·ÃÎÊÕßÍ¨¹ıCUnionMÕÒµ½×Ô¼º¡£
+		CUnionM::getMe().addMemberIndex(info.name, pMember);  // åœ¨CUnionMä¸­åŠ å…¥ç´¢å¼•è¿™æ ·å¯ä»¥ä½¿å¤–é¢çš„è®¿é—®è€…é€šè¿‡CUnionMæ‰¾åˆ°è‡ªå·±ã€‚
 	}
 	return pMember;
 }
 
 /**
-* \brief ·¢ËÍÃüÁî¸ø³¡¾°ÉèÖÃËùÓĞ³ÉÔ±µÄÕ½Õù×´Ì¬²¢Í¨Öª¿Í»§¶Ë
-* \param ptEnterWarCmd ½øÈëÕ½Õù×´Ì¬Í¨ÖªÏûÏ¢
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å‘½ä»¤ç»™åœºæ™¯è®¾ç½®æ‰€æœ‰æˆå‘˜çš„æˆ˜äº‰çŠ¶æ€å¹¶é€šçŸ¥å®¢æˆ·ç«¯
+* \param ptEnterWarCmd è¿›å…¥æˆ˜äº‰çŠ¶æ€é€šçŸ¥æ¶ˆæ¯
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 */
 void CUnion::sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptEnterWarCmd, const unsigned int cmdLen)
 {
@@ -747,11 +747,11 @@ void CUnion::sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptEn
 				cmd->dwSceneTempID = pUser->scene->tempid;
 				if (cmd->dwStatus)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÒÑ½øÈë°ï»á¶ÔÕ½×´Ì¬¡£");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨å·²è¿›å…¥å¸®ä¼šå¯¹æˆ˜çŠ¶æ€ã€‚");
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÒÑÍË³ö°ï»á¶ÔÕ½×´Ì¬¡£");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨å·²é€€å‡ºå¸®ä¼šå¯¹æˆ˜çŠ¶æ€ã€‚");
 				}
 				pUser->scene->sendCmd(cmd, cmdLen);
 			}
@@ -848,9 +848,9 @@ void CUnion::sendUnionDare(UserSession* pUser, const char* fromName, DWORD dwWar
 }
 
 /**
-* \brief ·¢ËÍÃüÁî¸øËùÓĞµÄ³ÉÔ±£¨¿Í»§¶Ë£©
-* \param ptCmd ÏûÏ¢Ìå
-* \param nCmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å‘½ä»¤ç»™æ‰€æœ‰çš„æˆå‘˜ï¼ˆå®¢æˆ·ç«¯ï¼‰
+* \param ptCmd æ¶ˆæ¯ä½“
+* \param nCmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CUnion::sendCmdToAllMember(const Cmd::stNullUserCmd * ptCmd, const unsigned int nCmdLen )
@@ -879,9 +879,9 @@ void CUnion::sendCmdToAllMember(const Cmd::stNullUserCmd * ptCmd, const unsigned
 }
 
 /**
-* \brief Í¨Öª°ï»áÄÚÓĞ³ÉÔ±±»¿ª³ı
-* \param pName ±»¿ª³ıÕßµÄÃû³Æ
-* \param pAliasname ±»¿ª³ıÕßµÄ±ğÃû
+* \brief é€šçŸ¥å¸®ä¼šå†…æœ‰æˆå‘˜è¢«å¼€é™¤
+* \param pName è¢«å¼€é™¤è€…çš„åç§°
+* \param pAliasname è¢«å¼€é™¤è€…çš„åˆ«å
 * \author fqnewman
 */
 void CUnion::notifyMemberFire(const char * pName, const char *pAliasname)
@@ -895,7 +895,7 @@ void CUnion::notifyMemberFire(const char * pName, const char *pAliasname)
 }
 
 /**
-* \brief ´¦Àí¸ñÊ½½âÎöµÄºê
+* \brief å¤„ç†æ ¼å¼è§£æçš„å®
 */
 
 #define getMessage(msg,msglen,pat)      \
@@ -909,8 +909,8 @@ do      \
 }while(false)
 
 /**
-* \brief Í¨Öª°ï»áÕ½½á¹û
-* \param  msg ... Í¨ÖªÄÚÈİ
+* \brief é€šçŸ¥å¸®ä¼šæˆ˜ç»“æœ
+* \param  msg ... é€šçŸ¥å†…å®¹
 */
 void CUnion::notifyWarResult(const char* msg, ...)
 {
@@ -950,8 +950,8 @@ void CUnion::notifyWarResult(const char* msg, ...)
 }
 
 /**
-* \brief ·¢ËÍÓÃ»§µÄ°ï»áÊı¾İµ½¿Í»§¶Ë
-* \param pName ½ÓÊÕĞÅÏ¢µÄÓÃ»§
+* \brief å‘é€ç”¨æˆ·çš„å¸®ä¼šæ•°æ®åˆ°å®¢æˆ·ç«¯
+* \param pName æ¥æ”¶ä¿¡æ¯çš„ç”¨æˆ·
 * \author fqnewman
 */
 void CUnion::sendUserUnionData(const char *pName)
@@ -966,8 +966,8 @@ void CUnion::sendUserUnionData(const char *pName)
 }
 
 /**
-* \brief ·¢ËÍ°ï»áĞÅÏ¢¸øÖ¸¶¨ÓÃ»§µÄ¿Í»§¶Ë£¬ÓÃÔÚÓÃ»§ÉÏÏß³õÊ¼»¯µÄÊ±ºò¡£
-* \param pUser ÉÏÏßÓÃ»§
+* \brief å‘é€å¸®ä¼šä¿¡æ¯ç»™æŒ‡å®šç”¨æˆ·çš„å®¢æˆ·ç«¯ï¼Œç”¨åœ¨ç”¨æˆ·ä¸Šçº¿åˆå§‹åŒ–çš„æ—¶å€™ã€‚
+* \param pUser ä¸Šçº¿ç”¨æˆ·
 * \author fqnewman
 */
 void CUnion::sendUnionInfoToUser(UserSession *pUser)
@@ -975,11 +975,11 @@ void CUnion::sendUnionInfoToUser(UserSession *pUser)
 	Cmd::stUnionBaseInfoCmd retUnion;
 
 	rwlock.rdlock();
-	strncpy(retUnion.unionName,name,MAX_NAMESIZE);		// °ï»áÃû³Æ
-	if (master) strncpy(retUnion.master,master->name,MAX_NAMESIZE);	// °ï»á»á³¤
-	else  strncpy(retUnion.master,"¼ÇÂ¼²»ÍêÕûÇë²éÖ¤",MAX_NAMESIZE);	// °ï»á»á³¤
-	retUnion.wdLevel 	= level;						// °ï»á¼¶±ğ
-	retUnion.qwExp 		= exp;							// °ï»á¾­Ñé
+	strncpy(retUnion.unionName,name,MAX_NAMESIZE);		// å¸®ä¼šåç§°
+	if (master) strncpy(retUnion.master,master->name,MAX_NAMESIZE);	// å¸®ä¼šä¼šé•¿
+	else  strncpy(retUnion.master,"è®°å½•ä¸å®Œæ•´è¯·æŸ¥è¯",MAX_NAMESIZE);	// å¸®ä¼šä¼šé•¿
+	retUnion.wdLevel 	= level;						// å¸®ä¼šçº§åˆ«
+	retUnion.qwExp 		= exp;							// å¸®ä¼šç»éªŒ
 	retUnion.dwMana		= this->getMana();
 	retUnion.dwAction	= this->dwActionPoint;
 	strncpy(retUnion.note, this->note, sizeof(retUnion.note));
@@ -1020,8 +1020,8 @@ DWORD CUnion::getMana()
 }
 
 /**
-* \brief ·¢ËÍ°ï»á³ÉÔ±ÁĞ±í£¬·¢ËÍÓĞ×î´óÏŞÖÆ£¬×î¶àÖ»·¢100Ìõ°ï»á³ÉÔ±¼ÇÂ¼¡£
-* \param pUser Êı¾İ½ÓÊÜÕß¶ÔÏó
+* \brief å‘é€å¸®ä¼šæˆå‘˜åˆ—è¡¨ï¼Œå‘é€æœ‰æœ€å¤§é™åˆ¶ï¼Œæœ€å¤šåªå‘100æ¡å¸®ä¼šæˆå‘˜è®°å½•ã€‚
+* \param pUser æ•°æ®æ¥å—è€…å¯¹è±¡
 * \author fqnewman
 */
 void CUnion::sendUnionMemberList(UserSession *pUser)
@@ -1049,12 +1049,12 @@ void CUnion::sendUnionMemberList(UserSession *pUser)
 		if (pSept == NULL || pSept->master == NULL)
 		{
 			_deleteList.push_back(temp);
-			Zebra::logger->error("[°ï»á]: %s ËùÊô¼Ò×å(%d)ÒÑ²»´æÔÚ", temp->name, temp->id);
+			Zebra::logger->error("[å¸®ä¼š]: %s æ‰€å±å®¶æ—(%d)å·²ä¸å­˜åœ¨", temp->name, temp->id);
 			continue;
 		}
 
 #ifdef _ZJW_DEBUG			
-		Zebra::logger->debug("°ïÖÚ:%s", temp->name);
+		Zebra::logger->debug("å¸®ä¼—:%s", temp->name);
 #endif			
 		temp->getMemberBaseInfo(mInfo);
 		bcopy(&mInfo,tempPoint,len);
@@ -1080,7 +1080,7 @@ void CUnion::sendUnionMemberList(UserSession *pUser)
 
 		if (1000==count)
 		{
-			goto breakfor; // µ±¼ÇÂ¼³¬¹ı100µÄÊ±ºò»á³¬¹ıÃüÁî·¢ËÍµÄ×î´óÏŞÖÆ
+			goto breakfor; // å½“è®°å½•è¶…è¿‡100çš„æ—¶å€™ä¼šè¶…è¿‡å‘½ä»¤å‘é€çš„æœ€å¤§é™åˆ¶
 		}
 	}
 breakfor:
@@ -1091,9 +1091,9 @@ breakfor:
 }
 
 /**
-* \brief ¿ª³ı°ï»á³ÉÔ±
-* \param master ĞĞÊ¹È¨ÀûÕßµÄÃû³Æ 
-* \param member ±»¿ª³ıÕßµÄÃû³Æ
+* \brief å¼€é™¤å¸®ä¼šæˆå‘˜
+* \param master è¡Œä½¿æƒåˆ©è€…çš„åç§° 
+* \param member è¢«å¼€é™¤è€…çš„åç§°
 * \author fqnewman
 * \return 
 */
@@ -1108,13 +1108,13 @@ void  CUnion::fireUnionMember(const char * master, const char *member)
 		{
 			if (pMaster->id == pMember->id)
 			{
-				pMaster->sendMessageToMe("²»ÄÜ¿ª³ı×Ô¼º");
+				pMaster->sendMessageToMe("ä¸èƒ½å¼€é™¤è‡ªå·±");
 				return;
 			}
 
 			if (pMember->id == pMaster->myUnion->master->id)
 			{
-				pMaster->sendMessageToMe("²»ÄÜ¿ª³ı°ïÖ÷");
+				pMaster->sendMessageToMe("ä¸èƒ½å¼€é™¤å¸®ä¸»");
 				return;
 			}
 			
@@ -1130,30 +1130,30 @@ void  CUnion::fireUnionMember(const char * master, const char *member)
 				}
 				else
 				{
-					pMaster->sendMessageToMe("Ö»ÄÜ¿ª³ı×å³¤");
+					pMaster->sendMessageToMe("åªèƒ½å¼€é™¤æ—é•¿");
 				}
 			}
 			else
 			{
-				pMaster->sendMessageToMe("ÄãÃ»ÓĞ¿ª³ı³ÉÔ±µÄÈ¨Á¦£¬Èç¹ûÄã·¢ÏÖ´íÎóÇë±¨¸æ¸øGM");
+				pMaster->sendMessageToMe("ä½ æ²¡æœ‰å¼€é™¤æˆå‘˜çš„æƒåŠ›ï¼Œå¦‚æœä½ å‘ç°é”™è¯¯è¯·æŠ¥å‘Šç»™GM");
 			}
 		}
 		else
 		{
-			pMaster->sendMessageToMe("ÄãËùÔÚµÄ°ï»áÖĞÃ»ÓĞ´ËÈË,ÇëÈ·ÈÏÃû×ÖÊÇ·ñÕıÈ·");
+			pMaster->sendMessageToMe("ä½ æ‰€åœ¨çš„å¸®ä¼šä¸­æ²¡æœ‰æ­¤äºº,è¯·ç¡®è®¤åå­—æ˜¯å¦æ­£ç¡®");
 		}
 	}
 	else
 	{
-		Zebra::logger->debug("¿ª³ı°ï»á³ÉÔ±²Ù×÷ÖĞ³öÏÖ´íÎóµÄ×´Ì¬");
+		Zebra::logger->debug("å¼€é™¤å¸®ä¼šæˆå‘˜æ“ä½œä¸­å‡ºç°é”™è¯¯çš„çŠ¶æ€");
 	}
 }
 
 /**
-* \brief Ö±½Ó¿ª³ı°ï»á³ÉÔ±
-* \param dwCharID ±»¿ª³ıµÄ°ï»á³ÉÔ±ID
+* \brief ç›´æ¥å¼€é™¤å¸®ä¼šæˆå‘˜
+* \param dwCharID è¢«å¼€é™¤çš„å¸®ä¼šæˆå‘˜ID
 * \author fqnewman
-* \return É¾³ı³É¹¦·µ»Ø1 É¾³ıÊ§°Ü·µ»Ø2
+* \return åˆ é™¤æˆåŠŸè¿”å›1 åˆ é™¤å¤±è´¥è¿”å›2
 */
 int CUnion::fireUnionMemberDirect(const DWORD dwCharID, const bool checksept)
 {
@@ -1193,7 +1193,7 @@ bool  CUnion::isMember(DWORD dwUserID)
 }
 
 /**
-* \brief ¸üĞÂÊı¾İ¿â¼ÇÂ¼
+* \brief æ›´æ–°æ•°æ®åº“è®°å½•
 * \author fqnewman
 */
 void CUnion::writeDatabase()
@@ -1231,7 +1231,7 @@ void CUnion::writeDatabase()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -1254,7 +1254,7 @@ void CUnion::writeDatabase()
 #ifdef _ZJW_DEBUG	
 	if (updateunion_data.dwActionPoint>1000)
 	{
-		Zebra::logger->trace("[°ï»á]:¾¯¸æ,ĞĞ¶¯Á¦¹ı´ó:%d", updateunion_data.dwActionPoint);
+		Zebra::logger->trace("[å¸®ä¼š]:è­¦å‘Š,è¡ŒåŠ¨åŠ›è¿‡å¤§:%d", updateunion_data.dwActionPoint);
 	}
 #endif	
 
@@ -1272,12 +1272,12 @@ void CUnion::writeDatabase()
 
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("CUnion ĞŞ¸Ä»áÔ±µµ°¸Ê§°Ü£ºUNIONID=%u retcode=%u", id, retcode);
+		Zebra::logger->error("CUnion ä¿®æ”¹ä¼šå‘˜æ¡£æ¡ˆå¤±è´¥ï¼šUNIONID=%u retcode=%u", id, retcode);
 	}
 }
 
 /**
-* \brief ¹¹Ôì°ï»á£¬³õÊ¼»¯±äÁ¿
+* \brief æ„é€ å¸®ä¼šï¼Œåˆå§‹åŒ–å˜é‡
 * \author fqnewman
 */
 CUnion::CUnion()
@@ -1289,7 +1289,7 @@ CUnion::CUnion()
 }
 
 /**
-* \brief Îö¹¹°ï»á¼°ÆäËùÓĞ³ÉÔ±
+* \brief ææ„å¸®ä¼šåŠå…¶æ‰€æœ‰æˆå‘˜
 * \author fqnewman
 */
 CUnion::~CUnion()
@@ -1309,13 +1309,13 @@ CUnion::~CUnion()
 }
 
 /**
-* \brief ½âÉ¢°ï»á£¬½«ËùÓĞ³ÉÔ±µÄ°ï»á¹ØÏµ½â³ı°üÀ¨°ïÖ÷×Ô¼º
+* \brief è§£æ•£å¸®ä¼šï¼Œå°†æ‰€æœ‰æˆå‘˜çš„å¸®ä¼šå…³ç³»è§£é™¤åŒ…æ‹¬å¸®ä¸»è‡ªå·±
 * \author fqnewman
 */
 void CUnion::disbandUnion()
 {
 	rwlock.wrlock();
-	Zebra::logger->trace("[°ï»á]°ï»á½âÉ¢%s", this->name);
+	Zebra::logger->trace("[å¸®ä¼š]å¸®ä¼šè§£æ•£%s", this->name);
 	destroy = true;
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
 	{
@@ -1335,7 +1335,7 @@ void CUnion::disbandUnion()
 		}
 	}
 
-	//TODO:Í¬Ê±ÖØÖÃ¸Ã°ïÓµÓĞµÄ³ÇÊĞ³ÇÖ÷ĞÅÏ¢
+	//TODO:åŒæ—¶é‡ç½®è¯¥å¸®æ‹¥æœ‰çš„åŸå¸‚åŸä¸»ä¿¡æ¯
 	CCity* pCity =  CCityM::getMe().findByUnionID(this->id);	
 	if (pCity)
 	{
@@ -1374,7 +1374,7 @@ DWORD CUnion::septSize()
 		{
 			CSept* pSept = CSeptM::getMe().getSeptByID(temp->septid);
 			if (pSept && pSept->master && pSept->master->id == temp->id)
-			{//Í³¼Æ×å³¤
+			{//ç»Ÿè®¡æ—é•¿
 				ret++;
 			}
 		}
@@ -1394,8 +1394,8 @@ void CUnion::refreshSeptExp()
 			{
 				CSept* pSept = CSeptM::getMe().getSeptByID(temp->septid);
 				if (pSept && pSept->master && pSept->master->id == temp->id)
-				{//ÉèÖÃ¼Ò×å¾­ÑéÁìÈ¡±êÖ¾
-					Zebra::logger->trace("[¼Ò×å]: %s Ë¢ĞÂ¼Ò×å¾­Ñé", 
+				{//è®¾ç½®å®¶æ—ç»éªŒé¢†å–æ ‡å¿—
+					Zebra::logger->trace("[å®¶æ—]: %s åˆ·æ–°å®¶æ—ç»éªŒ", 
 							pSept->name);
 					pSept->setExp();
 				}
@@ -1413,16 +1413,16 @@ void CUnion::changeAllSeptRepute(int repute)
 		{
 			CSept* pSept = CSeptM::getMe().getSeptByID(temp->septid);
 			if (pSept && pSept->master && pSept->master->id == temp->id)
-			{//Í³¼Æ×å³¤
+			{//ç»Ÿè®¡æ—é•¿
 				pSept->changeRepute(repute);
 			}
 		}
 	}
 }
 /**
-* \brief É¾³ı±¾°ï»áµÄÊı¾İ¿â¼ÇÂ¼
+* \brief åˆ é™¤æœ¬å¸®ä¼šçš„æ•°æ®åº“è®°å½•
 * \author fqnewman
-* \return true ³É¹¦ false Ê§°Ü
+* \return true æˆåŠŸ false å¤±è´¥
 */
 bool CUnion::deleteMeFromDB()
 {
@@ -1431,7 +1431,7 @@ bool CUnion::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -1441,7 +1441,7 @@ bool CUnion::deleteMeFromDB()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("É¾³ı°ï»áÊ§°Ü %u", id);
+		Zebra::logger->error("åˆ é™¤å¸®ä¼šå¤±è´¥ %u", id);
 		return false;
 	}
 	else
@@ -1452,9 +1452,9 @@ bool CUnion::deleteMeFromDB()
 }
 
 /**
-* \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØ°ï»á³ÉÔ±
+* \brief ä»æ•°æ®åº“ä¸­åŠ è½½å¸®ä¼šæˆå‘˜
 * \author fqnewman
-* \return true ¼ÓÔØ³É¹¦£¬ false ¼ÓÔØÊ§°Ü
+* \return true åŠ è½½æˆåŠŸï¼Œ false åŠ è½½å¤±è´¥
 */
 bool CUnion::loadUnionMemberFromDB()
 {
@@ -1475,7 +1475,7 @@ bool CUnion::loadUnionMemberFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
@@ -1485,7 +1485,7 @@ bool CUnion::loadUnionMemberFromDB()
 	if ((unsigned int)-1 == retcode
 			|| 0 == retcode)
 	{
-		Zebra::logger->debug("Ã»ÓĞÕÒµ½°ï»á³ÉÔ±¼ÇÂ¼");
+		Zebra::logger->debug("æ²¡æœ‰æ‰¾åˆ°å¸®ä¼šæˆå‘˜è®°å½•");
 		return true;
 	}
 
@@ -1498,8 +1498,8 @@ bool CUnion::loadUnionMemberFromDB()
 			CUnionMember *member = addUnionMember(info);
 			if (info.dwCharID == tempid) 
 			{
-				//Zebra::logger->trace("[°ï»á¼ÓÔØ]:%s(%d) °ïÖ÷¼ÓÔØ³É¹¦", member->name, this->id);
-				master = member; // masterid±»±£´æÔÚtempidÖĞ£»ÕâÀï³õÊ¼»¯master¶ÔÏó
+				//Zebra::logger->trace("[å¸®ä¼šåŠ è½½]:%s(%d) å¸®ä¸»åŠ è½½æˆåŠŸ", member->name, this->id);
+				master = member; // masteridè¢«ä¿å­˜åœ¨tempidä¸­ï¼›è¿™é‡Œåˆå§‹åŒ–masterå¯¹è±¡
 			}
 			
 			if (member->septid>0)
@@ -1508,19 +1508,19 @@ bool CUnion::loadUnionMemberFromDB()
 				if (pSept==NULL && this->tempid!=member->id)
 				{
 					this->fireUnionMemberLeave(member->id);
-					Zebra::logger->trace("[°ï»á]: %s ËùÊô¼Ò×åÒÑ¾­²»´æÔÚ,´Ó°ï»á³ÉÔ±±íÖĞÉ¾³ı", member->name);
+					Zebra::logger->trace("[å¸®ä¼š]: %s æ‰€å±å®¶æ—å·²ç»ä¸å­˜åœ¨,ä»å¸®ä¼šæˆå‘˜è¡¨ä¸­åˆ é™¤", member->name);
 				}
 				else
 				{
 					if (pSept && !pSept->isMember(member->id) && this->tempid!=member->id)
 					{
 						this->fireUnionMemberLeave(member->id);
-						Zebra::logger->trace("[°ï»á]: %s ÒÑ²»ÔÚ¶ÔÓ¦¼Ò×åÖĞ,´Ó°ï»á³ÉÔ±±íÖĞÉ¾³ı", member->name);
+						Zebra::logger->trace("[å¸®ä¼š]: %s å·²ä¸åœ¨å¯¹åº”å®¶æ—ä¸­,ä»å¸®ä¼šæˆå‘˜è¡¨ä¸­åˆ é™¤", member->name);
 					}
 					else if (pSept && pSept->dwUnionID!=this->id && this->tempid!=member->id)
 					{
 						this->fireUnionMemberLeave(member->id);
-						Zebra::logger->trace("[°ï»á]: %s Óë°ïÖ÷²»ÔÚÍ¬Ò»°ï»á,´Ó°ï»á³ÉÔ±±íÖĞÉ¾³ı", 
+						Zebra::logger->trace("[å¸®ä¼š]: %s ä¸å¸®ä¸»ä¸åœ¨åŒä¸€å¸®ä¼š,ä»å¸®ä¼šæˆå‘˜è¡¨ä¸­åˆ é™¤", 
 								member->name);
 					}
 				}
@@ -1533,21 +1533,21 @@ bool CUnion::loadUnionMemberFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("°ï»áÊı¾İ³õÊ¼»¯Ê§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("å¸®ä¼šæ•°æ®åˆå§‹åŒ–å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 	}
 
 	if (master == NULL)
 	{
-		Zebra::logger->trace("[°ï»á¼ÓÔØ]:%d °ïÖ÷¼ÓÔØÊ§°Ü", this->id);
+		Zebra::logger->trace("[å¸®ä¼šåŠ è½½]:%d å¸®ä¸»åŠ è½½å¤±è´¥", this->id);
 	}
 	
 	return true;
 }
 
 /**
-* \brief ·¢ËÍ°ï»áÍ¨Öª
+* \brief å‘é€å¸®ä¼šé€šçŸ¥
 *
-* \param message ÏûÏ¢
+* \param message æ¶ˆæ¯
 *
 * \author zjw
 */
@@ -1569,16 +1569,16 @@ void CUnion::sendUnionNotify(const char* message, ...)
 	bzero(send.pstrName, sizeof(send.pstrName));
 	bzero(send.pstrChat, sizeof(send.pstrChat));
 	
-	sprintf((char*)send.pstrName, "°ï»áÍ¨Öª");
+	sprintf((char*)send.pstrName, "å¸®ä¼šé€šçŸ¥");
 	sprintf((char*)send.pstrChat, "%s", buf);
 
 	this->sendCmdToAllMember(&send, sizeof(send));
 }
 
 /**
-* \brief »ñÈ¡°ï»á³ÉÔ±ÊıÄ¿
+* \brief è·å–å¸®ä¼šæˆå‘˜æ•°ç›®
 * \author fqnewman
-* \return °ï»á³ÉÔ±Êı×Ö
+* \return å¸®ä¼šæˆå‘˜æ•°å­—
 */
 DWORD CUnion::size()
 {
@@ -1586,9 +1586,9 @@ DWORD CUnion::size()
 }
 
 /**
-* \brief ÅĞ¶ÏÊÇ·ñÔÚÍ¶Æ±×´Ì¬
+* \brief åˆ¤æ–­æ˜¯å¦åœ¨æŠ•ç¥¨çŠ¶æ€
 * \author fqnewman
-* \return true »¹ÔÚÍ¶Æ±ÖĞ false Í¶Æ±ÒÑ½áÊø
+* \return true è¿˜åœ¨æŠ•ç¥¨ä¸­ false æŠ•ç¥¨å·²ç»“æŸ
 */
 bool CUnion::isVote()
 {
@@ -1615,7 +1615,7 @@ void CUnion::update_all_data()
 }
 
 /**
-* \brief Í¶Æ±½áÊø´¦Àí
+* \brief æŠ•ç¥¨ç»“æŸå¤„ç†
 * \author fqnewman
 */
 void CUnion::letVoteOver()
@@ -1647,8 +1647,8 @@ void CUnion::letVoteOver()
 }
 
 /**
-* \brief ÉèÖÃ°ï»áµÄ½éÉÜ£¨²¢´æ¿â£©
-* \param pCmd °ï»áÉèÖÃÏûÏ¢
+* \brief è®¾ç½®å¸®ä¼šçš„ä»‹ç»ï¼ˆå¹¶å­˜åº“ï¼‰
+* \param pCmd å¸®ä¼šè®¾ç½®æ¶ˆæ¯
 * \author fqnewman
 */
 void CUnion::setNote(Cmd::stNoteUnionCmd *pCmd)
@@ -1666,14 +1666,14 @@ void  CUnion::changeMaster(CUnionMember* pMember)
 
 	//UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pMember->id);
 	
-	// Ôİ´æ°ïÖ÷¶ÔÏó
+	// æš‚å­˜å¸®ä¸»å¯¹è±¡
 	CUnionMember* pSrcMaster = this->master;
 	
-	// ¸³ĞÂµÄ°ïÖ÷¶ÔÏó
+	// èµ‹æ–°çš„å¸®ä¸»å¯¹è±¡
 	this->master = pMember;
 	this->tempid = pMember->id;
 
-	// ĞŞ¸ÄÁ½ÕßµÄÈ¨ÏŞ¼°³ÆºÅ
+	// ä¿®æ”¹ä¸¤è€…çš„æƒé™åŠç§°å·
 	strncpy(this->master->aliasname, DEFAULTMASTERALIAS, MAX_NAMESIZE);
 	this->master->byPower[0] = 0x00;
 	this->master->byPower[1] = 0x00;
@@ -1682,7 +1682,7 @@ void  CUnion::changeMaster(CUnionMember* pMember)
 	
 	pSrcMaster->byPower[0] = 0x00;
 	pSrcMaster->byPower[1] = 0x00;	
-	strncpy(pSrcMaster->aliasname, "×å³¤", MAX_NAMESIZE);
+	strncpy(pSrcMaster->aliasname, "æ—é•¿", MAX_NAMESIZE);
 	SETMEMBERPOWER(pSrcMaster->byPower);
 
 	pSrcMaster->writeDatabase();
@@ -1832,7 +1832,7 @@ bool CUnion::changeMoney(int money)
 
 void CUnion::sendUnionManaToAll()
 {
-	FunctionTime func_time(0,__PRETTY_FUNCTION__,"¸Ä±äÒ»¸ö°ï»áÍşÍûËùĞèÊ±¼ä" , 32);
+	FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ”¹å˜ä¸€ä¸ªå¸®ä¼šå¨æœ›æ‰€éœ€æ—¶é—´" , 32);
 	
 	struct findList : public execEntry<CUnionMember>
 	{
@@ -1847,7 +1847,7 @@ void CUnion::sendUnionManaToAll()
 				UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pMember->id);
 				if (pMember->myUnion && pUser)
 				{
-					pMember->myUnion->sendUnionInfoToUser(pUser); // ·¢ËÍ°ï»áµÄĞÅÏ¢¸øµ±Ç°³ÉÔ±
+					pMember->myUnion->sendUnionInfoToUser(pUser); // å‘é€å¸®ä¼šçš„ä¿¡æ¯ç»™å½“å‰æˆå‘˜
 				}
 			}
 			return true;
@@ -1883,7 +1883,7 @@ void CUnion::sendUnionInfoToAll()
 
 //-------------------------------------------------------------------------------------
 /**
-* \brief ¹ÜÀíÆ÷¹¹Ôìº¯Êı
+* \brief ç®¡ç†å™¨æ„é€ å‡½æ•°
 * \author fqnewman
 */
 CUnionM::CUnionM()
@@ -1891,7 +1891,7 @@ CUnionM::CUnionM()
 }
 
 /**
-* \brief ¹ÜÀíÆ÷Îö¹¹º¯Êı
+* \brief ç®¡ç†å™¨ææ„å‡½æ•°
 * \author fqnewman
 */
 CUnionM::~CUnionM()
@@ -1907,7 +1907,7 @@ CUnionM::~CUnionM()
 }
 
 /**
-* \brief Ö÷¶¯ÊÍ·Å¹ÜÀíÆ÷
+* \brief ä¸»åŠ¨é‡Šæ”¾ç®¡ç†å™¨
 * \author fqnewman
 */
 void CUnionM::destroyMe()
@@ -1916,8 +1916,8 @@ void CUnionM::destroyMe()
 }
 
 /**
-* \brief ÔÚ³ÉÔ±Ë÷ÒıÀïÃæ²éÕÒ³ÉÔ±µü´ú
-* return µü´úÖ¸Õë
+* \brief åœ¨æˆå‘˜ç´¢å¼•é‡Œé¢æŸ¥æ‰¾æˆå‘˜è¿­ä»£
+* return è¿­ä»£æŒ‡é’ˆ
 */
 std::map<std::string, CUnionMember *>::iterator  CUnionM::findMemberIndex(const char *pName)
 {
@@ -1928,10 +1928,10 @@ std::map<std::string, CUnionMember *>::iterator  CUnionM::findMemberIndex(const 
 }
 
 /**
-* \brief ¸ù¾İÃû³Æ»ñÈ¡°ï»á¶ÔÏó
-* \param pName °ï»áµÄÃû³Æ
+* \brief æ ¹æ®åç§°è·å–å¸®ä¼šå¯¹è±¡
+* \param pName å¸®ä¼šçš„åç§°
 * \author fqnewman
-* \return ³É¹¦·µ»Ø°ï»á¶ÔÏó Ê§°Ü·µ»ØNULL
+* \return æˆåŠŸè¿”å›å¸®ä¼šå¯¹è±¡ å¤±è´¥è¿”å›NULL
 */
 CUnion* CUnionM::getUnionByName(const char* pName)
 {
@@ -1943,10 +1943,10 @@ CUnion* CUnionM::getUnionByName(const char* pName)
 }
 
 /**
-* \brief ¸ù¾İID»ñÈ¡°ï»á¶ÔÏó
-* \param dwUnionID °ï»áµÄID
+* \brief æ ¹æ®IDè·å–å¸®ä¼šå¯¹è±¡
+* \param dwUnionID å¸®ä¼šçš„ID
 * \author fqnewman
-* \return ³É¹¦·µ»Ø°ï»á¶ÔÏó£¬Ê§°Ü·µ»Ø NULL
+* \return æˆåŠŸè¿”å›å¸®ä¼šå¯¹è±¡ï¼Œå¤±è´¥è¿”å› NULL
 */
 CUnion* CUnionM::getUnionByID(DWORD dwUnionID)
 {
@@ -1958,8 +1958,8 @@ CUnion* CUnionM::getUnionByID(DWORD dwUnionID)
 }
 
 /**
-* \brief ¸ù¾İÊµÌåÃû³ÆÉ¾³ı¹ÜÀíÊµÌå
-* \param name ÊµÌåµÄÃû³Æ
+* \brief æ ¹æ®å®ä½“åç§°åˆ é™¤ç®¡ç†å®ä½“
+* \param name å®ä½“çš„åç§°
 * \author fqnewman
 */
 void CUnionM::removeEntryByName(const char * name)
@@ -1969,13 +1969,13 @@ void CUnionM::removeEntryByName(const char * name)
 }
 
 /**
-* \brief ³õÊ¼»¯°ï»á¹ÜÀíÆ÷£¬´ÓÊı¾İ¿âÖĞ¼ÓÔØËùÓĞµÄ°ï»áÊı¾İ
+* \brief åˆå§‹åŒ–å¸®ä¼šç®¡ç†å™¨ï¼Œä»æ•°æ®åº“ä¸­åŠ è½½æ‰€æœ‰çš„å¸®ä¼šæ•°æ®
 * \author fqnewman
-* \return true ¼ÓÔØ³É¹¦  false ¼ÓÔØÊ§°Ü
+* \return true åŠ è½½æˆåŠŸ  false åŠ è½½å¤±è´¥
 */
 bool CUnionM::init()
 {
-	FunctionTime func_time(0,__PRETTY_FUNCTION__,"¼ÓÔØËùÓĞ°ï»áËùĞèÊ±¼ä" , 32);
+	FunctionTime func_time(0,__PRETTY_FUNCTION__,"åŠ è½½æ‰€æœ‰å¸®ä¼šæ‰€éœ€æ—¶é—´" , 32);
 	
 	/*
 	   Cmd::Record::t_GetUnion_UnionRecord tCmd;
@@ -2006,7 +2006,7 @@ bool CUnionM::init()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -2037,16 +2037,16 @@ bool CUnionM::init()
 	}
 	else
 	{
-		Zebra::logger->error("°ï»áÊı¾İ³õÊ¼»¯Ê§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("å¸®ä¼šæ•°æ®åˆå§‹åŒ–å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 	}
 	return false;
 }
 
 /**
-* \brief ³õÊ¼»¯°ï»á¶ÔÏó²¢Ìí¼Ó°ïÖ÷³ÉÔ± £¨createNewUnion()µ÷ÓÃ´Ë·½·¨£©
-* \param info °ï»áµÄÊı¾İ½á¹¹
+* \brief åˆå§‹åŒ–å¸®ä¼šå¯¹è±¡å¹¶æ·»åŠ å¸®ä¸»æˆå‘˜ ï¼ˆcreateNewUnion()è°ƒç”¨æ­¤æ–¹æ³•ï¼‰
+* \param info å¸®ä¼šçš„æ•°æ®ç»“æ„
 * \author fqnewman
-* \return ´´½¨²¢³õÊ¼»¯ºÃµÄ°ï»á¶ÔÏó
+* \return åˆ›å»ºå¹¶åˆå§‹åŒ–å¥½çš„å¸®ä¼šå¯¹è±¡
 */
 CUnion* CUnionM::createUnionAndAddMaster(const stUnionInfo & info)
 {
@@ -2081,17 +2081,17 @@ CUnion* CUnionM::createUnionAndAddMaster(const stUnionInfo & info)
 		pUnion->master->update_data();
 	}
 
-	Zebra::logger->trace("[°ï»á]:%s °ï»á½¨Á¢³É¹¦", pUnion->name);
+	Zebra::logger->trace("[å¸®ä¼š]:%s å¸®ä¼šå»ºç«‹æˆåŠŸ", pUnion->name);
 	SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, pUnion->dwCountryID, 
-			"¹§Ï² %s °ï»á³ÉÁ¢", pUnion->name);
+			"æ­å–œ %s å¸®ä¼šæˆç«‹", pUnion->name);
 	return pUnion;
 }
 
 /**
-* \brief ¸ù¾İÊı¾İ¿â¼ÇÂ¼½¨Á¢°ï»á¶ÔÏó£¬ÏµÍ³¼ÓÔØµÄÊ±ºòÊ¹ÓÃ
-* \param info °ï»áµÄÊı¾İ½á¹¹
+* \brief æ ¹æ®æ•°æ®åº“è®°å½•å»ºç«‹å¸®ä¼šå¯¹è±¡ï¼Œç³»ç»ŸåŠ è½½çš„æ—¶å€™ä½¿ç”¨
+* \param info å¸®ä¼šçš„æ•°æ®ç»“æ„
 * \author fqnewman
-* \return ´´½¨³É¹¦µÄ°ï»á¶ÔÏóÖ¸Õë
+* \return åˆ›å»ºæˆåŠŸçš„å¸®ä¼šå¯¹è±¡æŒ‡é’ˆ
 */
 CUnion* CUnionM::createUnionByDBRecord(const stUnionInfo & info)
 {
@@ -2106,16 +2106,16 @@ CUnion* CUnionM::createUnionByDBRecord(const stUnionInfo & info)
 	
 	if (!ret)
 	{
-		Zebra::logger->trace("[°ï»á]: %s(%u) °ï»áÌí¼Ó½øCUnionM¹ÜÀíÆ÷Ê§°Ü", pUnion->name, pUnion->id);
+		Zebra::logger->trace("[å¸®ä¼š]: %s(%u) å¸®ä¼šæ·»åŠ è¿›CUnionMç®¡ç†å™¨å¤±è´¥", pUnion->name, pUnion->id);
 	}
 
 	return pUnion;
 }
 
 /**
-* \brief ¿ª³ıÖ¸¶¨µÄ°ï»á³ÉÔ±
-* \param master ĞĞÊ¹¿ª³ıÈ¨µÄ°ï»á³ÉÔ±£¬Ò»°ãÊÇ»á³¤
-* \param member ±»¿ª³ıµÄ³ÉÔ±
+* \brief å¼€é™¤æŒ‡å®šçš„å¸®ä¼šæˆå‘˜
+* \param master è¡Œä½¿å¼€é™¤æƒçš„å¸®ä¼šæˆå‘˜ï¼Œä¸€èˆ¬æ˜¯ä¼šé•¿
+* \param member è¢«å¼€é™¤çš„æˆå‘˜
 * \author fqnewman
 * \return 
 */
@@ -2140,22 +2140,22 @@ void CUnionM::fireUnionMember(UserSession * master, const char * member)
 	}
 	else
 	{
-		master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ¼ÓÈë°ï»á");
+		master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰åŠ å…¥å¸®ä¼š");
 	}
 }
 
 /**
-  * \brief É¾³ı°ï»á³ÉÔ±
+  * \brief åˆ é™¤å¸®ä¼šæˆå‘˜
   *
-  * Èç¹û¸Ã½ÇÉ«²»ÊÇ°ï»á»á³¤£¬ÔòÌß³ıËû£¬Èç¹ûÊÇ£¬Ôò±£Áô£¬²»×ö´¦Àí
+  * å¦‚æœè¯¥è§’è‰²ä¸æ˜¯å¸®ä¼šä¼šé•¿ï¼Œåˆ™è¸¢é™¤ä»–ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™ä¿ç•™ï¼Œä¸åšå¤„ç†
   *
-  * \param dwUserID ½ÇÉ«ID
+  * \param dwUserID è§’è‰²ID
   *
-  * \return Èç¹û¸Ã½ÇÉ«²»ÔÚÈÎºÎ°ï»áÖĞ£¬Ôò·µ»Ø2
-  *         Èç¹û¸Ã½ÇÉ«ÊÇ°ïÖ÷£¬Ôò·µ»Ø0
-  *         Èç¹û¸Ã½ÇÉ«ÊÇ°ïÖÚ£¬²¢É¾³ı³É¹¦£¬Ôò·µ»Ø1
-  *         Èç¹ûÊÇ°ïÖ÷£¬²¢ÇÒÉ¾³ı£¬·µ»Ø3
-  *         Èç¹û¸Ã½ÇÉ«ÊÇ°ïÖÚ£¬µ«É¾³ıÊ§°Ü£¬Ôò·µ»Ø-1
+  * \return å¦‚æœè¯¥è§’è‰²ä¸åœ¨ä»»ä½•å¸®ä¼šä¸­ï¼Œåˆ™è¿”å›2
+  *         å¦‚æœè¯¥è§’è‰²æ˜¯å¸®ä¸»ï¼Œåˆ™è¿”å›0
+  *         å¦‚æœè¯¥è§’è‰²æ˜¯å¸®ä¼—ï¼Œå¹¶åˆ é™¤æˆåŠŸï¼Œåˆ™è¿”å›1
+  *         å¦‚æœæ˜¯å¸®ä¸»ï¼Œå¹¶ä¸”åˆ é™¤ï¼Œè¿”å›3
+  *         å¦‚æœè¯¥è§’è‰²æ˜¯å¸®ä¼—ï¼Œä½†åˆ é™¤å¤±è´¥ï¼Œåˆ™è¿”å›-1
   *
   */
 int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
@@ -2179,7 +2179,7 @@ int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
 			if (_status == 1)
 			{
 #ifdef _ZJW_DEBUG
-				Zebra::logger->debug("%d ÊÇ°ïÖÚ£¬½â³ıÆäÉç»á¹ØÏµ", _dwUserID);
+				Zebra::logger->debug("%d æ˜¯å¸®ä¼—ï¼Œè§£é™¤å…¶ç¤¾ä¼šå…³ç³»", _dwUserID);
 #endif
 				if (_pUnion)
 				{
@@ -2195,7 +2195,7 @@ int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
 			{
 				
 #ifdef _ZJW_DEBUG
-						Zebra::logger->debug("%d ÊÇ°ïÖ÷£¬½â³ı°ï»á", _dwUserID);
+						Zebra::logger->debug("%d æ˜¯å¸®ä¸»ï¼Œè§£é™¤å¸®ä¼š", _dwUserID);
 #endif
 						if (_pUnion)
 						{
@@ -2215,7 +2215,7 @@ int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
 					if (pUnion->master->id == _dwUserID)
 					{
 #ifdef _ZJW_DEBUG
-						Zebra::logger->debug("%dÊÇ°ïÖ÷£¬½âÉ¢°ï»á", _dwUserID);
+						Zebra::logger->debug("%dæ˜¯å¸®ä¸»ï¼Œè§£æ•£å¸®ä¼š", _dwUserID);
 #endif
 						_pUnion = pUnion;
 						_status = 3;
@@ -2226,7 +2226,7 @@ int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
 							if (pUnion->isMember(_dwUserID))
 							{
 #ifdef _ZJW_DEBUG
-								Zebra::logger->debug("%d ÊÇ %s °ïÖÚ£¬ÄÜ½â³ıÉç»á¹ØÏµ", _dwUserID, pUnion->name);
+								Zebra::logger->debug("%d æ˜¯ %s å¸®ä¼—ï¼Œèƒ½è§£é™¤ç¤¾ä¼šå…³ç³»", _dwUserID, pUnion->name);
 #endif
 								_pUnion = pUnion;
 								_status = 1;
@@ -2235,7 +2235,7 @@ int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
 							else
 							{
 #ifdef _ZJW_DEBUG
-								Zebra::logger->debug("%d ²»ÊÇ %s µÄ°ïÖÚ", _dwUserID, pUnion->name);
+								Zebra::logger->debug("%d ä¸æ˜¯ %s çš„å¸®ä¼—", _dwUserID, pUnion->name);
 #endif
 								_status = 2;
 							}
@@ -2243,7 +2243,7 @@ int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
 				}
 				else
 				{
-					Zebra::logger->error("%s Ã»ÓĞ°ïÖ÷ĞÅÏ¢£¬Çë¼ì²é°ï»áĞÅÏ¢µÄÍêÕûĞÔ¡£", pUnion->name);
+					Zebra::logger->error("%s æ²¡æœ‰å¸®ä¸»ä¿¡æ¯ï¼Œè¯·æ£€æŸ¥å¸®ä¼šä¿¡æ¯çš„å®Œæ•´æ€§ã€‚", pUnion->name);
 				}
 			}
 
@@ -2263,11 +2263,11 @@ int  CUnionM::fireUnionMember(DWORD dwUserID, bool find)
 }
 
 /**
-* \brief Ôö¼ÓĞÂ³ÉÔ±µ½°ï»á
-* \param dwUnionID °ï»áID
-* \param info ĞÂ³ÉÔ±µÄĞÅÏ¢½á¹¹
+* \brief å¢åŠ æ–°æˆå‘˜åˆ°å¸®ä¼š
+* \param dwUnionID å¸®ä¼šID
+* \param info æ–°æˆå‘˜çš„ä¿¡æ¯ç»“æ„
 * \author fqnewman
-* \return true ³É¹¦ false Ê§°Ü
+* \return true æˆåŠŸ false å¤±è´¥
 */
 bool CUnionM::addNewMemberToUnion(const DWORD dwUnionID, const stUnionMemberInfo& info)
 {
@@ -2292,25 +2292,25 @@ bool CUnionM::addNewMemberToUnion(const DWORD dwUnionID, const stUnionMemberInfo
 			pMember->sendUserUnionData(); 
 			pMember->update_data();
 
-			if (pUnion) pUnion->sendUnionNotify("»¶Ó­ %s ¼ÓÈë°ï»á", pMember->name);
+			if (pUnion) pUnion->sendUnionNotify("æ¬¢è¿ %s åŠ å…¥å¸®ä¼š", pMember->name);
 
 			return true;
 		}
 		else
 		{
-			Zebra::logger->error("ÎŞ·¨½«³ÉÔ±%u¼ÓÈë°ï»á%uÖĞ",info.dwCharID, dwUnionID);
+			Zebra::logger->error("æ— æ³•å°†æˆå‘˜%uåŠ å…¥å¸®ä¼š%uä¸­",info.dwCharID, dwUnionID);
 		}
 	}
 	else 
 	{
-		Zebra::logger->error("Êı¾İ²»ÍêÕû°ï»á¹ÜÀíÆ÷ÖĞÃ»ÓĞ%u°ï»á£¬¶ø³ÉÔ±%uÇëÇó¼ÓÈë¸Ã°ï»á, »òÕßÄúÒÑ¾­ÊÇ°ïÖ÷,ÎŞĞèÔÙ¼ÓÈë",dwUnionID,info.dwCharID);
+		Zebra::logger->error("æ•°æ®ä¸å®Œæ•´å¸®ä¼šç®¡ç†å™¨ä¸­æ²¡æœ‰%uå¸®ä¼šï¼Œè€Œæˆå‘˜%uè¯·æ±‚åŠ å…¥è¯¥å¸®ä¼š, æˆ–è€…æ‚¨å·²ç»æ˜¯å¸®ä¸»,æ— éœ€å†åŠ å…¥",dwUnionID,info.dwCharID);
 	}
 	return false;
 }
 
 /**
-* \brief ÓÃ»§ÉÏÏß´¦Àí£¬Èç¹ûÉÏÏßÓÃ»§ÊÇÄ³¸ö°ï»áµÄ³ÉÔ±Ôò×öÏàÓ¦µÄÉÏÏß³õÊ¼»¯
-* \param pUser ÉÏÏßÓÃ»§
+* \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†ï¼Œå¦‚æœä¸Šçº¿ç”¨æˆ·æ˜¯æŸä¸ªå¸®ä¼šçš„æˆå‘˜åˆ™åšç›¸åº”çš„ä¸Šçº¿åˆå§‹åŒ–
+* \param pUser ä¸Šçº¿ç”¨æˆ·
 * \author fqnewman
 */
 void CUnionM::userOnline(UserSession * pUser)
@@ -2356,15 +2356,15 @@ void CUnionM::userOnline(UserSession * pUser)
 			Cmd::Session::t_fireUnionMember_SceneSession send;
 			send.dwCharID = pUser->id;
 			send.dwMapTempID = pUser->scene->tempid;
-			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireUnionMember_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireUnionMember_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 			pUser->unionid = 0;
 		}
 	}
 }
 
 /**
-* \brief ³ÉÔ±ÏÂÏß´¦Àí,½«»áÅĞ¶ÏÖ¸¶¨µÄÓÃ»§ÊÇ·ñÊÇ°ï»á³ÉÔ±£¬ÈçÊÇ×öÏÂÏß´¦Àí
-* \param pUser ÏÂÏßÓÃ»§
+* \brief æˆå‘˜ä¸‹çº¿å¤„ç†,å°†ä¼šåˆ¤æ–­æŒ‡å®šçš„ç”¨æˆ·æ˜¯å¦æ˜¯å¸®ä¼šæˆå‘˜ï¼Œå¦‚æ˜¯åšä¸‹çº¿å¤„ç†
+* \param pUser ä¸‹çº¿ç”¨æˆ·
 * \author fqnewman
 */
 void CUnionM::userOffline(const UserSession * pUser)
@@ -2380,8 +2380,8 @@ void CUnionM::userOffline(const UserSession * pUser)
 }
 
 /**
-* \brief ½¨Á¢ĞÂµÄ°ï»á¶ÔÏó
-* \param data °ï»á´´½¨ÏûÏ¢
+* \brief å»ºç«‹æ–°çš„å¸®ä¼šå¯¹è±¡
+* \param data å¸®ä¼šåˆ›å»ºæ¶ˆæ¯
 * \author fqnewman
 */
 void CUnionM::createNewUnion(Cmd::Session::t_addUnion_SceneSession *data)
@@ -2396,41 +2396,41 @@ void CUnionM::createNewUnion(Cmd::Session::t_addUnion_SceneSession *data)
 	if (pUnionMember)
 	{
 		UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pUnionMember->id);
-		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÔÙ´´Á¢°ï»áÁË£¡");
+		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½å†åˆ›ç«‹å¸®ä¼šäº†ï¼");
 		return;
 	}
 
 	zRTime ctv;
 	data->info.dwCrTime = ctv.sec();
-	if (createUnionDBRecord(data->info))  /// °ï»áÊı¾İ¿â¼ÇÂ¼´´½¨¹¤×÷
+	if (createUnionDBRecord(data->info))  /// å¸®ä¼šæ•°æ®åº“è®°å½•åˆ›å»ºå·¥ä½œ
 	{
-		/*CUnion *pUnion = */createUnionAndAddMaster(data->info);  /// ³õÊ¼»¯°ï»á¹ÜÀíÆ÷ÖĞµÄ°ï»á¶ÔÏó
+		/*CUnion *pUnion = */createUnionAndAddMaster(data->info);  /// åˆå§‹åŒ–å¸®ä¼šç®¡ç†å™¨ä¸­çš„å¸®ä¼šå¯¹è±¡
 
-		data->byRetcode =1;            /// ´´½¨·µ»ØÊ±£º0 ±íÊ¾´´½¨Ê§°ÜÃû³ÆÖØ¸´£¬ 1±íÊ¾³É¹¦
+		data->byRetcode =1;            /// åˆ›å»ºè¿”å›æ—¶ï¼š0 è¡¨ç¤ºåˆ›å»ºå¤±è´¥åç§°é‡å¤ï¼Œ 1è¡¨ç¤ºæˆåŠŸ
 		SceneSession * pScene = SceneSessionManager::getInstance()->getSceneByTempID(data->dwMapTempID);
 		if (pScene)
 		{
-			pScene->sendCmd(data,sizeof(Cmd::Session::t_addUnion_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pScene->sendCmd(data,sizeof(Cmd::Session::t_addUnion_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 		}
 		//because vote
 		//if (pUnion) pUnion->sendUserUnionData(data->info.masterName);
 	}
 	else
 	{
-		data->byRetcode =0;            /// ´´½¨·µ»ØÊ±£º0 ±íÊ¾´´½¨Ê§°ÜÃû³ÆÖØ¸´£¬ 1±íÊ¾³É¹¦
+		data->byRetcode =0;            /// åˆ›å»ºè¿”å›æ—¶ï¼š0 è¡¨ç¤ºåˆ›å»ºå¤±è´¥åç§°é‡å¤ï¼Œ 1è¡¨ç¤ºæˆåŠŸ
 		SceneSession * pScene = SceneSessionManager::getInstance()->getSceneByTempID(data->dwMapTempID);
 		if (pScene)
 		{
-			pScene->sendCmd(data,sizeof(Cmd::Session::t_addUnion_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pScene->sendCmd(data,sizeof(Cmd::Session::t_addUnion_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 		}
 	}
 }
 
 /**
-* \brief ´´½¨ĞÂµÄ°ï»áÊı¾İ¿â¼ÇÂ¼
-* \param info ĞÂµÄ°ï»á½á¹¹ĞÅÏ¢
+* \brief åˆ›å»ºæ–°çš„å¸®ä¼šæ•°æ®åº“è®°å½•
+* \param info æ–°çš„å¸®ä¼šç»“æ„ä¿¡æ¯
 * \author fqnewman
-* \return true ³É¹¦  false Ê§°Ü
+* \return true æˆåŠŸ  false å¤±è´¥
 */
 bool CUnionM::createUnionDBRecord(stUnionInfo& info)
 {
@@ -2479,10 +2479,10 @@ bool CUnionM::createUnionDBRecord(stUnionInfo& info)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
-	//Ê×ÏÈÑéÖ¤Ãû³ÆÊÇ·ñÖØ¸´
+	//é¦–å…ˆéªŒè¯åç§°æ˜¯å¦é‡å¤
 	std::string escapeName;
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where) - 1, "NAME = '%s'", SessionService::dbConnPool->escapeString(handle,info.name,escapeName).c_str());
@@ -2493,7 +2493,7 @@ bool CUnionM::createUnionDBRecord(stUnionInfo& info)
 		return false;
 	}
 
-	//ÑéÖ¤ÊÇ·ñÒÑÓĞ°ïÖ÷¼ÇÂ¼,·ÀÖ¹¼ÇÂ¼ÖØ¸´
+	//éªŒè¯æ˜¯å¦å·²æœ‰å¸®ä¸»è®°å½•,é˜²æ­¢è®°å½•é‡å¤
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where) - 1, "CHARID = %d", info.dwCharID);
 	retcode = SessionService::dbConnPool->exeSelectLimit(handle, "`UNION`", verifymasterid_define, where, NULL, 1, (BYTE *)&dwMasterID);
@@ -2507,7 +2507,7 @@ bool CUnionM::createUnionDBRecord(stUnionInfo& info)
 	UserSession *pUser = NULL;
 	pUser = UserSessionManager::getInstance()->getUserByID(info.dwCharID);
 
-	//²åÈëÊı¾İ¿â½ÇÉ«ĞÅÏ¢
+	//æ’å…¥æ•°æ®åº“è§’è‰²ä¿¡æ¯
 	bzero(&createunion_data, sizeof(createunion_data));
 	if (pUser) 
 	{
@@ -2533,7 +2533,7 @@ bool CUnionM::createUnionDBRecord(stUnionInfo& info)
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("´´½¨°ï»á²åÈëÊı¾İ¿â³ö´í %u, %s", info.dwCharID, info.name);
+		Zebra::logger->error("åˆ›å»ºå¸®ä¼šæ’å…¥æ•°æ®åº“å‡ºé”™ %u, %s", info.dwCharID, info.name);
 		return false;
 	}
 
@@ -2542,13 +2542,13 @@ bool CUnionM::createUnionDBRecord(stUnionInfo& info)
 }
 
 /**
-* \brief Ìí¼Ó³ÉÔ±Ë÷Òı
+* \brief æ·»åŠ æˆå‘˜ç´¢å¼•
 *
-* \param pName Ôö¼ÓµÄ³ÉÔ±µÄÃû³Æ
-* \param pUnionMember ³ÉÔ±¶ÔÏó
+* \param pName å¢åŠ çš„æˆå‘˜çš„åç§°
+* \param pUnionMember æˆå‘˜å¯¹è±¡
 *
 * \author fqnewman
-* \return true Ìí¼Ó³É¹¦ false Ìí¼ÓÊ§°Ü
+* \return true æ·»åŠ æˆåŠŸ false æ·»åŠ å¤±è´¥
 */
 bool CUnionM::addMemberIndex(const char *pName, CUnionMember *pUnionMember)
 {
@@ -2564,10 +2564,10 @@ bool CUnionM::addMemberIndex(const char *pName, CUnionMember *pUnionMember)
 }
 
 /**
-* \brief É¾³ı³ÉÔ±ÔÚË÷ÒıÖĞµÄ¼ÇÂ¼
-* \param pName ³ÉÔ±Ãû³Æ
+* \brief åˆ é™¤æˆå‘˜åœ¨ç´¢å¼•ä¸­çš„è®°å½•
+* \param pName æˆå‘˜åç§°
 * \author fqnewman
-* \return true É¾³ı³É¹¦ false É¾³ıÊ§°Ü
+* \return true åˆ é™¤æˆåŠŸ false åˆ é™¤å¤±è´¥
 */
 bool CUnionM::removeMemberIndex(const char *pName)
 {
@@ -2583,8 +2583,8 @@ bool CUnionM::removeMemberIndex(const char *pName)
 }
 
 /**
-* \brief ½âÉ¢°ï»á
-* \param dwUnionID ±»½âÉ¢µÄ°ï»áµÄID
+* \brief è§£æ•£å¸®ä¼š
+* \param dwUnionID è¢«è§£æ•£çš„å¸®ä¼šçš„ID
 * \author fqnewman
 */
 void CUnionM::delUnion(const DWORD dwUnionID)
@@ -2598,11 +2598,11 @@ void CUnionM::delUnion(const DWORD dwUnionID)
 		
 		//if (pDare == NULL && pUnionCityDare == NULL)
 		//{
-			pUnion->sendUnionNotify("%s °ï½âÉ¢", pUnion->name);
-			Zebra::logger->trace("[°ï»á]:%s °ï½âÉ¢", pUnion->name);
+			pUnion->sendUnionNotify("%s å¸®è§£æ•£", pUnion->name);
+			Zebra::logger->trace("[å¸®ä¼š]:%s å¸®è§£æ•£", pUnion->name);
 
 			//SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, pUnion->dwCountryID, 
-			//		"ºÜÒÅº¶ %s °ï»á½âÉ¢", pUnion->name);
+			//		"å¾ˆé—æ†¾ %s å¸®ä¼šè§£æ•£", pUnion->name);
 
 			rwlock.wrlock();
 			removeEntry(pUnion);
@@ -2615,7 +2615,7 @@ void CUnionM::delUnion(const DWORD dwUnionID)
 		//	UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pUnion->master->id);
 		//	if (pUnion->master && pUser)
 		//	{
-		//		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "°ï»á¶ÔÕ½×´Ì¬£¬²»ÔÊĞí½âÉ¢°ï»á£¡");
+		//		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¸®ä¼šå¯¹æˆ˜çŠ¶æ€ï¼Œä¸å…è®¸è§£æ•£å¸®ä¼šï¼");
 		//	}
 			
 		//}
@@ -2623,9 +2623,9 @@ void CUnionM::delUnion(const DWORD dwUnionID)
 }
 
 /**
-* \brief ´¦Àí³ÉÔ±Àë»á
-* \param dwUnionID °ï»áID
-* \param dwCharID Àë¿ªÕßµÄID
+* \brief å¤„ç†æˆå‘˜ç¦»ä¼š
+* \param dwUnionID å¸®ä¼šID
+* \param dwCharID ç¦»å¼€è€…çš„ID
 * \author fqnewman,zjw
 */
 void CUnionM::processMemberLeave(const DWORD dwUnionID, const DWORD dwCharID)
@@ -2668,14 +2668,14 @@ void CUnionM::processMemberLeave(const DWORD dwUnionID, const DWORD dwCharID)
 					if (pUser)
 					{
 						pUser->sendSysChat(Cmd::INFO_TYPE_MSG, 
-								"Äú±ØĞë°Ñ°ïÖ÷Ö®Î»×ªÈÃ¸øÆäËü×å³¤£¬²ÅÄÜÀë¿ª");
+								"æ‚¨å¿…é¡»æŠŠå¸®ä¸»ä¹‹ä½è½¬è®©ç»™å…¶å®ƒæ—é•¿ï¼Œæ‰èƒ½ç¦»å¼€");
 					}
 				}
 			}
 		}
 		else
 		{
-			Zebra::logger->error("°ï»á%sÃ»ÓĞÕıÈ·µÄ»á³¤¶ÔÏó£¬Çë¼ì²éÊı¾İµÄÍêÕûĞÔ", pUnion->name);
+			Zebra::logger->error("å¸®ä¼š%sæ²¡æœ‰æ­£ç¡®çš„ä¼šé•¿å¯¹è±¡ï¼Œè¯·æ£€æŸ¥æ•°æ®çš„å®Œæ•´æ€§", pUnion->name);
 		}
 	}
 }
@@ -2690,7 +2690,7 @@ void CUnionM::processCancelCityCatcherMessage(UserSession* pUser, const Cmd::stC
 		if (pCity)
 		{
 			pCity->cancelCatcher();
-			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "È¡Ïû²¶Í·³É¹¦");
+			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "å–æ¶ˆæ•å¤´æˆåŠŸ");
 		}
 	}
 }
@@ -2709,34 +2709,34 @@ void CUnionM::processAppointCityCatcherMessage(UserSession* pUser, const Cmd::st
 			{
 				if (pCatcher->id == pUser->id)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÈÎÃü×Ô¼ºÎª²¶Í·");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ä»»å‘½è‡ªå·±ä¸ºæ•å¤´");
 					return;
 				}
 				
 				if (pCatcher->country != pUser->country)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÈÎÃüÍâ¹úÈËÎª²¶Í·");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ä»»å‘½å¤–å›½äººä¸ºæ•å¤´");
 					return;
 				}
 
 				if (CCityM::getMe().isCastellan(pCatcher) || CCountryM::getMe().isOfficial(pCatcher))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÈÎÃü³ÇÖ÷»òÑĞ¾¿Ô±Îª²¶Í·");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ä»»å‘½åŸä¸»æˆ–ç ”ç©¶å‘˜ä¸ºæ•å¤´");
 					return;
 				}
 				
-				// ÅĞ¶ÏÊÇ·ñÒÑ±»ÈÎÃüÎª¹ú¼Ò²¶Í·ºÍÍâ½»¹Ù
+				// åˆ¤æ–­æ˜¯å¦å·²è¢«ä»»å‘½ä¸ºå›½å®¶æ•å¤´å’Œå¤–äº¤å®˜
 				CCountry* pCountry = CCountryM::getMe().find(pUser->country);
 				if (pCountry && (strncmp(pCountry->diplomatName, pCatcher->name, MAX_NAMESIZE) == 0 ||
 							strncmp(pCountry->catcherName, pCatcher->name, MAX_NAMESIZE) == 0))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑÊÇ²¶Í·»òÍâ½»¹Ù²»ÄÜÈÎÃü");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²æ˜¯æ•å¤´æˆ–å¤–äº¤å®˜ä¸èƒ½ä»»å‘½");
 					return;
 				}
 
 				if (CCityM::getMe().isCatcher(pUser))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑÊÇ²¶Í·²»ÄÜÈÎÃü");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²æ˜¯æ•å¤´ä¸èƒ½ä»»å‘½");
 					return;
 				}
 
@@ -2747,17 +2747,17 @@ void CUnionM::processAppointCityCatcherMessage(UserSession* pUser, const Cmd::st
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½²»ÔÚÏß,²»ÄÜÈÎÃü");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åœ¨çº¿,ä¸èƒ½ä»»å‘½");
 			}
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ³ÇÖ÷,²»ÄÜÊ¹ÓÃ¸Ã¹¦ÄÜ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯åŸä¸»,ä¸èƒ½ä½¿ç”¨è¯¥åŠŸèƒ½");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ³ÇÖ÷,²»ÄÜÊ¹ÓÃ¸Ã¹¦ÄÜ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯åŸä¸»,ä¸èƒ½ä½¿ç”¨è¯¥åŠŸèƒ½");
 	}
 }
 
@@ -2832,9 +2832,9 @@ void CUnionM::processUnionSortMessage(UserSession* pUser, const Cmd::stReqUnionS
 }
 
 /**
-* \brief ´¦ÀíÈ¨ÏŞ
-* \param pUser Íæ¼Ò
-* \param ptNullCmd È¨ÏŞÃüÁî
+* \brief å¤„ç†æƒé™
+* \param pUser ç©å®¶
+* \param ptNullCmd æƒé™å‘½ä»¤
 * \author zjw
 */
 void CUnionM::processMemberPower(UserSession* pUser, const Cmd::stUnionMemberPower* ptCmd)
@@ -2853,13 +2853,13 @@ void CUnionM::processMemberPower(UserSession* pUser, const Cmd::stUnionMemberPow
 			
 		if (pUnion->master->id != pUser->id)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "È¨ÏŞ²Ù×÷ÊÇ°ïÖ÷µÄ×¨ÀûÅ¶£¡");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æƒé™æ“ä½œæ˜¯å¸®ä¸»çš„ä¸“åˆ©å“¦ï¼");
 			return;
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÀÏ´ó£¬ÄúÁ¬°ï»á¶¼»¹Ã»½¨ÄØ£¡");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è€å¤§ï¼Œæ‚¨è¿å¸®ä¼šéƒ½è¿˜æ²¡å»ºå‘¢ï¼");
 		return;
 	}
 
@@ -2892,20 +2892,20 @@ void CUnionM::processMemberPower(UserSession* pUser, const Cmd::stUnionMemberPow
 					//pUnionMember->byPower[0] = 0x00;
 					//pUnionMember->byPower[1] = 0x00;
 					if (pUnionMember->id == pUnionMember->myUnion->master->id)
-					{//¶Ô°ïÖ÷×Ô¼ºÎŞĞè½øĞĞÈ¨ÏŞ¸³Öµ,Èç¹ûÒª×ªÈÃ°ïÖ÷£¬°ÑÄ³Ò»°ïÖÚÉèÎª°ïÖ÷È¨ÏŞ¼È¿É
+					{//å¯¹å¸®ä¸»è‡ªå·±æ— éœ€è¿›è¡Œæƒé™èµ‹å€¼,å¦‚æœè¦è½¬è®©å¸®ä¸»ï¼ŒæŠŠæŸä¸€å¸®ä¼—è®¾ä¸ºå¸®ä¸»æƒé™æ—¢å¯
 						return;
 					}
 
 					CSept* pSept = CSeptM::getMe().getSeptByID(pUnionMember->septid);
 					if (pSept==NULL || (pSept && pSept->master && pSept->master->id != pUnionMember->id))
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÖ»ÄÜ¶Ô×å³¤½øĞĞ²Ù×÷");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨åªèƒ½å¯¹æ—é•¿è¿›è¡Œæ“ä½œ");
 					}
 
 										
 					if (isset_state(ptCmd->byPower, Cmd::MASTER) 
 						&& pUnionMember->id != pUnionMember->myUnion->id)
-					{//¸Ä±ä°ïÖ÷
+					{//æ”¹å˜å¸®ä¸»
 						pUnion->changeMaster(pUnionMember);
 					}
 					else
@@ -2913,41 +2913,41 @@ void CUnionM::processMemberPower(UserSession* pUser, const Cmd::stUnionMemberPow
 						pUnionMember->byPower[0] = 0x00;
 						pUnionMember->byPower[1] = 0x00;
 
-						// Ä¬ÈÏ£¬¶¼ÒªÉèÖÃGENERALÈ¨ÏŞ
+						// é»˜è®¤ï¼Œéƒ½è¦è®¾ç½®GENERALæƒé™
 						set_state(pUnionMember->byPower, Cmd::GENERAL);
 
 						/*if (isset_state(ptCmd->byPower, Cmd::SECOND))
-						{//ÉèÖÃ¸±°ïÖ÷È¨ÏŞ¶ÔÓ¦µÄÈ¨ÏŞ
+						{//è®¾ç½®å‰¯å¸®ä¸»æƒé™å¯¹åº”çš„æƒé™
 							SETSECONDPOWER(pUnionMember->byPower);
 						}*/
 
 						/*if (isset_state(ptCmd->byPower, Cmd::ADD_MEMBER))
 						{
-							pUnionMember->sendMessageToMe("°ïÖ÷¸³ÓÚÄúÕĞÈËµÄÈ¨ÏŞ");
+							pUnionMember->sendMessageToMe("å¸®ä¸»èµ‹äºæ‚¨æ‹›äººçš„æƒé™");
 							set_state(pUnionMember->byPower, Cmd::ADD_MEMBER);
 						}*/
 
 						if (isset_state(ptCmd->byPower, Cmd::CHANGE_ALIAS))
 						{
-							pUnionMember->sendMessageToMe("°ïÖ÷¸³ÓÚÄú¸ü¸ÄËûÈË³ÆºÅµÄÈ¨ÏŞ");
+							pUnionMember->sendMessageToMe("å¸®ä¸»èµ‹äºæ‚¨æ›´æ”¹ä»–äººç§°å·çš„æƒé™");
 							set_state(pUnionMember->byPower, Cmd::CHANGE_ALIAS);
 						}
 
 						/*if (isset_state(ptCmd->byPower, Cmd::FIRE_MEMBER))
 						{
-							pUnionMember->sendMessageToMe("°ïÖ÷¸³ÓÚÄúÌßÈËµÄÈ¨ÏŞ");
+							pUnionMember->sendMessageToMe("å¸®ä¸»èµ‹äºæ‚¨è¸¢äººçš„æƒé™");
 							set_state(pUnionMember->byPower, Cmd::FIRE_MEMBER);
 						}*/
 
 						if (isset_state(ptCmd->byPower, Cmd::NOTIFY))
 						{
-							pUnionMember->sendMessageToMe("°ïÖ÷¸³ÓÚÄú¸ü¸Ä¹«¸æµÄÈ¨ÏŞ");
+							pUnionMember->sendMessageToMe("å¸®ä¸»èµ‹äºæ‚¨æ›´æ”¹å…¬å‘Šçš„æƒé™");
 							set_state(pUnionMember->byPower, Cmd::NOTIFY);
 						}
 						
 						if (isset_state(ptCmd->byPower, Cmd::DARE))
 						{
-							pUnionMember->sendMessageToMe("°ïÖ÷¸³ÓÚÄúÌôÕ½ºÍ½ÓÊÜÌôÕ½µÄÈ¨ÏŞ");
+							pUnionMember->sendMessageToMe("å¸®ä¸»èµ‹äºæ‚¨æŒ‘æˆ˜å’Œæ¥å—æŒ‘æˆ˜çš„æƒé™");
 							set_state(pUnionMember->byPower, Cmd::DARE);
 						}
 
@@ -2969,8 +2969,8 @@ void CUnionM::processMemberPower(UserSession* pUser, const Cmd::stUnionMemberPow
 }
 
 /**
-* \brief ÅĞ¶ÏÈ¨ÏŞ
-* \param name Íæ¼Ò
+* \brief åˆ¤æ–­æƒé™
+* \param name ç©å®¶
 *
 
 * \author zjw
@@ -2995,10 +2995,10 @@ bool CUnionM::havePowerByName(const char* name, const int power)
 
 
 /**
-* \brief ·¢ËÍ°ï»áÁÄÌìÏûÏ¢
-* \param pUser ÏûÏ¢·¢ËÍÕß
-* \param pCmd ÁÄÌìÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å¸®ä¼šèŠå¤©æ¶ˆæ¯
+* \param pUser æ¶ˆæ¯å‘é€è€…
+* \param pCmd èŠå¤©æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CUnionM::sendUnionChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *pCmd, const unsigned int cmdLen)
@@ -3019,15 +3019,15 @@ void CUnionM::sendUnionChatMessages(const UserSession *pUser, const Cmd::stChann
 	}
 	else
 	{
-		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "±ØĞëÏÈ¼ÓÈë°ï»á²ÅÄÜÊ¹ÓÃ°ï»áÁÄÌì");
+		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¿…é¡»å…ˆåŠ å…¥å¸®ä¼šæ‰èƒ½ä½¿ç”¨å¸®ä¼šèŠå¤©");
 	}
 }
 
 /**
-* \brief ·¢ËÍ°ï»áÍ¨Öª
+* \brief å‘é€å¸®ä¼šé€šçŸ¥
 *
-* \param unionID °ï»áID
-* \param message ÏûÏ¢³¤¶È
+* \param unionID å¸®ä¼šID
+* \param message æ¶ˆæ¯é•¿åº¦
 *
 * \author zjw
 */
@@ -3051,7 +3051,7 @@ void CUnionM::sendUnionNotify(const DWORD unionID, const char* message, ...)
 	bzero(send.pstrName, sizeof(send.pstrName));
 	bzero(send.pstrChat, sizeof(send.pstrChat));
 
-	sprintf((char*)send.pstrName, "°ï»áÍ¨Öª");
+	sprintf((char*)send.pstrName, "å¸®ä¼šé€šçŸ¥");
 	sprintf((char*)send.pstrChat, "%s", buf);
 
 	if (pUnion)
@@ -3060,14 +3060,14 @@ void CUnionM::sendUnionNotify(const DWORD unionID, const char* message, ...)
 	}
 	else
 	{
-		Zebra::logger->error("·¢ËÍ°ï»áÍ¨ÖªÊ±£¬Î´ÕÒµ½°ï»á:%d", unionID);
+		Zebra::logger->error("å‘é€å¸®ä¼šé€šçŸ¥æ—¶ï¼Œæœªæ‰¾åˆ°å¸®ä¼š:%d", unionID);
 	}
 }
 /**
-* \brief ·¢ËÍ°ï»áË½ÁÄĞÅÏ¢
-* \param pUser ÏûÏ¢·¢ËÍÕß
-* \param pCmd ÁÄÌìÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å¸®ä¼šç§èŠä¿¡æ¯
+* \param pUser æ¶ˆæ¯å‘é€è€…
+* \param pCmd èŠå¤©æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CUnionM::sendUnionPrivateChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *pCmd, const unsigned int cmdLen)
@@ -3101,12 +3101,12 @@ void CUnionM::sendUnionPrivateChatMessages(const UserSession *pUser, const Cmd::
 }
 
 /**
-* \brief ´¦Àí Gateway ×ª·¢¹ıÀ´µÄ¿Í»§¶ËÏûÏ¢
-* \param pUser ÏûÏ¢½ÓÊÕÕß
-* \param ptNullCmd ÏûÏ¢º¯Êı
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç† Gateway è½¬å‘è¿‡æ¥çš„å®¢æˆ·ç«¯æ¶ˆæ¯
+* \param pUser æ¶ˆæ¯æ¥æ”¶è€…
+* \param ptNullCmd æ¶ˆæ¯å‡½æ•°
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -3146,7 +3146,7 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 								if (pUnion)
 								{
 #ifdef _ZJW_DEBUG
-									Zebra::logger->debug("[ÓÅ»¯]: %s ÇëÇó %s °ï»áÃû³Æ", pUser->name, pUnion->name);
+									Zebra::logger->debug("[ä¼˜åŒ–]: %s è¯·æ±‚ %s å¸®ä¼šåç§°", pUser->name, pUnion->name);
 #endif								
 									strncpy(send->list[send->num].name, pUnion->name, MAX_NAMESIZE);
 									send->list[send->num].dwUnionID = pUnion->id;
@@ -3172,7 +3172,7 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 							if (pUnion)
 							{
 #ifdef _ZJW_DEBUG
-								Zebra::logger->debug("[ÓÅ»¯]: %s ÇëÇó %s °ï»áÃû³Æ", pUser->name, pUnion->name);
+								Zebra::logger->debug("[ä¼˜åŒ–]: %s è¯·æ±‚ %s å¸®ä¼šåç§°", pUser->name, pUnion->name);
 #endif								
 								strncpy(send.name, pUnion->name, MAX_NAMESIZE);
 								send.dwUnionID = rev->dwUnionID;
@@ -3197,7 +3197,7 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 							else
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-										"Äú²»ÊÇ°ïÖ÷£¬²»ÄÜÊ¹ÓÃ¸Ã¹¦ÄÜ");
+										"æ‚¨ä¸æ˜¯å¸®ä¸»ï¼Œä¸èƒ½ä½¿ç”¨è¯¥åŠŸèƒ½");
 							}
 
 							return true;
@@ -3210,7 +3210,7 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 							if (pUnion)
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, 
-										"%s °ï»áµ±Ç°×Ê½ğÎª:%d ÎÄ", pUnion->name,
+										"%s å¸®ä¼šå½“å‰èµ„é‡‘ä¸º:%d æ–‡", pUnion->name,
 										pUnion->dwMoney);
 							}
 
@@ -3266,7 +3266,7 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 										}
 										else
 										{
-											pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "»á³¤%sÄ¿Ç°²»ÔÚÏß", ptCmd->name);
+											pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ä¼šé•¿%sç›®å‰ä¸åœ¨çº¿", ptCmd->name);
 										}
 									}
 									break;
@@ -3292,7 +3292,7 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 							/*if (pUser->level<10)
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-								"ÄãµÈ¼¶²»¹»10¼¶²»ÄÜ²ÎÓëÍ¶Æ±");
+								"ä½ ç­‰çº§ä¸å¤Ÿ10çº§ä¸èƒ½å‚ä¸æŠ•ç¥¨");
 								return true;
 							}*/
 
@@ -3304,7 +3304,7 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 						{
 							if (pUser->level<10)
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÈ¼¶²»¹»10¼¶²»ÄÜ²ÎÓëÇ©Ãû");
+								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ç­‰çº§ä¸å¤Ÿ10çº§ä¸èƒ½å‚ä¸ç­¾å");
 								return true;
 							}
 
@@ -3348,11 +3348,11 @@ bool CUnionM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *pt
 }
 
 /**
-* \brief ´¦Àí´Ó³¡¾°¹ıÀ´µÄÏûÏ¢
-* \param cmd ÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç†ä»åœºæ™¯è¿‡æ¥çš„æ¶ˆæ¯
+* \param cmd æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CUnionM::processSceneUnionMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen)
 {
@@ -3375,7 +3375,7 @@ bool CUnionM::processSceneUnionMessage(const Cmd::t_NullCmd *cmd, const unsigned
 
 						if (u)  
 						{       
-							u->sendSysChat(Cmd::INFO_TYPE_MSG, "³É¹¦ÈÎÃü %s Îª²¶Í·", pCatcher->name);
+							u->sendSysChat(Cmd::INFO_TYPE_MSG, "æˆåŠŸä»»å‘½ %s ä¸ºæ•å¤´", pCatcher->name);
 						}       
 					}      
 				} 
@@ -3416,11 +3416,11 @@ bool CUnionM::processSceneUnionMessage(const Cmd::t_NullCmd *cmd, const unsigned
 }
 
 /**
-* \brief ´¦Àí´Ó³¡¾°¹ıÀ´µÄÏûÏ¢
-* \param cmd ÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç†ä»åœºæ™¯è¿‡æ¥çš„æ¶ˆæ¯
+* \param cmd æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen)
 {
@@ -3439,7 +3439,7 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 
 					if (pCity == NULL)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "¸Ã³ÇÊĞÎ´±»ÈÎºÎ°ï»áÕ¼Áì");
+						pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "è¯¥åŸå¸‚æœªè¢«ä»»ä½•å¸®ä¼šå é¢†");
 						return true;
 					}
 
@@ -3451,12 +3451,12 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 						{
 							if (pUnion)
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "±¾³ÇÊôÓÚ %s °ï»á", 
+								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æœ¬åŸå±äº %s å¸®ä¼š", 
 										pUnion->name);
 							}
 							else
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Ä¿Ç°±¾³Ç»¹Î´±»ÈÎºÎ°ï»áÕ¼Áì");
+								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ç›®å‰æœ¬åŸè¿˜æœªè¢«ä»»ä½•å¸®ä¼šå é¢†");
 							}
 						}
 					}
@@ -3466,12 +3466,12 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 						{
 							if (pCity->dareSize()>0)
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "½ñÌì¶á³ÇÕ½ÌôÕ½°ï»áÊıÎª: %d ¸ö°ï",
+								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ä»Šå¤©å¤ºåŸæˆ˜æŒ‘æˆ˜å¸®ä¼šæ•°ä¸º: %d ä¸ªå¸®",
 										pCity->dareSize());
 							}
 							else
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "½ñÌìÉĞÎ´ÓĞÈÎºÎ°ï»áÇ°À´ÌôÕ½");
+								pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ä»Šå¤©å°šæœªæœ‰ä»»ä½•å¸®ä¼šå‰æ¥æŒ‘æˆ˜");
 							}
 						}
 					}
@@ -3497,7 +3497,7 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 					{
 						if (ptCmd->dwCountryID == pOwnCity->dwCountry
 						&& ptCmd->dwCityID == pOwnCity->dwCityID)
-						{// ÔÚ°ï»áËùÕ¼³ÇÊĞ,ÌøÏò°ï»á×Ô¼ºµÄÃÜÊÒ.
+						{// åœ¨å¸®ä¼šæ‰€å åŸå¸‚,è·³å‘å¸®ä¼šè‡ªå·±çš„å¯†å®¤.
 							send.dwUserID = pUser->id;
 							send.dwCountryID = pOwnCity->dwCountry;
 							send.dwAreaID = pOwnCity->dwCityID*10+1;
@@ -3505,8 +3505,8 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 							if (pUser->scene) pUser->scene->sendCmd(&send, sizeof(send));
 						}
 						else
-						{// ²»ÔÚ°ï»áËùÕ¼³ÇÊĞ, ÔòÅĞ¶ÏÊÇ·ñÓë°ï»áËùÕ¼³ÇÊĞIDÏàÍ¬.
-						 // Èç¹ûÊÇÔòÊôÓÚ¹¥Õ¼ÁË¹úÍâ³ÇÊĞ
+						{// ä¸åœ¨å¸®ä¼šæ‰€å åŸå¸‚, åˆ™åˆ¤æ–­æ˜¯å¦ä¸å¸®ä¼šæ‰€å åŸå¸‚IDç›¸åŒ.
+						 // å¦‚æœæ˜¯åˆ™å±äºæ”»å äº†å›½å¤–åŸå¸‚
 							if (ptCmd->dwCityID == pOwnCity->dwCityID)
 							{
 								send.dwUserID = pUser->id;
@@ -3516,9 +3516,9 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 								if (pUser->scene) pUser->scene->sendCmd(&send, sizeof(send));
 							}
 							else
-							{//¼È²»ÔÚ×Ô¼ºËùÕ¼³ÇÊĞ,Ò²²»ÔÚ×Ô¼ºËùÕ¼¹úÍâ³ÇÊĞÏàÓ¦µÄ³ÇÊĞ
-							// ÔòÊÇÏëÌøÈë±ğÈËËùÕ¼³ÇÊĞµÄÃÜÊÒ,ÅĞ¶Ï¸Ã³ÇÊĞÊÇ·ñÔÚ´ò¶á³ÇÕ½
-							// Ö»×¼²ÎÕ½Á½¹úµÄ°ï»á³ÉÔ±½øÈë,ÔİÊ±Î´ÅĞ¶Ï
+							{//æ—¢ä¸åœ¨è‡ªå·±æ‰€å åŸå¸‚,ä¹Ÿä¸åœ¨è‡ªå·±æ‰€å å›½å¤–åŸå¸‚ç›¸åº”çš„åŸå¸‚
+							// åˆ™æ˜¯æƒ³è·³å…¥åˆ«äººæ‰€å åŸå¸‚çš„å¯†å®¤,åˆ¤æ–­è¯¥åŸå¸‚æ˜¯å¦åœ¨æ‰“å¤ºåŸæˆ˜
+							// åªå‡†å‚æˆ˜ä¸¤å›½çš„å¸®ä¼šæˆå‘˜è¿›å…¥,æš‚æ—¶æœªåˆ¤æ–­
 								if (pCurCity==NULL)
 								{
 									return true;
@@ -3530,7 +3530,7 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 								if (pDare
 										&& pDare->secondID == pCurCity->dwUnionID
 										&& pDare->state == CDare::DARE_ACTIVE)
-								{//¶ÔÕ½¶ÔÏó´æÔÚ
+								{//å¯¹æˆ˜å¯¹è±¡å­˜åœ¨
 									send.dwUserID = pUser->id;
 									send.dwCountryID = pCurCity->dwCountry;
 									send.dwAreaID = pCurCity->dwCityID*10+1;
@@ -3540,15 +3540,15 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 								else
 								{
 									pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-									"¸Ã³Ç²»ÊôÓÚ¹ó°ï£¬»òÎ´½øÈë¶ÔÕ½ÆÚ");
+									"è¯¥åŸä¸å±äºè´µå¸®ï¼Œæˆ–æœªè¿›å…¥å¯¹æˆ˜æœŸ");
 								}
 							}
 						}
 					}
 					else
-					{// ×Ô¼ºÃ»ÓĞ³Ç,Òª½øÈëµ±Ç°³ÇµÄÃÜÊÒ.ÔòÅĞ¶Ïµ±Ç°¸Ã³ÇÊÇ·ñÔÚ¶á³ÇÕ½ÆÚ¼ä
-						// ×Ô¼ºÃ»³Ç,ÔòÑ°ÕÒÓĞÃ»ÓĞ×Ô¼º°ï»á²Î¼ÓµÄ¶á³ÇÕ½,Èç¹ûÓĞ,ÔòÈ¡³öÊØ·½,ËùÔÚ³ÇÊĞ
-						// È»ºó,ÅĞ¶ÏÊØ·½ËùÔÚ³ÇÊĞ,ÊÇ·ñÎªµ±Ç°×Ô¼ºËùÔÚ³ÇÊĞIDÏà·û,Ïà·û,ÔòÌøÈë
+					{// è‡ªå·±æ²¡æœ‰åŸ,è¦è¿›å…¥å½“å‰åŸçš„å¯†å®¤.åˆ™åˆ¤æ–­å½“å‰è¯¥åŸæ˜¯å¦åœ¨å¤ºåŸæˆ˜æœŸé—´
+						// è‡ªå·±æ²¡åŸ,åˆ™å¯»æ‰¾æœ‰æ²¡æœ‰è‡ªå·±å¸®ä¼šå‚åŠ çš„å¤ºåŸæˆ˜,å¦‚æœæœ‰,åˆ™å–å‡ºå®ˆæ–¹,æ‰€åœ¨åŸå¸‚
+						// ç„¶å,åˆ¤æ–­å®ˆæ–¹æ‰€åœ¨åŸå¸‚,æ˜¯å¦ä¸ºå½“å‰è‡ªå·±æ‰€åœ¨åŸå¸‚IDç›¸ç¬¦,ç›¸ç¬¦,åˆ™è·³å…¥
 
 						CDare* pDare = CDareM::getMe().
 							findDareRecordByID(Cmd::UNION_CITY_DARE, pUser->unionid);
@@ -3570,7 +3570,7 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 							else
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-										"¸Ã³Ç²»ÊôÓÚ¹ó°ï£¬»òÎ´½øÈë¶ÔÕ½ÆÚ");
+										"è¯¥åŸä¸å±äºè´µå¸®ï¼Œæˆ–æœªè¿›å…¥å¯¹æˆ˜æœŸ");
 							}
 						}
 					}
@@ -3605,13 +3605,13 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 					if (pUnion && pUnion->master && pUser)
 					{
 
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑÇ©Ãû£¬²»ÄÜÕĞÊÕ");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²ç­¾åï¼Œä¸èƒ½æ‹›æ”¶");
 					}
 
 					pUser = UserSessionManager::getInstance()->getUserByID(pUnionMember->id);
 					if (pUnionMember && pUser)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÒÑÇ©¹ıÃû£¬Ğè·ÅÆúºó²ÅÄÜ¼ÓÈëÁíÍâµÄ°ï»á");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å·²ç­¾è¿‡åï¼Œéœ€æ”¾å¼ƒåæ‰èƒ½åŠ å…¥å¦å¤–çš„å¸®ä¼š");
 					}
 				}
 				else
@@ -3626,7 +3626,7 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 
 						if (pUnion && pUnion->master && pUser)	
 						{
-							pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%s ½ÓÊÜÁËÄúµÄÑûÇë¼ÓÈëÁË°ï»á", ptCmd->member.name);
+							pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%s æ¥å—äº†æ‚¨çš„é‚€è¯·åŠ å…¥äº†å¸®ä¼š", ptCmd->member.name);
 						}
 
 						if (pAddUser)
@@ -3653,11 +3653,11 @@ bool CUnionM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int 
 }
 
 /**
-* \brief ´¦Àí´ÓGateway¹ıÀ´µÄÏûÏ¢
-* \param cmd ÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç†ä»Gatewayè¿‡æ¥çš„æ¶ˆæ¯
+* \param cmd æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CUnionM::processGateMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen)
 {
@@ -3678,8 +3678,8 @@ bool CUnionM::processGateMessage(const Cmd::t_NullCmd *cmd, const unsigned int c
 }
 
 /**
-* \brief ·¢ËÍµ±Ç°ÏµÍ³ÖĞÔÚµÈ´ıÍ¶Æ±µÄ°ï»áÁĞ±í¸øÖ¸¶¨µÄÓÃ»§
-* \param pUser ÇëÇóÍ¶Æ±ÁĞ±íÕß
+* \brief å‘é€å½“å‰ç³»ç»Ÿä¸­åœ¨ç­‰å¾…æŠ•ç¥¨çš„å¸®ä¼šåˆ—è¡¨ç»™æŒ‡å®šçš„ç”¨æˆ·
+* \param pUser è¯·æ±‚æŠ•ç¥¨åˆ—è¡¨è€…
 * \author fqnewman
 */
 void CUnionM::sendVoteListToUser(const UserSession *pUser)
@@ -3743,12 +3743,12 @@ void CUnionM::sendVoteListToUser(const UserSession *pUser)
 				}
 
 				if (user && punion->dwCountryID == user->country)
-				{// Ö»·¢ËÍ±¾¹ú°ï»áµÄÍ¶Æ±ÁĞ±í
+				{// åªå‘é€æœ¬å›½å¸®ä¼šçš„æŠ•ç¥¨åˆ—è¡¨
 					strncpy(tempPoint->unionName,punion->name,MAX_NAMESIZE);
 					if (punion->master)
 						strncpy(tempPoint->master, punion->master->name,MAX_NAMESIZE);
 					else
-						strncpy(tempPoint->master, "Î´Öª",MAX_NAMESIZE);
+						strncpy(tempPoint->master, "æœªçŸ¥",MAX_NAMESIZE);
 					tempPoint->wdVoteNumber = punion->size();
 					strncpy(tempPoint->note, punion->note, 255));
 					tempPoint++;
@@ -3784,8 +3784,8 @@ void CUnionM::sendVoteListToUser(const UserSession *pUser)
 }
 
 /**
-* \brief ·¢ËÍµ±Ç°ÏµÍ³ÖĞÔÚµÈ´ıÍ¶Æ±µÄ°ï»áÁĞ±í¸øÖ¸¶¨µÄÓÃ»§
-* \param pUser ÇëÇóÍ¶Æ±ÁĞ±íÕß
+* \brief å‘é€å½“å‰ç³»ç»Ÿä¸­åœ¨ç­‰å¾…æŠ•ç¥¨çš„å¸®ä¼šåˆ—è¡¨ç»™æŒ‡å®šçš„ç”¨æˆ·
+* \param pUser è¯·æ±‚æŠ•ç¥¨åˆ—è¡¨è€…
 * \author fqnewman
 */
 void CUnionM::sendListToUser(const UserSession *pUser)
@@ -3825,12 +3825,12 @@ void CUnionM::sendListToUser(const UserSession *pUser)
 				}
 
 				if (user && punion->dwCountryID == user->country)
-				{// Ö»·¢ËÍ±¾¹ú°ï»áµÄÍ¶Æ±ÁĞ±í
+				{// åªå‘é€æœ¬å›½å¸®ä¼šçš„æŠ•ç¥¨åˆ—è¡¨
 					strncpy(tempPoint->unionName,punion->name,MAX_NAMESIZE);
 					if (punion->master)
 						strncpy(tempPoint->master, punion->master->name,MAX_NAMESIZE);
 					else
-						strncpy(tempPoint->master, "Î´Öª",MAX_NAMESIZE);
+						strncpy(tempPoint->master, "æœªçŸ¥",MAX_NAMESIZE);
 					//tempPoint->wdVoteNumber = punion->size();
 					strncpy(tempPoint->note, punion->note, 255);
 					tempPoint++;
@@ -3847,8 +3847,8 @@ void CUnionM::sendListToUser(const UserSession *pUser)
 }
 
 /**
-* \brief ·¢ËÍµ±Ç°ÏµÍ³ÖĞ¿ÉÒÔ±»ÌôÕ½µÄ°ï»áÁĞ±í
-* \param pUser ÇëÇóÍ¶Æ±Õß
+* \brief å‘é€å½“å‰ç³»ç»Ÿä¸­å¯ä»¥è¢«æŒ‘æˆ˜çš„å¸®ä¼šåˆ—è¡¨
+* \param pUser è¯·æ±‚æŠ•ç¥¨è€…
 * \author zjw
 */
 void CUnionM::sendDareListToUser(const UserSession *pUser)
@@ -3906,9 +3906,9 @@ void CUnionM::sendDareListToUser(const UserSession *pUser)
 }
 
 /**
-* \brief ÓÃ»§Í¶Æ±¸øÖ¸¶¨µÄ°ï»á
-* \param pUser Í¶Æ±Õß
-* \param pName °ï»áÃû³Æ
+* \brief ç”¨æˆ·æŠ•ç¥¨ç»™æŒ‡å®šçš„å¸®ä¼š
+* \param pUser æŠ•ç¥¨è€…
+* \param pName å¸®ä¼šåç§°
 * \author fqnewman
 */
 void CUnionM::userVote(const UserSession *pUser, const char *pName)
@@ -3929,13 +3929,13 @@ void CUnionM::userVote(const UserSession *pUser, const char *pName)
 			{
 				if (pUnionMember == pUnionMember->myUnion->master)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÊÇ%s°ïµÄÔ¤±¸»á³¤²»ÄÜÔÙÇ©Ãû", pUnionMember->myUnion->name);
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ˜¯%så¸®çš„é¢„å¤‡ä¼šé•¿ä¸èƒ½å†ç­¾å", pUnionMember->myUnion->name);
 				}
 				else
 				{
 					if (strncmp(pName,pUnionMember->myUnion->name,MAX_NAMESIZE)!=0)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÒÑ¶Ô %s °ïÇ©Ãû£¬ÄãÖ®Ç°¶Ô%s°ïµÄÇ©Ãû½«±»×÷·Ï.",pName, pUnionMember->myUnion->name);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å·²å¯¹ %s å¸®ç­¾åï¼Œä½ ä¹‹å‰å¯¹%så¸®çš„ç­¾åå°†è¢«ä½œåºŸ.",pName, pUnionMember->myUnion->name);
 						processMemberLeave(pUnionMember->myUnion->id, pUser->id);
 						addVoteMemberToUnion(pUser,pName);
 						return;
@@ -3944,22 +3944,22 @@ void CUnionM::userVote(const UserSession *pUser, const char *pName)
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÒÑ¾­¼ÓÈëÆäËû°ï»áÁË£¬Ã»ÓĞÇ©ÃûµÄ×Ê¸ñ");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å·²ç»åŠ å…¥å…¶ä»–å¸®ä¼šäº†ï¼Œæ²¡æœ‰ç­¾åçš„èµ„æ ¼");
 			}
 		}
 		else
 		{
-			Zebra::logger->error("CUnionM::userVote():Ò»¸öÔÚÏßµÄ°ï»á³ÉÔ±Ã»ÓĞÓĞĞ§µÄÓÃ»§Ö¸Õë");
+			Zebra::logger->error("CUnionM::userVote():ä¸€ä¸ªåœ¨çº¿çš„å¸®ä¼šæˆå‘˜æ²¡æœ‰æœ‰æ•ˆçš„ç”¨æˆ·æŒ‡é’ˆ");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã¶Ô%s°ï½øĞĞÁËÇ©Ãû", pName);
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å¯¹%så¸®è¿›è¡Œäº†ç­¾å", pName);
 		addVoteMemberToUnion(pUser,pName);
 		return;
 	}
 
-	// Í¨ÖªÍ¶Æ±Ê§°Ü
+	// é€šçŸ¥æŠ•ç¥¨å¤±è´¥
 	Cmd::stVoteUnionCmd send;
 	strncpy(send.unionName,pName,MAX_NAMESIZE);
 	send.bySuccess = 0;
@@ -3967,9 +3967,9 @@ void CUnionM::userVote(const UserSession *pUser, const char *pName)
 }
 
 /**
-* \brief ÓÃ»§·ÅÆúÍ¶Æ±
-* \param pUser ·ÅÆúÍ¶Æ±µÄ³ÉÔ±
-* \param pName ±»·ÅÆú°ï»áÃû³Æ
+* \brief ç”¨æˆ·æ”¾å¼ƒæŠ•ç¥¨
+* \param pUser æ”¾å¼ƒæŠ•ç¥¨çš„æˆå‘˜
+* \param pName è¢«æ”¾å¼ƒå¸®ä¼šåç§°
 * \author fqnewman
 * \return 
 */
@@ -3992,7 +3992,7 @@ void CUnionM::userAboutVote(const UserSession *pUser, const char *pName)
 				if (pUnionMember == pUnionMember->myUnion->master)
 				{
 					
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÊÇ%s°ïµÄÔ¤±¸°ïÖ÷, ·ÅÆúÇ©Ãû£¬°ï»á½âÉ¢", 
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ˜¯%så¸®çš„é¢„å¤‡å¸®ä¸», æ”¾å¼ƒç­¾åï¼Œå¸®ä¼šè§£æ•£", 
 							pUnionMember->myUnion->name);
 					
 					this->processMemberLeave(pUnionMember->myUnion->id, pUser->id);
@@ -4003,7 +4003,7 @@ void CUnionM::userAboutVote(const UserSession *pUser, const char *pName)
 				{
 					if (strncmp(pName,pUnionMember->myUnion->name,MAX_NAMESIZE)==0)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã·ÅÆúÁË%s°ïµÄÇ©Ãû.",pName);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ”¾å¼ƒäº†%så¸®çš„ç­¾å.",pName);
 						processMemberLeave(pUnionMember->myUnion->id, pUser->id);
 
 						Cmd::stVoteUnionCmd send;
@@ -4016,16 +4016,16 @@ void CUnionM::userAboutVote(const UserSession *pUser, const char *pName)
 			}
 			else
 			{
-				Zebra::logger->error("[%s]°ï»áÒÑ¾­³ÉÁ¢£¬µ«ÊÇÇ©Ãû»¹Ã»È¡Ïû",pName);
+				Zebra::logger->error("[%s]å¸®ä¼šå·²ç»æˆç«‹ï¼Œä½†æ˜¯ç­¾åè¿˜æ²¡å–æ¶ˆ",pName);
 			}
 		}
 		else
 		{
-			Zebra::logger->error("CUnionM::userVote():Ò»¸öÔÚÏßµÄ°ï»á³ÉÔ±Ã»ÓĞÓĞĞ§µÄÓÃ»§Ö¸Õë");
+			Zebra::logger->error("CUnionM::userVote():ä¸€ä¸ªåœ¨çº¿çš„å¸®ä¼šæˆå‘˜æ²¡æœ‰æœ‰æ•ˆçš„ç”¨æˆ·æŒ‡é’ˆ");
 		}
 	}
 
-	// Í¨ÖªÍ¶Æ±Ê§°Ü
+	// é€šçŸ¥æŠ•ç¥¨å¤±è´¥
 	Cmd::stVoteUnionCmd send;
 	strncpy(send.unionName,pName,MAX_NAMESIZE);
 	send.bySuccess = 0;
@@ -4033,9 +4033,9 @@ void CUnionM::userAboutVote(const UserSession *pUser, const char *pName)
 }
 
 /**
-* \brief Í¶Æ±¸øÖ¸¶¨µÄ°ï»á
-* \param pUser Í¶Æ±Õß
-* \param pName °ï»áÃû³Æ
+* \brief æŠ•ç¥¨ç»™æŒ‡å®šçš„å¸®ä¼š
+* \param pUser æŠ•ç¥¨è€…
+* \param pName å¸®ä¼šåç§°
 * \author fqnewman
 */
 void CUnionM::addVoteMemberToUnion(const UserSession *pUser, const char *pName)
@@ -4066,7 +4066,7 @@ void CUnionM::addVoteMemberToUnion(const UserSession *pUser, const char *pName)
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s°ïµÄÇ©ÃûÆÚÒÑ¾­½áÊø£¬ÇëÖ±½ÓÈ¥ÕÒ»á³¤Ğ­ÉÌÓĞ¹ØÈë»áÊÂÒË.", pName);
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%så¸®çš„ç­¾åæœŸå·²ç»ç»“æŸï¼Œè¯·ç›´æ¥å»æ‰¾ä¼šé•¿åå•†æœ‰å…³å…¥ä¼šäº‹å®œ.", pName);
 			Cmd::stVoteUnionCmd send;
 			strncpy(send.unionName,pName,MAX_NAMESIZE);
 			send.bySuccess = 0;
@@ -4076,9 +4076,9 @@ void CUnionM::addVoteMemberToUnion(const UserSession *pUser, const char *pName)
 }
 
 /**
-* \brief ÉèÖÃ°ï»á½éÉÜ
-* \param pUser ÉèÖÃÕßµÄ UserSession¶ÔÏó
-* \param pCmd ½éÉÜÉèÖÃÏûÏ¢
+* \brief è®¾ç½®å¸®ä¼šä»‹ç»
+* \param pUser è®¾ç½®è€…çš„ UserSessionå¯¹è±¡
+* \param pCmd ä»‹ç»è®¾ç½®æ¶ˆæ¯
 * \author fqnewman
 */
 void CUnionM::setUnionNote(UserSession *pUser, Cmd::stNoteUnionCmd *pCmd)
@@ -4099,18 +4099,18 @@ void CUnionM::setUnionNote(UserSession *pUser, Cmd::stNoteUnionCmd *pCmd)
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÎŞ·¨ÉèÖÃ°ï»á½éÉÜ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨æ— æ³•è®¾ç½®å¸®ä¼šä»‹ç»");
 		}
 	}
 }
 
 /**
- * \brief ¸ü¸Ä±ğÃû
+ * \brief æ›´æ”¹åˆ«å
  *
  *
- * \param pUser ÇëÇó¸üÃûÕß(Ä¿Ç°Ö»ÄÜÊÇ°ïÖ÷)
- * \param pName ±»¸³±ğÃûÕßµÄÃû×Ö(±ØĞëÊÇ°ï»á³ÉÔ±)
- * \param pAliasName ±ğÃû
+ * \param pUser è¯·æ±‚æ›´åè€…(ç›®å‰åªèƒ½æ˜¯å¸®ä¸»)
+ * \param pName è¢«èµ‹åˆ«åè€…çš„åå­—(å¿…é¡»æ˜¯å¸®ä¼šæˆå‘˜)
+ * \param pAliasName åˆ«å
  * \return 
  */
 void CUnionM::change_aliasname(UserSession *pUser, Cmd::stChangeUnionMemberAliasName* pCmd)
@@ -4140,16 +4140,16 @@ void CUnionM::change_aliasname(UserSession *pUser, Cmd::stChangeUnionMemberAlias
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÎŞÈ¨¸ü¸Ä³ÆºÅ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨æ— æƒæ›´æ”¹ç§°å·");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊôÓÚÈÎºÎ°ï»á");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸å±äºä»»ä½•å¸®ä¼š");
 	}
 }
 
-// Çå³ıËùÓĞ°ï»á
+// æ¸…é™¤æ‰€æœ‰å¸®ä¼š
 void CUnionM::delAllUnion(DWORD id)
 {
 	struct findList : public execEntry<CUnion>
@@ -4228,7 +4228,7 @@ void CUnionM::addNewSeptToUnion(const DWORD dwUnionID, const DWORD dwSeptID)
 				if (pMember->mySept && pMember->mySept->master 
 						&& pMember->mySept->master->id == pMember->id)
 				{
-					strncpy(info.aliasname, "×å³¤", MAX_NAMESIZE);
+					strncpy(info.aliasname, "æ—é•¿", MAX_NAMESIZE);
 				}
 				else
 				{
@@ -4278,12 +4278,12 @@ void CUnionM::addNewSeptToUnion(const DWORD dwUnionID, const DWORD dwSeptID)
 
 				pSept->execEveryOne(myList);	
 				pSept->writeDatabase();
-				pUnion->sendUnionNotify("»¶Ó­ %s ¼Ò×å¼ÓÈë±¾°ï", pSept->name);
-				Zebra::logger->trace("[°ï»á]: %s ¼Ò×å¼ÓÈë %s °ï»á³É¹¦", pSept->name, pUnion->name);
+				pUnion->sendUnionNotify("æ¬¢è¿ %s å®¶æ—åŠ å…¥æœ¬å¸®", pSept->name);
+				Zebra::logger->trace("[å¸®ä¼š]: %s å®¶æ—åŠ å…¥ %s å¸®ä¼šæˆåŠŸ", pSept->name, pUnion->name);
 			}
 			else
 			{
-				Zebra::logger->trace("[°ï»á]: ¼ÓÈë°ï»áÊ§°Ü %s ¼Ò×åÒÑ¼ÓÈëÆäËü°ï»á.", 
+				Zebra::logger->trace("[å¸®ä¼š]: åŠ å…¥å¸®ä¼šå¤±è´¥ %s å®¶æ—å·²åŠ å…¥å…¶å®ƒå¸®ä¼š.", 
 						pSept->name);
 			}
 		}
@@ -4291,7 +4291,7 @@ void CUnionM::addNewSeptToUnion(const DWORD dwUnionID, const DWORD dwSeptID)
 }
 
 /**
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  */
 void CUnionM::timer()
 {
@@ -4310,7 +4310,7 @@ void CUnionM::timer()
 			if (pUnion)
 			{
 				pUnion->dwActionPoint = pUnion->getMana()/100;
-				Zebra::logger->trace("[°ï»á]: %s Ë¢ĞÂĞĞ¶¯Á¦:(%d,%d)", pUnion->name, pUnion->getMana(), 
+				Zebra::logger->trace("[å¸®ä¼š]: %s åˆ·æ–°è¡ŒåŠ¨åŠ›:(%d,%d)", pUnion->name, pUnion->getMana(), 
 						pUnion->dwActionPoint);
 				pUnion->sendUnionInfoToAll();
 				pUnion->calltimes=0;
@@ -4331,11 +4331,11 @@ void CUnionM::timer()
 }
 
 /**
- * \brief ¸ù¾İ½ÇÉ«Ãû×Ö»ñÈ¡ÆäËùÊô°ïÅÉÃû×Ö
+ * \brief æ ¹æ®è§’è‰²åå­—è·å–å…¶æ‰€å±å¸®æ´¾åå­—
  *
  *
- * \param Name ½ÇÉ«Ãû³Æ
- * \return ·µ»Ø°ï»áÃû³Æ»òÕßNULL
+ * \param Name è§’è‰²åç§°
+ * \return è¿”å›å¸®ä¼šåç§°æˆ–è€…NULL
  */
 char * CUnionM::getUnionNameByUserName(char *Name)
 {
@@ -4356,11 +4356,11 @@ char * CUnionM::getUnionNameByUserName(char *Name)
 }
 
 /**
- * \brief ¸ù¾İ½ÇÉ«Ãû×Ö»ñÈ¡ÆäËùÊô°ïÅÉÃû×Ö
+ * \brief æ ¹æ®è§’è‰²åå­—è·å–å…¶æ‰€å±å¸®æ´¾åå­—
  *
  *
- * \param Name ½ÇÉ«Ãû³Æ
- * \return ½ÇÉ«Ëù´¦µÄ¹ú¼Ò±àºÅ
+ * \param Name è§’è‰²åç§°
+ * \return è§’è‰²æ‰€å¤„çš„å›½å®¶ç¼–å·
  */
 DWORD CUnionM::getCountryIDByUserName(char *Name)
 {

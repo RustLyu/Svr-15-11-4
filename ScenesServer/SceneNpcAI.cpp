@@ -1,10 +1,10 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneNpcAI.cpp  $
  * \author  
  * \date 
- * \brief AI²¿·ÖµÄÊµÏÖ
- * °üÀ¨AI¿ØÖÆÆ÷ºÍSceneNpcÖĞAIÏà¹ØµÄ·½·¨
+ * \brief AIéƒ¨åˆ†çš„å®ç°
+ * åŒ…æ‹¬AIæ§åˆ¶å™¨å’ŒSceneNpcä¸­AIç›¸å…³çš„æ–¹æ³•
  *
  * 
  */
@@ -18,9 +18,9 @@
 #include "SceneManager.h"
 
 /**
- * \brief ÉèÖÃNPCµÄAI
+ * \brief è®¾ç½®NPCçš„AI
  *
- * \param ai ÒªÉèÖÃµÄAI½á¹¹µÄÒıÓÃ
+ * \param ai è¦è®¾ç½®çš„AIç»“æ„çš„å¼•ç”¨
  */
 void SceneNpc::setAI(const t_NpcAIDefine &ai)
 {
@@ -35,8 +35,8 @@ void SceneNpc::setAI(const t_NpcAIDefine &ai)
    */
 
 /**
- * \brief ÆÕÍ¨Npc¶¯×÷
- * \return ¶¯×÷Ö´ĞĞÊÇ·ñ³É¹¦
+ * \brief æ™®é€šNpcåŠ¨ä½œ
+ * \return åŠ¨ä½œæ‰§è¡Œæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::normalAction()
 {
@@ -44,10 +44,10 @@ bool SceneNpc::normalAction()
 #ifdef _XWL_DEBUG
 	//Channel::sendNine(this, "AIDefine.type=%u", AIDefine.type);
 #endif
-	//TODOÖ»ÓĞÔÚ·¢Éú±ä»¯Ê±²Å·¢ËÍ
+	//TODOåªæœ‰åœ¨å‘ç”Ÿå˜åŒ–æ—¶æ‰å‘é€
 	if(hp!=lasthp)
 	{
-		//µôÑªÖØĞÂ¼ÆËã»ØÑªÊ±¼ä
+		//æ‰è¡€é‡æ–°è®¡ç®—å›è¡€æ—¶é—´
 		if (hp<lasthp)
 			setRecoverTime(SceneTimeTick::currentTime, 3000);
 
@@ -145,29 +145,29 @@ bool SceneNpc::normalAction()
 	}
 #ifdef _XWL_DEBUG
 	//t = SceneTimeTick::currentTime - t;
-	//Zebra::logger->debug("´¦Àí %s ½áÊø£¬ÓÃÊ± %u", t);
+	//Zebra::logger->debug("å¤„ç† %s ç»“æŸï¼Œç”¨æ—¶ %u", t);
 #endif
 }
 
 /**
- * \brief ÇĞ»»µØÍ¼µÄAI´¦Àí
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \brief åˆ‡æ¢åœ°å›¾çš„AIå¤„ç†
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doChangeMapAI()
 {
 	My_FunctionTime_wrapper(__PRETTY_FUNCTION__);
 	std::string string = AIDefine.str;
 	std::string mapName(string);
-	if (std::string::npos==string.find("¡¤", 0))
+	if (std::string::npos==string.find("Â·", 0))
 	{
 		mapName = SceneManager::getInstance().getCountryNameByCountryID(scene->getCountryID());
-		mapName += "¡¤" + string;
+		mapName += "Â·" + string;
 	}
 
 	Scene * s = SceneManager::getInstance().getSceneByName(mapName.c_str());
 	if (!s)
 	{
-		Zebra::logger->info("doChangeMapAI:npcÌø×ªµØÍ¼Ê§°Ü,Î´ÕÒµ½µØÍ¼ %s", mapName.c_str());
+		Zebra::logger->info("doChangeMapAI:npcè·³è½¬åœ°å›¾å¤±è´¥,æœªæ‰¾åˆ°åœ°å›¾ %s", mapName.c_str());
 		return false;
 	}
 
@@ -184,8 +184,8 @@ bool SceneNpc::doChangeMapAI()
 }
 
 /**
- * \brief Ë²¼äÒÆ¶¯µÄAI´¦Àí
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \brief ç¬é—´ç§»åŠ¨çš„AIå¤„ç†
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doWarpAI()
 {
@@ -199,8 +199,8 @@ bool SceneNpc::doWarpAI()
 }
 
 /**
- * \brief ÆÕÍ¨AI´¦Àí
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \brief æ™®é€šAIå¤„ç†
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doNormalAI()
 {
@@ -218,25 +218,25 @@ bool SceneNpc::doNormalAI()
 				setClearState();
 			}
 #ifdef _DEBUGLOG
-			Zebra::logger->debug("¶¨Ê±NPCËÀÍötimeCount=%u ¹ıÆÚÊ±¼ä[%u]µ±Ç°Ê±¼ä[%u]", dwStandTimeCount, dwStandTime, SceneTimeTick::currentTime.sec());
+			Zebra::logger->debug("å®šæ—¶NPCæ­»äº¡timeCount=%u è¿‡æœŸæ—¶é—´[%u]å½“å‰æ—¶é—´[%u]", dwStandTimeCount, dwStandTime, SceneTimeTick::currentTime.sec());
 #endif
 			return true;
 		}
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("¶¨Ê±NPC³ÖĞøtimeCount=%u ¹ıÆÚÊ±¼ä[%u]µ±Ç°Ê±¼ä[%u]", dwStandTimeCount, dwStandTime, SceneTimeTick::currentTime.sec());
+		Zebra::logger->debug("å®šæ—¶NPCæŒç»­timeCount=%u è¿‡æœŸæ—¶é—´[%u]å½“å‰æ—¶é—´[%u]", dwStandTimeCount, dwStandTime, SceneTimeTick::currentTime.sec());
 #endif
 	}
 
 	switch (npc->kind)
 	{
-		case NPC_TYPE_TOTEM:			/// Í¼ÌÚÀàĞÍ
-		case NPC_TYPE_SURFACE:			/// µØ±íÀàĞÍ
+		case NPC_TYPE_TOTEM:			/// å›¾è…¾ç±»å‹
+		case NPC_TYPE_SURFACE:			/// åœ°è¡¨ç±»å‹
 			{
 				if (canFight())
 				{
 					SceneEntryPk_vec enemies;
 
-					//¼ÆËã°ë¾¶
+					//è®¡ç®—åŠå¾„
 					int r = npc_search_region;
 					if (aif&AIF_DOUBLE_REGION) r *= 2;
 					BYTE at = getAType();
@@ -263,7 +263,7 @@ bool SceneNpc::doNormalAI()
 				}
 			}
 			break;
-		case NPC_TYPE_TRAP:				/// ÏİÚåÀàĞÍ
+		case NPC_TYPE_TRAP:				/// é™·é˜±ç±»å‹
 			{
 				if (canFight())
 				{
@@ -299,31 +299,31 @@ bool SceneNpc::doNormalAI()
 						}
 						else
 						{
-							Zebra::logger->error("[¹ÖÎïAI]NPC[%s]µÄ¼¼ÄÜÃ»ÓĞ¼ÓÔØÎŞ·¨Ê¹ÓÃ£¡", this->name);
+							Zebra::logger->error("[æ€ªç‰©AI]NPC[%s]çš„æŠ€èƒ½æ²¡æœ‰åŠ è½½æ— æ³•ä½¿ç”¨ï¼", this->name);
 						}
 					}
 				}
 			}
 			break;
-		case NPC_TYPE_HUMAN:			///ÈËĞÍ
-		case NPC_TYPE_TASK:			///ÈÎÎñÀàĞÍ
-		case NPC_TYPE_NORMAL:			/// ÆÕÍ¨ÀàĞÍ
-		case NPC_TYPE_BBOSS:			/// ´óBossÀàĞÍ
-		case NPC_TYPE_PBOSS:			/// ×ÏBossÀàĞÍ
-		case NPC_TYPE_LBOSS:			/// Ğ¡BossÀàĞÍ
-		case NPC_TYPE_BACKBONE:			/// ¾«Ó¢ÀàĞÍ
-		case NPC_TYPE_GOLD:				/// »Æ½ğÀàĞÍ
-		case NPC_TYPE_AGGRANDIZEMENT:	/// Ç¿»¯ÀàĞÍ
-		case NPC_TYPE_BACKBONEBUG:		/// ¾«¹ÖÀàĞÍ
-		case NPC_TYPE_ABERRANCE:		/// ±äÒìÀàĞÍ
-		case NPC_TYPE_PET:	/// ³èÎïÀàĞÍ
-		case NPC_TYPE_GUARD:	/// Ê¿±øÀàĞÍ
-		case NPC_TYPE_SUMMONS:			/// ÕÙ»½ÀàĞÍ
-		case NPC_TYPE_LIVENPC:			/// Éú»înpc
-		case NPC_TYPE_SOLDIER:	/// Ê¿±øÀàĞÍ
-		case NPC_TYPE_CARTOONPET:	/// ¿¨Í¨±¦±¦
-		case NPC_TYPE_UNIONGUARD:	/// ³ÇÕ½ÊØÎÀ
-		case NPC_TYPE_UNIONATTACKER:	/// ¹¥·½Ê¿±ø
+		case NPC_TYPE_HUMAN:			///äººå‹
+		case NPC_TYPE_TASK:			///ä»»åŠ¡ç±»å‹
+		case NPC_TYPE_NORMAL:			/// æ™®é€šç±»å‹
+		case NPC_TYPE_BBOSS:			/// å¤§Bossç±»å‹
+		case NPC_TYPE_PBOSS:			/// ç´«Bossç±»å‹
+		case NPC_TYPE_LBOSS:			/// å°Bossç±»å‹
+		case NPC_TYPE_BACKBONE:			/// ç²¾è‹±ç±»å‹
+		case NPC_TYPE_GOLD:				/// é»„é‡‘ç±»å‹
+		case NPC_TYPE_AGGRANDIZEMENT:	/// å¼ºåŒ–ç±»å‹
+		case NPC_TYPE_BACKBONEBUG:		/// ç²¾æ€ªç±»å‹
+		case NPC_TYPE_ABERRANCE:		/// å˜å¼‚ç±»å‹
+		case NPC_TYPE_PET:	/// å® ç‰©ç±»å‹
+		case NPC_TYPE_GUARD:	/// å£«å…µç±»å‹
+		case NPC_TYPE_SUMMONS:			/// å¬å”¤ç±»å‹
+		case NPC_TYPE_LIVENPC:			/// ç”Ÿæ´»npc
+		case NPC_TYPE_SOLDIER:	/// å£«å…µç±»å‹
+		case NPC_TYPE_CARTOONPET:	/// å¡é€šå®å®
+		case NPC_TYPE_UNIONGUARD:	/// åŸæˆ˜å®ˆå«
+		case NPC_TYPE_UNIONATTACKER:	/// æ”»æ–¹å£«å…µ
 			if ((checkAttackTime(SceneTimeTick::currentTime))
 					||(checkMoveTime(SceneTimeTick::currentTime)))
 			{
@@ -338,14 +338,14 @@ bool SceneNpc::doNormalAI()
 					SceneEntryPk * enemy = 0;
 					SceneEntryPk_vec enemies;
 
-					//µ±Ç°µÄÄ¿±ê
+					//å½“å‰çš„ç›®æ ‡
 					checkChaseAttackTarget(enemy);
 
-					//Ö÷¶¯ËÑË÷
+					//ä¸»åŠ¨æœç´¢
 					if (!enemy && isActive())
 					{
 
-						//¼ÆËã°ë¾¶
+						//è®¡ç®—åŠå¾„
 						int r = npc_search_region;
 						if (aif&AIF_DOUBLE_REGION) r *= 2;
 						BYTE at = getAType();
@@ -354,13 +354,13 @@ bool SceneNpc::doNormalAI()
 
 						getEntries(r, enemies, 1);
 					}
-					//¶ÔÁĞ±í´¦Àí
+					//å¯¹åˆ—è¡¨å¤„ç†
 					if (enemies.size())
 					{
-						//ÌÓÀëÍæ¼Ò
+						//é€ƒç¦»ç©å®¶
 						if (runOffEnemy(enemies)) return true;
 
-						//ÎüÒıÍæ¼Ò
+						//å¸å¼•ç©å®¶
 						if (catchme) 
 						{
 							SceneEntryPk_vec::iterator it;
@@ -370,10 +370,10 @@ bool SceneNpc::doNormalAI()
 							}
 						}
 
-						//Ñ¡ÔñµĞÈË
+						//é€‰æ‹©æ•Œäºº
 						enemy = chooseEnemy(enemies);
 					}
-					//¶ÔÕÒµ½µÄµĞÈË´¦Àí
+					//å¯¹æ‰¾åˆ°çš„æ•Œäººå¤„ç†
 					if (enemy)
 					{
 						switch (zMisc::randBetween(1,10))
@@ -389,7 +389,7 @@ bool SceneNpc::doNormalAI()
 						}
 						return attackEnemy(enemy);
 					}
-					//¶ÔÍ¬°éµÄ´¦Àí
+					//å¯¹åŒä¼´çš„å¤„ç†
 					if (aif&(AIF_HEAL_FELLOW_5|AIF_BUFF_FELLOW_5|AIF_HELP_FELLOW_5))
 					{
 						SceneEntryPk_vec fellows;
@@ -402,16 +402,16 @@ bool SceneNpc::doNormalAI()
 							{
 								case 0:
 								case 1:
-									//Zebra::logger->debug("%u ³¢ÊÔÖÎÁÆÍ¬°é", tempid);
+									//Zebra::logger->debug("%u å°è¯•æ²»ç–—åŒä¼´", tempid);
 									if (healFellow(fellows)) return true;
 									break;
 								case 2:
 								case 3:
-									//Zebra::logger->debug("%u ³¢ÊÔbuffÍ¬°é", tempid);
+									//Zebra::logger->debug("%u å°è¯•buffåŒä¼´", tempid);
 									if (buffFellow(fellows)) return true;
 									break;
 								case 4:
-									//Zebra::logger->debug("%u ³¢ÊÔ°ïÖúÍ¬°é", tempid);
+									//Zebra::logger->debug("%u å°è¯•å¸®åŠ©åŒä¼´", tempid);
 									if (helpFellow(fellows)) return true;
 									break;
 								default:
@@ -434,9 +434,9 @@ bool SceneNpc::doNormalAI()
 }
 
 /**
- * \brief ÒÆ¶¯AI´¦Àí
- * Ã¿ÒÆ¶¯Ò»´Î¾ÍÉèÖÃ»î¶¯·¶Î§£¬ÒÔÃâNPC³¬³ö»î¶¯·¶Î§
- * \return Ö´ĞĞÊÇ·ñ³É¹¦
+ * \brief ç§»åŠ¨AIå¤„ç†
+ * æ¯ç§»åŠ¨ä¸€æ¬¡å°±è®¾ç½®æ´»åŠ¨èŒƒå›´ï¼Œä»¥å…NPCè¶…å‡ºæ´»åŠ¨èŒƒå›´
+ * \return æ‰§è¡Œæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doMovetoAI()
 {
@@ -445,8 +445,8 @@ bool SceneNpc::doMovetoAI()
 	if (!AIC->phaseTimeOver())
 		if (checkMoveTime(SceneTimeTick::currentTime) && canMove())
 		{
-			if (!gotoFindPath(getPos(), AIDefine.pos))//ÏòÄ¿±êÒÆ¶¯
-				goTo(AIDefine.pos);//»»Ò»ÖÖ·½Ê½ÏòÄ¿±êÒÆ¶¯
+			if (!gotoFindPath(getPos(), AIDefine.pos))//å‘ç›®æ ‡ç§»åŠ¨
+				goTo(AIDefine.pos);//æ¢ä¸€ç§æ–¹å¼å‘ç›®æ ‡ç§»åŠ¨
 			if (AIC)
 				if (NPC_AI_PATROL==AIDefine.type)
 					AIC->setActRegion(getPos(), 5, 5);
@@ -457,9 +457,9 @@ bool SceneNpc::doMovetoAI()
 }
 
 /**
- * \brief ¹¥»÷AI´¦Àí
- * ¾ÍÊÇ¼ÓÁËÊ±¼äÏŞÖÆµÄÆÕÍ¨ĞĞ¶¯
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \brief æ”»å‡»AIå¤„ç†
+ * å°±æ˜¯åŠ äº†æ—¶é—´é™åˆ¶çš„æ™®é€šè¡ŒåŠ¨
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doAttackAI()
 {
@@ -467,8 +467,8 @@ bool SceneNpc::doAttackAI()
 }
 
 /**
- * \brief ÉèÖÃnpcÆÕÍ¨AI
- * ÆÕÍ¨AIÊ±AIDefineµÄÆäËû²ÎÊı¾ùÎŞĞ§
+ * \brief è®¾ç½®npcæ™®é€šAI
+ * æ™®é€šAIæ—¶AIDefineçš„å…¶ä»–å‚æ•°å‡æ— æ•ˆ
  */
 void NpcAIController::setNormalAI()
 {
@@ -477,9 +477,9 @@ void NpcAIController::setNormalAI()
 }
 
 /**
- * \brief NPC±»¹¥»÷µÄÊÂ¼ş´¦Àí
+ * \brief NPCè¢«æ”»å‡»çš„äº‹ä»¶å¤„ç†
  *
- * \param pAtk ¹¥»÷Õß
+ * \param pAtk æ”»å‡»è€…
  */
 void NpcAIController::on_hit(SceneEntryPk *pAtk)
 {
@@ -487,22 +487,22 @@ void NpcAIController::on_hit(SceneEntryPk *pAtk)
 
 	npc->randomChat(NPC_CHAT_ON_HIT);
 
-	//npc->delayMoveTime(npc->npc->distance/2);//±»»÷¶¯×÷µÄÑÓ³Ù
+	//npc->delayMoveTime(npc->npc->distance/2);//è¢«å‡»åŠ¨ä½œçš„å»¶è¿Ÿ
 	switch(npc->npc->kind)
 	{
-		case NPC_TYPE_HUMAN:			///ÈËĞÍ
-		case NPC_TYPE_NORMAL:			/// ÆÕÍ¨ÀàĞÍ
-		case NPC_TYPE_BBOSS:			/// ´óBossÀàĞÍ
-		case NPC_TYPE_PBOSS:			/// ×ÏBossÀàĞÍ
-		case NPC_TYPE_LBOSS:			/// Ğ¡BossÀàĞÍ
-		case NPC_TYPE_BACKBONE:			/// ¾«Ó¢ÀàĞÍ
-		case NPC_TYPE_GOLD:				/// »Æ½ğÀàĞÍ
-		case NPC_TYPE_SUMMONS:			/// ÕÙ»½ÀàĞÍ
-		case NPC_TYPE_AGGRANDIZEMENT:	/// Ç¿»¯ÀàĞÍ
-		case NPC_TYPE_ABERRANCE:		/// ±äÒìÀàĞÍ
-		case NPC_TYPE_BACKBONEBUG:		/// ¾«¹ÖÀàĞÍ
+		case NPC_TYPE_HUMAN:			///äººå‹
+		case NPC_TYPE_NORMAL:			/// æ™®é€šç±»å‹
+		case NPC_TYPE_BBOSS:			/// å¤§Bossç±»å‹
+		case NPC_TYPE_PBOSS:			/// ç´«Bossç±»å‹
+		case NPC_TYPE_LBOSS:			/// å°Bossç±»å‹
+		case NPC_TYPE_BACKBONE:			/// ç²¾è‹±ç±»å‹
+		case NPC_TYPE_GOLD:				/// é»„é‡‘ç±»å‹
+		case NPC_TYPE_SUMMONS:			/// å¬å”¤ç±»å‹
+		case NPC_TYPE_AGGRANDIZEMENT:	/// å¼ºåŒ–ç±»å‹
+		case NPC_TYPE_ABERRANCE:		/// å˜å¼‚ç±»å‹
+		case NPC_TYPE_BACKBONEBUG:		/// ç²¾æ€ªç±»å‹
 			{
-				//hp1/3ÒÔÏÂÊ±ÌÓÅÜ
+				//hp1/3ä»¥ä¸‹æ—¶é€ƒè·‘
 				if (npc->aif&AIF_FLEE_30_HP)
 				{
 					if ((npc->hp*3<npc->getMaxHP()) && (false==curAI.flee))
@@ -514,18 +514,18 @@ void NpcAIController::on_hit(SceneEntryPk *pAtk)
 						ad.fleeDir = pAtk->getPos().getDirect(npc->getPos());
 						setAI(ad, false);
 
-						//Channel::sendNine(this, "hp²»µ½1/3ÁË£¬ÎÒÌÓ~");
+						//Channel::sendNine(this, "hpä¸åˆ°1/3äº†ï¼Œæˆ‘é€ƒ~");
 					}
 				}
 
-				//±»3¸öÒÔÉÏÎ§¹¥ÌÓÅÜ
+				//è¢«3ä¸ªä»¥ä¸Šå›´æ”»é€ƒè·‘
 				if (npc->aif&AIF_FLEE_3_ENEMY_4)
 				{
 					int side = 0;
 					int direct = 0;
 					int clockwise = 1;
 					int enemyCount = 0;
-					int count = 0;//¼ÆÊı£¬·ÀÖ¹ËÀÑ­»·
+					int count = 0;//è®¡æ•°ï¼Œé˜²æ­¢æ­»å¾ªç¯
 					zPos pos;
 					npc->scene->getNextPos(side, direct, npc->getPos(), clockwise, pos);
 					do                      
@@ -548,18 +548,18 @@ void NpcAIController::on_hit(SceneEntryPk *pAtk)
 						ad.fleeCount = npc_flee_distance;
 						ad.fleeDir = pAtk->getPos().getDirect(npc->getPos());
 						setAI(ad, false);
-						//Channel::sendNine(this, "%d ¸öÈËÎ§¹¥ÎÒ£¡", enemyCount);
+						//Channel::sendNine(this, "%d ä¸ªäººå›´æ”»æˆ‘ï¼", enemyCount);
 					}
 				}
 
-				//ÉúÃü20%ÒÔÏÂÒÆ¶¯ËÙ¶ÈÌá¸ß
+				//ç”Ÿå‘½20%ä»¥ä¸‹ç§»åŠ¨é€Ÿåº¦æé«˜
 				if ((npc->aif&AIF_SPD_UP_HP20)&&(npc->hp*5<npc->getMaxHP()))
 					npc->speedUpUnder20 = true;
 				else
 					npc->speedUpUnder20 = false;
 				npc->setSpeedRate(npc->getSpeedRate());
 
-				//ÉúÃü50%ÒÔÏÂ¹¥»÷ËÙ¶ÈÌá¸ß
+				//ç”Ÿå‘½50%ä»¥ä¸‹æ”»å‡»é€Ÿåº¦æé«˜
 				if ((npc->aif&AIF_ASPD_UP_HP50)&&(npc->hp*2<npc->getMaxHP()))
 					npc->aspeedUpUnder50 = true;
 				else
@@ -568,7 +568,7 @@ void NpcAIController::on_hit(SceneEntryPk *pAtk)
 
 				npc->setSecondTarget(pAtk);
 
-				//ÉúÃü60%ÒÔÏÂÕÙ»½
+				//ç”Ÿå‘½60%ä»¥ä¸‹å¬å”¤
 				if (!npc->define->summonList.empty() && npc->hp*10<npc->getMaxHP()*6 &&!npc->summoned)
 				{
 					npc->summonByNpcMap(npc->define->summonList);
@@ -576,11 +576,11 @@ void NpcAIController::on_hit(SceneEntryPk *pAtk)
 				}
 			}
 			break;
-		case NPC_TYPE_GUARD:	/// Ê¿±øÀàĞÍ
-		case NPC_TYPE_PET:	/// ³èÎïÀàĞÍ
-		case NPC_TYPE_TASK:		/// ÈÎÎñÀàĞÍ
-		case NPC_TYPE_TOTEM:			/// Í¼ÌÚÀàĞÍ
-		case NPC_TYPE_TRADE:	/// ÂòÂôÀàĞÍ
+		case NPC_TYPE_GUARD:	/// å£«å…µç±»å‹
+		case NPC_TYPE_PET:	/// å® ç‰©ç±»å‹
+		case NPC_TYPE_TASK:		/// ä»»åŠ¡ç±»å‹
+		case NPC_TYPE_TOTEM:			/// å›¾è…¾ç±»å‹
+		case NPC_TYPE_TRADE:	/// ä¹°å–ç±»å‹
 			break;
 		default:
 			break;
@@ -600,8 +600,8 @@ void NpcAIController::on_hit(SceneEntryPk *pAtk)
 }
 
 /**
- * \brief ¹Ì¶¨Â·ÏßĞĞ×ßµÄAI´¦Àí
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \brief å›ºå®šè·¯çº¿è¡Œèµ°çš„AIå¤„ç†
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doGoOnPathAI()
 {
@@ -611,7 +611,7 @@ bool SceneNpc::doGoOnPathAI()
 	   if (AIC->phaseTimeOver() && moveAction )
 	   warp(AIDefine.pos);
 
-	//µ½´ïÄ¿±ê¸½½ü
+	//åˆ°è¾¾ç›®æ ‡é™„è¿‘
 	if (scene->zPosShortRange(getPos(), AIDefine.pos, AIDefine.regionX))
 	{
 	if (dstPos<define->path.size()-1) 
@@ -626,19 +626,19 @@ bool SceneNpc::doGoOnPathAI()
 
 	if (checkMoveTime(SceneTimeTick::currentTime) && moveAction)
 	{
-	if (!gotoFindPath(getPos(), AIDefine.pos))//ÏòÄ¿±êÒÆ¶¯
-	goTo(AIDefine.pos);//»»Ò»ÖÖ·½Ê½ÏòÄ¿±êÒÆ¶¯
+	if (!gotoFindPath(getPos(), AIDefine.pos))//å‘ç›®æ ‡ç§»åŠ¨
+	goTo(AIDefine.pos);//æ¢ä¸€ç§æ–¹å¼å‘ç›®æ ‡ç§»åŠ¨
 	}
 	*/
 	return true;
 }
 
 /**
- * \brief Ñ²ÂßAI´¦Àí
- * Ñ²Âß»ù±¾ÊÇ´ø¹¥»÷µÄÒÆ¶¯
- * Ö»¹¥»÷ºìÃûµÄ¶ÔÏóºÍÕıÔÚ¹¥»÷ÈËµÄ¹ÖÎï
+ * \brief å·¡é€»AIå¤„ç†
+ * å·¡é€»åŸºæœ¬æ˜¯å¸¦æ”»å‡»çš„ç§»åŠ¨
+ * åªæ”»å‡»çº¢åçš„å¯¹è±¡å’Œæ­£åœ¨æ”»å‡»äººçš„æ€ªç‰©
  *
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doPatrolAI()
 {
@@ -670,8 +670,8 @@ bool SceneNpc::doPatrolAI()
 	   else
 	   if (checkMoveTime(SceneTimeTick::currentTime) && moveAction)
 	   {
-	   if (!gotoFindPath(getPos(), entry->getPos()))//ÏòÄ¿±êÒÆ¶¯
-	   goTo(entry->getPos());//»»Ò»ÖÖ·½Ê½ÏòÄ¿±êÒÆ¶¯
+	   if (!gotoFindPath(getPos(), entry->getPos()))//å‘ç›®æ ‡ç§»åŠ¨
+	   goTo(entry->getPos());//æ¢ä¸€ç§æ–¹å¼å‘ç›®æ ‡ç§»åŠ¨
 	   AIC->delayPhaseTime(npc->adistance);
 	   }
 	   }
@@ -679,9 +679,9 @@ bool SceneNpc::doPatrolAI()
 	   {
 	   if (checkMoveTime(SceneTimeTick::currentTime) && moveAction)
 	   {
-	   if (!gotoFindPath(getPos(), AIDefine.pos))//ÏòÄ¿±êÒÆ¶¯
-	   goTo(AIDefine.pos);//»»Ò»ÖÖ·½Ê½ÏòÄ¿±êÒÆ¶¯
-	   AIC->setActRegion(getPos());//ÉèÖÃ»î¶¯·¶Î§
+	   if (!gotoFindPath(getPos(), AIDefine.pos))//å‘ç›®æ ‡ç§»åŠ¨
+	   goTo(AIDefine.pos);//æ¢ä¸€ç§æ–¹å¼å‘ç›®æ ‡ç§»åŠ¨
+	   AIC->setActRegion(getPos());//è®¾ç½®æ´»åŠ¨èŒƒå›´
 
 	   }
 	   }
@@ -690,9 +690,9 @@ bool SceneNpc::doPatrolAI()
 }
 
 /**
- * \brief ÌÓÅÜAIµÄ´¦Àí
+ * \brief é€ƒè·‘AIçš„å¤„ç†
  *
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doFleeAI()
 {
@@ -724,9 +724,9 @@ bool SceneNpc::doFleeAI()
 }
 
 /**
- * \brief »Øµ½»î¶¯·¶Î§µÄAI´¦Àí
+ * \brief å›åˆ°æ´»åŠ¨èŒƒå›´çš„AIå¤„ç†
  *
- * \return Ö´ĞĞAIÊÇ·ñ³É¹¦
+ * \return æ‰§è¡ŒAIæ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::doReturnToRegionAI()
 {
@@ -737,16 +737,16 @@ bool SceneNpc::doReturnToRegionAI()
 			if (aif&AIF_WARP_MOVE)
 				warp(AIDefine.pos);
 			else
-				if (!gotoFindPath(getPos(), AIDefine.pos))//ÏòÄ¿±êÒÆ¶¯
-					goTo(AIDefine.pos);//»»Ò»ÖÖ·½Ê½ÏòÄ¿±êÒÆ¶¯
+				if (!gotoFindPath(getPos(), AIDefine.pos))//å‘ç›®æ ‡ç§»åŠ¨
+					goTo(AIDefine.pos);//æ¢ä¸€ç§æ–¹å¼å‘ç›®æ ‡ç§»åŠ¨
 		}
 	return true;
 }
 
 /**
- * \brief NPC·¢ÏÖµĞÈËÊ±µÄÊÂ¼ş´¦Àí
+ * \brief NPCå‘ç°æ•Œäººæ—¶çš„äº‹ä»¶å¤„ç†
  *
- * \param pFound ·¢ÏÖµÄµĞÈË
+ * \param pFound å‘ç°çš„æ•Œäºº
  */
 void NpcAIController::on_find_enemy(const SceneEntryPk *pFound)
 {
@@ -779,26 +779,26 @@ void NpcAIController::on_find_enemy(const SceneEntryPk *pFound)
 	/*
 	   switch(npc->npc->kind)
 	   {
-	   case NPC_TYPE_HUMAN:			///ÈËĞÍ
-	   case NPC_TYPE_NORMAL:			/// ÆÕÍ¨ÀàĞÍ
-	   case NPC_TYPE_BBOSS:			/// ´óBossÀàĞÍ
-	   case NPC_TYPE_PBOSS:			/// ×ÏBossÀàĞÍ
-	   case NPC_TYPE_LBOSS:			/// Ğ¡BossÀàĞÍ
-	   case NPC_TYPE_BACKBONE:			/// ¾«Ó¢ÀàĞÍ
-	   case NPC_TYPE_GOLD:				/// »Æ½ğÀàĞÍ
-	   case NPC_TYPE_SUMMONS:			/// ÕÙ»½ÀàĞÍ
-	   case NPC_TYPE_AGGRANDIZEMENT:	/// Ç¿»¯ÀàĞÍ
-	   case NPC_TYPE_ABERRANCE:		/// ±äÒìÀàĞÍ
-	   case NPC_TYPE_BACKBONEBUG:		/// ¾«¹ÖÀàĞÍ
+	   case NPC_TYPE_HUMAN:			///äººå‹
+	   case NPC_TYPE_NORMAL:			/// æ™®é€šç±»å‹
+	   case NPC_TYPE_BBOSS:			/// å¤§Bossç±»å‹
+	   case NPC_TYPE_PBOSS:			/// ç´«Bossç±»å‹
+	   case NPC_TYPE_LBOSS:			/// å°Bossç±»å‹
+	   case NPC_TYPE_BACKBONE:			/// ç²¾è‹±ç±»å‹
+	   case NPC_TYPE_GOLD:				/// é»„é‡‘ç±»å‹
+	   case NPC_TYPE_SUMMONS:			/// å¬å”¤ç±»å‹
+	   case NPC_TYPE_AGGRANDIZEMENT:	/// å¼ºåŒ–ç±»å‹
+	   case NPC_TYPE_ABERRANCE:		/// å˜å¼‚ç±»å‹
+	   case NPC_TYPE_BACKBONEBUG:		/// ç²¾æ€ªç±»å‹
 	   {
 	   if (zMisc::selectByPercent(npc_call_fellow_rate))
 	   {
-	//ÕÙ»½Í¬°é
+	//å¬å”¤åŒä¼´
 	int direct = zMisc::randBetween(0, 7);
 	int clockwise = zMisc::selectByPercent(50)?-1:1;
 	int fellowCount = 0;
-	int region = 7;//ÕÙ»½Í¬°éµÄ·¶Î§
-	int trycount = 0;//²éÕÒ´ÎÊıÏŞÖÆ£¬·ÀÖ¹ËÀÑ­»·
+	int region = 7;//å¬å”¤åŒä¼´çš„èŒƒå›´
+	int trycount = 0;//æŸ¥æ‰¾æ¬¡æ•°é™åˆ¶ï¼Œé˜²æ­¢æ­»å¾ªç¯
 	zPos pos;
 	npc->scene->getNextPos(side, direct, npc->getPos(), clockwise, pos);
 	do                      
@@ -814,15 +814,15 @@ void NpcAIController::on_find_enemy(const SceneEntryPk *pFound)
 	}                               
 	} while(npc->scene->getNextPos(side, direct, npc->getPos(), clockwise, pos) && side <= 7);
 	//if (fellowCount>0)
-	//Channel::sendNine(npc, "ÎÒ½Ğ %d ¸öÍ¬°éÀ´°ïÎÒ´ò %s", fellowCount, pFound->name);
+	//Channel::sendNine(npc, "æˆ‘å« %d ä¸ªåŒä¼´æ¥å¸®æˆ‘æ‰“ %s", fellowCount, pFound->name);
 	}
 	}
 	break;
-	case NPC_TYPE_GUARD:	/// Ê¿±øÀàĞÍ
-	case NPC_TYPE_PET:	/// ³èÎïÀàĞÍ
-	case NPC_TYPE_TASK:		/// ÈÎÎñÀàĞÍ
-	case NPC_TYPE_TOTEM:			/// Í¼ÌÚÀàĞÍ
-	case NPC_TYPE_TRADE:	/// ÂòÂôÀàĞÍ
+	case NPC_TYPE_GUARD:	/// å£«å…µç±»å‹
+	case NPC_TYPE_PET:	/// å® ç‰©ç±»å‹
+	case NPC_TYPE_TASK:		/// ä»»åŠ¡ç±»å‹
+	case NPC_TYPE_TOTEM:			/// å›¾è…¾ç±»å‹
+	case NPC_TYPE_TRADE:	/// ä¹°å–ç±»å‹
 	break;
 	default:
 	break;
@@ -831,10 +831,10 @@ void NpcAIController::on_find_enemy(const SceneEntryPk *pFound)
 }
 
 /**
- * \brief ÅĞ¶ÏNpcÊÇ·ñ×ß³öÁË×ÔÉí¹ÌÓĞ·¶Î§Ö®Íâ
- * Èç¹ûÃ»ÓĞÔÚ¸ú×ÙÓÃ»§×´Ì¬£¬ĞèÒªÏò·¶Î§·½ÏòĞĞ×ß
- * ×·ÖğÊ±·¶Î§À©´ó10
- * \return ÊÇ·ñ³¬³ö»î¶¯·¶Î§
+ * \brief åˆ¤æ–­Npcæ˜¯å¦èµ°å‡ºäº†è‡ªèº«å›ºæœ‰èŒƒå›´ä¹‹å¤–
+ * å¦‚æœæ²¡æœ‰åœ¨è·Ÿè¸ªç”¨æˆ·çŠ¶æ€ï¼Œéœ€è¦å‘èŒƒå›´æ–¹å‘è¡Œèµ°
+ * è¿½é€æ—¶èŒƒå›´æ‰©å¤§10
+ * \return æ˜¯å¦è¶…å‡ºæ´»åŠ¨èŒƒå›´
  */
 bool NpcAIController::outOfRegion() const
 {
@@ -853,15 +853,15 @@ bool NpcAIController::outOfRegion() const
 				&&(pos.y<=actPos.y+(actRegionY+10)));
 }
 
-//»Øµ½»î¶¯·¶Î§£¬×·×ÙµĞÈË³¬³ö·¶Î§Ê±ÒÔ5±¶ËÙ·µ»Ø
+//å›åˆ°æ´»åŠ¨èŒƒå›´ï¼Œè¿½è¸ªæ•Œäººè¶…å‡ºèŒƒå›´æ—¶ä»¥5å€é€Ÿè¿”å›
 /**
- * \brief ÉèÖÃ»Øµ½·¶Î§µÄAIÊ¹NPC»Øµ½»î¶¯·¶Î§
- * Èç¹ûNPCÊÇ¸ú×ÙµĞÈË¶ø³¬³öÁË»î¶¯·¶Î§£¬ÔòÒÔ5±¶ËÙ·µ»Ø»î¶¯·¶Î§ÄÚ£¬Í¬Ê±·ÅÆú¸ú×ÙÄ¿±ê
+ * \brief è®¾ç½®å›åˆ°èŒƒå›´çš„AIä½¿NPCå›åˆ°æ´»åŠ¨èŒƒå›´
+ * å¦‚æœNPCæ˜¯è·Ÿè¸ªæ•Œäººè€Œè¶…å‡ºäº†æ´»åŠ¨èŒƒå›´ï¼Œåˆ™ä»¥5å€é€Ÿè¿”å›æ´»åŠ¨èŒƒå›´å†…ï¼ŒåŒæ—¶æ”¾å¼ƒè·Ÿè¸ªç›®æ ‡
  *
  */
 void NpcAIController::returnToRegion()
 {
-	//³èÎï
+	//å® ç‰©
 	/*	
 		SceneEntryPk * master = npc->getMaster();
 		if (master)
@@ -890,13 +890,13 @@ void NpcAIController::returnToRegion()
 		npc->unChaseUser();
 		npc->setSpeedRate(npc->getSpeedRate()*4.0);
 	}
-	//Channel::sendNine(npc, "ÎÒµÃ»Øµ½(%d,%d)·¶Î§%d,%dÒÔÄÚ", curAI.pos.x, curAI.pos.y, def.regionX, def.regionY);
+	//Channel::sendNine(npc, "æˆ‘å¾—å›åˆ°(%d,%d)èŒƒå›´%d,%dä»¥å†…", curAI.pos.x, curAI.pos.y, def.regionX, def.regionY);
 }
 
 /**
- * \brief ´´½¨Ò»´Î¹¥³Ç
+ * \brief åˆ›å»ºä¸€æ¬¡æ”»åŸ
  *
- * \return ÊÇ·ñ´´½¨³É¹¦
+ * \return æ˜¯å¦åˆ›å»ºæˆåŠŸ
  */
 bool SceneNpc::createRush()
 {
@@ -906,10 +906,10 @@ bool SceneNpc::createRush()
 	{
 		if (rush->init())
 		{
-			setMoveTime(SceneTimeTick::currentTime, (define->rushDelay+rush->lasttime+define->interval) * 1000);//¹¥³Ç½áÊøÔÙ¹ıÒ»ÖÜÆÚÖØÉú
+			setMoveTime(SceneTimeTick::currentTime, (define->rushDelay+rush->lasttime+define->interval) * 1000);//æ”»åŸç»“æŸå†è¿‡ä¸€å‘¨æœŸé‡ç”Ÿ
 			mayRush = false;
 
-			//·¢³ö¹«¸æ
+			//å‘å‡ºå…¬å‘Š
 			Cmd::Session::t_cityRush_SceneSession send;
 			bzero(send.bossName, MAX_NAMESIZE);
 			bzero(send.rushName, MAX_NAMESIZE);
@@ -922,34 +922,34 @@ bool SceneNpc::createRush()
 			sessionClient->sendCmd(&send, sizeof(send));
 			return true;
 		}
-		Zebra::logger->debug("³õÊ¼»¯¹¥³ÇÊı¾İÊ§°Ü");
+		Zebra::logger->debug("åˆå§‹åŒ–æ”»åŸæ•°æ®å¤±è´¥");
 		SAFE_DELETE(rush);
 	}
 	return false;
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñ´ïµ½¹¥³ÇÌõ¼ş
+ * \brief æ£€æŸ¥æ˜¯å¦è¾¾åˆ°æ”»åŸæ¡ä»¶
  *
- * \return ÊÇ·ñ¿ÉÒÔ¹¥³Ç
+ * \return æ˜¯å¦å¯ä»¥æ”»åŸ
  */
 bool SceneNpc::canRush()
 {
 	if (mayRush && (define->rushID) && (zSceneEntry::SceneEntry_Death==getState()))
 	{
-		Zebra::logger->trace("%s ¹ÖÎï¹¥³ÇµÄ¼¸ÂÊ %d%%", name, define->rushRate);
+		Zebra::logger->trace("%s æ€ªç‰©æ”»åŸçš„å‡ ç‡ %d%%", name, define->rushRate);
 		if (define->rushRate >= zMisc::randBetween(0,100))
 			return true;
 	}
 	return false;
 }
 
-const int NpcAIController::npc_call_fellow_rate = 30;///NPCÕÙ»½Í¬°éµÄ¼¸ÂÊ
-const int NpcAIController::npc_one_checkpoint_time = 60;///NPC°´ÕÕÂ·ÏßÒÆ¶¯Ê±£¬×ßÒ»¸öÂ·µãµÄ×î³¤Ê±¼ä
-const int NpcAIController::npc_checkpoint_region = 2;///NPCÒÆ¶¯£¬µ½´ïÒ»¸öÂ·µãµÄÅĞ¶¨·¶Î§
-const int NpcAIController::npc_onhit_stop_time = 2;///ÈÎÎñNPCÒÆ¶¯ÖĞ±»¹¥»÷Ê±£¬Í£Ö¹µÄÊ±¼ä
-const int NpcAIController::npc_flee_distance = 4;///NPCÌÓÀë¹¥»÷ÕßµÄ¾àÀë
-const int NpcAIController::npc_min_act_region = 5;///NPCÌÓÀë¹¥»÷ÕßµÄ¾àÀë
+const int NpcAIController::npc_call_fellow_rate = 30;///NPCå¬å”¤åŒä¼´çš„å‡ ç‡
+const int NpcAIController::npc_one_checkpoint_time = 60;///NPCæŒ‰ç…§è·¯çº¿ç§»åŠ¨æ—¶ï¼Œèµ°ä¸€ä¸ªè·¯ç‚¹çš„æœ€é•¿æ—¶é—´
+const int NpcAIController::npc_checkpoint_region = 2;///NPCç§»åŠ¨ï¼Œåˆ°è¾¾ä¸€ä¸ªè·¯ç‚¹çš„åˆ¤å®šèŒƒå›´
+const int NpcAIController::npc_onhit_stop_time = 2;///ä»»åŠ¡NPCç§»åŠ¨ä¸­è¢«æ”»å‡»æ—¶ï¼Œåœæ­¢çš„æ—¶é—´
+const int NpcAIController::npc_flee_distance = 4;///NPCé€ƒç¦»æ”»å‡»è€…çš„è·ç¦»
+const int NpcAIController::npc_min_act_region = 5;///NPCé€ƒç¦»æ”»å‡»è€…çš„è·ç¦»
 
 /*------------NpcAIController-------------------*/
 /*------------NpcAIController-------------------*/
@@ -957,10 +957,10 @@ const int NpcAIController::npc_min_act_region = 5;///NPCÌÓÀë¹¥»÷ÕßµÄ¾àÀë
 /*------------NpcAIController-------------------*/
 
 /**
- * \brief ÉèÖÃNPCµÄ»î¶¯·¶Î§
+ * \brief è®¾ç½®NPCçš„æ´»åŠ¨èŒƒå›´
  *
- * \param pos ÖĞĞÄÎ»ÖÃ
- * \param x,y ·¶Î§µÄ¿íºÍ¸ß
+ * \param pos ä¸­å¿ƒä½ç½®
+ * \param x,y èŒƒå›´çš„å®½å’Œé«˜
  * \return 
  */
 void NpcAIController::setActRegion(zPos pos, int x, int y)
@@ -969,14 +969,14 @@ void NpcAIController::setActRegion(zPos pos, int x, int y)
 	actPos = pos;
 	if (0<=x) actRegionX = x>=npc_min_act_region?x:npc_min_act_region;
 	if (0<=y) actRegionY = y>=npc_min_act_region?y:npc_min_act_region;
-	//Channel::sendNine(npc, "»î¶¯·¶Î§:(%d,%d) x=%d y=%d", actPos.x, actPos.y, actRegionX, actRegionY);
+	//Channel::sendNine(npc, "æ´»åŠ¨èŒƒå›´:(%d,%d) x=%d y=%d", actPos.x, actPos.y, actRegionX, actRegionY);
 }
 
 /**
- * \brief µÃµ½NPCµÄ»î¶¯·¶Î§
+ * \brief å¾—åˆ°NPCçš„æ´»åŠ¨èŒƒå›´
  *
- * \param pos Êä³ö£ºÖĞĞÄÎ»ÖÃ
- * \param x,y Êä³ö£º·¶Î§µÄ¿íºÍ¸ß
+ * \param pos è¾“å‡ºï¼šä¸­å¿ƒä½ç½®
+ * \param x,y è¾“å‡ºï¼šèŒƒå›´çš„å®½å’Œé«˜
  */
 void NpcAIController::getActRegion(zPos &pos, int &x, int &y)
 {
@@ -986,9 +986,9 @@ void NpcAIController::getActRegion(zPos &pos, int &x, int &y)
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
- * \param sn Òª¿ØÖÆµÄnpcÖ¸Õë
+ * \param sn è¦æ§åˆ¶çš„npcæŒ‡é’ˆ
  */
 	NpcAIController::NpcAIController(SceneNpc * sn)
 :curPhase(0),repeat(-1),active(false),npc(sn),reached(false)
@@ -1001,10 +1001,10 @@ void NpcAIController::getActRegion(zPos &pos, int &x, int &y)
 }
 
 /**
- * \brief ¶ÁÈ¡NPCÖÇÄÜ½Å±¾
+ * \brief è¯»å–NPCæ™ºèƒ½è„šæœ¬
  *
- * \param id ½Å±¾ID
- * \return ÊÇ·ñ¼ÓÔØ³É¹¦
+ * \param id è„šæœ¬ID
+ * \return æ˜¯å¦åŠ è½½æˆåŠŸ
  */
 bool NpcAIController::loadScript(unsigned int id)
 {
@@ -1016,7 +1016,7 @@ bool NpcAIController::loadScript(unsigned int id)
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["mapdir"] + "NpcAIScript.xml"))
 	{
-		Zebra::logger->error("´ò¿ªNPC½Å±¾ÎÄ¼şÊ§°Ü %s", (Zebra::global["mapdir"] + "NpcAIScript.xml").c_str());
+		Zebra::logger->error("æ‰“å¼€NPCè„šæœ¬æ–‡ä»¶å¤±è´¥ %s", (Zebra::global["mapdir"] + "NpcAIScript.xml").c_str());
 		return false;
 	}
 
@@ -1058,26 +1058,26 @@ bool NpcAIController::loadScript(unsigned int id)
 
 			if (!phaseVector.empty())
 			{
-				if (id>500) active = true;//500ÒÔÏÂÊÇ¹²Ïí½Å±¾£¬²»Ëã×÷ÌØÊânpc
+				if (id>500) active = true;//500ä»¥ä¸‹æ˜¯å…±äº«è„šæœ¬ï¼Œä¸ç®—ä½œç‰¹æ®Šnpc
 				nextPhase(0);
-				//Zebra::logger->info("[AI]%s ¶ÁÈ¡NPCÖÇÄÜ½Å±¾ id=%d phase=%d", npc->name, id, phaseVector.size());
+				//Zebra::logger->info("[AI]%s è¯»å–NPCæ™ºèƒ½è„šæœ¬ id=%d phase=%d", npc->name, id, phaseVector.size());
 				return true;
 			}
 			else
 			{
-				Zebra::logger->info("¶ÁÈ¡¿ÕÖÇÄÜ½Å±¾ id=%d", id);
+				Zebra::logger->info("è¯»å–ç©ºæ™ºèƒ½è„šæœ¬ id=%d", id);
 				return false;
 			}
 		}
 		scriptNode = xml.getNextNode(scriptNode, "script");
 	}
 
-	Zebra::logger->debug("Î´ÕÒµ½AI½Å±¾ id=%d", id);
+	Zebra::logger->debug("æœªæ‰¾åˆ°AIè„šæœ¬ id=%d", id);
 	return false;
 }
 
 /**
- * \brief Ğ¶ÔØ½Å±¾
+ * \brief å¸è½½è„šæœ¬
  *
  */
 void NpcAIController::unloadScript()
@@ -1087,13 +1087,13 @@ void NpcAIController::unloadScript()
 }
 
 /**
- * \brief ÉèÖÃ½Å±¾Ñ­»·´ÎÊı
- * ´ÎÊıÓĞ3¸ö·¶Î§£º
- * -1£ºÎŞÏŞÑ­»·
- *  0£ºÒÑ¾­½áÊø
- *  >0£ºµİ¼õ
+ * \brief è®¾ç½®è„šæœ¬å¾ªç¯æ¬¡æ•°
+ * æ¬¡æ•°æœ‰3ä¸ªèŒƒå›´ï¼š
+ * -1ï¼šæ— é™å¾ªç¯
+ *  0ï¼šå·²ç»ç»“æŸ
+ *  >0ï¼šé€’å‡
  *
- * \param re ´ÎÊı
+ * \param re æ¬¡æ•°
  */
 void NpcAIController::setRepeat(int re)
 {
@@ -1101,9 +1101,9 @@ void NpcAIController::setRepeat(int re)
 }
 
 /**
- * \brief µÃµ½Ñ­»·´ÎÊı
+ * \brief å¾—åˆ°å¾ªç¯æ¬¡æ•°
  *
- * \return Ñ­»·´ÎÊı
+ * \return å¾ªç¯æ¬¡æ•°
  */
 int NpcAIController::getRepeat()
 {
@@ -1111,9 +1111,9 @@ int NpcAIController::getRepeat()
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñÆğÓÃÁË½Å±¾
+ * \brief æ£€æŸ¥æ˜¯å¦èµ·ç”¨äº†è„šæœ¬
  *
- * \return ÊÇ·ñÆğÓÃÁË½Å±¾
+ * \return æ˜¯å¦èµ·ç”¨äº†è„šæœ¬
  */
 bool NpcAIController::isActive()
 {
@@ -1121,10 +1121,10 @@ bool NpcAIController::isActive()
 }
 
 /**
- * \brief ¸ù¾İ×Ö·û´®µÃµ½¶¯×÷±êÊ¶
+ * \brief æ ¹æ®å­—ç¬¦ä¸²å¾—åˆ°åŠ¨ä½œæ ‡è¯†
  *
- * \param action ´«ÈëµÄ×Ö·û´®
- * \return ½âÎö³öµÄ±êÊ¶
+ * \param action ä¼ å…¥çš„å­—ç¬¦ä¸²
+ * \return è§£æå‡ºçš„æ ‡è¯†
  */
 SceneNpcAIType NpcAIController::parseAction(char * action)
 {
@@ -1140,14 +1140,14 @@ SceneNpcAIType NpcAIController::parseAction(char * action)
 	if (!strcmp(action, "dropitem")) return NPC_AI_DROP_ITEM;
 	if (!strcmp(action, "randomchat")) return NPC_AI_RANDOM_CHAT;
 
-	Zebra::logger->error("parseAction : Î´ÖªµÄ½Å±¾¶¯×÷ %s", action);
+	Zebra::logger->error("parseAction : æœªçŸ¥çš„è„šæœ¬åŠ¨ä½œ %s", action);
 	return NPC_AI_NORMAL;
 }
 
 /**
- * \brief ÉèÖÃ¸Ã½×¶ÎµÄ½áÊøÊ±¼ä
+ * \brief è®¾ç½®è¯¥é˜¶æ®µçš„ç»“æŸæ—¶é—´
  *
- * \param delay ´ÓÏÖÔÚ¿ªÊ¼µÄÑÓ³Ù£¬ºÁÃëÎªµ¥Î»
+ * \param delay ä»ç°åœ¨å¼€å§‹çš„å»¶è¿Ÿï¼Œæ¯«ç§’ä¸ºå•ä½
  */
 void NpcAIController::setPhaseTime(const int delay)
 {
@@ -1156,9 +1156,9 @@ void NpcAIController::setPhaseTime(const int delay)
 }
 
 /**
- * \brief ÑÓ³¤¸Ã½×¶Î½áÊøµÄÊ±¼ä
+ * \brief å»¶é•¿è¯¥é˜¶æ®µç»“æŸçš„æ—¶é—´
  *
- * \param delay ÑÓ³¤µÄÊ±¼ä£¬µ¥Î»ºÁÃë
+ * \param delay å»¶é•¿çš„æ—¶é—´ï¼Œå•ä½æ¯«ç§’
  */
 void NpcAIController::delayPhaseTime(const int delay)
 {
@@ -1166,9 +1166,9 @@ void NpcAIController::delayPhaseTime(const int delay)
 }
 
 /**
- * \brief ¼ì²é½×¶ÎÊ±¼äÊÇ·ñ½áÊø
+ * \brief æ£€æŸ¥é˜¶æ®µæ—¶é—´æ˜¯å¦ç»“æŸ
  *
- * \return ÊÇ·ñµ½ÁË½×¶Î½áÊøÊ±¼ä
+ * \return æ˜¯å¦åˆ°äº†é˜¶æ®µç»“æŸæ—¶é—´
  */
 bool NpcAIController::phaseTimeOver()
 {
@@ -1179,13 +1179,13 @@ bool NpcAIController::phaseTimeOver()
 }
 
 /**
- * \brief ½øÈëÏÂÒ»½×¶Î
+ * \brief è¿›å…¥ä¸‹ä¸€é˜¶æ®µ
  *
- * \param index ¿ÉÒÔÖ¸¶¨Òª½øÈëµÄ½×¶Î±àºÅ£¬-1±íÊ¾ÏÂÒ»½×¶Î
+ * \param index å¯ä»¥æŒ‡å®šè¦è¿›å…¥çš„é˜¶æ®µç¼–å·ï¼Œ-1è¡¨ç¤ºä¸‹ä¸€é˜¶æ®µ
  */
 void NpcAIController::nextPhase(int index = -1)
 {
-	/* //²»ÊÇÌØÊânpcÒ²ÒªÖ´ĞĞ½Å±¾
+	/* //ä¸æ˜¯ç‰¹æ®Šnpcä¹Ÿè¦æ‰§è¡Œè„šæœ¬
 	   if (!active)
 	   {
 	   setNormalAI();
@@ -1231,13 +1231,13 @@ void NpcAIController::nextPhase(int index = -1)
 
 	if (phaseVector.size())
 		setAI(phaseVector[curPhase]);
-	//Channel::sendNine(npc, "½øÈë½×¶Î%d", curPhase);
+	//Channel::sendNine(npc, "è¿›å…¥é˜¶æ®µ%d", curPhase);
 }
 
 /**
- * \brief ´¦Àí½×¶Î½áÊøµÄÊÂ¼ş
- * ²»Í¬½×¶Î½áÊøÊ±´¦Àí²»Í¬
- * ÒÆ¶¯/Ñ²Âß/»Øµ½·¶Î§£ºÈç¹ûÊ±¼ä½áÊøÎ´µ½´ïÄ¿µÄµØÔòË²ÒÆ¹ıÈ¥
+ * \brief å¤„ç†é˜¶æ®µç»“æŸçš„äº‹ä»¶
+ * ä¸åŒé˜¶æ®µç»“æŸæ—¶å¤„ç†ä¸åŒ
+ * ç§»åŠ¨/å·¡é€»/å›åˆ°èŒƒå›´ï¼šå¦‚æœæ—¶é—´ç»“æŸæœªåˆ°è¾¾ç›®çš„åœ°åˆ™ç¬ç§»è¿‡å»
  *
  */
 void NpcAIController::on_phaseEnd()
@@ -1280,8 +1280,8 @@ void NpcAIController::on_phaseEnd()
 }
 
 /**
- * \brief ¼ì²é¸÷ÖÖÊÂ¼ş£¬²¢ÇĞ»»ÏàÓ¦×´Ì¬
- * ¸Ã·½·¨ÔÚSceneNpc::actionÖĞÖ´ĞĞ
+ * \brief æ£€æŸ¥å„ç§äº‹ä»¶ï¼Œå¹¶åˆ‡æ¢ç›¸åº”çŠ¶æ€
+ * è¯¥æ–¹æ³•åœ¨SceneNpc::actionä¸­æ‰§è¡Œ
  *
  */
 void NpcAIController::processPhase()
@@ -1301,8 +1301,8 @@ void NpcAIController::processPhase()
 			//&&curAI.type!=NPC_AI_PATROL
 			&&curAI.type!=NPC_AI_FLEE
 			&&curAI.type!=NPC_AI_WAIT
-			&&(Cmd::PET_TYPE_NOTPET==npc->getPetType())//³èÎï²»ÅĞ¶Ï·¶Î§
-			&&((NPC_TYPE_GUARD==npc->npc->kind)||(npc->aif&AIF_ATK_REDNAME)||curAI.type==NPC_AI_PATROL||npc->aif&AIF_LIMIT_REGION)//ÎÀ±øºÍÑ²Âß²Å»Øµ½Ô­Î»
+			&&(Cmd::PET_TYPE_NOTPET==npc->getPetType())//å® ç‰©ä¸åˆ¤æ–­èŒƒå›´
+			&&((NPC_TYPE_GUARD==npc->npc->kind)||(npc->aif&AIF_ATK_REDNAME)||curAI.type==NPC_AI_PATROL||npc->aif&AIF_LIMIT_REGION)//å«å…µå’Œå·¡é€»æ‰å›åˆ°åŸä½
 			&&outOfRegion())
 		returnToRegion();
 
@@ -1339,7 +1339,7 @@ void NpcAIController::processPhase()
 				   */
 				if (arrived(curAI.pos))
 				{
-					//Channel::sendNine(npc, "µ½´ï(%d,%d)", curAI.pos.x, curAI.pos.y);
+					//Channel::sendNine(npc, "åˆ°è¾¾(%d,%d)", curAI.pos.x, curAI.pos.y);
 					setActRegion(curAI.pos, curAI.regionX, curAI.regionY);
 					nextPhase();
 				}
@@ -1379,7 +1379,7 @@ void NpcAIController::processPhase()
 }
 
 /**
- * \brief npc¸´»îÊÂ¼şµÄ´¦Àí
+ * \brief npcå¤æ´»äº‹ä»¶çš„å¤„ç†
  *
  */
 void NpcAIController::on_relive()
@@ -1397,10 +1397,10 @@ void NpcAIController::on_relive()
 }
 
 /**
- * \brief ÉèÖÃnpcµÄAI£¬ÉèÖÃ½×¶ÎÊ±¼ä
+ * \brief è®¾ç½®npcçš„AIï¼Œè®¾ç½®é˜¶æ®µæ—¶é—´
  *
- * \param ai ÒªÉèÖÃµÄAI£¨²ÉÓÃÒıÓÃ»áÓĞÎÊÌâ
- * \param setTime ÊÇ·ñÍ¬Ê±ÉèÖÃÊ±¼ä,Ä¬ÈÏÎªÕæ
+ * \param ai è¦è®¾ç½®çš„AIï¼ˆé‡‡ç”¨å¼•ç”¨ä¼šæœ‰é—®é¢˜
+ * \param setTime æ˜¯å¦åŒæ—¶è®¾ç½®æ—¶é—´,é»˜è®¤ä¸ºçœŸ
  */
 void NpcAIController::setAI(const t_NpcAIDefine ai, const bool setTime)
 {
@@ -1430,10 +1430,10 @@ void NpcAIController::setAI(const t_NpcAIDefine ai, const bool setTime)
 
 
 /**
- * \brief ½»»»oldAIºÍcurAI
+ * \brief äº¤æ¢oldAIå’ŒcurAI
  *
  *
- * \param setTime ÊÇ·ñÍ¬Ê±ÉèÖÃÊ±¼ä,Ä¬ÈÏÎªÕæ
+ * \param setTime æ˜¯å¦åŒæ—¶è®¾ç½®æ—¶é—´,é»˜è®¤ä¸ºçœŸ
  */
 void NpcAIController::switchAI(const bool setTime)
 {
@@ -1444,12 +1444,12 @@ void NpcAIController::switchAI(const bool setTime)
 }
 
 /**
- * \brief ÅĞ¶ÏnpcÊÇ·ñµ½´ïÄ³Î»ÖÃµÄÄ³·¶Î§ÄÚ
+ * \brief åˆ¤æ–­npcæ˜¯å¦åˆ°è¾¾æŸä½ç½®çš„æŸèŒƒå›´å†…
  *
- * \param pos ÖĞĞÄÎ»ÖÃ£¬Ä¬ÈÏÊÇµ±Ç°AIµÄÄ¿±êÎ»ÖÃ
- * \param regionX ·¶Î§¿í£¬Ä¬ÈÏÊÇµ±Ç°AIµÄ·¶Î§¿í
- * \param regionY ·¶Î§¸ß£¬Ä¬ÈÏÊÇµ±Ç°AIµÄ·¶Î§¸ß
- * \return ÊÇ·ñÔÚ·¶Î§ÄÚ
+ * \param pos ä¸­å¿ƒä½ç½®ï¼Œé»˜è®¤æ˜¯å½“å‰AIçš„ç›®æ ‡ä½ç½®
+ * \param regionX èŒƒå›´å®½ï¼Œé»˜è®¤æ˜¯å½“å‰AIçš„èŒƒå›´å®½
+ * \param regionY èŒƒå›´é«˜ï¼Œé»˜è®¤æ˜¯å½“å‰AIçš„èŒƒå›´é«˜
+ * \return æ˜¯å¦åœ¨èŒƒå›´å†…
  */
 bool NpcAIController::arrived(zPos pos, int regionX, int regionY)
 {
@@ -1465,9 +1465,9 @@ bool NpcAIController::arrived(zPos pos, int regionX, int regionY)
 }
 
 /**
- * \brief ÊÇ·ñµ½´ïÄ¿µÄµØ
- * Ä¿µÄµØµÄ¶¨ÒåÊÇ½Å±¾ÖĞ×îºóÒ»¸öÒÆ¶¯µÄÎ»ÖÃ
- * µØÍ¼²»Í¬²»Ëãµ½´ï
+ * \brief æ˜¯å¦åˆ°è¾¾ç›®çš„åœ°
+ * ç›®çš„åœ°çš„å®šä¹‰æ˜¯è„šæœ¬ä¸­æœ€åä¸€ä¸ªç§»åŠ¨çš„ä½ç½®
+ * åœ°å›¾ä¸åŒä¸ç®—åˆ°è¾¾
  *
  */
 bool NpcAIController::dstReached()
@@ -1481,7 +1481,7 @@ bool NpcAIController::dstReached()
 }
 
 /**
- * \brief ´¦ÀínpcËÀÍöµÄÊÂ¼ş
+ * \brief å¤„ç†npcæ­»äº¡çš„äº‹ä»¶
  *
  */
 void NpcAIController::on_die()
@@ -1491,9 +1491,9 @@ void NpcAIController::on_die()
 }
 
 /**
- * \brief Ö´ĞĞÇå³ıAI
+ * \brief æ‰§è¡Œæ¸…é™¤AI
  *
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool SceneNpc::doClearAI()
 {
@@ -1502,13 +1502,13 @@ bool SceneNpc::doClearAI()
 	{
 		setClearState();
 
-		if (npc->id==ALLY_GUARDNPC)//ÃË¹úïÚ³µ
+		if (npc->id==ALLY_GUARDNPC)//ç›Ÿå›½é•–è½¦
 		{
 			Cmd::Session::t_allyNpcClear_SceneSession send;
 			send.dwCountryID = scene->getCountryID();
 			sessionClient->sendCmd(&send, sizeof(send));
 
-			Zebra::logger->debug("%s ÃË¹úïÚ³µ %u µ½´ï", 
+			Zebra::logger->debug("%s ç›Ÿå›½é•–è½¦ %u åˆ°è¾¾", 
 							SceneManager::getInstance().getCountryNameByCountryID(scene->getCountryID()),
 							tempid);
 		}
@@ -1518,9 +1518,9 @@ bool SceneNpc::doClearAI()
 }
 
 /**
- * \brief Ö´ĞĞ¶ª¶«Î÷AI
+ * \brief æ‰§è¡Œä¸¢ä¸œè¥¿AI
  *
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool SceneNpc::doDropItemAI()
 {
@@ -1528,7 +1528,7 @@ bool SceneNpc::doDropItemAI()
 	zObjectB *ob = objectbm.get(AIDefine.pos.x);
 	if (!ob)
 	{
-		Zebra::logger->debug("%s ÕÒ²»µ½Òª¶ªµÄÎïÆ· id=%u num=%u", name, AIDefine.pos.x, AIDefine.pos.y);
+		Zebra::logger->debug("%s æ‰¾ä¸åˆ°è¦ä¸¢çš„ç‰©å“ id=%u num=%u", name, AIDefine.pos.x, AIDefine.pos.y);
 		return false;
 	}
 
@@ -1542,9 +1542,9 @@ bool SceneNpc::doDropItemAI()
 }
 
 /**
- * \brief Ö´ĞĞËµ»°AI
+ * \brief æ‰§è¡Œè¯´è¯AI
  *
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool SceneNpc::doSayAI()
 {
@@ -1557,9 +1557,9 @@ bool SceneNpc::doSayAI()
 }
 
 /**
- * \brief Ö´ĞĞËæ»úËµ»°AI£¬Ëµ»°ÄÚÈİÔÚNpcCommonChat.xmlÀïµÄÀàĞÍ9
+ * \brief æ‰§è¡Œéšæœºè¯´è¯AIï¼Œè¯´è¯å†…å®¹åœ¨NpcCommonChat.xmlé‡Œçš„ç±»å‹9
  *
- * \return ÊÇ·ñÖ´ĞĞ³É¹¦
+ * \return æ˜¯å¦æ‰§è¡ŒæˆåŠŸ
  */
 bool SceneNpc::doRandomChatAI()
 {
@@ -1573,35 +1573,35 @@ bool SceneNpc::doRandomChatAI()
 }
 
 /**
- * \brief Ñ¡Ôñ¹¥»÷Ä¿±ê
+ * \brief é€‰æ‹©æ”»å‡»ç›®æ ‡
  *
- * \param enemies µĞÈËÁĞ±í
- * \return ÕÒµ½µÄµĞÈË£¬Ã»ÖªµÀµ½·µ»Ø0
+ * \param enemies æ•Œäººåˆ—è¡¨
+ * \return æ‰¾åˆ°çš„æ•Œäººï¼Œæ²¡çŸ¥é“åˆ°è¿”å›0
  */
 SceneEntryPk * SceneNpc::chooseEnemy(SceneEntryPk_vec& enemies)
 {
-	//·ÇÕ½¶·npc
+	//éæˆ˜æ–—npc
 	if (!canFight()) return false;
 
 	SceneEntryPk * ret = 0;
 
-	//ÏÈ¼ì²éÏÖÓĞµÄÄ¿±ê
+	//å…ˆæ£€æŸ¥ç°æœ‰çš„ç›®æ ‡
 	if (!ret)
 		checkChaseAttackTarget(ret);
 
-	//BOSSÓĞ10%µÄ¸ÅÂÊÖØĞÂÑ°ÕÒÄ¿±ê
+	//BOSSæœ‰10%çš„æ¦‚ç‡é‡æ–°å¯»æ‰¾ç›®æ ‡
 	if ((npc->kind==NPC_TYPE_BBOSS||npc->kind==NPC_TYPE_LBOSS||npc->kind==NPC_TYPE_PBOSS) && zMisc::selectByPercent(10))
 		ret = 0;
 
 	if (!ret)
 	{
-		//±»¶¯npc
+		//è¢«åŠ¨npc
 		if (enemies.empty()) return 0;
 		if (!isActive()) return 0;
 		//if ((!(aif&AIF_ACTIVE_MODE))||(petAI&Cmd::PETAI_ATK_PASSIVE)) return 0;
 
 		/*
-		//È¡µÃ¸½½ünpc
+		//å–å¾—é™„è¿‘npc
 		SceneEntryPk_vec enemies;
 		int r = npc_search_region;
 		if (aif&AIF_DOUBLE_REGION)
@@ -1609,21 +1609,21 @@ SceneEntryPk * SceneNpc::chooseEnemy(SceneEntryPk_vec& enemies)
 		if (!getEntries(r, enemies, 1)) return 0;
 		*/
 
-		//Ã»ÓĞÌØÊâÌõ¼şÔò¹¥»÷×î½üµÄÄ¿±ê
+		//æ²¡æœ‰ç‰¹æ®Šæ¡ä»¶åˆ™æ”»å‡»æœ€è¿‘çš„ç›®æ ‡
 		/*
 		   if (!(aif&(AIF_ATK_PDEF|AIF_ATK_MDEF|AIF_ATK_HP)))
 		   ret = enemies[0];
 		   else
 		   */
 		{
-			//ÅĞ¶ÏÌØÊâÌõ¼ş
+			//åˆ¤æ–­ç‰¹æ®Šæ¡ä»¶
 			DWORD minValue = 0xffffffff;
 			for (unsigned int i=0; i<enemies.size(); i++)
 			{
 				if (getTopMaster()->getType()==zSceneEntry::SceneEntry_Player
 						&& getPetType()!=Cmd::PET_TYPE_NOTPET)
 				{
-					//³èÎï²»»áÖ÷¶¯¹¥»÷ÊØÎÀ
+					//å® ç‰©ä¸ä¼šä¸»åŠ¨æ”»å‡»å®ˆå«
 					if (enemies[i]->getType()==zSceneEntry::SceneEntry_NPC)
 					{
 						SceneNpc * n = (SceneNpc *)enemies[i];
@@ -1631,12 +1631,12 @@ SceneEntryPk * SceneNpc::chooseEnemy(SceneEntryPk_vec& enemies)
 							continue;
 					}
 
-					//²»ÇÀ¹Ö
+					//ä¸æŠ¢æ€ª
 					SceneEntryPk *tar = enemies[i]->getCurTarget();
-					if (tar && 0!=isEnemy(tar))//ÊÇ±ğÈËµÄ¹Ö
+					if (tar && 0!=isEnemy(tar))//æ˜¯åˆ«äººçš„æ€ª
 						continue;
 
-					//ÖÜÎ§Ã»ÓĞÍæ¼ÒÊ±²Å¹¥»÷¹ÖÎï
+					//å‘¨å›´æ²¡æœ‰ç©å®¶æ—¶æ‰æ”»å‡»æ€ªç‰©
 					if (enemies[i]->getTopMaster()->getType()==zSceneEntry::SceneEntry_NPC
 							&& i<enemies.size()-1)
 						continue;
@@ -1686,7 +1686,7 @@ SceneEntryPk * SceneNpc::chooseEnemy(SceneEntryPk_vec& enemies)
 		}
 	}
 
-	//Ö±½Ó¹¥»÷³èÎïµÄÖ÷ÈË
+	//ç›´æ¥æ”»å‡»å® ç‰©çš„ä¸»äºº
 	if (ret&&(aif&AIF_ATK_MASTER))
 	{
 		SceneEntryPk * tmp = ret->getMaster();
@@ -1700,9 +1700,9 @@ SceneEntryPk * SceneNpc::chooseEnemy(SceneEntryPk_vec& enemies)
 }
 
 /**
- * \brief ¸ø×Ô¼ºÖÎÁÆ
+ * \brief ç»™è‡ªå·±æ²»ç–—
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::healSelf()
 {
@@ -1720,9 +1720,9 @@ bool SceneNpc::healSelf()
 }
 
 /**
- * \brief ¸ø×Ô¼º¼Óbuff
+ * \brief ç»™è‡ªå·±åŠ buff
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::buffSelf()
 {
@@ -1730,7 +1730,7 @@ bool SceneNpc::buffSelf()
 	if (npc->getRandomSkillByType(SKILL_TYPE_BUFF, skill))
 		if (zMisc::selectByPercent(skill.rate))
 		{
-			//Channel::sendNine(this, "ÎÒ¸ø×Ô¼ºbuff");
+			//Channel::sendNine(this, "æˆ‘ç»™è‡ªå·±buff");
 			if ((211==skill.id)&&(summon))
 				return false;
 			return useSkill(this, skill.id);
@@ -1739,11 +1739,11 @@ bool SceneNpc::buffSelf()
 }
 
 /**
- * \brief ¸øµĞÈËdebuff
+ * \brief ç»™æ•Œäººdebuff
  *
  *
- * \param enemy ¶ÔÏóÖ¸Õë
- * \return ÊÇ·ñ³É¹¦
+ * \param enemy å¯¹è±¡æŒ‡é’ˆ
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::debuffEnemy(SceneEntryPk * enemy)
 {
@@ -1751,7 +1751,7 @@ bool SceneNpc::debuffEnemy(SceneEntryPk * enemy)
 	if (npc->getRandomSkillByType(SKILL_TYPE_DEBUFF, skill))
 		if (zMisc::selectByPercent(skill.rate))
 		{
-			//Channel::sendNine(this, "ÎÒ¸ø %s debuff", enemy->name);
+			//Channel::sendNine(this, "æˆ‘ç»™ %s debuff", enemy->name);
 			return useSkill(enemy, skill.id);
 		}
 	return false;
@@ -1759,15 +1759,15 @@ bool SceneNpc::debuffEnemy(SceneEntryPk * enemy)
 
 
 /**
- * \brief ¹¥»÷µĞÈË
+ * \brief æ”»å‡»æ•Œäºº
  *
  *
- * \param enemy ¹¥»÷¶ÔÏó
- * \return ¹¥»÷ÊÇ·ñ³É¹¦
+ * \param enemy æ”»å‡»å¯¹è±¡
+ * \return æ”»å‡»æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::attackEnemy(SceneEntryPk * enemy)
 {
-	//ÓÅÏÈÊ¹ÓÃ¼¼ÄÜ
+	//ä¼˜å…ˆä½¿ç”¨æŠ€èƒ½
 	npcSkill skill;
 	if (npc->getRandomSkillByType(SKILL_TYPE_DAMAGE, skill))
 		if (zMisc::selectByPercent(skill.rate))
@@ -1783,11 +1783,11 @@ bool SceneNpc::attackEnemy(SceneEntryPk * enemy)
 
 
 /**
- * \brief ÏòÄ¿±êÒÆ¶¯
+ * \brief å‘ç›®æ ‡ç§»åŠ¨
  *
  *
- * \param enemy ÒÆ¶¯Ä¿±ê¶ÔÏó
- * \return ÊÇ·ñ³É¹¦
+ * \param enemy ç§»åŠ¨ç›®æ ‡å¯¹è±¡
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::moveToEnemy(SceneEntryPk * enemy)
 {
@@ -1803,7 +1803,7 @@ bool SceneNpc::moveToEnemy(SceneEntryPk * enemy)
 			if (!gotoFindPath(getPos(), enemy->getPos()))
 			{
 #ifdef _XWL_DEBUG
-				//Zebra::logger->debug("%s Ñ°Â·Ê§°Ü closeCount=%u", name, closeCount);
+				//Zebra::logger->debug("%s å¯»è·¯å¤±è´¥ closeCount=%u", name, closeCount);
 #endif
 				if ((getPetType()==Cmd::PET_TYPE_NOTPET)
 						&&(npc->kind==NPC_TYPE_BBOSS||npc->kind==NPC_TYPE_LBOSS||npc->kind==NPC_TYPE_PBOSS))
@@ -1829,9 +1829,9 @@ bool SceneNpc::moveToEnemy(SceneEntryPk * enemy)
 
 
 /**
- * \brief ÖÎÁÆ×Ô¼ºµÄÍ¬°é
+ * \brief æ²»ç–—è‡ªå·±çš„åŒä¼´
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::healFellow(SceneEntryPk_vec &fellows)
 {
@@ -1855,11 +1855,11 @@ bool SceneNpc::healFellow(SceneEntryPk_vec &fellows)
 }
 
 /**
- * \brief ¸øÍ¬°ébuff
+ * \brief ç»™åŒä¼´buff
  *
  *
- * \param fellows Í¬°éÁĞ±í
- * \return ÊÇ·ñ³É¹¦
+ * \param fellows åŒä¼´åˆ—è¡¨
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::buffFellow(SceneEntryPk_vec &fellows)
 {
@@ -1896,11 +1896,11 @@ bool SceneNpc::buffFellow(SceneEntryPk_vec &fellows)
 }
 
 /**
- * \brief ¸ø°ïÖúÍ¬°é¹¥»÷
+ * \brief ç»™å¸®åŠ©åŒä¼´æ”»å‡»
  *
  *
- * \param fellows Í¬°éÁĞ±í
- * \return ÊÇ·ñ³É¹¦
+ * \param fellows åŒä¼´åˆ—è¡¨
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::helpFellow(SceneEntryPk_vec &fellows)
 {
@@ -1939,9 +1939,9 @@ bool SceneNpc::helpFellow(SceneEntryPk_vec &fellows)
 }
 
 /**
- * \brief Ëæ»úÒÆ¶¯
+ * \brief éšæœºç§»åŠ¨
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::randomMove()
 {
@@ -1956,24 +1956,24 @@ bool SceneNpc::randomMove()
 		zPosI newPosI = 0;
 		scene->zPos2zPosI(newPos, newPosI);
 		if (getPosI()==newPosI)
-			return shiftMove(dir);//Ëæ»úÒÆ¶¯
+			return shiftMove(dir);//éšæœºç§»åŠ¨
 	}
 	return false;
 }
 
 /**
- * \brief ÅĞ¶ÏÒ»¸öentryÊÇ²»ÊÇµĞÈË
- * ·´¹ıÀ´ÓÃÓÚÅĞ¶ÏÒ»¸ö¶ÔÏóÊÇ²»ÊÇÓÑ·½
- * Èç¹ûÊÇÖ÷ÈËÔò²»ÊÇµĞÈË
- * Èç¹û¶Ô·½ÓĞÖ÷ÈËÔò¸úÖ÷ÈËĞÔÖÊÏàÍ¬
- * Èç¹û¿¼ÂÇ÷È»ó×´Ì¬ÔòÏà·´
+ * \brief åˆ¤æ–­ä¸€ä¸ªentryæ˜¯ä¸æ˜¯æ•Œäºº
+ * åè¿‡æ¥ç”¨äºåˆ¤æ–­ä¸€ä¸ªå¯¹è±¡æ˜¯ä¸æ˜¯å‹æ–¹
+ * å¦‚æœæ˜¯ä¸»äººåˆ™ä¸æ˜¯æ•Œäºº
+ * å¦‚æœå¯¹æ–¹æœ‰ä¸»äººåˆ™è·Ÿä¸»äººæ€§è´¨ç›¸åŒ
+ * å¦‚æœè€ƒè™‘é­…æƒ‘çŠ¶æ€åˆ™ç›¸å
  *
- * Íæ¼ÒÄ¬ÈÏÊÇµĞÈË
- * npcÄ¬ÈÏÊÇÓÑ·½
+ * ç©å®¶é»˜è®¤æ˜¯æ•Œäºº
+ * npcé»˜è®¤æ˜¯å‹æ–¹
  *
- * \param entry ¶ÔÏóÖ¸Õë
- * \param notify ÊÇ·ñÍ¨Öª
- * \return 0:ÓÑ·½ 1£ºÊÇµĞÈË -1£ºÖĞÁ¢`
+ * \param entry å¯¹è±¡æŒ‡é’ˆ
+ * \param notify æ˜¯å¦é€šçŸ¥
+ * \return 0:å‹æ–¹ 1ï¼šæ˜¯æ•Œäºº -1ï¼šä¸­ç«‹`
  */
 int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 {
@@ -1987,14 +1987,14 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 	   return (isEnemy(etm));
 	   */
 
-	if (npc->kind==NPC_TYPE_SOLDIER)//Ê¿±ø£¬Ö»¹¥»÷Íâ¹úÈË
+	if (npc->kind==NPC_TYPE_SOLDIER)//å£«å…µï¼Œåªæ”»å‡»å¤–å›½äºº
 	{
 		if (entry->getCurTarget()==this) return 1;
 		if (entry->getTopMaster()->getType()!=zSceneEntry::SceneEntry_Player) return -1;
 		SceneUser * pUser = (SceneUser *)entry->getTopMaster();
 		if (pUser->mask.is_masking() && !pUser->isSpecWar(Cmd::COUNTRY_FORMAL_DARE)) return -1;
 
-		//ÖĞÁ¢¹ú
+		//ä¸­ç«‹å›½
 		if (6==scene->getCountryID()) return -1;
 	
 		if (pUser->charbase.country!=scene->getCountryID())	return 1;
@@ -2002,7 +2002,7 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 		return -1;
 	}
 
-	if (npc->kind==NPC_TYPE_UNIONATTACKER)//¹¥·½Ê¿±ø
+	if (npc->kind==NPC_TYPE_UNIONATTACKER)//æ”»æ–¹å£«å…µ
 	{
 		if (entry->getCurTarget()==this) return 1;
 		if (entry->getTopMaster()->getType()!=zSceneEntry::SceneEntry_Player) return -1;
@@ -2013,21 +2013,21 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 			return 1;
 	}
 
-	if (npc->kind==NPC_TYPE_UNIONGUARD)//³ÇÕ½ÎÀ±ø
+	if (npc->kind==NPC_TYPE_UNIONGUARD)//åŸæˆ˜å«å…µ
 	{
 		if (entry->getCurTarget()==this) return 1;
 		if (entry->getTopMaster()->getType()!=zSceneEntry::SceneEntry_Player) return -1;
 		SceneUser * pUser = (SceneUser *)entry->getTopMaster();
-		if (pUser->isAtt(Cmd::UNION_CITY_DARE))//ÊÇ·ñ¹¥·½
+		if (pUser->isAtt(Cmd::UNION_CITY_DARE))//æ˜¯å¦æ”»æ–¹
 			return 1;
 		else
-			if (pUser->scene->getUnionDare() && !pUser->isSpecWar(Cmd::UNION_CITY_DARE))//³ÇÕ½ÆÚ¼äÓÖ²»´ò³ÇÕ½µÄ
+			if (pUser->scene->getUnionDare() && !pUser->isSpecWar(Cmd::UNION_CITY_DARE))//åŸæˆ˜æœŸé—´åˆä¸æ‰“åŸæˆ˜çš„
 				return 1;
 			else
-				return -1;//³ÇÕ½ÆÚ¼ä´ò³ÇÕ½¶øÇÒ²»ÊÇ¹¥·½£¬¾ÍÊÇÊØ·½
+				return -1;//åŸæˆ˜æœŸé—´æ‰“åŸæˆ˜è€Œä¸”ä¸æ˜¯æ”»æ–¹ï¼Œå°±æ˜¯å®ˆæ–¹
 	}
 
-	//ÎÀ±ø
+	//å«å…µ
 	if ((NPC_TYPE_GUARD==npc->kind)||(aif&AIF_ATK_REDNAME))
 	{
 		if (entry->getState()!=zSceneEntry::SceneEntry_Normal) return -1;
@@ -2056,12 +2056,12 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 							if (user->charbase.goodness&Cmd::GOODNESS_ATT)
 								return 0;
 
-							//´òÈËµÄ¹ÖÎï
+							//æ‰“äººçš„æ€ªç‰©
 							if (entry->getType()==zSceneEntry::SceneEntry_NPC)
 								return 1;
 							/*
 							   if (entry->getType()==zSceneEntry::SceneEntry_Player)
-							//±»Íæ¼Ò´òºóÕ½¶·×´Ì¬»¹Ã»È¡Ïû»áµ½ÕâÀï
+							//è¢«ç©å®¶æ‰“åæˆ˜æ–—çŠ¶æ€è¿˜æ²¡å–æ¶ˆä¼šåˆ°è¿™é‡Œ
 							return -1;
 							else if (entry->getType()==zSceneEntry::SceneEntry_NPC)
 							return 1;
@@ -2122,19 +2122,19 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 				if (((SceneNpc *)entry)->getPetType()==Cmd::PET_TYPE_CARTOON) return -1;
 				switch(((SceneNpc *)entry)->npc->kind)
 				{
-					case NPC_TYPE_HUMAN:			///ÈËĞÍ
-					case NPC_TYPE_NORMAL:			/// ÆÕÍ¨ÀàĞÍ
-					case NPC_TYPE_BBOSS:			/// ´óBossÀàĞÍ
-					case NPC_TYPE_PBOSS:			/// ×ÏBossÀàĞÍ
-					case NPC_TYPE_LBOSS:			/// Ğ¡BossÀàĞÍ
-					case NPC_TYPE_BACKBONE:			/// ¾«Ó¢ÀàĞÍ
-					case NPC_TYPE_GOLD:				/// »Æ½ğÀàĞÍ
-					case NPC_TYPE_SUMMONS:			/// ÕÙ»½ÀàĞÍ
-					case NPC_TYPE_AGGRANDIZEMENT:	/// Ç¿»¯ÀàĞÍ
-					case NPC_TYPE_ABERRANCE:		/// ±äÒìÀàĞÍ
-					case NPC_TYPE_BACKBONEBUG:		/// ¾«¹ÖÀàĞÍ
-					case NPC_TYPE_PET:	/// ³èÎïÀàĞÍ
-					case NPC_TYPE_TOTEM:			/// Í¼ÌÚÀàĞÍ
+					case NPC_TYPE_HUMAN:			///äººå‹
+					case NPC_TYPE_NORMAL:			/// æ™®é€šç±»å‹
+					case NPC_TYPE_BBOSS:			/// å¤§Bossç±»å‹
+					case NPC_TYPE_PBOSS:			/// ç´«Bossç±»å‹
+					case NPC_TYPE_LBOSS:			/// å°Bossç±»å‹
+					case NPC_TYPE_BACKBONE:			/// ç²¾è‹±ç±»å‹
+					case NPC_TYPE_GOLD:				/// é»„é‡‘ç±»å‹
+					case NPC_TYPE_SUMMONS:			/// å¬å”¤ç±»å‹
+					case NPC_TYPE_AGGRANDIZEMENT:	/// å¼ºåŒ–ç±»å‹
+					case NPC_TYPE_ABERRANCE:		/// å˜å¼‚ç±»å‹
+					case NPC_TYPE_BACKBONEBUG:		/// ç²¾æ€ªç±»å‹
+					case NPC_TYPE_PET:	/// å® ç‰©ç±»å‹
+					case NPC_TYPE_TOTEM:			/// å›¾è…¾ç±»å‹
 						{
 							SceneEntryPk * hisMaster = ((SceneNpc *)entry)->getTopMaster();
 							if (hisMaster->getType()==zSceneEntry::SceneEntry_Player)
@@ -2145,7 +2145,7 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 							   SceneEntryPk * hisMaster = ((SceneNpc *)entry)->getMaster();
 							   if (hisMaster)
 							   {
-							   Zebra::logger->debug("isEnemy 2166 %s(N)->%s(N) Ê±¿¼ÂÇ %s(Entry)", name, entry->name, hisMaster->name);
+							   Zebra::logger->debug("isEnemy 2166 %s(N)->%s(N) æ—¶è€ƒè™‘ %s(Entry)", name, entry->name, hisMaster->name);
 							   return isEnemy(hisMaster);
 							   }
 							   else
@@ -2153,11 +2153,11 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 							   */
 						}
 						break;
-					case NPC_TYPE_GUARD:	/// Ê¿±øÀàĞÍ
+					case NPC_TYPE_GUARD:	/// å£«å…µç±»å‹
 						//return 1;
 						//break;
-					case NPC_TYPE_TRADE:	/// ÂòÂôÀàĞÍ
-					case NPC_TYPE_TASK:		/// ÈÎÎñÀàĞÍ
+					case NPC_TYPE_TRADE:	/// ä¹°å–ç±»å‹
+					case NPC_TYPE_TASK:		/// ä»»åŠ¡ç±»å‹
 					default:
 						return -1;
 						break;
@@ -2173,7 +2173,7 @@ int SceneNpc::isEnemy(SceneEntryPk * entry, bool notify, bool good)
 }
 
 /**
- * \brief ·¢ËÍÖ¸Áîµ½µØÍ¼ÆÁË÷ÒıÖĞËùÓĞÍæ¼ÒµÄ»Øµ÷º¯Êı
+ * \brief å‘é€æŒ‡ä»¤åˆ°åœ°å›¾å±ç´¢å¼•ä¸­æ‰€æœ‰ç©å®¶çš„å›è°ƒå‡½æ•°
  *
  */
 struct getEntriesCallBack : public zSceneEntryCallBack
@@ -2187,9 +2187,9 @@ struct getEntriesCallBack : public zSceneEntryCallBack
 		entries.reserve(4 * radius * radius);
 	}
 	/**
-	 * \brief »Øµ÷º¯Êı
-	 * \param entry µØÍ¼Îï¼ş£¬ÕâÀïÊÇÍæ¼Ò¸önpc 
-	 * \return »Øµ÷ÊÇ·ñ³É¹¦
+	 * \brief å›è°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶ï¼Œè¿™é‡Œæ˜¯ç©å®¶ä¸ªnpc 
+	 * \return å›è°ƒæ˜¯å¦æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -2208,12 +2208,12 @@ struct getEntriesCallBack : public zSceneEntryCallBack
 };
 
 /**
- * \brief µÃµ½Ò»¶¨·¶Î§ÄÚµÄÓÑ·½
+ * \brief å¾—åˆ°ä¸€å®šèŒƒå›´å†…çš„å‹æ–¹
  *
- * \param radius ·¶Î§°ë¾¶
- * \param entries Êä³ö£º´æ·ÅµÃµ½µÄÖ¸ÕëµÄÈİÆ÷
- * \param state ÒªµÃµ½µÄ¶ÔÏóµÄ×´Ì¬ 0:ÓÑ·½ 1:µĞÈË -1:ÖĞÁ¢
- * \return ÊÇ·ñÕÒµ½
+ * \param radius èŒƒå›´åŠå¾„
+ * \param entries è¾“å‡ºï¼šå­˜æ”¾å¾—åˆ°çš„æŒ‡é’ˆçš„å®¹å™¨
+ * \param state è¦å¾—åˆ°çš„å¯¹è±¡çš„çŠ¶æ€ 0:å‹æ–¹ 1:æ•Œäºº -1:ä¸­ç«‹
+ * \return æ˜¯å¦æ‰¾åˆ°
  */
 bool SceneNpc::getEntries(int radius, SceneEntryPk_vec & entries, int state)
 {
@@ -2235,7 +2235,7 @@ bool SceneNpc::getEntries(int radius, SceneEntryPk_vec & entries, int state)
 
 
 /**
- * \brief ¼ì²éÖ÷ÈËµÄÎ»ÖÃ²¢ÏòÖ÷ÈËÒÆ¶¯
+ * \brief æ£€æŸ¥ä¸»äººçš„ä½ç½®å¹¶å‘ä¸»äººç§»åŠ¨
  *
  */
 bool SceneNpc::moveToMaster()
@@ -2244,9 +2244,9 @@ bool SceneNpc::moveToMaster()
 }
 
 /**
- * \brief ÌÓÀë×î½üµÄµĞÈË
+ * \brief é€ƒç¦»æœ€è¿‘çš„æ•Œäºº
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneNpc::runOffEnemy(SceneEntryPk_vec & enemies)
 {
@@ -2271,9 +2271,9 @@ bool SceneNpc::runOffEnemy(SceneEntryPk_vec & enemies)
 }
 
 /**
- * \brief ¼ì²énpcÊÇ·ñ±»°üÎ§
+ * \brief æ£€æŸ¥npcæ˜¯å¦è¢«åŒ…å›´
  *
- * \return ÊÇ·ñ±»°üÎ§
+ * \return æ˜¯å¦è¢«åŒ…å›´
  * 
  */
 bool SceneNpc::isSurrounded()

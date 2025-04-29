@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneUnion.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ²Æ²ú±£»¤ÃüÁîµÄ´¦Àí
+ * \brief å®ç°è´¢äº§ä¿æŠ¤å‘½ä»¤çš„å¤„ç†
  *
  */
 #include "SceneUser.h"
@@ -15,13 +15,13 @@
 #include "Command.h"
 
 /**
-  * \brief ´¦ÀíÓÃ»§²Æ²ú±£»¤ÃüÁî
+  * \brief å¤„ç†ç”¨æˆ·è´¢äº§ä¿æŠ¤å‘½ä»¤
   *
   *
-  * \param rev: ÃüÁî
-  * \param cmdLen: ÃüÁî³¤¶È
+  * \param rev: å‘½ä»¤
+  * \param cmdLen: å‘½ä»¤é•¿åº¦
   *
-  * \return ÃüÁî±»´¦Àí·µ»ØTRUE,·ñÔòÎªFALSE
+  * \return å‘½ä»¤è¢«å¤„ç†è¿”å›TRUE,å¦åˆ™ä¸ºFALSE
   *
   *
   */

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: Visitor.h  $
  * \author	
  * \date	2005-05-24
- * \brief	·ÀÖ¹ÎÞÐ§·ÃÎÊ
+ * \brief	é˜²æ­¢æ— æ•ˆè®¿é—®
  * 
  */
 

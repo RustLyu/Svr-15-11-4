@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zHttpTaskPool.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊµÏÖÇáÁ¿¼¶(lightweight)µÄhttp·şÎñ¿ò¼Ü
+ * \brief å®šä¹‰å®ç°è½»é‡çº§(lightweight)çš„httpæœåŠ¡æ¡†æ¶
  */
 
 
@@ -20,7 +20,7 @@
 #include "zTime.h"
 
 /**
- * \brief ÇáÁ¿¼¶http·şÎñµÄÖ÷´¦ÀíÏß³Ì
+ * \brief è½»é‡çº§httpæœåŠ¡çš„ä¸»å¤„ç†çº¿ç¨‹
  */
 class zHttpThread : public zThread
 {
@@ -28,26 +28,26 @@ class zHttpThread : public zThread
 	private:
 
 		/**
-		 * \brief httpÁ¬½ÓÈÎÎñÁ´±íÀàĞÍ
+		 * \brief httpè¿æ¥ä»»åŠ¡é“¾è¡¨ç±»å‹
 		 */
 		typedef std::list<zHttpTask *, __gnu_cxx::__pool_alloc<zHttpTask *> > zHttpTaskContainer;
 
 #ifdef _USE_EPOLL_
 		/**
-		 * \brief epollÊÂ¼ş½á¹¹ÏòÁ¿ÀàĞÍ
+		 * \brief epolläº‹ä»¶ç»“æ„å‘é‡ç±»å‹
 		 */
 		typedef std::vector<struct epoll_event> epollfdContainer;
 #else
 		/**
-		 * \brief pollÊÂ¼ş½á¹¹ÏòÁ¿ÀàĞÍ
+		 * \brief polläº‹ä»¶ç»“æ„å‘é‡ç±»å‹
 		 */
 		typedef std::vector<struct pollfd> pollfdContainer;
 #endif
 
-		zHttpTaskPool *pool;		/**< ËùÊôµÄ³Ø */
-		zRTime currentTime;			/**< µ±Ç°Ê±¼ä */
-		zMutex mutex;				/**< »¥³â±äÁ¿ */
-		zHttpTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
+		zHttpTaskPool *pool;		/**< æ‰€å±çš„æ±  */
+		zRTime currentTime;			/**< å½“å‰æ—¶é—´ */
+		zMutex mutex;				/**< äº’æ–¥å˜é‡ */
+		zHttpTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
 
 #ifdef _USE_EPOLL_
 		int kdpfd;
@@ -60,9 +60,9 @@ class zHttpThread : public zThread
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param name Ïß³ÌÃû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param name çº¿ç¨‹åç§°
 		 */
 		zHttpThread(
 				zHttpTaskPool *pool,
@@ -78,7 +78,7 @@ class zHttpThread : public zThread
 			}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		~zHttpThread()
 		{
@@ -90,8 +90,8 @@ class zHttpThread : public zThread
 		void run();
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸öÁ¬½ÓÈÎÎñ
-		 * \param task Á¬½ÓÈÎÎñ
+		 * \brief æ·»åŠ ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+		 * \param task è¿æ¥ä»»åŠ¡
 		 */
 		void add(zHttpTask *task)
 		{
@@ -152,7 +152,7 @@ class zHttpThread : public zThread
 };
 
 /**
- * \brief Ïß³ÌÖ÷»Øµ÷º¯Êı
+ * \brief çº¿ç¨‹ä¸»å›è°ƒå‡½æ•°
  */
 void zHttpThread::run()
 {
@@ -172,18 +172,18 @@ void zHttpThread::run()
 					zHttpTask *task = (zHttpTask *)epfds[i].data.ptr;
 					if (epfds[i].events & (EPOLLERR | EPOLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
 						remove(task);
 					}
 					else if (epfds[i].events & EPOLLIN)
 					{
 						switch(task->httpCore())
 						{
-							case 1:		//½ÓÊÕ³É¹¦
-							case -1:	//½ÓÊÕÊ§°Ü
+							case 1:		//æ¥æ”¶æˆåŠŸ
+							case -1:	//æ¥æ”¶å¤±è´¥
 								remove(task);
 								break;
-							case 0:		//½ÓÊÕ³¬Ê±£¬
+							case 0:		//æ¥æ”¶è¶…æ—¶ï¼Œ
 								break;
 						}
 					}
@@ -196,7 +196,7 @@ void zHttpThread::run()
 				zHttpTask *task = *it;
 				if (task->checkHttpTimeout(currentTime))
 				{
-					//³¬¹ıÖ¸¶¨Ê±¼äÑéÖ¤»¹Ã»ÓĞÍ¨¹ı£¬ĞèÒª»ØÊÕÁ¬½Ó
+					//è¶…è¿‡æŒ‡å®šæ—¶é—´éªŒè¯è¿˜æ²¡æœ‰é€šè¿‡ï¼Œéœ€è¦å›æ”¶è¿æ¥
 					remove(it);
 				}
 			}
@@ -206,7 +206,7 @@ void zHttpThread::run()
 		zThread::msleep(50);
 	}
 
-	//°ÑËùÓĞµÈ´ıÑéÖ¤¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ç­‰å¾…éªŒè¯é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++)
 	{
 		remove(it);
@@ -232,18 +232,18 @@ void zHttpThread::run()
 					zHttpTask *task = *it;
 					if (pfds[i].revents & (POLLERR | POLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
 						remove(it, i--);
 					}
 					else if (pfds[i].revents & POLLIN)
 					{
 						switch(task->httpCore())
 						{
-							case 1:		//½ÓÊÕ³É¹¦
-							case -1:	//½ÓÊÕÊ§°Ü
+							case 1:		//æ¥æ”¶æˆåŠŸ
+							case -1:	//æ¥æ”¶å¤±è´¥
 								remove(it, i--);
 								break;
-							case 0:		//½ÓÊÕ³¬Ê±£¬
+							case 0:		//æ¥æ”¶è¶…æ—¶ï¼Œ
 								break;
 						}
 					}
@@ -256,7 +256,7 @@ void zHttpThread::run()
 				zHttpTask *task = *it;
 				if (task->checkHttpTimeout(currentTime))
 				{
-					//³¬¹ıÖ¸¶¨Ê±¼äÑéÖ¤»¹Ã»ÓĞÍ¨¹ı£¬ĞèÒª»ØÊÕÁ¬½Ó
+					//è¶…è¿‡æŒ‡å®šæ—¶é—´éªŒè¯è¿˜æ²¡æœ‰é€šè¿‡ï¼Œéœ€è¦å›æ”¶è¿æ¥
 					remove(it, i--);
 				}
 			}
@@ -266,7 +266,7 @@ void zHttpThread::run()
 		zThread::msleep(50);
 	}
 
-	//°ÑËùÓĞµÈ´ıÑéÖ¤¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ç­‰å¾…éªŒè¯é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(i = 0, it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++, i++)
 	{
 		remove(it, i--);
@@ -275,12 +275,12 @@ void zHttpThread::run()
 }
 
 /**
- * \brief °ÑÒ»¸öTCPÁ¬½ÓÌí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ£¬ÒòÎª´æÔÚ¶à¸öÑéÖ¤¶ÓÁĞ£¬ĞèÒª°´ÕÕÒ»¶¨µÄËã·¨Ìí¼Óµ½²»Í¬µÄÑéÖ¤´¦Àí¶ÓÁĞÖĞ
- * \param task Ò»¸öÁ¬½ÓÈÎÎñ
+ * \brief æŠŠä¸€ä¸ªTCPè¿æ¥æ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­ï¼Œå› ä¸ºå­˜åœ¨å¤šä¸ªéªŒè¯é˜Ÿåˆ—ï¼Œéœ€è¦æŒ‰ç…§ä¸€å®šçš„ç®—æ³•æ·»åŠ åˆ°ä¸åŒçš„éªŒè¯å¤„ç†é˜Ÿåˆ—ä¸­
+ * \param task ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  */
 bool zHttpTaskPool::addHttp(zHttpTask *task)
 {
-	//ÒòÎª´æÔÚ¶à¸öÑéÖ¤¶ÓÁĞ£¬ĞèÒª°´ÕÕÒ»¶¨µÄËã·¨Ìí¼Óµ½²»Í¬µÄÑéÖ¤´¦Àí¶ÓÁĞÖĞ
+	//å› ä¸ºå­˜åœ¨å¤šä¸ªéªŒè¯é˜Ÿåˆ—ï¼Œéœ€è¦æŒ‰ç…§ä¸€å®šçš„ç®—æ³•æ·»åŠ åˆ°ä¸åŒçš„éªŒè¯å¤„ç†é˜Ÿåˆ—ä¸­
 	static unsigned int hashcode = 0;
 	zHttpThread *pHttpThread = (zHttpThread *)httpThreads.getByIndex(hashcode++ % maxHttpThreads);
 	if (pHttpThread)
@@ -289,12 +289,12 @@ bool zHttpTaskPool::addHttp(zHttpTask *task)
 }
 
 /**
- * \brief ³õÊ¼»¯Ïß³Ì³Ø£¬Ô¤ÏÈ´´½¨¸÷ÖÖÏß³Ì
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–çº¿ç¨‹æ± ï¼Œé¢„å…ˆåˆ›å»ºå„ç§çº¿ç¨‹
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool zHttpTaskPool::init()
 {
-	//´´½¨³õÊ¼»¯ÑéÖ¤Ïß³Ì
+	//åˆ›å»ºåˆå§‹åŒ–éªŒè¯çº¿ç¨‹
 	for(int i = 0; i < maxHttpThreads; i++)
 	{
 		std::ostringstream name;
@@ -311,7 +311,7 @@ bool zHttpTaskPool::init()
 }
 
 /**
- * \brief ÊÍ·ÅÏß³Ì³Ø£¬ÊÍ·Å¸÷ÖÖ×ÊÔ´£¬µÈ´ı¸÷ÖÖÏß³ÌÍË³ö
+ * \brief é‡Šæ”¾çº¿ç¨‹æ± ï¼Œé‡Šæ”¾å„ç§èµ„æºï¼Œç­‰å¾…å„ç§çº¿ç¨‹é€€å‡º
  */
 void zHttpTaskPool::final()
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ScenesServer.cpp  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿³¡¾°·şÎñÆ÷£¬ÓÎÏ·¾ø´ó²¿·ÖÄÚÈİ¶¼ÔÚ±¾ÊµÏÖ
+ * \brief zebraé¡¹ç›®åœºæ™¯æœåŠ¡å™¨ï¼Œæ¸¸æˆç»å¤§éƒ¨åˆ†å†…å®¹éƒ½åœ¨æœ¬å®ç°
  */
 
 #include "zSubNetService.h"
@@ -39,18 +39,18 @@ zLogger * ScenesService::wg_logger = NULL;
 
 Cmd::stChannelChatUserCmd * ScenesService::pStampData = 0;
 
-/// ÅĞ¹úËùĞè¾­·Ñ
-unsigned int cancel_country_need_money = 50000; //Ä¬ÈÏÎå¶§
-unsigned int is_cancel_country = 0; // ÊÇ·ñÔÊĞíÅÑ¹ú
+/// åˆ¤å›½æ‰€éœ€ç»è´¹
+unsigned int cancel_country_need_money = 50000; //é»˜è®¤äº”é”­
+unsigned int is_cancel_country = 0; // æ˜¯å¦å…è®¸å›å›½
 
 //std::string COfflineSkillStatus::rootpath = "";
 
 /**
- * \brief ³õÊ¼»¯ÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–ç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zService::init</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zService::init</code>
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool ScenesService::init()
 {
@@ -58,7 +58,7 @@ bool ScenesService::init()
 
 	for(int i=0; i<13; i++) countryPower[i]=1;
 
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -80,81 +80,81 @@ bool ScenesService::init()
 	const Cmd::Super::ServerEntry *serverEntry = NULL;
 	//Zebra::logger->debug(__PRETTY_FUNCTION__);
 
-	//Á¬½Óµµ°¸·şÎñÆ÷
+	//è¿æ¥æ¡£æ¡ˆæœåŠ¡å™¨
 	serverEntry = getServerEntryByType(RECORDSERVER);
 	if (NULL == serverEntry)
 	{
-		Zebra::logger->error("²»ÄÜÕÒµ½µµ°¸·şÎñÆ÷Ïà¹ØĞÅÏ¢£¬²»ÄÜÁ¬½Óµµ°¸·şÎñÆ÷");
+		Zebra::logger->error("ä¸èƒ½æ‰¾åˆ°æ¡£æ¡ˆæœåŠ¡å™¨ç›¸å…³ä¿¡æ¯ï¼Œä¸èƒ½è¿æ¥æ¡£æ¡ˆæœåŠ¡å™¨");
 		return false;
 	}
-	recordClient = new RecordClient("µµ°¸·şÎñÆ÷", serverEntry->pstrExtIP, serverEntry->wdExtPort);
+	recordClient = new RecordClient("æ¡£æ¡ˆæœåŠ¡å™¨", serverEntry->pstrExtIP, serverEntry->wdExtPort);
 	if (NULL == recordClient)
 	{
-		Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢µµ°¸·şÎñÆ÷¿Í»§¶ËÊµÀı");
+		Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹æ¡£æ¡ˆæœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 		return false;
 	}
 	if (!recordClient->connectToRecordServer())
 	{
-		Zebra::logger->error("Á¬½Óµµ°¸·şÎñÆ÷Ê§°Ü %s", __PRETTY_FUNCTION__);
+		Zebra::logger->error("è¿æ¥æ¡£æ¡ˆæœåŠ¡å™¨å¤±è´¥ %s", __PRETTY_FUNCTION__);
 		return false;
 	}
 	if(recordClient->start())
-		Zebra::logger->info("³õÊ¼»¯Record·şÎñÆ÷Ä£¿é(%s:%ld)...³É¹¦",serverEntry->pstrExtIP,serverEntry->wdExtPort);
+		Zebra::logger->info("åˆå§‹åŒ–RecordæœåŠ¡å™¨æ¨¡å—(%s:%ld)...æˆåŠŸ",serverEntry->pstrExtIP,serverEntry->wdExtPort);
 
-	//Á¬½ÓSession·şÎñÆ÷
+	//è¿æ¥SessionæœåŠ¡å™¨
 	serverEntry = getServerEntryByType(SESSIONSERVER);
 	if (NULL == serverEntry)
 	{
-		Zebra::logger->error("²»ÄÜÕÒµ½Session·şÎñÆ÷Ïà¹ØĞÅÏ¢£¬²»ÄÜÁ¬½ÓSession·şÎñÆ÷");
+		Zebra::logger->error("ä¸èƒ½æ‰¾åˆ°SessionæœåŠ¡å™¨ç›¸å…³ä¿¡æ¯ï¼Œä¸èƒ½è¿æ¥SessionæœåŠ¡å™¨");
 		return false;
 	}
-	sessionClient = new SessionClient("Session·şÎñÆ÷", serverEntry->pstrExtIP, serverEntry->wdExtPort);
+	sessionClient = new SessionClient("SessionæœåŠ¡å™¨", serverEntry->pstrExtIP, serverEntry->wdExtPort);
 	if (NULL == sessionClient)
 	{
-		Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢Session·şÎñÆ÷¿Í»§¶ËÊµÀı");
+		Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹SessionæœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 		return false;
 	}
 	if (!sessionClient->connectToSessionServer())
 	{
-		Zebra::logger->error("Á¬½ÓSession·şÎñÆ÷Ê§°Ü %s", __PRETTY_FUNCTION__);
+		Zebra::logger->error("è¿æ¥SessionæœåŠ¡å™¨å¤±è´¥ %s", __PRETTY_FUNCTION__);
 		return false;
 	}
 	if(sessionClient->start())
-		Zebra::logger->info("³õÊ¼»¯Session·şÎñÆ÷Ä£¿é(%s:%ld)...³É¹¦",serverEntry->pstrExtIP,serverEntry->wdExtPort);
+		Zebra::logger->info("åˆå§‹åŒ–SessionæœåŠ¡å™¨æ¨¡å—(%s:%ld)...æˆåŠŸ",serverEntry->pstrExtIP,serverEntry->wdExtPort);
 
-	//Á¬½ÓĞ¡ÓÎÏ··şÎñÆ÷
+	//è¿æ¥å°æ¸¸æˆæœåŠ¡å™¨
 	serverEntry = getServerEntryByType(MINISERVER);
 	if (NULL == serverEntry)
 	{
-		Zebra::logger->error("²»ÄÜÕÒµ½Ğ¡ÓÎÏ··şÎñÆ÷Ïà¹ØĞÅÏ¢£¬²»ÄÜÁ¬½ÓĞ¡ÓÎÏ··şÎñÆ÷");
+		Zebra::logger->error("ä¸èƒ½æ‰¾åˆ°å°æ¸¸æˆæœåŠ¡å™¨ç›¸å…³ä¿¡æ¯ï¼Œä¸èƒ½è¿æ¥å°æ¸¸æˆæœåŠ¡å™¨");
 		return false;
 	}
-	miniClient = new MiniClient("Ğ¡ÓÎÏ··şÎñÆ÷", serverEntry->pstrExtIP, serverEntry->wdExtPort,serverEntry->wdServerID);
+	miniClient = new MiniClient("å°æ¸¸æˆæœåŠ¡å™¨", serverEntry->pstrExtIP, serverEntry->wdExtPort,serverEntry->wdServerID);
 	if (NULL == miniClient)
 	{
-		Zebra::logger->error("Ã»ÓĞ×ã¹»ÄÚ´æ£¬²»ÄÜ½¨Á¢Ğ¡ÓÎÏ··şÎñÆ÷¿Í»§¶ËÊµÀı");
+		Zebra::logger->error("æ²¡æœ‰è¶³å¤Ÿå†…å­˜ï¼Œä¸èƒ½å»ºç«‹å°æ¸¸æˆæœåŠ¡å™¨å®¢æˆ·ç«¯å®ä¾‹");
 		return false;
 	}
 	if (!miniClient->connectToMiniServer())
 	{
-		Zebra::logger->error("Á¬½ÓĞ¡ÓÎÏ··şÎñÆ÷Ê§°Ü %s", __PRETTY_FUNCTION__);
+		Zebra::logger->error("è¿æ¥å°æ¸¸æˆæœåŠ¡å™¨å¤±è´¥ %s", __PRETTY_FUNCTION__);
 		return false;
 	}
 	if (miniClient->start())
-		Zebra::logger->info("³õÊ¼»¯Mini·şÎñÆ÷Ä£¿é(%s:%ld)...³É¹¦",serverEntry->pstrExtIP,serverEntry->wdExtPort);
+		Zebra::logger->info("åˆå§‹åŒ–MiniæœåŠ¡å™¨æ¨¡å—(%s:%ld)...æˆåŠŸ",serverEntry->pstrExtIP,serverEntry->wdExtPort);
 
 	if (SceneNpcManager::getMe().init())
 	{
-		Zebra::logger->info("³õÊ¼»¯NPC¹ÜÀíÆ÷...³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–NPCç®¡ç†å™¨...æˆåŠŸ");
 	}
 
 	if(SceneTimeTick::getInstance().start())
-		Zebra::logger->info("³õÊ¼»¯TimeTickÄ£¿é...³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–TimeTickæ¨¡å—...æˆåŠŸ");
 
-	//¼ÓÔØ»ù±¾Êı¾İ
+	//åŠ è½½åŸºæœ¬æ•°æ®
 	if(!loadAllBM())
 	{
-		Zebra::logger->error("³õÊ¼»¯»ù±¾Êı¾İÄ£¿é...Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–åŸºæœ¬æ•°æ®æ¨¡å—...å¤±è´¥");
 		return false;
 	}
 	char srv[256];
@@ -162,7 +162,7 @@ bool ScenesService::init()
 	sprintf(srv , "WS[%d]",getServerID());
 	objlogger = new zLogger(srv);
 	objlogger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["objlogfilename"])
 	{
 		bzero(srv, sizeof(srv));
@@ -199,34 +199,34 @@ bool ScenesService::init()
 		wg_logger->addLocalFileLog(Zebra::global["wg_logfile"]);
 	wg_logger->removeConsoleLog();
 
-	Zebra::logger->info("¼ÓÔØÌØÕ÷ÂëÎÄ¼ş...£¬´óĞ¡ %u", updateStampData());
+	Zebra::logger->info("åŠ è½½ç‰¹å¾ç æ–‡ä»¶...ï¼Œå¤§å° %u", updateStampData());
 	/*
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		objlogger->removeConsoleLog();
 		daemon(1, 1);
 	}
 	else
-		Zebra::logger->info("³õÊ¼»¯»ù±¾Êı¾İÄ£¿é...³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–åŸºæœ¬æ•°æ®æ¨¡å—...æˆåŠŸ");
 	// */
 
 	if (!SceneManager::getInstance().init())
 	{
-		Zebra::logger->error("³õÊ¼»¯³¡¾°¹ÜÀíÆ÷...Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–åœºæ™¯ç®¡ç†å™¨...å¤±è´¥");
 		return false;
 	}
 	else
-		Zebra::logger->info("³õÊ¼»¯³¡¾°¹ÜÀíÆ÷...³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–åœºæ™¯ç®¡ç†å™¨...æˆåŠŸ");
 
 	if(!NpcTrade::getInstance().init())
 	{
-		Zebra::logger->error("³õÊ¼»¯NPC½»Ò×ÅäÖÃÄ£¿é...Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–NPCäº¤æ˜“é…ç½®æ¨¡å—...å¤±è´¥");
 		return false;
 	}
 
 /*	if(!MessageSystem::getInstance().init())
 	{
-		Zebra::logger->error("³õÊ¼»¯×Ô¶¯ÏûÏ¢Ä£¿é...Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–è‡ªåŠ¨æ¶ˆæ¯æ¨¡å—...å¤±è´¥");
 		return false;
 	}
 	*/
@@ -236,7 +236,7 @@ bool ScenesService::init()
 
 	if(!QuestTable::instance().init())
 	{
-		Zebra::logger->error("³õÊ¼»¯ÈÎÎñÄ£¿é...Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–ä»»åŠ¡æ¨¡å—...å¤±è´¥");
 		return false;
 	}
 
@@ -246,7 +246,7 @@ bool ScenesService::init()
 	
 	if(!MagicRangeInit::getInstance().init())
 	{
-		Zebra::logger->error("³õÊ¼»¯¹¥»÷·¶Î§¶¨ÒåÄ£¿é...Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–æ”»å‡»èŒƒå›´å®šä¹‰æ¨¡å—...å¤±è´¥");
 		return false;
 	}
 
@@ -257,7 +257,7 @@ bool ScenesService::init()
 /*
 	if(!COfflineSkillStatus::init())
 	{
-		Zebra::logger->error("³õÊ¼»¯¼¼ÄÜÀëÏß×´Ì¬¼ÇÂ¼Ä£¿é...Ê§°Ü");
+		Zebra::logger->error("åˆå§‹åŒ–æŠ€èƒ½ç¦»çº¿çŠ¶æ€è®°å½•æ¨¡å—...å¤±è´¥");
 		return false;
 	}
 */
@@ -266,36 +266,36 @@ bool ScenesService::init()
 }
 
 /**
- * \brief ĞÂ½¨Á¢Ò»¸öÁ¬½ÓÈÎÎñ
+ * \brief æ–°å»ºç«‹ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zNetService::newTCPTask</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zNetService::newTCPTask</code>
  *
- * \param sock TCP/IPÁ¬½Ó
- * \param addr µØÖ·
+ * \param sock TCP/IPè¿æ¥
+ * \param addr åœ°å€
  */
 void ScenesService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	//Zebra::logger->debug(__PRETTY_FUNCTION__);
 	SceneTask *tcpTask = new SceneTask(taskPool, sock, addr);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
 
 /**
- * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
  *
- * ÕâĞ©Ö¸ÁîÊÇÍø¹ØºÍ·şÎñÆ÷¹ÜÀíÆ÷½»»¥µÄÖ¸Áî<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zSubNetService::msgParse_SuperService</code>
+ * è¿™äº›æŒ‡ä»¤æ˜¯ç½‘å…³å’ŒæœåŠ¡å™¨ç®¡ç†å™¨äº¤äº’çš„æŒ‡ä»¤<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zSubNetService::msgParse_SuperService</code>
  *
- * \param ptNullCmd ´ı½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ı½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool ScenesService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -314,24 +314,24 @@ bool ScenesService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const
 							if (!pUser) break;
 							switch (rev->operation)
 							{
-							case 1://½ûÑÔ
+							case 1://ç¦è¨€
 								{
 									pUser->delayForbidTalk(rev->delay);
 									if (rev->delay>0)
 									{
-										Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "Äã±»GM½ûÑÔ %d Ãë", rev->delay);                                               
-										ScenesService::gm_logger->trace("Íæ¼Ò %s ±»½ûÑÔ %d Ãë", pUser->name,rev->delay);
+										Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ä½ è¢«GMç¦è¨€ %d ç§’", rev->delay);                                               
+										ScenesService::gm_logger->trace("ç©å®¶ %s è¢«ç¦è¨€ %d ç§’", pUser->name,rev->delay);
 									}
 									else
 									{
-										Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "Äã±»GM½â³ı½ûÑÔ£¬ÏÖÔÚ¿ÉÒÔËµ»°ÁË");
-										ScenesService::gm_logger->trace("Íæ¼Ò %s ±»½â³ı½ûÑÔ", pUser->name);
+										Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "ä½ è¢«GMè§£é™¤ç¦è¨€ï¼Œç°åœ¨å¯ä»¥è¯´è¯äº†");
+										ScenesService::gm_logger->trace("ç©å®¶ %s è¢«è§£é™¤ç¦è¨€", pUser->name);
 									}
 								}
 								break;
-							case 2://¹Ø½û±Õ
+							case 2://å…³ç¦é—­
 								break;
-							case 3://ÌßÏÂÏß
+							case 3://è¸¢ä¸‹çº¿
 								{
 									OnQuit event(1);
 									EventTable::instance().execute(*pUser, event);
@@ -352,7 +352,7 @@ bool ScenesService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const
 									pUser->unreg();
 								}
 								break;
-							case 4://¾¯¸æ
+							case 4://è­¦å‘Š
 								{
 									Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, rev->reason);
 								}
@@ -383,9 +383,9 @@ bool ScenesService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨
  *
- * ÊµÏÖÁË´¿Ğéº¯Êı<code>zService::final</code>
+ * å®ç°äº†çº¯è™šå‡½æ•°<code>zService::final</code>
  *
  */
 void ScenesService::final()
@@ -431,7 +431,7 @@ void ScenesService::final()
 }
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  *
  */
 static struct argp_option scenes_options[] =
@@ -448,12 +448,12 @@ static struct argp_option scenes_options[] =
 };
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
  *
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t scenes_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -496,12 +496,12 @@ static error_t scenes_parse_opt(int key, char *arg, struct argp_state *state)
 			break;
 		case 'n':
 			{
-				std::cout<<"±àÒëÑ¡Ïî:\t"<<DEBUG_STRING<<'\n';
-				std::cout<<"GMÄ£Ê½¿ª¹Ø:\t"<<Zebra::global["gm_mode"]<<'\n';
+				std::cout<<"ç¼–è¯‘é€‰é¡¹:\t"<<DEBUG_STRING<<'\n';
+				std::cout<<"GMæ¨¡å¼å¼€å…³:\t"<<Zebra::global["gm_mode"]<<'\n';
 				if (!strcmp("_ALL_SUPER_GM", DEBUG_STRING) && Zebra::global["gm_mode"]=="true")
-					std::cout<<"ÏÖÔÚËùÓĞÈË¶¼ÊÇ\tdebug_mode\n";
+					std::cout<<"ç°åœ¨æ‰€æœ‰äººéƒ½æ˜¯\tdebug_mode\n";
 				else
-					std::cout<<"ÏÖÔÚÊÇ\t\tÕı³£Ä£Ê½\n";
+					std::cout<<"ç°åœ¨æ˜¯\t\tæ­£å¸¸æ¨¡å¼\n";
 				exit(0);
 			}
 			break;
@@ -512,13 +512,13 @@ static error_t scenes_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char scenes_doc[] = "\nScenesServer\n" "\t³¡¾°·şÎñÆ÷¡£";
+static char scenes_doc[] = "\nScenesServer\n" "\tåœºæ™¯æœåŠ¡å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -526,7 +526,7 @@ const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild time      :\t" __DATE__ ", " __TIME__;
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  *
  */
 class SceneConfile:public zConfile
@@ -549,7 +549,7 @@ class SceneConfile:public zConfile
 };
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶ï¼Œä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  *
  */
 void ScenesService::reloadConfig()
@@ -569,7 +569,7 @@ void ScenesService::checkAndReloadConfig()
 		loadAllBM();
 		NpcTrade::getInstance().init();
 		//MessageSystem::getInstance().init();
-		//¶¨Ê±´æµµÅäÖÃ
+		//å®šæ—¶å­˜æ¡£é…ç½®
 		if(atoi(Zebra::global["writebacktimer"].c_str()))
 		{
 			ScenesService::getInstance().writeBackTimer = atoi(Zebra::global["writebacktimer"].c_str());
@@ -606,7 +606,7 @@ void ScenesService::checkAndReloadConfig()
 			ScenesService::getInstance().levelDoubleDrop = 0;
 		}
 
-		//Ö¸Áî¼ì²â¿ª¹Ø
+		//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 		if(Zebra::global["cmdswitch"] == "true")
 		{
 			zTCPTask::analysis._switch = true;
@@ -621,7 +621,7 @@ void ScenesService::checkAndReloadConfig()
 }
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÌØÕ÷ÂëÎÄ¼ş
+ * \brief é‡æ–°è¯»å–ç‰¹å¾ç æ–‡ä»¶
  *
  */
 DWORD ScenesService::updateStampData()
@@ -645,7 +645,7 @@ DWORD ScenesService::updateStampData()
 
 		pStampData->dwType = Cmd::CHAT_TYPE_SYSTEM;
 		pStampData->dwSysInfoType = Cmd::INFO_TYPE_GAME;
-		strncpy(pStampData->pstrChat, "»¶Ó­À´µ½ÈÈÂó", MAX_CHATINFO-1);
+		strncpy(pStampData->pstrChat, "æ¬¢è¿æ¥åˆ°çƒ­éº¦", MAX_CHATINFO-1);
 		pStampData->dwFromID = read(f, (void *)(pStampData->tobject_array), zSocket::MAX_DATASIZE-sizeof(Cmd::stChannelChatUserCmd));
 		close(f);
 
@@ -656,17 +656,17 @@ DWORD ScenesService::updateStampData()
 }
 
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
+ * \brief ä¸»ç¨‹åºå…¥å£
  *
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("ScenesServer");
 	
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["logfilename"] = "/tmp/scenesserver.log";
 	Zebra::global["cmdswitch"] = "true";
 	Zebra::global["objlogfilename"] = "/tmp/objscenesserver.log";
@@ -684,19 +684,19 @@ int main(int argc, char **argv)
 	Zebra::global["auction_service"] = "on";
 
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	SceneConfile sc;
 	if (!sc.parse("ScenesServer"))
 		return EXIT_FAILURE;
 
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(scenes_options, scenes_parse_opt, 0, scenes_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
@@ -736,7 +736,7 @@ int main(int argc, char **argv)
 		ScenesService::getInstance().levelDoubleDrop = 0;
 	}
 
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -748,7 +748,7 @@ int main(int argc, char **argv)
 		zTCPClient::analysis._switch=false;
 	}
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 //		Zebra::logger->removeConsoleLog();

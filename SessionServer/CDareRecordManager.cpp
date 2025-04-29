@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareRecordManager.cpp  $
  * \author  
  * \date 
- * \brief ¶ÔÕ½¼ÇÂ¼¹ÜÀíÆ÷
+ * \brief å¯¹æˆ˜è®°å½•ç®¡ç†å™¨
  *
  * 
  */
@@ -18,8 +18,8 @@
 #include "CCountryManager.h"
 
 /**
- * \brief ¶ÔÕ½¹ÜÀíÆ÷³õÊ¼»¯
- * \return true ³õÊ¼»¯³É¹¦ false³õÊ¼»¯Ê§°Ü
+ * \brief å¯¹æˆ˜ç®¡ç†å™¨åˆå§‹åŒ–
+ * \return true åˆå§‹åŒ–æˆåŠŸ falseåˆå§‹åŒ–å¤±è´¥
  */
 bool CDareRecordM::init()
 {
@@ -27,8 +27,8 @@ bool CDareRecordM::init()
 }
 
 /**
- * \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÕù¶áÄ¿±ê¼ÇÂ¼
- * \return true ¼ÓÔØ³É¹¦
+ * \brief ä»æ•°æ®åº“ä¸­åŠ è½½äº‰å¤ºç›®æ ‡è®°å½•
+ * \return true åŠ è½½æˆåŠŸ
  */
 bool CDareRecordM::load()
 {
@@ -41,7 +41,7 @@ bool CDareRecordM::load()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 
@@ -76,7 +76,7 @@ bool CDareRecordM::load()
 	}
 	else
 	{
-		Zebra::logger->error("¶ÔÕ½¼ÇÂ¼Êı¾İ¼ÓÔØÊ§°Ü£¬DARERECORD±í²»´æÔÚ");
+		Zebra::logger->error("å¯¹æˆ˜è®°å½•æ•°æ®åŠ è½½å¤±è´¥ï¼ŒDARERECORDè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -261,7 +261,7 @@ bool CDareRecord::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -273,7 +273,7 @@ bool CDareRecord::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("³ÇÊĞÊı¾İ¼ÓÔØÊ§°Ü£¬CITY±í²»´æÔÚ");
+		Zebra::logger->error("åŸå¸‚æ•°æ®åŠ è½½å¤±è´¥ï¼ŒCITYè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 

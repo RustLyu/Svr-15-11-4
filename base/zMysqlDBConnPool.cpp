@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zMysqlDBConnPool.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖMysqlÁ¬½Ó³Ø
+ * \brief å®ç°Mysqlè¿æ¥æ± 
  *
  * 
  */
@@ -29,15 +29,15 @@ using namespace Zebra;
 
 enum handleState
 {
-	MYSQLCLIENT_HANDLE_INVALID  = 1,   //ÎŞĞ§µÄ
-	MYSQLCLIENT_HANDLE_VALID    = 2,   //ÓĞĞ§µÄ
-	MYSQLCLIENT_HANDLE_USED     = 3,   //±»Ê¹ÓÃ
+	MYSQLCLIENT_HANDLE_INVALID  = 1,   //æ— æ•ˆçš„
+	MYSQLCLIENT_HANDLE_VALID    = 2,   //æœ‰æ•ˆçš„
+	MYSQLCLIENT_HANDLE_USED     = 3,   //è¢«ä½¿ç”¨
 };
 
 
 /**
- * \brief MysqlÁ¬½Ó¾ä±úÀà
- * ·â×°ÁË´ó²¿·ÖµÄmysql²Ù×÷
+ * \brief Mysqlè¿æ¥å¥æŸ„ç±»
+ * å°è£…äº†å¤§éƒ¨åˆ†çš„mysqlæ“ä½œ
  */
 class MysqlClientHandle : private zNoncopyable
 {
@@ -59,7 +59,7 @@ class MysqlClientHandle : private zNoncopyable
 
 	public:
 
-		handleState state; ///handle×´Ì¬
+		handleState state; ///handleçŠ¶æ€
 		pthread_t getedThread;
 		zTime useTime;
 		std::string my_sql;
@@ -130,9 +130,9 @@ typedef __gnu_cxx::hash_map<unsigned int,UrlInfo> urlsPool;
 typedef __gnu_cxx::hash_map<connHandleID,MysqlClientHandle *> handlesIDMap;
 
 /**
- * \brief MysqlClientÄ¬ÈÏHashCodeº¯Êı,Ê¼ÖÕ·µ»Ø0
- * \param anyArg ÈÎÒâ²ÎÊı
- * \return Ê¼ÖÕ·µ»Ø0
+ * \brief MysqlClienté»˜è®¤HashCodeå‡½æ•°,å§‹ç»ˆè¿”å›0
+ * \param anyArg ä»»æ„å‚æ•°
+ * \return å§‹ç»ˆè¿”å›0
  */
 unsigned int defaultHashCode(const void *anyArg)
 {
@@ -224,7 +224,7 @@ class zMysqlDBConnPool : public zDBConnPool
 
 		connHandleID getNextHandle(connHandleID handleID)
 		{
-			Zebra::logger->error("%s Ã»ÓĞÊµÏÖ", __PRETTY_FUNCTION__);
+			Zebra::logger->error("%s æ²¡æœ‰å®ç°", __PRETTY_FUNCTION__);
 			// /*
 			MysqlClientHandle* handle = getHandleByID(handleID);
 			if(handle!=NULL)
@@ -478,12 +478,12 @@ class zMysqlDBConnPool : public zDBConnPool
 					switch(tempHandle->state)
 					{
 						case MYSQLCLIENT_HANDLE_INVALID:
-							//handleÎŞĞ§£¬Èç¹ûÃ»ÓĞÕÒµ½¿ÉÓÃµÄ£¬ĞèÒª³õÊ¼»¯Îª¿ÉÓÃ
+							//handleæ— æ•ˆï¼Œå¦‚æœæ²¡æœ‰æ‰¾åˆ°å¯ç”¨çš„ï¼Œéœ€è¦åˆå§‹åŒ–ä¸ºå¯ç”¨
 							if(invalidHandle==NULL)
 								invalidHandle=tempHandle;
 							break;
 						case MYSQLCLIENT_HANDLE_VALID:
-							//handle¿ÉÓÃ
+							//handleå¯ç”¨
 							if(tempHandle->setHandle())
 							{
 								mlock.unlock();
@@ -491,10 +491,10 @@ class zMysqlDBConnPool : public zDBConnPool
 							}
 							break;
 						case MYSQLCLIENT_HANDLE_USED:
-							//handleÕıÔÚÊ¹ÓÃÖĞ
+							//handleæ­£åœ¨ä½¿ç”¨ä¸­
 							if(tempHandle->useTime.elapse()>10)
 							{
-								//Ê¹ÓÃÊ±¼ä¹ı³¤£¬ÊÇ·ñ³ÌĞò´æÔÚÎÊÌâ
+								//ä½¿ç”¨æ—¶é—´è¿‡é•¿ï¼Œæ˜¯å¦ç¨‹åºå­˜åœ¨é—®é¢˜
 								logger->warn("The handle(%u) timeout %lus by thread %u",
 										tempHandle->getID(),tempHandle->useTime.elapse(),tempHandle->getedThread);
 								logger->warn("The handle sql is : %s" , tempHandle->my_sql.c_str());
@@ -575,7 +575,7 @@ class zMysqlDBConnPool : public zDBConnPool
 };
 
 /* ********************************* *
- * MysqlClientHandleÀàº¯ÊıÊµÏÖ       *
+ * MysqlClientHandleç±»å‡½æ•°å®ç°       *
  * ********************************* */
 bool MysqlClientHandle::initMysql()
 {
@@ -635,7 +635,7 @@ void MysqlClientHandle::finalHandle()
 
 bool MysqlClientHandle::setHandle()
 {
-	//ÎŞĞ§Á¬½Ó,¾ä±ú±»Ê¹ÓÃ³¬¹ı1800´Î»òÉú³É³¬¹ı°ëĞ¡Ê±,ÖØÁ¬
+	//æ— æ•ˆè¿æ¥,å¥æŸ„è¢«ä½¿ç”¨è¶…è¿‡1800æ¬¡æˆ–ç”Ÿæˆè¶…è¿‡åŠå°æ—¶,é‡è¿
 	if(getedCount>3600 || lifeTime.elapse()>1800 || mysql_ping(mysql)!=0)
 	{
 		if(!initMysql())
@@ -2066,7 +2066,7 @@ unsigned int MysqlClientHandle::getCount(const char* tableName, const char *wher
 
 
 /* ************************* *
- * zDBConnPoolÀà¾²Ì¬º¯ÊıÊµÏÖ *
+ * zDBConnPoolç±»é™æ€å‡½æ•°å®ç° *
  * ************************* */
 zDBConnPool *zDBConnPool::newInstance(hashCodeFunc hashfunc)
 {

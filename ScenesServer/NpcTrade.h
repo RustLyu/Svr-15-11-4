@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: NpcTrade.h $
  * \author  
  * \date 
- * \brief NpcÂòÂô¶Ô»°¿ò
+ * \brief Npcä¹°å–å¯¹è¯æ¡†
  *
  * 
  */
@@ -17,7 +17,7 @@
 #include "zDatabase.h"
 
 /**
- * \brief NPCÂòÂô
+ * \brief NPCä¹°å–
  *
  */
 class NpcTrade
@@ -27,27 +27,27 @@ class NpcTrade
 
 		enum
 		{
-			NPC_BUY_OBJECT		= 1,	///Âò
-			NPC_SELL_OBJECT		= 2,	///Âô
-			NPC_REPAIR_OBJECT	= 4,	///ĞŞÀí
-			NPC_MAKE_OBJECT		= 8,	///´òÔì
-			NPC_UPDATE_OBJECT	= 16,	///¸ÄÔì
-			NPC_MERGE_OBJECT	= 32, 	///ºÏ³É
-			NPC_ENCHANCE_OBJECT = 64,  //ÏâÇ¶
-			NPC_MERGE_SOUL_OBJECT = 128,  //»êÆÇºÏ³É
-			NPC_HOLE_OBJECT = 256,  //´ò¿×
-			NPC_STORE_OBJECT = 512,  //²Ö¿â
-			NPC_DECOMPOSE_OBJECT = 1024,  //·Ö½â
+			NPC_BUY_OBJECT		= 1,	///ä¹°
+			NPC_SELL_OBJECT		= 2,	///å–
+			NPC_REPAIR_OBJECT	= 4,	///ä¿®ç†
+			NPC_MAKE_OBJECT		= 8,	///æ‰“é€ 
+			NPC_UPDATE_OBJECT	= 16,	///æ”¹é€ 
+			NPC_MERGE_OBJECT	= 32, 	///åˆæˆ
+			NPC_ENCHANCE_OBJECT = 64,  //é•¶åµŒ
+			NPC_MERGE_SOUL_OBJECT = 128,  //é­‚é­„åˆæˆ
+			NPC_HOLE_OBJECT = 256,  //æ‰“å­”
+			NPC_STORE_OBJECT = 512,  //ä»“åº“
+			NPC_DECOMPOSE_OBJECT = 1024,  //åˆ†è§£
 		};
 
 		struct NpcItem
 		{
-			DWORD id;					///ÎïÆ·±àºÅ
-			WORD  kind;					///ÎïÆ·ÀàĞÍ
-			WORD  lowLevel;				///×îµÍµÈ¼¶
-			WORD  level;				///×î¸ßµÈ¼¶
-			WORD  itemlevel;			///¹ºÂòÎïÆ·µÄµÈ¼¶
-			WORD  action;				///¶¯×÷ÀàĞÍ
+			DWORD id;					///ç‰©å“ç¼–å·
+			WORD  kind;					///ç‰©å“ç±»å‹
+			WORD  lowLevel;				///æœ€ä½ç­‰çº§
+			WORD  level;				///æœ€é«˜ç­‰çº§
+			WORD  itemlevel;			///è´­ä¹°ç‰©å“çš„ç­‰çº§
+			WORD  action;				///åŠ¨ä½œç±»å‹
 			NpcItem()
 			{
 				id = 0;
@@ -65,10 +65,10 @@ class NpcTrade
 		}
 
 		/**
-		 * \brief µÃµ½Î¨Ò»ÊµÀı
+		 * \brief å¾—åˆ°å”¯ä¸€å®ä¾‹
 		 *
 		 *
-		 * \return npcÂòÂôÏµÍ³
+		 * \return npcä¹°å–ç³»ç»Ÿ
 		 */
 		static NpcTrade &getInstance()
 		{
@@ -79,7 +79,7 @@ class NpcTrade
 		}
 
 		/**
-		 * \brief Ğ¶ÔØÎ¨Ò»ÊµÀı
+		 * \brief å¸è½½å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -102,14 +102,14 @@ class NpcTrade
 		typedef __gnu_cxx::hash_multimap<DWORD, NpcItem> NpcItemMultiMap;
 
 		/**
-		 * \brief npc¶Ô»°¿ò
+		 * \brief npcå¯¹è¯æ¡†
 		 *
 		 */
 		struct NpcDialog
 		{
-			DWORD npcid;			///Npc±àºÅ
-			char menu[6144];		///²Ëµ¥ÄÚÈİ
-			NpcItemMultiMap items;	///ÎïÆ·¶¯×÷
+			DWORD npcid;			///Npcç¼–å·
+			char menu[6144];		///èœå•å†…å®¹
+			NpcItemMultiMap items;	///ç‰©å“åŠ¨ä½œ
 			NpcDialog()
 			{
 				npcid = 0;

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleregCache.cpp  $
  * \author  
  * \date 
- * \brief »º³åÒ»Ğ©½ÇÉ«Ãû³ÆÏà¹ØµÄÖ¸Áî
+ * \brief ç¼“å†²ä¸€äº›è§’è‰²åç§°ç›¸å…³çš„æŒ‡ä»¤
  */
 
 
@@ -44,7 +44,7 @@ void RoleregCache::timeAction(const zTime &ct)
 			cmd.state = rd.state;
 			if (RoleregClientManager::getInstance().broadcastOne(&cmd, sizeof(cmd)))
 			{
-				Zebra::logger->debug("´¦Àí»º³åÖĞµÄ½ÇÉ«Ãû³ÆÖ¸ÁîÍê³É£º%u, %s, %u", rd.accid, rd.name, rd.state);
+				Zebra::logger->debug("å¤„ç†ç¼“å†²ä¸­çš„è§’è‰²åç§°æŒ‡ä»¤å®Œæˆï¼š%u, %s, %u", rd.accid, rd.name, rd.state);
 				datas.pop_front();
 			}
 			else

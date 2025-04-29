@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file CDare.h
  * \version  $Id: CGem.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå»¤±¦ÈÎÎñ¹ÜÀíÆ÷
+ * \brief å®šä¹‰æŠ¤å®ä»»åŠ¡ç®¡ç†å™¨
  *
  */
 
@@ -39,9 +39,9 @@ struct ArhatMapPoint
 const int mappoint_num = 10;
 
 /**
- * \brief »¤±¦ÈÎÎñ¼ÇÂ¼¹ÜÀíÀà
+ * \brief æŠ¤å®ä»»åŠ¡è®°å½•ç®¡ç†ç±»
  *
- * ¹ÜÀí¶ÔÕ½¼ÇÂ¼µÄÈİÆ÷,Ê¹ÓÃSingletonÄ£Ê½
+ * ç®¡ç†å¯¹æˆ˜è®°å½•çš„å®¹å™¨,ä½¿ç”¨Singletonæ¨¡å¼
  */
 class CGemM:public zEntryManager<zEntryTempID>, 
 	    public Singleton<CGemM>
@@ -82,63 +82,63 @@ class CGemM:public zEntryManager<zEntryTempID>,
 	static void destroyMe();
 
 	/**
-	 * \brief »¤±¦ÈÎÎñ¹ÜÀíÆ÷µÄ¶¨Ê±Æ÷»Øµ÷º¯Êı
+	 * \brief æŠ¤å®ä»»åŠ¡ç®¡ç†å™¨çš„å®šæ—¶å™¨å›è°ƒå‡½æ•°
 	 *
-	 * ¶¨Ê±±éÀúËùÓĞ¶ÔÕ½¼ÇÂ¼£¬É¾³ıÎŞĞ§¼ÇÂ¼£¬½áÊø´ïµ½Ê±¼äµÄ¶ÔÕ½µÈÏà¹Ø´¦Àí¡£
+	 * å®šæ—¶éå†æ‰€æœ‰å¯¹æˆ˜è®°å½•ï¼Œåˆ é™¤æ— æ•ˆè®°å½•ï¼Œç»“æŸè¾¾åˆ°æ—¶é—´çš„å¯¹æˆ˜ç­‰ç›¸å…³å¤„ç†ã€‚
 	 */
 	void timer();
 
 
 	/**
-	 * \brief ´¦ÀíÓÃ»§µÄ¶ÔÕ½ÃüÁî
+	 * \brief å¤„ç†ç”¨æˆ·çš„å¯¹æˆ˜å‘½ä»¤
 	 *
-	 * \param pUser ·¢ËÍ¸ÃÃüÁîµÄÍæ¼ÒÏà¶ÔÓ¦µÄUserSession¶ÔÏó
-	 * \param ptNullCmd ÊÕµ½µÄÃüÁî
-	 * \param cmdLen ÃüÁî³¤¶È
-	 * \return ÊÇ»¤±¦ÈÎÎñÏà¹ØÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»ØÎªtrue, ·ñÔòÎªfalse
+	 * \param pUser å‘é€è¯¥å‘½ä»¤çš„ç©å®¶ç›¸å¯¹åº”çš„UserSessionå¯¹è±¡
+	 * \param ptNullCmd æ”¶åˆ°çš„å‘½ä»¤
+	 * \param cmdLen å‘½ä»¤é•¿åº¦
+	 * \return æ˜¯æŠ¤å®ä»»åŠ¡ç›¸å…³å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›ä¸ºtrue, å¦åˆ™ä¸ºfalse
 	 *
 	 */
 	bool processUserMessage(UserSession *pUser, const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen);
 
 	/**
-	 * \brief ´¦Àí³¡¾°·¢ËÍ¹ıÀ´µÄ·şÎñÆ÷¼äÏûÏ¢
+	 * \brief å¤„ç†åœºæ™¯å‘é€è¿‡æ¥çš„æœåŠ¡å™¨é—´æ¶ˆæ¯
 	 *
-	 * \param cmd ³¡¾°·şÎñÆ÷·¢ËÍ¹ıÀ´µÄÃüÁîÖ¸Áî
-	 * \param cmdLen ÃüÁî³¤¶È
+	 * \param cmd åœºæ™¯æœåŠ¡å™¨å‘é€è¿‡æ¥çš„å‘½ä»¤æŒ‡ä»¤
+	 * \param cmdLen å‘½ä»¤é•¿åº¦
 	 *
-	 * \return ÊÇÒÑ¶¨ÒåµÄ·şÎñÆ÷¼äÃüÁî£¬²¢µÃµ½ÏàÓ¦´¦Àí£¬·µ»Øtrue, ·ñÔòÎªfalse.
+	 * \return æ˜¯å·²å®šä¹‰çš„æœåŠ¡å™¨é—´å‘½ä»¤ï¼Œå¹¶å¾—åˆ°ç›¸åº”å¤„ç†ï¼Œè¿”å›true, å¦åˆ™ä¸ºfalse.
 	 *
 	 */
 	bool processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen);
 
 	/**
-	 * \brief ²éÕÒ·ûºÏÌõ¼şµÄ»¤±¦ÈÎÎñ
+	 * \brief æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„æŠ¤å®ä»»åŠ¡
 	 *
-	 *  µ±ID2Îª0Ê±£¬²éÕÒÊÇ·ñÓĞID1²ÎÕ½µÄ¼ÇÂ¼¡£dwType²ÎÊı±ØĞëÊäÈë¡£
+	 *  å½“ID2ä¸º0æ—¶ï¼ŒæŸ¥æ‰¾æ˜¯å¦æœ‰ID1å‚æˆ˜çš„è®°å½•ã€‚dwTypeå‚æ•°å¿…é¡»è¾“å…¥ã€‚
 	 *
-	 * \param dwType ¶ÔÕ½ÀàĞÍ:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
-	 * \param dwID1  ¹¥·½ID
-	 * \param dwID2  ÊØ·½ID
+	 * \param dwType å¯¹æˆ˜ç±»å‹:Cmd:UNION_DARE, Cmd:SCHOOL_DARE, Cmd:SEPT_DARE
+	 * \param dwID1  æ”»æ–¹ID
+	 * \param dwID2  å®ˆæ–¹ID
 	 *
-	 * \return ÕÒµ½Ôò·µ»Ø¶ÔÓ¦¶ÔÕ½¼ÇÂ¼µÄÖ¸Õë
+	 * \return æ‰¾åˆ°åˆ™è¿”å›å¯¹åº”å¯¹æˆ˜è®°å½•çš„æŒ‡é’ˆ
 	 */
 	CGem * findGem(DWORD dwCountryID);
 
 	/**
-	 * \brief ¸ù¾İID²éÕÒ»¤±¦ÈÎÎñ
+	 * \brief æ ¹æ®IDæŸ¥æ‰¾æŠ¤å®ä»»åŠ¡
 	 *
 	 * \param dwID  GEM ID
 	 *
-	 * \return ÕÒµ½Ôò·µ»Ø¶ÔÓ¦»¤±¦ÈÎÎñ¼ÇÂ¼µÄÖ¸Õë
+	 * \return æ‰¾åˆ°åˆ™è¿”å›å¯¹åº”æŠ¤å®ä»»åŠ¡è®°å½•çš„æŒ‡é’ˆ
 	 */
 	CGem*  findGemByID(DWORD dwID);
 
 	/**
-	 * \brief ¼ÓÈëĞÂµÄ¶ÔÕ½¼ÇÂ¼
+	 * \brief åŠ å…¥æ–°çš„å¯¹æˆ˜è®°å½•
 	 *
-	 * \param dwCountryID ÈÎÎñËùÊô¹ú¼Ò
+	 * \param dwCountryID ä»»åŠ¡æ‰€å±å›½å®¶
 	 *
-	 * \return Ã»ÓĞÖØ¸´¼ÇÂ¼£¬²¢¼ÓÈë³É¹¦£¬·µ»Øtrue,·ñÔò·µ»Øfalse
+	 * \return æ²¡æœ‰é‡å¤è®°å½•ï¼Œå¹¶åŠ å…¥æˆåŠŸï¼Œè¿”å›true,å¦åˆ™è¿”å›false
 	 *
 	 */
 	bool addNewGem(DWORD dwCountryID);
@@ -147,27 +147,27 @@ class CGemM:public zEntryManager<zEntryTempID>,
 	void forceEnd();
 
 	/**
-	 * \brief ÓÃ»§ÉÏÏß´¦Àí
+	 * \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†
 	 *
-	 * ÓÃ»§ÉÏÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¶ÔÕ½×´Ì¬£¬²¢×öÏàÓ¦´¦Àí
+	 * ç”¨æˆ·ä¸Šçº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„å¯¹æˆ˜çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†
 	 *
-	 * \param pUser ÉÏÏßÓÃ»§
+	 * \param pUser ä¸Šçº¿ç”¨æˆ·
 	 *
 	 */
 	void userOnline(UserSession* pUser);
 	
 	/**
-	 * \brief ÓÃ»§ÏÂÏß´¦Àí
+	 * \brief ç”¨æˆ·ä¸‹çº¿å¤„ç†
 	 *
-	 * ÓÃ»§ÏÂÏßÊ±£¬Í¬Ê±×´Ì¬ËûËù´¦µÄ»¤±¦×´Ì¬£¬²¢×öÏàÓ¦´¦Àí
+	 * ç”¨æˆ·ä¸‹çº¿æ—¶ï¼ŒåŒæ—¶çŠ¶æ€ä»–æ‰€å¤„çš„æŠ¤å®çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†
 	 *
-	 * \param pUser ÏÂÏßÓÃ»§
+	 * \param pUser ä¸‹çº¿ç”¨æˆ·
 	 *
 	 */
 	void userOffline(UserSession* pUser);
 };
 
-/// ÂŞºº
+/// ç½—æ±‰
 class CArhat
 {
 	public:
@@ -175,9 +175,9 @@ class CArhat
 	DWORD y;
 	DWORD dwCountryID;
 	DWORD dwMapRealID;
-	BYTE  byState; // ×´Ì¬£¬0ÎªµÀ¾ßÎ´±»ÈË»ñÈ¡£¬1ÎªµÀ¾ßÒÑ±»ÈË»ñÈ¡
-	DWORD dwHoldUserID; // µÀ¾ßÄ¿Ç°ËùÊôÍæ¼ÒID
-	DWORD dwID;	// ÂŞººµÄID
+	BYTE  byState; // çŠ¶æ€ï¼Œ0ä¸ºé“å…·æœªè¢«äººè·å–ï¼Œ1ä¸ºé“å…·å·²è¢«äººè·å–
+	DWORD dwHoldUserID; // é“å…·ç›®å‰æ‰€å±ç©å®¶ID
+	DWORD dwID;	// ç½—æ±‰çš„ID
 
 	CArhat()
 	{
@@ -197,15 +197,15 @@ class CArhat
 class CGem : public zEntry
 {
 	protected:
-		zRWLock rwlock;                             // ¶ÁĞ´Ëø
-		time_t tmStart;				    // ¿ªÊ¼Ê±¼ä
+		zRWLock rwlock;                             // è¯»å†™é”
+		time_t tmStart;				    // å¼€å§‹æ—¶é—´
 
 	public:
 		enum{
-			GEM_READY,		// »¤±¦ÈÎÎñ×¼±¸×´Ì¬
-			GEM_ACTIVE,		// »¤±¦ÈÎÎñ½øĞĞ×´Ì¬
-			GEM_READY_OVER,        // »¤±¦ÈÎÎñ×¼±¸½áÊø×´Ì¬
-			GEM_OVER		// ½áÊøÇå³ı×´Ì¬
+			GEM_READY,		// æŠ¤å®ä»»åŠ¡å‡†å¤‡çŠ¶æ€
+			GEM_ACTIVE,		// æŠ¤å®ä»»åŠ¡è¿›è¡ŒçŠ¶æ€
+			GEM_READY_OVER,        // æŠ¤å®ä»»åŠ¡å‡†å¤‡ç»“æŸçŠ¶æ€
+			GEM_OVER		// ç»“æŸæ¸…é™¤çŠ¶æ€
 		};
 
 		CGem();
@@ -213,35 +213,35 @@ class CGem : public zEntry
 		virtual ~CGem();
 
 		/**
-		 * \brief Ê±¼äÊÂ¼ş´¦Àí»Øµ÷º¯Êı£¬ÓÉTimeTick.cppÖĞº¯Êı»Øµ÷
+		 * \brief æ—¶é—´äº‹ä»¶å¤„ç†å›è°ƒå‡½æ•°ï¼Œç”±TimeTick.cppä¸­å‡½æ•°å›è°ƒ
 		 *
-		 *  µ±¶ÔÕ½´¦ÓÚDARE_READY×´Ì¬Îå·ÖÖÓ£¬ÔòÈ¡Ïû¶ÔÕ½£¬²¢½øÈëDARE_RETURN_GOLD×´Ì¬
-		 *  µ±¶ÔÕ½´¦ÓÚDARE_READY_QUESTION  µ±¶ÔÕ½´¦ÓÚDARE_READY
+		 *  å½“å¯¹æˆ˜å¤„äºDARE_READYçŠ¶æ€äº”åˆ†é’Ÿï¼Œåˆ™å–æ¶ˆå¯¹æˆ˜ï¼Œå¹¶è¿›å…¥DARE_RETURN_GOLDçŠ¶æ€
+		 *  å½“å¯¹æˆ˜å¤„äºDARE_READY_QUESTION  å½“å¯¹æˆ˜å¤„äºDARE_READY
 		 *
 		 *
 		 */
-		virtual void timer();	//Ê±¼äÊÂ¼ş´¦Àí»Øµ÷
+		virtual void timer();	//æ—¶é—´äº‹ä»¶å¤„ç†å›è°ƒ
 
 
-		// ×´Ì¬´¦Àí·½·¨,ÓÉtimer×ö×´Ì¬±äÇ¨µÄ´¦Àí
+		// çŠ¶æ€å¤„ç†æ–¹æ³•,ç”±timeråšçŠ¶æ€å˜è¿çš„å¤„ç†
 		virtual void setReadyState();
 		virtual void setActiveState();
 		virtual void setReadyOverState();
 		virtual void setOverState();
 
 		/**
-		 * \brief ·¢ËÍ¶ÔÕ½½øĞĞ×´Ì¬¸ø³¡¾°
+		 * \brief å‘é€å¯¹æˆ˜è¿›è¡ŒçŠ¶æ€ç»™åœºæ™¯
 		 *
-		 *  ³¡¾°¶ÔÏàÓ¦Íæ¼ÒÌí¼Ó¶ÔÕ½¼ÇÂ¼£¬ÔÚsendNineToMeÊ±£¬½øĞĞ¶ÔÕ½×´Ì¬µÄ¼ÆËã,¸Ã
-		 *  º¯ÊıÖ»ÔÚÓÃ»§ÉÏÏß´¦ÀíÊ±±»µ÷ÓÃ¡£
+		 *  åœºæ™¯å¯¹ç›¸åº”ç©å®¶æ·»åŠ å¯¹æˆ˜è®°å½•ï¼Œåœ¨sendNineToMeæ—¶ï¼Œè¿›è¡Œå¯¹æˆ˜çŠ¶æ€çš„è®¡ç®—,è¯¥
+		 *  å‡½æ•°åªåœ¨ç”¨æˆ·ä¸Šçº¿å¤„ç†æ—¶è¢«è°ƒç”¨ã€‚
 		 *
 		 */
 		virtual void sendActiveStateToScene(UserSession* pUser);
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñÈÔÔÚ»¤±¦ÈÎÎñÊ±ÆÚ
+		 * \brief åˆ¤æ–­æ˜¯å¦ä»åœ¨æŠ¤å®ä»»åŠ¡æ—¶æœŸ
 		 *
-		 * \return Èç¹ûÈÔÔÚ»¤±¦ÈÎÎñÊ±ÆÚ£¬·µ»ØTRUE,·ñÔò·µ»ØFALSE
+		 * \return å¦‚æœä»åœ¨æŠ¤å®ä»»åŠ¡æ—¶æœŸï¼Œè¿”å›TRUE,å¦åˆ™è¿”å›FALSE
 		 */
 		virtual bool isActivePeriod();
 
@@ -253,10 +253,10 @@ class CGem : public zEntry
 		void    resetDragon();
 		void    resetTiger();
 
-		CArhat dragon; // Áú¾«
-		CArhat tiger;   // »¢ÆÇ
-		BYTE   state;       	// Ëù´¦×´Ì¬
-		DWORD  dwCountryID;	// »¤±¦ÈÎÎñËùÊô¹ú¼Ò
+		CArhat dragon; // é¾™ç²¾
+		CArhat tiger;   // è™é­„
+		BYTE   state;       	// æ‰€å¤„çŠ¶æ€
+		DWORD  dwCountryID;	// æŠ¤å®ä»»åŠ¡æ‰€å±å›½å®¶
 };
 #endif
 

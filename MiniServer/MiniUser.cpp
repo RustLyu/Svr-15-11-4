@@ -1,4 +1,4 @@
-#include "MiniUser.h"
+ï»¿#include "MiniUser.h"
 #include "MiniUserCommand.h"
 #include "zMetaData.h"
 #include <stdarg.h>
@@ -20,7 +20,7 @@ void MiniUser::setScene(MiniTask *s)
 	if (s)
 		scene = s;
 	else
-		Zebra::logger->error("MiniUser::setScene %s(%u)ÊÔÍ¼ÇĞ»»²»´æÔÚµÄ³¡¾°", name, id);
+		Zebra::logger->error("MiniUser::setScene %s(%u)è¯•å›¾åˆ‡æ¢ä¸å­˜åœ¨çš„åœºæ™¯", name, id);
 }
 
 bool MiniUser::sendCmdToMe(const void *pstrCmd, const int nCmdLen) const
@@ -83,7 +83,7 @@ Cmd::MiniUserPosition MiniUser::getGamePos(const BYTE &t)
 void MiniUser::setGamePos(const BYTE &t, const Cmd::MiniUserPosition &p)
 {
 	gameList[t].pos = p;
-	Zebra::logger->debug("%s(%u) Î»ÖÃ %u", name, id, p.id());
+	Zebra::logger->debug("%s(%u) ä½ç½® %u", name, id, p.id());
 }
 
 Cmd::MiniUserState MiniUser::getGameState(const BYTE &t)
@@ -130,7 +130,7 @@ bool MiniUser::save()
 
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("MiniUser::save ²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("MiniUser::save ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -155,7 +155,7 @@ bool MiniUser::save()
 	MiniService::dbConnPool->putHandle(handle);
 	if ((DWORD)-1==ret)
 	{
-		Zebra::logger->error("ÓÃ»§±£´æ£¬Ğ´Êı¾İ¿âÊ§°Ü! %s(%u) score=%u money=%u ret=%d", name, id, score.score, score.money, ret);
+		Zebra::logger->error("ç”¨æˆ·ä¿å­˜ï¼Œå†™æ•°æ®åº“å¤±è´¥! %s(%u) score=%u money=%u ret=%d", name, id, score.score, score.money, ret);
 		return false;
 	}
 

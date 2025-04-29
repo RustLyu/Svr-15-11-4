@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: Quest.cpp $
  * \author	
  * \date		
- * \brief		ÈÎÎñÏµÍ³
+ * \brief		ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
 
@@ -27,14 +27,14 @@
 #include "ScenesServer.h"
 
 /**     
- * \brief  ½âÎöÈÎÎñÃüÁî
+ * \brief  è§£æä»»åŠ¡å‘½ä»¤
  *
- * ´¦Àí¿Í»§¶ËÇëÇóµÄÈÎÎñÖ¸Áî,°üÀ¨ÇëÇóÈÎÎñºÍ·ÅÆúÈÎÎñ
+ * å¤„ç†å®¢æˆ·ç«¯è¯·æ±‚çš„ä»»åŠ¡æŒ‡ä»¤,åŒ…æ‹¬è¯·æ±‚ä»»åŠ¡å’Œæ”¾å¼ƒä»»åŠ¡
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \param cmd: ÈÎÎñÖ¸ÁîÄÚÈİ
- * \param len: ÈÎÎñÖ¸Áî³¤¶È
- * \return ´¦Àí³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \param cmd: ä»»åŠ¡æŒ‡ä»¤å†…å®¹
+ * \param len: ä»»åŠ¡æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Quest::execute(SceneUser& user, Cmd::stQuestUserCmd* cmd, unsigned int len)
 {
@@ -88,7 +88,7 @@ bool Quest::execute(SceneUser& user, Cmd::stQuestUserCmd* cmd, unsigned int len)
 			{
 				Cmd::stAbandonQuestUserCmd *request=(Cmd::stAbandonQuestUserCmd *)cmd;
 				if (request->id >= 21000 && request->id <= 22000) {
-					return Channel::sendSys(&user, Cmd::INFO_TYPE_SYS, "¸ÃÈÎÎñ²»ÄÜ·ÅÆú!");
+					return Channel::sendSys(&user, Cmd::INFO_TYPE_SYS, "è¯¥ä»»åŠ¡ä¸èƒ½æ”¾å¼ƒ!");
 				}
 				Quest::abandon(user, request->id);
 				user.sendNineToMe(); //refresh quest state
@@ -105,9 +105,9 @@ bool Quest::execute(SceneUser& user, Cmd::stQuestUserCmd* cmd, unsigned int len)
 				{
 					user.guard->moveAction = !(user.guard->moveAction);
 					if (user.guard->canMove())
-						Zebra::logger->debug("%s ¿ªÊ¼ĞĞ×ß",user.guard->name);
+						Zebra::logger->debug("%s å¼€å§‹è¡Œèµ°",user.guard->name);
 					else
-						Zebra::logger->debug("%s Í£Ö¹ĞĞ×ß",user.guard->name);
+						Zebra::logger->debug("%s åœæ­¢è¡Œèµ°",user.guard->name);
 				}
 				return true;
 			}
@@ -132,13 +132,13 @@ bool Quest::execute(SceneUser& user, Cmd::stQuestUserCmd* cmd, unsigned int len)
 }
 
 /**     
- * \brief  ¶ÁÈ¡ÈÎÎñ
+ * \brief  è¯»å–ä»»åŠ¡
  *
- * ´ÓÓÃ»§µµ°¸ÖĞ¶ÁÈ¡ÈÎÎñÁĞ±í
+ * ä»ç”¨æˆ·æ¡£æ¡ˆä¸­è¯»å–ä»»åŠ¡åˆ—è¡¨
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \param dest: ÈÎÎñµµ°¸
- * \return ¶ÁÈ¡µÄÈÎÎñÊıÄ¿
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return è¯»å–çš„ä»»åŠ¡æ•°ç›®
  */
 int Quest::load(SceneUser& user, unsigned char* dest , unsigned long &dest_size)
 {
@@ -146,13 +146,13 @@ int Quest::load(SceneUser& user, unsigned char* dest , unsigned long &dest_size)
 }
 
 /**     
- * \brief ´æ´¢ÈÎÎñ
+ * \brief å­˜å‚¨ä»»åŠ¡
  *
- *´æÖüÈÎÎñÁĞ±íµ½ÓÃ»§µµ°¸ÖĞ
+ *å­˜è´®ä»»åŠ¡åˆ—è¡¨åˆ°ç”¨æˆ·æ¡£æ¡ˆä¸­
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \param dest: ÈÎÎñµµ°¸
- * \return ´æ´¢µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return å­˜å‚¨çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int Quest::save(SceneUser& user, unsigned char* dest)
 {
@@ -160,12 +160,12 @@ int Quest::save(SceneUser& user, unsigned char* dest)
 }
 
 /**     
- * \brief Í¨ÖªÈÎÎñ
+ * \brief é€šçŸ¥ä»»åŠ¡
  *
- *·¢ËÍÈÎÎñĞÅÏ¢µ½ÓÃ»§
+ *å‘é€ä»»åŠ¡ä¿¡æ¯åˆ°ç”¨æˆ·
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \return µ±Ç°×ÜÊÇ·µ»Ø0
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \return å½“å‰æ€»æ˜¯è¿”å›0
  */
 int Quest::notify(SceneUser& user)
 {
@@ -173,13 +173,13 @@ int Quest::notify(SceneUser& user)
 }
 
 /**     
- * \brief ·ÅÆúÈÎÎñ
+ * \brief æ”¾å¼ƒä»»åŠ¡
  *
- *·ÅÆúÒ»¸öÈÎÎñ
+ *æ”¾å¼ƒä¸€ä¸ªä»»åŠ¡
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \param id: ÈÎÎñid
- * \return ³É¹¦·µ»Ø0,Ê§°Ü·µ»Ø-1
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \param id: ä»»åŠ¡id
+ * \return æˆåŠŸè¿”å›0,å¤±è´¥è¿”å›-1
  */
 int Quest::abandon(SceneUser& user, DWORD id)
 {
@@ -189,11 +189,11 @@ int Quest::abandon(SceneUser& user, DWORD id)
 const std::string Quest::FINISHED_NAME = "state";
 
 /**     
- * \brief ÉèÖÃÊ±¼ä
+ * \brief è®¾ç½®æ—¶é—´
  *
- *ÉèÖÃÒ»¸öÈÎÎñµÄÊ±¼äÏŞÖÆ
+ *è®¾ç½®ä¸€ä¸ªä»»åŠ¡çš„æ—¶é—´é™åˆ¶
  *      
- * \return µ±Ç°×ÜÊÇ·µ»Ø0
+ * \return å½“å‰æ€»æ˜¯è¿”å›0
  */
 int Vars::set_timer()
 {
@@ -210,11 +210,11 @@ int Vars::set_timer(int start)
 }
 
 /**     
- * \brief ÈÎÎñ¿ªÊ¼Ê±¼ä
+ * \brief ä»»åŠ¡å¼€å§‹æ—¶é—´
  *
- *È¡µÃÈÎÎñµÄ¿ªÊ¼Ê±¼ä
+ *å–å¾—ä»»åŠ¡çš„å¼€å§‹æ—¶é—´
  *      
- * \return ÈÎÎñ¿ªÊ¼Ê±¼ä
+ * \return ä»»åŠ¡å¼€å§‹æ—¶é—´
  */
 int Vars::start_time() const
 {
@@ -222,11 +222,11 @@ int Vars::start_time() const
 }
 
 /**     
- * \brief ÈÎÎñÊÇ·ñ³¬Ê±
+ * \brief ä»»åŠ¡æ˜¯å¦è¶…æ—¶
  *
- *ÅĞ¶ÏÈÎÎñÊÇ·ñ³¬¹ıÊ±¼äÏŞÖÆ
+ *åˆ¤æ–­ä»»åŠ¡æ˜¯å¦è¶…è¿‡æ—¶é—´é™åˆ¶
  *      
- * \return ÈÎÎñ³¬¹ıÊ±¼äÏŞÖÆ·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \return ä»»åŠ¡è¶…è¿‡æ—¶é—´é™åˆ¶è¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Vars::is_timeout(int timeout) const
 {
@@ -238,12 +238,12 @@ bool Vars::is_timeout(int timeout) const
 }
 
 /**     
- * \brief ´æ´¢Ê±¼ä
+ * \brief å­˜å‚¨æ—¶é—´
  *
- *´æ´¢ÈÎÎñµÄ¿ªÊ¼Ê±¼äºÍÊ±¼äÏŞÖÆ
+ *å­˜å‚¨ä»»åŠ¡çš„å¼€å§‹æ—¶é—´å’Œæ—¶é—´é™åˆ¶
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \return ´æ´¢µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return å­˜å‚¨çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int Vars::save_timer(unsigned char* dest) const
 {
@@ -257,12 +257,12 @@ int Vars::save_timer(unsigned char* dest) const
 }
 
 /**     
- * \brief ¶ÁÈ¡Ê±¼ä
+ * \brief è¯»å–æ—¶é—´
  *
- *¶ÁÈ¡ÈÎÎñµÄ¿ªÊ¼Ê±¼äºÍÊ±¼äÏŞÖÆ
+ *è¯»å–ä»»åŠ¡çš„å¼€å§‹æ—¶é—´å’Œæ—¶é—´é™åˆ¶
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \return ¶ÁÈ¡µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return è¯»å–çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int Vars::load_timer(unsigned char* dest)
 {
@@ -276,12 +276,12 @@ int Vars::load_timer(unsigned char* dest)
 }
 
 /**     
- * \brief ´æ´¢±äÁ¿
+ * \brief å­˜å‚¨å˜é‡
  *
- *´æ´¢ÈÎÎñ±äÁ¿
+ *å­˜å‚¨ä»»åŠ¡å˜é‡
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \return ´æ´¢µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return å­˜å‚¨çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int Vars::save(unsigned char* dest) const
 {
@@ -304,7 +304,7 @@ int Vars::save(unsigned char* dest) const
 			memcpy(dest+len, it->second.value().c_str(), it->second.value().length());
 			len += it->second.value().length();			
 			
-			//Zebra::logger->debug("´æ´¢±äÁ¿(%s:%s)", it->first.c_str(), it->second.value().c_str());
+			//Zebra::logger->debug("å­˜å‚¨å˜é‡(%s:%s)", it->first.c_str(), it->second.value().c_str());
 		}
 	}
 	//store count
@@ -314,12 +314,12 @@ int Vars::save(unsigned char* dest) const
 }
 
 /**     
- * \brief ¶ÁÈ¡±äÁ¿
+ * \brief è¯»å–å˜é‡
  *
- *¶ÁÈ¡ÈÎÎñ±äÁ¿
+ *è¯»å–ä»»åŠ¡å˜é‡
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \return ¶ÁÈ¡µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return è¯»å–çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int Vars::load(unsigned char* dest)
 {
@@ -343,7 +343,7 @@ int Vars::load(unsigned char* dest)
 		
 		_vars[name] = VAR(value);
 		
-		//Zebra::logger->debug("¶ÁÈ¡±äÁ¿(%s:%s)", name.c_str(), value.c_str());
+		//Zebra::logger->debug("è¯»å–å˜é‡(%s:%s)", name.c_str(), value.c_str());
 	}
 
 	int states = state();
@@ -353,11 +353,11 @@ int Vars::load(unsigned char* dest)
 }
 
 /**     
- * \brief ÈÎÎñÊÇ·ñĞèÒª¸üĞÂ
+ * \brief ä»»åŠ¡æ˜¯å¦éœ€è¦æ›´æ–°
  *
- *ÅĞ¶ÏÊÇ·ñĞèÒªÍ¨Öª¿Í»§¶ËÈÎÎñ¸üĞÂĞÅÏ¢
+ *åˆ¤æ–­æ˜¯å¦éœ€è¦é€šçŸ¥å®¢æˆ·ç«¯ä»»åŠ¡æ›´æ–°ä¿¡æ¯
  *      
- * \return 1±íÊ¾ĞèÒªÍ¨Öª¿Í»§¶Ë,0±íÊ¾²»ĞèÒª
+ * \return 1è¡¨ç¤ºéœ€è¦é€šçŸ¥å®¢æˆ·ç«¯,0è¡¨ç¤ºä¸éœ€è¦
  */
 int Vars::update() const
 {
@@ -365,12 +365,12 @@ int Vars::update() const
 }
 
 /**     
- * \brief ÈÎÎñÊÇ·ñĞèÒª¸üĞÂ
+ * \brief ä»»åŠ¡æ˜¯å¦éœ€è¦æ›´æ–°
  *
- *ÉèÖÃÊÇ·ñĞèÒªÍ¨Öª¿Í»§¶ËÈÎÎñ¸üĞÂĞÅÏ¢
+ *è®¾ç½®æ˜¯å¦éœ€è¦é€šçŸ¥å®¢æˆ·ç«¯ä»»åŠ¡æ›´æ–°ä¿¡æ¯
  *      
- * \param value: ÊÇ·ñĞèÒªÍ¨Öª¿Í»§¶Ë
- * \return ÎŞ
+ * \param value: æ˜¯å¦éœ€è¦é€šçŸ¥å®¢æˆ·ç«¯
+ * \return æ— 
  */
 void Vars::update(int value)
 {
@@ -378,12 +378,12 @@ void Vars::update(int value)
 }
 
 /**     
- * \brief Í¨ÖªÈÎÎñ±äÁ¿
+ * \brief é€šçŸ¥ä»»åŠ¡å˜é‡
  *
- *·¢ËÍËùÓĞÈÎÎñ±äÁ¿ĞÅÏ¢µ½ÓÃ»§
+ *å‘é€æ‰€æœ‰ä»»åŠ¡å˜é‡ä¿¡æ¯åˆ°ç”¨æˆ·
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \return µ±Ç°×ÜÊÇ·µ»Ø0
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \return å½“å‰æ€»æ˜¯è¿”å›0
  */
 int Vars::notify(SceneUser& user) const
 {
@@ -398,7 +398,7 @@ int Vars::notify(SceneUser& user) const
 		if (! it->first.compare(Quest::FINISHED_NAME)) continue;
 		if ( offset >= (int)(zSocket::MAX_DATASIZE - sizeof(Cmd::stQuestVarsUserCmd)
 					- (Cmd::stQuestVarsUserCmd::MAX_NSIZE + Cmd::stQuestVarsUserCmd::MAX_VSIZE) ) ) {
-			Zebra::logger->error("ÈÎÎñ(%d)±äÁ¿ÊıÌ«¶à", _quest_id);
+			Zebra::logger->error("ä»»åŠ¡(%d)å˜é‡æ•°å¤ªå¤š", _quest_id);
 			break;
 		}
 		//name
@@ -416,13 +416,13 @@ int Vars::notify(SceneUser& user) const
 }
 
 /**     
- * \brief Í¨ÖªÈÎÎñ±äÁ¿
+ * \brief é€šçŸ¥ä»»åŠ¡å˜é‡
  *
- *·¢ËÍÌØ¶¨ÈÎÎñ±äÁ¿ĞÅÏ¢µ½ÓÃ»§
+ *å‘é€ç‰¹å®šä»»åŠ¡å˜é‡ä¿¡æ¯åˆ°ç”¨æˆ·
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \param name: ±äÁ¿Ãû
- * \return 0 ±íÊ¾·¢ËÍ³É¹¦,-1±íÊ¾Ê§°Ü
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \param name: å˜é‡å
+ * \return 0 è¡¨ç¤ºå‘é€æˆåŠŸ,-1è¡¨ç¤ºå¤±è´¥
  */
 int Vars::notify(SceneUser& user, const std::string& name) const
 {	
@@ -477,11 +477,11 @@ bool Vars::reserve()
 }
 
 /**     
- * \brief ÈÎÎñ×´Ì¬
+ * \brief ä»»åŠ¡çŠ¶æ€
  *
- *È¡µÃÈÎÎñµÄµ±Ç°×´Ì¬
+ *å–å¾—ä»»åŠ¡çš„å½“å‰çŠ¶æ€
  *      
- * \return ÈÎÎñ×´Ì¬
+ * \return ä»»åŠ¡çŠ¶æ€
  */
 int Vars::state() const
 {
@@ -497,9 +497,9 @@ int Vars::state() const
 GlobalVar* GlobalVar::_instance = NULL;
 
 /**     
- * \brief µ¥¼şÄ£Ê½,±£Ö¤È«¾Ö±äÁ¿ÁĞ±íÎ¨Ò»
+ * \brief å•ä»¶æ¨¡å¼,ä¿è¯å…¨å±€å˜é‡åˆ—è¡¨å”¯ä¸€
  *
- * \return È«¾Ö±äÁ¿ÁĞ±íµÄÎ¨Ò»ÊµÀı
+ * \return å…¨å±€å˜é‡åˆ—è¡¨çš„å”¯ä¸€å®ä¾‹
  */
 GlobalVar& GlobalVar::instance()
 {
@@ -512,12 +512,12 @@ GlobalVar& GlobalVar::instance()
 }
 
 /**     
- * \brief ²éÑ¯È«¾Ö±äÁ¿
+ * \brief æŸ¥è¯¢å…¨å±€å˜é‡
  *
- *ÔÚÈ«¾Ö±äÁ¿ÁĞ±íÖĞ²éÕÒÌØ¶¨idµÄÒ»¸ö±äÁ¿
+ *åœ¨å…¨å±€å˜é‡åˆ—è¡¨ä¸­æŸ¥æ‰¾ç‰¹å®šidçš„ä¸€ä¸ªå˜é‡
  *      
- * \param id: ÈÎÎñid
- * \return È«¾Ö±äÁ¿,Ã»ÕÒµ½·µ»ØNULL
+ * \param id: ä»»åŠ¡id
+ * \return å…¨å±€å˜é‡,æ²¡æ‰¾åˆ°è¿”å›NULL
  */
 Vars* GlobalVar::vars(DWORD id) const
 {
@@ -530,12 +530,12 @@ Vars* GlobalVar::vars(DWORD id) const
 }
 
 /**     
- * \brief Ìí¼ÓÈ«¾Ö±äÁ¿
+ * \brief æ·»åŠ å…¨å±€å˜é‡
  *
- *ÔÚÈ«¾Ö±äÁ¿ÁĞ±íÖĞÌí¼ÓÒ»¸öÌØ¶¨idµÄ±äÁ¿,Èç¹û¸Ã±äÁ¿ÒÑ¾­´æÔÚ,Ôò¸üĞÂ±äÁ¿µÄÖµ
+ *åœ¨å…¨å±€å˜é‡åˆ—è¡¨ä¸­æ·»åŠ ä¸€ä¸ªç‰¹å®šidçš„å˜é‡,å¦‚æœè¯¥å˜é‡å·²ç»å­˜åœ¨,åˆ™æ›´æ–°å˜é‡çš„å€¼
  *      
- * \param id: ÈÎÎñid
- * \return È«¾Ö±äÁ¿
+ * \param id: ä»»åŠ¡id
+ * \return å…¨å±€å˜é‡
  */
 Vars* GlobalVar::add(DWORD id)
 {
@@ -552,9 +552,9 @@ UserVar* UserVar::_instance = NULL;
 int UserVar::SERVER_ID = 0;
 
 /**     
- * \brief µ¥¼şÄ£Ê½,±£Ö¤ÓÃ»§±äÁ¿ÁĞ±íÎ¨Ò»
+ * \brief å•ä»¶æ¨¡å¼,ä¿è¯ç”¨æˆ·å˜é‡åˆ—è¡¨å”¯ä¸€
  *
- * \return ÓÃ»§±äÁ¿ÁĞ±íµÄÎ¨Ò»ÊµÀı
+ * \return ç”¨æˆ·å˜é‡åˆ—è¡¨çš„å”¯ä¸€å®ä¾‹
  */
 UserVar& UserVar::instance()
 {
@@ -567,13 +567,13 @@ UserVar& UserVar::instance()
 }
 
 /**     
- * \brief ²éÑ¯ÓÃ»§±äÁ¿
+ * \brief æŸ¥è¯¢ç”¨æˆ·å˜é‡
  *
- *ÔÚÓÃ»§±äÁ¿ÁĞ±íÖĞ²éÕÒÌØ¶¨µÄÒ»¸ö±äÁ¿
+ *åœ¨ç”¨æˆ·å˜é‡åˆ—è¡¨ä¸­æŸ¥æ‰¾ç‰¹å®šçš„ä¸€ä¸ªå˜é‡
  *      
- * \param id: ÈÎÎñid
- * \param key: ¸ù¾İÓÃ»§ĞÅÏ¢hash³öµÄÒ»¸ökeyÖµ,Î¨Ò»Ê¶±ğÒ»¸öieÓÃ»§
- * \return ÓÃ»§±äÁ¿,Ã»ÕÒµ½·µ»ØNULL
+ * \param id: ä»»åŠ¡id
+ * \param key: æ ¹æ®ç”¨æˆ·ä¿¡æ¯hashå‡ºçš„ä¸€ä¸ªkeyå€¼,å”¯ä¸€è¯†åˆ«ä¸€ä¸ªieç”¨æˆ·
+ * \return ç”¨æˆ·å˜é‡,æ²¡æ‰¾åˆ°è¿”å›NULL
  */
 Vars* UserVar::vars(DWORD id, QWORD key) const
 {
@@ -586,13 +586,13 @@ Vars* UserVar::vars(DWORD id, QWORD key) const
 }
 
 /**     
- * \brief Ìí¼ÓÓÃ»§±äÁ¿
+ * \brief æ·»åŠ ç”¨æˆ·å˜é‡
  *
- *ÔÚÓÃ»§±äÁ¿ÁĞ±íÖĞÌí¼ÓÌØ¶¨µÄÒ»¸ö±äÁ¿,Èç¹û±äÁ¿ÒÑ´æÔÚÔò¸üĞÂ
+ *åœ¨ç”¨æˆ·å˜é‡åˆ—è¡¨ä¸­æ·»åŠ ç‰¹å®šçš„ä¸€ä¸ªå˜é‡,å¦‚æœå˜é‡å·²å­˜åœ¨åˆ™æ›´æ–°
  *      
- * \param id: ÈÎÎñid
- * \param key: ¸ù¾İÓÃ»§ĞÅÏ¢hash³öµÄÒ»¸ökeyÖµ,Î¨Ò»Ê¶±ğÒ»¸öieÓÃ»§
- * \return Ìí¼ÓµÄÓÃ»§±äÁ¿
+ * \param id: ä»»åŠ¡id
+ * \param key: æ ¹æ®ç”¨æˆ·ä¿¡æ¯hashå‡ºçš„ä¸€ä¸ªkeyå€¼,å”¯ä¸€è¯†åˆ«ä¸€ä¸ªieç”¨æˆ·
+ * \return æ·»åŠ çš„ç”¨æˆ·å˜é‡
  */
 Vars* UserVar::add(DWORD id, QWORD key)
 {
@@ -632,7 +632,7 @@ bool UserVar::save() const
 		len += it->second->save((unsigned char*)buf+len);
 		if (len >= (MAX_BUF_SIZE*30 - 1024))
 		{
-			Zebra::logger->fatal("´æ´¢È«¾Ö±äÁ¿Ê±£¬»º³åÇø¹ı¶ÌÔ½½ç£¨%u, %u£©", MAX_BUF_SIZE, len);
+			Zebra::logger->fatal("å­˜å‚¨å…¨å±€å˜é‡æ—¶ï¼Œç¼“å†²åŒºè¿‡çŸ­è¶Šç•Œï¼ˆ%u, %uï¼‰", MAX_BUF_SIZE, len);
 			of.write(buf, len);
 			bzero(buf, sizeof(buf));
 			len = 0;
@@ -652,7 +652,7 @@ bool UserVar::load()
 	bool ret = false;
 	std::ifstream inf(_file.c_str(), std::ios::binary);
 
-	//»ñµÃÎÄ¼ş´óĞ¡
+	//è·å¾—æ–‡ä»¶å¤§å°
 	inf.seekg(0, std::ios::end);
 	int length = inf.tellg();
 	inf.seekg(0, std::ios::beg);
@@ -679,7 +679,7 @@ bool UserVar::load()
 			ret = true;
 		}
 		else
-			Zebra::logger->fatal("¼ÓÔØÈÎÎñ±äÁ¿ÎÄ¼ş·ÖÅäÄÚ´æÊ§°Ü£º%u", length);
+			Zebra::logger->fatal("åŠ è½½ä»»åŠ¡å˜é‡æ–‡ä»¶åˆ†é…å†…å­˜å¤±è´¥ï¼š%u", length);
 	}
 
 	inf.close();
@@ -687,12 +687,12 @@ bool UserVar::load()
 }
 
 /**     
- * \brief ´æ´¢±äÁ¿
+ * \brief å­˜å‚¨å˜é‡
  *
- *´æ´¢ÈÎÎñ±äÁ¿
+ *å­˜å‚¨ä»»åŠ¡å˜é‡
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \return ´æ´¢µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return å­˜å‚¨çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int UserVar::VAR::save(unsigned char* dest) const
 {
@@ -705,7 +705,7 @@ int UserVar::VAR::save(unsigned char* dest) const
 
 			int tmp = it->second->save(dest);
 			len += tmp;
-	//Zebra::logger->debug("´æ´¢±äÁ¿(%s:%s)", it->first.c_str(), it->second.value().c_str());
+	//Zebra::logger->debug("å­˜å‚¨å˜é‡(%s:%s)", it->first.c_str(), it->second.value().c_str());
 	}
 	//store count
 	memcpy(dest, &count, sizeof(int));	
@@ -714,12 +714,12 @@ int UserVar::VAR::save(unsigned char* dest) const
 }
 
 /**     
- * \brief ¶ÁÈ¡±äÁ¿
+ * \brief è¯»å–å˜é‡
  *
- * ¶ÁÈ¡ÈÎÎñ±äÁ¿
+ * è¯»å–ä»»åŠ¡å˜é‡
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \return ¶ÁÈ¡µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return è¯»å–çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int UserVar::VAR::load(unsigned char* dest)
 {
@@ -738,12 +738,12 @@ int UserVar::VAR::load(unsigned char* dest)
 }
 
 /**     
- * \brief ²éÑ¯ÈÎÎñ±äÁ¿
+ * \brief æŸ¥è¯¢ä»»åŠ¡å˜é‡
  *
- *ÔÚÈÎÎñÁĞ±íÖĞ²éÕÒÌØ¶¨idµÄÒ»¸ö±äÁ¿
+ *åœ¨ä»»åŠ¡åˆ—è¡¨ä¸­æŸ¥æ‰¾ç‰¹å®šidçš„ä¸€ä¸ªå˜é‡
  *      
- * \param id: ÈÎÎñid
- * \return ÈÎÎñ±äÁ¿,Ã»ÕÒµ½·µ»ØNULL
+ * \param id: ä»»åŠ¡id
+ * \return ä»»åŠ¡å˜é‡,æ²¡æ‰¾åˆ°è¿”å›NULL
  */
 Vars* QuestList::vars(DWORD id) const
 {
@@ -756,15 +756,15 @@ Vars* QuestList::vars(DWORD id) const
 }
 
 /**     
- * \brief Ôö¼ÓÈÎÎñ
+ * \brief å¢åŠ ä»»åŠ¡
  *
- *ÔÚÈÎÎñÁĞ±íÖĞÔö¼ÓÒ»¸öÈÎÎñ
+ *åœ¨ä»»åŠ¡åˆ—è¡¨ä¸­å¢åŠ ä¸€ä¸ªä»»åŠ¡
  *      
- * \param id: ÈÎÎñid
- * \param vars: ÈÎÎñ±äÁ¿
- * \param user:  Ğ¯´øÈÎÎñµÄÓÃ»§
- * \param notify:  Ìí¼ÓÈÎÎñÊ±ÊÇ·ñÍ¨Öª¿Í»§¶Ë
- * \return ÎŞ
+ * \param id: ä»»åŠ¡id
+ * \param vars: ä»»åŠ¡å˜é‡
+ * \param user:  æºå¸¦ä»»åŠ¡çš„ç”¨æˆ·
+ * \param notify:  æ·»åŠ ä»»åŠ¡æ—¶æ˜¯å¦é€šçŸ¥å®¢æˆ·ç«¯
+ * \return æ— 
  */
 void QuestList::add_quest(DWORD id, const Vars& vars, SceneUser& user, bool notify)
 {
@@ -793,11 +793,11 @@ void QuestList::add_quest(DWORD id, const Vars& vars, SceneUser& user, bool noti
 }
 
 /**     
- * \brief ÈÎÎñÊıÄ¿
+ * \brief ä»»åŠ¡æ•°ç›®
  *
- *È¡µÃÈÎÎñÁĞ±íÖĞÎ´Íê³ÉµÄÈÎÎñ×ÜÊı
+ *å–å¾—ä»»åŠ¡åˆ—è¡¨ä¸­æœªå®Œæˆçš„ä»»åŠ¡æ€»æ•°
  *      
- * \return ÈÎÎñÊıÁ¿
+ * \return ä»»åŠ¡æ•°é‡
  */
 int QuestList::count() const
 {
@@ -814,12 +814,12 @@ int QuestList::count() const
 
 #define MARK "%%"
 /**     
- * \brief ÉèÖÃÈÎÎñ²Ëµ¥
+ * \brief è®¾ç½®ä»»åŠ¡èœå•
  *
- *ÉèÖÃnpcµÄÈÎÎñĞÅÏ¢
+ *è®¾ç½®npcçš„ä»»åŠ¡ä¿¡æ¯
  *      
-  * \param menu: ²Ëµ¥ÄÚÈİ
- * \return ³É¹¦·µ»Øtrue,Ê§°Ü·µ»Øfalse
+  * \param menu: èœå•å†…å®¹
+ * \return æˆåŠŸè¿”å›true,å¤±è´¥è¿”å›false
  */
 bool QuestList::set_menu(const std::string& menu)
 {
@@ -850,12 +850,12 @@ bool QuestList::set_menu(const std::string& menu)
 }
 
 /**     
- * \brief ÉèÖÃÈÎÎñ²Ëµ¥
+ * \brief è®¾ç½®ä»»åŠ¡èœå•
  *
- *ÉèÖÃnpcµÄÈÎÎñĞÅÏ¢
+ *è®¾ç½®npcçš„ä»»åŠ¡ä¿¡æ¯
  *      
-  * \param menu: ²Ëµ¥ÄÚÈİ
- * \return ³É¹¦·µ»Øtrue,Ê§°Ü·µ»Øfalse
+  * \param menu: èœå•å†…å®¹
+ * \return æˆåŠŸè¿”å›true,å¤±è´¥è¿”å›false
  */
 void QuestList::add_menu(const std::string& menu)
 {
@@ -867,13 +867,13 @@ void QuestList::add_menu(const std::string& menu)
 #define NO_TASK_DIALOG "function IsHasTask()\n\treturn false\nend\nfunction TaskDialog()\nend\n"
 
 /**     
- * \brief ²éÑ¯ÈÎÎñ²Ëµ¥
+ * \brief æŸ¥è¯¢ä»»åŠ¡èœå•
  *
- *²éÑ¯npcµÄÈÎÎñĞÅÏ¢
+ *æŸ¥è¯¢npcçš„ä»»åŠ¡ä¿¡æ¯
  *      
- * \param menu: ²éÑ¯µ½µÄ½á¹û
- * \param status: ²éÑ¯×´Ì¬
- * \return ²Ëµ¥µÄ³¤¶È
+ * \param menu: æŸ¥è¯¢åˆ°çš„ç»“æœ
+ * \param status: æŸ¥è¯¢çŠ¶æ€
+ * \return èœå•çš„é•¿åº¦
  */
 int QuestList::get_menu(char* menu, int& status)
 {
@@ -898,12 +898,12 @@ int QuestList::get_menu(char* menu, int& status)
 }
 
 /**     
- * \brief ´æ´¢ÈÎÎñ
+ * \brief å­˜å‚¨ä»»åŠ¡
  *
- *´æÖüÈÎÎñÁĞ±íµ½ÓÃ»§µµ°¸ÖĞ
+ *å­˜è´®ä»»åŠ¡åˆ—è¡¨åˆ°ç”¨æˆ·æ¡£æ¡ˆä¸­
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \return ´æ´¢µÄ¶ş½øÖÆµµ°¸³¤¶È
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \return å­˜å‚¨çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
  */
 int QuestList::save(unsigned char* dest) const
 {
@@ -914,7 +914,7 @@ int QuestList::save(unsigned char* dest) const
 	
 	for (const_quest_iterator it=_quests.begin(); it!=_quests.end(); ++it) {
 		memcpy(dest+len, &it->first, sizeof(DWORD));
-		//Zebra::logger->debug("´æ´¢ÈÎÎñ(%d)", it->first);
+		//Zebra::logger->debug("å­˜å‚¨ä»»åŠ¡(%d)", it->first);
 		len += sizeof(DWORD);
 		len += it->second.save(dest+len);
 	}
@@ -923,13 +923,13 @@ int QuestList::save(unsigned char* dest) const
 }
 
 /**     
- * \brief  ¶ÁÈ¡ÈÎÎñ
+ * \brief  è¯»å–ä»»åŠ¡
  *
- * ´ÓÓÃ»§µµ°¸ÖĞ¶ÁÈ¡ÈÎÎñÁĞ±í
+ * ä»ç”¨æˆ·æ¡£æ¡ˆä¸­è¯»å–ä»»åŠ¡åˆ—è¡¨
  *      
- * \param dest: ÈÎÎñµµ°¸
- * \param dest_size: ÈÎÎñµµ°¸´óĞ¡
- * \return ¶ÁÈ¡µÄÈÎÎñÊıÄ¿
+ * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+ * \param dest_size: ä»»åŠ¡æ¡£æ¡ˆå¤§å°
+ * \return è¯»å–çš„ä»»åŠ¡æ•°ç›®
  */
 int QuestList::load(unsigned char* dest , unsigned long &dest_size)
 {
@@ -942,7 +942,7 @@ int QuestList::load(unsigned char* dest , unsigned long &dest_size)
 	while ((*size)-- > 0) {
 		int* quest_id = (int *)data;
 		data += sizeof(int);
-		//Zebra::logger->debug("¶ÁÈ¡ÈÎÎñ(%d)", *quest_id);
+		//Zebra::logger->debug("è¯»å–ä»»åŠ¡(%d)", *quest_id);
 		
 		Vars vars(*quest_id);
 		data += vars.load(data);
@@ -955,12 +955,12 @@ int QuestList::load(unsigned char* dest , unsigned long &dest_size)
 }
 
 /**     
- * \brief ÈÎÎñ×´Ì¬
+ * \brief ä»»åŠ¡çŠ¶æ€
  *
- *²éÑ¯ÈÎÎñÁĞ±íÖĞµÄÒ»¸öÈÎÎñµÄ×´Ì¬
+ *æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨ä¸­çš„ä¸€ä¸ªä»»åŠ¡çš„çŠ¶æ€
  *      
- * \param id: ÈÎÎñid
- * \return ÈÎÎñ×´Ì¬,Ã»ÕÒµ½·µ»Ø0
+ * \param id: ä»»åŠ¡id
+ * \return ä»»åŠ¡çŠ¶æ€,æ²¡æ‰¾åˆ°è¿”å›0
  */
 int QuestList::state(DWORD id) const
 {
@@ -971,12 +971,12 @@ int QuestList::state(DWORD id) const
 }
 
 /**     
- * \brief ÈÎÎñ¿ªÊ¼Ê±¼ä
+ * \brief ä»»åŠ¡å¼€å§‹æ—¶é—´
  *
- *²éÑ¯ÈÎÎñÁĞ±íÖĞµÄÒ»¸öÈÎÎñµÄ¿ªÊ¼Ê±¼ä
+ *æŸ¥è¯¢ä»»åŠ¡åˆ—è¡¨ä¸­çš„ä¸€ä¸ªä»»åŠ¡çš„å¼€å§‹æ—¶é—´
  *      
- * \param id: ÈÎÎñid
- * \return ÈÎÎñ¿ªÊ¼Ê±¼ä,Ã»ÕÒµ½·µ»Øµ±Ç°Ê±¼ä
+ * \param id: ä»»åŠ¡id
+ * \return ä»»åŠ¡å¼€å§‹æ—¶é—´,æ²¡æ‰¾åˆ°è¿”å›å½“å‰æ—¶é—´
  */
 int QuestList::start_time(DWORD id) const
 {
@@ -987,12 +987,12 @@ int QuestList::start_time(DWORD id) const
 }
 
 /**     
- * \brief Í¨ÖªÈÎÎñ
+ * \brief é€šçŸ¥ä»»åŠ¡
  *
- *·¢ËÍÈÎÎñĞÅÏ¢µ½ÓÃ»§
+ *å‘é€ä»»åŠ¡ä¿¡æ¯åˆ°ç”¨æˆ·
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \return µ±Ç°×ÜÊÇ·µ»Ø0
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \return å½“å‰æ€»æ˜¯è¿”å›0
  */
 int QuestList::notify(SceneUser& user) const
 {
@@ -1021,7 +1021,7 @@ int QuestList::notify(SceneUser& user) const
 			it->second.notify(user);
 			
 		}else {			
-			//Zebra::logger->error("ÓÃ»§(%d, %d)´øÓĞ²»´æÔÚµÄÈÎÎñ(%d)", user.accid, user.charbase.id, it->first);
+			//Zebra::logger->error("ç”¨æˆ·(%d, %d)å¸¦æœ‰ä¸å­˜åœ¨çš„ä»»åŠ¡(%d)", user.accid, user.charbase.id, it->first);
 		}
 	}
 	
@@ -1029,15 +1029,15 @@ int QuestList::notify(SceneUser& user) const
 }
 
 /**     
- * \brief ·ÅÆúÈÎÎñ
+ * \brief æ”¾å¼ƒä»»åŠ¡
  *
- *·ÅÆúÒ»¸öÈÎÎñ
+ *æ”¾å¼ƒä¸€ä¸ªä»»åŠ¡
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \param id: ÈÎÎñid
- * \param force: ÊÇ·ñÇ¿ÖÆ·ÅÆú
- * \param destroy: ÊÇ·ñÉ¾³ıÈÎÎñ
- * \return ³É¹¦·µ»Ø0,Ê§°Ü·µ»Ø-1
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \param id: ä»»åŠ¡id
+ * \param force: æ˜¯å¦å¼ºåˆ¶æ”¾å¼ƒ
+ * \param destroy: æ˜¯å¦åˆ é™¤ä»»åŠ¡
+ * \return æˆåŠŸè¿”å›0,å¤±è´¥è¿”å›-1
  */
 int QuestList::abandon(SceneUser& user, DWORD id, bool force, bool destroy)
 {
@@ -1057,10 +1057,10 @@ int QuestList::abandon(SceneUser& user, DWORD id, bool force, bool destroy)
 }
 
 /**     
- * \brief ·ÅÆúËùÓĞÈÎÎñ
+ * \brief æ”¾å¼ƒæ‰€æœ‰ä»»åŠ¡
  *
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
  */
 
 void QuestList::clear(SceneUser* pUser)
@@ -1074,13 +1074,13 @@ void QuestList::clear(SceneUser* pUser)
 }
 
 /**     
- * \brief ¸üĞÂÈÎÎñ
+ * \brief æ›´æ–°ä»»åŠ¡
  *
- *¸üĞÂÈÎÎñĞÅÏ¢
+ *æ›´æ–°ä»»åŠ¡ä¿¡æ¯
  *      
- * \param user: ·¢³öÇëÇóµÄÓÃ»§
- * \param refresh: ÊÇ·ñĞèÒªË¢ĞÂ
- * \return µ±Ç°×ÜÊÇ·µ»Ø0
+ * \param user: å‘å‡ºè¯·æ±‚çš„ç”¨æˆ·
+ * \param refresh: æ˜¯å¦éœ€è¦åˆ·æ–°
+ * \return å½“å‰æ€»æ˜¯è¿”å›0
  */
 int QuestList::update(SceneUser& user, bool refresh)
 {
@@ -1124,7 +1124,7 @@ int QuestList::update(SceneUser& user, bool refresh)
 	}
 
 	if (refresh) {
-		//Zebra::logger->debug("ÈÎÎñ×´Ì¬±ä»¯£¬ÖØĞÂÇëÇó¾ÅÆÁÊı¾İ!");
+		//Zebra::logger->debug("ä»»åŠ¡çŠ¶æ€å˜åŒ–ï¼Œé‡æ–°è¯·æ±‚ä¹å±æ•°æ®!");
 
 		DWORD leader_id = user.team.getLeader();
 		SceneUser* leader = SceneUserManager::getMe().getUserByTempID(leader_id);
@@ -1154,12 +1154,12 @@ std::string QuestList::info(int id) const
 {
 	std::ostringstream os;
 
-	os << "ÈËÎïÈÎÎñÁĞ±í:\n";
+	os << "äººç‰©ä»»åŠ¡åˆ—è¡¨:\n";
 	for (const_quest_iterator it=_quests.begin(); it!=_quests.end(); ++it) {
-		std::string name = "Î´Öª";
+		std::string name = "æœªçŸ¥";
 		const Quest* quest = QuestTable::instance().quest(it->first);
 		if (quest) name = quest->title();
-		os << "ÈÎÎñ(" << name << ", " << it->first << ")" << "\n";
+		os << "ä»»åŠ¡(" << name << ", " << it->first << ")" << "\n";
 		os << it->second.info() << "\n";
 	}
 

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPTask.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÏß³Ì³ØÀà£¬ÓÃÓÚ´¦Àí¶àÁ¬½Ó·şÎñÆ÷
+ * \brief å®ç°çº¿ç¨‹æ± ç±»ï¼Œç”¨äºå¤„ç†å¤šè¿æ¥æœåŠ¡å™¨
  *
  * 
  */
@@ -21,19 +21,19 @@
 #include "zTCPTaskPool.h"
 #include "Zebra.h"
 
-CmdAnalysis zTCPTask::analysis("TaskÖ¸Áî½ÓÊÕÍ³¼Æ",600);
+CmdAnalysis zTCPTask::analysis("TaskæŒ‡ä»¤æ¥æ”¶ç»Ÿè®¡",600);
 /**
- * \brief ÏòÌ×½Ó¿Ú·¢ËÍÖ¸Áî£¬Èç¹û»º³å±êÖ¾ÉèÖÃ£¬Ôò·¢ËÍÊÇÖ±½Ó¿½±´µ½»º³åÇø¶ÓÁĞÖĞ£¬Êµ¼ÊµÄ·¢ËÍ¶¯×÷ÔÚÁíÍâÒ»¸öÏß³Ì×ö
+ * \brief å‘å¥—æ¥å£å‘é€æŒ‡ä»¤ï¼Œå¦‚æœç¼“å†²æ ‡å¿—è®¾ç½®ï¼Œåˆ™å‘é€æ˜¯ç›´æ¥æ‹·è´åˆ°ç¼“å†²åŒºé˜Ÿåˆ—ä¸­ï¼Œå®é™…çš„å‘é€åŠ¨ä½œåœ¨å¦å¤–ä¸€ä¸ªçº¿ç¨‹åš
  *
  *
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool zTCPTask::sendCmd(const void *pstrCmd, int nCmdLen)
 {
 	//Zebra::logger->trace("zTCPTask::sendCmd");	
-	//static CmdAnalysis analysis("TaskÖ¸Áî·¢ËÍÍ³¼Æ",600);
+	//static CmdAnalysis analysis("TaskæŒ‡ä»¤å‘é€ç»Ÿè®¡",600);
 	/*
 	Cmd::t_NullCmd *ptNullCmd = (Cmd::t_NullCmd *)pstrCmd;
 	analysis.add(ptNullCmd->cmd,ptNullCmd->para,nCmdLen);
@@ -48,10 +48,10 @@ bool zTCPTask::sendCmdNoPack(const void *pstrCmd, int nCmdLen)
 }
 
 /**
- * \brief ´ÓÌ×½Ó¿ÚÖĞ½ÓÊÜÊı¾İ£¬²¢ÇÒ²ğ°ü½øĞĞ´¦Àí£¬ÔÚµ÷ÓÃÕâ¸öº¯ÊıÖ®Ç°±£Ö¤ÒÑ¾­¶ÔÌ×½Ó¿Ú½øĞĞÁËÂÖÑ¯
+ * \brief ä»å¥—æ¥å£ä¸­æ¥å—æ•°æ®ï¼Œå¹¶ä¸”æ‹†åŒ…è¿›è¡Œå¤„ç†ï¼Œåœ¨è°ƒç”¨è¿™ä¸ªå‡½æ•°ä¹‹å‰ä¿è¯å·²ç»å¯¹å¥—æ¥å£è¿›è¡Œäº†è½®è¯¢
  *
- * \param needRecv ÊÇ·ñĞèÒªÕæÕı´ÓÌ×½Ó¿Ú½ÓÊÜÊı¾İ£¬falseÔò²»ĞèÒª½ÓÊÕ£¬Ö»ÊÇ´¦Àí»º³åÖĞÊ£ÓàµÄÖ¸Áî£¬trueĞèÒªÊµ¼Ê½ÓÊÕÊı¾İ£¬È»ºó²Å´¦Àí
- * \return ½ÓÊÕÊÇ·ñ³É¹¦£¬true±íÊ¾½ÓÊÕ³É¹¦£¬false±íÊ¾½ÓÊÕÊ§°Ü£¬¿ÉÄÜĞèÒª¶Ï¿ªÁ¬½Ó 
+ * \param needRecv æ˜¯å¦éœ€è¦çœŸæ­£ä»å¥—æ¥å£æ¥å—æ•°æ®ï¼Œfalseåˆ™ä¸éœ€è¦æ¥æ”¶ï¼Œåªæ˜¯å¤„ç†ç¼“å†²ä¸­å‰©ä½™çš„æŒ‡ä»¤ï¼Œtrueéœ€è¦å®é™…æ¥æ”¶æ•°æ®ï¼Œç„¶åæ‰å¤„ç†
+ * \return æ¥æ”¶æ˜¯å¦æˆåŠŸï¼Œtrueè¡¨ç¤ºæ¥æ”¶æˆåŠŸï¼Œfalseè¡¨ç¤ºæ¥æ”¶å¤±è´¥ï¼Œå¯èƒ½éœ€è¦æ–­å¼€è¿æ¥ 
  */
 bool zTCPTask::ListeningRecv(bool needRecv)
 {
@@ -72,7 +72,7 @@ bool zTCPTask::ListeningRecv(bool needRecv)
 			unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 			int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 			if (nCmdLen <= 0)
-				//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+				//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 				break;
 			else
 			{
@@ -80,8 +80,8 @@ bool zTCPTask::ListeningRecv(bool needRecv)
 				if (Cmd::CMD_NULL == ptNullCmd->cmd
 						&& Cmd::PARA_NULL == ptNullCmd->para)
 				{
-					//·µ»ØµÄ²âÊÔÖ¸Áî£¬ĞèÒªµİ¼õ¼ÆÊı
-					//Zebra::logger->debug("·şÎñ¶ËÊÕµ½·µ»Ø²âÊÔĞÅºÅ");
+					//è¿”å›çš„æµ‹è¯•æŒ‡ä»¤ï¼Œéœ€è¦é€’å‡è®¡æ•°
+					//Zebra::logger->debug("æœåŠ¡ç«¯æ”¶åˆ°è¿”å›æµ‹è¯•ä¿¡å·");
 					clearTick();
 				}
 				else
@@ -100,9 +100,9 @@ bool zTCPTask::ListeningRecv(bool needRecv)
 }
 
 /**
- * \brief ·¢ËÍ»º³åÖĞµÄÊı¾İµ½Ì×½Ó¿Ú£¬ÔÙµ÷ÓÃÕâ¸öÖ®Ç°±£Ö¤ÒÑ¾­¶ÔÌ×½Ó¿Ú½øĞĞÁËÂÖÑ¯
+ * \brief å‘é€ç¼“å†²ä¸­çš„æ•°æ®åˆ°å¥—æ¥å£ï¼Œå†è°ƒç”¨è¿™ä¸ªä¹‹å‰ä¿è¯å·²ç»å¯¹å¥—æ¥å£è¿›è¡Œäº†è½®è¯¢
  *
- * \return ·¢ËÍÊÇ·ñ³É¹¦£¬true±íÊ¾·¢ËÍ³É¹¦£¬false±íÊ¾·¢ËÍÊ§°Ü£¬¿ÉÄÜĞèÒª¶Ï¿ªÁ¬½Ó
+ * \return å‘é€æ˜¯å¦æˆåŠŸï¼Œtrueè¡¨ç¤ºå‘é€æˆåŠŸï¼Œfalseè¡¨ç¤ºå‘é€å¤±è´¥ï¼Œå¯èƒ½éœ€è¦æ–­å¼€è¿æ¥
  */
 bool zTCPTask::ListeningSend()
 {
@@ -111,7 +111,7 @@ bool zTCPTask::ListeningSend()
 }
 
 /**
- * \brief °ÑTCPÁ¬½ÓÈÎÎñ½»¸øÏÂÒ»¸öÈÎÎñ¶ÓÁĞ£¬ÇĞ»»×´Ì¬
+ * \brief æŠŠTCPè¿æ¥ä»»åŠ¡äº¤ç»™ä¸‹ä¸€ä¸ªä»»åŠ¡é˜Ÿåˆ—ï¼Œåˆ‡æ¢çŠ¶æ€
  *
  */
 void zTCPTask::getNextState()
@@ -145,7 +145,7 @@ void zTCPTask::getNextState()
 }
 
 /**
- * \brief ÖØÖµÁ¬½ÓÈÎÎñ×´Ì¬£¬»ØÊÕÁ¬½Ó
+ * \brief é‡å€¼è¿æ¥ä»»åŠ¡çŠ¶æ€ï¼Œå›æ”¶è¿æ¥
  *
  */
 void zTCPTask::resetState()
@@ -158,17 +158,17 @@ void zTCPTask::resetState()
 		case notuse:
 		/*
 		 * whj 
-		 * Èç¹ûsyncÇé¿öÏÂÌí¼Óµ½okay¹ÜÀíÆ÷Ê§°Ü»á³öÏÖokay×´Ì¬resetStateµÄ¿ÉÄÜĞÔ
+		 * å¦‚æœsyncæƒ…å†µä¸‹æ·»åŠ åˆ°okayç®¡ç†å™¨å¤±è´¥ä¼šå‡ºç°okayçŠ¶æ€resetStateçš„å¯èƒ½æ€§
 		 */
 		//case okay:
 		case recycle:
-			//²»¿ÉÄÜµÄ
-			Zebra::logger->fatal("%s:²»¿ÉÄÜ recycle -> recycle", __FUNCTION__);
+			//ä¸å¯èƒ½çš„
+			Zebra::logger->fatal("%s:ä¸å¯èƒ½ recycle -> recycle", __FUNCTION__);
 			break;
 		case verify:
 		case sync:
 		case okay:
-			//TODO ÏàÍ¬µÄ´¦Àí·½Ê½
+			//TODO ç›¸åŒçš„å¤„ç†æ–¹å¼
 			break;
 	}
 
@@ -183,15 +183,15 @@ void zTCPTask::checkSignal(const zRTime &ct)
 	{
 		if (checkTick())
 		{
-			//²âÊÔĞÅºÅÔÚÖ¸¶¨Ê±¼ä·¶Î§ÄÚÃ»ÓĞ·µ»Ø
-			Zebra::logger->error("Ì×½Ó¿Ú¼ì²é²âÊÔĞÅºÅÊ§°Ü");
+			//æµ‹è¯•ä¿¡å·åœ¨æŒ‡å®šæ—¶é—´èŒƒå›´å†…æ²¡æœ‰è¿”å›
+			Zebra::logger->error("å¥—æ¥å£æ£€æŸ¥æµ‹è¯•ä¿¡å·å¤±è´¥");
 			Terminate(zTCPTask::terminate_active);
 		}
 		else
 		{
-			//·¢ËÍ²âÊÔĞÅºÅ
+			//å‘é€æµ‹è¯•ä¿¡å·
 			Cmd::t_NullCmd tNullCmd;
-			//Zebra::logger->debug("·şÎñ¶Ë·¢ËÍ²âÊÔĞÅºÅ");
+			//Zebra::logger->debug("æœåŠ¡ç«¯å‘é€æµ‹è¯•ä¿¡å·");
 			if (sendCmd(&tNullCmd, sizeof(tNullCmd)))
 				setTick();
 		}

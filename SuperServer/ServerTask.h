@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ServerTask.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief å®šä¹‰æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
- * Ò»¸öÇøÖĞµÄÃ¿Ò»¸ö·şÎñÆ÷¶¼ĞèÒªºÍ·şÎñÆ÷¹ÜÀíÆ÷½¨Á¢Á¬½Ó
+ * ä¸€ä¸ªåŒºä¸­çš„æ¯ä¸€ä¸ªæœåŠ¡å™¨éƒ½éœ€è¦å’ŒæœåŠ¡å™¨ç®¡ç†å™¨å»ºç«‹è¿æ¥
  * 
  */
 
@@ -22,9 +22,9 @@
 #include "SuperCommand.h"
 
 /**
- * \brief ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
- * Ò»¸öÇøÖĞµÄÃ¿Ò»¸ö·şÎñÆ÷¶¼ĞèÒªºÍ·şÎñÆ÷¹ÜÀíÆ÷½¨Á¢Á¬½Ó
+ * ä¸€ä¸ªåŒºä¸­çš„æ¯ä¸€ä¸ªæœåŠ¡å™¨éƒ½éœ€è¦å’ŒæœåŠ¡å™¨ç®¡ç†å™¨å»ºç«‹è¿æ¥
  * 
  */
 class ServerTask : public zTCPTask
@@ -33,13 +33,13 @@ class ServerTask : public zTCPTask
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * ÓÃÓÚ´´½¨Ò»¸ö·şÎñÆ÷Á¬½ÓÈÎÎñ
+		 * ç”¨äºåˆ›å»ºä¸€ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡
 		 *
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		ServerTask(
 				zTCPTaskPool *pool,
@@ -62,7 +62,7 @@ class ServerTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		virtual ~ServerTask() {};
@@ -78,9 +78,9 @@ class ServerTask : public zTCPTask
 		void responseOther(const WORD wdServerID);
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷±àºÅ
+		 * \brief è·å–æœåŠ¡å™¨ç¼–å·
 		 *
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getID() const
 		{
@@ -88,8 +88,8 @@ class ServerTask : public zTCPTask
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷ÀàĞÍ
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \brief è·å–æœåŠ¡å™¨ç±»å‹
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{
@@ -97,8 +97,8 @@ class ServerTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ·µ»Ø·şÎñÆ÷ÔÚÏßÈËÊı
-		 * \return ·şÎñÆ÷ÔÚÏßÈËÊı
+		 * \brief è¿”å›æœåŠ¡å™¨åœ¨çº¿äººæ•°
+		 * \return æœåŠ¡å™¨åœ¨çº¿äººæ•°
 		 */
 		const DWORD getOnlineNum() const
 		{
@@ -106,17 +106,17 @@ class ServerTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ¼ì²é×îºóÒ»´Î´¦ÀíÆô¶¯Ë³ĞòµÄÊ±¼ä
+		 * \brief æ£€æŸ¥æœ€åä¸€æ¬¡å¤„ç†å¯åŠ¨é¡ºåºçš„æ—¶é—´
 		 *
-		 * \return ¼ì²éÊÇ·ñ³É¹¦
+		 * \return æ£€æŸ¥æ˜¯å¦æˆåŠŸ
 		 */
 		bool checkSequenceTime()
 		{
-			//Æô¶¯Ë³Ğò´¦ÀíÒÑ¾­Íê³ÉÁË£¬²»ĞèÒªÔÙ´Î´¦Àí
+			//å¯åŠ¨é¡ºåºå¤„ç†å·²ç»å®Œæˆäº†ï¼Œä¸éœ€è¦å†æ¬¡å¤„ç†
 			if (sequenceOK)
 				return false;
 
-			//¼ì²âÁ½´Î´¦ÀíµÄ¼ä¸ôÊ±¼ä
+			//æ£€æµ‹ä¸¤æ¬¡å¤„ç†çš„é—´éš”æ—¶é—´
 			zTime currentTime;
 			if (lastSequenceTime.elapse(currentTime) > 2)
 			{
@@ -129,18 +129,18 @@ class ServerTask : public zTCPTask
 
 	private:
 
-		WORD wdServerID;					/**< ·şÎñÆ÷±àºÅ£¬Ò»¸öÇøÎ¨Ò»µÄ */
-		WORD wdServerType;					/**< ·şÎñÆ÷ÀàĞÍ£¬´´½¨ÀàÊµÀıµÄÊ±ºòÒÑ¾­È·¶¨ */
-		char pstrName[MAX_NAMESIZE];		/**< ·şÎñÆ÷Ãû³Æ */
-		char pstrIP[MAX_IP_LENGTH];			/**< ·şÎñÆ÷ÄÚÍøµØÖ· */
-		WORD wdPort;						/**< ·şÎñÆ÷ÄÚÍø¶Ë¿Ú£¬Ò²¾ÍÊÇ°î¶¨¶Ë¿Ú */
-		char pstrExtIP[MAX_IP_LENGTH];		/**< ·şÎñÆ÷ÍâÍøµØÖ·£¬Ò²¾ÍÊÇ·À»ğÇ½µØÖ· */
-		WORD wdExtPort;						/**< ·şÎñÆ÷ÍâÍø¶Ë¿Ú£¬Ò²¾ÍÊÇÓ³Éäµ½·À»ğÇ½µÄ¶Ë¿Ú */
+		WORD wdServerID;					/**< æœåŠ¡å™¨ç¼–å·ï¼Œä¸€ä¸ªåŒºå”¯ä¸€çš„ */
+		WORD wdServerType;					/**< æœåŠ¡å™¨ç±»å‹ï¼Œåˆ›å»ºç±»å®ä¾‹çš„æ—¶å€™å·²ç»ç¡®å®š */
+		char pstrName[MAX_NAMESIZE];		/**< æœåŠ¡å™¨åç§° */
+		char pstrIP[MAX_IP_LENGTH];			/**< æœåŠ¡å™¨å†…ç½‘åœ°å€ */
+		WORD wdPort;						/**< æœåŠ¡å™¨å†…ç½‘ç«¯å£ï¼Œä¹Ÿå°±æ˜¯é‚¦å®šç«¯å£ */
+		char pstrExtIP[MAX_IP_LENGTH];		/**< æœåŠ¡å™¨å¤–ç½‘åœ°å€ï¼Œä¹Ÿå°±æ˜¯é˜²ç«å¢™åœ°å€ */
+		WORD wdExtPort;						/**< æœåŠ¡å™¨å¤–ç½‘ç«¯å£ï¼Œä¹Ÿå°±æ˜¯æ˜ å°„åˆ°é˜²ç«å¢™çš„ç«¯å£ */
 
-		DWORD			OnlineNum;			/**< ÔÚÏßÈËÊıÍ³¼Æ */
+		DWORD			OnlineNum;			/**< åœ¨çº¿äººæ•°ç»Ÿè®¡ */
 
-		zTime lastSequenceTime;				/**< ×îºóÒ»´Î´¦ÀíÆô¶¯Ë³ĞòµÄÊ±¼ä */
-		bool sequenceOK;					/**< ÊÇ·ñÒÑ¾­´¦ÀíÍê³ÉÁËÆô¶¯Ë³Ğò */
+		zTime lastSequenceTime;				/**< æœ€åä¸€æ¬¡å¤„ç†å¯åŠ¨é¡ºåºçš„æ—¶é—´ */
+		bool sequenceOK;					/**< æ˜¯å¦å·²ç»å¤„ç†å®Œæˆäº†å¯åŠ¨é¡ºåº */
 		bool hasNotifyMe;
 		bool hasprocessSequence;
 
@@ -173,7 +173,7 @@ class ServerTask : public zTCPTask
 			}
 		};
 		typedef __gnu_cxx::hash_map<Cmd::Super::ServerEntry, bool, key_hash, key_equal> Container;
-		// Á¬½Ó½øÀ´µÄ·şÎñÆ÷ÁĞ±í
+		// è¿æ¥è¿›æ¥çš„æœåŠ¡å™¨åˆ—è¡¨
 		Container ses;
 
 };

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zThread.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÀàzThread
+ * \brief å®šä¹‰ç±»zThread
  *
  * 
  */
@@ -21,7 +21,7 @@
 #include "zRWLock.h"
 
 /**
- * \brief ·â×°ÁËÏß³Ì²Ù×÷£¬ËùÓĞÊ¹ÓÃÏß³ÌµÄ»ùÀà
+ * \brief å°è£…äº†çº¿ç¨‹æ“ä½œï¼Œæ‰€æœ‰ä½¿ç”¨çº¿ç¨‹çš„åŸºç±»
  *
  */
 class zThread : private zNoncopyable
@@ -30,25 +30,25 @@ class zThread : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬´´½¨Ò»¸ö¶ÔÏó
+		 * \brief æ„é€ å‡½æ•°ï¼Œåˆ›å»ºä¸€ä¸ªå¯¹è±¡
 		 *
-		 * \param name Ïß³ÌÃû³Æ
-		 * \param joinable ±êÃ÷Õâ¸öÏß³ÌÍË³öµÄÊ±ºòÊÇ·ñ±£´æ×´Ì¬£¬Èç¹ûÎªtrue±íÊ¾Ïß³ÌÍË³ö±£´æ×´Ì¬£¬·ñÔò½«²»±£´æÍË³ö×´Ì¬
+		 * \param name çº¿ç¨‹åç§°
+		 * \param joinable æ ‡æ˜è¿™ä¸ªçº¿ç¨‹é€€å‡ºçš„æ—¶å€™æ˜¯å¦ä¿å­˜çŠ¶æ€ï¼Œå¦‚æœä¸ºtrueè¡¨ç¤ºçº¿ç¨‹é€€å‡ºä¿å­˜çŠ¶æ€ï¼Œå¦åˆ™å°†ä¸ä¿å­˜é€€å‡ºçŠ¶æ€
 		 */
 		zThread(const std::string &name = std::string("zThread"), const bool joinable = true) 
 			: threadName(name), alive(false), complete(false), thread(0), joinable(joinable) {};
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬ÓÃÓÚÏú»ÙÒ»¸ö¶ÔÏó£¬»ØÊÕ¶ÔÏó¿Õ¼ä
+		 * \brief ææ„å‡½æ•°ï¼Œç”¨äºé”€æ¯ä¸€ä¸ªå¯¹è±¡ï¼Œå›æ”¶å¯¹è±¡ç©ºé—´
 		 *
 		 */
 		virtual ~zThread() {};
 
 		/**
-		 * \brief »ñÈ¡µ±Ç°Ïß³Ì±àºÅ
+		 * \brief è·å–å½“å‰çº¿ç¨‹ç¼–å·
 		 *
 		 *
-		 * \return Ïß³Ì±àºÅ
+		 * \return çº¿ç¨‹ç¼–å·
 		 */
 		static pthread_t getCurrentThreadId()
 		{
@@ -56,10 +56,10 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief Ê¹µ±Ç°Ïß³ÌË¯ÃßÖ¸¶¨µÄÊ±¼ä£¬Ãë
+		 * \brief ä½¿å½“å‰çº¿ç¨‹ç¡çœ æŒ‡å®šçš„æ—¶é—´ï¼Œç§’
 		 *
 		 *
-		 * \param sec Ö¸¶¨µÄÊ±¼ä£¬Ãë
+		 * \param sec æŒ‡å®šçš„æ—¶é—´ï¼Œç§’
 		 */
 		static void sleep(const long sec)
 		{
@@ -67,10 +67,10 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief Ê¹µ±Ç°Ïß³ÌË¯ÃßÖ¸¶¨µÄÊ±¼ä£¬ºÁÃë
+		 * \brief ä½¿å½“å‰çº¿ç¨‹ç¡çœ æŒ‡å®šçš„æ—¶é—´ï¼Œæ¯«ç§’
 		 *
 		 *
-		 * \param msec Ö¸¶¨µÄÊ±¼ä£¬ºÁÃë
+		 * \param msec æŒ‡å®šçš„æ—¶é—´ï¼Œæ¯«ç§’
 		 */
 		static void msleep(const long msec)
 		{
@@ -78,10 +78,10 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief Ê¹µ±Ç°Ïß³ÌË¯ÃßÖ¸¶¨µÄÊ±¼ä£¬Î¢Ãë
+		 * \brief ä½¿å½“å‰çº¿ç¨‹ç¡çœ æŒ‡å®šçš„æ—¶é—´ï¼Œå¾®ç§’
 		 *
 		 *
-		 * \param usec Ö¸¶¨µÄÊ±¼ä£¬Î¢Ãë
+		 * \param usec æŒ‡å®šçš„æ—¶é—´ï¼Œå¾®ç§’
 		 */
 		static void usleep(const long usec)
 		{
@@ -89,7 +89,7 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief Ïß³ÌÊÇ·ñÊÇjoinableµÄ
+		 * \brief çº¿ç¨‹æ˜¯å¦æ˜¯joinableçš„
 		 *
 		 *
 		 * \return joinable
@@ -100,9 +100,9 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief ¼ì²éÏß³ÌÊÇ·ñÔÚÔËĞĞ×´Ì¬
+		 * \brief æ£€æŸ¥çº¿ç¨‹æ˜¯å¦åœ¨è¿è¡ŒçŠ¶æ€
 		 *
-		 * \return Ïß³ÌÊÇ·ñÔÚÔËĞĞ×´Ì¬
+		 * \return çº¿ç¨‹æ˜¯å¦åœ¨è¿è¡ŒçŠ¶æ€
 		 */
 		const bool isAlive() const
 		{
@@ -114,9 +114,9 @@ class zThread : private zNoncopyable
 		void join();
 
 		/**
-		 * \brief Ö÷¶¯½áÊøÏß³Ì
+		 * \brief ä¸»åŠ¨ç»“æŸçº¿ç¨‹
 		 *
-		 * ÆäÊµÖ»ÊÇÉèÖÃ±ê¼Ç£¬ÄÇÃ´Ïß³ÌµÄrunÖ÷»Øµ÷Ñ­»·»Ø¼ì²éÕâ¸ö±ê¼Ç£¬Èç¹ûÕâ¸ö±ê¼ÇÒÑ¾­ÉèÖÃ£¬¾ÍÍË³öÑ­»·
+		 * å…¶å®åªæ˜¯è®¾ç½®æ ‡è®°ï¼Œé‚£ä¹ˆçº¿ç¨‹çš„runä¸»å›è°ƒå¾ªç¯å›æ£€æŸ¥è¿™ä¸ªæ ‡è®°ï¼Œå¦‚æœè¿™ä¸ªæ ‡è®°å·²ç»è®¾ç½®ï¼Œå°±é€€å‡ºå¾ªç¯
 		 *
 		 */
 		void final()
@@ -126,11 +126,11 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÏß³ÌÊÇ·ñ¼ÌĞøÔËĞĞÏÂÈ¥
+		 * \brief åˆ¤æ–­çº¿ç¨‹æ˜¯å¦ç»§ç»­è¿è¡Œä¸‹å»
 		 *
-		 * Ö÷ÒªÓÃÔÚrun()º¯ÊıÑ­»·ÖĞ£¬ÅĞ¶ÏÑ­»·ÊÇ·ñ¼ÌĞøÖ´ĞĞÏÂÈ¥
+		 * ä¸»è¦ç”¨åœ¨run()å‡½æ•°å¾ªç¯ä¸­ï¼Œåˆ¤æ–­å¾ªç¯æ˜¯å¦ç»§ç»­æ‰§è¡Œä¸‹å»
 		 *
-		 * \return Ïß³ÌÖ÷»Øµ÷ÊÇ·ñ¼ÌĞøÖ´ĞĞ
+		 * \return çº¿ç¨‹ä¸»å›è°ƒæ˜¯å¦ç»§ç»­æ‰§è¡Œ
 		 */
 		const bool isFinal() const 
 		{
@@ -140,9 +140,9 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief ´¿Ğé¹¹º¯Êı£¬Ïß³ÌÖ÷»Øµ÷º¯Êı£¬Ã¿¸öĞèÒªÊµÀı»ªµÄÅÉÉúÀàĞèÒªÖØÔØÕâ¸öº¯Êı
+		 * \brief çº¯è™šæ„å‡½æ•°ï¼Œçº¿ç¨‹ä¸»å›è°ƒå‡½æ•°ï¼Œæ¯ä¸ªéœ€è¦å®ä¾‹åçš„æ´¾ç”Ÿç±»éœ€è¦é‡è½½è¿™ä¸ªå‡½æ•°
 		 *
-		 * Èç¹ûÊÇÎŞÏŞÑ­»·ĞèÒªÔÚÃ¿¸öÑ­»·¼ì²éÏß³ÌÍË³ö±ê¼ÇisFinal()£¬ÕâÑùÄÜ¹»±£Ö¤Ïß³Ì°²È«ÍË³ö
+		 * å¦‚æœæ˜¯æ— é™å¾ªç¯éœ€è¦åœ¨æ¯ä¸ªå¾ªç¯æ£€æŸ¥çº¿ç¨‹é€€å‡ºæ ‡è®°isFinal()ï¼Œè¿™æ ·èƒ½å¤Ÿä¿è¯çº¿ç¨‹å®‰å…¨é€€å‡º
 		 * <pre>
 		 * 	while(!isFinal())
 		 * 	{
@@ -154,9 +154,9 @@ class zThread : private zNoncopyable
 		virtual void run() = 0;
 
 		/**
-		 * \brief ÅĞ¶ÏÁ½¸öÏß³ÌÊÇ·ñÊÇÍ¬Ò»¸öÏß³Ì
-		 * \param other ´ı±È½ÏµÄÏß³Ì
-		 * \return ÊÇ·ñÊÇÍ¬Ò»¸öÏß³Ì
+		 * \brief åˆ¤æ–­ä¸¤ä¸ªçº¿ç¨‹æ˜¯å¦æ˜¯åŒä¸€ä¸ªçº¿ç¨‹
+		 * \param other å¾…æ¯”è¾ƒçš„çº¿ç¨‹
+		 * \return æ˜¯å¦æ˜¯åŒä¸€ä¸ªçº¿ç¨‹
 		 */
 		bool operator==(const zThread& other) const
 		{
@@ -164,9 +164,9 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÁ½¸öÏß³ÌÊÇ·ñ²»ÊÇÍ¬Ò»¸öÏß³Ì
-		 * \param other ´ı±È½ÏµÄÏß³Ì
-		 * \return ÊÇ·ñ²»ÊÇÍ¬Ò»¸öÏß³Ì
+		 * \brief åˆ¤æ–­ä¸¤ä¸ªçº¿ç¨‹æ˜¯å¦ä¸æ˜¯åŒä¸€ä¸ªçº¿ç¨‹
+		 * \param other å¾…æ¯”è¾ƒçš„çº¿ç¨‹
+		 * \return æ˜¯å¦ä¸æ˜¯åŒä¸€ä¸ªçº¿ç¨‹
 		 */
 		bool operator!=(const zThread& other) const
 		{
@@ -174,9 +174,9 @@ class zThread : private zNoncopyable
 		}
 
 		/**
-		 * \brief ·µ»ØÏß³ÌÃû³Æ
+		 * \brief è¿”å›çº¿ç¨‹åç§°
 		 *
-		 * \return Ïß³ÌÃû³Æ
+		 * \return çº¿ç¨‹åç§°
 		 */
 		const std::string &getThreadName() const
 		{
@@ -185,18 +185,18 @@ class zThread : private zNoncopyable
 
 	private:
 
-		std::string threadName;			/**< Ïß³ÌÃû³Æ */
-		zMutex mlock;					/**< »¥³âËø */
-		zCond cond;						/**< Ìõ¼ş±äÁ¿ */
-		volatile bool alive;			/**< Ïß³ÌÊÇ·ñÔÚÔËĞĞ */
-		volatile bool complete;			/**< Ïß³ÌÊÇ·ñ½«½áÊø */
-		pthread_t thread;				/**< Ïß³Ì±àºÅ */
-		bool joinable;					/**< Ïß³ÌÊôĞÔ£¬ÊÇ·ñÉèÖÃjoinable±ê¼Ç */
+		std::string threadName;			/**< çº¿ç¨‹åç§° */
+		zMutex mlock;					/**< äº’æ–¥é” */
+		zCond cond;						/**< æ¡ä»¶å˜é‡ */
+		volatile bool alive;			/**< çº¿ç¨‹æ˜¯å¦åœ¨è¿è¡Œ */
+		volatile bool complete;			/**< çº¿ç¨‹æ˜¯å¦å°†ç»“æŸ */
+		pthread_t thread;				/**< çº¿ç¨‹ç¼–å· */
+		bool joinable;					/**< çº¿ç¨‹å±æ€§ï¼Œæ˜¯å¦è®¾ç½®joinableæ ‡è®° */
 
 }; 
 
 /**
- * \brief ¶ÔÏß³Ì½øĞĞ·Ö×é¹ÜÀíµÄÀà
+ * \brief å¯¹çº¿ç¨‹è¿›è¡Œåˆ†ç»„ç®¡ç†çš„ç±»
  *
  */
 class zThreadGroup : private zNoncopyable
@@ -210,7 +210,7 @@ class zThreadGroup : private zNoncopyable
 			virtual ~Callback(){};
 		};
 
-		typedef std::vector<zThread *> Container;	/**< ÈİÆ÷ÀàĞÍ */
+		typedef std::vector<zThread *> Container;	/**< å®¹å™¨ç±»å‹ */
 
 		zThreadGroup();
 		~zThreadGroup();
@@ -228,8 +228,8 @@ class zThreadGroup : private zNoncopyable
 
 	private:
 
-		Container vts;								/**< Ïß³ÌÏòÁ¿ */
-		zRWLock rwlock;								/**< ¶ÁĞ´Ëø */
+		Container vts;								/**< çº¿ç¨‹å‘é‡ */
+		zRWLock rwlock;								/**< è¯»å†™é” */
 
 };
 

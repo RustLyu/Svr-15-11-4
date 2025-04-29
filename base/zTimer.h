@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTimer.h  $
  * \author  
  * \date 
- * \brief ¼ÆÊ±Æ÷ÉùÃ÷ÎÄ¼ş
+ * \brief è®¡æ—¶å™¨å£°æ˜æ–‡ä»¶
  *
  */
 
@@ -18,9 +18,9 @@
 #include "zTime.h"
 #include "zNoncopyable.h"
 /**
- * \brief ¶¨Ê±Æ÷,¼ÆÊ±¾«¶ÈÎªºÁÃë
+ * \brief å®šæ—¶å™¨,è®¡æ—¶ç²¾åº¦ä¸ºæ¯«ç§’
  *
- * ÆäÄÚ²¿ÓĞÒ»¸öµ¥¶ÀµÄ´¦ÀíÏß³Ì¡£¿ÉÒÔÌí¼Ó¶à¸öÈÎÎñ¡£ÓÉÓÚ¶à¸öÈÎÎñ¹²ÓÃÒ»¸öÏß³Ì£¬ÔÚÖ´ĞĞµÄÊ±ºò×èÈû»áÓ°ÏìÆäËüÈÎÎñµÄÖ´ĞĞ¡£
+ * å…¶å†…éƒ¨æœ‰ä¸€ä¸ªå•ç‹¬çš„å¤„ç†çº¿ç¨‹ã€‚å¯ä»¥æ·»åŠ å¤šä¸ªä»»åŠ¡ã€‚ç”±äºå¤šä¸ªä»»åŠ¡å…±ç”¨ä¸€ä¸ªçº¿ç¨‹ï¼Œåœ¨æ‰§è¡Œçš„æ—¶å€™é˜»å¡ä¼šå½±å“å…¶å®ƒä»»åŠ¡çš„æ‰§è¡Œã€‚
  */
 class zTimer
 {
@@ -29,7 +29,7 @@ class zTimer
 		class zTimerQueue;
 	public:
 		/**
-		 * \brief ¼ÆÊ±Æ÷ÈÎÎñ»ùÀà,ÓÃ»§±ØĞë¼Ì³ĞÊµÏÖ#runº¯Êı 
+		 * \brief è®¡æ—¶å™¨ä»»åŠ¡åŸºç±»,ç”¨æˆ·å¿…é¡»ç»§æ‰¿å®ç°#runå‡½æ•° 
 		 *
 		 */
 		class zTimerTask : private zNoncopyable
@@ -42,17 +42,17 @@ class zTimer
 				void schedExecTime(const zRTime &tv);
 			protected:
 
-			zMutex taskMutex;				/**< ÈÎÎñ»¥³âËø */	
-			int period;						/**< ÈÎÎñ¼ä¸ô,Èç¹ûÎª0±íÊ¾Ò»´ÎĞÔÈÎÎñ */
-			zRTime nextExecTime;			/**< ÏÂÒ»´ÎÖ´ĞĞÈÎÎñµÄÊ±¼ä */
+			zMutex taskMutex;				/**< ä»»åŠ¡äº’æ–¥é” */	
+			int period;						/**< ä»»åŠ¡é—´éš”,å¦‚æœä¸º0è¡¨ç¤ºä¸€æ¬¡æ€§ä»»åŠ¡ */
+			zRTime nextExecTime;			/**< ä¸‹ä¸€æ¬¡æ‰§è¡Œä»»åŠ¡çš„æ—¶é—´ */
 			enum
 			{
-				VIRGIN,						/**< ĞÂÈÎÎñ */
-				SCHEDULED,					/**< ÒÑ¾­Ìí¼Óµ½¼ÆÊ±Æ÷ÖĞµÄÈÎÎñ */
-				EXECUTED,					/**< ÒÑ¾­Ö´ĞĞ¹úµÄÈÎÎñ */
-				CANCELLED					/**< ±»È¡ÏûµÄÈÎÎñ */
+				VIRGIN,						/**< æ–°ä»»åŠ¡ */
+				SCHEDULED,					/**< å·²ç»æ·»åŠ åˆ°è®¡æ—¶å™¨ä¸­çš„ä»»åŠ¡ */
+				EXECUTED,					/**< å·²ç»æ‰§è¡Œå›½çš„ä»»åŠ¡ */
+				CANCELLED					/**< è¢«å–æ¶ˆçš„ä»»åŠ¡ */
 			}
-			state;							/**< ÈÎÎñ×´Ì¬ */
+			state;							/**< ä»»åŠ¡çŠ¶æ€ */
 
 			zTimerTask();
 
@@ -76,7 +76,7 @@ class zTimer
 		
 	private:
 		/**
-		 * \brief ¼ÆÊ±Æ÷µÄÈÎÎñ¶ÓÁĞ,²åÈëÅÅĞò 
+		 * \brief è®¡æ—¶å™¨çš„ä»»åŠ¡é˜Ÿåˆ—,æ’å…¥æ’åº 
 		 *
 		 */
 		class zTimerQueue
@@ -130,7 +130,7 @@ class zTimer
 
 
 		/**
-		 * \brief ¼ÆÊ±Æ÷µÄÈÎÎñÖ´ĞĞÏß³Ì£¬¼ì²éÈÎÎñ¶ÓÁĞ£¬Èç¹ûÈÎÎñÂú×ãÖ´ĞĞÌõ¼ş£¬Ö´ĞĞ 
+		 * \brief è®¡æ—¶å™¨çš„ä»»åŠ¡æ‰§è¡Œçº¿ç¨‹ï¼Œæ£€æŸ¥ä»»åŠ¡é˜Ÿåˆ—ï¼Œå¦‚æœä»»åŠ¡æ»¡è¶³æ‰§è¡Œæ¡ä»¶ï¼Œæ‰§è¡Œ 
 		 *
 		 */
 		class zTimerThread:public zThread
@@ -144,10 +144,10 @@ class zTimer
 		};
 
 
-		zTimerQueue taskqueue;	/**< Ö´ĞĞÈÎÎñ¶ÓÁĞ,ÔÚ#threadÇ°³õÊ¼»¯ */
-		zTimerThread thread;	/**< Ö´ĞĞÈÎÎñÏß³Ì,ÔÚ#taskqueueºó³õÊ¼»¯ */ 
+		zTimerQueue taskqueue;	/**< æ‰§è¡Œä»»åŠ¡é˜Ÿåˆ—,åœ¨#threadå‰åˆå§‹åŒ– */
+		zTimerThread thread;	/**< æ‰§è¡Œä»»åŠ¡çº¿ç¨‹,åœ¨#taskqueueååˆå§‹åŒ– */ 
 
-		static int id;	/**< Ò»¸ö¼ÆÊıÆ÷£¬ÔÚÌá¹©Ä¬ÈÏ¼ÆÊ±Æ÷Ãû×ÖÊ±Æğ×÷ÓÃ */ 
+		static int id;	/**< ä¸€ä¸ªè®¡æ•°å™¨ï¼Œåœ¨æä¾›é»˜è®¤è®¡æ—¶å™¨åå­—æ—¶èµ·ä½œç”¨ */ 
 		static int getID();
 		bool addTask(zTimerTask *task, zRTime &tv,int period);
 };

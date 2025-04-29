@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ServerManager.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷¹ÜÀíÈİÆ÷
+ * \brief å®šä¹‰æœåŠ¡å™¨ç®¡ç†å®¹å™¨
  *
- * Õâ¸öÈİÆ÷°üÀ¨È«¾ÖÈİÆ÷ºÍÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷
+ * è¿™ä¸ªå®¹å™¨åŒ…æ‹¬å…¨å±€å®¹å™¨å’Œå”¯ä¸€æ€§éªŒè¯å®¹å™¨
  * 
  */
 
@@ -22,9 +22,9 @@
 #include "zNoncopyable.h"
 
 /**
- * \brief ·şÎñÆ÷¹ÜÀíÈİÆ÷Àà
+ * \brief æœåŠ¡å™¨ç®¡ç†å®¹å™¨ç±»
  *
- * Õâ¸öÈİÆ÷°üÀ¨È«¾ÖÈİÆ÷ºÍÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷
+ * è¿™ä¸ªå®¹å™¨åŒ…æ‹¬å…¨å±€å®¹å™¨å’Œå”¯ä¸€æ€§éªŒè¯å®¹å™¨
  *
  */
 class ServerManager : zNoncopyable
@@ -33,15 +33,15 @@ class ServerManager : zNoncopyable
 	public:
 
 		/**
-		 * \brief È±Ê¡Îö¹¹º¯Êı
+		 * \brief ç¼ºçœææ„å‡½æ•°
 		 *
 		 */
 		~ServerManager() {};
 
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * Õâ¸öÀàÊ¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 *
 		 */
 		static ServerManager &getInstance()
@@ -53,7 +53,7 @@ class ServerManager : zNoncopyable
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -68,19 +68,19 @@ class ServerManager : zNoncopyable
 	private:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		ServerManager() {};
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static ServerManager *instance;
 
 		/**
-		 * \brief hashº¯Êı
+		 * \brief hashå‡½æ•°
 		 *
 		 */
 		struct GameZone_hash
@@ -92,32 +92,32 @@ class ServerManager : zNoncopyable
 			}
 		};
 		/**
-		 * \brief ¶¨ÒåÁË·şÎñÆ÷µÄÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰äº†æœåŠ¡å™¨çš„å”¯ä¸€æ€§éªŒè¯å®¹å™¨ç±»å‹
 		 * 
 		 **/
 		typedef __gnu_cxx::hash_map<const GameZone_t, ServerTask *, GameZone_hash> ServerTaskContainer;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µÄµü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨çš„è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef ServerTaskContainer::iterator ServerTaskContainer_iterator;
 		/**
-		 * \brief ¶¨ÒåÁËÈİÆ÷µÄ³£Á¿µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰äº†å®¹å™¨çš„å¸¸é‡è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef ServerTaskContainer::const_iterator ServerTaskContainer_const_iterator;
 		/**
-		 * \brief ¶¨ÒåÁËÈİÆ÷µÄ¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰äº†å®¹å™¨çš„é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef ServerTaskContainer::value_type ServerTaskContainer_value_type;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊµÄ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®çš„äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;
 		/**
-		 * \brief Î¨Ò»ĞÔÈİÆ÷ÊµÀı
+		 * \brief å”¯ä¸€æ€§å®¹å™¨å®ä¾‹
 		 *
 		 */
 		ServerTaskContainer taskUniqueContainer;

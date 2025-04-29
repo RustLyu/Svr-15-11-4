@@ -1,4 +1,4 @@
-#ifndef _SKILL_H_
+ï»¿#ifndef _SKILL_H_
 #define _SKILL_H_
 
 #include "zDatabaseManager.h"
@@ -10,7 +10,7 @@
 #include "zType.h"
 
 /**
- * \brief ¼¼ÄÜÑ¹Ëõ½á¹¹
+ * \brief æŠ€èƒ½å‹ç¼©ç»“æ„
  */
 struct ZlibSkill
 {
@@ -23,7 +23,7 @@ struct ZlibSkill
 };
 
 /**
- * \brief ¼¼ÄÜ´æµµµ¥Ôª
+ * \brief æŠ€èƒ½å­˜æ¡£å•å…ƒ
  */
 struct SaveSkill
 {
@@ -32,17 +32,17 @@ struct SaveSkill
 };
 
 /**
- * \brief ¼¼ÄÜ·ÖÀà
+ * \brief æŠ€èƒ½åˆ†ç±»
  *
  */
 enum SkillType
 {
-	SKILL_TYPE_DAMAGE = 1,	///Ö±½ÓÉËº¦
-	SKILL_TYPE_RECOVER,	///»Ö¸´Ïµ
-	SKILL_TYPE_BUFF,	///ÔöÒæĞ§¹û
-	SKILL_TYPE_DEBUFF,	///¸ºÃæĞ§¹û
-	SKILL_TYPE_SUMMON,	///ÕÙ»½
-	SKILL_TYPE_RELIVE	///¸´»î
+	SKILL_TYPE_DAMAGE = 1,	///ç›´æ¥ä¼¤å®³
+	SKILL_TYPE_RECOVER,	///æ¢å¤ç³»
+	SKILL_TYPE_BUFF,	///å¢ç›Šæ•ˆæœ
+	SKILL_TYPE_DEBUFF,	///è´Ÿé¢æ•ˆæœ
+	SKILL_TYPE_SUMMON,	///å¬å”¤
+	SKILL_TYPE_RELIVE	///å¤æ´»
 };
 
 class SceneUser;
@@ -50,7 +50,7 @@ class SceneEntryPk;
 class SceneNpc;
 
 /**
- * \brief ¼¼ÄÜÀà£¬¶¨Òå¼¼ÄÜµÄ»ù±¾ÌØĞÔ¼°¹¥»÷Ö´ĞĞ·½·¨
+ * \brief æŠ€èƒ½ç±»ï¼Œå®šä¹‰æŠ€èƒ½çš„åŸºæœ¬ç‰¹æ€§åŠæ”»å‡»æ‰§è¡Œæ–¹æ³•
  */
 struct zSkill : zEntry
 {
@@ -87,7 +87,7 @@ struct zSkill : zEntry
 
 		//static DWORD uniqueID;
 
-// ĞÂÔö¼ÓµÄ¼¼ÄÜ·½·¨
+// æ–°å¢åŠ çš„æŠ€èƒ½æ–¹æ³•
 	public:
 		bool action(const Cmd::stAttackMagicUserCmd *rev, const unsigned int cmdLen);
 		inline void doOperation(const SkillStatus *pSkillStatus);

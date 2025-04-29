@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zNetService.h  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍøÂç·şÎñÆ÷µÄ¿ò¼Ü´úÂë
+ * \brief å®ç°ç½‘ç»œæœåŠ¡å™¨çš„æ¡†æ¶ä»£ç 
  *
- * Õâ¸öÀà±È½ÏÍ¨ÓÃÒ»µã£¬ÔÙ´´½¨±È½ÏÒ»°ãµÄÍøÂç·şÎñÆ÷³ÌĞòµÄÊ±ºòÊÇ±È½ÏÓĞÓÃ
+ * è¿™ä¸ªç±»æ¯”è¾ƒé€šç”¨ä¸€ç‚¹ï¼Œå†åˆ›å»ºæ¯”è¾ƒä¸€èˆ¬çš„ç½‘ç»œæœåŠ¡å™¨ç¨‹åºçš„æ—¶å€™æ˜¯æ¯”è¾ƒæœ‰ç”¨
  * 
  */
 
@@ -23,9 +23,9 @@
 #include "zTCPTaskPool.h"
 
 /**
- * \brief ÍøÂç·şÎñÆ÷Àà
+ * \brief ç½‘ç»œæœåŠ¡å™¨ç±»
  *
- * ÊµÏÖÁËÍøÂç·şÎñÆ÷¿ò¼Ü´úÂë£¬Õâ¸öÀà±È½ÏÍ¨ÓÃÒ»µã
+ * å®ç°äº†ç½‘ç»œæœåŠ¡å™¨æ¡†æ¶ä»£ç ï¼Œè¿™ä¸ªç±»æ¯”è¾ƒé€šç”¨ä¸€ç‚¹
  *
  */
 class zNetService : public zService
@@ -34,23 +34,23 @@ class zNetService : public zService
 	public:
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		virtual ~zNetService() { instance = NULL; };
 
 		/**
-		 * \brief ¸ù¾İµÃµ½µÄTCP/IPÁ¬½Ó»ñÈ¡Ò»¸öÁ¬½ÓÈÎÎñ
+		 * \brief æ ¹æ®å¾—åˆ°çš„TCP/IPè¿æ¥è·å–ä¸€ä¸ªè¿æ¥ä»»åŠ¡
 		 *
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		virtual void newTCPTask(const int sock, const struct sockaddr_in *addr) = 0;
 
 		/**
-		 * \brief »ñÈ¡Á¬½Ó³ØÖĞµÄÁ¬½ÓÊı
+		 * \brief è·å–è¿æ¥æ± ä¸­çš„è¿æ¥æ•°
 		 *
-		 * \return Á¬½ÓÊı
+		 * \return è¿æ¥æ•°
 		 */
 		virtual const int getPoolSize() const
 		{
@@ -58,9 +58,9 @@ class zNetService : public zService
 		}
 
 		/**
-		 * \brief »ñÈ¡Á¬½Ó³Ø×´Ì¬
+		 * \brief è·å–è¿æ¥æ± çŠ¶æ€
 		 *
-		 * \return Á¬½Ó³Ø×´Ì¬
+		 * \return è¿æ¥æ± çŠ¶æ€
 		 */
 		virtual const int getPoolState() const
 		{
@@ -70,11 +70,11 @@ class zNetService : public zService
 	protected:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 * 
-		 * ÊÜ±£»¤µÄ¹¹Ôìº¯Êı£¬ÊµÏÖÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàÊµÀı
+		 * å—ä¿æŠ¤çš„æ„é€ å‡½æ•°ï¼Œå®ç°äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»å®ä¾‹
 		 *
-		 * \param name Ãû³Æ
+		 * \param name åç§°
 		 */
 		zNetService(const std::string &name) : zService(name)
 		{
@@ -90,9 +90,9 @@ class zNetService : public zService
 
 	private:
 
-		static zNetService *instance;		/**< ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë£¬°üÀ¨ÅÉÉúÀà£¬³õÊ¼»¯Îª¿ÕÖ¸Õë */
-		std::string serviceName;			/**< ÍøÂç·şÎñÆ÷Ãû³Æ */
-		zTCPServer *tcpServer;				/**< TCP·şÎñÆ÷ÊµÀıÖ¸Õë */
+		static zNetService *instance;		/**< ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆï¼ŒåŒ…æ‹¬æ´¾ç”Ÿç±»ï¼Œåˆå§‹åŒ–ä¸ºç©ºæŒ‡é’ˆ */
+		std::string serviceName;			/**< ç½‘ç»œæœåŠ¡å™¨åç§° */
+		zTCPServer *tcpServer;				/**< TCPæœåŠ¡å™¨å®ä¾‹æŒ‡é’ˆ */
 
 };
 

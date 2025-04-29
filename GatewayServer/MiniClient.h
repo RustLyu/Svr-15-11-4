@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MiniClient.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå¼Æ·Ñ·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰è®¡è´¹æœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
  */
 
@@ -17,7 +17,7 @@
 #include "MiniCommand.h"
 
 /**
- * \brief ¶¨ÒåĞ¡ÓÎÏ··şÎñÆ÷Á¬½Ó¿Í»§¶ËÀà
+ * \brief å®šä¹‰å°æ¸¸æˆæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯ç±»
  *
  */
 class MiniClient : public zTCPBufferClient
@@ -39,9 +39,9 @@ class MiniClient : public zTCPBufferClient
 		void run();
 		bool msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 		/**
-		 * \brief »ñÈ¡³¡¾°·şÎñÆ÷µÄ±àºÅ
+		 * \brief è·å–åœºæ™¯æœåŠ¡å™¨çš„ç¼–å·
 		 *
-		 * \return ³¡¾°·şÎñÆ÷±àºÅ
+		 * \return åœºæ™¯æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getServerID() const
 		{

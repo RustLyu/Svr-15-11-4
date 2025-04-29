@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file: Ally.cpp
  * \version  $Id: Ally.cpp $
  * \author   
  * \date
- * \brief Í¬ÃË¹ú¹ÜÀíÆ÷ÊµÏÖ
+ * \brief åŒç›Ÿå›½ç®¡ç†å™¨å®žçŽ°
  *
  * 
  */
@@ -66,7 +66,7 @@ void CAlly::writeDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 
@@ -79,7 +79,7 @@ void CAlly::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÁªÃËÊý¾Ý±£´æÊ§°Ü£¬ALLY±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶è”ç›Ÿæ•°æ®ä¿å­˜å¤±è´¥ï¼ŒALLYè¡¨ä¸å­˜åœ¨");
 		return;
 	}
 }
@@ -100,13 +100,13 @@ bool CAlly::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
 		{
 			SessionService::dbConnPool->exeInsert(handle, ally, &rec);
-			Zebra::logger->trace("[¹ú¼ÒÁªÃË]: %s, %s ½¨Á¢ÁªÃË¹ØÏµ",
+			Zebra::logger->trace("[å›½å®¶è”ç›Ÿ]: %s, %s å»ºç«‹è”ç›Ÿå…³ç³»",
 				        CCountryM::getMe().find(this->dwCountryID)->name,
 				 CCountryM::getMe().find(this->dwAllyCountryID)->name);
 
@@ -116,7 +116,7 @@ bool CAlly::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÁªÃËÊý¾ÝÐÂ½¨Ê§°Ü£¬ALLY±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶è”ç›Ÿæ•°æ®æ–°å»ºå¤±è´¥ï¼ŒALLYè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -138,7 +138,7 @@ bool CAlly::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -147,7 +147,7 @@ bool CAlly::deleteMeFromDB()
 	if (ally)
 	{
 		SessionService::dbConnPool->exeDelete(handle, ally, &where);
-		Zebra::logger->trace("[¹ú¼ÒÁªÃË]: %s, %s ½â³ýÁªÃË¹ØÏµ",
+		Zebra::logger->trace("[å›½å®¶è”ç›Ÿ]: %s, %s è§£é™¤è”ç›Ÿå…³ç³»",
 				        CCountryM::getMe().find(this->dwCountryID)->name,
 				 CCountryM::getMe().find(this->dwAllyCountryID)->name);
 
@@ -156,7 +156,7 @@ bool CAlly::deleteMeFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÁªÃËÊý¾ÝÉ¾³ýÊ§°Ü£¬ALLY±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶è”ç›Ÿæ•°æ®åˆ é™¤å¤±è´¥ï¼ŒALLYè¡¨ä¸å­˜åœ¨");
 		SessionService::dbConnPool->putHandle(handle);
 		return false;
 	}
@@ -177,7 +177,7 @@ bool CAlly::changeFriendDegree(int degree)
 			/*if (old_degree>=10000 && this->dwFriendDegree<10000)
 			{
 				SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, 
-				" %s Óë %s µÄ¹ú¼Ò¹ØÏµ¸ü¸ÄÎª ÓÑÉÆ¹ØÏµ",
+				" %s ä¸Ž %s çš„å›½å®¶å…³ç³»æ›´æ”¹ä¸º å‹å–„å…³ç³»",
 				CCountryM::getMe().find(this->dwCountryID)->name, 
 				CCountryM::getMe().find(this->dwAllyCountryID)->name);
 			}
@@ -194,7 +194,7 @@ bool CAlly::changeFriendDegree(int degree)
 		/* if (old_degree<10000 && this->dwFriendDegree>=10000)
 		{
 			SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, 
-					" %s Óë %s µÄ¹ú¼Ò¹ØÏµ¸ü¸ÄÎª Ð­Á¦¹ØÏµ",
+					" %s ä¸Ž %s çš„å›½å®¶å…³ç³»æ›´æ”¹ä¸º ååŠ›å…³ç³»",
 					CCountryM::getMe().find(this->dwCountryID)->name, 
 					CCountryM::getMe().find(this->dwAllyCountryID)->name);
 		}
@@ -206,10 +206,10 @@ bool CAlly::changeFriendDegree(int degree)
 	if (degree>0 && ((1000 - (old_degree%1000))<=degree))
 	{
 #ifdef _ZJW_DEBUG
-		Zebra::logger->debug("[¹ú¼ÒÁªÃË]: ·¢³öïÚ¶Ó");
+		Zebra::logger->debug("[å›½å®¶è”ç›Ÿ]: å‘å‡ºé•–é˜Ÿ");
 #endif		
 		SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, 
-				" %s µÄÍâ½»³µ¶ÓÒÑ´ÓÍõ³Ç³ö·¢, %s µÄÍâ½»³µ¶ÓÒÑ´ÓÍõ³Ç³ö·¢,½«¾­ÄÏ½¼Ç°Íù±ß¾³",
+				" %s çš„å¤–äº¤è½¦é˜Ÿå·²ä»ŽçŽ‹åŸŽå‡ºå‘, %s çš„å¤–äº¤è½¦é˜Ÿå·²ä»ŽçŽ‹åŸŽå‡ºå‘,å°†ç»å—éƒŠå‰å¾€è¾¹å¢ƒ",
 				CCountryM::getMe().find(this->dwCountryID)->name, 
 				CCountryM::getMe().find(this->dwAllyCountryID)->name);
 
@@ -293,7 +293,7 @@ bool CAllyM::loadAllyFromDB()
 
 		if ((connHandleID)-1 == handle)
 		{       
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êý¾Ý¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½èŽ·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}               
 
@@ -318,7 +318,7 @@ bool CAllyM::loadAllyFromDB()
 
 					if (this->findAlly(pAlly->dwCountryID, pAlly->dwAllyCountryID) != NULL)
 					{
-						Zebra::logger->error("[¹ú¼ÒÁªÃË]: %d Óë %d ÓÐÖØ¸´µÄÁªÃËÊý¾Ý.", 
+						Zebra::logger->error("[å›½å®¶è”ç›Ÿ]: %d ä¸Ž %d æœ‰é‡å¤çš„è”ç›Ÿæ•°æ®.", 
 								pAlly->dwCountryID, pAlly->dwAllyCountryID);
 						SAFE_DELETE(pAlly);
 					}
@@ -336,7 +336,7 @@ bool CAllyM::loadAllyFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÁªÃËÊý¾Ý¼ÓÔØÊ§°Ü£¬ALLY±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶è”ç›Ÿæ•°æ®åŠ è½½å¤±è´¥ï¼ŒALLYè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -409,27 +409,27 @@ void CAllyM::processReqCountryAlly(UserSession* pUser, Cmd::stReqCountryAlly* re
 			{
 				if (!CCountryM::getMe().isKing(pUser))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "Äú²»ÊÇ¹úÍõ,²»ÄÜÊ¹ÓÃ¸Ã¹¦ÄÜ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "æ‚¨ä¸æ˜¯å›½çŽ‹,ä¸èƒ½ä½¿ç”¨è¯¥åŠŸèƒ½");
 					return;
 				}
 
 				CCountry* pCountry = CCountryM::getMe().find(pUser->country);
 				if (!pCountry) 
 				{
-					Zebra::logger->error("[¹ú¼ÒÁªÃË]:¹ú¼ÒÊý¾Ý²»ÍêÕû, ²»ÄÜÊ¹ÓÃÇëÇó½áÃË");
+					Zebra::logger->error("[å›½å®¶è”ç›Ÿ]:å›½å®¶æ•°æ®ä¸å®Œæ•´, ä¸èƒ½ä½¿ç”¨è¯·æ±‚ç»“ç›Ÿ");
 					return;
 				}
 
 				if (rev->dwAllyCountryID == pUser->country)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"²»ÄÜºÍ×Ô¼º½áÃË");
+							"ä¸èƒ½å’Œè‡ªå·±ç»“ç›Ÿ");
 				}
 
 				if ((int)pCountry->getMaterial(COUNTRY_MONEY)<CREATE_ALLY_NEED_MONEY)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"¹ú¼Ò½ð¿âÒøÁ½²»×ã,²»ÄÜ½áÃË");
+							"å›½å®¶é‡‘åº“é“¶ä¸¤ä¸è¶³,ä¸èƒ½ç»“ç›Ÿ");
 					return;
 				}
 
@@ -437,7 +437,7 @@ void CAllyM::processReqCountryAlly(UserSession* pUser, Cmd::stReqCountryAlly* re
 				if (!pAllyCountry) 
 				{ 
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"ÊÜÑûÇëµÄ¹ú¼Ò²»´æÔÚ");
+							"å—é‚€è¯·çš„å›½å®¶ä¸å­˜åœ¨");
 					return;
 				}
 
@@ -447,7 +447,7 @@ void CAllyM::processReqCountryAlly(UserSession* pUser, Cmd::stReqCountryAlly* re
 				if (!pUnion)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"¶Ô·½¹úÍõ²»ÔÚÏß");
+							"å¯¹æ–¹å›½çŽ‹ä¸åœ¨çº¿");
 					return;
 				}
 
@@ -455,21 +455,21 @@ void CAllyM::processReqCountryAlly(UserSession* pUser, Cmd::stReqCountryAlly* re
 				if (!pAllyKing)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"¶Ô·½¹úÍõ²»ÔÚÏß");
+							"å¯¹æ–¹å›½çŽ‹ä¸åœ¨çº¿");
 					return;
 				}
 
 				if (this->findAlly(pUser->country) != NULL)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"ÄúÒÑÓÐÃË¹ú,²»ÄÜÔÙÉêÇë");
+							"æ‚¨å·²æœ‰ç›Ÿå›½,ä¸èƒ½å†ç”³è¯·");
 					return;
 				}
 
 				if (this->findAlly(rev->dwAllyCountryID) != NULL)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"¶Ô·½ÒÑÓÐÃË¹ú,²»ÄÜÔÙÑûÇë");
+							"å¯¹æ–¹å·²æœ‰ç›Ÿå›½,ä¸èƒ½å†é‚€è¯·");
 					return;
 				}
 
@@ -482,27 +482,27 @@ void CAllyM::processReqCountryAlly(UserSession* pUser, Cmd::stReqCountryAlly* re
 			{
 				if (!CCountryM::getMe().isKing(pUser))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "Äú²»ÊÇ¹úÍõ,²»ÄÜÊ¹ÓÃ¸Ã¹¦ÄÜ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "æ‚¨ä¸æ˜¯å›½çŽ‹,ä¸èƒ½ä½¿ç”¨è¯¥åŠŸèƒ½");
 					return;
 				}
 
 				CCountry* pAllyCountry = CCountryM::getMe().find(pUser->country);
 				if (!pAllyCountry) 
 				{
-					Zebra::logger->error("[¹ú¼ÒÁªÃË]:¹ú¼ÒÊý¾Ý²»ÍêÕû, ²»ÄÜÊ¹ÓÃÇëÇó½áÃË");
+					Zebra::logger->error("[å›½å®¶è”ç›Ÿ]:å›½å®¶æ•°æ®ä¸å®Œæ•´, ä¸èƒ½ä½¿ç”¨è¯·æ±‚ç»“ç›Ÿ");
 					return;
 				}
 
 				if ((int)pAllyCountry->getMaterial(COUNTRY_MONEY)<CREATE_ALLY_NEED_MONEY)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-							"¹ú¼Ò½ð¿âÒøÁ½²»×ã,²»ÄÜ½áÃË");
+							"å›½å®¶é‡‘åº“é“¶ä¸¤ä¸è¶³,ä¸èƒ½ç»“ç›Ÿ");
 					return;
 				}
 
 				if (NULL == this->findAlly(rev->dwCountryID, rev->dwAllyCountryID))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "½áÃËÇëÇóÒÑ¾­È¡Ïû.");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç»“ç›Ÿè¯·æ±‚å·²ç»å–æ¶ˆ.");
 					return;
 				}
 
@@ -531,7 +531,7 @@ void CAllyM::processReqCountryAlly(UserSession* pUser, Cmd::stReqCountryAlly* re
 					if (pKing)
 					{
 						pKing->sendSysChat(Cmd::INFO_TYPE_FAIL,  
-								"¶Ô·½¾Ü¾øÁªÃË");
+								"å¯¹æ–¹æ‹’ç»è”ç›Ÿ");
 						return;
 					}
 				}
@@ -547,13 +547,13 @@ void CAllyM::processCancelCountryAlly(UserSession* pUser, Cmd::stCancelCountryAl
 {
 	if (!CCountryM::getMe().isKing(pUser))
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "Äú²»ÊÇ¹úÍõ,²»ÄÜÊ¹ÓÃ¸Ã¹¦ÄÜ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "æ‚¨ä¸æ˜¯å›½çŽ‹,ä¸èƒ½ä½¿ç”¨è¯¥åŠŸèƒ½");
 		return;
 	}
 
 	if (NULL == this->findAlly(pUser->country))
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "Ã»ÓÐÃË¹ú");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,  "æ²¡æœ‰ç›Ÿå›½");
 		return;
 	}
 
@@ -694,23 +694,23 @@ bool 	CAllyM::addNewAlly(DWORD dwCountryID1, DWORD dwCountryID2)
 
 	rwlock.unlock();
 
-	//TODO Í¨ÖªÈ«¹úÁªÃË½¨Á¢
+	//TODO é€šçŸ¥å…¨å›½è”ç›Ÿå»ºç«‹
 	if (ret && pAlly)
 	{
 		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP,
-				pAlly->dwCountryID, "ÎÒ¹úÓë %s ÕýÊ½µÞ½áÃËÔ¼¡£",
+				pAlly->dwCountryID, "æˆ‘å›½ä¸Ž %s æ­£å¼ç¼”ç»“ç›Ÿçº¦ã€‚",
 				CCountryM::getMe().find(pAlly->dwAllyCountryID)->name);
 
 		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-				pAlly->dwCountryID, "¹úÍõÊ¹ÓÃ 20¶§ ¿âÒøÓë %s ¹ú½áÃË¡£",
+				pAlly->dwCountryID, "å›½çŽ‹ä½¿ç”¨ 20é”­ åº“é“¶ä¸Ž %s å›½ç»“ç›Ÿã€‚",
 				CCountryM::getMe().find(pAlly->dwAllyCountryID)->name);
 
 		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP,
-				pAlly->dwAllyCountryID, "ÎÒ¹úÓë %s ¹úÕýÊ½µÞ½áÃËÔ¼¡£", 
+				pAlly->dwAllyCountryID, "æˆ‘å›½ä¸Ž %s å›½æ­£å¼ç¼”ç»“ç›Ÿçº¦ã€‚", 
 				CCountryM::getMe().find(pAlly->dwCountryID)->name);
 
 		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-				pAlly->dwAllyCountryID, "¹úÍõÊ¹ÓÃ 20¶§ ¿âÒøÓë %s ¹ú½áÃË¡£", 
+				pAlly->dwAllyCountryID, "å›½çŽ‹ä½¿ç”¨ 20é”­ åº“é“¶ä¸Ž %s å›½ç»“ç›Ÿã€‚", 
 				CCountryM::getMe().find(pAlly->dwCountryID)->name);
 
 	}
@@ -734,12 +734,12 @@ bool    CAllyM::fireAlly(DWORD dwCountryID1, DWORD dwCountryID2)
 		if (pAlly->deleteMeFromDB())
 		{
 			SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP,
-					pAlly->dwCountryID, "ÎÒ¹úÓë %s ¹ú½â³ýÁËÃËÔ¼¡£",
+					pAlly->dwCountryID, "æˆ‘å›½ä¸Ž %s å›½è§£é™¤äº†ç›Ÿçº¦ã€‚",
 					CCountryM::getMe().find(pAlly->dwAllyCountryID)->name);
 
 			
 			SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP,
-					pAlly->dwAllyCountryID, "ÎÒ¹úÓë %s ¹ú½â³ýÁËÃËÔ¼¡£", 
+					pAlly->dwAllyCountryID, "æˆ‘å›½ä¸Ž %s å›½è§£é™¤äº†ç›Ÿçº¦ã€‚", 
 					CCountryM::getMe().find(pAlly->dwCountryID)->name);
 
 		
@@ -784,7 +784,7 @@ void CAllyM::timer()
 		if (1 == pTemp->byStatus && (ct - pTemp->dwCreateTime) > 17)
 		{
 #ifdef _ZJW_DEBUG
-			Zebra::logger->debug("[¹ú¼ÒÁªÃË]: %d,%d ÑûÇë³¬Ê±,¹Ø±Õ", pTemp->dwCountryID, pTemp->dwAllyCountryID);
+			Zebra::logger->debug("[å›½å®¶è”ç›Ÿ]: %d,%d é‚€è¯·è¶…æ—¶,å…³é—­", pTemp->dwCountryID, pTemp->dwAllyCountryID);
 #endif			
 			rwlock.wrlock();
 			pos = allies.erase(pos);
@@ -803,7 +803,7 @@ void CAllyM::timer()
 		{
 			CAlly* pTemp = *pos;
 #ifdef _ZJW_DEBUG
-			Zebra::logger->debug("[¹ú¼ÒÁªÃË]: Ã¿ÈÕ¸üÐÂÁªÃËÓÑºÃ¶È: (%d,%d) %d, ct:%u lasttime:%u", 
+			Zebra::logger->debug("[å›½å®¶è”ç›Ÿ]: æ¯æ—¥æ›´æ–°è”ç›Ÿå‹å¥½åº¦: (%d,%d) %d, ct:%u lasttime:%u", 
 					pTemp->dwCountryID, 
 					pTemp->dwAllyCountryID, pTemp->friendDegree(), 
 					ct, pTemp->dwLastUpTime);

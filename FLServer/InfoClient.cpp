@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoClient.cpp  $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷ĞÅÏ¢ÊÕ¼¯µÄ¿Í»§¶ËÁ¬½Ó
+ * \brief å®šä¹‰æœåŠ¡å™¨ä¿¡æ¯æ”¶é›†çš„å®¢æˆ·ç«¯è¿æ¥
  */
 
 #include "zTCPClientTask.h"
@@ -17,9 +17,9 @@
 
 using namespace Cmd;
 /**
- * \brief ¹¹Ôìº¯Êı
- * \param ip ·şÎñÆ÷µØÖ·
- * \param port ·şÎñÆ÷¶Ë¿Ú
+ * \brief æ„é€ å‡½æ•°
+ * \param ip æœåŠ¡å™¨åœ°å€
+ * \param port æœåŠ¡å™¨ç«¯å£
  */
 InfoClient::InfoClient(
 		const std::string &ip, 
@@ -29,7 +29,7 @@ InfoClient::InfoClient(
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 InfoClient::~InfoClient()
@@ -46,7 +46,7 @@ int InfoClient::checkRebound()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
@@ -56,12 +56,12 @@ int InfoClient::checkRebound()
 			if (CMD_LOGIN == ptCmd->cmd
 					&& PARA_LOGIN == ptCmd->para)
 			{
-				Zebra::logger->debug("µÇÂ½·şÎñÆ÷³É¹¦");
+				Zebra::logger->debug("ç™»é™†æœåŠ¡å™¨æˆåŠŸ");
 				return 1;
 			}
 			else
 			{
-				Zebra::logger->error("µÇÂ½·şÎñÆ÷Ê§°Ü");
+				Zebra::logger->error("ç™»é™†æœåŠ¡å™¨å¤±è´¥");
 				return -1;
 			}
 		}
@@ -123,7 +123,7 @@ bool InfoClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 							if (xmlStr.length() < 4096)
 								strncpy(cmd->xml, xmlStr.c_str(), 4095);
 							else
-								Zebra::logger->warn("Éú³É·şÎñÆ÷ĞÅÏ¢xml¹ı³¤");
+								Zebra::logger->warn("ç”ŸæˆæœåŠ¡å™¨ä¿¡æ¯xmlè¿‡é•¿");
 
 							return sendCmd(cmd, sizeof(t_ServerInfo) + strlen(cmd->xml));
 						}

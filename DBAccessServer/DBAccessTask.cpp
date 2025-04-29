@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoTask.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊı¾İ¿â·ÃÎÊ·şÎñÆ÷µÄÈÎÎñ
+ * \brief å®šä¹‰æ•°æ®åº“è®¿é—®æœåŠ¡å™¨çš„ä»»åŠ¡
  */
 
 #include <iostream>
@@ -39,7 +39,7 @@ int InfoTask::verifyConn()
 			t_LoginCmd *ptCmd = (t_LoginCmd *)pstrCmd;
 			if (CMD_LOGIN == ptCmd->cmd && PARA_LOGIN == ptCmd->para)
 			{
-				Zebra::logger->debug("superServerÁ¬½ÓÍ¨¹ıÑéÖ¤");
+				Zebra::logger->debug("superServerè¿æ¥é€šè¿‡éªŒè¯");
 				return 1;
 			}
 			else
@@ -103,7 +103,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 		{
 			t_ServerInfo *pCmd = (t_ServerInfo *)ptNullCmd;
 
-			//±íÁĞÊôĞÔ
+			//è¡¨åˆ—å±æ€§
 			static const dbCol info_col_define[] = {
 				{"`rTimestamp`",	zDBConnPool::DB_QWORD,	sizeof(QWORD)},
 				{"`ServerID`",		zDBConnPool::DB_WORD,	sizeof(WORD)},
@@ -114,15 +114,15 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 				{"`Info`",			zDBConnPool::DB_STR,		5120},
 				{NULL,				0,								0}
 			};
-			//±íÁĞÊôĞÔ¶ÔÓ¦µÄÊı¾İ½á¹¹
+			//è¡¨åˆ—å±æ€§å¯¹åº”çš„æ•°æ®ç»“æ„
 			struct {
-				QWORD 	rTimestamp;						//ÇëÇóÊ±¼ä´Á
-				WORD 		ServerID;						//·şÎñÆ÷±àºÅ
-				WORD 		ServerType;                //·şÎñÆ÷ÀàĞÍ
-				DWORD		ID;								//ÓÎÏ·Çø±àºÅ
-				char 		ZoneName[MAX_NAMESIZE];    //ÇøÃû×Ö
-				DWORD		OnlineNum;                 //ÔÚÏßÈËÊı
-				char		info[5120];						//·şÎñÆ÷Ê±ÊµĞÅÏ¢
+				QWORD 	rTimestamp;						//è¯·æ±‚æ—¶é—´æˆ³
+				WORD 		ServerID;						//æœåŠ¡å™¨ç¼–å·
+				WORD 		ServerType;                //æœåŠ¡å™¨ç±»å‹
+				DWORD		ID;								//æ¸¸æˆåŒºç¼–å·
+				char 		ZoneName[MAX_NAMESIZE];    //åŒºåå­—
+				DWORD		OnlineNum;                 //åœ¨çº¿äººæ•°
+				char		info[5120];						//æœåŠ¡å™¨æ—¶å®ä¿¡æ¯
 			} __attribute__ ((packed))
 			serverinfo_data;
 
@@ -143,13 +143,13 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 			//Zebra::logger->debug("OnlineNum = %ld", serverinfo_data.OnlineNum);
 			//Zebra::logger->debug("%s", serverinfo_data.info);
 			
-			connHandleID handle = InfoService::dbConnPool->getHandle();//ÓÃÄ¬ÈÏhashcode
+			connHandleID handle = InfoService::dbConnPool->getHandle();//ç”¨é»˜è®¤hashcode
 			if ((connHandleID)-1 != handle)
 			{
 				const char *sql_template = "create table if not exists `%s` ( `NO` int(10) unsigned NOT NULL auto_increment,`rTimestamp` bigint(20) unsigned default '0',  `ServerType` int(10) unsigned default '0',  `ServerID` int(10) unsigned default '0',`GameZone` int(10) unsigned default '0', `ZoneName` varchar(100) default NULL,`OnlineNum` int(10) unsigned default '0', `Info` blob, PRIMARY KEY  (`NO`), KEY `Index_2` (`ServerID`,`GameZone`,`rTimestamp`), KEY `Index_3` (`GameZone`,`rTimestamp`))";
-				char name[32];  //±íÃû
-				char sqlBuf[512]; //´æ·ÅSQLÓï¾ä»º³åÇø
-				char timeBuffer[64];//´æ·ÅÊ±¼ä´Á»º³å
+				char name[32];  //è¡¨å
+				char sqlBuf[512]; //å­˜æ”¾SQLè¯­å¥ç¼“å†²åŒº
+				char timeBuffer[64];//å­˜æ”¾æ—¶é—´æˆ³ç¼“å†²
 				bzero(name, sizeof(name));
 				bzero(sqlBuf, sizeof(sqlBuf));
 				bzero(timeBuffer, sizeof(timeBuffer));
@@ -159,7 +159,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 				sprintf(sqlBuf, sql_template, "SERVERREALTIME");
 				if ((int)-1 == InfoService::dbConnPool->execSql(handle, sqlBuf, strlen(sqlBuf)))
 				{
-					Zebra::logger->debug("Ö´ĞĞSQLÓï¾ä³ö´í");
+					Zebra::logger->debug("æ‰§è¡ŒSQLè¯­å¥å‡ºé”™");
 					InfoService::dbConnPool->putHandle(handle);
 					return false;
 				}
@@ -167,7 +167,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 				sprintf(sqlBuf, sql_template, name);
 				if ((int)-1 == InfoService::dbConnPool->execSql(handle, sqlBuf, strlen(sqlBuf)))
 				{
-					Zebra::logger->debug("Ö´ĞĞSQLÓï¾ä³ö´í");
+					Zebra::logger->debug("æ‰§è¡ŒSQLè¯­å¥å‡ºé”™");
 					InfoService::dbConnPool->putHandle(handle);
 					return false;
 				}
@@ -180,7 +180,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 					int sqllen = strlen(buffer);
 					if ((int)-1 == InfoService::dbConnPool->execSql(handle, buffer, sqllen))
 					{
-						Zebra::logger->debug("Ö´ĞĞSQLÓï¾ä³ö´í");
+						Zebra::logger->debug("æ‰§è¡ŒSQLè¯­å¥å‡ºé”™");
 						InfoService::dbConnPool->putHandle(handle);
 						return false;
 					}
@@ -195,7 +195,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 		case PARA_ONLINENUM:
 		{
 			t_OnlineNum *ptCmd = (t_OnlineNum *)ptNullCmd;
-			//±íÁĞÊôĞÔ
+			//è¡¨åˆ—å±æ€§
 			static const dbCol num_col_define[] = {
 				{"`rTimestamp`",	zDBConnPool::DB_QWORD,	sizeof(QWORD)},
 				{"`ServerID`",		zDBConnPool::DB_WORD,	sizeof(WORD)},
@@ -205,14 +205,14 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 				{"`OnlineNum`",	zDBConnPool::DB_DWORD,	sizeof(DWORD)},
 				{NULL,				0,								0}
 			};
-			//±íÁĞÊôĞÔ¶ÔÓ¦µÄÊı¾İ½á¹¹
+			//è¡¨åˆ—å±æ€§å¯¹åº”çš„æ•°æ®ç»“æ„
 			struct {
-				QWORD 	rTimestamp;						//ÇëÇóÊ±¼ä´Á
-				WORD 		ServerID;						//·şÎñÆ÷±àºÅ
-				WORD 		ServerType;                //·şÎñÆ÷ÀàĞÍ
-				DWORD		ID;								//ÓÎÏ·Çø±àºÅ
-				char 		ZoneName[MAX_NAMESIZE];    //ÇøÃû×Ö
-				DWORD		OnlineNum;                 //ÔÚÏßÈËÊı
+				QWORD 	rTimestamp;						//è¯·æ±‚æ—¶é—´æˆ³
+				WORD 		ServerID;						//æœåŠ¡å™¨ç¼–å·
+				WORD 		ServerType;                //æœåŠ¡å™¨ç±»å‹
+				DWORD		ID;								//æ¸¸æˆåŒºç¼–å·
+				char 		ZoneName[MAX_NAMESIZE];    //åŒºåå­—
+				DWORD		OnlineNum;                 //åœ¨çº¿äººæ•°
 			} __attribute__ ((packed))
 			onlinenum_data;
 			
@@ -231,13 +231,13 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 			//Zebra::logger->debug("ZoneName = %s", onlinenum_data.ZoneName);
 			//Zebra::logger->debug("OnlineNum = %ld", onlinenum_data.OnlineNum);
 			
-			connHandleID handle = InfoService::dbConnPool->getHandle();//ÓÃÄ¬ÈÏhashcode
+			connHandleID handle = InfoService::dbConnPool->getHandle();//ç”¨é»˜è®¤hashcode
 			if ((connHandleID)-1 != handle)
 			{
 				const char *sql_template = "create table if not exists `%s` ( `NO` int(10) unsigned NOT NULL auto_increment,`rTimestamp` bigint(20) unsigned default '0',  `ServerType` int(10) unsigned default '0',  `ServerID` int(10) unsigned default '0',`GameZone` int(10) unsigned default '0', `ZoneName` varchar(100) default NULL,`OnlineNum` int(10) unsigned default '0', PRIMARY KEY  (`NO`), KEY `Index_2` (`ServerID`,`GameZone`,`rTimestamp`), KEY `Index_3` (`GameZone`,`rTimestamp`))";
-				char name[32];  //±íÃû
-				char sqlBuf[512]; //´æ·ÅSQLÓï¾ä»º³åÇø
-				char timeBuffer[64];//´æ·ÅÊ±¼ä´Á»º³å
+				char name[32];  //è¡¨å
+				char sqlBuf[512]; //å­˜æ”¾SQLè¯­å¥ç¼“å†²åŒº
+				char timeBuffer[64];//å­˜æ”¾æ—¶é—´æˆ³ç¼“å†²
 				bzero(name, sizeof(name));
 				bzero(sqlBuf, sizeof(sqlBuf));
 				bzero(timeBuffer, sizeof(timeBuffer));
@@ -247,7 +247,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 				sprintf(sqlBuf, sql_template, "ONLINENUMREALTIME");
 				if ((int)-1 == InfoService::dbConnPool->execSql(handle, sqlBuf, strlen(sqlBuf)))
 				{
-					Zebra::logger->debug("Ö´ĞĞSQLÓï¾ä³ö´í");
+					Zebra::logger->debug("æ‰§è¡ŒSQLè¯­å¥å‡ºé”™");
 					InfoService::dbConnPool->putHandle(handle);
 					return false;
 				}
@@ -255,7 +255,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 				sprintf(sqlBuf, sql_template, name);
 				if ((int)-1 == InfoService::dbConnPool->execSql(handle, sqlBuf, strlen(sqlBuf)))
 				{
-					Zebra::logger->debug("Ö´ĞĞSQLÓï¾ä³ö´í");
+					Zebra::logger->debug("æ‰§è¡ŒSQLè¯­å¥å‡ºé”™");
 					InfoService::dbConnPool->putHandle(handle);
 					return false;
 				}
@@ -268,7 +268,7 @@ bool InfoTask::msgParse_loginServer(const Cmd::t_NullCmd * ptNullCmd, const unsi
 					int sqllen = strlen(buffer);
 					if ((int)-1 == InfoService::dbConnPool->execSql(handle, buffer, sqllen))
 					{
-						Zebra::logger->debug("Ö´ĞĞSQLÓï¾ä³ö´í");
+						Zebra::logger->debug("æ‰§è¡ŒSQLè¯­å¥å‡ºé”™");
 						InfoService::dbConnPool->putHandle(handle);
 						return false;
 					}

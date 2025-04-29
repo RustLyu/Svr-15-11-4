@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillClientManager.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÍ³Ò»ÓÃ»§Æ½Ì¨¼Æ·Ñ¿Í»§¶ËÁ¬½ÓµÄ¹ÜÀíÈİÆ÷
+ * \brief å®šä¹‰ç»Ÿä¸€ç”¨æˆ·å¹³å°è®¡è´¹å®¢æˆ·ç«¯è¿æ¥çš„ç®¡ç†å®¹å™¨
  */
 
 
@@ -21,7 +21,7 @@
 #include "zConfile.h"
 
 /**
- * \brief Í³Ò»ÓÃ»§Æ½Ì¨µÇÂ½·şÎñÆ÷µÄ¼Æ·Ñ¿Í»§¶ËÁ¬½ÓÀà¹ÜÀíÆ÷
+ * \brief ç»Ÿä¸€ç”¨æˆ·å¹³å°ç™»é™†æœåŠ¡å™¨çš„è®¡è´¹å®¢æˆ·ç«¯è¿æ¥ç±»ç®¡ç†å™¨
  */
 class BillClientManager : public SingletonBase<BillClientManager>
 {
@@ -37,12 +37,12 @@ class BillClientManager : public SingletonBase<BillClientManager>
 		void execEvery();
 
 		/**
-		 * \brief ½»Ò×¼ÇÂ¼µÄlog
+		 * \brief äº¤æ˜“è®°å½•çš„log
 		 */
 		static zLogger *tlogger;
 
 		/**
-		 * \brief ³äÖµÏû·ÑÀ´Ô´,´ÓÅäÖÃÎÄ¼şÀïÈ¡µÃ
+		 * \brief å……å€¼æ¶ˆè´¹æ¥æº,ä»é…ç½®æ–‡ä»¶é‡Œå–å¾—
 		 */
 		static int	source;
 
@@ -55,11 +55,11 @@ class BillClientManager : public SingletonBase<BillClientManager>
 		BillCallback bc;
 
 		/**
-		 * \brief ¿Í»§¶ËÁ¬½Ó¹ÜÀí³Ø
+		 * \brief å®¢æˆ·ç«¯è¿æ¥ç®¡ç†æ± 
 		 */
 		zTCPClientTaskPool *billClientPool;
 		/**
-		 * \brief ½øĞĞ¶ÏÏßÖØÁ¬¼ì²âµÄÊ±¼ä¼ÇÂ¼
+		 * \brief è¿›è¡Œæ–­çº¿é‡è¿æ£€æµ‹çš„æ—¶é—´è®°å½•
 		 */
 		zTime actionTimer;
 		unsigned int maxID;
@@ -75,18 +75,18 @@ class BillClientManager : public SingletonBase<BillClientManager>
 			}
 		};
 		/**
-		 * \brief ´æ·ÅÁ¬½ÓÒÑ¾­³É¹¦µÄÁ¬½ÓÈİÆ÷ÀàĞÍ
+		 * \brief å­˜æ”¾è¿æ¥å·²ç»æˆåŠŸçš„è¿æ¥å®¹å™¨ç±»å‹
 		 */
 		typedef std::multiset<BillClient *, lt_client> BillClientContainer;
 		typedef BillClientContainer::iterator iter;
 		typedef BillClientContainer::const_iterator const_iter;
 		typedef BillClientContainer::size_type size_type;
 		/**
-		 * \brief ´æ·ÅÁ¬½ÓÒÑ¾­³É¹¦µÄÁ¬½ÓÈİÆ÷
+		 * \brief å­˜æ”¾è¿æ¥å·²ç»æˆåŠŸçš„è¿æ¥å®¹å™¨
 		 */
 		BillClientContainer allClients;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 */
 		zRWLock rwlock;
 

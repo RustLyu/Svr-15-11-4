@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SuperServer.h  $
  * \author  
  * \date 
- * \brief ÊµÏÖ·şÎñÆ÷¹ÜÀíÆ÷
+ * \brief å®ç°æœåŠ¡å™¨ç®¡ç†å™¨
  *
- * ¶ÔÒ»¸öÇøÖĞµÄËùÓĞ·şÎñÆ÷½øĞĞ¹ÜÀí
+ * å¯¹ä¸€ä¸ªåŒºä¸­çš„æ‰€æœ‰æœåŠ¡å™¨è¿›è¡Œç®¡ç†
  * 
  */
 
@@ -26,9 +26,9 @@
 #include "zMisc.h"
 
 /**
- * \brief ·şÎñÆ÷¹ÜÀíÆ÷Àà
+ * \brief æœåŠ¡å™¨ç®¡ç†å™¨ç±»
  *
- * ÅÉÉúÁË»ùÀà<code>zNetService</code>
+ * æ´¾ç”Ÿäº†åŸºç±»<code>zNetService</code>
  *
  */
 class SuperService : public zNetService
@@ -37,16 +37,16 @@ class SuperService : public zNetService
 	public:
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
-		 * Ğéº¯Êı
+		 * è™šå‡½æ•°
 		 *
 		 */
 		~SuperService()
 		{
 			instance = NULL;
 
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -63,11 +63,11 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * Ê¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 *
-		 * \return ÀàµÄÎ¨Ò»ÊµÀı
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static SuperService &getInstance()
 		{
@@ -78,7 +78,7 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -89,8 +89,8 @@ class SuperService : public zNetService
 		void reloadConfig();
 
 		/**
-		 * \brief »ñÈ¡ÓÎÏ·Çø±àºÅ
-		 * \return ·µ»ØÓÎÏ·Çø±àºÅ
+		 * \brief è·å–æ¸¸æˆåŒºç¼–å·
+		 * \return è¿”å›æ¸¸æˆåŒºç¼–å·
 		 */
 		const GameZone_t &getZoneID() const
 		{
@@ -98,8 +98,8 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief ÉèÖÃÓÎÏ·Çø±àºÅ
-		 * \param gameZone ÓÎÏ·Çø±àºÅ
+		 * \brief è®¾ç½®æ¸¸æˆåŒºç¼–å·
+		 * \param gameZone æ¸¸æˆåŒºç¼–å·
 		 */
 		void setZoneID(const GameZone_t &gameZone)
 		{
@@ -107,8 +107,8 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡ÓÎÏ·ÇøÃû³Æ
-		 * \return ·µ»ØÓÎÏ·ÇøÃû³Æ
+		 * \brief è·å–æ¸¸æˆåŒºåç§°
+		 * \return è¿”å›æ¸¸æˆåŒºåç§°
 		 */
 		const std::string &getZoneName() const
 		{
@@ -116,8 +116,8 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief ÉèÖÃÓÎÏ·ÇøÃû³Æ
-		 * \param zoneName ´ıÉèÖÃµÄÃû³Æ
+		 * \brief è®¾ç½®æ¸¸æˆåŒºåç§°
+		 * \param zoneName å¾…è®¾ç½®çš„åç§°
 		 */
 		void setZoneName(const char *zoneName)
 		{
@@ -125,8 +125,8 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷±àºÅ
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \brief è·å–æœåŠ¡å™¨ç¼–å·
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getID() const
 		{
@@ -134,8 +134,8 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷ÀàĞÍ
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \brief è·å–æœåŠ¡å™¨ç±»å‹
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{
@@ -143,8 +143,8 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡ipµØÖ·
-		 * \return ·µ»ØipµØÖ·
+		 * \brief è·å–ipåœ°å€
+		 * \return è¿”å›ipåœ°å€
 		 */
 		const char *getIP() const
 		{
@@ -152,8 +152,8 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡¶Ë¿Ú
-		 * \return ·µ»Ø¶Ë¿Ú
+		 * \brief è·å–ç«¯å£
+		 * \return è¿”å›ç«¯å£
 		 */
 		const WORD getPort() const
 		{
@@ -161,7 +161,7 @@ class SuperService : public zNetService
 		}
 
 		/**
-		 * \brief Ö¸ÏòÊı¾İ¿âÁ¬½Ó³ØÊµÀıµÄÖ¸Õë
+		 * \brief æŒ‡å‘æ•°æ®åº“è¿æ¥æ± å®ä¾‹çš„æŒ‡é’ˆ
 		 *
 		 */
 		static zDBConnPool *dbConnPool;
@@ -169,35 +169,35 @@ class SuperService : public zNetService
 	private:
 
 		/**
-		 * \brief ÓÎÏ·Çø±àºÅ
+		 * \brief æ¸¸æˆåŒºç¼–å·
 		 */
 		GameZone_t gameZone;
 		/**
-		 * \brief ÓÎÏ·ÇøÃû³Æ
+		 * \brief æ¸¸æˆåŒºåç§°
 		 */
 		std::string zoneName;
 
-		WORD wdServerID;					/**< ·şÎñÆ÷±àºÅ£¬Ò»¸öÇøÎ¨Ò»µÄ */
-		WORD wdServerType;					/**< ·şÎñÆ÷ÀàĞÍ£¬´´½¨ÀàÊµÀıµÄÊ±ºòÒÑ¾­È·¶¨ */
-		char pstrName[MAX_NAMESIZE];		/**< ·şÎñÆ÷Ãû³Æ */
-		char pstrIP[MAX_IP_LENGTH];			/**< ·şÎñÆ÷ÄÚÍøµØÖ· */
-		WORD wdPort;						/**< ·şÎñÆ÷ÄÚÍø¶Ë¿Ú£¬Ò²¾ÍÊÇ°î¶¨¶Ë¿Ú */
-		char pstrExtIP[MAX_IP_LENGTH];		/**< ·şÎñÆ÷ÍâÍøµØÖ·£¬Ò²¾ÍÊÇ·À»ğÇ½µØÖ· */
-		WORD wdExtPort;						/**< ·şÎñÆ÷ÍâÍø¶Ë¿Ú£¬Ò²¾ÍÊÇÓ³Éäµ½·À»ğÇ½µÄ¶Ë¿Ú */
+		WORD wdServerID;					/**< æœåŠ¡å™¨ç¼–å·ï¼Œä¸€ä¸ªåŒºå”¯ä¸€çš„ */
+		WORD wdServerType;					/**< æœåŠ¡å™¨ç±»å‹ï¼Œåˆ›å»ºç±»å®ä¾‹çš„æ—¶å€™å·²ç»ç¡®å®š */
+		char pstrName[MAX_NAMESIZE];		/**< æœåŠ¡å™¨åç§° */
+		char pstrIP[MAX_IP_LENGTH];			/**< æœåŠ¡å™¨å†…ç½‘åœ°å€ */
+		WORD wdPort;						/**< æœåŠ¡å™¨å†…ç½‘ç«¯å£ï¼Œä¹Ÿå°±æ˜¯é‚¦å®šç«¯å£ */
+		char pstrExtIP[MAX_IP_LENGTH];		/**< æœåŠ¡å™¨å¤–ç½‘åœ°å€ï¼Œä¹Ÿå°±æ˜¯é˜²ç«å¢™åœ°å€ */
+		WORD wdExtPort;						/**< æœåŠ¡å™¨å¤–ç½‘ç«¯å£ï¼Œä¹Ÿå°±æ˜¯æ˜ å°„åˆ°é˜²ç«å¢™çš„ç«¯å£ */
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static SuperService *instance;
 
-		zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		SuperService() : zNetService("·şÎñÆ÷¹ÜÀíÆ÷")
+		SuperService() : zNetService("æœåŠ¡å™¨ç®¡ç†å™¨")
 		{
 			wdServerID = 1;
 			wdServerType = SUPERSERVER;

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CArmy.h$
  * \author  
  * \date 
- * \brief ¹ú¼Ò¾ü¶Ó
+ * \brief å›½å®¶å†›é˜Ÿ
  *
  * 
  */
@@ -24,12 +24,12 @@ class UserSession;
 class CArmy;
 
 class CCaptain
-{//¶Ó³¤
+{//é˜Ÿé•¿
 	public:
-		DWORD dwArmyID; // ¾ü¶ÓID
-		DWORD dwCharID; // ¶Ó³¤ID
-		char  szCapName[MAX_NAMESIZE]; // ¶Ó³¤ĞÕÃû
-		DWORD dwNpcNum; // ¶Ó³¤´øÁìµÄNPCÊı£¬ÔİÊ±Î´ÓÃ
+		DWORD dwArmyID; // å†›é˜ŸID
+		DWORD dwCharID; // é˜Ÿé•¿ID
+		char  szCapName[MAX_NAMESIZE]; // é˜Ÿé•¿å§“å
+		DWORD dwNpcNum; // é˜Ÿé•¿å¸¦é¢†çš„NPCæ•°ï¼Œæš‚æ—¶æœªç”¨
 		CArmy* myArmy;
 		
 		void init(Record* rec);
@@ -76,13 +76,13 @@ class CArmy
 		}
 
 	protected:
-		DWORD dwID; // ¾ü¶ÓID
-		DWORD dwCountryID; // ËùÊô¹ú¼ÒID
-		DWORD dwCityID;	// ËùÊô³ÇÊĞID
+		DWORD dwID; // å†›é˜ŸID
+		DWORD dwCountryID; // æ‰€å±å›½å®¶ID
+		DWORD dwCityID;	// æ‰€å±åŸå¸‚ID
 		
-		char  name[MAX_NAMESIZE]; // ¾ü¶ÓÃû³Æ
-		DWORD  dwGenID; // ¾ü¶Ó½«¾ü½ÇÉ«ID
-		char  genName[MAX_NAMESIZE]; // ¾ü¶Ó½«¾üÃû×Ö
+		char  name[MAX_NAMESIZE]; // å†›é˜Ÿåç§°
+		DWORD  dwGenID; // å†›é˜Ÿå°†å†›è§’è‰²ID
+		char  genName[MAX_NAMESIZE]; // å†›é˜Ÿå°†å†›åå­—
 
 		BYTE  byStatus;
 		DWORD dwCreateTime;
@@ -131,7 +131,7 @@ class CArmyM : public Singleton<CArmyM>
 		void removeArmyByGenID(DWORD dwGenID);
 
 		std::vector<CArmy*> armys;
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef std::map<DWORD, CCaptain*>::value_type captainIndexValueType;
 				
 		typedef std::map<DWORD, CCaptain *>::iterator capIter;

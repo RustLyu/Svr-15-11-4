@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Rush.cpp $
  * \author  
  * \date 
- * \brief ¹¥³Ç´¦ÀíµÄÀà
+ * \brief æ”»åŸå¤„ç†çš„ç±»
  *
  * 
  */
@@ -19,11 +19,11 @@
 #include "SessionClient.h"
 	
 /**
- * \brief ¹¹Ôìº¯Êı£¬²»½øĞĞ³õÊ¼»¯
+ * \brief æ„é€ å‡½æ•°ï¼Œä¸è¿›è¡Œåˆå§‹åŒ–
  *
- * \param rushID ¹¥³Ç½Å±¾µÄid
- * \param rushDelay ¹¥³ÇÑÓ³ÙÊ±¼ä£¨boss¸´»îÊ±¼ä£©
- * \param countryID Ä¿±ê¹ú¼Òid
+ * \param rushID æ”»åŸè„šæœ¬çš„id
+ * \param rushDelay æ”»åŸå»¶è¿Ÿæ—¶é—´ï¼ˆbosså¤æ´»æ—¶é—´ï¼‰
+ * \param countryID ç›®æ ‡å›½å®¶id
  */
 Rush::Rush(DWORD rushID, DWORD rushDelay, DWORD countryID)
 :curPhase(0),id(rushID),countryID(countryID),bossID(0),boss(0),summonTime(0),lastBossHp(0),canSummon(true),clearDelay(0),end(false),lasttime(0),rushDelay(rushDelay)
@@ -37,10 +37,10 @@ Rush::Rush(DWORD rushID, DWORD rushDelay, DWORD countryID)
 }
 
 /**
- * \brief ³õÊ¼»¯¹¥³Ç
- * ¶ÁÈ¡½Å±¾²¢ÏòÄ¿±ê³¡¾°Ìí¼Ó±¾´Î¹¥³Ç
+ * \brief åˆå§‹åŒ–æ”»åŸ
+ * è¯»å–è„šæœ¬å¹¶å‘ç›®æ ‡åœºæ™¯æ·»åŠ æœ¬æ¬¡æ”»åŸ
  *
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool Rush::init(Scene * s)
 {
@@ -88,8 +88,8 @@ bool Rush::init(Scene * s)
 }
 
 /**
- * \brief Îö¹¹º¯Êı
- * npcµÄÉ¾³ıÔÚSceneNpc::AIÀï×ö
+ * \brief ææ„å‡½æ•°
+ * npcçš„åˆ é™¤åœ¨SceneNpc::AIé‡Œåš
  *
  */
 Rush::~Rush()
@@ -105,10 +105,10 @@ Rush::~Rush()
 }
 
 /**
- * \brief ¸ù¾İ×Ö·û´®µÃµ½¹¥³ÇµÄ¶¯×÷
+ * \brief æ ¹æ®å­—ç¬¦ä¸²å¾—åˆ°æ”»åŸçš„åŠ¨ä½œ
  *
- * \param action ¶¯×÷Ãû×Ö
- * \return ¶¯×÷Ã¶¾ÙÖµ
+ * \param action åŠ¨ä½œåå­—
+ * \return åŠ¨ä½œæšä¸¾å€¼
  */
 Rush::rushAction Rush::parseAction(const char * action)
 {
@@ -126,19 +126,19 @@ Rush::rushAction Rush::parseAction(const char * action)
 }
 
 /**
- * \brief ¶ÁÈ¡¹¥³Ç½Å±¾
+ * \brief è¯»å–æ”»åŸè„šæœ¬
  *
- * \param rushID ½Å±¾id
- * \param rushDelay ¹¥³ÇÑÓ³ÙÊ±¼ä
- * \param countryID Ä¿±ê¹ú¼Òid
- * \return ¶ÁÈ¡ÊÇ·ñ³É¹¦£¬²»³É¹¦Ôò²»¿ÉÓÃ
+ * \param rushID è„šæœ¬id
+ * \param rushDelay æ”»åŸå»¶è¿Ÿæ—¶é—´
+ * \param countryID ç›®æ ‡å›½å®¶id
+ * \return è¯»å–æ˜¯å¦æˆåŠŸï¼Œä¸æˆåŠŸåˆ™ä¸å¯ç”¨
  */
 bool Rush::loadRushData(DWORD rushID, DWORD rushDelay, DWORD countryID)
 {
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["mapdir"] +"city_rush.xml"))
 	{
-		Zebra::logger->error("´ò¿ªRushÅäÖÃÎÄ¼şÊ§°Ü %s", (Zebra::global["mapdir"] + "city_rush.xml").c_str());
+		Zebra::logger->error("æ‰“å¼€Rushé…ç½®æ–‡ä»¶å¤±è´¥ %s", (Zebra::global["mapdir"] + "city_rush.xml").c_str());
 		return false;
 	}
 
@@ -180,7 +180,7 @@ bool Rush::loadRushData(DWORD rushID, DWORD rushDelay, DWORD countryID)
 			}
 			if (!dataNode)
 			{
-				Zebra::logger->debug("¶ÁÈ¡¹¥³ÇÊı¾İÊ±£¬Î´ÕÒµ½Ä¿±ê¹ú¼Ò id=%d", countryID);
+				Zebra::logger->debug("è¯»å–æ”»åŸæ•°æ®æ—¶ï¼Œæœªæ‰¾åˆ°ç›®æ ‡å›½å®¶ id=%d", countryID);
 				return false;
 			}
 			strcpy(mapName, str);
@@ -203,10 +203,10 @@ bool Rush::loadRushData(DWORD rushID, DWORD rushDelay, DWORD countryID)
 			}
 			if (!dataNode)
 			{
-				Zebra::logger->debug("¶ÁÈ¡¹¥³ÇÊı¾İÊ±£¬Î´ÕÒµ½Ä¿±êµØÍ¼ id=%d", mapID);
+				Zebra::logger->debug("è¯»å–æ”»åŸæ•°æ®æ—¶ï¼Œæœªæ‰¾åˆ°ç›®æ ‡åœ°å›¾ id=%d", mapID);
 				return false;
 			}
-			strcat(mapName, "¡¤");
+			strcat(mapName, "Â·");
 			strcat(mapName, str);
 
 			dataNode = xml.getChildNode(rushNode, "boss");
@@ -297,20 +297,20 @@ bool Rush::loadRushData(DWORD rushID, DWORD rushDelay, DWORD countryID)
 			bzero(pd.say, sizeof(pd.say));
 			phaseVector.push_back(pd);
 
-			//Zebra::logger->info("¶ÁÈ¡¹¥³ÇÊı¾İ³É¹¦:name=%s mapname=%s boss=%d servant=%d phase=%d", rushName, mapName, bossVector.size(), servantVector.size(), phaseVector.size());
+			//Zebra::logger->info("è¯»å–æ”»åŸæ•°æ®æˆåŠŸ:name=%s mapname=%s boss=%d servant=%d phase=%d", rushName, mapName, bossVector.size(), servantVector.size(), phaseVector.size());
 			return true;
 			break;
 		}
 		rushNode = xml.getNextNode(rushNode, "rush");
 	}
-	Zebra::logger->info("¶ÁÈ¡¹¥³ÇÊı¾İÊ§°Ü:rushID=%d countryID=%d", rushID, countryID);
+	Zebra::logger->info("è¯»å–æ”»åŸæ•°æ®å¤±è´¥:rushID=%d countryID=%d", rushID, countryID);
 	return false;
 }
 
 /**
- * \brief ´¦Àí¹¥³ÇÁ÷³ÌµÄÖ÷º¯Êı
- * ¼ì²é¹¥³Ç½áÊøÊ±¼ä¡¢½×¶Î½áÊøÊ±¼ä¡¢½×¶Î½áÊø±êÖ¾
- * Ìõ¼ş³ÉÁ¢Ôò½øÈëÏÂÒ»½×¶Î
+ * \brief å¤„ç†æ”»åŸæµç¨‹çš„ä¸»å‡½æ•°
+ * æ£€æŸ¥æ”»åŸç»“æŸæ—¶é—´ã€é˜¶æ®µç»“æŸæ—¶é—´ã€é˜¶æ®µç»“æŸæ ‡å¿—
+ * æ¡ä»¶æˆç«‹åˆ™è¿›å…¥ä¸‹ä¸€é˜¶æ®µ
  *
  */
 void Rush::process()
@@ -328,7 +328,7 @@ void Rush::process()
 		if (t>=900 && t<=3600 && t%900<2)
 		{
 			char tex[32];
-			snprintf(tex, sizeof(tex)-1, "%u·ÖÖÓ", t/60);
+			snprintf(tex, sizeof(tex)-1, "%uåˆ†é’Ÿ", t/60);
 			Channel::sendCountryInfo(countryID, Cmd::CHAT_TYPE_GM, endText.c_str(), tex);
 			Zebra::logger->debug(endText.c_str(), tex);
 		}
@@ -348,7 +348,7 @@ void Rush::process()
 				curPhase = phaseVector.size()-1;
 				setPhaseTime(clearDelay*1000);
 				//if (boss->AIC) boss->AIC->setNormalAI();
-				Zebra::logger->debug("bossËÀÍö£¬½×¶Î%d", curPhase);
+				Zebra::logger->debug("bossæ­»äº¡ï¼Œé˜¶æ®µ%d", curPhase);
 			}
 		}
 	}
@@ -365,7 +365,7 @@ void Rush::process()
 						&& rushDelay>=nextPhaseTime.sec()-SceneTimeTick::currentTime.sec())
 				{	
 					char tex[32];
-					snprintf(tex, sizeof(tex)-1, "%u·ÖÖÓ", rushDelay/60);
+					snprintf(tex, sizeof(tex)-1, "%uåˆ†é’Ÿ", rushDelay/60);
 					Channel::sendCountryInfo(countryID, Cmd::CHAT_TYPE_GM, startText.c_str(), tex);
 					Zebra::logger->debug(startText.c_str(), tex);
 					rushDelay -= 900;
@@ -385,9 +385,9 @@ void Rush::process()
 }
 
 /**
- * \brief ×Ü¹¥³ÇÊ±¼ä½áÊøÊ±µÄ´¦Àí
- * Ö»Òª²»ÊÇÒÑ¾­´¦ÓÚ½áÊø½×¶Î£¬¾ÍÖ±½ÓÌø×ªµ½½áÊø½×¶Î
- * ÒÔÇå³ı¹¥³ÇnpcµÄÑÓ³Ù×÷Îª½áÊø½×¶ÎµÄÊ±¼ä
+ * \brief æ€»æ”»åŸæ—¶é—´ç»“æŸæ—¶çš„å¤„ç†
+ * åªè¦ä¸æ˜¯å·²ç»å¤„äºç»“æŸé˜¶æ®µï¼Œå°±ç›´æ¥è·³è½¬åˆ°ç»“æŸé˜¶æ®µ
+ * ä»¥æ¸…é™¤æ”»åŸnpcçš„å»¶è¿Ÿä½œä¸ºç»“æŸé˜¶æ®µçš„æ—¶é—´
  *
  */
 void Rush::onTimeOver()
@@ -401,7 +401,7 @@ void Rush::onTimeOver()
 }
 
 /**
- * \brief ½áÊø¹¥³Ç
+ * \brief ç»“æŸæ”»åŸ
  * 
  */
 void Rush::terminate()
@@ -415,9 +415,9 @@ void Rush::terminate()
 }
 
 /**
- * \brief ·µ»ØÊÇ·ñÒÑ¾­½áÊø
+ * \brief è¿”å›æ˜¯å¦å·²ç»ç»“æŸ
  *
- * \return ÊÇ·ñ½áÊø
+ * \return æ˜¯å¦ç»“æŸ
  */
 bool Rush::isEnd()
 {
@@ -425,9 +425,9 @@ bool Rush::isEnd()
 }
 
 /**
- * \brief ÉèÖÃ×Ü½áÊøÊ±¼ä
+ * \brief è®¾ç½®æ€»ç»“æŸæ—¶é—´
  *
- * \param delay ÑÓ³Ù
+ * \param delay å»¶è¿Ÿ
  */
 void Rush::setEndTime(const int delay)
 {
@@ -436,9 +436,9 @@ void Rush::setEndTime(const int delay)
 }
 
 /**
- * \brief ÉèÖÃ½×¶Î½áÊøÊ±¼ä
+ * \brief è®¾ç½®é˜¶æ®µç»“æŸæ—¶é—´
  *
- * \param delay ÑÓ³Ù
+ * \param delay å»¶è¿Ÿ
  */
 void Rush::setPhaseTime(const int delay)
 {
@@ -447,9 +447,9 @@ void Rush::setPhaseTime(const int delay)
 }
 
 /**
- * \brief ¼ì²é¹¥³ÇÊ±¼äÊÇ·ñÒÑµ½
+ * \brief æ£€æŸ¥æ”»åŸæ—¶é—´æ˜¯å¦å·²åˆ°
  *
- * \return Ê±¼äÊÇ·ñÒÑµ½ 
+ * \return æ—¶é—´æ˜¯å¦å·²åˆ° 
  */
 bool Rush::checkEndTime()
 {
@@ -457,9 +457,9 @@ bool Rush::checkEndTime()
 }
 
 /**
- * \brief ¼ì²é½×¶Î½áÊøÊ±¼ä
+ * \brief æ£€æŸ¥é˜¶æ®µç»“æŸæ—¶é—´
  *
- * \return Ê±¼äÊÇ·ñÒÑµ½
+ * \return æ—¶é—´æ˜¯å¦å·²åˆ°
  */
 bool Rush::checkPhaseTime()
 {
@@ -467,10 +467,10 @@ bool Rush::checkPhaseTime()
 }
 
 /**
- * \brief ½×¶Î½áÊøÊÂ¼şµÄ´¦Àí
- * ²»Í¬½×¶Î½áÊøÊ±´¦Àí²»Í¬
- * ¸´»î¡¢Çå³ıµÄ¶¯×÷ÊÇÔÚ½×¶Î½áÊøÊ±·¢Éú
- * Èç¹û¶¯×÷ÊÇÒÆ¶¯£¬ÔÚ½×¶Î½áÊøÊ±Î´µ½´ïÄ¿µÄµØ£¬ÔòÖ±½ÓÌø×ª¹ıÈ¥
+ * \brief é˜¶æ®µç»“æŸäº‹ä»¶çš„å¤„ç†
+ * ä¸åŒé˜¶æ®µç»“æŸæ—¶å¤„ç†ä¸åŒ
+ * å¤æ´»ã€æ¸…é™¤çš„åŠ¨ä½œæ˜¯åœ¨é˜¶æ®µç»“æŸæ—¶å‘ç”Ÿ
+ * å¦‚æœåŠ¨ä½œæ˜¯ç§»åŠ¨ï¼Œåœ¨é˜¶æ®µç»“æŸæ—¶æœªåˆ°è¾¾ç›®çš„åœ°ï¼Œåˆ™ç›´æ¥è·³è½¬è¿‡å»
  *
  */
 void Rush::onPhaseTimeOver()
@@ -479,10 +479,10 @@ void Rush::onPhaseTimeOver()
 	{
 		case RUSH_RELIVE:
 			{
-				//Zebra::logger->debug("%s : ÕÙ»½boss", rushName);
+				//Zebra::logger->debug("%s : å¬å”¤boss", rushName);
 				if (!summonBoss())
 				{
-					Zebra::logger->error("¹ÖÎï¹¥³Ç: %s ÕÙ»½boss %s Ê§°Ü£¬½áÊø¹¥³Ç", rushName, bossName);
+					Zebra::logger->error("æ€ªç‰©æ”»åŸ: %s å¬å”¤boss %s å¤±è´¥ï¼Œç»“æŸæ”»åŸ", rushName, bossName);
 					end = true;
 				}
 			}
@@ -513,9 +513,9 @@ void Rush::onPhaseTimeOver()
 }
 
 /**
- * \brief ´¦Àí½øÈë½×¶ÎµÄÊÂ¼ş
- * »Ö¸´¡¢ÕÙ»½¡¢¿ª¹Ø¡¢Ëµ»°µÈ¶¯×÷ÔÚ½×¶Î¿ªÊ¼Ê±·¢Éú
- * ÕâĞ©¶¯×÷ÊÇË²¼äµÄ£¬Èç¹û½×¶Î³ÖĞøÊ±¼ä²»Îª0£¬ÔòÔÚÓàÏÂµÄÊ±¼äÄÚboss×öÆÕÍ¨¹¥»÷
+ * \brief å¤„ç†è¿›å…¥é˜¶æ®µçš„äº‹ä»¶
+ * æ¢å¤ã€å¬å”¤ã€å¼€å…³ã€è¯´è¯ç­‰åŠ¨ä½œåœ¨é˜¶æ®µå¼€å§‹æ—¶å‘ç”Ÿ
+ * è¿™äº›åŠ¨ä½œæ˜¯ç¬é—´çš„ï¼Œå¦‚æœé˜¶æ®µæŒç»­æ—¶é—´ä¸ä¸º0ï¼Œåˆ™åœ¨ä½™ä¸‹çš„æ—¶é—´å†…bossåšæ™®é€šæ”»å‡»
  *
  */
 void Rush::enterNextPhase()
@@ -523,12 +523,12 @@ void Rush::enterNextPhase()
 	if (!end && curPhase<phaseVector.size()-1)
 	{
 		curPhase++;
-		Zebra::logger->debug("%s : ½×¶Î%d", rushName, curPhase);
+		Zebra::logger->debug("%s : é˜¶æ®µ%d", rushName, curPhase);
 		setPhaseTime(phaseVector[curPhase].lasttime*1000);
 		if (strcmp(phaseVector[curPhase].say,""))
 			Channel::sendNine(boss, phaseVector[curPhase].say);
 
-		//°´ÕÕ½Å±¾À´¶¯×÷
+		//æŒ‰ç…§è„šæœ¬æ¥åŠ¨ä½œ
 		if (boss->AIC->isActive()
 				&& phaseVector[curPhase].action!=RUSH_SUMMON_PET
 				&& phaseVector[curPhase].action!=RUSH_SUMMON_RUSH
@@ -590,7 +590,7 @@ void Rush::enterNextPhase()
 						Scene * scene = SceneManager::getInstance().getSceneByName(mapName);
 						if (!scene)
 						{
-							Zebra::logger->debug("ÕÙ»½¹¥³ÇservantÊ±£¬Î´ÕÒµ½¸ÃµØÍ¼ name=%s", mapName);
+							Zebra::logger->debug("å¬å”¤æ”»åŸservantæ—¶ï¼Œæœªæ‰¾åˆ°è¯¥åœ°å›¾ name=%s", mapName);
 							return;
 						}
 						scene->initRegion(define.region, define.pos, define.width, define.height);
@@ -605,7 +605,7 @@ void Rush::enterNextPhase()
 								servant->isRushNpc = true;
 								servants.push_back(servant);
 #ifdef _XWL_DEBUG
-								Zebra::logger->debug("[¹ÖÎï¹¥³Ç]%s (%u,%u)", servant->name, servant->getPos().x, servant->getPos().y);
+								Zebra::logger->debug("[æ€ªç‰©æ”»åŸ]%s (%u,%u)", servant->name, servant->getPos().x, servant->getPos().y);
 #endif
 							}
 						}
@@ -647,22 +647,22 @@ void Rush::enterNextPhase()
 	}
 #if 0
 	else
-		Zebra::logger->debug("%s : ¹¥³Ç½áÊø", rushName);
+		Zebra::logger->debug("%s : æ”»åŸç»“æŸ", rushName);
 #endif
 }
 
 /**
- * \brief ÕÙ»½Ò»¸öboss
- * ½Å±¾ÖĞ¿É¶¨Òå¶à¸öboss£¬ÕÙ»½Ê±Ñ¡ÔñÒ»¸ö£¬ÒÔ±ã´Ó²»Í¬µÄÎ»ÖÃ³öÉú£¬Ôö¼ÓËæ»úĞÔ
+ * \brief å¬å”¤ä¸€ä¸ªboss
+ * è„šæœ¬ä¸­å¯å®šä¹‰å¤šä¸ªbossï¼Œå¬å”¤æ—¶é€‰æ‹©ä¸€ä¸ªï¼Œä»¥ä¾¿ä»ä¸åŒçš„ä½ç½®å‡ºç”Ÿï¼Œå¢åŠ éšæœºæ€§
  *
- * \return ÕÙ»½ÊÇ·ñ³É¹¦
+ * \return å¬å”¤æ˜¯å¦æˆåŠŸ
  */
 bool Rush::summonBoss()
 {
 	zNpcB *base = npcbm.get(bossID);
 	if (NULL == base)
 	{
-		//Zebra::logger->debug("ÕÙ»½¹¥³ÇbossÊ±£¬Î´ÕÒµ½¸Ã¹ÖÎï id=%d", bossID);
+		//Zebra::logger->debug("å¬å”¤æ”»åŸbossæ—¶ï¼Œæœªæ‰¾åˆ°è¯¥æ€ªç‰© id=%d", bossID);
 		return false;
 	}
 
@@ -673,7 +673,7 @@ bool Rush::summonBoss()
 	strcpy(define.name, base->name);
 	define.pos = bossVector[index].pos;
 	define.num = bossVector[index].num;
-	define.interval = 0x0fffffff;//Õâ¸öÊ±¼äÒ»¶¨Òª³¤ Èç¹û¶ÌÓÚrushµÄcleartime£¬¾Í»áÌáÇ°delete boss£¬clearÊ±¼äµ½µÄÊ±ºò¾Í»ácoredump
+	define.interval = 0x0fffffff;//è¿™ä¸ªæ—¶é—´ä¸€å®šè¦é•¿ å¦‚æœçŸ­äºrushçš„cleartimeï¼Œå°±ä¼šæå‰delete bossï¼Œclearæ—¶é—´åˆ°çš„æ—¶å€™å°±ä¼šcoredump
 	define.initstate = zSceneEntry::SceneEntry_Normal;
 	define.width = bossVector[index].region*2;
 	define.height = bossVector[index].region*2;
@@ -683,7 +683,7 @@ bool Rush::summonBoss()
 	Scene * scene = SceneManager::getInstance().getSceneByName(mapName);
 	if (!scene)
 	{
-		Zebra::logger->debug("ÕÙ»½¹¥³ÇbossÊ±£¬Î´ÕÒµ½¸ÃµØÍ¼ name=%s", mapName);
+		Zebra::logger->debug("å¬å”¤æ”»åŸbossæ—¶ï¼Œæœªæ‰¾åˆ°è¯¥åœ°å›¾ name=%s", mapName);
 		return false;
 	}
 	scene->initRegion(define.region, define.pos, define.width, define.height);
@@ -692,7 +692,7 @@ bool Rush::summonBoss()
 	//summonCount++;
 	if (!boss)
 	{
-		Zebra::logger->debug("ÕÙ»½¹¥³ÇbossÊ§°Ü id=%d", base->id);
+		Zebra::logger->debug("å¬å”¤æ”»åŸbosså¤±è´¥ id=%d", base->id);
 		return false;
 	}
 	//SceneNpcManager::getMe().addSpecialNpc(boss);
@@ -704,9 +704,9 @@ bool Rush::summonBoss()
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñµ½ÁË¿ÉÕÙ»½ÆÍÈËµÄÊ±¼ä
+ * \brief æ£€æŸ¥æ˜¯å¦åˆ°äº†å¯å¬å”¤ä»†äººçš„æ—¶é—´
  *
- * \return ÊÇ·ñµ½ÁË¿ÉÕÙ»½µÄÊ±¼ä
+ * \return æ˜¯å¦åˆ°äº†å¯å¬å”¤çš„æ—¶é—´
  */
 bool Rush::checkSummonTime()
 {
@@ -714,16 +714,16 @@ bool Rush::checkSummonTime()
 }
 
 /**
- * \brief ÕÙ»½ÆÍÈË
- * ½Å±¾ÖĞ¿ÉÒÔ¶¨Òå¶à¸öÆÍÈË£¬Ã¿¸ö¶¼ÓĞÕÙ»½¼¸ÂÊºÍ¼ä¸ô
- * Ã¿´ÎÕÙ»½Ê±ÅĞ¶ÏËùÓĞµÄÆÍÈË£¬¿ÉÄÜÒ»´ÎÕÙ»½³öËùÓĞÆÍÈË£¬Ò²¿ÉÄÜÒ»¸öÒ²Ã»ÕÙ»½
- * ÕÙ»½Ê±¼äÀÛ¼Ó£¬ÈçÒ»´ÎÕÙ»½ÁË1×é¼ä¸ô30ÃëµÄÆÍÈËºÍÒ»×é¼ä¸ô20ÃëµÄÆÍÈË£¬ÔòÔÚ50ÃëÄÚboss²»ÄÜÕÙ»½
+ * \brief å¬å”¤ä»†äºº
+ * è„šæœ¬ä¸­å¯ä»¥å®šä¹‰å¤šä¸ªä»†äººï¼Œæ¯ä¸ªéƒ½æœ‰å¬å”¤å‡ ç‡å’Œé—´éš”
+ * æ¯æ¬¡å¬å”¤æ—¶åˆ¤æ–­æ‰€æœ‰çš„ä»†äººï¼Œå¯èƒ½ä¸€æ¬¡å¬å”¤å‡ºæ‰€æœ‰ä»†äººï¼Œä¹Ÿå¯èƒ½ä¸€ä¸ªä¹Ÿæ²¡å¬å”¤
+ * å¬å”¤æ—¶é—´ç´¯åŠ ï¼Œå¦‚ä¸€æ¬¡å¬å”¤äº†1ç»„é—´éš”30ç§’çš„ä»†äººå’Œä¸€ç»„é—´éš”20ç§’çš„ä»†äººï¼Œåˆ™åœ¨50ç§’å†…bossä¸èƒ½å¬å”¤
  *
- * \return ÕÙ»½ÊÇ·ñ³É¹¦
+ * \return å¬å”¤æ˜¯å¦æˆåŠŸ
  */
 bool Rush::summonServant()
 {
-	FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"npcÕÙ»½ÆÍÈËĞèÒªµÄÊ±¼ä" , 32);
+	FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"npcå¬å”¤ä»†äººéœ€è¦çš„æ—¶é—´" , 32);
 	if (!boss) return false;
 	if (!canSummon) return false;
 
@@ -737,7 +737,7 @@ bool Rush::summonServant()
 		zNpcB *base = npcbm.get(servantVector[index].id);
 		if (NULL == base)
 		{
-			Zebra::logger->debug("ÕÙ»½ %s µÄÆÍÈËÊ±£¬Î´ÕÒµ½¸Ã¹ÖÎï id=%d", boss->name, servantVector[index].id);
+			Zebra::logger->debug("å¬å”¤ %s çš„ä»†äººæ—¶ï¼Œæœªæ‰¾åˆ°è¯¥æ€ªç‰© id=%d", boss->name, servantVector[index].id);
 			return false;
 		}
 
@@ -757,7 +757,7 @@ bool Rush::summonServant()
 		Scene * scene = SceneManager::getInstance().getSceneByName(mapName);
 		if (!scene)
 		{
-			Zebra::logger->debug("ÕÙ»½ %s µÄÆÍÈËÊ±£¬Î´ÕÒµ½¸ÃµØÍ¼ name=%s", boss->name, mapName);
+			Zebra::logger->debug("å¬å”¤ %s çš„ä»†äººæ—¶ï¼Œæœªæ‰¾åˆ°è¯¥åœ°å›¾ name=%s", boss->name, mapName);
 			return false;
 		}
 		scene->initRegion(define.region, define.pos, define.width, define.height);
@@ -778,14 +778,14 @@ bool Rush::summonServant()
 
 		summonTime = SceneTimeTick::currentTime;
 		summonTime.addDelay(servantVector[index].interval*1000);
-		Zebra::logger->debug("%s summonServant:summon %u ´Î, servant %u ¸ö", rushName, count, servants.size());
+		Zebra::logger->debug("%s summonServant:summon %u æ¬¡, servant %u ä¸ª", rushName, count, servants.size());
 	}
 	
 	return true;
 }
 bool Rush::summonPet()
 {
-	FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"npcÕÙ»½³èÎïĞèÒªµÄÊ±¼ä" , 32);
+	FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"npcå¬å”¤å® ç‰©éœ€è¦çš„æ—¶é—´" , 32);
 	if (!boss) return false;
 	if (!canSummon) return false;
 
@@ -799,7 +799,7 @@ bool Rush::summonPet()
 		zNpcB *base = npcbm.get(servantVector[index].id);
 		if (NULL == base)
 		{
-			Zebra::logger->debug("ÕÙ»½ %s µÄ³èÎïÊ±£¬Î´ÕÒµ½¸Ã¹ÖÎï id=%d", boss->name, servantVector[index].id);
+			Zebra::logger->debug("å¬å”¤ %s çš„å® ç‰©æ—¶ï¼Œæœªæ‰¾åˆ°è¯¥æ€ªç‰© id=%d", boss->name, servantVector[index].id);
 			return false;
 		}
 
@@ -819,7 +819,7 @@ bool Rush::summonPet()
 		Scene * scene = SceneManager::getInstance().getSceneByName(mapName);
 		if (!scene)
 		{
-			Zebra::logger->debug("ÕÙ»½ %s µÄÆÍÈËÊ±£¬Î´ÕÒµ½¸ÃµØÍ¼ name=%s", boss->name, mapName);
+			Zebra::logger->debug("å¬å”¤ %s çš„ä»†äººæ—¶ï¼Œæœªæ‰¾åˆ°è¯¥åœ°å›¾ name=%s", boss->name, mapName);
 			return false;
 		}
 		scene->initRegion(define.region, define.pos, define.width, define.height);
@@ -842,15 +842,15 @@ bool Rush::summonPet()
 
 		summonTime = SceneTimeTick::currentTime;
 		summonTime.addDelay(servantVector[index].interval*1000);
-		Zebra::logger->debug("%s summonPet:summon %u ´Î, servant %u ¸ö", rushName, count, servants.size());
+		Zebra::logger->debug("%s summonPet:summon %u æ¬¡, servant %u ä¸ª", rushName, count, servants.size());
 	}
 	
 	return true;
 }
 
 /**
- * \brief É¾³ıboss
- * ÉèÖÃclearmeµÄ±êÖ¾Î»£¬delete¶¯×÷ÔÚSceneNpc::AI½øĞĞ
+ * \brief åˆ é™¤boss
+ * è®¾ç½®clearmeçš„æ ‡å¿—ä½ï¼ŒdeleteåŠ¨ä½œåœ¨SceneNpc::AIè¿›è¡Œ
  *
  */
 void Rush::deleteBoss()
@@ -870,15 +870,15 @@ void Rush::deleteBoss()
 		boss->setClearState();
 		SceneNpcManager::getMe().addSpecialNpc(boss, true);
 		boss = 0;
-		Zebra::logger->debug("%s : É¾³ıboss", rushName);
+		Zebra::logger->debug("%s : åˆ é™¤boss", rushName);
 	}
 	else
-		Zebra::logger->debug("%s : bossÒÑ¾­É¾³ı", rushName);
+		Zebra::logger->debug("%s : bosså·²ç»åˆ é™¤", rushName);
 }
 
 /**
- * \brief É¾³ıËùÓĞÆÍÈË 
- * ÉèÖÃclearmeµÄ±êÖ¾Î»£¬delete¶¯×÷ÔÚSceneNpc::AI½øĞĞ
+ * \brief åˆ é™¤æ‰€æœ‰ä»†äºº 
+ * è®¾ç½®clearmeçš„æ ‡å¿—ä½ï¼ŒdeleteåŠ¨ä½œåœ¨SceneNpc::AIè¿›è¡Œ
  *
  */
 void Rush::clearServants()
@@ -899,6 +899,6 @@ void Rush::clearServants()
 		(*it)->setClearState();
 		SceneNpcManager::getMe().addSpecialNpc((*it), true);
 	}
-	Zebra::logger->debug("%s : É¾³ı %u ¸öservants", rushName, servants.size());
+	Zebra::logger->debug("%s : åˆ é™¤ %u ä¸ªservants", rushName, servants.size());
 	servants.clear();
 }

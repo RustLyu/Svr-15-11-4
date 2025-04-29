@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSubNetService.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍøÂç·şÎñÆ÷µÄ¿ò¼Ü´úÂë
+ * \brief å®ç°ç½‘ç»œæœåŠ¡å™¨çš„æ¡†æ¶ä»£ç 
  *
  * 
  */
@@ -25,7 +25,7 @@
 zSubNetService *zSubNetService::subNetServiceInst = NULL;
 
 /**
- * \brief ·şÎñÆ÷¹ÜÀíÆ÷µÄÁ¬½Ó¿Í»§¶ËÀà
+ * \brief æœåŠ¡å™¨ç®¡ç†å™¨çš„è¿æ¥å®¢æˆ·ç«¯ç±»
  *
  */
 class SuperClient : public zTCPBufferClient
@@ -36,16 +36,16 @@ class SuperClient : public zTCPBufferClient
 		friend class zSubNetService;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		SuperClient() : zTCPBufferClient("·şÎñÆ÷¹ÜÀíÆ÷¿Í»§¶Ë"), verified(false)
+		SuperClient() : zTCPBufferClient("æœåŠ¡å™¨ç®¡ç†å™¨å®¢æˆ·ç«¯"), verified(false)
 		{
 			Zebra::logger->trace("SuperClient::SuperClient");
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~SuperClient() {};
@@ -56,12 +56,12 @@ class SuperClient : public zTCPBufferClient
 
 	private:
 
-		bool verified;			/**< ÊÇ·ñÒÑ¾­Í¨¹ıÁË·şÎñÆ÷¹ÜÀíÆ÷µÄÑéÖ¤ */
+		bool verified;			/**< æ˜¯å¦å·²ç»é€šè¿‡äº†æœåŠ¡å™¨ç®¡ç†å™¨çš„éªŒè¯ */
 
 };
 
 /**
- * \brief ÖØÔØzThreadÖĞµÄ´¿Ğéº¯Êı£¬ÊÇÏß³ÌµÄÖ÷»Øµ÷º¯Êı£¬ÓÃÓÚ´¦Àí½ÓÊÕµ½µÄÖ¸Áî
+ * \brief é‡è½½zThreadä¸­çš„çº¯è™šå‡½æ•°ï¼Œæ˜¯çº¿ç¨‹çš„ä¸»å›è°ƒå‡½æ•°ï¼Œç”¨äºå¤„ç†æ¥æ”¶åˆ°çš„æŒ‡ä»¤
  *
  */
 void SuperClient::run()
@@ -69,16 +69,16 @@ void SuperClient::run()
 	Zebra::logger->trace("SuperClient::run");
 	zTCPBufferClient::run();
 
-	//Óë·şÎñÆ÷¹ÜÀíÆ÷Ö®¼äµÄÁ¬½Ó¶Ï¿ª£¬ĞèÒª¹Ø±Õ·şÎñÆ÷
+	//ä¸æœåŠ¡å™¨ç®¡ç†å™¨ä¹‹é—´çš„è¿æ¥æ–­å¼€ï¼Œéœ€è¦å…³é—­æœåŠ¡å™¨
 	zSubNetService::subNetServiceInstance()->Terminate();
 }
 
 /**
- * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄ¹ØÓÚÆô¶¯µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„å…³äºå¯åŠ¨çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -91,7 +91,7 @@ bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsign
 			{
 				t_GameTime *ptCmd = (t_GameTime *)ptNullCmd;
 
-				Zebra::logger->debug("Ë¢ĞÂÓÎÏ·Ê±¼ä£º%lu", ptCmd->qwGameTime);
+				Zebra::logger->debug("åˆ·æ–°æ¸¸æˆæ—¶é—´ï¼š%lu", ptCmd->qwGameTime);
 				Zebra::qwGameTime = ptCmd->qwGameTime;
 
 				return true;
@@ -101,7 +101,7 @@ bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsign
 			{
 				t_Startup_Response *ptCmd = (t_Startup_Response *)ptNullCmd;
 
-				Zebra::logger->debug("·şÎñÆ÷¹ÜÀíÆ÷»ØÓ¦ÏûÏ¢ %u %u %u", ptCmd->wdServerID, ptCmd->wdPort, ptCmd->wdExtPort);
+				Zebra::logger->debug("æœåŠ¡å™¨ç®¡ç†å™¨å›åº”æ¶ˆæ¯ %u %u %u", ptCmd->wdServerID, ptCmd->wdPort, ptCmd->wdExtPort);
 
 				zSubNetService::subNetServiceInstance()->setServerInfo(ptCmd);
 			
@@ -114,7 +114,7 @@ bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsign
 			{
 				t_Startup_ServerEntry_NotifyMe *ptCmd = (t_Startup_ServerEntry_NotifyMe *)ptNullCmd;
 
-				Zebra::logger->debug("ÊÕµ½Æô¶¯NotifyMeÇëÇó,×Ô¼ºËùÒÀÀµµÄ·şÎñÆ÷ÁĞ±í");
+				Zebra::logger->debug("æ”¶åˆ°å¯åŠ¨NotifyMeè¯·æ±‚,è‡ªå·±æ‰€ä¾èµ–çš„æœåŠ¡å™¨åˆ—è¡¨");
 				for(WORD i = 0; i < ptCmd->size; i++)
 				{
 					Zebra::logger->debug("serverid=%u, servertype=%u, servername=%s,serverip=%s, port=%u, extip=%s, extport%u, state=%u",
@@ -126,7 +126,7 @@ bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsign
 							ptCmd->entry[i].pstrExtIP,
 							ptCmd->entry[i].wdExtPort,
 							ptCmd->entry[i].state);
-					//ĞèÒªÒ»¸öÈİÆ÷À´¹ÜÀíÕâĞ©·şÎñÆ÷ÁĞ±í
+					//éœ€è¦ä¸€ä¸ªå®¹å™¨æ¥ç®¡ç†è¿™äº›æœåŠ¡å™¨åˆ—è¡¨
 					zSubNetService::subNetServiceInstance()->addServerEntry(ptCmd->entry[i]);
 				}
 
@@ -141,7 +141,7 @@ bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsign
 			{
 				t_Startup_ServerEntry_NotifyOther *ptCmd = (t_Startup_ServerEntry_NotifyOther *)ptNullCmd;
 
-				Zebra::logger->debug("·µ»ØÒÀÀµÓÚ×Ô¼ºµÄ·şÎñÆ÷");
+				Zebra::logger->debug("è¿”å›ä¾èµ–äºè‡ªå·±çš„æœåŠ¡å™¨");
 				Zebra::logger->debug("serverid=%u, servertype=%u, servername=%s,serverip=%s, port=%u, extip=%s, extport%u, state=%u",
 						ptCmd->entry.wdServerID,
 						ptCmd->entry.wdServerType,
@@ -151,9 +151,9 @@ bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsign
 						ptCmd->entry.pstrExtIP,
 						ptCmd->entry.wdExtPort,
 						ptCmd->entry.state);
-				//ĞèÒªÒ»¸öÈİÆ÷À´¹ÜÀíÕâĞ©·şÎñÆ÷ÁĞ±í
+				//éœ€è¦ä¸€ä¸ªå®¹å™¨æ¥ç®¡ç†è¿™äº›æœåŠ¡å™¨åˆ—è¡¨
 				zSubNetService::subNetServiceInstance()->addServerEntry(ptCmd->entry);
-				// ·¢ËÍÃüÁîµ½SuperServer
+				// å‘é€å‘½ä»¤åˆ°SuperServer
 				return sendCmd(ptCmd, nCmdLen);
 			}
 
@@ -167,11 +167,11 @@ bool SuperClient::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsign
 }
 
 /**
- * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool SuperClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -201,10 +201,10 @@ bool SuperClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int n
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  * 
- * \param name Ãû³Æ
- * \param wdType ·şÎñÆ÷ÀàĞÍ
+ * \param name åç§°
+ * \param wdType æœåŠ¡å™¨ç±»å‹
  */
 zSubNetService::zSubNetService(const std::string &name, const WORD wdType) : zNetService(name), superClient(NULL)
 {
@@ -228,7 +228,7 @@ zSubNetService::zSubNetService(const std::string &name, const WORD wdType) : zNe
 }
 
 /**
- * \brief ĞéÎö¹¹º¯Êı
+ * \brief è™šææ„å‡½æ•°
  *
  */
 zSubNetService::~zSubNetService()
@@ -242,37 +242,37 @@ zSubNetService::~zSubNetService()
 }
 
 /**
- * \brief ³õÊ¼»¯ÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–ç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zService::init</code>
- * ½¨Á¢µ½·şÎñÆ÷¹ÜÀíÆ÷µÄÁ¬½Ó£¬²¢µÃµ½·şÎñÆ÷ĞÅÏ¢
+ * å®ç°çº¯è™šå‡½æ•°<code>zService::init</code>
+ * å»ºç«‹åˆ°æœåŠ¡å™¨ç®¡ç†å™¨çš„è¿æ¥ï¼Œå¹¶å¾—åˆ°æœåŠ¡å™¨ä¿¡æ¯
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool zSubNetService::init()
 {
 	Zebra::logger->trace("zSubNetService::init");
 
-	//½¨Á¢µ½·şÎñÆ÷¹ÜÀíÆ÷µÄÁ¬½Ó
+	//å»ºç«‹åˆ°æœåŠ¡å™¨ç®¡ç†å™¨çš„è¿æ¥
 	if (!superClient->connect(superIP, superPort))
 	{
-		Zebra::logger->error("Á¬½Ó·şÎñÆ÷¹ÜÀíÆ÷Ê§°Ü(%s:%u)",superIP,superPort);
+		Zebra::logger->error("è¿æ¥æœåŠ¡å™¨ç®¡ç†å™¨å¤±è´¥(%s:%u)",superIP,superPort);
 		return false;
 	}
 
-	//·¢ËÍµÇÂ½·şÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+	//å‘é€ç™»é™†æœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
 	using namespace Cmd::Super;
 	t_Startup_Request tCmd;
 	tCmd.wdServerType = wdServerType;
 	strcpy(tCmd.pstrIP, pstrIP);
 	if (!superClient->sendCmd(&tCmd, sizeof(tCmd)))
 	{
-		Zebra::logger->error("(zSubNetService::init)Ïò·şÎñÆ÷¹ÜÀíÆ÷·¢ËÍµÇÂ½Ö¸ÁîÊ§°Ü");
+		Zebra::logger->error("(zSubNetService::init)å‘æœåŠ¡å™¨ç®¡ç†å™¨å‘é€ç™»é™†æŒ‡ä»¤å¤±è´¥");
 		return false;
 	}
 
 	
-	//µÈ´ı·şÎñÆ÷¹ÜÀíÆ÷·µ»ØĞÅÏ¢
+	//ç­‰å¾…æœåŠ¡å™¨ç®¡ç†å™¨è¿”å›ä¿¡æ¯
 	while(!superClient->verified)
 	{
 		
@@ -280,7 +280,7 @@ bool zSubNetService::init()
 		int nCmdLen = superClient->pSocket->recvToCmd(pstrCmd, sizeof(pstrCmd), true);		
 		if (-1 == nCmdLen)
 		{
-			Zebra::logger->error("(zSubNetService::init)µÈ´ı·şÎñÆ÷¹ÜÀíÆ÷·µ»ØĞÅÏ¢Ê§°Ü");
+			Zebra::logger->error("(zSubNetService::init)ç­‰å¾…æœåŠ¡å™¨ç®¡ç†å™¨è¿”å›ä¿¡æ¯å¤±è´¥");
 			return false;
 		}
 		else if (nCmdLen > 0)
@@ -296,10 +296,10 @@ bool zSubNetService::init()
 
 	//zThread::sleep(1);
 
-	//½¨Á¢Ïß³ÌÓë·şÎñÆ÷¹ÜÀíÆ÷½»»¥
+	//å»ºç«‹çº¿ç¨‹ä¸æœåŠ¡å™¨ç®¡ç†å™¨äº¤äº’
 	superClient->start();
 
-	//µ÷ÓÃÕæÊµµÄ³õÊ¼»¯º¯Êı
+	//è°ƒç”¨çœŸå®çš„åˆå§‹åŒ–å‡½æ•°
 	if (!zNetService::init(wdPort))
 		return false;
 
@@ -307,11 +307,11 @@ bool zSubNetService::init()
 }
 
 /**
- * \brief È·ÈÏ·şÎñÆ÷³õÊ¼»¯³É¹¦£¬¼´½«½øÈëÖ÷»Øµ÷º¯Êı
+ * \brief ç¡®è®¤æœåŠ¡å™¨åˆå§‹åŒ–æˆåŠŸï¼Œå³å°†è¿›å…¥ä¸»å›è°ƒå‡½æ•°
  *
- * Ïò·şÎñÆ÷·¢ËÍt_Startup_OKÖ¸ÁîÀ´È·ÈÏ·şÎñÆ÷Æô¶¯³É¹¦
+ * å‘æœåŠ¡å™¨å‘é€t_Startup_OKæŒ‡ä»¤æ¥ç¡®è®¤æœåŠ¡å™¨å¯åŠ¨æˆåŠŸ
  *
- * \return È·ÈÏÊÇ·ñ³É¹¦
+ * \return ç¡®è®¤æ˜¯å¦æˆåŠŸ
  */
 bool zSubNetService::validate()
 {
@@ -322,9 +322,9 @@ bool zSubNetService::validate()
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zService::final</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zService::final</code>
  *
  */
 void zSubNetService::final()
@@ -332,18 +332,18 @@ void zSubNetService::final()
 	Zebra::logger->trace("zSubNetService::final");
 	zNetService::final();
 	
-	//¹Ø±Õµ½·şÎñÆ÷¹ÜÀíÆ÷µÄÁ¬½Ó
+	//å…³é—­åˆ°æœåŠ¡å™¨ç®¡ç†å™¨çš„è¿æ¥
 	superClient->final();
 	superClient->join();
 	superClient->close();
 }
 
 /**
- * \brief Ïò·şÎñÆ÷¹ÜÀíÆ÷·¢ËÍÖ¸Áî
+ * \brief å‘æœåŠ¡å™¨ç®¡ç†å™¨å‘é€æŒ‡ä»¤
  *
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool zSubNetService::sendCmdToSuperServer(const void *pstrCmd, const int nCmdLen)
 {
@@ -352,9 +352,9 @@ bool zSubNetService::sendCmdToSuperServer(const void *pstrCmd, const int nCmdLen
 }
 
 /**
- * \brief ¸ù¾İ·şÎñÆ÷¹ÜÀíÆ÷·µ»ØĞÅÏ¢£¬ÉèÖÃ·şÎñÆ÷µÄĞÅÏ¢
+ * \brief æ ¹æ®æœåŠ¡å™¨ç®¡ç†å™¨è¿”å›ä¿¡æ¯ï¼Œè®¾ç½®æœåŠ¡å™¨çš„ä¿¡æ¯
  *
- * \param ptCmd ·şÎñÆ÷¹ÜÀíÆ÷·µ»ØĞÅÏ¢
+ * \param ptCmd æœåŠ¡å™¨ç®¡ç†å™¨è¿”å›ä¿¡æ¯
  */
 void zSubNetService::setServerInfo(const Cmd::Super::t_Startup_Response *ptCmd)
 {	
@@ -366,14 +366,14 @@ void zSubNetService::setServerInfo(const Cmd::Super::t_Startup_Response *ptCmd)
 }
 
 /**
- * \brief Ìí¼Ó¹ØÁª·şÎñÆ÷ĞÅÏ¢µ½Ò»¸öÈİÆ÷ÖĞ
+ * \brief æ·»åŠ å…³è”æœåŠ¡å™¨ä¿¡æ¯åˆ°ä¸€ä¸ªå®¹å™¨ä¸­
  *
  */
 void zSubNetService::addServerEntry(const Cmd::Super::ServerEntry &entry)
 {
 	Zebra::logger->trace("zSubNetService::addServerEntry(wdserverID=%u)",entry.wdServerID);
 	mlock.lock();
-	//Ê×ÏÈ²éÕÒÓĞÃ»ÓĞÖØ¸´µÄ
+	//é¦–å…ˆæŸ¥æ‰¾æœ‰æ²¡æœ‰é‡å¤çš„
 	std::deque<Cmd::Super::ServerEntry>::iterator it;
 	bool found = false;
 	for(it = serverList.begin(); it != serverList.end(); it++)
@@ -387,22 +387,22 @@ void zSubNetService::addServerEntry(const Cmd::Super::ServerEntry &entry)
 
 	if (found)
 	{
-		//ÒÑ¾­´æÔÚÖ»ÊÇ¸üĞÂ
+		//å·²ç»å­˜åœ¨åªæ˜¯æ›´æ–°
 		(*it) = entry;
 	}
 	else
 	{
-		//»¹²»´æÔÚ£¬ĞèÒªĞÂ½¨Á¢Ò»¸ö½Úµã
+		//è¿˜ä¸å­˜åœ¨ï¼Œéœ€è¦æ–°å»ºç«‹ä¸€ä¸ªèŠ‚ç‚¹
 		serverList.push_back(entry);
 	}
 	mlock.unlock();
 }
 
 /**
- * \brief ²éÕÒÏà¹Ø·şÎñÆ÷ĞÅÏ¢
+ * \brief æŸ¥æ‰¾ç›¸å…³æœåŠ¡å™¨ä¿¡æ¯
  *
- * \param wdServerID ·şÎñÆ÷±àºÅ
- * \return ·şÎñÆ÷ĞÅÏ¢
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
+ * \return æœåŠ¡å™¨ä¿¡æ¯
  */
 const Cmd::Super::ServerEntry *zSubNetService::getServerEntry(const WORD wdServerID)
 {
@@ -423,10 +423,10 @@ const Cmd::Super::ServerEntry *zSubNetService::getServerEntry(const WORD wdServe
 }
 
 /**
- * \brief ²éÕÒÏà¹Ø·şÎñÆ÷ĞÅÏ¢
+ * \brief æŸ¥æ‰¾ç›¸å…³æœåŠ¡å™¨ä¿¡æ¯
  *
- * \param wdServerType ·şÎñÆ÷ÀàĞÍ
- * \return ·şÎñÆ÷ĞÅÏ¢
+ * \param wdServerType æœåŠ¡å™¨ç±»å‹
+ * \return æœåŠ¡å™¨ä¿¡æ¯
  */
 const Cmd::Super::ServerEntry *zSubNetService::getServerEntryByType(const WORD wdServerType)
 {
@@ -436,7 +436,7 @@ const Cmd::Super::ServerEntry *zSubNetService::getServerEntryByType(const WORD w
 	mlock.lock();
 	for(it = serverList.begin(); it != serverList.end(); it++)
 	{
-		Zebra::logger->debug("·şÎñÆ÷ĞÅÏ¢£º%u, %u", wdServerType, it->wdServerType);
+		Zebra::logger->debug("æœåŠ¡å™¨ä¿¡æ¯ï¼š%u, %u", wdServerType, it->wdServerType);
 		if (wdServerType == it->wdServerType)
 		{
 			ret = &(*it);
@@ -448,11 +448,11 @@ const Cmd::Super::ServerEntry *zSubNetService::getServerEntryByType(const WORD w
 }
 
 /**
- * \brief ²éÕÒÏà¹Ø·şÎñÆ÷ĞÅÏ¢
+ * \brief æŸ¥æ‰¾ç›¸å…³æœåŠ¡å™¨ä¿¡æ¯
  *
- * \param wdServerType ·şÎñÆ÷ÀàĞÍ
- * \param prev ÉÏÒ»¸ö·şÎñÆ÷ĞÅÏ¢
- * \return ·şÎñÆ÷ĞÅÏ¢
+ * \param wdServerType æœåŠ¡å™¨ç±»å‹
+ * \param prev ä¸Šä¸€ä¸ªæœåŠ¡å™¨ä¿¡æ¯
+ * \return æœåŠ¡å™¨ä¿¡æ¯
  */
 const Cmd::Super::ServerEntry *zSubNetService::getNextServerEntryByType(const WORD wdServerType, const Cmd::Super::ServerEntry **prev)
 {
@@ -463,7 +463,7 @@ const Cmd::Super::ServerEntry *zSubNetService::getNextServerEntryByType(const WO
 	mlock.lock();
 	for(it = serverList.begin(); it != serverList.end(); it++)
 	{
-		Zebra::logger->debug("·şÎñÆ÷ĞÅÏ¢£º%u, %u", wdServerType, it->wdServerType);
+		Zebra::logger->debug("æœåŠ¡å™¨ä¿¡æ¯ï¼š%u, %u", wdServerType, it->wdServerType);
 		if (wdServerType == it->wdServerType)
 		{
 			if (NULL == prev

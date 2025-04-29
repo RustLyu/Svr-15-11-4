@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zXMLParser.h  $
  * \author  
  * \date 
- * \brief zXMLParserÆ÷¶¨ÒåÎÄ¼ş
+ * \brief zXMLParserå™¨å®šä¹‰æ–‡ä»¶
  *
  * 
  */
@@ -15,9 +15,9 @@
 #include <string>
 
 /**
- * \brief zXMLParser¶¨Òå
+ * \brief zXMLParserå®šä¹‰
  * 
- * Ö÷ÒªÌá¹©ÁË½ÚµãµÄä¯ÀÀ,ºÍÆäÊôĞÔµÄµÃµ½.
+ * ä¸»è¦æä¾›äº†èŠ‚ç‚¹çš„æµè§ˆ,å’Œå…¶å±æ€§çš„å¾—åˆ°.
  */
 class zXMLParser
 {

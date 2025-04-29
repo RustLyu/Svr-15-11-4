@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Team.cpp  $
  * \author  
  * \date 
- * \brief Session¶ÓÎéĞÅÏ¢
+ * \brief Sessioné˜Ÿä¼ä¿¡æ¯
  *
  * 
  */
@@ -18,8 +18,8 @@
 
 
 /**
- * \brief ÖØĞÂ¼ÆËã¾­Ñé·ÖÅä·½°¸
- * \param pos ¶ÓÎé·ÖÅä¾­ÑéµÄÖĞĞÄµã 
+ * \brief é‡æ–°è®¡ç®—ç»éªŒåˆ†é…æ–¹æ¡ˆ
+ * \param pos é˜Ÿä¼åˆ†é…ç»éªŒçš„ä¸­å¿ƒç‚¹ 
  */
 void Team::calAverageExp(zPosI pos,DWORD sceneid)
 {
@@ -46,10 +46,10 @@ void Team::calAverageExp(zPosI pos,DWORD sceneid)
 	
 }
 /**
- * \brief ÓÃ»§Éı¼¶ºó¾­Ñé·ÖÅä·½°¸ËæÖ®±ä»¯
+ * \brief ç”¨æˆ·å‡çº§åç»éªŒåˆ†é…æ–¹æ¡ˆéšä¹‹å˜åŒ–
  *
  *
- * \param pUser: Éı¼¶µÄÓÃ»§
+ * \param pUser: å‡çº§çš„ç”¨æˆ·
  */
 void Team::userupgrade(SceneUser *pUser)
 {
@@ -62,10 +62,10 @@ void Team::userupgrade(SceneUser *pUser)
 	
 }
 /**
- * \brief ¼õÉÙ¾­Ñé·ÖÅä±ÈÂÊ
+ * \brief å‡å°‘ç»éªŒåˆ†é…æ¯”ç‡
  *
  *
- * \param pUser: ÒıÆğ¼õÉÙµÄÓÃ»§
+ * \param pUser: å¼•èµ·å‡å°‘çš„ç”¨æˆ·
  */
 void Team::decreaseAverageExp(SceneUser *pUser)
 {
@@ -76,10 +76,10 @@ void Team::decreaseAverageExp(SceneUser *pUser)
 	}
 }
 /**
- * \brief Ôö¼Ó¾­Ñé·ÖÅä±ÈÂÊ
+ * \brief å¢åŠ ç»éªŒåˆ†é…æ¯”ç‡
  *
  *
- * \param pUser:ÒıÆğÔö¼ÓµÄÓÃ»§
+ * \param pUser:å¼•èµ·å¢åŠ çš„ç”¨æˆ·
  */
 void Team::increaseAverageExp(SceneUser *pUser)
 {
@@ -90,12 +90,12 @@ void Team::increaseAverageExp(SceneUser *pUser)
 	}
 }
 /**
- * \brief Ôö¼Ó¶ÓÔ±
+ * \brief å¢åŠ é˜Ÿå‘˜
  *
  *
- * \param id: ÓÃ»§id
- * \param tempid: ÓÃ»§tempid
- * \param pname: ÓÃ»§Ãû³Æ
+ * \param id: ç”¨æˆ·id
+ * \param tempid: ç”¨æˆ·tempid
+ * \param pname: ç”¨æˆ·åç§°
  */
 bool Team::addMember(DWORD id , DWORD tempid , const char *pname)
 {
@@ -105,7 +105,7 @@ bool Team::addMember(DWORD id , DWORD tempid , const char *pname)
 	m.tempid = tempid;
 	strncpy(m.name , pname , MAX_NAMESIZE);
 	m.offtime = 0;
-	m.begintime = curTim.sec()/60; // ¼ÆËãÓÑºÃ¶ÈÓÃµÄ£¬¼ÇÂ¼µÇÈëÊ±¼ä
+	m.begintime = curTim.sec()/60; // è®¡ç®—å‹å¥½åº¦ç”¨çš„ï¼Œè®°å½•ç™»å…¥æ—¶é—´
 
 	//rwlock.wrlock();
 	std::vector<TeamMember>::iterator iter;
@@ -118,7 +118,7 @@ bool Team::addMember(DWORD id , DWORD tempid , const char *pname)
 			strncpy(iter->name , m.name , MAX_NAMESIZE);
 			iter->offtime = m.offtime;
 			iter->begintime = m.begintime;
-			//Zebra::logger->debug("¸üĞÂ:¶ÓÔ±id=%u ,tempid=%u , offtime=%u" , iter->id , iter->tempid , iter->offtime);
+			//Zebra::logger->debug("æ›´æ–°:é˜Ÿå‘˜id=%u ,tempid=%u , offtime=%u" , iter->id , iter->tempid , iter->offtime);
 			break;
 		}
 	}
@@ -130,7 +130,7 @@ bool Team::addMember(DWORD id , DWORD tempid , const char *pname)
 			return false;
 		}
 		member.push_back(m);
-		//Zebra::logger->debug("Ìí¼Ó¶ÓÔ±%u" , m.id);
+		//Zebra::logger->debug("æ·»åŠ é˜Ÿå‘˜%u" , m.id);
 	}
 	//rwlock.unlock();
 	SceneUser *pUser = SceneUserManager::getMe().getUserByTempID(tempid);
@@ -144,11 +144,11 @@ bool Team::addMember(DWORD id , DWORD tempid , const char *pname)
 }
 
 /**
- * \brief É¾³ı¶ÓÔ± 
+ * \brief åˆ é™¤é˜Ÿå‘˜ 
  *
  *
- * \param id: ÓÃ»§id
- * \param tempid: ÓÃ»§tempid
+ * \param id: ç”¨æˆ·id
+ * \param tempid: ç”¨æˆ·tempid
  */
 void Team::removeMember(DWORD id , DWORD tempid)
 {
@@ -173,10 +173,10 @@ void Team::removeMember(DWORD id , DWORD tempid)
 }
 
 /**
- * \brief É¾³ı¶ÓÔ± 
+ * \brief åˆ é™¤é˜Ÿå‘˜ 
  *
  *
- * \param id: ÓÃ»§id
+ * \param id: ç”¨æˆ·id
  */
 void Team::removeMemberByID(DWORD id)
 {
@@ -201,11 +201,11 @@ void Team::removeMemberByID(DWORD id)
 }
 
 /**
- * \brief É¾³ı¶ÓÔ± 
+ * \brief åˆ é™¤é˜Ÿå‘˜ 
  *
  *
- * \param pname: ÓÃ»§Ãû³Æ
- * \return Èç¹ûÉ¾³ı³É¹¦·µ»Ø±»É¾³ıÕßµÄÁÙÊ± id ·ñÔòÎª0
+ * \param pname: ç”¨æˆ·åç§°
+ * \return å¦‚æœåˆ é™¤æˆåŠŸè¿”å›è¢«åˆ é™¤è€…çš„ä¸´æ—¶ id å¦åˆ™ä¸º0
  */
 DWORD Team::removeMemberByName(const char *pname)
 {
@@ -232,10 +232,10 @@ DWORD Team::removeMemberByName(const char *pname)
 	return tempid;
 }
 /**
- * \brief µÃµ½ÏÂÒ»¸öÎïÆ·ÓµÓĞÕß
+ * \brief å¾—åˆ°ä¸‹ä¸€ä¸ªç‰©å“æ‹¥æœ‰è€…
  *
  *
- * \return ÏÂÒ»¸öÎïÆ·ÓµÓĞÕß
+ * \return ä¸‹ä¸€ä¸ªç‰©å“æ‹¥æœ‰è€…
  */
 DWORD Team::getNextObjOwnerID()
 {
@@ -256,10 +256,10 @@ DWORD Team::getNextObjOwnerID()
 }
 
 /**
- * \brief É¾³ı¶ÓÔ± 
+ * \brief åˆ é™¤é˜Ÿå‘˜ 
  *
  *
- * \param tempid: ÓÃ»§tempid
+ * \param tempid: ç”¨æˆ·tempid
  */
 void Team::removeMemberByTempID(DWORD tempid)
 {
@@ -284,10 +284,10 @@ void Team::removeMemberByTempID(DWORD tempid)
 }
 
 /**
- * \brief ±éÀú¶ÓÔ±
+ * \brief éå†é˜Ÿå‘˜
  *
  *
- * \param callback: »Øµ÷²Ù×÷
+ * \param callback: å›è°ƒæ“ä½œ
  */
 void Team::execEvery(TeamMemExec &callback)
 {
@@ -301,11 +301,11 @@ void Team::execEvery(TeamMemExec &callback)
 }
 
 /**
- * \brief ±éÀú¶ÓÔ±
+ * \brief éå†é˜Ÿå‘˜
  *
  *
- * \param callback: »Øµ÷²Ù×÷
- * \param tempid: ²»²Î¼Ó»Øµ÷µÄÓÃ»§tempid
+ * \param callback: å›è°ƒæ“ä½œ
+ * \param tempid: ä¸å‚åŠ å›è°ƒçš„ç”¨æˆ·tempid
  */
 void Team::execEveryExceptMe(TeamMemExec &callback , DWORD tempid)
 {
@@ -323,7 +323,7 @@ void Team::execEveryExceptMe(TeamMemExec &callback , DWORD tempid)
 }
 
 /**
- * \brief ¼ÆËãÓÑºÃ¶È
+ * \brief è®¡ç®—å‹å¥½åº¦
  *
  *
  */

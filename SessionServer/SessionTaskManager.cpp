@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionTaskManager.cpp $
  * \author  
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -18,12 +18,12 @@
 SessionTaskManager *SessionTaskManager::instance = NULL;
 
 /**
- * \brief Ìí¼ÓÒ»¸ö×ÓÁ¬½Óµ½ÈİÆ÷ÖĞ
+ * \brief æ·»åŠ ä¸€ä¸ªå­è¿æ¥åˆ°å®¹å™¨ä¸­
  *
- * Èç¹û×ÓÁ¬½ÓÊÇÍø¹Ø£¬ĞèÒªÌí¼Óµ½Íø¹ØÁ¬½ÓÁ´±íÖĞ
- * Èç¹û×ÓÁ¬½ÓÊÇ³¡¾°·şÎñÆ÷£¬ĞèÒªÌí¼Óµ½³¡¾°Á¬½ÓÁ´±íÖĞ
+ * å¦‚æœå­è¿æ¥æ˜¯ç½‘å…³ï¼Œéœ€è¦æ·»åŠ åˆ°ç½‘å…³è¿æ¥é“¾è¡¨ä¸­
+ * å¦‚æœå­è¿æ¥æ˜¯åœºæ™¯æœåŠ¡å™¨ï¼Œéœ€è¦æ·»åŠ åˆ°åœºæ™¯è¿æ¥é“¾è¡¨ä¸­
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
+ * \param task å­è¿æ¥ä»»åŠ¡
  */
 void SessionTaskManager::addSessionTask(SessionTask *task)
 {
@@ -40,12 +40,12 @@ void SessionTaskManager::addSessionTask(SessionTask *task)
 }
 
 /**
- * \brief ´ÓÈİÆ÷ÖĞÒÆ³ı×ÓÁ¬½ÓÈÎÎñ
+ * \brief ä»å®¹å™¨ä¸­ç§»é™¤å­è¿æ¥ä»»åŠ¡
  *
- * Èç¹û×ÓÁ¬½ÓÊÇÍø¹Ø£¬ĞèÒª´ÓÍø¹ØÁ´±íÖĞÒÆ³ı
- * Èç¹û×ÓÁ¬½ÓÊÇ³¡¾°·şÎñÆ÷£¬ĞèÒª´Ó³¡¾°Á¬½ÓÁ´±íÖĞÒÆ³ı
+ * å¦‚æœå­è¿æ¥æ˜¯ç½‘å…³ï¼Œéœ€è¦ä»ç½‘å…³é“¾è¡¨ä¸­ç§»é™¤
+ * å¦‚æœå­è¿æ¥æ˜¯åœºæ™¯æœåŠ¡å™¨ï¼Œéœ€è¦ä»åœºæ™¯è¿æ¥é“¾è¡¨ä¸­ç§»é™¤
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
+ * \param task å­è¿æ¥ä»»åŠ¡
  */
 void SessionTaskManager::removeSessionTask(SessionTask *task)
 {
@@ -62,10 +62,10 @@ void SessionTaskManager::removeSessionTask(SessionTask *task)
 }
 
 /**
- * \brief ÏòÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷ÖĞÌí¼ÓÒ»¸ö×ÓÁ¬½ÓÈÎÎñ
+ * \brief å‘å”¯ä¸€æ€§éªŒè¯å®¹å™¨ä¸­æ·»åŠ ä¸€ä¸ªå­è¿æ¥ä»»åŠ¡
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return Ìí¼ÓÁ¬½ÓÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ è¿æ¥æ˜¯å¦æˆåŠŸ
  */
 bool SessionTaskManager::uniqueAdd(SessionTask *task)
 {
@@ -84,10 +84,10 @@ bool SessionTaskManager::uniqueAdd(SessionTask *task)
 }
 
 /**
- * \brief ´ÓÎ¨Ò»ĞÔÈİÆ÷ÖĞÒÆ³ıÒ»¸ö×ÓÁ¬½ÓÈÎÎñ
+ * \brief ä»å”¯ä¸€æ€§å®¹å™¨ä¸­ç§»é™¤ä¸€ä¸ªå­è¿æ¥ä»»åŠ¡
  *
- * \param task ×ÓÁ¬½ÓÈÎÎñ
- * \return ÒÆ³ıÊÇ·ñ³É¹¦
+ * \param task å­è¿æ¥ä»»åŠ¡
+ * \return ç§»é™¤æ˜¯å¦æˆåŠŸ
  */
 bool SessionTaskManager::uniqueRemove(SessionTask *task)
 {
@@ -105,11 +105,11 @@ bool SessionTaskManager::uniqueRemove(SessionTask *task)
 }
 
 /**
- * \brief ÏòËùÓĞµÄÍø¹ØÁ¬½Ó¹ã²¥Ö¸Áî
+ * \brief å‘æ‰€æœ‰çš„ç½‘å…³è¿æ¥å¹¿æ’­æŒ‡ä»¤
  *
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool SessionTaskManager::broadcastGateway(const void *pstrCmd, int nCmdLen)
 {
@@ -124,11 +124,11 @@ bool SessionTaskManager::broadcastGateway(const void *pstrCmd, int nCmdLen)
 	return retval;
 }
 /**
- * \brief ÏòËùÓĞµÄÍø¹Ø·¢ËÍÊÀ½çÖ¸Áî
+ * \brief å‘æ‰€æœ‰çš„ç½‘å…³å‘é€ä¸–ç•ŒæŒ‡ä»¤
  *
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool SessionTaskManager::sendCmdToWorld(const void *pstrCmd, int nCmdLen)
 {
@@ -141,11 +141,11 @@ bool SessionTaskManager::sendCmdToWorld(const void *pstrCmd, int nCmdLen)
 	return broadcastGateway(sfw,sizeof(t_Session_ForwardWorld) + sfw->size);
 }
 /**
- * \brief ÏòËùÓĞµÄÍø¹Ø·¢ËÍ¹ú¼ÒÖ¸Áî
+ * \brief å‘æ‰€æœ‰çš„ç½‘å…³å‘é€å›½å®¶æŒ‡ä»¤
  *
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool SessionTaskManager::sendCmdToCountry(DWORD country,const void *pstrCmd, int nCmdLen)
 {
@@ -160,11 +160,11 @@ bool SessionTaskManager::sendCmdToCountry(DWORD country,const void *pstrCmd, int
 }
 
 /**
- * \brief ÏòËùÓĞµÄ³¡¾°·şÎñÆ÷Á¬½Ó¹ã²¥Ö¸Áî
+ * \brief å‘æ‰€æœ‰çš„åœºæ™¯æœåŠ¡å™¨è¿æ¥å¹¿æ’­æŒ‡ä»¤
  *
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool SessionTaskManager::broadcastScene(const void *pstrCmd, int nCmdLen)
 {
@@ -180,12 +180,12 @@ bool SessionTaskManager::broadcastScene(const void *pstrCmd, int nCmdLen)
 }
 
 /**
- * \brief ¸ù¾İ·şÎñÆ÷±àºÅ¹ã²¥Ö¸Áî
+ * \brief æ ¹æ®æœåŠ¡å™¨ç¼–å·å¹¿æ’­æŒ‡ä»¤
  *
- * \param wdServerID ´ı¹ã²¥Ö¸ÁîµÄ·şÎñÆ÷±àºÅ
- * \param pstrCmd ´ı¹ã²¥µÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ¹ã²¥ÊÇ·ñ³É¹¦
+ * \param wdServerID å¾…å¹¿æ’­æŒ‡ä»¤çš„æœåŠ¡å™¨ç¼–å·
+ * \param pstrCmd å¾…å¹¿æ’­çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¹¿æ’­æ˜¯å¦æˆåŠŸ
  */
 bool SessionTaskManager::broadcastByID(const WORD wdServerID, const void *pstrCmd, int nCmdLen)
 {

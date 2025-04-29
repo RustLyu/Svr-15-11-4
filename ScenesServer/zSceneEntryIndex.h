@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSceneEntryIndex.h  $
  * \author  
  * \date 
- * \brief µØÍ¼Îï¼şÆÁË÷ÒıÉùÃ÷
+ * \brief åœ°å›¾ç‰©ä»¶å±ç´¢å¼•å£°æ˜
  */
 
 #ifndef _ZSCENEENTRYINDEX_H_
@@ -18,11 +18,11 @@
 class SceneUser;
 class SceneNpc;
 /**
- * \brief ³¡¾°Îï¼şµÄ»Øµ÷Àà
+ * \brief åœºæ™¯ç‰©ä»¶çš„å›è°ƒç±»
  *
- * Ö»ÒªÊÇÓÃÓÚ±éÀúÒ»ÆÁÎï¼ş,¶ø¶ÔÄ³Ğ©Îï¼ş²Ù×÷
+ * åªè¦æ˜¯ç”¨äºéå†ä¸€å±ç‰©ä»¶,è€Œå¯¹æŸäº›ç‰©ä»¶æ“ä½œ
  *
- * Ê¹ÓÃÕß±ØĞëÒªÊµÏÖexec·½·¨
+ * ä½¿ç”¨è€…å¿…é¡»è¦å®ç°execæ–¹æ³•
  */
 struct zSceneEntryCallBack
 {
@@ -31,20 +31,20 @@ struct zSceneEntryCallBack
 };
 
 /**
- * \brief ³¡¾°Îï¼şÆÁË÷Òı
+ * \brief åœºæ™¯ç‰©ä»¶å±ç´¢å¼•
  */
 class zSceneEntryIndex : private zNoncopyable
 {
 
 	protected:
 
-		///³¡¾°¿íºÍ¸ß
+		///åœºæ™¯å®½å’Œé«˜
 		zPos sceneWH;
-		///×î´óÆÁË÷Òı±àºÅ
+		///æœ€å¤§å±ç´¢å¼•ç¼–å·
 		DWORD screenMax;
-		///ºáÏò¶àÉÙÆÁÄ»
+		///æ¨ªå‘å¤šå°‘å±å¹•
 		DWORD screenx;
-		///×İÏò¶àÉÙÆÁÄ»
+		///çºµå‘å¤šå°‘å±å¹•
 		DWORD screeny;
 
 	private:
@@ -62,14 +62,14 @@ class zSceneEntryIndex : private zNoncopyable
 		typedef __gnu_cxx::hash_map<DWORD, Npc_Index> SpecialNpc_Index;
 
 		/**
-		 * \brief mapË÷ÒıÈİÆ÷
+		 * \brief mapç´¢å¼•å®¹å™¨
 		 */
 		PosIMapIndex index[zSceneEntry::SceneEntry_MAX];
-		/// ËùÓĞÎï¼şµÄË÷Òı
+		/// æ‰€æœ‰ç‰©ä»¶çš„ç´¢å¼•
 		SceneEntry_SET all[zSceneEntry::SceneEntry_MAX];
-		/// ¶ÔÓÚÌØÊânpcµÄË÷Òı
+		/// å¯¹äºç‰¹æ®Šnpcçš„ç´¢å¼•
 		SpecialNpc_Index special_index;
-		/// ¶ÔÓÚ¹¦ÄÜnpcµÄË÷Òı
+		/// å¯¹äºåŠŸèƒ½npcçš„ç´¢å¼•
 		Npc_Index functionNpc;
 
 #ifdef _POOL_ALLOC_
@@ -81,7 +81,7 @@ class zSceneEntryIndex : private zNoncopyable
 		typedef PosiEffectMap::iterator PosiEffectMap_iter;
 		PosiEffectMap posiEffect[MAX_NPC_GROUP];
 
-		//ÔÚ¼ÓÔØµÄÊ±ºò¼ÆËã¾ÅÆÁ¹ØÏµ²¢±£´æ
+		//åœ¨åŠ è½½çš„æ—¶å€™è®¡ç®—ä¹å±å…³ç³»å¹¶ä¿å­˜
 		typedef __gnu_cxx::hash_map<DWORD, zPosIVector> NineScreen_map;
 		typedef NineScreen_map::iterator NineScreen_map_iter;
 		typedef NineScreen_map::const_iterator NineScreen_map_const_iter;
@@ -95,11 +95,11 @@ class zSceneEntryIndex : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		zSceneEntryIndex() {}
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		virtual ~zSceneEntryIndex() {}
 
@@ -119,35 +119,35 @@ class zSceneEntryIndex : private zNoncopyable
 		void execAllOfEffectNpcScreen(const DWORD group, zSceneEntryCallBack &callback);
 
 		/**
-		 * \brief »ñÈ¡µØÍ¼¿í
-		 * µ¥Î»ÊÇ¸ñµã
-		 * \return µØÍ¼¿í
+		 * \brief è·å–åœ°å›¾å®½
+		 * å•ä½æ˜¯æ ¼ç‚¹
+		 * \return åœ°å›¾å®½
 		 */
 		const DWORD width() const { return sceneWH.x; }
 		/**
-		 * \brief »ñÈ¡µØÍ¼¸ß
-		 * µ¥Î»ÊÇ¸ñµã
-		 * \return µØÍ¼¸ß
+		 * \brief è·å–åœ°å›¾é«˜
+		 * å•ä½æ˜¯æ ¼ç‚¹
+		 * \return åœ°å›¾é«˜
 		 */
 		const DWORD height() const { return sceneWH.y; }
 		/**
-		 * \brief »ñÈ¡µØÍ¼¿í
-		 * µ¥Î»ÊÇÆÁ
-		 * \return µØÍ¼¿í
+		 * \brief è·å–åœ°å›¾å®½
+		 * å•ä½æ˜¯å±
+		 * \return åœ°å›¾å®½
 		 */
 		const DWORD getScreenX() const { return screenx; }
 		/**
-		 * \brief »ñÈ¡µØÍ¼¸ß
-		 * µ¥Î»ÊÇÆÁ
-		 * \return µØÍ¼¸ß
+		 * \brief è·å–åœ°å›¾é«˜
+		 * å•ä½æ˜¯å±
+		 * \return åœ°å›¾é«˜
 		 */
 		const DWORD getScreenY() const { return screeny; }
 		/**
-		 * \brief ×ø±ê×ª»¯
-		 * ¾ø¶Ô×ø±ê×ª»¯ÎªÆÁ±àºÅÏà¶Ô×ø±ê
-		 * \param p ¾ø¶Ô×ø±êÏµÍ³ 
-		 * \param pi Ïà¶Ô×ø±êÏµÍ³
-		 * \return ·µ»Ø×ª»¯ºóµÄÏà¶Ô×ø±êÏµÍ³
+		 * \brief åæ ‡è½¬åŒ–
+		 * ç»å¯¹åæ ‡è½¬åŒ–ä¸ºå±ç¼–å·ç›¸å¯¹åæ ‡
+		 * \param p ç»å¯¹åæ ‡ç³»ç»Ÿ 
+		 * \param pi ç›¸å¯¹åæ ‡ç³»ç»Ÿ
+		 * \return è¿”å›è½¬åŒ–åçš„ç›¸å¯¹åæ ‡ç³»ç»Ÿ
 		 */
 		zPosI &zPos2zPosI(const zPos &p, zPosI &pi) const
 		{
@@ -155,8 +155,8 @@ class zSceneEntryIndex : private zNoncopyable
 			return pi;
 		}
 		/**
-		 * \brief ÖØĞÂ¼ÆËã×ø±ê£¬±£Ö¤²»Ô½½ç
-		 * \param pos ´ıÑéÖ¤µÄ×ø±ê
+		 * \brief é‡æ–°è®¡ç®—åæ ‡ï¼Œä¿è¯ä¸è¶Šç•Œ
+		 * \param pos å¾…éªŒè¯çš„åæ ‡
 		 */
 		const void zPosRevaluate(zPos &pos) const
 		{
@@ -170,22 +170,22 @@ class zSceneEntryIndex : private zNoncopyable
 				pos.y = sceneWH.y - 1;
 		}
 		/**
-		 * \brief ÑéÖ¤×ø±êÊÇ·ñºÏ·¨£¬ÊÇ·ñÔ½½ç
-		 * \param pos ×ø±ê
-		 * \return ÊÇ·ñºÏ·¨
+		 * \brief éªŒè¯åæ ‡æ˜¯å¦åˆæ³•ï¼Œæ˜¯å¦è¶Šç•Œ
+		 * \param pos åæ ‡
+		 * \return æ˜¯å¦åˆæ³•
 		 */
 		const bool zPosValidate(const zPos &pos) const { return pos.x < sceneWH.x && pos.y < sceneWH.y; }
 		/**
-		 * \brief ÑéÖ¤×ø±êÊÇ·ñºÏ·¨£¬ÊÇ·ñÔ½½ç
-		 * \param posi ×ø±ê
-		 * \return ÊÇ·ñºÏ·¨
+		 * \brief éªŒè¯åæ ‡æ˜¯å¦åˆæ³•ï¼Œæ˜¯å¦è¶Šç•Œ
+		 * \param posi åæ ‡
+		 * \return æ˜¯å¦åˆæ³•
 		 */
 		const bool zPosIValidate(const zPosI &posi) const { return posi < screenMax; }
 		/**
-		 * \brief ¼ì²éÁ½¸ö×ø±ê±àºÅÊÇ·ñÓĞ9ÆÁ¹ØÏµ
-		 * \param one µÚÒ»¸ö±àºÅ
-		 * \param two µÚ¶ş¸ö±àºÅ
-		 * \return ÊÇ·ñÓĞ9ÆÁ¹ØÏµ
+		 * \brief æ£€æŸ¥ä¸¤ä¸ªåæ ‡ç¼–å·æ˜¯å¦æœ‰9å±å…³ç³»
+		 * \param one ç¬¬ä¸€ä¸ªç¼–å·
+		 * \param two ç¬¬äºŒä¸ªç¼–å·
+		 * \return æ˜¯å¦æœ‰9å±å…³ç³»
 		 */
 		bool checkTwoPosIInNine(const zPosI one , const zPosI two) const
 		{
@@ -201,11 +201,11 @@ class zSceneEntryIndex : private zNoncopyable
 			return false;
 		}
 		/**
-		 * \brief ÅĞ¶ÏÁ½µãÖ®¼ä¾àÀëÊÇ·ñ³¬³öÁË°ë¾¶
-		 * \param pos1 Æğµã
-		 * \param pos2 ÖÕµã
-		 * \param radius °ë¾¶
-		 * \return ÊÇ·ñ³¬³ö·¶Î§
+		 * \brief åˆ¤æ–­ä¸¤ç‚¹ä¹‹é—´è·ç¦»æ˜¯å¦è¶…å‡ºäº†åŠå¾„
+		 * \param pos1 èµ·ç‚¹
+		 * \param pos2 ç»ˆç‚¹
+		 * \param radius åŠå¾„
+		 * \return æ˜¯å¦è¶…å‡ºèŒƒå›´
 		 */
 		const bool zPosShortRange(const zPos &pos1, const zPos &pos2, const int radius) const
 		{
@@ -216,12 +216,12 @@ class zSceneEntryIndex : private zNoncopyable
 				return false;
 		}
 		/**
-		 * \brief ÅĞ¶ÏÁ½µãÖ®¼ä¾àÀëÊÇ·ñ³¬³öÁË¾ØĞÎ·¶Î§
-		 * \param pos1 Æğµã
-		 * \param pos2 ÖÕµã
-		 * \param wide ¾ØĞÎ¿í
-		 * \param height ¾ØĞÎ¸ß
-		 * \return ÊÇ·ñ³¬³ö·¶Î§
+		 * \brief åˆ¤æ–­ä¸¤ç‚¹ä¹‹é—´è·ç¦»æ˜¯å¦è¶…å‡ºäº†çŸ©å½¢èŒƒå›´
+		 * \param pos1 èµ·ç‚¹
+		 * \param pos2 ç»ˆç‚¹
+		 * \param wide çŸ©å½¢å®½
+		 * \param height çŸ©å½¢é«˜
+		 * \return æ˜¯å¦è¶…å‡ºèŒƒå›´
 		 */
 		const bool zPosShortRange(const zPos &pos1, const zPos &pos2, const int wide, const int height) const
 		{
@@ -232,24 +232,24 @@ class zSceneEntryIndex : private zNoncopyable
 				return false;
 		}
 		/*
-		 * \brief µÃµ½Á½µãµÄ¾àÀë
-		 * Õâ¸ö¾àÀëÖ»ÊÇ×÷Îª±È½ÏÅĞ¶Ï£¬²»ÊÇ×÷ÎªÊµ¼ÊµÄ¾àÀë
-		 * \param pos1 Î»ÖÃ1
-		 * \param pos2 Î»ÖÃ2
-		 * \return ¾àÀë
+		 * \brief å¾—åˆ°ä¸¤ç‚¹çš„è·ç¦»
+		 * è¿™ä¸ªè·ç¦»åªæ˜¯ä½œä¸ºæ¯”è¾ƒåˆ¤æ–­ï¼Œä¸æ˜¯ä½œä¸ºå®é™…çš„è·ç¦»
+		 * \param pos1 ä½ç½®1
+		 * \param pos2 ä½ç½®2
+		 * \return è·ç¦»
 		 */
 		unsigned int getDistance(zPos pos1, zPos pos2) const { return abs(pos1.x-pos2.x)+abs(pos1.y-pos2.y); }
 		/**
-		 * \brief ·½ÏòÈ¡·´
-		 * \param direct ·½Ïò
-		 * \return Ïà·´µÄ·½Ïò
+		 * \brief æ–¹å‘å–å
+		 * \param direct æ–¹å‘
+		 * \return ç›¸åçš„æ–¹å‘
 		 */
 		int getReverseDirect(const int direct) const { return (direct + 4) % 8; }
 		/**
-		 * \brief ¸ù¾İÁ½ÆÁÅĞ¶Ï¾Å¸ö·½Ïò
-		 * \param posiorg Ô­µãÆÁ±àºÅ
-		 * \param posinew ½áÊøµãÆÁ±àºÅ
-		 * \return ·½Ïò±àºÅ£¬Èç¹ûÎª-1±íÊ¾²»ÊÇ¾Å¸ö·½ÏòÖ®Ò»
+		 * \brief æ ¹æ®ä¸¤å±åˆ¤æ–­ä¹ä¸ªæ–¹å‘
+		 * \param posiorg åŸç‚¹å±ç¼–å·
+		 * \param posinew ç»“æŸç‚¹å±ç¼–å·
+		 * \return æ–¹å‘ç¼–å·ï¼Œå¦‚æœä¸º-1è¡¨ç¤ºä¸æ˜¯ä¹ä¸ªæ–¹å‘ä¹‹ä¸€
 		 */
 		int getScreenDirect(const zPosI posiorg,const zPosI posinew) const
 		{
@@ -295,10 +295,10 @@ class zSceneEntryIndex : private zNoncopyable
 		}
 
 		/**
-		 * \brief ²éÕÒÎÒÔÚÁíÒ»¸ö×ø±êµãµÄ´óÖÂ·½Ïò
-		 * \param myPos ÎÒµÄÎ»ÖÃ
-		 * \param otherPos ¶Ô·½µÄÎ»ÖÃ
-		 * \return ÎÒÔÚotherPosµÄÏà¶Ô·½Ïò
+		 * \brief æŸ¥æ‰¾æˆ‘åœ¨å¦ä¸€ä¸ªåæ ‡ç‚¹çš„å¤§è‡´æ–¹å‘
+		 * \param myPos æˆ‘çš„ä½ç½®
+		 * \param otherPos å¯¹æ–¹çš„ä½ç½®
+		 * \return æˆ‘åœ¨otherPosçš„ç›¸å¯¹æ–¹å‘
 		 */
 		static int getCompDir(const zPos &myPos, const zPos &otherPos)
 		{
@@ -333,9 +333,9 @@ class zSceneEntryIndex : private zNoncopyable
 		}
 		const zPosIVector &getScreenByRange(const zPos &pos, const int range);
 		/**
-		 * \brief ÒÔÖĞĞÄÆÁ»ñÈ¡ÖÜÎ§9ÆÁµÄÆÁÄ»±àºÅ
-		 * \param posi ÖĞĞÄÆÁ
-		 * \param pv Êä³öµÄÆÁ±àºÅÏòÁ¿
+		 * \brief ä»¥ä¸­å¿ƒå±è·å–å‘¨å›´9å±çš„å±å¹•ç¼–å·
+		 * \param posi ä¸­å¿ƒå±
+		 * \param pv è¾“å‡ºçš„å±ç¼–å·å‘é‡
 		 */
 		const zPosIVector &getNineScreen(const zPosI &posi)
 		{
@@ -344,15 +344,15 @@ class zSceneEntryIndex : private zNoncopyable
 			{
 				return iter->second;
 			}
-			//Èç¹û³öÏÖÒì³£·µ»Ø0±àºÅµÄÆÁË÷Òı
+			//å¦‚æœå‡ºç°å¼‚å¸¸è¿”å›0ç¼–å·çš„å±ç´¢å¼•
 			return ninescreen[(DWORD)-1];
 		}
 
 		/**
-		 * \brief ÒÔÖĞĞÄÆÁ»ñÈ¡ÏòÇ°µÄ3ÆÁ»òÕß5ÆÁµÄÆÁÄ»±àºÅ
-		 * \param posi ÖĞĞÄÆÁ
-		 * \param direct ·½Ïò
-		 * \return Êä³öµÄÆÁ±àºÅÏòÁ¿
+		 * \brief ä»¥ä¸­å¿ƒå±è·å–å‘å‰çš„3å±æˆ–è€…5å±çš„å±å¹•ç¼–å·
+		 * \param posi ä¸­å¿ƒå±
+		 * \param direct æ–¹å‘
+		 * \return è¾“å‡ºçš„å±ç¼–å·å‘é‡
 		 */
 		const zPosIVector &getDirectScreen(const zPosI &posi, const int dir)
 		{
@@ -361,15 +361,15 @@ class zSceneEntryIndex : private zNoncopyable
 			{
 				return iter->second;
 			}
-			//Èç¹û³öÏÖÒì³£·µ»Ø0±àºÅµÄÆÁË÷Òı
+			//å¦‚æœå‡ºç°å¼‚å¸¸è¿”å›0ç¼–å·çš„å±ç´¢å¼•
 			return direct_screen[dir][(DWORD)-1];
 		}
 
 		/**
-		 * \brief ÒÔÖĞĞÄÆÁ»ñÈ¡ÏòºóµÄ3ÆÁ»òÕß5ÆÁµÄÆÁÄ»±àºÅ
-		 * \param posi ÖĞĞÄÆÁ
-		 * \param direct ·½Ïò
-		 * \return Êä³öµÄÆÁ±àºÅÏòÁ¿
+		 * \brief ä»¥ä¸­å¿ƒå±è·å–å‘åçš„3å±æˆ–è€…5å±çš„å±å¹•ç¼–å·
+		 * \param posi ä¸­å¿ƒå±
+		 * \param direct æ–¹å‘
+		 * \return è¾“å‡ºçš„å±ç¼–å·å‘é‡
 		 */
 		const zPosIVector &getReverseDirectScreen(const zPosI &posi, const int dir)
 		{
@@ -378,7 +378,7 @@ class zSceneEntryIndex : private zNoncopyable
 			{
 				return iter->second;
 			}
-			//Èç¹û³öÏÖÒì³£·µ»Ø0±àºÅµÄÆÁË÷Òı
+			//å¦‚æœå‡ºç°å¼‚å¸¸è¿”å›0ç¼–å·çš„å±ç´¢å¼•
 			return reversedirect_screen[dir][(DWORD)-1];
 		}
 

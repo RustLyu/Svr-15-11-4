@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: LoginTask.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½Á¬½ÓÈÎÎñ
+ * \brief å®šä¹‰ç™»é™†è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -22,7 +22,7 @@
 using namespace Cmd;//add by Victor
 
 /**
- * \brief ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
  */
 class LoginTask : public zTCPTask
@@ -32,7 +32,7 @@ class LoginTask : public zTCPTask
 
 		LoginTask( zTCPTaskPool *pool, const int sock);
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~LoginTask() {};
@@ -55,10 +55,10 @@ class LoginTask : public zTCPTask
 		}
 
 		/**
-		 * \brief µÇÂ½´íÎó£¬·µ»Ø´íÎó´úÂëµ½¿Í»§¶ËÏÔÊ¾
+		 * \brief ç™»é™†é”™è¯¯ï¼Œè¿”å›é”™è¯¯ä»£ç åˆ°å®¢æˆ·ç«¯æ˜¾ç¤º
 		 *
-		 * \param retcode ´íÎó´úÂë
-		 * \param tm ÊÇ·ñ¶Ï¿ªÁ¬½Ó
+		 * \param retcode é”™è¯¯ä»£ç 
+		 * \param tm æ˜¯å¦æ–­å¼€è¿æ¥
 		 */
 		void LoginReturn(const BYTE retcode, const bool tm = true)
 		{
@@ -68,16 +68,16 @@ class LoginTask : public zTCPTask
 			tCmd.byReturnCode = retcode;
 			sendCmd(&tCmd, sizeof(tCmd));
 
-			//ÓÉÓÚµÇÂ½´íÎó£¬ĞèÒª¶Ï¿ªÁ¬½Ó
-			//whj ¿ÉÄÜµ¼ÖÂcoredown,ÆÁ±Î²âÊÔ
+			//ç”±äºç™»é™†é”™è¯¯ï¼Œéœ€è¦æ–­å¼€è¿æ¥
+			//whj å¯èƒ½å¯¼è‡´coredown,å±è”½æµ‹è¯•
 			if (tm) Terminate();
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏµÇÂ½Á¬½ÓÊÇ·ñ¹ı³¤
-		 * Èç¹ûµÇÂ½Á¬½ÓÌ«³¤£¬µÇÂ½·şÎñÆ÷Ó¦¸ÃÖ÷¶¯¶Ï¿ªÁ¬½Ó
-		 * \param ct µ±Ç°Ê±¼ä
-		 * \return µÇÂ½Ê±¼äÊÇ·ñ¹ı³¤
+		 * \brief åˆ¤æ–­ç™»é™†è¿æ¥æ˜¯å¦è¿‡é•¿
+		 * å¦‚æœç™»é™†è¿æ¥å¤ªé•¿ï¼Œç™»é™†æœåŠ¡å™¨åº”è¯¥ä¸»åŠ¨æ–­å¼€è¿æ¥
+		 * \param ct å½“å‰æ—¶é—´
+		 * \return ç™»é™†æ—¶é—´æ˜¯å¦è¿‡é•¿
 		 */
 		bool timeout(const zTime &ct)
 		{
@@ -90,26 +90,26 @@ class LoginTask : public zTCPTask
 	private:
 
 		/**
-		 * \brief Ğ£Ñé¿Í»§¶Ë°æ±¾ºÅ
+		 * \brief æ ¡éªŒå®¢æˆ·ç«¯ç‰ˆæœ¬å·
 		 */
 		DWORD verify_client_version;
 		
 		/**
-		 * \brief ÉúÃüÆÚÊ±¼ä
+		 * \brief ç”Ÿå‘½æœŸæ—¶é—´
 		 */
 		zTime lifeTime;
 		/**
-		 * \brief ÁÙÊ±Î¨Ò»±àºÅ
+		 * \brief ä¸´æ—¶å”¯ä¸€ç¼–å·
 		 *
 		 */
 		DWORD tempid;
 		/**
-		 * \brief ÁÙÊ±Î¨Ò»±àºÅ·ÖÅäÆ÷
+		 * \brief ä¸´æ—¶å”¯ä¸€ç¼–å·åˆ†é…å™¨
 		 *
 		 */
 		static DWORD uniqueID;
 		/**
-		 * \brief ÑéÖ¤Âë
+		 * \brief éªŒè¯ç 
 		 *
 		 */
 		char jpegPassport[5];

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CGem.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ»¤±¦ÈÎÎñ
+ * \brief å®ç°æŠ¤å®ä»»åŠ¡
  *
  */
 
@@ -41,11 +41,11 @@ bool CArhat::refreshNPC()
 		if (this->dwID==1000)
 		{
 			SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-				this->dwCountryID, "½µÁúÂŞºº³öÏÖÔÚ %s µØÍ¼ %d,%d µØµã",
+				this->dwCountryID, "é™é¾™ç½—æ±‰å‡ºç°åœ¨ %s åœ°å›¾ %d,%d åœ°ç‚¹",
 				pScene->name,
 				this->x, this->y);
 #ifdef _ZJW_DEBUG
-	Zebra::logger->debug("[»¤±¦ÈÎÎñ]: ½µÁúÂŞººË¢ĞÂµØµã: country:%d mapid:%d x:%d y:%d", 
+	Zebra::logger->debug("[æŠ¤å®ä»»åŠ¡]: é™é¾™ç½—æ±‰åˆ·æ–°åœ°ç‚¹: country:%d mapid:%d x:%d y:%d", 
 			this->dwCountryID, this->dwMapRealID, this->x, this->y);
 #endif	
 
@@ -53,11 +53,11 @@ bool CArhat::refreshNPC()
 		else
 		{
 			SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-				this->dwCountryID, "·ü»¢ÂŞºº³öÏÖÔÚ %s µØÍ¼ %d,%d µØµã",
+				this->dwCountryID, "ä¼è™ç½—æ±‰å‡ºç°åœ¨ %s åœ°å›¾ %d,%d åœ°ç‚¹",
 				pScene->name,
 				this->x, this->y);
 #ifdef _ZJW_DEBUG
-	Zebra::logger->debug("[»¤±¦ÈÎÎñ]: ·ü»¢ÂŞººË¢ĞÂµØµã: country:%d mapid:%d x:%d y:%d", 
+	Zebra::logger->debug("[æŠ¤å®ä»»åŠ¡]: ä¼è™ç½—æ±‰åˆ·æ–°åœ°ç‚¹: country:%d mapid:%d x:%d y:%d", 
 			this->dwCountryID, this->dwMapRealID, this->x, this->y);
 #endif	
 		}
@@ -66,7 +66,7 @@ bool CArhat::refreshNPC()
 	}
 	else
 	{
-		Zebra::logger->error("[»¤±¦]£ºÎ´ÕÒµ½ÂŞºº³öÉúµØÍ¼ %d,%d", this->dwCountryID, this->dwMapRealID);
+		Zebra::logger->error("[æŠ¤å®]ï¼šæœªæ‰¾åˆ°ç½—æ±‰å‡ºç”Ÿåœ°å›¾ %d,%d", this->dwCountryID, this->dwMapRealID);
 	}
 
 	return false;
@@ -103,17 +103,17 @@ void CGem::timer()
 
 void CGem::printState()
 {
-	Zebra::logger->trace("[»¤±¦¸ú×Ù]:%d(%s)", this->dwCountryID, str_gem_state[this->state]);
+	Zebra::logger->trace("[æŠ¤å®è·Ÿè¸ª]:%d(%s)", this->dwCountryID, str_gem_state[this->state]);
 }
 
 void CGem::setReadyState()
-{//×¼±¸ÆÚ£¬Ñ¡È¡Áú¾«£¬»¢ÆÇËùÔÚµØÍ¼¼°×ø±ê,
+{//å‡†å¤‡æœŸï¼Œé€‰å–é¾™ç²¾ï¼Œè™é­„æ‰€åœ¨åœ°å›¾åŠåæ ‡,
 	rwlock.wrlock();
 	this->state = CGem::GEM_READY;
 	rwlock.unlock();
 	this->printState();
 
-	// Ñ¡È¡Áú¾«ÂŞºº³öÏÖµØµã
+	// é€‰å–é¾™ç²¾ç½—æ±‰å‡ºç°åœ°ç‚¹
 	int point_index = zMisc::randBetween(0, mappoint_num-1);
 	this->dragon.dwMapRealID = CGemM::getMe().wait_point[point_index].dwMapID; 
 	this->dragon.x = CGemM::getMe().wait_point[point_index].x;
@@ -152,7 +152,7 @@ void CGem::setActiveState()
 }
 
 void CGem::setReadyOverState()
-{//Çå³ıÁú¾«»¢ÆÇ×´Ì¬£¬²¢±©×°±¸
+{//æ¸…é™¤é¾™ç²¾è™é­„çŠ¶æ€ï¼Œå¹¶æš´è£…å¤‡
 	rwlock.wrlock();
 	this->state = CGem::GEM_READY_OVER;
 	rwlock.unlock();
@@ -165,7 +165,7 @@ void CGem::setReadyOverState()
 	if (pUser)
 	{
 		send.dwUserID = pUser->id;
-		send.dwBossID = 1002; // Áú¾«NPC
+		send.dwBossID = 1002; // é¾™ç²¾NPC
 		if (pUser->scene) pUser->scene->sendCmd(&send, sizeof(send));
 		pUser = NULL;
 	}
@@ -174,7 +174,7 @@ void CGem::setReadyOverState()
 	if (pUser)
 	{
 		send.dwUserID = pUser->id;
-		send.dwBossID = 1003; // »¢ÆÇNPC
+		send.dwBossID = 1003; // è™é­„NPC
 		if (pUser->scene) pUser->scene->sendCmd(&send, sizeof(send));
 		pUser = NULL;
 	}
@@ -223,11 +223,11 @@ void    CGem::holdDragon(UserSession* pUser)
 		this->dragon.clearNPC();
 
 		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-			this->dwCountryID, "Áú¾« ÒÑ¸½ÌåÔÚ %s ÉíÉÏ", pUser->name);
+			this->dwCountryID, "é¾™ç²¾ å·²é™„ä½“åœ¨ %s èº«ä¸Š", pUser->name);
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÁìÈ¡Áú¾«Ê§°Ü¡£");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "é¢†å–é¾™ç²¾å¤±è´¥ã€‚");
 	}
 }
 
@@ -248,11 +248,11 @@ void    CGem::holdTiger(UserSession* pUser)
 		this->tiger.clearNPC();
 
 		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-			this->dwCountryID, "»¢ÆÇ ÒÑ¸½ÌåÔÚ %s ÉíÉÏ", pUser->name);
+			this->dwCountryID, "è™é­„ å·²é™„ä½“åœ¨ %s èº«ä¸Š", pUser->name);
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÁìÈ¡»¢ÆÇÊ§°Ü¡£");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "é¢†å–è™é­„å¤±è´¥ã€‚");
 	}
 }
 
@@ -264,7 +264,7 @@ void    CGem::resetDragon()
 	rwlock.unlock();
 		
 	SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-			this->dwCountryID, "Áú¾«¸½ÌåÔÙ¶È»Øµ½ÂŞººÊÖÖĞ");
+			this->dwCountryID, "é¾™ç²¾é™„ä½“å†åº¦å›åˆ°ç½—æ±‰æ‰‹ä¸­");
 
 		
 	this->dragon.refreshNPC();
@@ -278,7 +278,7 @@ void    CGem::resetTiger()
 	rwlock.unlock();
 	
 	SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,
-			this->dwCountryID, "»¢ÆÇ¸½ÌåÔÙ¶È»Øµ½ÂŞººÊÖÖĞ");
+			this->dwCountryID, "è™é­„é™„ä½“å†åº¦å›åˆ°ç½—æ±‰æ‰‹ä¸­");
 
 	this->tiger.refreshNPC();
 }
@@ -320,43 +320,43 @@ void CGemM::putUniqeID(const DWORD &tempid)
 
 bool CGemM::init()
 {
-	wait_point[0].dwMapID = 102; // ·ï»Ë³Ç
+	wait_point[0].dwMapID = 102; // å‡¤å‡°åŸ
 	wait_point[0].x = 196;
 	wait_point[0].y = 166;
 
-	wait_point[1].dwMapID = 102; // ·ï»Ë³Ç
+	wait_point[1].dwMapID = 102; // å‡¤å‡°åŸ
 	wait_point[1].x = 106;
 	wait_point[1].y = 628;
 	
-	wait_point[2].dwMapID = 128; // °ÙÊŞ¹È
+	wait_point[2].dwMapID = 128; // ç™¾å…½è°·
 	wait_point[2].x = 105;
 	wait_point[2].y = 261;
 	
-	wait_point[3].dwMapID = 129; // ÊŞÍõ¹È
+	wait_point[3].dwMapID = 129; // å…½ç‹è°·
 	wait_point[3].x = 247;
 	wait_point[3].y = 211;
 
-	wait_point[4].dwMapID = 104; // ·ïÎ²´å
+	wait_point[4].dwMapID = 104; // å‡¤å°¾æ‘
 	wait_point[4].x = 81;
 	wait_point[4].y = 59;
 	
-	wait_point[5].dwMapID = 105; // É½Õ¯Ç°ÉÚ
+	wait_point[5].dwMapID = 105; // å±±å¯¨å‰å“¨
 	wait_point[5].x = 115;
 	wait_point[5].y = 199;
 	
-	wait_point[6].dwMapID = 136; // ¶«½¼
+	wait_point[6].dwMapID = 136; // ä¸œéƒŠ
 	wait_point[6].x = 125;
 	wait_point[6].y = 119;
 	
-	wait_point[7].dwMapID = 136; // ¶«½¼
+	wait_point[7].dwMapID = 136; // ä¸œéƒŠ
 	wait_point[7].x = 236;
 	wait_point[7].y = 260;
 		
-	wait_point[8].dwMapID = 137; // ±ß¾³
+	wait_point[8].dwMapID = 137; // è¾¹å¢ƒ
 	wait_point[8].x = 218;
 	wait_point[8].y = 79;
 	
-	wait_point[9].dwMapID = 137; // ±ß¾³
+	wait_point[9].dwMapID = 137; // è¾¹å¢ƒ
 	wait_point[9].x = 360;
 	wait_point[9].y = 193;
 
@@ -419,7 +419,7 @@ bool CGemM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int cm
 						}
 
 
-						// Çåµô»¤±¦ÓµÓĞÕßÒÔÇ°µÄ×´Ì¬
+						// æ¸…æ‰æŠ¤å®æ‹¥æœ‰è€…ä»¥å‰çš„çŠ¶æ€
 						Cmd::Session::t_SetGemState_SceneSession set_send;
 						set_send.dwUserID = pFromUser->id;
 						set_send.dwState = 0;
@@ -495,7 +495,7 @@ bool CGemM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptNu
 					}
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Áú¾«ÒÑ¾­±»ÁìÈ¡");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "é¾™ç²¾å·²ç»è¢«é¢†å–");
 					}
 				}
 
@@ -514,7 +514,7 @@ bool CGemM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptNu
 					}
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "»¢ÆÇÒÑ¾­±»ÁìÈ¡");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è™é­„å·²ç»è¢«é¢†å–");
 					}
 				}
 
@@ -560,7 +560,7 @@ void  CGemM::timer()
 			
 			if (pGem->state == CGem::GEM_OVER)
 			{
-				// TODO ½áÊø´¦Àí
+				// TODO ç»“æŸå¤„ç†
 				_removeList.push_back(pGem);
 			}
 
@@ -569,7 +569,7 @@ void  CGemM::timer()
 	};
 
 	if (0)
-	{//»¤±¦ÈÎÎñ²»¿ª·Å
+	{//æŠ¤å®ä»»åŠ¡ä¸å¼€æ”¾
 		
 	execAll myList;
 	execEveryOne(myList);
@@ -680,7 +680,7 @@ void CGemM::forceEnd()
 			
 			if (pGem->state == CGem::GEM_OVER)
 			{
-				// TODO ½áÊø´¦Àí
+				// TODO ç»“æŸå¤„ç†
 				_removeList.push_back(pGem);
 			}
 

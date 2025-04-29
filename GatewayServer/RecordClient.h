@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordClient.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÍø¹Ø·şÎñÆ÷µ½µµ°¸·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰ç½‘å…³æœåŠ¡å™¨åˆ°æ¡£æ¡ˆæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  */
 
 #ifndef _RECORDCLIENT_H_
@@ -13,7 +13,7 @@
 #include "zMutex.h"
 
 /**
- * \brief Íø¹ØÓëµµ°¸·şÎñÆ÷µÄÁ¬½Ó
+ * \brief ç½‘å…³ä¸æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿æ¥
  *
  */
 class RecordClient : public zTCPBufferClient
@@ -22,11 +22,11 @@ class RecordClient : public zTCPBufferClient
 	public:
 		
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * \param name Ãû³Æ
-		 * \param ip ·şÎñÆ÷µØÖ·
-		 * \param port ·şÎñÆ÷¶Ë¿Ú
+		 * \param name åç§°
+		 * \param ip æœåŠ¡å™¨åœ°å€
+		 * \param port æœåŠ¡å™¨ç«¯å£
 		 */
 		RecordClient(
 				const std::string &name, 

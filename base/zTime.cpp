@@ -1,11 +1,11 @@
-#include "zTime.h"
+ï»¿#include "zTime.h"
 #include "Zebra.h"
 
 /**
- * \brief µÃµ½ÏµÍ³Ê±ÇøÉèÖÃ×Ö·û´®
+ * \brief å¾—åˆ°ç³»ç»Ÿæ—¶åŒºè®¾ç½®å­—ç¬¦ä¸²
  *
- * \param s Ê±Çø½«·ÅÈë´Ë×Ö·û´®ÖÐ
- * \return ·µ»Ø²ÎÊýs
+ * \param s æ—¶åŒºå°†æ”¾å…¥æ­¤å­—ç¬¦ä¸²ä¸­
+ * \return è¿”å›žå‚æ•°s
  */
 std::string & zRTime::getLocalTZ(std::string & s)
 {
@@ -23,7 +23,7 @@ void FunctionInterval::interval(const char *func)
 	int begin= _tv_1.tv_sec*1000000 + _tv_1.tv_usec;
 	if(end - begin > _need_log)
 	{
-		Zebra::logger->debug("%sÖ´ÐÐÊ±¼ä¼ä¸ô%dus",func,end - begin);
+		Zebra::logger->debug("%sæ‰§è¡Œæ—¶é—´é—´éš”%dus",func,end - begin);
 	}
 	_tv_1=_tv_2;
 }
@@ -37,7 +37,7 @@ FunctionTime::~FunctionTime()
 		char buf[_dis_len+1];
 		bzero(buf,sizeof(buf));
 		strncpy(buf,_dis,_dis_len);
-		Zebra::logger->debug("%sÖ´ÐÐÊ±¼ä%dus,ÃèÊö:%s",_fun_name,end - begin , buf);
+		Zebra::logger->debug("%sæ‰§è¡Œæ—¶é—´%dus,æè¿°:%s",_fun_name,end - begin , buf);
 	}
 }
 FunctionTimes::Times FunctionTimes::_times[256]; 
@@ -61,7 +61,7 @@ FunctionTimes::~FunctionTimes()
 	zRTime ct;
 	if(_times[_which]._log_timer(ct))
 	{
-		Zebra::logger->debug("Ö´ÐÐ´ÎÊý(%d):%d,Ö´ÐÐ×ÜÊ±¼ä:%dus,ËµÃ÷:%s",_which,_times[_which]._times,_times[_which]._total_time ,_times[_which]._dis);
+		Zebra::logger->debug("æ‰§è¡Œæ¬¡æ•°(%d):%d,æ‰§è¡Œæ€»æ—¶é—´:%dus,è¯´æ˜Ž:%s",_which,_times[_which]._times,_times[_which]._total_time ,_times[_which]._dis);
 		_times[_which]._times=0;
 		_times[_which]._total_time=0;
 	}

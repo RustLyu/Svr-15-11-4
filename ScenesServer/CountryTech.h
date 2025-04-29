@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryTech.h $
  * \author   
  * \date 
- * \brief ¹ú¼Ò¿Æ¼¼¹ÜÀíÆ÷
+ * \brief å›½å®¶ç§‘æŠ€ç®¡ç†å™¨
  *
  * 
  */
@@ -46,7 +46,7 @@ class CountryTech
 		typedef std::map<DWORD, CTech*> CTechMap;
 
 		void init(Cmd::Session::t_updateTech_SceneSession* rev);
-		/// ¿Æ¼¼Ë÷Òı
+		/// ç§‘æŠ€ç´¢å¼•
 		CTechMap techIndex;
 		CTech* getTech(DWORD dwType);
 		void   addTech(DWORD dwType, CTech* pTech);
@@ -62,9 +62,9 @@ class CountryTechM : public Singleton<CountryTechM>
 		~CountryTechM(){}
 
 		/**
-		 * \brief ³õÊ¼»¯
+		 * \brief åˆå§‹åŒ–
 		 *
-		 * ³õÊ¼»¯¸Ã³¡¾°ËùÓĞ¹ú¼ÒµÄ¹ú¼Ò¿Æ¼¼ĞÅÏ¢
+		 * åˆå§‹åŒ–è¯¥åœºæ™¯æ‰€æœ‰å›½å®¶çš„å›½å®¶ç§‘æŠ€ä¿¡æ¯
 		 *
 		 */
 		void init();
@@ -74,7 +74,7 @@ class CountryTechM : public Singleton<CountryTechM>
 		
 	protected:
 		typedef std::map<DWORD, CountryTech*> CountryTechMap;
-		/// ¿Æ¼¼Ë÷Òı
+		/// ç§‘æŠ€ç´¢å¼•
 		CountryTechMap countryTechIndex;
 		CountryTechM(){}
 		std::map<DWORD, DWORD> TechMap;

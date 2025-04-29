@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleregClient.cpp  $
  * \author  
  * \date 
- * \brief ¶¨Òå½ÇÉ«Ãû³ÆÎ¨Ò»ÐÔÑéÖ¤·þÎñÁ¬½ÓµÄ¿Í»§¶Ë
+ * \brief å®šä¹‰è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡è¿žæŽ¥çš„å®¢æˆ·ç«¯
  */
 
 #include "zTCPClientTask.h"
@@ -16,9 +16,9 @@
 #include "RoleregCommand.h"
 
 /**
- * \brief ¹¹Ôìº¯Êý
- * \param ip ·þÎñÆ÷µØÖ·
- * \param port ·þÎñÆ÷¶Ë¿Ú
+ * \brief æž„é€ å‡½æ•°
+ * \param ip æœåŠ¡å™¨åœ°å€
+ * \param port æœåŠ¡å™¨ç«¯å£
  */
 RoleregClient::RoleregClient(
 		const std::string &ip, 
@@ -27,7 +27,7 @@ RoleregClient::RoleregClient(
 }
 
 /**
- * \brief Îö¹¹º¯Êý
+ * \brief æžæž„å‡½æ•°
  *
  */
 RoleregClient::~RoleregClient()
@@ -42,7 +42,7 @@ int RoleregClient::checkRebound()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êý¾Ý°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓÐÊý¾ÝÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»Žç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æŽ¥è¿”å›ž
 			return 0;
 		else
 		{
@@ -52,7 +52,7 @@ int RoleregClient::checkRebound()
 			if (CMD_LOGIN == ptCmd->cmd
 					&& PARA_LOGIN_OK == ptCmd->para)
 			{
-				Zebra::logger->debug("µÇÂ½roleRegServer³É¹¦£¬ÊÕµ½ÇøµÄ±àºÅ£º%u(%u, %u), %s, %u",
+				Zebra::logger->debug("ç™»é™†roleRegServeræˆåŠŸï¼Œæ”¶åˆ°åŒºçš„ç¼–å·ï¼š%u(%u, %u), %s, %u",
 						ptCmd->gameZone.id,
 						ptCmd->gameZone.game,
 						ptCmd->gameZone.zone,
@@ -67,7 +67,7 @@ int RoleregClient::checkRebound()
 			}
 			else
 			{
-				Zebra::logger->error("µÇÂ½roleRegServerÊ§°Ü");
+				Zebra::logger->error("ç™»é™†roleRegServerå¤±è´¥");
 				return -1;
 			}
 		}
@@ -124,16 +124,16 @@ bool RoleregClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int
 							if (ptCmd->state & ROLEREG_STATE_WRITE)
 							{
 								if (ptCmd->state & ROLEREG_STATE_OK)
-									Zebra::logger->error("»ØÐ´½ÇÉ«³É¹¦£º%u, %s", ptCmd->accid, ptCmd->name);
+									Zebra::logger->error("å›žå†™è§’è‰²æˆåŠŸï¼š%u, %s", ptCmd->accid, ptCmd->name);
 								else
-									Zebra::logger->error("»ØÐ´½ÇÉ«Ê§°Ü£º%u, %s", ptCmd->accid, ptCmd->name);
+									Zebra::logger->error("å›žå†™è§’è‰²å¤±è´¥ï¼š%u, %s", ptCmd->accid, ptCmd->name);
 							}
 							if (ptCmd->state & ROLEREG_STATE_CLEAN)
 							{
 								if (ptCmd->state & ROLEREG_STATE_OK)
-									Zebra::logger->error("É¾³ý½ÇÉ«³É¹¦£º%u, %s", ptCmd->accid, ptCmd->name);
+									Zebra::logger->error("åˆ é™¤è§’è‰²æˆåŠŸï¼š%u, %s", ptCmd->accid, ptCmd->name);
 								else
-									Zebra::logger->error("É¾³ý½ÇÉ«Ê§°Ü£º%u, %s", ptCmd->accid, ptCmd->name);
+									Zebra::logger->error("åˆ é™¤è§’è‰²å¤±è´¥ï¼š%u, %s", ptCmd->accid, ptCmd->name);
 							}
 
 							return true;

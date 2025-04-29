@@ -1,4 +1,4 @@
-
+﻿
 #ifndef _BLOWFISH_H
 #define _BLOWFISH_H
 

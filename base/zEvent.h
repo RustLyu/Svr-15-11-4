@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file	zEvent.h
  * \version  	$Id$
  * \author  	
  * \date 	
- * \brief 	¶¨ÒåFSMµÄÊÂ¼ş½Ó¿Ú
+ * \brief 	å®šä¹‰FSMçš„äº‹ä»¶æ¥å£
  *
  * 
  */
@@ -14,7 +14,7 @@
 #include <string>
 
 /**
- * \brief ÓĞÏŞ×´Ì¬»úµÄÊÂ¼ş½Ó¿Ú
+ * \brief æœ‰é™çŠ¶æ€æœºçš„äº‹ä»¶æ¥å£
  *
  */
 class Event 
@@ -29,7 +29,7 @@ class Event
 		}
 
 		/**
-		 * \brief ¿½±´¹¹Ôìº¯Êı
+		 * \brief æ‹·è´æ„é€ å‡½æ•°
 		 *
 		 */
 		Event(Event& ref)
@@ -49,11 +49,11 @@ class Event
 		}
 
 	/**
-	 * ·µ»ØÊÂ¼şµÄÃû³Æ
+	 * è¿”å›äº‹ä»¶çš„åç§°
 	 */
 
 	/**
-	 * \brief ·µ»ØÊÂ¼şµÄÃû³Æ
+	 * \brief è¿”å›äº‹ä»¶çš„åç§°
 	 *
 	 */
 	virtual std::string get_name()
@@ -62,10 +62,10 @@ class Event
 	}
 
 	/**
-	 * \brief ÉèÖÃ¸ÃÊÂ¼şÏà¹ØµÄÊı¾İ 
+	 * \brief è®¾ç½®è¯¥äº‹ä»¶ç›¸å…³çš„æ•°æ® 
 	 *
 	 *
-	 * \param ptNullCmd Êı¾İÖ¸Õë
+	 * \param ptNullCmd æ•°æ®æŒ‡é’ˆ
 	 * \return 
 	 */
 	virtual void set_data(const unsigned char *buf, const unsigned int buf_size)
@@ -76,13 +76,13 @@ class Event
 	}
 
 	/**
-	 * \brief  »ñÈ¡¸ÃÊÂ¼şÏà¹ØµÄÊı¾İ
+	 * \brief  è·å–è¯¥äº‹ä»¶ç›¸å…³çš„æ•°æ®
 	 *
 	 *
-	 * \param buf Êı¾İ±£´æÔÚ´Ë
-	 * \param size Êı¾İ´óĞ¡
+	 * \param buf æ•°æ®ä¿å­˜åœ¨æ­¤
+	 * \param size æ•°æ®å¤§å°
 	 *
-	 * \return ÓĞ·µ»ØTRUE,ÎŞ·µ»ØFALSE
+	 * \return æœ‰è¿”å›TRUE,æ— è¿”å›FALSE
 	 */
 	virtual void get_data(unsigned char * buf, int * size)
 	{
@@ -91,9 +91,9 @@ class Event
 	}
 	
 	/**
-	 * \brief  »ñÈ¡¸ÃÊÂ¼şÏà¹ØµÄÊı¾İ
+	 * \brief  è·å–è¯¥äº‹ä»¶ç›¸å…³çš„æ•°æ®
 	 *
-	 * \return ·µ»ØÊı¾İ
+	 * \return è¿”å›æ•°æ®
 	 */
 	virtual unsigned char* get_data()
 	{
@@ -101,9 +101,9 @@ class Event
 	}
 	
 	/**
-	 * \brief  »ñÈ¡¸ÃÊÂ¼şÏà¹ØµÄÊı¾İ´óĞ¡
+	 * \brief  è·å–è¯¥äº‹ä»¶ç›¸å…³çš„æ•°æ®å¤§å°
 	 *
-	 * \return ·µ»ØÊı¾İ´óĞ¡
+	 * \return è¿”å›æ•°æ®å¤§å°
 	 */
 	virtual unsigned int get_size()
 	{
@@ -111,9 +111,9 @@ class Event
 	}
 
 	/**
-	 * \brief ¸ÃÊÂ¼şÊÇ·ñÓĞĞ§
+	 * \brief è¯¥äº‹ä»¶æ˜¯å¦æœ‰æ•ˆ
 	 *
-	 * \return ÓĞĞ§,·µ»ØTRUE, ·ñÔò,·µ»ØFALSE
+	 * \return æœ‰æ•ˆ,è¿”å›TRUE, å¦åˆ™,è¿”å›FALSE
 	 */
 	bool is_valid()
 	{
@@ -121,7 +121,7 @@ class Event
 	}
 
 	/**
-	 * \brief ÖØÔØ¸³ÖµÔËËã·û
+	 * \brief é‡è½½èµ‹å€¼è¿ç®—ç¬¦
 	 *
 	 *
 	 * \param 

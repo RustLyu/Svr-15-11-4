@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareEmperor.h $
  * \author 
  * \date
- * \brief »Ê³ÇÕù¶áÕ½
+ * \brief çš‡åŸäº‰å¤ºæˆ˜
  *
  * 
  */
@@ -20,7 +20,7 @@ class CDareEmperor : public CDare
 		virtual ~CDareEmperor();
 
 	public:		
-		// ÒÔÏÂÎªÉèÖÃ¶ÔÕ½×´Ì¬µÄ´¦Àí·½·¨¡£¶ÔÕ½×´Ì¬¾ßÌå²é¿´¶ÔÕ½ÏµÍ³×´Ì¬×ª»»Í¼
+		// ä»¥ä¸‹ä¸ºè®¾ç½®å¯¹æˆ˜çŠ¶æ€çš„å¤„ç†æ–¹æ³•ã€‚å¯¹æˆ˜çŠ¶æ€å…·ä½“æŸ¥çœ‹å¯¹æˆ˜ç³»ç»ŸçŠ¶æ€è½¬æ¢å›¾
 		virtual void setSecondID(DWORD dwID);
 		virtual void addFirstID(DWORD dwID);
 		virtual bool isInvalid();

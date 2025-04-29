@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ServerTask.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief å®šä¹‰æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  */
 
 #ifndef _ServerTask_h_
@@ -14,7 +14,7 @@
 #include "zMisc.h"
 
 /**
- * \brief ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  */
 class ServerTask : public zTCPTask
 {
@@ -22,10 +22,10 @@ class ServerTask : public zTCPTask
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * ÓÃÓÚ´´½¨Ò»¸ö·şÎñÆ÷Á¬½ÓÈÎÎñ
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param sock TCP/IPÌ×½Ó¿Ú
+		 * \brief æ„é€ å‡½æ•°
+		 * ç”¨äºåˆ›å»ºä¸€ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param sock TCP/IPå¥—æ¥å£
 		 */
 		ServerTask(
 				zTCPTaskPool *pool,
@@ -34,7 +34,7 @@ class ServerTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 */
 		~ServerTask() {};
 

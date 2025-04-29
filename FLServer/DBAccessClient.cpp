@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: DBAccessClient.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½·şÎñÆ÷¿Í»§¶Ë
+ * \brief å®šä¹‰ç™»é™†æœåŠ¡å™¨å®¢æˆ·ç«¯
  *
  * 
  */
@@ -37,7 +37,7 @@ int DBAccessClient::checkRebound()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
@@ -47,12 +47,12 @@ int DBAccessClient::checkRebound()
 			if (CMD_LOGON == ptCmd->cmd
 					&& PARA_LOGON == ptCmd->para)
 			{
-				Zebra::logger->debug("ÑéÖ¤³É¹¦");
+				Zebra::logger->debug("éªŒè¯æˆåŠŸ");
 				return 1;
 			}
 			else
 			{
-				Zebra::logger->error("ÑéÖ¤Ê§°Ü");
+				Zebra::logger->error("éªŒè¯å¤±è´¥");
 				return -1;
 			}
 		}

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: GuardNpc.h  $
  * \author	
  * \date		2005-06-15
- * \brief		»¤ïÚ
+ * \brief		æŠ¤é•–
  * 
  */
 
@@ -17,9 +17,9 @@
 class SceneUser;
 
 /**
- * \brief ïÚ³µ
+ * \brief é•–è½¦
  *
- * ¸ÃÀà·â×°ÁË¶ÔÌØÊâNPCïÚ³µµÄ³éÏó
+ * è¯¥ç±»å°è£…äº†å¯¹ç‰¹æ®ŠNPCé•–è½¦çš„æŠ½è±¡
  *
  */
 class GuardNpc : public ScenePet

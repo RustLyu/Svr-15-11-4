@@ -1,4 +1,4 @@
-#include "MiniHall.h"
+ï»¿#include "MiniHall.h"
 #include "MiniRoom.h"
 #include "MiniGame.h"
 #include "MiniUser.h"
@@ -77,7 +77,7 @@ void MiniRoom::userLeave(MiniUser *u)
 
 		MiniHall::getMe().updateRoomUserNum(id, userList.size());
 		MiniHall::getMe().sendRoomData(u);
-		Zebra::logger->debug("%s(%u) Àë¿ª·¿¼ä %u", u->name, u->id, id.id());
+		Zebra::logger->debug("%s(%u) ç¦»å¼€æˆ¿é—´ %u", u->name, u->id, id.id());
 	}
 }
 
@@ -88,14 +88,14 @@ bool MiniRoom::userEnter(MiniUser *u)
 	Cmd::stEnterRoomRetCommonMiniGameCmd send;
 	if (full())
 	{
-		send.ret = 2;//Âú
+		send.ret = 2;//æ»¡
 		u->sendCmdToMe(&send, sizeof(send));
 		return false;
 	}
 
 	if (u->getGameState(gameType())!=Cmd::MUS_NOTPLAY)
 	{
-		send.ret = 3;//ÖØ¸´½øÈë
+		send.ret = 3;//é‡å¤è¿›å…¥
 		u->sendCmdToMe(&send, sizeof(send));
 		return false;
 	}
@@ -104,14 +104,14 @@ bool MiniRoom::userEnter(MiniUser *u)
 	u->setGameState(gameType(), Cmd::MUS_ROOM);
 	userList.insert(u);
 
-	send.ret = 1;//³É¹¦
+	send.ret = 1;//æˆåŠŸ
 	send.roomID = id;
 	u->sendCmdToMe(&send, sizeof(send));
 
 	sendUserToRoom(u);
 	sendRoomToUser(u);
 
-	Zebra::logger->error("%s(%u) ½øÈë·¿¼ä roomID=%u", u->name, u->id, id.roomID());
+	Zebra::logger->error("%s(%u) è¿›å…¥æˆ¿é—´ roomID=%u", u->name, u->id, id.roomID());
 	return true;
 }
 
@@ -134,7 +134,7 @@ void MiniRoom::sendRoomToUser(MiniUser *u)
 	{
 		(*it)->full_MiniUserData(gameType(), cmd->data[cmd->num]);
 		cmd->num++;
-		//Zebra::logger->debug("sendRoomToUser ¸ø %s(%u) ·¢ËÍÍæ¼ÒÐÅÏ¢ %s(%u)", u->name, u->id, (*it)->name, (*it)->id);
+		//Zebra::logger->debug("sendRoomToUser ç»™ %s(%u) å‘é€çŽ©å®¶ä¿¡æ¯ %s(%u)", u->name, u->id, (*it)->name, (*it)->id);
 	}
 	if (cmd->num)
 		u->sendCmdToMe(cmd, sizeof(Cmd::stAddRoomUserCommonMiniGameCmd)+sizeof(Cmd::MiniUserData)*cmd->num);
@@ -149,7 +149,7 @@ void MiniRoom::sendRoomToUser(MiniUser *u)
 	if (send->num)
 	{
 		u->sendCmdToMe(send, sizeof(Cmd::stSeatStateCommonMiniGameCmd)+sizeof(Cmd::MiniSeatData)*send->num);
-		//Zebra::logger->debug("sendRoomToUser ¸ø %s(%u) ·¢ËÍ %u ¸ö×ùÎ»ÐÅÏ¢", u->name, u->id, send->num);
+		//Zebra::logger->debug("sendRoomToUser ç»™ %s(%u) å‘é€ %u ä¸ªåº§ä½ä¿¡æ¯", u->name, u->id, send->num);
 	}
 }
 
@@ -160,7 +160,7 @@ void MiniRoom::sendUserToRoom(MiniUser *u)
 	Cmd::stAddOneRoomUserCommonMiniGameCmd send;
 	send.roomID = id;
 	u->full_MiniUserData(gameType(), send.data);
-	//Zebra::logger->debug("sendUserToRoom ¹ã²¥ %s(%u) µÄÐÅÏ¢", u->name, u->id);
+	//Zebra::logger->debug("sendUserToRoom å¹¿æ’­ %s(%u) çš„ä¿¡æ¯", u->name, u->id);
 
 	sendCmdToAll(&send, sizeof(send));
 }
@@ -183,14 +183,14 @@ void MiniRoom::sendUserStateToRoom(MiniUser *u)
 void MiniRoom::sendCmdToAll(const void *cmd, const unsigned int len)
 {
 	for (const_user_iter it=userList.begin(); it!=userList.end(); it++)
-		//if ((*it)->getGameState(gameType())==Cmd::MUS_ROOM)//Ö»·¢Ã»×øÏÂµÄ
+		//if ((*it)->getGameState(gameType())==Cmd::MUS_ROOM)//åªå‘æ²¡åä¸‹çš„
 			(*it)->sendCmdToMe(cmd, len);
 }
 
 void MiniRoom::sendCmdToIdle(const void *cmd, const unsigned int len)
 {
 	for (const_user_iter it=userList.begin(); it!=userList.end(); it++)
-		if ((*it)->getGameState(gameType())==Cmd::MUS_ROOM)//Ö»·¢Ã»×øÏÂµÄ
+		if ((*it)->getGameState(gameType())==Cmd::MUS_ROOM)//åªå‘æ²¡åä¸‹çš„
 			(*it)->sendCmdToMe(cmd, len);
 }
 

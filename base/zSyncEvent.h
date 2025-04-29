@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSyncEvent.h  $
  * \author  
  * \date 
- * \brief ÊµÏÖÒ»¸öÍ¬²½ÊÂ¼şÄ£ĞÍ
+ * \brief å®ç°ä¸€ä¸ªåŒæ­¥äº‹ä»¶æ¨¡å‹
  *
  * 
  */
@@ -16,9 +16,9 @@
 #include "zCond.h"
 
 /**
- * \brief ÊµÏÖÁËÍ¬²½ÊÂ¼şÀà
+ * \brief å®ç°äº†åŒæ­¥äº‹ä»¶ç±»
  *
- * 	Ò»¸öÏß³ÌÍ¨¹ısignal()À´ÉèÖÃĞÅºÅ£¬ÁíÍâÒ»¸öÏß³ÌÍ¨¹ıwait()µÈ´ıÕâ¸öĞÅºÅ´¦Àí
+ * 	ä¸€ä¸ªçº¿ç¨‹é€šè¿‡signal()æ¥è®¾ç½®ä¿¡å·ï¼Œå¦å¤–ä¸€ä¸ªçº¿ç¨‹é€šè¿‡wait()ç­‰å¾…è¿™ä¸ªä¿¡å·å¤„ç†
  *
  */
 class zSyncEvent : private zNoncopyable
@@ -27,26 +27,26 @@ class zSyncEvent : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * ÓÃÓÚ´´½¨Ò»¸ö¶ÔÏóÊµÀı
+		 * ç”¨äºåˆ›å»ºä¸€ä¸ªå¯¹è±¡å®ä¾‹
 		 *
-		 * \param initstate ³õÊ¼×´Ì¬
+		 * \param initstate åˆå§‹çŠ¶æ€
 		 */
 		zSyncEvent(const bool initstate = false) : state(initstate) {};
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
-		 * Ïú»ÙÒ»¸ö¶ÔÏóÊµÀı
+		 * é”€æ¯ä¸€ä¸ªå¯¹è±¡å®ä¾‹
 		 *
 		 */
 		~zSyncEvent() {};
 
 		/**
-		 * \brief ÉèÖÃĞÅºÅ
+		 * \brief è®¾ç½®ä¿¡å·
 		 *
-		 * ·¢ËÍÒ»¸öÊÂ¼şĞÅºÅ£¬»½ĞÑµÈ´ıÕâ¸öĞÅºÅµÄÏß³Ì
+		 * å‘é€ä¸€ä¸ªäº‹ä»¶ä¿¡å·ï¼Œå”¤é†’ç­‰å¾…è¿™ä¸ªä¿¡å·çš„çº¿ç¨‹
 		 *
 		 */
 		void signal()
@@ -60,9 +60,9 @@ class zSyncEvent : private zNoncopyable
 		}
 
 		/**
-		 * \brief µÈ´ıÒ»¸öÊÂ¼şĞÅºÅµÄµ½´ï
+		 * \brief ç­‰å¾…ä¸€ä¸ªäº‹ä»¶ä¿¡å·çš„åˆ°è¾¾
 		 *
-		 * µÈ´ıÒ»¸öĞÅºÅ£¬Ö±µ½ÓĞÒ»¸öÏß³Ìµ÷ÓÃsignal»½ĞÑÕâ¸öÏß³Ì
+		 * ç­‰å¾…ä¸€ä¸ªä¿¡å·ï¼Œç›´åˆ°æœ‰ä¸€ä¸ªçº¿ç¨‹è°ƒç”¨signalå”¤é†’è¿™ä¸ªçº¿ç¨‹
 		 *
 		 */
 		void wait()
@@ -77,9 +77,9 @@ class zSyncEvent : private zNoncopyable
 
 	private:
 
-		volatile bool state;		/**< ÊÂ¼şµ±Ç°×´Ì¬ */
-		zMutex mutex;				/**< »¥³âÌå */
-		zCond cond1, cond2;			/**< Ìõ¼ş±äÁ¿ */
+		volatile bool state;		/**< äº‹ä»¶å½“å‰çŠ¶æ€ */
+		zMutex mutex;				/**< äº’æ–¥ä½“ */
+		zCond cond1, cond2;			/**< æ¡ä»¶å˜é‡ */
 
 };
 

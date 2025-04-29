@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zAStar.h  $
  * \author  
  * \date 
- * \brief A*Ñ°Â·Ëã·¨
+ * \brief A*å¯»è·¯ç®—æ³•
  */
 
 
@@ -17,8 +17,8 @@
 #include "zSceneEntry.h"
 
 /**
- * \brief A*Ñ°Â·Ëã·¨Ä£°å
- * ÆäÖĞstep±íÊ¾²½³¤£¬radius±íÊ¾ËÑË÷°ë¾¶
+ * \brief A*å¯»è·¯ç®—æ³•æ¨¡æ¿
+ * å…¶ä¸­stepè¡¨ç¤ºæ­¥é•¿ï¼Œradiusè¡¨ç¤ºæœç´¢åŠå¾„
  */
 template <int step = 1, int radius = 12>
 class zAStar
@@ -27,41 +27,41 @@ class zAStar
 	private:
 
 		/**
-		 * \brief Â·¾¶×ø±êµã
+		 * \brief è·¯å¾„åæ ‡ç‚¹
 		 */
 		struct zPathPoint
 		{
 			/**
-			 * \brief ×ø±ê
+			 * \brief åæ ‡
 			 */
 			zPos pos;
 			/**
-			 * \brief µ±Ç°¾àÀë
+			 * \brief å½“å‰è·ç¦»
 			 */
 			int cc;
 			/**
-			 * \brief Â·¾¶ÉÏÒ»¸ö½áµãÖ¸Õë
+			 * \brief è·¯å¾„ä¸Šä¸€ä¸ªç»“ç‚¹æŒ‡é’ˆ
 			 */
 			zPathPoint *father;
 		};
 
 		/**
-		 * \brief Â·¾¶Í·
+		 * \brief è·¯å¾„å¤´
 		 */
 		struct zPathQueue
 		{
 			/**
-			 * \brief Â·¾¶½ÚµãÍ·Ö¸Õë
+			 * \brief è·¯å¾„èŠ‚ç‚¹å¤´æŒ‡é’ˆ
 			 */
 			zPathPoint *node;
 			/**
-			 * \brief Â·¾¶ÏûºÄ¾àÀë
+			 * \brief è·¯å¾„æ¶ˆè€—è·ç¦»
 			 */
 			int cost;
 			/**
-			 * \brief ¹¹Ôìº¯Êı
-			 * \param node ³õÊ¼»¯µÄÂ·¾¶½ÚµãÍ·Ö¸Õë
-			 * \param cost µ±Ç°ÏûºÄ¾àÀë
+			 * \brief æ„é€ å‡½æ•°
+			 * \param node åˆå§‹åŒ–çš„è·¯å¾„èŠ‚ç‚¹å¤´æŒ‡é’ˆ
+			 * \param cost å½“å‰æ¶ˆè€—è·ç¦»
 			 */
 			zPathQueue(zPathPoint *node, int cost)
 			{
@@ -69,8 +69,8 @@ class zAStar
 				this->cost = cost;
 			}
 			/**
-			 * \brief ¿½±´¹¹Ôìº¯Êı
-			 * \param queue ´ı¿½±´µÄÔ´Êı¾İ
+			 * \brief æ‹·è´æ„é€ å‡½æ•°
+			 * \param queue å¾…æ‹·è´çš„æºæ•°æ®
 			 */
 			zPathQueue(const zPathQueue &queue)
 			{
@@ -78,9 +78,9 @@ class zAStar
 				cost = queue.cost;
 			}
 			/**
-			 * \brief ¸³Öµ²Ù×÷·ûºÅ
-			 * \param queue ´ı¸³ÖµµÄÔ´Êı¾İ
-			 * \return ·µ»Ø½á¹¹µÄÒıÓÃ
+			 * \brief èµ‹å€¼æ“ä½œç¬¦å·
+			 * \param queue å¾…èµ‹å€¼çš„æºæ•°æ®
+			 * \return è¿”å›ç»“æ„çš„å¼•ç”¨
 			 */
 			zPathQueue & operator= (const zPathQueue &queue)
 			{
@@ -91,7 +91,7 @@ class zAStar
 		};
 
 		/**
-		 * \brief ¶¨ÒåËùÓĞÂ·¾¶µÄÁ´±í
+		 * \brief å®šä¹‰æ‰€æœ‰è·¯å¾„çš„é“¾è¡¨
 		 */
 #ifdef _POOL_ALLOC_		
 		typedef std::list<zPathQueue, __gnu_cxx::__pool_alloc<zPathQueue> > zPathQueueHead;
@@ -103,10 +103,10 @@ class zAStar
 		typedef typename zPathQueueHead::reference reference;
 
 		/**
-		 * \brief ¹À¼Ûº¯Êı
-		 * \param midPos ÖĞ¼äÁÙÊ±×ø±êµã
-		 * \param endPos ×îÖÕ×ø±êµã
-		 * \return ¹ÀËã³öµÄÁ½µãÖ®¼äµÄ¾àÀë
+		 * \brief ä¼°ä»·å‡½æ•°
+		 * \param midPos ä¸­é—´ä¸´æ—¶åæ ‡ç‚¹
+		 * \param endPos æœ€ç»ˆåæ ‡ç‚¹
+		 * \return ä¼°ç®—å‡ºçš„ä¸¤ç‚¹ä¹‹é—´çš„è·ç¦»
 		 */
 		int judge(const zPos &midPos, const zPos &endPos)
 		{
@@ -115,10 +115,10 @@ class zAStar
 		}
 
 		/**
-		 * \brief ½øÈëÂ·¾¶¶ÓÁĞ
-		 * \param queueHead Â·¾¶¶ÓÁĞÍ·
-		 * \param pPoint °ÑÂ·¾¶½ÚµãÌí¼Óµ½Â·¾¶ÖĞ
-		 * \param currentCost Â·¾¶µÄ¹ÀËã¾àÀë
+		 * \brief è¿›å…¥è·¯å¾„é˜Ÿåˆ—
+		 * \param queueHead è·¯å¾„é˜Ÿåˆ—å¤´
+		 * \param pPoint æŠŠè·¯å¾„èŠ‚ç‚¹æ·»åŠ åˆ°è·¯å¾„ä¸­
+		 * \param currentCost è·¯å¾„çš„ä¼°ç®—è·ç¦»
 		 */
 		void enter_queue(zPathQueueHead &queueHead, zPathPoint *pPoint, int currentCost)
 		{
@@ -127,7 +127,7 @@ class zAStar
 			{
 				for(iterator it = queueHead.begin(); it != queueHead.end(); it++)
 				{
-					//¶ÓÁĞ°´costÓÉĞ¡µ½´óµÄË³ĞòÅÅÁĞ
+					//é˜Ÿåˆ—æŒ‰costç”±å°åˆ°å¤§çš„é¡ºåºæ’åˆ—
 					if ((*it).cost > currentCost)
 					{
 						queueHead.insert(it, pNew);
@@ -139,9 +139,9 @@ class zAStar
 		}
 
 		/**
-		 * \brief ´ÓÂ·¾¶Á´±íÖĞµ¯³ö×î½ü¾àÀë
-		 * \param queueHead Â·¾¶¶ÓÁĞÍ·
-		 * \return µ¯³öµÄ×î½üÂ·¾¶
+		 * \brief ä»è·¯å¾„é“¾è¡¨ä¸­å¼¹å‡ºæœ€è¿‘è·ç¦»
+		 * \param queueHead è·¯å¾„é˜Ÿåˆ—å¤´
+		 * \return å¼¹å‡ºçš„æœ€è¿‘è·¯å¾„
 		 */
 		zPathPoint *exit_queue(zPathQueueHead &queueHead)
 		{
@@ -158,44 +158,44 @@ class zAStar
 	public:
 
 		/**
-		 * \brief Ñ°Â·¹ı³ÌÖĞÅĞ¶ÏÖĞ¼äµãÊÇ·ñ¿É´ïÄ¿µÄµØ
+		 * \brief å¯»è·¯è¿‡ç¨‹ä¸­åˆ¤æ–­ä¸­é—´ç‚¹æ˜¯å¦å¯è¾¾ç›®çš„åœ°
 		 *
 		 *	return (scene->zPosShortRange(tempPos, destPos, radius)
-		 *			&& (!scene->checkBlock(tempPos) //Ä¿±êµã¿É´ï£¬»òÕßÊÇ×îÖÕÄ¿±êµã
+		 *			&& (!scene->checkBlock(tempPos) //ç›®æ ‡ç‚¹å¯è¾¾ï¼Œæˆ–è€…æ˜¯æœ€ç»ˆç›®æ ‡ç‚¹
 		 *				|| tempPos == destPos));
 		 *
-		 * \param tempPos Ñ°Â·¹ı³ÌµÄÖĞ¼äµã
-		 * \param destPos Ä¿µÄµã×ø±ê
-		 * \param radius Ñ°Â··¶Î§£¬³¬³ö·¶Î§µÄÊÓÎªÄ¿µÄµØ²»¿É´ï
-		 * \return ·µ»ØÊÇ·ñ¿Éµ½´ïÄ¿µÄµØ
+		 * \param tempPos å¯»è·¯è¿‡ç¨‹çš„ä¸­é—´ç‚¹
+		 * \param destPos ç›®çš„ç‚¹åæ ‡
+		 * \param radius å¯»è·¯èŒƒå›´ï¼Œè¶…å‡ºèŒƒå›´çš„è§†ä¸ºç›®çš„åœ°ä¸å¯è¾¾
+		 * \return è¿”å›æ˜¯å¦å¯åˆ°è¾¾ç›®çš„åœ°
 		 */
 	//	virtual bool moveable(const zPos &tempPos, const zPos &destPos,  int radius = 10) = 0;
 		/**
-		 * \brief Îï¼şÏòÄ³Ò»¸ö·½ÏòÒÆ¶¯
-		 * \param direct ·½Ïò
-		 * \param step ±íÊ¾²½³¤
-		 * \return ÒÆ¶¯ÊÇ·ñ³É¹¦
+		 * \brief ç‰©ä»¶å‘æŸä¸€ä¸ªæ–¹å‘ç§»åŠ¨
+		 * \param direct æ–¹å‘
+		 * \param step è¡¨ç¤ºæ­¥é•¿
+		 * \return ç§»åŠ¨æ˜¯å¦æˆåŠŸ
 		 */
 		virtual bool move(const int direct, const int _step = step) = 0;
 		/**
-		 * \brief Ê¹Îï¼şÏòÄ³Ò»¸öµãÒÆ¶¯
-		 * ´øÑ°Â·Ëã·¨µÄÒÆ¶¯
-		 * \param srcPos Æğµã×ø±ê
-		 * \param destPos Ä¿µÄµØ×ø±ê
-		 * \return ÒÆ¶¯ÊÇ·ñ³É¹¦
+		 * \brief ä½¿ç‰©ä»¶å‘æŸä¸€ä¸ªç‚¹ç§»åŠ¨
+		 * å¸¦å¯»è·¯ç®—æ³•çš„ç§»åŠ¨
+		 * \param srcPos èµ·ç‚¹åæ ‡
+		 * \param destPos ç›®çš„åœ°åæ ‡
+		 * \return ç§»åŠ¨æ˜¯å¦æˆåŠŸ
 		 */
 		bool gotoFindPath(const zPos &srcPos, const zPos &destPos);
 		/**
-		 * \brief NpcÏòÄ³Ò»¸öµãÒÆ¶¯
-		 * \param srcPos Æğµã×ø±ê
-		 * \param destPos Ä¿µÄµØ×ø±ê
-		 * \return ÒÆ¶¯ÊÇ·ñ³É¹¦
+		 * \brief Npcå‘æŸä¸€ä¸ªç‚¹ç§»åŠ¨
+		 * \param srcPos èµ·ç‚¹åæ ‡
+		 * \param destPos ç›®çš„åœ°åæ ‡
+		 * \return ç§»åŠ¨æ˜¯å¦æˆåŠŸ
 		 */
 		bool goTo(const zPos &srcPos, const zPos &destPos);
 		/**
-		 * \brief NpcËæ»úÏòÄ³Ò»¸ö·½ÏòÒÆ¶¯
-		 * \param direct Ëæ»ú·½Ïò
-		 * \return ÒÆ¶¯ÊÇ·ñ³É¹¦
+		 * \brief Npcéšæœºå‘æŸä¸€ä¸ªæ–¹å‘ç§»åŠ¨
+		 * \param direct éšæœºæ–¹å‘
+		 * \return ç§»åŠ¨æ˜¯å¦æˆåŠŸ
 		 */
 		bool shiftMove(const int direct);
 
@@ -204,16 +204,16 @@ class zAStar
 template<int step, int radius>
 bool zAStar<step, radius>::gotoFindPath(const zPos &srcPos, const zPos &destPos)
 {
-	//DisMapÊÇÒÔdestPosÎªÖĞĞÄµÄ±ß³¤Îª2 * radius + 1 µÄÕı·½ĞÎ
+	//DisMapæ˜¯ä»¥destPosä¸ºä¸­å¿ƒçš„è¾¹é•¿ä¸º2 * radius + 1 çš„æ­£æ–¹å½¢
 	const int width = (2 * radius + 1);
 	const int height = (2 * radius + 1);
 	const int MaxNum = width * height;
-	//°ÑËùÓĞÂ·¾¶¾àÀë³õÊ¼»¯Îª×î´óÖµ
+	//æŠŠæ‰€æœ‰è·¯å¾„è·ç¦»åˆå§‹åŒ–ä¸ºæœ€å¤§å€¼
 	std::vector<int, __gnu_cxx::__pool_alloc<int> > pDisMap(MaxNum, MaxNum);
-	std::vector<zPathPoint, __gnu_cxx::__pool_alloc<zPathPoint> > stack(MaxNum * 8 + 1);//ÔÚ¶ÑÕ»ÖĞ·ÖÅäÄÚ´æ
+	std::vector<zPathPoint, __gnu_cxx::__pool_alloc<zPathPoint> > stack(MaxNum * 8 + 1);//åœ¨å †æ ˆä¸­åˆ†é…å†…å­˜
 	zPathQueueHead queueHead;
 
-	//´Ó¿ªÊ¼×ø±ê½øĞĞ¼ÆËã
+	//ä»å¼€å§‹åæ ‡è¿›è¡Œè®¡ç®—
 	zPathPoint *root = &stack[MaxNum * 8];
 	root->pos = srcPos;
 	root->cc = 0;
@@ -221,19 +221,19 @@ bool zAStar<step, radius>::gotoFindPath(const zPos &srcPos, const zPos &destPos)
 	enter_queue(queueHead, root, root->cc + judge(root->pos, destPos));
 
 	int Count = 0;
-	//ÎŞÂÛÈçºÎ,Ñ­»·³¬¹ıMaxNum´ÎÔò·ÅÆú
+	//æ— è®ºå¦‚ä½•,å¾ªç¯è¶…è¿‡MaxNumæ¬¡åˆ™æ”¾å¼ƒ
 	while(Count < MaxNum)
 	{
 		root = exit_queue(queueHead);
 		if (NULL == root)
 		{
-			//Ä¿±êµã²»¿É´ï
+			//ç›®æ ‡ç‚¹ä¸å¯è¾¾
 			return false;
 		}
 
 		if (root->pos == destPos)
 		{
-			//ÕÒµ½µ½´ïÄ¿µÄµØµÄÂ·¾¶
+			//æ‰¾åˆ°åˆ°è¾¾ç›®çš„åœ°çš„è·¯å¾„
 			break;
 		}
 
@@ -250,27 +250,27 @@ bool zAStar<step, radius>::gotoFindPath(const zPos &srcPos, const zPos &destPos)
 		};
 		for(int i = 0; i < 8; i++)
 		{
-			//·Ö±ğ¶ÔÖÜÎ§8¸ö¸ñµã½øĞĞ¼ÆËãÂ·¾¶
+			//åˆ†åˆ«å¯¹å‘¨å›´8ä¸ªæ ¼ç‚¹è¿›è¡Œè®¡ç®—è·¯å¾„
 			bool bCanWalk = true;
 			zPos tempPos = root->pos;
 			tempPos += adjust[i];
 
 /*			if (moveable(tempPos, destPos))
 			{
-				//¶ÔÂ·¾¶½øĞĞ»ØËİ
+				//å¯¹è·¯å¾„è¿›è¡Œå›æº¯
 				zPathPoint *p = root;
 				while(p)
 				{
 					if(p->pos == tempPos)
 					{
-						//·¢ÏÖ×ø±êµãÒÑ¾­ÔÚ»ØËİÂ·¾¶ÖĞ£¬²»ÄÜÏòÇ°×ß
+						//å‘ç°åæ ‡ç‚¹å·²ç»åœ¨å›æº¯è·¯å¾„ä¸­ï¼Œä¸èƒ½å‘å‰èµ°
 						bCanWalk = false;
 						break;
 					}
 					p = p->father;
 				}
 
-				//Èç¹ûÂ·¾¶»ØËİ³É¹¦£¬±íÊ¾Õâ¸öµãÊÇ¿ÉĞĞ×ßµÄ
+				//å¦‚æœè·¯å¾„å›æº¯æˆåŠŸï¼Œè¡¨ç¤ºè¿™ä¸ªç‚¹æ˜¯å¯è¡Œèµ°çš„
 				if (bCanWalk)
 				{
 					int cost = root->cc + 1;
@@ -279,7 +279,7 @@ bool zAStar<step, radius>::gotoFindPath(const zPos &srcPos, const zPos &destPos)
 							&& index < MaxNum
 							&& cost < pDisMap[index])
 					{
-						//ÕâÌõÂ·¾¶±ÈÉÏ´Î¼ÆËãµÄÂ·¾¶»¹Òª¶Ì£¬ĞèÒª¼ÓÈëµ½×î¶ÌÂ·¾¶¶ÓÁĞÖĞ
+						//è¿™æ¡è·¯å¾„æ¯”ä¸Šæ¬¡è®¡ç®—çš„è·¯å¾„è¿˜è¦çŸ­ï¼Œéœ€è¦åŠ å…¥åˆ°æœ€çŸ­è·¯å¾„é˜Ÿåˆ—ä¸­
 						pDisMap[index] = cost;
 						zPathPoint *pNewEntry = &stack[Count * 8 + i];
 						pNewEntry->pos = tempPos;
@@ -296,10 +296,10 @@ bool zAStar<step, radius>::gotoFindPath(const zPos &srcPos, const zPos &destPos)
 
 	if (Count < MaxNum)
 	{
-		//×îÖÕÂ·¾¶ÔÚPointHeadÖĞ,µ«Ö»×ßÒ»²½
+		//æœ€ç»ˆè·¯å¾„åœ¨PointHeadä¸­,ä½†åªèµ°ä¸€æ­¥
 		while(root)
 		{
-			//µ¹ÊıµÚ¶ş¸ö½Úµã
+			//å€’æ•°ç¬¬äºŒä¸ªèŠ‚ç‚¹
 			if(root->father != NULL
 					&& root->father->father == NULL)
 			{
@@ -323,10 +323,10 @@ inline bool zAStar<step, radius>::goTo(const zPos &srcPos, const zPos &destPos)
 		int deep = 0;
 		while(deep < 3) {
 			switch(r) {
-				case 0://Ë³Ê±Õë
+				case 0://é¡ºæ—¶é’ˆ
 					direct++;
 					break;
-				case 1://ÄæÊ±Õë
+				case 1://é€†æ—¶é’ˆ
 					direct += 7;
 					break;
 			}

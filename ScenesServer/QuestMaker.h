@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestMaker.h  $
  * \author	
  * \date		2005-04-07
- * \brief		²úÆ·´´½¨¹¤³§
+ * \brief		äº§å“åˆ›å»ºå·¥å‚
  * 
  */
  
@@ -11,9 +11,9 @@
 #define __QUEST_MAKER_H__
 
 /**
- * \brief ²úÆ·¹¤³§
+ * \brief äº§å“å·¥å‚
  *
- * ·â×°ÁË¹¤³§Ä£Ê½
+ * å°è£…äº†å·¥å‚æ¨¡å¼
  *
  */
 template <typename I, typename C>
@@ -25,9 +25,9 @@ public:
 	/**     
 	 * \brief 
 	 *
-	 * ÊµÏÖÁËµ¥¼şÄ£Ê½
+	 * å®ç°äº†å•ä»¶æ¨¡å¼
 	 *      
-	 * \return ¸ÃÀàµÄÎ¨Ò»ÊµÀı
+	 * \return è¯¥ç±»çš„å”¯ä¸€å®ä¾‹
 	 */     	
 	static self_t& instance()
 	{
@@ -40,12 +40,12 @@ public:
 	}
 
 	/**     
-	 * \brief È¡µÃ´´½¨Àà
+	 * \brief å–å¾—åˆ›å»ºç±»
 	 *
-	 * Ñ°ÕÒÌØ¶¨²úÆ·±êÖ¾µÄ´´½¨Àà
+	 * å¯»æ‰¾ç‰¹å®šäº§å“æ ‡å¿—çš„åˆ›å»ºç±»
 	 *      
-	 * \param id: ²úÆ·±êÊ¶
-	 * \return ÕÒµÄ²úÆ·´´½¨Àà,Ã»ÕÒµ½·µ»ØNULL
+	 * \param id: äº§å“æ ‡è¯†
+	 * \return æ‰¾çš„äº§å“åˆ›å»ºç±»,æ²¡æ‰¾åˆ°è¿”å›NULL
 	 */     	
 	C* get_creator(const I& id) const
 	{		
@@ -58,13 +58,13 @@ public:
 	}
 	
 	/**     
-	 * \brief ×¢²á·½·¨
+	 * \brief æ³¨å†Œæ–¹æ³•
 	 *
-	 * ×¢²áÄ³Àà²úÆ·µÄ´´½¨Àà
+	 * æ³¨å†ŒæŸç±»äº§å“çš„åˆ›å»ºç±»
 	 *      
-	 * \param id: ²úÆ·±êÊ¶
-	 * \param creator: ²úÆ·´´½¨Àà
-	 * \return ÎŞ
+	 * \param id: äº§å“æ ‡è¯†
+	 * \param creator: äº§å“åˆ›å»ºç±»
+	 * \return æ— 
 	 */     	
 	void register_creator(const I& id, C* creator)	
 	{
@@ -72,14 +72,14 @@ public:
 	}
 private:
 	/**     
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 */     
 	ProductFactory()
 	{ }
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	~ProductFactory()
@@ -103,9 +103,9 @@ ProductFactory<I, C>* ProductFactory<I, C>::_instance = NULL;
 
 namespace MakeFunction {
 	/**
-	 * \brief ²úÆ·´´½¨»ùÀà
+	 * \brief äº§å“åˆ›å»ºåŸºç±»
 	 *
-	 *¶¨ÒåÁË´´½¨²úÆ·µÄ½Ó¿Ú
+	 *å®šä¹‰äº†åˆ›å»ºäº§å“çš„æ¥å£
 	 *
 	 */
 	template <typename A>
@@ -115,27 +115,27 @@ namespace MakeFunction {
 		typedef typename A::Base Base;
 
 		/**     
-		 * \brief  ²úÆ·´´½¨½Ó¿Ú
+		 * \brief  äº§å“åˆ›å»ºæ¥å£
 		 *
-		 * ¶¨ÒåÁË²úÆ·´´½¨ µÄ½Ó¿Ú,¼Ì³ĞÀàĞèÒªÊµÏÖ´Ëº¯ÊıÌá¹©¾ßÌå²úÆ·µÄ´´½¨·½·¨.
+		 * å®šä¹‰äº†äº§å“åˆ›å»º çš„æ¥å£,ç»§æ‰¿ç±»éœ€è¦å®ç°æ­¤å‡½æ•°æä¾›å…·ä½“äº§å“çš„åˆ›å»ºæ–¹æ³•.
 		 *      
-		 * \param xml: ½Å±¾ÎÄ¼ş
-		 * \param node: ½ÚµãÃû³Æ
-		 * \return ´´½¨µÄ²úÆ·
+		 * \param xml: è„šæœ¬æ–‡ä»¶
+		 * \param node: èŠ‚ç‚¹åç§°
+		 * \return åˆ›å»ºçš„äº§å“
 		 */     	
 		virtual Base* make ( zXMLParser& xml, xmlNodePtr& node) = 0;
 
 		/**     
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */     
 		virtual ~Maker() { }
 	};
 	
 	/**
-	 * \brief ½ÚµãÄÚÈİ´´½¨Àà
+	 * \brief èŠ‚ç‚¹å†…å®¹åˆ›å»ºç±»
 	 *
-	 *·â×°ÁËĞèÒª·ÃÎÊ½ÚµãÄÚÈİµÄ½Å±¾´¥·¢Ìõ¼ş¼°¶¯×÷ÀàµÄ´´½¨
+	 *å°è£…äº†éœ€è¦è®¿é—®èŠ‚ç‚¹å†…å®¹çš„è„šæœ¬è§¦å‘æ¡ä»¶åŠåŠ¨ä½œç±»çš„åˆ›å»º
 	 *
 	 */	
 	template <typename A>
@@ -145,19 +145,19 @@ namespace MakeFunction {
 		typedef typename A::Base Base;
 		
 		/**     
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */     
 		virtual ~Content() { }
 		
 		/**     
-		 * \brief  ²úÆ·´´½¨½Ó¿Ú
+		 * \brief  äº§å“åˆ›å»ºæ¥å£
 		 *
-		 *ÊµÏÖ¶Ô·ÃÎÊ½ÚµãÄÚÈİµÄ½Å±¾´¥·¢Ìõ¼ş¼°¶¯×÷ÀàµÄ´´½¨
+		 *å®ç°å¯¹è®¿é—®èŠ‚ç‚¹å†…å®¹çš„è„šæœ¬è§¦å‘æ¡ä»¶åŠåŠ¨ä½œç±»çš„åˆ›å»º
 		 *      
-		 * \param xml: ½Å±¾ÎÄ¼ş
-		 * \param node: ½ÚµãÃû³Æ
-		 * \return ´´½¨µÄ²úÆ·
+		 * \param xml: è„šæœ¬æ–‡ä»¶
+		 * \param node: èŠ‚ç‚¹åç§°
+		 * \return åˆ›å»ºçš„äº§å“
 		 */     	
 		Base* make (zXMLParser& xml, xmlNodePtr& node)
 		{
@@ -171,9 +171,9 @@ namespace MakeFunction {
 	};
 	
 	/**
-	 * \brief ¿ÕÊôĞÔ´´½¨Àà
+	 * \brief ç©ºå±æ€§åˆ›å»ºç±»
 	 *
-	 *·â×°ÁË²»ĞèÒª·ÃÎÊ½ÚµãÊôĞÔµÄ½Å±¾´¥·¢Ìõ¼ş¼°¶¯×÷ÀàµÄ´´½¨
+	 *å°è£…äº†ä¸éœ€è¦è®¿é—®èŠ‚ç‚¹å±æ€§çš„è„šæœ¬è§¦å‘æ¡ä»¶åŠåŠ¨ä½œç±»çš„åˆ›å»º
 	 *
 	 */	
 	template <typename A>
@@ -183,27 +183,27 @@ namespace MakeFunction {
 		typedef Maker<Action>::Base Base;
 		
 		/**     
-		 * \brief  ¹¹Ôìº¯Êı
+		 * \brief  æ„é€ å‡½æ•°
 		 *
-		 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+		 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 		 *      
 		 */     	
 		Void()
 		{ }
 		
 		/**     
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */     
 		virtual ~Void() { }
 		
 		/**     
-		 * \brief  ²úÆ·´´½¨½Ó¿Ú
+		 * \brief  äº§å“åˆ›å»ºæ¥å£
 		 *
 		 *      
-		 * \param xml: ½Å±¾ÎÄ¼ş
-		 * \param node: ½ÚµãÃû³Æ
-		 * \return ´´½¨µÄ²úÆ·
+		 * \param xml: è„šæœ¬æ–‡ä»¶
+		 * \param node: èŠ‚ç‚¹åç§°
+		 * \return åˆ›å»ºçš„äº§å“
 		 */     	
 		Base* make (zXMLParser& xml, xmlNodePtr& node)
 		{
@@ -212,9 +212,9 @@ namespace MakeFunction {
 	};
 
 	/**
-	 * \brief ½ÚµãÊôĞÔ´´½¨Àà
+	 * \brief èŠ‚ç‚¹å±æ€§åˆ›å»ºç±»
 	 *
-	 *·â×°ÁËĞèÒª·ÃÎÊ½ÚµãÊôĞÔµÄ½Å±¾´¥·¢Ìõ¼ş¼°¶¯×÷ÀàµÄ´´½¨
+	 *å°è£…äº†éœ€è¦è®¿é—®èŠ‚ç‚¹å±æ€§çš„è„šæœ¬è§¦å‘æ¡ä»¶åŠåŠ¨ä½œç±»çš„åˆ›å»º
 	 *
 	 */	
 	template <typename A>
@@ -224,29 +224,29 @@ namespace MakeFunction {
 		typedef typename A::Base Base;
 		
 		/**     
-		 * \brief  ¹¹Ôìº¯Êı
+		 * \brief  æ„é€ å‡½æ•°
 		 *
-		 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+		 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 		 *      
-		 * \param p: ¹Ø¼ü´ÊÁĞ±í
+		 * \param p: å…³é”®è¯åˆ—è¡¨
 		 */     	
 		Prop(Parse& p) : _p(p)
 		{ }
 		
 		/**     
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */     
 		virtual ~Prop() { }
 		
 		/**     
-		 * \brief  ²úÆ·´´½¨½Ó¿Ú
+		 * \brief  äº§å“åˆ›å»ºæ¥å£
 		 *
-		 *ÊµÏÖ¶Ô·ÃÎÊ½ÚµãÊôĞÔµÄ½Å±¾´¥·¢Ìõ¼ş¼°¶¯×÷ÀàµÄ´´½¨
+		 *å®ç°å¯¹è®¿é—®èŠ‚ç‚¹å±æ€§çš„è„šæœ¬è§¦å‘æ¡ä»¶åŠåŠ¨ä½œç±»çš„åˆ›å»º
 		 *      
-		 * \param xml: ½Å±¾ÎÄ¼ş
-		 * \param node: ½ÚµãÃû³Æ
-		 * \return ´´½¨µÄ²úÆ·
+		 * \param xml: è„šæœ¬æ–‡ä»¶
+		 * \param node: èŠ‚ç‚¹åç§°
+		 * \return åˆ›å»ºçš„äº§å“
 		 */     	
 		Base* make (zXMLParser& xml, xmlNodePtr& node)
 		{
@@ -260,9 +260,9 @@ namespace MakeFunction {
 	};
 
 	/**
-	 * \brief ´¥·¢¶¯×÷´´½¨Àà
+	 * \brief è§¦å‘åŠ¨ä½œåˆ›å»ºç±»
 	 *
-	 *·â×°ÁËĞèÒª°´²Ù×÷ÀàĞÍ¸üĞÂµÄ½Å±¾´¥·¢¶¯×÷ÀàµÄ´´½¨
+	 *å°è£…äº†éœ€è¦æŒ‰æ“ä½œç±»å‹æ›´æ–°çš„è„šæœ¬è§¦å‘åŠ¨ä½œç±»çš„åˆ›å»º
 	 *
 	 */	
 	template < template <typename> class A, typename T = int >
@@ -272,11 +272,11 @@ namespace MakeFunction {
 		typedef Maker<Action>::Base Base;
 		
 		/**     
-		 * \brief  ¹¹Ôìº¯Êı
+		 * \brief  æ„é€ å‡½æ•°
 		 *
-		 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+		 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 		 *      
-		 * \param p: ¹Ø¼ü´ÊÁĞ±í
+		 * \param p: å…³é”®è¯åˆ—è¡¨
 		 */     	
 		Update(Parse& p) : _p(p)
 		{
@@ -284,19 +284,19 @@ namespace MakeFunction {
 		}
 		
 		/**     
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */     
 		virtual ~Update() { }
 		
 		/**     
-		 * \brief  ²úÆ·´´½¨½Ó¿Ú
+		 * \brief  äº§å“åˆ›å»ºæ¥å£
 		 *
-		 *ÊµÏÖ¶Ô°´²Ù×÷ÀàĞÍ¸üĞÂµÄ½Å±¾´¥·¢¶¯×÷ÀàµÄ´´½¨
+		 *å®ç°å¯¹æŒ‰æ“ä½œç±»å‹æ›´æ–°çš„è„šæœ¬è§¦å‘åŠ¨ä½œç±»çš„åˆ›å»º
 		 *      
-		 * \param xml: ½Å±¾ÎÄ¼ş
-		 * \param node: ½ÚµãÃû³Æ
-		 * \return ´´½¨µÄ²úÆ·
+		 * \param xml: è„šæœ¬æ–‡ä»¶
+		 * \param node: èŠ‚ç‚¹åç§°
+		 * \return åˆ›å»ºçš„äº§å“
 		 */     	
 		Base* make (zXMLParser& xml, xmlNodePtr& node)
 		{
@@ -329,9 +329,9 @@ namespace MakeFunction {
 	};
 
 	/**
-	 * \brief ´¥·¢Ìõ¼ş´´½¨Àà
+	 * \brief è§¦å‘æ¡ä»¶åˆ›å»ºç±»
 	 *
-	 *·â×°ÁËĞèÒª°´²Ù×÷ÀàĞÍ±È½ÏµÄ½Å±¾´¥·¢Ìõ¼şÀàµÄ´´½¨
+	 *å°è£…äº†éœ€è¦æŒ‰æ“ä½œç±»å‹æ¯”è¾ƒçš„è„šæœ¬è§¦å‘æ¡ä»¶ç±»çš„åˆ›å»º
 	 *
 	 */	
 	template <template <typename> class A, typename T = int >
@@ -341,11 +341,11 @@ namespace MakeFunction {
 		typedef Maker<Condition>::Base Base;
 		
 		/**     
-		 * \brief  ¹¹Ôìº¯Êı
+		 * \brief  æ„é€ å‡½æ•°
 		 *
-		 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+		 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 		 *      
-		 * \param p: ¹Ø¼ü´ÊÁĞ±í
+		 * \param p: å…³é”®è¯åˆ—è¡¨
 		 */     	
 		Compare(Parse& p) : _p(p)
 		{ 
@@ -353,19 +353,19 @@ namespace MakeFunction {
 		}
 		
 		/**     
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */     
 		virtual ~Compare() { }
 		
 		/**     
-		 * \brief  ²úÆ·´´½¨½Ó¿Ú
+		 * \brief  äº§å“åˆ›å»ºæ¥å£
 		 *
-		 *ÊµÏÖ¶Ô°´²Ù×÷ÀàĞÍ±È½ÏµÄ½Å±¾´¥·¢Ìõ¼şÀàµÄ´´½¨
+		 *å®ç°å¯¹æŒ‰æ“ä½œç±»å‹æ¯”è¾ƒçš„è„šæœ¬è§¦å‘æ¡ä»¶ç±»çš„åˆ›å»º
 		 *      
-		 * \param xml: ½Å±¾ÎÄ¼ş
-		 * \param node: ½ÚµãÃû³Æ
-		 * \return ´´½¨µÄ²úÆ·
+		 * \param xml: è„šæœ¬æ–‡ä»¶
+		 * \param node: èŠ‚ç‚¹åç§°
+		 * \return åˆ›å»ºçš„äº§å“
 		 */ 
 		Base* make (zXMLParser& xml, xmlNodePtr& node)
 		{

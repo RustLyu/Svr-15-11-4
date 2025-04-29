@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SkillStatusManager.cpp  $
  * \author 
  * \date 
- * \brief ¶¨Òå¼¼ÄÜ×´Ì¬¹ÜÀíÆ÷Í·ÎÄ¼ş
+ * \brief å®šä¹‰æŠ€èƒ½çŠ¶æ€ç®¡ç†å™¨å¤´æ–‡ä»¶
  *
  */
 
@@ -16,10 +16,10 @@
 #include "Chat.h"
 
 /**
- * \brief	×´Ì¬0 ¿Õ×´Ì¬£¬²»×öÈÎºÎ²Ù×÷
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€0 ç©ºçŠ¶æ€ï¼Œä¸åšä»»ä½•æ“ä½œ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_0(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -29,10 +29,10 @@ BYTE SkillStatus_0(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬1 ¶Ô×´Ì¬½ÓÊÜÕßÉËº¦Ôö¼Ó¹Ì¶¨ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€1 å¯¹çŠ¶æ€æ¥å—è€…ä¼¤å®³å¢åŠ å›ºå®šæ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_1(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -75,10 +75,10 @@ BYTE SkillStatus_1(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬2 ¶Ô×´Ì¬½ÓÊÜÕßÉËº¦Ôö¼Ó°Ù·Ö±È£¬»ù×¼ÊıÖµÎª½ÇÉ«µÄÂãÉíÓë×°±¸¹¥»÷Á¦µÄ×ÜºÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€2 å¯¹çŠ¶æ€æ¥å—è€…ä¼¤å®³å¢åŠ ç™¾åˆ†æ¯”ï¼ŒåŸºå‡†æ•°å€¼ä¸ºè§’è‰²çš„è£¸èº«ä¸è£…å¤‡æ”»å‡»åŠ›çš„æ€»å’Œ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_2(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -121,10 +121,10 @@ BYTE SkillStatus_2(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬3 ¼¼ÄÜµÄÎïÀí¹¥»÷Á¦[´Ë×´Ì¬¿ÉÄÜÒÑ¾­±»·ÏÆú]
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€3 æŠ€èƒ½çš„ç‰©ç†æ”»å‡»åŠ›[æ­¤çŠ¶æ€å¯èƒ½å·²ç»è¢«åºŸå¼ƒ]
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_3(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -168,10 +168,10 @@ BYTE SkillStatus_3(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬4 Ö¸¶¨×´Ì¬½ÓÊÜÕßµÄÎïÀí·ÀÓù»ù´¡Öµ[»ù±¾ÉÏ²»´æÔÚÕâÖÖ¼¼ÄÜËùÒÔ´Ë×´Ì¬¿ÉÄÜÒ²ÒÑ¾­±»·ÏÆú]
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€4 æŒ‡å®šçŠ¶æ€æ¥å—è€…çš„ç‰©ç†é˜²å¾¡åŸºç¡€å€¼[åŸºæœ¬ä¸Šä¸å­˜åœ¨è¿™ç§æŠ€èƒ½æ‰€ä»¥æ­¤çŠ¶æ€å¯èƒ½ä¹Ÿå·²ç»è¢«åºŸå¼ƒ]
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_4(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -214,10 +214,10 @@ BYTE SkillStatus_4(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬5 ±íÊ¾×´Ì¬½ÓÊÜÕßÂãÉí·¨Êõ¹¥»÷Á¦,×°±¸·¨Êõ¹¥»÷µÄÁ¦×ÜºÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€5 è¡¨ç¤ºçŠ¶æ€æ¥å—è€…è£¸èº«æ³•æœ¯æ”»å‡»åŠ›,è£…å¤‡æ³•æœ¯æ”»å‡»çš„åŠ›æ€»å’Œ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_5(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -260,10 +260,10 @@ BYTE SkillStatus_5(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬6 ±íÊ¾×´Ì¬½ÓÊÜÕßÂãÉí·¨Êõ·ÀÓùÁ¦,×°±¸·¨Êõ·ÀÓùÁ¦µÄ×ÜºÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€6 è¡¨ç¤ºçŠ¶æ€æ¥å—è€…è£¸èº«æ³•æœ¯é˜²å¾¡åŠ›,è£…å¤‡æ³•æœ¯é˜²å¾¡åŠ›çš„æ€»å’Œ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_6(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -306,10 +306,10 @@ BYTE SkillStatus_6(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬7 ÏûºÄ×´Ì¬½ÓÊÜÕßµÄ¹Ì¶¨Öµ·¨ÊõÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€7 æ¶ˆè€—çŠ¶æ€æ¥å—è€…çš„å›ºå®šå€¼æ³•æœ¯å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_7(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -361,10 +361,10 @@ BYTE SkillStatus_7(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬8 ÏûºÄ×´Ì¬½ÓÊÜÕßµÄ°Ù·Ö±È·¨ÊõÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€8 æ¶ˆè€—çŠ¶æ€æ¥å—è€…çš„ç™¾åˆ†æ¯”æ³•æœ¯å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_8(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -407,10 +407,10 @@ BYTE SkillStatus_8(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬9 ÏûºÄ×´Ì¬½ÓÊÜÕßµÄ¹Ì¶¨ÖµÉúÃüÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€9 æ¶ˆè€—çŠ¶æ€æ¥å—è€…çš„å›ºå®šå€¼ç”Ÿå‘½å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_9(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -448,7 +448,7 @@ BYTE SkillStatus_9(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -483,10 +483,10 @@ BYTE SkillStatus_9(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬10 ÏûºÄ×´Ì¬½ÓÊÜÕßµÄ°Ù·Ö±ÈÉúÃüÖµ£¬»ù×¼Îª×î´óÉúÃüÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€10 æ¶ˆè€—çŠ¶æ€æ¥å—è€…çš„ç™¾åˆ†æ¯”ç”Ÿå‘½å€¼ï¼ŒåŸºå‡†ä¸ºæœ€å¤§ç”Ÿå‘½å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_10(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -514,7 +514,7 @@ BYTE SkillStatus_10(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -550,10 +550,10 @@ BYTE SkillStatus_10(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬11 ÏûºÄºÄ×´Ì¬½ÓÊÜÕßµÄ¹Ì¶¨ÖµÌåÁ¦Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€11 æ¶ˆè€—è€—çŠ¶æ€æ¥å—è€…çš„å›ºå®šå€¼ä½“åŠ›å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_11(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -594,10 +594,10 @@ BYTE SkillStatus_11(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬12 ÏûºÄ×´Ì¬½ÓÊÜÕßµÄ°Ù·Ö±ÈÌåÁ¦Öµ£¬»ù×¼ÊÇ×î´óÌåÁ¦Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€12 æ¶ˆè€—çŠ¶æ€æ¥å—è€…çš„ç™¾åˆ†æ¯”ä½“åŠ›å€¼ï¼ŒåŸºå‡†æ˜¯æœ€å¤§ä½“åŠ›å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_12(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -640,10 +640,10 @@ BYTE SkillStatus_12(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬13 ±íÊ¾×´Ì¬½ÓÊÜÕßµÄÄ§·¨·ÀÓùÁ¦ÌáÉı¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€13 è¡¨ç¤ºçŠ¶æ€æ¥å—è€…çš„é­”æ³•é˜²å¾¡åŠ›æå‡å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_13(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -686,10 +686,10 @@ BYTE SkillStatus_13(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬14 ±íÊ¾×´Ì¬½ÓÊÜÕßµÄÄ§·¨·ÀÓùÁ¦ÌáÉı°Ù·Ö±È(±ù¼××¨ÓÃ)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€14 è¡¨ç¤ºçŠ¶æ€æ¥å—è€…çš„é­”æ³•é˜²å¾¡åŠ›æå‡ç™¾åˆ†æ¯”(å†°ç”²ä¸“ç”¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_14(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -732,10 +732,10 @@ BYTE SkillStatus_14(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬15 ±íÊ¾½«×´Ì¬½ÓÊÜÕß´Ë´ÎÊÜµ½µÄ¹¥»÷Ôì³ÉµÄÉËº¦Öµ¹éÁã£¨°üÀ¨ÎïÀíµÄºÍ·¨ÊõµÄ£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€15 è¡¨ç¤ºå°†çŠ¶æ€æ¥å—è€…æ­¤æ¬¡å—åˆ°çš„æ”»å‡»é€ æˆçš„ä¼¤å®³å€¼å½’é›¶ï¼ˆåŒ…æ‹¬ç‰©ç†çš„å’Œæ³•æœ¯çš„ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_15(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -777,10 +777,10 @@ BYTE SkillStatus_15(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬16 ±íÊ¾Ôö¼Ó×´Ì¬½ÓÊÜÕßµÄÒÆ¶¯ËÙ¶È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€16 è¡¨ç¤ºå¢åŠ çŠ¶æ€æ¥å—è€…çš„ç§»åŠ¨é€Ÿåº¦
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_16(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -847,10 +847,10 @@ BYTE SkillStatus_16(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬17 ½µµÍ×´Ì¬½ÓÊÜÕßÔÙ´ÎÊ©·Å´Ë¼¼ÄÜµÄÀäÈ´Ê±¼ä
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€17 é™ä½çŠ¶æ€æ¥å—è€…å†æ¬¡æ–½æ”¾æ­¤æŠ€èƒ½çš„å†·å´æ—¶é—´
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_17(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -892,10 +892,10 @@ BYTE SkillStatus_17(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬18 ¼õÉÙ×´Ì¬½ÓÊÜÕßÏİÈë±ù¶³×´Ì¬µÄ¼¸ÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€18 å‡å°‘çŠ¶æ€æ¥å—è€…é™·å…¥å†°å†»çŠ¶æ€çš„å‡ ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_18(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -937,10 +937,10 @@ BYTE SkillStatus_18(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬19 ¼õÉÙ×´Ì¬½ÓÊÜÕßÏİÈëÖĞ¶¾×´Ì¬¼¸ÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€19 å‡å°‘çŠ¶æ€æ¥å—è€…é™·å…¥ä¸­æ¯’çŠ¶æ€å‡ ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_19(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -982,10 +982,10 @@ BYTE SkillStatus_19(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬20 ¼õÉÙ×´Ì¬½ÓÊÜÕßÏİÈëÊ¯»¯×´Ì¬µÄ¼¸ÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€20 å‡å°‘çŠ¶æ€æ¥å—è€…é™·å…¥çŸ³åŒ–çŠ¶æ€çš„å‡ ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_20(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1027,10 +1027,10 @@ BYTE SkillStatus_20(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬21 ¼õÉÙ×´Ì¬½ÓÊÜÕßÏİÈëÊ§Ã÷×´Ì¬¼¸ÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€21 å‡å°‘çŠ¶æ€æ¥å—è€…é™·å…¥å¤±æ˜çŠ¶æ€å‡ ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_21(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1071,10 +1071,10 @@ BYTE SkillStatus_21(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬22 ¼õÉÙ×´Ì¬½ÓÊÜÕßÏİÈë»ìÂÒ×´Ì¬¼¸ÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€22 å‡å°‘çŠ¶æ€æ¥å—è€…é™·å…¥æ··ä¹±çŠ¶æ€å‡ ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_22(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1116,10 +1116,10 @@ BYTE SkillStatus_22(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬23 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(Ò»´ÎĞÔ¹¥»÷£¬¹¥»÷Ê±³¤²»³¬¹ı2Ãë)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€23 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(ä¸€æ¬¡æ€§æ”»å‡»ï¼Œæ”»å‡»æ—¶é•¿ä¸è¶…è¿‡2ç§’)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_23(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1162,10 +1162,10 @@ BYTE SkillStatus_23(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬24 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€24 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_24(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1208,10 +1208,10 @@ BYTE SkillStatus_24(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬25 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨Êõ¹¥»÷Á¦¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€25 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯æ”»å‡»åŠ›å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_25(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1254,10 +1254,10 @@ BYTE SkillStatus_25(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬26 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨Êõ¹¥»÷Á¦°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€26 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_26(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1300,10 +1300,10 @@ BYTE SkillStatus_26(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬27 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµÉÏÏŞ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€27 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼ä¸Šé™å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_27(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1337,10 +1337,10 @@ BYTE SkillStatus_27(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬28 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµÉÏÏŞ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€28 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼ä¸Šé™ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_28(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1373,10 +1373,10 @@ BYTE SkillStatus_28(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬29 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨ÊõÖµÉÏÏŞ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€29 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯å€¼ä¸Šé™å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_29(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1410,10 +1410,10 @@ BYTE SkillStatus_29(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬30 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨ÊõÖµÉÏÏŞ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€30 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯å€¼ä¸Šé™ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_30(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1446,10 +1446,10 @@ BYTE SkillStatus_30(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬31 Ôö¼Ó×´Ì¬½ÓÊÜÕßÌåÁ¦ÖµÉÏÏŞ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€31 å¢åŠ çŠ¶æ€æ¥å—è€…ä½“åŠ›å€¼ä¸Šé™å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_31(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1482,10 +1482,10 @@ BYTE SkillStatus_31(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬32 Ôö¼Ó×´Ì¬½ÓÊÜÕßÌåÁ¦ÖµÉÏÏŞ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€32 å¢åŠ çŠ¶æ€æ¥å—è€…ä½“åŠ›å€¼ä¸Šé™ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_32(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1519,10 +1519,10 @@ BYTE SkillStatus_32(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬33 Ôö¼Ó×´Ì¬½ÓÊÜÕßµÄÃüÖĞÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€33 å¢åŠ çŠ¶æ€æ¥å—è€…çš„å‘½ä¸­ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_33(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1565,10 +1565,10 @@ BYTE SkillStatus_33(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬34 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµ»Ø¸´ËÙ¶È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€34 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼å›å¤é€Ÿåº¦
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_34(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1611,10 +1611,10 @@ BYTE SkillStatus_34(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬35 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨ÊõÖµ»Ø¸´ËÙ¶È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€35 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯å€¼å›å¤é€Ÿåº¦
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_35(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1657,10 +1657,10 @@ BYTE SkillStatus_35(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬36 Ôö¼Ó×´Ì¬½ÓÊÜÕßÌåÁ¦Öµ»Ø¸´ËÙ¶È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€36 å¢åŠ çŠ¶æ€æ¥å—è€…ä½“åŠ›å€¼å›å¤é€Ÿåº¦
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_36(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1703,10 +1703,10 @@ BYTE SkillStatus_36(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬37 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉÁ±ÜÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€37 å¢åŠ çŠ¶æ€æ¥å—è€…é—ªé¿ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_37(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1749,10 +1749,10 @@ BYTE SkillStatus_37(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬38 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€38 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_38(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1793,10 +1793,10 @@ BYTE SkillStatus_38(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬39 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€39 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_39(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1850,10 +1850,10 @@ BYTE SkillStatus_39(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬40 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨ÊõÖµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€40 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_40(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1894,10 +1894,10 @@ BYTE SkillStatus_40(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬41 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨ÊõÖµ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€41 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯å€¼ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_41(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1938,10 +1938,10 @@ BYTE SkillStatus_41(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬42 Ôö¼Ó×´Ì¬½ÓÊÜÕßÌåÁ¦Öµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€42 å¢åŠ çŠ¶æ€æ¥å—è€…ä½“åŠ›å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_42(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -1982,10 +1982,10 @@ BYTE SkillStatus_42(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬43 Ôö¼Ó×´Ì¬½ÓÊÜÕßÌåÁ¦Öµ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€43 å¢åŠ çŠ¶æ€æ¥å—è€…ä½“åŠ›å€¼ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_43(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2026,10 +2026,10 @@ BYTE SkillStatus_43(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬44 ×´Ì¬½ÓÊÜÕß±»¸´»î
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€44 çŠ¶æ€æ¥å—è€…è¢«å¤æ´»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_44(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2069,10 +2069,10 @@ BYTE SkillStatus_44(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬45 ×´Ì¬½ÓÊÜÕßÊÜµ½ÉËº¦Ê±,·´µ¯¹Ì¶¨ÖµÉËº¦(²»°üÀ¨Ô¶³Ì·¨ÊõºÍÔ¶³Ì¹¥»÷)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€45 çŠ¶æ€æ¥å—è€…å—åˆ°ä¼¤å®³æ—¶,åå¼¹å›ºå®šå€¼ä¼¤å®³(ä¸åŒ…æ‹¬è¿œç¨‹æ³•æœ¯å’Œè¿œç¨‹æ”»å‡»)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_45(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2114,10 +2114,10 @@ BYTE SkillStatus_45(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬46 ×´Ì¬½ÓÊÜÕßÊÜµ½ÉËº¦Ê±,·´µ¯°Ù·Ö±ÈÉËº¦(²»°üÀ¨Ô¶³Ì·¨ÊõºÍÔ¶³Ì¹¥»÷)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€46 çŠ¶æ€æ¥å—è€…å—åˆ°ä¼¤å®³æ—¶,åå¼¹ç™¾åˆ†æ¯”ä¼¤å®³(ä¸åŒ…æ‹¬è¿œç¨‹æ³•æœ¯å’Œè¿œç¨‹æ”»å‡»)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_46(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2159,10 +2159,10 @@ BYTE SkillStatus_46(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬47 ×´Ì¬½ÓÊÜÕß±»»÷ÍË3¸ñ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€47 çŠ¶æ€æ¥å—è€…è¢«å‡»é€€3æ ¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_47(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2203,10 +2203,10 @@ BYTE SkillStatus_47(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬48 Ïû³ıÄ¿±ê»ò×ÔÉíÕıÔÚ³ÖĞøÊ±¼äÄÚµÄÄ§·¨Ğ§¹û(ÕıÃæ¸ºÃæĞ§¹û¶¼È«²¿Ïû³ı)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€48 æ¶ˆé™¤ç›®æ ‡æˆ–è‡ªèº«æ­£åœ¨æŒç»­æ—¶é—´å†…çš„é­”æ³•æ•ˆæœ(æ­£é¢è´Ÿé¢æ•ˆæœéƒ½å…¨éƒ¨æ¶ˆé™¤)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_48(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2246,10 +2246,10 @@ BYTE SkillStatus_48(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬49 Ïû³ı½ÇÉ«»òÕßÄ¿±êÍæ¼ÒÉíÉÏµÄËùÓĞ²»Á¼×´Ì¬(²»Á¼×´Ì¬Áí±íÁĞÃ÷)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€49 æ¶ˆé™¤è§’è‰²æˆ–è€…ç›®æ ‡ç©å®¶èº«ä¸Šçš„æ‰€æœ‰ä¸è‰¯çŠ¶æ€(ä¸è‰¯çŠ¶æ€å¦è¡¨åˆ—æ˜)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_49(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2289,10 +2289,10 @@ BYTE SkillStatus_49(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬50 µ±½ÇÉ«»òÄ¿±êÊÜµ½ÉËº¦Ê±,·´µ¯°Ù·Ö±ÈÉËº¦(¿ÉÒÔ·´µ¯½ü¾à¼¼ÄÜ¹¥»÷ÉËº¦)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€50 å½“è§’è‰²æˆ–ç›®æ ‡å—åˆ°ä¼¤å®³æ—¶,åå¼¹ç™¾åˆ†æ¯”ä¼¤å®³(å¯ä»¥åå¼¹è¿‘è·æŠ€èƒ½æ”»å‡»ä¼¤å®³)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_50(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2335,12 +2335,12 @@ BYTE SkillStatus_50(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬51 ÖĞ¶¾×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€51 ä¸­æ¯’çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
-BYTE SkillStatus_51(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtimer·½·¨
+BYTE SkillStatus_51(SceneEntryPk *pEntry, SkillStatusElement &sse) // åŸæ¥çš„timeræ–¹æ³•
 {
 	sse.byGoodnessType = SKILL_BAD;
 	sse.byMutexType = 34;
@@ -2355,7 +2355,7 @@ BYTE SkillStatus_51(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 				{
 					if (zMisc::selectByPercent(pEntry->getPoisondef()))
 					{
-						pEntry->sendMessageToMe("ÖĞ¶¾×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("ä¸­æ¯’çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -2372,7 +2372,7 @@ BYTE SkillStatus_51(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -2408,12 +2408,12 @@ BYTE SkillStatus_51(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 
 
 /**
- * \brief	×´Ì¬52 Ê¯»¯×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€52 çŸ³åŒ–çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
-BYTE SkillStatus_52(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtimer·½·¨
+BYTE SkillStatus_52(SceneEntryPk *pEntry, SkillStatusElement &sse) // åŸæ¥çš„timeræ–¹æ³•
 {
 	sse.byGoodnessType = SKILL_BAD;
 	sse.byMutexType = 35;
@@ -2428,7 +2428,7 @@ BYTE SkillStatus_52(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 				{
 					if (zMisc::selectByPercent(pEntry->getPetrifydef()))
 					{
-						pEntry->sendMessageToMe("Ê¯»¯×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("çŸ³åŒ–çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -2473,12 +2473,12 @@ BYTE SkillStatus_52(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 
 
 /**
- * \brief	×´Ì¬53 Ê§Ã÷×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€53 å¤±æ˜çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
-BYTE SkillStatus_53(SceneEntryPk *pEntry, SkillStatusElement &sse)  //Ô­À´µÄtimer·½·¨
+BYTE SkillStatus_53(SceneEntryPk *pEntry, SkillStatusElement &sse)  //åŸæ¥çš„timeræ–¹æ³•
 {
 	sse.byGoodnessType = SKILL_BAD;
 	sse.byMutexType = 36;
@@ -2493,7 +2493,7 @@ BYTE SkillStatus_53(SceneEntryPk *pEntry, SkillStatusElement &sse)  //Ô­À´µÄtime
 				{
 					if (zMisc::selectByPercent(pEntry->getBlinddef()))
 					{
-						pEntry->sendMessageToMe("Ê§Ã÷×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("å¤±æ˜çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -2527,12 +2527,12 @@ BYTE SkillStatus_53(SceneEntryPk *pEntry, SkillStatusElement &sse)  //Ô­À´µÄtime
 
 
 /**
- * \brief	×´Ì¬54 »ìÂÒ×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€54 æ··ä¹±çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
-BYTE SkillStatus_54(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtimer·½·¨
+BYTE SkillStatus_54(SceneEntryPk *pEntry, SkillStatusElement &sse) // åŸæ¥çš„timeræ–¹æ³•
 {
 	sse.byGoodnessType = SKILL_BAD;
 	sse.byMutexType = 37;
@@ -2547,7 +2547,7 @@ BYTE SkillStatus_54(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 				{
 					if (zMisc::selectByPercent(pEntry->getChaosdef()))
 					{
-						pEntry->sendMessageToMe("»ìÂÒ×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("æ··ä¹±çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -2565,7 +2565,7 @@ BYTE SkillStatus_54(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 /*				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -2601,12 +2601,12 @@ BYTE SkillStatus_54(SceneEntryPk *pEntry, SkillStatusElement &sse) // Ô­À´µÄtime
 
 
 /**
- * \brief	×´Ì¬55 ±ù¶³×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€55 å†°å†»çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
-BYTE SkillStatus_55(SceneEntryPk *pEntry, SkillStatusElement &sse)  // Ô­À´µÄtime·½·¨
+BYTE SkillStatus_55(SceneEntryPk *pEntry, SkillStatusElement &sse)  // åŸæ¥çš„timeæ–¹æ³•
 {
 	sse.byGoodnessType = SKILL_BAD;
 	sse.byMutexType = 38;
@@ -2621,7 +2621,7 @@ BYTE SkillStatus_55(SceneEntryPk *pEntry, SkillStatusElement &sse)  // Ô­À´µÄtim
 				{
 					if (zMisc::selectByPercent(pEntry->getColddef()))
 					{
-						pEntry->sendMessageToMe("±ù¶³×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("å†°å†»çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -2683,10 +2683,10 @@ BYTE SkillStatus_55(SceneEntryPk *pEntry, SkillStatusElement &sse)  // Ô­À´µÄtim
 }
 
 /**
- * \brief	×´Ì¬56 Ê¹½ÇÉ«»òÄ¿±êÒÆ¶¯ËÙ¶È½µµÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€56 ä½¿è§’è‰²æˆ–ç›®æ ‡ç§»åŠ¨é€Ÿåº¦é™ä½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_56(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2704,7 +2704,7 @@ BYTE SkillStatus_56(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					if (zMisc::selectByPercent(pEntry->getSlowdef()))
 					{
-						pEntry->sendMessageToMe("¼õËÙ×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("å‡é€ŸçŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -2759,10 +2759,10 @@ BYTE SkillStatus_56(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬57 ½µµÍÄ¿±êÎïÀí·ÀÓù¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€57 é™ä½ç›®æ ‡ç‰©ç†é˜²å¾¡å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_57(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2816,10 +2816,10 @@ BYTE SkillStatus_57(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬58 ½µµÍÄ¿±êÎïÀí·ÀÓù°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€58 é™ä½ç›®æ ‡ç‰©ç†é˜²å¾¡ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_58(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2875,10 +2875,10 @@ BYTE SkillStatus_58(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬59 ½µµÍÄ¿±ê·¨Êõ·ÀÓù¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€59 é™ä½ç›®æ ‡æ³•æœ¯é˜²å¾¡å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_59(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2932,10 +2932,10 @@ BYTE SkillStatus_59(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬60 ·¨Êõ·ÀÓù½µµÍ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€60 æ³•æœ¯é˜²å¾¡é™ä½ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_60(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -2991,10 +2991,10 @@ BYTE SkillStatus_60(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬61 Ê¹½ÇÉ«»òÄ¿±êÉúÃüÖµ³ÖĞøÏÂ½µ,ÏÂ½µËÙ¶È±ÈÖĞ¶¾µÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€61 ä½¿è§’è‰²æˆ–ç›®æ ‡ç”Ÿå‘½å€¼æŒç»­ä¸‹é™,ä¸‹é™é€Ÿåº¦æ¯”ä¸­æ¯’ä½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_61(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3021,7 +3021,7 @@ BYTE SkillStatus_61(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -3056,10 +3056,10 @@ BYTE SkillStatus_61(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬62 Ê¹½ÇÉ«»òÄ¿±ê·¨ÊõÖµ³ÖĞøÏÂ½µ,ËÙ¶ÈÓëÉúÃüÖµ³ÖĞø½µµÍÏàµ±
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€62 ä½¿è§’è‰²æˆ–ç›®æ ‡æ³•æœ¯å€¼æŒç»­ä¸‹é™,é€Ÿåº¦ä¸ç”Ÿå‘½å€¼æŒç»­é™ä½ç›¸å½“
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_62(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3100,10 +3100,10 @@ BYTE SkillStatus_62(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬63 Ê¹½ÇÉ«»òÄ¿±êÌåÁ¦Öµ³ÖĞøÏÂ½µ,ËÙ¶ÈÓëÉúÃüÖµ³ÖĞø½µµÍÏàµ±
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€63 ä½¿è§’è‰²æˆ–ç›®æ ‡ä½“åŠ›å€¼æŒç»­ä¸‹é™,é€Ÿåº¦ä¸ç”Ÿå‘½å€¼æŒç»­é™ä½ç›¸å½“
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_63(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3144,10 +3144,10 @@ BYTE SkillStatus_63(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬64 ½µµÍÄ¿±êÈ«²¿ÃüÖĞÂÊ,°üÀ¨½ü¾àÎïÀí¹¥»÷,½ü¾à·¨Êõ¹¥»÷,Ô¶³Ì·¨Êõ¹¥»÷ºÍÔ¶³ÌÎïÀí¹¥»÷
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€64 é™ä½ç›®æ ‡å…¨éƒ¨å‘½ä¸­ç‡,åŒ…æ‹¬è¿‘è·ç‰©ç†æ”»å‡»,è¿‘è·æ³•æœ¯æ”»å‡»,è¿œç¨‹æ³•æœ¯æ”»å‡»å’Œè¿œç¨‹ç‰©ç†æ”»å‡»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_64(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3190,10 +3190,10 @@ BYTE SkillStatus_64(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬65 ½«µĞÈËµÄ×¢ÒâÁ¦ÎüÒıµ½Ê©·¨ÕßÉíÉÏ(×ª»»¹¥»÷Ä¿±êÎªÊ©·¨Õß.ÀıÈçÊ¥ÆïÊ¿¶ÔÕıÔÚ¹¥»÷ÆäËûÄ¿±êµÄ¹ÖÎïÊ©·Å,Ê¹¹ÖÎï½«¹¥»÷Ä¿±ê×ªÎªÊ¥ÆïÊ¿)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€65 å°†æ•Œäººçš„æ³¨æ„åŠ›å¸å¼•åˆ°æ–½æ³•è€…èº«ä¸Š(è½¬æ¢æ”»å‡»ç›®æ ‡ä¸ºæ–½æ³•è€….ä¾‹å¦‚åœ£éª‘å£«å¯¹æ­£åœ¨æ”»å‡»å…¶ä»–ç›®æ ‡çš„æ€ªç‰©æ–½æ”¾,ä½¿æ€ªç‰©å°†æ”»å‡»ç›®æ ‡è½¬ä¸ºåœ£éª‘å£«)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_65(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3234,10 +3234,10 @@ BYTE SkillStatus_65(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬66 ½«Ä¿±êÎïÀí·ÀÓù±äÎª0
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€66 å°†ç›®æ ‡ç‰©ç†é˜²å¾¡å˜ä¸º0
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_66(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3253,7 +3253,7 @@ BYTE SkillStatus_66(SceneEntryPk *pEntry, SkillStatusElement &sse)
 			{
 				if(zMisc::selectByPercent((int)(sse.percent)))
 				{
-					pEntry->pdeftozero = true;   // ÎïÀí·ÀÓù±ä³É0
+					pEntry->pdeftozero = true;   // ç‰©ç†é˜²å¾¡å˜æˆ0
 					return SKILL_RECOVERY;
 				}
 				else
@@ -3268,7 +3268,7 @@ BYTE SkillStatus_66(SceneEntryPk *pEntry, SkillStatusElement &sse)
 		case ACTION_STEP_STOP:
 		case ACTION_STEP_CLEAR:
 			{
-				pEntry->pdeftozero = false;   // ÎïÀí·ÀÓù±ä³É0
+				pEntry->pdeftozero = false;   // ç‰©ç†é˜²å¾¡å˜æˆ0
 			}
 			break;
 		default:
@@ -3279,10 +3279,10 @@ BYTE SkillStatus_66(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬67 ½«Ä¿±ê·¨Êõ·ÀÓù±äÎª0
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€67 å°†ç›®æ ‡æ³•æœ¯é˜²å¾¡å˜ä¸º0
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_67(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3298,7 +3298,7 @@ BYTE SkillStatus_67(SceneEntryPk *pEntry, SkillStatusElement &sse)
 			{
 				if(zMisc::selectByPercent((int)(sse.percent)))
 				{
-					pEntry->mdeftozero = true;   // ÎïÀí·ÀÓù±ä³É0
+					pEntry->mdeftozero = true;   // ç‰©ç†é˜²å¾¡å˜æˆ0
 					return SKILL_RECOVERY;
 				}
 				else
@@ -3313,7 +3313,7 @@ BYTE SkillStatus_67(SceneEntryPk *pEntry, SkillStatusElement &sse)
 		case ACTION_STEP_STOP:
 		case ACTION_STEP_CLEAR:
 			{
-				pEntry->mdeftozero = false;   // ÎïÀí·ÀÓù±ä³É0
+				pEntry->mdeftozero = false;   // ç‰©ç†é˜²å¾¡å˜æˆ0
 			}
 			break;
 		default:
@@ -3324,10 +3324,10 @@ BYTE SkillStatus_67(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬68 Ôö¼ÓÄ¿±ê²»Á¼×´Ì¬³ÖĞøÊ±¼ä¹Ì¶¨ÃëÊı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€68 å¢åŠ ç›®æ ‡ä¸è‰¯çŠ¶æ€æŒç»­æ—¶é—´å›ºå®šç§’æ•°
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_68(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3367,10 +3367,10 @@ BYTE SkillStatus_68(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬69 Ôö¼ÓÄ¿±ê²»Á¼×´Ì¬³ÖĞøÊ±¼ä°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€69 å¢åŠ ç›®æ ‡ä¸è‰¯çŠ¶æ€æŒç»­æ—¶é—´ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_69(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3410,10 +3410,10 @@ BYTE SkillStatus_69(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬70 Ê¹Ä¿±ê²»ÄÜ¹¥»÷
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€70 ä½¿ç›®æ ‡ä¸èƒ½æ”»å‡»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_70(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3448,10 +3448,10 @@ BYTE SkillStatus_70(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬71 Ê¹Ä¿±ê²»ÄÜÒÆ¶¯
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€71 ä½¿ç›®æ ‡ä¸èƒ½ç§»åŠ¨
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_71(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3468,7 +3468,7 @@ BYTE SkillStatus_71(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					if (zMisc::selectByPercent(pEntry->getStabledef()))
 					{
-						pEntry->sendMessageToMe("¶¨Éí×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("å®šèº«çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -3498,10 +3498,10 @@ BYTE SkillStatus_71(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬72 ½µµÍ½ÇÉ«»òÄ¿±êÉúÃüÖµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€72 é™ä½è§’è‰²æˆ–ç›®æ ‡ç”Ÿå‘½å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_72(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3509,10 +3509,10 @@ BYTE SkillStatus_72(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬73 ½µµÍ½ÇÉ«»òÄ¿±êÉúÃüÖµ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€73 é™ä½è§’è‰²æˆ–ç›®æ ‡ç”Ÿå‘½å€¼ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_73(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3520,10 +3520,10 @@ BYTE SkillStatus_73(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬74 ½µµÍ½ÇÉ«»òÄ¿±ê·¨ÊõÖµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€74 é™ä½è§’è‰²æˆ–ç›®æ ‡æ³•æœ¯å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_74(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3531,10 +3531,10 @@ BYTE SkillStatus_74(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬75 ½µµÍ½ÇÉ«»òÄ¿±êÌåÁ¦Öµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€75 é™ä½è§’è‰²æˆ–ç›®æ ‡ä½“åŠ›å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_75(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3542,10 +3542,10 @@ BYTE SkillStatus_75(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬76 ½µµÍ½ÇÉ«»òÄ¿±êÌåÁ¦Öµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€76 é™ä½è§’è‰²æˆ–ç›®æ ‡ä½“åŠ›å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_76(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3553,10 +3553,10 @@ BYTE SkillStatus_76(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬77 ½µµÍ½ÇÉ«»òÄ¿±êÌåÁ¦Öµ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€77 é™ä½è§’è‰²æˆ–ç›®æ ‡ä½“åŠ›å€¼ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_77(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3564,10 +3564,10 @@ BYTE SkillStatus_77(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬78 Ê¹½ÇÉ«»òÄ¿±êÉúÃüÖµ±äÎª0,ËÀÍö
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€78 ä½¿è§’è‰²æˆ–ç›®æ ‡ç”Ÿå‘½å€¼å˜ä¸º0,æ­»äº¡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_78(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3607,10 +3607,10 @@ BYTE SkillStatus_78(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬79 Ê¹Ä¿±ê±äÎªËæ»úĞ¡¶¯Îï
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€79 ä½¿ç›®æ ‡å˜ä¸ºéšæœºå°åŠ¨ç‰©
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_79(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3650,10 +3650,10 @@ BYTE SkillStatus_79(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬80 Ôö¼Ó×ÔÉí»òÕßÄ¿±ê¹¥»÷ËÙ¶È°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€80 å¢åŠ è‡ªèº«æˆ–è€…ç›®æ ‡æ”»å‡»é€Ÿåº¦ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_80(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3702,10 +3702,10 @@ BYTE SkillStatus_80(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬81 ½µµÍÄ¿±ê¹¥»÷ËÙ¶È°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€81 é™ä½ç›®æ ‡æ”»å‡»é€Ÿåº¦ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_81(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3754,10 +3754,10 @@ BYTE SkillStatus_81(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬82 ½µµÍ×ÔÉí»òÕßÄ¿±êÏİÈë±ù¶³,ÖĞ¶¾,Ê¯»¯,»ìÂÒ,Ê§Ã÷,Âé±ÔºÍÁ÷ÑªµÄ¼¸ÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€82 é™ä½è‡ªèº«æˆ–è€…ç›®æ ‡é™·å…¥å†°å†»,ä¸­æ¯’,çŸ³åŒ–,æ··ä¹±,å¤±æ˜,éº»ç—¹å’Œæµè¡€çš„å‡ ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_82(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3799,10 +3799,10 @@ BYTE SkillStatus_82(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬83 ¶ÔÄ¿±ê²úÉú¶îÍâÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€83 å¯¹ç›®æ ‡äº§ç”Ÿé¢å¤–ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_83(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3829,7 +3829,7 @@ BYTE SkillStatus_83(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -3865,10 +3865,10 @@ BYTE SkillStatus_83(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬84 ½ÇÉ«»òÄ¿±ê¿ÉÒÔÒÆ¶¯,µ«ÊÇ²»¿ÉÊ¹ÓÃ¼¼ÄÜ¹¥»÷
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€84 è§’è‰²æˆ–ç›®æ ‡å¯ä»¥ç§»åŠ¨,ä½†æ˜¯ä¸å¯ä½¿ç”¨æŠ€èƒ½æ”»å‡»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_84(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3885,7 +3885,7 @@ BYTE SkillStatus_84(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					if (zMisc::selectByPercent(pEntry->getLulldef()))
 					{
-						pEntry->sendMessageToMe("Âé±Ô×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("éº»ç—¹çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -3921,10 +3921,10 @@ BYTE SkillStatus_84(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬85 ½ÇÉ«»òÄ¿±êÉúÃüÖµ³ÖĞøÏÂ½µ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€85 è§’è‰²æˆ–ç›®æ ‡ç”Ÿå‘½å€¼æŒç»­ä¸‹é™
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_85(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -3951,7 +3951,7 @@ BYTE SkillStatus_85(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -3986,10 +3986,10 @@ BYTE SkillStatus_85(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬86 ½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦ÉÏÉı¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€86 è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›ä¸Šå‡å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_86(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4032,10 +4032,10 @@ BYTE SkillStatus_86(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬87 ½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦ÉÏÉı°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€87 è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›ä¸Šå‡ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_87(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4079,10 +4079,10 @@ BYTE SkillStatus_87(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬88 ½«½ÇÉ«µÄ¹¥»÷Á¦µÄ°Ù·Ö±È×ª»»³É·ÀÓùÁ¦¼Óµ½½ÇÉ«·ÀÓùÁ¦ÉÏ,Í¬Ê±¹¥»÷Á¦¼õÉÙÏàÓ¦ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€88 å°†è§’è‰²çš„æ”»å‡»åŠ›çš„ç™¾åˆ†æ¯”è½¬æ¢æˆé˜²å¾¡åŠ›åŠ åˆ°è§’è‰²é˜²å¾¡åŠ›ä¸Š,åŒæ—¶æ”»å‡»åŠ›å‡å°‘ç›¸åº”æ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_88(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4127,10 +4127,10 @@ BYTE SkillStatus_88(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬89 ½«½ÇÉ«»òÄ¿±êµÄÎïÀí¹¥»÷Á¦½µµÍ¹Ì¶¨ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€89 å°†è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†æ”»å‡»åŠ›é™ä½å›ºå®šæ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_89(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4184,10 +4184,10 @@ BYTE SkillStatus_89(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬90 ½«½ÇÉ«»òÄ¿±êµÄÎïÀí¹¥»÷Á¦½µµÍ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€90 å°†è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†æ”»å‡»åŠ›é™ä½ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_90(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4243,10 +4243,10 @@ BYTE SkillStatus_90(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬91 ½«½ÇÉ«»òÄ¿±êµÄ·¨Êõ¹¥»÷Á¦½µµÍ¹Ì¶¨ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€91 å°†è§’è‰²æˆ–ç›®æ ‡çš„æ³•æœ¯æ”»å‡»åŠ›é™ä½å›ºå®šæ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_91(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4300,10 +4300,10 @@ BYTE SkillStatus_91(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬92 ½«½ÇÉ«»òÄ¿±êµÄ·¨Êõ¹¥»÷Á¦½µµÍ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€92 å°†è§’è‰²æˆ–ç›®æ ‡çš„æ³•æœ¯æ”»å‡»åŠ›é™ä½ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_92(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4359,10 +4359,10 @@ BYTE SkillStatus_92(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬93 ´¦ÓÚ´Ë×´Ì¬ÏÂµÄÄ¿±ê²»¹¥»÷Ê©·¨Õß,Ä¿±êÔÚ×´Ì¬³ÖĞøÊ±Ê¼ÖÕ³¢ÊÔÓëÊ©·¨Õß±£³Ö3¸ñÒÔÉÏµÄ¾àÀë
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€93 å¤„äºæ­¤çŠ¶æ€ä¸‹çš„ç›®æ ‡ä¸æ”»å‡»æ–½æ³•è€…,ç›®æ ‡åœ¨çŠ¶æ€æŒç»­æ—¶å§‹ç»ˆå°è¯•ä¸æ–½æ³•è€…ä¿æŒ3æ ¼ä»¥ä¸Šçš„è·ç¦»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_93(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4403,10 +4403,10 @@ BYTE SkillStatus_93(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬94 ´¦ÓÚ´Ë×´Ì¬ÏÂµÄÄ¿±ê²»¿ÉÊ¹ÓÃ¼¼ÄÜ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€94 å¤„äºæ­¤çŠ¶æ€ä¸‹çš„ç›®æ ‡ä¸å¯ä½¿ç”¨æŠ€èƒ½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_94(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4445,10 +4445,10 @@ BYTE SkillStatus_94(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬95 ½«½ÇÉ«»òÄ¿±êµÄ·¨Êõ·ÀÓùÁ¦ÉÏÉı¹Ì¶¨ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€95 å°†è§’è‰²æˆ–ç›®æ ‡çš„æ³•æœ¯é˜²å¾¡åŠ›ä¸Šå‡å›ºå®šæ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_95(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4491,10 +4491,10 @@ BYTE SkillStatus_95(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬96 ·¨Êõ·ÀÓùÉÏÉı°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€96 æ³•æœ¯é˜²å¾¡ä¸Šå‡ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_96(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4540,10 +4540,10 @@ BYTE SkillStatus_96(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬97 ½«½ÇÉ«»òÄ¿±êÊÜµ½µÄÉËº¦¹Ì¶¨Öµ×ª»»µ½ÆäËûÄ¿±êÉÏ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€97 å°†è§’è‰²æˆ–ç›®æ ‡å—åˆ°çš„ä¼¤å®³å›ºå®šå€¼è½¬æ¢åˆ°å…¶ä»–ç›®æ ‡ä¸Š
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_97(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4585,10 +4585,10 @@ BYTE SkillStatus_97(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬98 ½«½ÇÉ«»òÄ¿±êÊÜµ½µÄÉËº¦°Ù·Ö±È×ª»»µ½ÆäËûÄ¿±êÉÏ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€98 å°†è§’è‰²æˆ–ç›®æ ‡å—åˆ°çš„ä¼¤å®³ç™¾åˆ†æ¯”è½¬æ¢åˆ°å…¶ä»–ç›®æ ‡ä¸Š
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_98(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4630,10 +4630,10 @@ BYTE SkillStatus_98(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬99 Ë²¼äÒÆ¶¯
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€99 ç¬é—´ç§»åŠ¨
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_99(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4672,10 +4672,10 @@ BYTE SkillStatus_99(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬100 ÆÆ¸ª³ÁÖÛ×´Ì¬£¨Ä§Îï¹¥»÷Á¦·­300£¬³ÖĞøÊ±¼ä½áÊøºó»ñµÃ¸´»îĞéÈõ×´Ì¬)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€100 ç ´é‡œæ²‰èˆŸçŠ¶æ€ï¼ˆé­”ç‰©æ”»å‡»åŠ›ç¿»300ï¼ŒæŒç»­æ—¶é—´ç»“æŸåè·å¾—å¤æ´»è™šå¼±çŠ¶æ€)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_100(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4714,7 +4714,7 @@ BYTE SkillStatus_100(SceneEntryPk *pEntry, SkillStatusElement &sse)
 					else
 					{
 						pUser->charbase.reliveWeakTime = (SceneTimeTick::currentTime.sec() + sse.dwTime)%10000;
-						// µ÷ÓÃÔ¤´¦Àí·½·¨£¬½øĞĞÖØËã
+						// è°ƒç”¨é¢„å¤„ç†æ–¹æ³•ï¼Œè¿›è¡Œé‡ç®—
 						pUser->setupCharBase();
 
 						Cmd::stMainUserDataUserCmd  userinfo;
@@ -4741,10 +4741,10 @@ BYTE SkillStatus_100(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬101 Î´Öª×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€101 æœªçŸ¥çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_101(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4783,10 +4783,10 @@ BYTE SkillStatus_101(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬102 Ô¶³Ì¹¥»÷È¡ÉÏÏŞ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€102 è¿œç¨‹æ”»å‡»å–ä¸Šé™
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_102(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4829,10 +4829,10 @@ BYTE SkillStatus_102(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬110 ×ÔÉí¹¥»÷È¡ÉÏÏŞ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€110 è‡ªèº«æ”»å‡»å–ä¸Šé™
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_110(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4874,10 +4874,10 @@ BYTE SkillStatus_110(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬111 ¼õÉÙ×´Ì¬½ÓÊÜÕßÉÁ±ÜÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€111 å‡å°‘çŠ¶æ€æ¥å—è€…é—ªé¿ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_111(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4920,10 +4920,10 @@ BYTE SkillStatus_111(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬113 ÕÙ»½ÕÙ»½ÊŞ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€113 å¬å”¤å¬å”¤å…½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_113(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4935,10 +4935,10 @@ BYTE SkillStatus_113(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬114 ÖØĞÂ¼ÆËãËùÓĞ¼¼ÄÜµÄÀäÈ´Ê±¼ä
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€114 é‡æ–°è®¡ç®—æ‰€æœ‰æŠ€èƒ½çš„å†·å´æ—¶é—´
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_114(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -4978,10 +4978,10 @@ BYTE SkillStatus_114(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬115 ¿ñÂÒ¹¥»÷
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€115 ç‹‚ä¹±æ”»å‡»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_115(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5022,10 +5022,10 @@ BYTE SkillStatus_115(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬116 ½â³ıÕÙ»½
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€116 è§£é™¤å¬å”¤
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_116(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5065,10 +5065,10 @@ BYTE SkillStatus_116(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬117 ±»¶¯£º¶îÍâÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€117 è¢«åŠ¨ï¼šé¢å¤–ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_117(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5108,10 +5108,10 @@ BYTE SkillStatus_117(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬119 ²»ÄÜ»Ø¸´HP,MP,SP
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€119 ä¸èƒ½å›å¤HP,MP,SP
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_119(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5152,10 +5152,10 @@ BYTE SkillStatus_119(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬120 ²»ÄÜÊ¹ÓÃÎïÆ·
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€120 ä¸èƒ½ä½¿ç”¨ç‰©å“
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_120(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5196,10 +5196,10 @@ BYTE SkillStatus_120(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬121 ³å·æ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€121 å†²é”‹
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_121(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5245,10 +5245,10 @@ BYTE SkillStatus_121(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬122 Ñ£ÔÎ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€122 çœ©æ™•
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_122(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5265,7 +5265,7 @@ BYTE SkillStatus_122(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					if (zMisc::selectByPercent(pEntry->getReeldef()))
 					{
-						pEntry->sendMessageToMe("Ñ£ÔÎ×´Ì¬±»µÖ¿¹");
+						pEntry->sendMessageToMe("çœ©æ™•çŠ¶æ€è¢«æŠµæŠ—");
 						return SKILL_RETURN;
 					}
 					else
@@ -5324,10 +5324,10 @@ BYTE SkillStatus_122(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬123 ÁÔÊÖÓ¡¼Ç
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€123 çŒæ‰‹å°è®°
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_123(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5369,10 +5369,10 @@ BYTE SkillStatus_123(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬124 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€124 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_124(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5415,10 +5415,10 @@ BYTE SkillStatus_124(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬125 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨Êõ¹¥»÷Á¦¹Ì¶¨Öµ(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€125 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯æ”»å‡»åŠ›å›ºå®šå€¼(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_125(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5461,10 +5461,10 @@ BYTE SkillStatus_125(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬126 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí·ÀÓùÁ¦¹Ì¶¨Öµ(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€126 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†é˜²å¾¡åŠ›å›ºå®šå€¼(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_126(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5507,10 +5507,10 @@ BYTE SkillStatus_126(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬127 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨Êõ·ÀÓù¹Ì¶¨Öµ(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€127 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯é˜²å¾¡å›ºå®šå€¼(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_127(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5559,10 +5559,10 @@ BYTE SkillStatus_127(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬128 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€128 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_128(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5607,10 +5607,10 @@ BYTE SkillStatus_128(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬129 Ôö¼Ó½ÇÉ«È«²¿ÊôĞÔµã¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€129 å¢åŠ è§’è‰²å…¨éƒ¨å±æ€§ç‚¹å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_129(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5653,10 +5653,10 @@ BYTE SkillStatus_129(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬130 Ôö¼ÓÃüÖĞÂÊ£¨±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€130 å¢åŠ å‘½ä¸­ç‡ï¼ˆè¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_130(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5699,10 +5699,10 @@ BYTE SkillStatus_130(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬131 Ôö¼Ó¹¥»÷¹¥»÷ËÙ¶È£¨±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€131 å¢åŠ æ”»å‡»æ”»å‡»é€Ÿåº¦ï¼ˆè¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_131(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5751,10 +5751,10 @@ BYTE SkillStatus_131(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬132 Ò×ÈİÊõ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€132 æ˜“å®¹æœ¯
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_132(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5762,10 +5762,10 @@ BYTE SkillStatus_132(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬133 È¡ÎïÀí¹¥·À
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€133 å–ç‰©ç†æ”»é˜²
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_133(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5774,10 +5774,10 @@ BYTE SkillStatus_133(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬134 È¡·¨Êõ¹¥·À
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€134 å–æ³•æœ¯æ”»é˜²
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_134(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5786,10 +5786,10 @@ BYTE SkillStatus_134(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬135 ¹­¼ıÀàÎïÀí¹¥»÷Á¦ÌáÉı¹Ì¶¨Öµ(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€135 å¼“ç®­ç±»ç‰©ç†æ”»å‡»åŠ›æå‡å›ºå®šå€¼(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_135(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5838,10 +5838,10 @@ BYTE SkillStatus_135(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬136 ¹÷×ÓÀàÎïÀí¹¥»÷Á¦ÌáÉı¹Ì¶¨Öµ(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€136 æ£å­ç±»ç‰©ç†æ”»å‡»åŠ›æå‡å›ºå®šå€¼(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_136(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5890,10 +5890,10 @@ BYTE SkillStatus_136(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬137 ¿ÖÏÅ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€137 æå“
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_137(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5934,10 +5934,10 @@ BYTE SkillStatus_137(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬138 ¹­¼ıÀàÃüÖĞÂÊÉÏÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€138 å¼“ç®­ç±»å‘½ä¸­ç‡ä¸Šå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_138(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -5986,10 +5986,10 @@ BYTE SkillStatus_138(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬139 ÍÁÁé¼ÓÇ¿
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€139 åœŸçµåŠ å¼º
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_139(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6001,10 +6001,10 @@ BYTE SkillStatus_139(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬140 ÷¼÷Ã¹­ÊÖ¼ÓÇ¿
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€140 éª·é«…å¼“æ‰‹åŠ å¼º
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_140(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6016,10 +6016,10 @@ BYTE SkillStatus_140(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬141 Ìì±ø¼ÓÇ¿
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€141 å¤©å…µåŠ å¼º
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_141(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6031,10 +6031,10 @@ BYTE SkillStatus_141(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬142 ÕÙ»½ÍÁÁé
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€142 å¬å”¤åœŸçµ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_142(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6045,10 +6045,10 @@ BYTE SkillStatus_142(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬143 ÕÙ»½÷¼÷Ã¹­ÊÖ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€143 å¬å”¤éª·é«…å¼“æ‰‹
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_143(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6060,10 +6060,10 @@ BYTE SkillStatus_143(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬144 ÕÙ»½Ìì±ø
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€144 å¬å”¤å¤©å…µ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_144(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6075,10 +6075,10 @@ BYTE SkillStatus_144(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬145 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(Ö»ÓĞÔÚÊÖÉÏÓĞ¼ıµÄÊ±ºò´Ë×´Ì¬²ÅÉúĞ§)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€145 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(åªæœ‰åœ¨æ‰‹ä¸Šæœ‰ç®­çš„æ—¶å€™æ­¤çŠ¶æ€æ‰ç”Ÿæ•ˆ)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_145(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6130,10 +6130,10 @@ BYTE SkillStatus_145(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬146 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€146 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_146(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6176,10 +6176,10 @@ BYTE SkillStatus_146(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬147 ÌáÉıÎäÆ÷µÄÎïÀí¹¥»÷Á¦°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€147 æå‡æ­¦å™¨çš„ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_147(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6222,10 +6222,10 @@ BYTE SkillStatus_147(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬148 ÌáÉıÎäÆ÷µÄ·¨Êõ¹¥»÷Á¦°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€148 æå‡æ­¦å™¨çš„æ³•æœ¯æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_148(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6268,10 +6268,10 @@ BYTE SkillStatus_148(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬149 ½»»»Ö÷ÈËÓëÕÙ»½ÊŞµÄÎ»ÖÃ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€149 äº¤æ¢ä¸»äººä¸å¬å”¤å…½çš„ä½ç½®
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_149(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6284,10 +6284,10 @@ BYTE SkillStatus_149(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬150 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµÉÏÏŞ Ôö¼Ó²¿·ÖÎªÏµÊı³ËÖ÷ÈËµÄ·¨Á¦ÖµÊ£ÓàµãÊı£¨ÕÙ»½ÊŞ×¨ÓÃ×´Ì¬£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€150 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼ä¸Šé™ å¢åŠ éƒ¨åˆ†ä¸ºç³»æ•°ä¹˜ä¸»äººçš„æ³•åŠ›å€¼å‰©ä½™ç‚¹æ•°ï¼ˆå¬å”¤å…½ä¸“ç”¨çŠ¶æ€ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_150(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6330,10 +6330,10 @@ BYTE SkillStatus_150(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬151 °´±ÈÀıÔö¼Ó¹¥»÷Á¦ Ôö¼ÓÖµµÈÓÚÖ÷ÈËµÄ·¨ÊõÖµ³ËÔö¼ÓÏµÊı£¨ÕÙ»½ÊŞ×¨ÓÃ×´Ì¬£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€151 æŒ‰æ¯”ä¾‹å¢åŠ æ”»å‡»åŠ› å¢åŠ å€¼ç­‰äºä¸»äººçš„æ³•æœ¯å€¼ä¹˜å¢åŠ ç³»æ•°ï¼ˆå¬å”¤å…½ä¸“ç”¨çŠ¶æ€ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_151(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6375,10 +6375,10 @@ BYTE SkillStatus_151(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬152 Ôö¼Ó×´Ì¬½ÓÊÜÕß·ÀÓùÁ¦ Ôö¼Ó²¿·ÖÎªÏµÊı³ËÖ÷ÈËµÄ·¨Á¦ÖµÊ£ÓàµãÊı£¨ÕÙ»½ÊŞ×¨ÓÃ×´Ì¬£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€152 å¢åŠ çŠ¶æ€æ¥å—è€…é˜²å¾¡åŠ› å¢åŠ éƒ¨åˆ†ä¸ºç³»æ•°ä¹˜ä¸»äººçš„æ³•åŠ›å€¼å‰©ä½™ç‚¹æ•°ï¼ˆå¬å”¤å…½ä¸“ç”¨çŠ¶æ€ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_152(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6420,10 +6420,10 @@ BYTE SkillStatus_152(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬153 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµÉÏÏŞ Ôö¼Ó²¿·ÖÎªÏµÊı³ËÖ÷ÈËµÄ·¨Á¦ÖµÊ£ÓàµãÊı£¨ÕÙ»½ÊŞ×¨ÓÃ×´Ì¬£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€153 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼ä¸Šé™ å¢åŠ éƒ¨åˆ†ä¸ºç³»æ•°ä¹˜ä¸»äººçš„æ³•åŠ›å€¼å‰©ä½™ç‚¹æ•°ï¼ˆå¬å”¤å…½ä¸“ç”¨çŠ¶æ€ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_153(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6436,10 +6436,10 @@ BYTE SkillStatus_153(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬154 ¹­¼ıÀàÎïÀí¹¥»÷Á¦ÌáÉı°Ù·Ö±È(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€154 å¼“ç®­ç±»ç‰©ç†æ”»å‡»åŠ›æå‡ç™¾åˆ†æ¯”(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_154(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6488,10 +6488,10 @@ BYTE SkillStatus_154(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬155 ¹­¼ıÀàÎïÀí¹¥»÷Á¦ÌáÉı¹Ì¶¨Öµ(±»¶¯)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€155 å¼“ç®­ç±»ç‰©ç†æ”»å‡»åŠ›æå‡å›ºå®šå€¼(è¢«åŠ¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_155(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6541,10 +6541,10 @@ BYTE SkillStatus_155(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬156 (±»¶¯)ÉúÃüÖµÉÏÏŞÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€156 (è¢«åŠ¨)ç”Ÿå‘½å€¼ä¸Šé™æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_156(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6577,10 +6577,10 @@ BYTE SkillStatus_156(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬157 Ôö¼ÓÈËÎïÊ©·Å³öÖØ»÷µÄ¼¸ÂÊ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€157 å¢åŠ äººç‰©æ–½æ”¾å‡ºé‡å‡»çš„å‡ ç‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_157(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6613,10 +6613,10 @@ BYTE SkillStatus_157(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬158 ÏÉÊõÔö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(³¤Ğ§)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€158 ä»™æœ¯å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(é•¿æ•ˆ)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_158(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6670,10 +6670,10 @@ BYTE SkillStatus_158(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬159 ÏÉÊõÔö¼Ó½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦ÉÏÉı¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€159 ä»™æœ¯å¢åŠ è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›ä¸Šå‡å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_159(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6727,10 +6727,10 @@ BYTE SkillStatus_159(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬160 ÏÉÊõÔö¼Ó½ÇÉ«»òÄ¿±êµÄ·¨Êõ·ÀÓùÁ¦ÉÏÉı¹Ì¶¨ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€160 ä»™æœ¯å¢åŠ è§’è‰²æˆ–ç›®æ ‡çš„æ³•æœ¯é˜²å¾¡åŠ›ä¸Šå‡å›ºå®šæ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_160(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6784,10 +6784,10 @@ BYTE SkillStatus_160(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬161 ¶ÔÄ¿±ê²úÉú¶îÍâÉËº¦,ÉËº¦ÖµÈ¡¹¥»÷ÕßÉúÃüÖµµÄX%
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€161 å¯¹ç›®æ ‡äº§ç”Ÿé¢å¤–ä¼¤å®³,ä¼¤å®³å€¼å–æ”»å‡»è€…ç”Ÿå‘½å€¼çš„X%
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_161(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6805,7 +6805,7 @@ BYTE SkillStatus_161(SceneEntryPk *pEntry, SkillStatusElement &sse)
 					SceneEntryPk *pAtt = NULL;
 					switch(sse.attacktype)
 					{
-						case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+						case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 							{
 								pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 							}
@@ -6831,7 +6831,7 @@ BYTE SkillStatus_161(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -6867,10 +6867,10 @@ BYTE SkillStatus_161(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬163 È¥µôÍæ¼ÒÎäÆ÷¹¥»÷Á¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€163 å»æ‰ç©å®¶æ­¦å™¨æ”»å‡»åŠ›
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_163(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6913,10 +6913,10 @@ BYTE SkillStatus_163(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬165 ±»¶¯-ÕÙ»½ÊŞÊÜµ½µÄÉËº¦½µµÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€165 è¢«åŠ¨-å¬å”¤å…½å—åˆ°çš„ä¼¤å®³é™ä½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_165(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -6971,10 +6971,10 @@ BYTE SkillStatus_165(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬168 ÕÙ»½ÊŞÖØÉú
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€168 å¬å”¤å…½é‡ç”Ÿ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_168(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7018,10 +7018,10 @@ BYTE SkillStatus_168(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬169 ÏÉÊõÔö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦¹Ì¶¨Öµ(³¤Ğ§)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€169 ä»™æœ¯å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›å›ºå®šå€¼(é•¿æ•ˆ)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_169(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7075,10 +7075,10 @@ BYTE SkillStatus_169(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬170 (±»¶¯)ÉúÃüÖµÉÏÏŞÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€170 (è¢«åŠ¨)ç”Ÿå‘½å€¼ä¸Šé™æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_170(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7115,10 +7115,10 @@ BYTE SkillStatus_170(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬172 Õì²ìÏİÚå
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€172 ä¾¦å¯Ÿé™·é˜±
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_172(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7172,10 +7172,10 @@ BYTE SkillStatus_172(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬173 ÕÙ»½ÈÚºÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€173 å¬å”¤èå’Œ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_173(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7195,13 +7195,13 @@ BYTE SkillStatus_173(SceneEntryPk *pEntry, SkillStatusElement &sse)
 			{
 				if (pEntry->summon && ((pEntry->summon->id >= (DWORD)sse.percent)&&(pEntry->summon->id < (DWORD)sse.percent+10)))
 				{
-					pEntry->skillValue.introject_maxmdam = (WORD)(pEntry->summon->getMaxMDamage()*sse.value/100.0f); // ÕÙ»½ºÏÌåÔö¼ÓÄ§·¨¹¥»÷
-					pEntry->skillValue.introject_maxpdam = (WORD)(pEntry->summon->getMaxPDamage()*sse.value/100.0f); // ÕÙ»½ºÏÌåÔö¼ÓÎïÀí¹¥»÷
-					pEntry->skillValue.introject_mdam	 = (WORD)(pEntry->summon->getMinMDamage()*sse.value/100.0f); // ÕÙ»½ºÏÌåÔö¼ÓÄ§·¨¹¥»÷
-					pEntry->skillValue.introject_pdam	 = (WORD)(pEntry->summon->getMinPDamage()*sse.value/100.0f); // ÕÙ»½ºÏÌåÔö¼ÓÎïÀí¹¥»÷
-					pEntry->skillValue.introject_mdef	 = (WORD)((pEntry->summon->getMaxMDefence()*sse.value/100.0f)*0.5f); // ÕÙ»½ºÏÌåÔö¼ÓÄ§·¨·ÀÓù
-					pEntry->skillValue.introject_pdef	 = (WORD)((pEntry->summon->getMaxPDefence()*sse.value/100.0f)*0.5f); // ÕÙ»½ºÏÌåÔö¼ÓÎïÀí·ÀÓù
-					pEntry->skillValue.introject_maxhp	 = (WORD)((pEntry->summon->getMaxHP()*sse.value/100.0f)); // ÕÙ»½ºÏÌåÔö¼ÓÎïÀí·ÀÓù
+					pEntry->skillValue.introject_maxmdam = (WORD)(pEntry->summon->getMaxMDamage()*sse.value/100.0f); // å¬å”¤åˆä½“å¢åŠ é­”æ³•æ”»å‡»
+					pEntry->skillValue.introject_maxpdam = (WORD)(pEntry->summon->getMaxPDamage()*sse.value/100.0f); // å¬å”¤åˆä½“å¢åŠ ç‰©ç†æ”»å‡»
+					pEntry->skillValue.introject_mdam	 = (WORD)(pEntry->summon->getMinMDamage()*sse.value/100.0f); // å¬å”¤åˆä½“å¢åŠ é­”æ³•æ”»å‡»
+					pEntry->skillValue.introject_pdam	 = (WORD)(pEntry->summon->getMinPDamage()*sse.value/100.0f); // å¬å”¤åˆä½“å¢åŠ ç‰©ç†æ”»å‡»
+					pEntry->skillValue.introject_mdef	 = (WORD)((pEntry->summon->getMaxMDefence()*sse.value/100.0f)*0.5f); // å¬å”¤åˆä½“å¢åŠ é­”æ³•é˜²å¾¡
+					pEntry->skillValue.introject_pdef	 = (WORD)((pEntry->summon->getMaxPDefence()*sse.value/100.0f)*0.5f); // å¬å”¤åˆä½“å¢åŠ ç‰©ç†é˜²å¾¡
+					pEntry->skillValue.introject_maxhp	 = (WORD)((pEntry->summon->getMaxHP()*sse.value/100.0f)); // å¬å”¤åˆä½“å¢åŠ ç‰©ç†é˜²å¾¡
 					pEntry->killSummon();
 					if (pEntry->getType() == zSceneEntry::SceneEntry_Player)
 					{
@@ -7241,10 +7241,10 @@ BYTE SkillStatus_173(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬176 ·´µ¯Ò»¸ö×ÆÈÈ×´Ì¬¸ø¹¥»÷×Ô¼ºµÄÍæ¼Ò
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€176 åå¼¹ä¸€ä¸ªç¼çƒ­çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„ç©å®¶
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_176(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7286,10 +7286,10 @@ BYTE SkillStatus_176(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬177 ÑµÆËÒ°ÊŞ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€177 è®­æ‰‘é‡å…½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_177(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7305,7 +7305,7 @@ BYTE SkillStatus_177(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -7348,10 +7348,10 @@ BYTE SkillStatus_177(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬178 ¸´»î³èÎï
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€178 å¤æ´»å® ç‰©
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_178(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7391,10 +7391,10 @@ BYTE SkillStatus_178(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬179 ÎüÒıÑµÁ·(³èÎï±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€179 å¸å¼•è®­ç»ƒ(å® ç‰©è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_179(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7431,10 +7431,10 @@ BYTE SkillStatus_179(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬180 ³èÎïÔöÇ¿(³èÎï±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€180 å® ç‰©å¢å¼º(å® ç‰©è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_180(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7479,10 +7479,10 @@ BYTE SkillStatus_180(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬182 ºúÑÔÂÒÓï£¬Ê¹Íæ¼ÒËµ»°È«ÎªÂÒÂë
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€182 èƒ¡è¨€ä¹±è¯­ï¼Œä½¿ç©å®¶è¯´è¯å…¨ä¸ºä¹±ç 
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_182(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7536,10 +7536,10 @@ BYTE SkillStatus_182(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬184 Õ½Ê¿ÉúÃü°´¼¶±ğÔö¼Ó£¨±»¶¯ĞèÒªÎäÆ÷£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€184 æˆ˜å£«ç”Ÿå‘½æŒ‰çº§åˆ«å¢åŠ ï¼ˆè¢«åŠ¨éœ€è¦æ­¦å™¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_184(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7588,10 +7588,10 @@ BYTE SkillStatus_184(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬185 ·´µ¯Ò»¸öÖĞ¶¾×´Ì¬¸ø¹¥»÷×Ô¼ºµÄÍæ¼Ò
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€185 åå¼¹ä¸€ä¸ªä¸­æ¯’çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„ç©å®¶
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_185(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7633,10 +7633,10 @@ BYTE SkillStatus_185(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬186 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦°Ù·Ö±È(ÏÉÊõÄ³¼¼ÄÜ×¨ÓÃ)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€186 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”(ä»™æœ¯æŸæŠ€èƒ½ä¸“ç”¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_186(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7679,10 +7679,10 @@ BYTE SkillStatus_186(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬187 ½«½ÇÉ«ÎïÀí¹¥»÷Á¦×ª»»³ÉÎïÀí·ÀÓùÁ¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€187 å°†è§’è‰²ç‰©ç†æ”»å‡»åŠ›è½¬æ¢æˆç‰©ç†é˜²å¾¡åŠ›
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_187(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7738,10 +7738,10 @@ BYTE SkillStatus_187(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬188 ½«½ÇÉ«¿Û³ı·¨Êõ¹¥»÷Á¦ÔöÇ¿·¨Êõ·ÀÓùÁ¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€188 å°†è§’è‰²æ‰£é™¤æ³•æœ¯æ”»å‡»åŠ›å¢å¼ºæ³•æœ¯é˜²å¾¡åŠ›
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_188(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7799,10 +7799,10 @@ BYTE SkillStatus_188(SceneEntryPk *pEntry, SkillStatusElement &sse)
 //-----------
 
 /**
- * \brief	×´Ì¬189 ½«½ÇÉ«¿Û³ıÎïÀí·ÀÓùÁ¦×ª³ÉÎïÀí¹¥»÷Á¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€189 å°†è§’è‰²æ‰£é™¤ç‰©ç†é˜²å¾¡åŠ›è½¬æˆç‰©ç†æ”»å‡»åŠ›
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_189(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7858,10 +7858,10 @@ BYTE SkillStatus_189(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬190 ½«½ÇÉ«¿Û³ı·¨Êõ·ÀÓùÁ¦×ª³É·¨Êõ¹¥»÷Á¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€190 å°†è§’è‰²æ‰£é™¤æ³•æœ¯é˜²å¾¡åŠ›è½¬æˆæ³•æœ¯æ”»å‡»åŠ›
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_190(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7917,10 +7917,10 @@ BYTE SkillStatus_190(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬191 Ôö¼Ó³èÎïÒÆ¶¯ËÙ¶È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€191 å¢åŠ å® ç‰©ç§»åŠ¨é€Ÿåº¦
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_191(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -7965,10 +7965,10 @@ BYTE SkillStatus_191(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬192 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÉËº¦ÖÜÎ§5*5µÄ·¶Î§
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€192 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½ä¼¤å®³å‘¨å›´5*5çš„èŒƒå›´
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_192(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8043,10 +8043,10 @@ BYTE SkillStatus_192(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬193 ×´Ì¬½áÊøÊ±ÉËº¦×´Ì¬½ÓÊÜÕß¼«ÆäÖÜÎ§
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€193 çŠ¶æ€ç»“æŸæ—¶ä¼¤å®³çŠ¶æ€æ¥å—è€…æå…¶å‘¨å›´
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_193(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8080,7 +8080,7 @@ BYTE SkillStatus_193(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -8099,7 +8099,7 @@ BYTE SkillStatus_193(SceneEntryPk *pEntry, SkillStatusElement &sse)
 						break;
 					case zSceneEntry::SceneEntry_NPC:
 						{
-							cmd.byAttackType = Cmd::ATTACKTYPE_N2U; //Â·ÒªÇóµÄ
+							cmd.byAttackType = Cmd::ATTACKTYPE_N2U; //è·¯è¦æ±‚çš„
 						}
 						break;
 					default:
@@ -8129,10 +8129,10 @@ BYTE SkillStatus_193(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬194 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€194 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_194(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8177,10 +8177,10 @@ BYTE SkillStatus_194(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬195 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€195 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_195(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8225,10 +8225,10 @@ BYTE SkillStatus_195(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬196 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€196 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_196(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8273,10 +8273,10 @@ BYTE SkillStatus_196(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬197 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€197 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_197(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8321,10 +8321,10 @@ BYTE SkillStatus_197(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬198 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€198 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_198(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8369,10 +8369,10 @@ BYTE SkillStatus_198(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬199 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€199 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_199(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8417,10 +8417,10 @@ BYTE SkillStatus_199(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬200 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€200 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_200(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8465,10 +8465,10 @@ BYTE SkillStatus_200(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬201 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€201 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_201(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8513,10 +8513,10 @@ BYTE SkillStatus_201(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬202 ÔöÇ¿(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€202 å¢å¼º(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_202(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8561,10 +8561,10 @@ BYTE SkillStatus_202(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬203 ÏÉÊõÔö¼Ó½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦ÉÏÉı°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€203 ä»™æœ¯å¢åŠ è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›ä¸Šå‡ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_203(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8620,10 +8620,10 @@ BYTE SkillStatus_203(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬204 ·´µ¯Ò»¸öÂé±Ô×´Ì¬¸ø¹¥»÷×Ô¼ºµÄÍæ¼Ò
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€204 åå¼¹ä¸€ä¸ªéº»ç—¹çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„ç©å®¶
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_204(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8664,13 +8664,13 @@ BYTE SkillStatus_204(SceneEntryPk *pEntry, SkillStatusElement &sse)
 	return SKILL_RETURN;
 }
 
-//--¼Ò×å--------------------------------------------
+//--å®¶æ—--------------------------------------------
 
 /**
- * \brief	×´Ì¬205 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦°Ù·Ö±È£¨¼Ò×å£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€205 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”ï¼ˆå®¶æ—ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_205(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8714,10 +8714,10 @@ BYTE SkillStatus_205(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬206 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨Êõ¹¥»÷Á¦°Ù·Ö±È£¨¼Ò×å£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€206 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯æ”»å‡»åŠ›ç™¾åˆ†æ¯”ï¼ˆå®¶æ—ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_206(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8760,10 +8760,10 @@ BYTE SkillStatus_206(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬207 ½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦ÉÏÉı°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€207 è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›ä¸Šå‡ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_207(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8807,10 +8807,10 @@ BYTE SkillStatus_207(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬208 ·¨Êõ·ÀÓùÉÏÉı°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€208 æ³•æœ¯é˜²å¾¡ä¸Šå‡ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_208(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8853,10 +8853,10 @@ BYTE SkillStatus_208(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬209 Ôö¼Ó×´Ì¬½ÓÊÜÕßÉúÃüÖµÉÏÏŞ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€209 å¢åŠ çŠ¶æ€æ¥å—è€…ç”Ÿå‘½å€¼ä¸Šé™ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_209(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8889,10 +8889,10 @@ BYTE SkillStatus_209(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬210 Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨ÊõÖµÉÏÏŞ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€210 å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯å€¼ä¸Šé™ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_210(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8925,10 +8925,10 @@ BYTE SkillStatus_210(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬216 ÕÙ»½Í¼ÌÚ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€216 å¬å”¤å›¾è…¾
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_216(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8940,10 +8940,10 @@ BYTE SkillStatus_216(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬217 Ã¿´Î¹¥»÷µÄÊ±ºò¸½¼Ó·¨Êõ¹¥»÷£¨Á½ÒÇĞÄ·¨£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€217 æ¯æ¬¡æ”»å‡»çš„æ—¶å€™é™„åŠ æ³•æœ¯æ”»å‡»ï¼ˆä¸¤ä»ªå¿ƒæ³•ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_217(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -8985,10 +8985,10 @@ BYTE SkillStatus_217(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬218 ×ªÒÆÊ©·¨Õß·¨ÊõÖµ°Ù·Ö±È¸ø×´Ì¬½ÓÊÜÕß
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€218 è½¬ç§»æ–½æ³•è€…æ³•æœ¯å€¼ç™¾åˆ†æ¯”ç»™çŠ¶æ€æ¥å—è€…
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_218(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9004,7 +9004,7 @@ BYTE SkillStatus_218(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -9042,10 +9042,10 @@ BYTE SkillStatus_218(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬219 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€219 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_219(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9121,10 +9121,10 @@ BYTE SkillStatus_219(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬220 Ë²¼äÒÆ¶¯µ½Êó±êÖ¸¶¨Î»ÖÃ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€220 ç¬é—´ç§»åŠ¨åˆ°é¼ æ ‡æŒ‡å®šä½ç½®
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_220(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9164,10 +9164,10 @@ BYTE SkillStatus_220(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬221 Ôö¼ÓÈÎÎñ¾«ÉñÊôĞÔ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€221 å¢åŠ ä»»åŠ¡ç²¾ç¥å±æ€§ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_221(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9209,10 +9209,10 @@ BYTE SkillStatus_221(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬222 Ï×Éí×´Ì¬£¬×´Ì¬½ÓÊÜÕßËùÊÜµ½µÄÉËº¦È«²¿×ªÒÆ²¢·­±¶Ê©¼Óµ½×´Ì¬Ê©·ÅÕßÉíÉÏ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€222 çŒ®èº«çŠ¶æ€ï¼ŒçŠ¶æ€æ¥å—è€…æ‰€å—åˆ°çš„ä¼¤å®³å…¨éƒ¨è½¬ç§»å¹¶ç¿»å€æ–½åŠ åˆ°çŠ¶æ€æ–½æ”¾è€…èº«ä¸Š
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_222(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9254,10 +9254,10 @@ BYTE SkillStatus_222(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬223 Ìá¸ß·¨ÊõÖ®»ğÑæÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€223 æé«˜æ³•æœ¯ä¹‹ç«ç„°ç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_223(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9298,10 +9298,10 @@ BYTE SkillStatus_223(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬224 ±»¶¯£¬³èÎï¹¥»÷µÄÊ±ºòÓĞ»ú»áÈÃÄ¿±êÑ£ÔÎ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€224 è¢«åŠ¨ï¼Œå® ç‰©æ”»å‡»çš„æ—¶å€™æœ‰æœºä¼šè®©ç›®æ ‡çœ©æ™•
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_224(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9348,10 +9348,10 @@ BYTE SkillStatus_224(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬225 ·´µ¯Ò»¸ö×ÆÈÈ×´Ì¬¸ø¹¥»÷×Ô¼ºµÄÍæ¼Ò
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€225 åå¼¹ä¸€ä¸ªç¼çƒ­çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„ç©å®¶
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_225(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9393,10 +9393,10 @@ BYTE SkillStatus_225(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬226 ·´µ¯Ò»¸ö×ÆÈÈ×´Ì¬¸ø¹¥»÷×Ô¼ºµÄÍæ¼Ò
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€226 åå¼¹ä¸€ä¸ªç¼çƒ­çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„ç©å®¶
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_226(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9438,10 +9438,10 @@ BYTE SkillStatus_226(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬227 ½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦½µµÍ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€227 è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›é™ä½å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_227(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9484,10 +9484,10 @@ BYTE SkillStatus_227(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬228 ½ÇÉ«»òÄ¿±êµÄ·¨Êõ·ÀÓùÁ¦ÏÂ½µ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€228 è§’è‰²æˆ–ç›®æ ‡çš„æ³•æœ¯é˜²å¾¡åŠ›ä¸‹é™å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_228(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9530,10 +9530,10 @@ BYTE SkillStatus_228(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬229 ÏÉÊõµÄ·ÀÓù¹â»·×´Ì¬£¬ÎïÀíºÍ·¨Êõ·ÀÓùÁ¦ÌáÉı¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€229 ä»™æœ¯çš„é˜²å¾¡å…‰ç¯çŠ¶æ€ï¼Œç‰©ç†å’Œæ³•æœ¯é˜²å¾¡åŠ›æå‡å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_229(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9576,10 +9576,10 @@ BYTE SkillStatus_229(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬230 º×ÒíÕóÃ¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃ×é¶Ó¶ÓÔ±ÏíÊÜ×´Ì¬¼Ó³É
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€230 é¹¤ç¿¼é˜µæ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ç»„é˜Ÿé˜Ÿå‘˜äº«å—çŠ¶æ€åŠ æˆ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_230(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9663,10 +9663,10 @@ BYTE SkillStatus_230(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬231 º×ÒíÕó·¨×¨ÓÃ×´Ì¬ÌáÉıË«¹¥
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€231 é¹¤ç¿¼é˜µæ³•ä¸“ç”¨çŠ¶æ€æå‡åŒæ”»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_231(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9717,10 +9717,10 @@ BYTE SkillStatus_231(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬232 º×ÒíÕó·¨×¨ÓÃ×´Ì¬½µµÍÒÆ¶¯ËÙ¶È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€232 é¹¤ç¿¼é˜µæ³•ä¸“ç”¨çŠ¶æ€é™ä½ç§»åŠ¨é€Ÿåº¦
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_232(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9773,10 +9773,10 @@ BYTE SkillStatus_232(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬233 º×ÒíÕó·¨×¨ÓÃ×´Ì¬½µµÍË«·À
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€233 é¹¤ç¿¼é˜µæ³•ä¸“ç”¨çŠ¶æ€é™ä½åŒé˜²
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_233(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9818,10 +9818,10 @@ BYTE SkillStatus_233(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬234 ÈËÎïÌåÖÊÔö¼ÓÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€234 äººç‰©ä½“è´¨å¢åŠ æ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_234(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9863,10 +9863,10 @@ BYTE SkillStatus_234(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬235 Ò×Èİ×´Ì¬£¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€235 æ˜“å®¹çŠ¶æ€ï¼Œ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_235(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9907,11 +9907,11 @@ BYTE SkillStatus_235(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬236 ÌáÉı¹­¼ı¹¥»÷Á¦£¬±ØĞëÊÇÔÚ³ÖÓĞ¹­µÄÇé¿öÏÂ
-	ÓÉÓÚÊÇ¶ÌĞ§³ÖĞøÍ¶ËÍµÄ¼¼ÄÜ×´Ì¬ËùÒÔ²ÉÓÃÕâÀï¼ì²éÎäÆ÷ÔÚ¼Ó³ÉµÄµØ·½Ö±½Ó¼Ó³ÉµÄ·½Ê½¡£
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€236 æå‡å¼“ç®­æ”»å‡»åŠ›ï¼Œå¿…é¡»æ˜¯åœ¨æŒæœ‰å¼“çš„æƒ…å†µä¸‹
+	ç”±äºæ˜¯çŸ­æ•ˆæŒç»­æŠ•é€çš„æŠ€èƒ½çŠ¶æ€æ‰€ä»¥é‡‡ç”¨è¿™é‡Œæ£€æŸ¥æ­¦å™¨åœ¨åŠ æˆçš„åœ°æ–¹ç›´æ¥åŠ æˆçš„æ–¹å¼ã€‚
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_236(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -9957,10 +9957,10 @@ BYTE SkillStatus_236(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬237 ¸´»î
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€237 å¤æ´»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_237(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10004,10 +10004,10 @@ BYTE SkillStatus_237(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬238 Á÷ÕóÃ¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃ×é¶Ó¶ÓÔ±ÏíÊÜ×´Ì¬¼Ó³É
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€238 æµé˜µæ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ç»„é˜Ÿé˜Ÿå‘˜äº«å—çŠ¶æ€åŠ æˆ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_238(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10092,10 +10092,10 @@ BYTE SkillStatus_238(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬239 Á÷ÔÆÕó·¨×¨ÓÃ×´Ì¬½µµÍÒÆ¶¯ËÙ¶È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€239 æµäº‘é˜µæ³•ä¸“ç”¨çŠ¶æ€é™ä½ç§»åŠ¨é€Ÿåº¦
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_239(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10114,7 +10114,7 @@ BYTE SkillStatus_239(SceneEntryPk *pEntry, SkillStatusElement &sse)
 					SceneEntryPk *pAtt = NULL;
 					switch(sse.attacktype)
 					{
-						case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+						case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 							{
 								pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 							}
@@ -10168,10 +10168,10 @@ BYTE SkillStatus_239(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬240 ¿ñÂÒ×çÖä
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€240 ç‹‚ä¹±è¯…å’’
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_240(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10210,10 +10210,10 @@ BYTE SkillStatus_240(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬241 ÒşÉí×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€241 éšèº«çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_241(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10269,10 +10269,10 @@ BYTE SkillStatus_241(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬242 ÓĞ¼¸ÂÊ´Ó¶ÔµĞÈËµÄÉËº¦ÉÏ»ñÈ¡ÉúÃüÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€242 æœ‰å‡ ç‡ä»å¯¹æ•Œäººçš„ä¼¤å®³ä¸Šè·å–ç”Ÿå‘½å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_242(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10314,10 +10314,10 @@ BYTE SkillStatus_242(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬243 ÓĞ¼¸ÂÊÉÁ±ÜµĞÈËµÄ¹¥»÷
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€243 æœ‰å‡ ç‡é—ªé¿æ•Œäººçš„æ”»å‡»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_243(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10358,10 +10358,10 @@ BYTE SkillStatus_243(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬244 ·´µ¯Ò»¸öÂé±Ô×´Ì¬¸ø¹¥»÷×Ô¼ºµÄÍæ¼Ò
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€244 åå¼¹ä¸€ä¸ªéº»ç—¹çŠ¶æ€ç»™æ”»å‡»è‡ªå·±çš„ç©å®¶
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_244(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10403,10 +10403,10 @@ BYTE SkillStatus_244(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬245 ±ùÁé¹ñ×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€245 å†°çµæŸœçŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_245(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10455,10 +10455,10 @@ BYTE SkillStatus_245(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬246 £¨ÏÉ£©½«½ÇÉ«»òÄ¿±êµÄÎïÀí¹¥»÷Á¦½µµÍ¹Ì¶¨ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€246 ï¼ˆä»™ï¼‰å°†è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†æ”»å‡»åŠ›é™ä½å›ºå®šæ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_246(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10513,10 +10513,10 @@ BYTE SkillStatus_246(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬247 ½«½ÇÉ«»òÄ¿±êµÄ·¨Êõ¹¥»÷Á¦½µµÍ¹Ì¶¨ÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€247 å°†è§’è‰²æˆ–ç›®æ ‡çš„æ³•æœ¯æ”»å‡»åŠ›é™ä½å›ºå®šæ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_247(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10570,10 +10570,10 @@ BYTE SkillStatus_247(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬248 Òº»¯×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€248 æ¶²åŒ–çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_248(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10614,10 +10614,10 @@ BYTE SkillStatus_248(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬249 ×´Ì¬½áÊøµÄÊ±ºòÍ¶ËÍ¼¼ÄÜ,ÒÔ×´Ì¬Í¶ËÍÕßµÄÉí·İÍ¶ËÍ¼¼ÄÜ¡£
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€249 çŠ¶æ€ç»“æŸçš„æ—¶å€™æŠ•é€æŠ€èƒ½,ä»¥çŠ¶æ€æŠ•é€è€…çš„èº«ä»½æŠ•é€æŠ€èƒ½ã€‚
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_249(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10649,7 +10649,7 @@ BYTE SkillStatus_249(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -10714,10 +10714,10 @@ BYTE SkillStatus_249(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬250 ×´Ì¬½áÊøµÄÊ±ºòÍ¶ËÍ¼¼ÄÜ,ÒÔ×´Ì¬Í¶ËÍÕßµÄÉí·İÍ¶ËÍ¼¼ÄÜ¡£
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€250 çŠ¶æ€ç»“æŸçš„æ—¶å€™æŠ•é€æŠ€èƒ½,ä»¥çŠ¶æ€æŠ•é€è€…çš„èº«ä»½æŠ•é€æŠ€èƒ½ã€‚
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_250(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10758,10 +10758,10 @@ BYTE SkillStatus_250(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬251 ÈËÎïÖÇÁ¦Ôö¼ÓÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€251 äººç‰©æ™ºåŠ›å¢åŠ æ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_251(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10803,10 +10803,10 @@ BYTE SkillStatus_251(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬252 ±»¶¯Ôö¼Ó×´Ì¬½ÓÊÜÕß·¨Êõ¹¥»÷Á¦°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€252 è¢«åŠ¨å¢åŠ çŠ¶æ€æ¥å—è€…æ³•æœ¯æ”»å‡»åŠ›ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_252(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10849,10 +10849,10 @@ BYTE SkillStatus_252(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬253 ¿Û³ı·¨Á¦Öµ¹Ì¶¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€253 æ‰£é™¤æ³•åŠ›å€¼å›ºå®šå€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_253(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10869,7 +10869,7 @@ BYTE SkillStatus_253(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -10916,10 +10916,10 @@ BYTE SkillStatus_253(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬254 ÁéÊŞÔöÇ¿(ÁéÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€254 çµå…½å¢å¼º(çµå…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_254(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -10964,10 +10964,10 @@ BYTE SkillStatus_254(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬255 Ï×¼À×´Ì¬£¬É±ËÀ³èÎï½«³èÎïÉúÃüÖµµÄ°Ù·ÖÖ®X¼Óµ½×Ô¼ºÉíÉÏ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€255 çŒ®ç¥­çŠ¶æ€ï¼Œæ€æ­»å® ç‰©å°†å® ç‰©ç”Ÿå‘½å€¼çš„ç™¾åˆ†ä¹‹XåŠ åˆ°è‡ªå·±èº«ä¸Š
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_255(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11007,10 +11007,10 @@ BYTE SkillStatus_255(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬256 Ìá¸ß·¨ÊõÖ®À×µçÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€256 æé«˜æ³•æœ¯ä¹‹é›·ç”µç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_256(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11051,10 +11051,10 @@ BYTE SkillStatus_256(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬257 ÕÙ»½ÕÙ»½ÊŞ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€257 å¬å”¤å¬å”¤å…½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_257(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11088,10 +11088,10 @@ BYTE SkillStatus_257(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬258 ÈËÎïÃô½İÔö¼ÓÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€258 äººç‰©æ•æ·å¢åŠ æ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_258(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11133,10 +11133,10 @@ BYTE SkillStatus_258(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬259 ÓĞ¼¸ÂÊºöÂÔÒ»´ÎÉËº¦×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€259 æœ‰å‡ ç‡å¿½ç•¥ä¸€æ¬¡ä¼¤å®³çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_259(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11177,10 +11177,10 @@ BYTE SkillStatus_259(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬260 ÎüÄ§½£·¨×¨ÓÃ×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€260 å¸é­”å‰‘æ³•ä¸“ç”¨çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_260(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11221,10 +11221,10 @@ BYTE SkillStatus_260(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬261 ³èÎï·¨Êõ·ÀÓùÔöÇ¿(³èÎï±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€261 å® ç‰©æ³•æœ¯é˜²å¾¡å¢å¼º(å® ç‰©è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_261(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11269,10 +11269,10 @@ BYTE SkillStatus_261(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬262 ±ù¶³½á½ç×¨ÓÃ×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€262 å†°å†»ç»“ç•Œä¸“ç”¨çŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_262(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11313,10 +11313,10 @@ BYTE SkillStatus_262(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬263 ±£»¤×´Ì¬£¨³èÎï×¨ÓÃ£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€263 ä¿æŠ¤çŠ¶æ€ï¼ˆå® ç‰©ä¸“ç”¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_263(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11339,7 +11339,7 @@ BYTE SkillStatus_263(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -11376,10 +11376,10 @@ BYTE SkillStatus_263(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬264 Ò»ÔªÕóÃ¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃ×é¶Ó¶ÓÔ±¼Ó³É×´Ì¬
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€264 ä¸€å…ƒé˜µæ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ç»„é˜Ÿé˜Ÿå‘˜åŠ æˆçŠ¶æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_264(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11467,10 +11467,10 @@ BYTE SkillStatus_264(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬265 Ò»ÔªÕó·¨Í¶ËÍµ½¶Ó³¤¹¥»÷µÄµĞÈËÉíÉÏ£¬×é¶Ó¶ÓÔ±¹¥»÷µÄÊ±ºòÕâ¸ö×´Ì¬»á´øÀ´¶øÍâµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€265 ä¸€å…ƒé˜µæ³•æŠ•é€åˆ°é˜Ÿé•¿æ”»å‡»çš„æ•Œäººèº«ä¸Šï¼Œç»„é˜Ÿé˜Ÿå‘˜æ”»å‡»çš„æ—¶å€™è¿™ä¸ªçŠ¶æ€ä¼šå¸¦æ¥è€Œå¤–çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_265(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11505,10 +11505,10 @@ BYTE SkillStatus_265(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬266 Ò»ÔªÕó·¨Í¶ËÍÒ»ÆÁ·¶Î§ÄÚµÄ×é¶Ó¶ÓÔ±ÉíÉÏ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€266 ä¸€å…ƒé˜µæ³•æŠ•é€ä¸€å±èŒƒå›´å†…çš„ç»„é˜Ÿé˜Ÿå‘˜èº«ä¸Š
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_266(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11525,7 +11525,7 @@ BYTE SkillStatus_266(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					SceneUser *pUser = (SceneUser *)pEntry;
 					if (pUser->team.IsTeamed() && pUser->team.getLeader() == pUser->tempid)
-						pEntry->skillValue.unitarybattle = 696; //±¾ÈËÔÚ¹¥»÷µÄÊ±ºò»áÍ¶ËÍÒ»¸ö×é¶ÓÉËº¦×´Ì¬¸ø¹ÖÎï¡£
+						pEntry->skillValue.unitarybattle = 696; //æœ¬äººåœ¨æ”»å‡»çš„æ—¶å€™ä¼šæŠ•é€ä¸€ä¸ªç»„é˜Ÿä¼¤å®³çŠ¶æ€ç»™æ€ªç‰©ã€‚
 				}
 				return SKILL_RECOVERY;
 			}
@@ -11548,10 +11548,10 @@ BYTE SkillStatus_266(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬268 ½«·¨ÊõÉËº¦×ª»»³ÉÄ§·¨Öµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€268 å°†æ³•æœ¯ä¼¤å®³è½¬æ¢æˆé­”æ³•å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_268(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11589,10 +11589,10 @@ BYTE SkillStatus_268(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬270 ¹Ø°®×´Ì¬£¬×´Ì¬½ÓÊÜÕßËùÊÜµ½µÄÉËº¦È«²¿×ªÒÆÊ©¼Óµ½×´Ì¬Ê©·ÅÕßÉíÉÏ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€270 å…³çˆ±çŠ¶æ€ï¼ŒçŠ¶æ€æ¥å—è€…æ‰€å—åˆ°çš„ä¼¤å®³å…¨éƒ¨è½¬ç§»æ–½åŠ åˆ°çŠ¶æ€æ–½æ”¾è€…èº«ä¸Š
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_270(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11633,10 +11633,10 @@ BYTE SkillStatus_270(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬271 Ìá¸ßÉäÊõÖ®ÏİÚåÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€271 æé«˜å°„æœ¯ä¹‹é™·é˜±ç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_271(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11677,10 +11677,10 @@ BYTE SkillStatus_271(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬272 Ìá¸ßÉäÊõÖ®ÏİÚåÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€272 æé«˜å°„æœ¯ä¹‹é™·é˜±ç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_272(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11721,10 +11721,10 @@ BYTE SkillStatus_272(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬273 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦°Ù·Ö±È(Ä³¼¼ÄÜ×¨ÓÃ)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€273 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”(æŸæŠ€èƒ½ä¸“ç”¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_273(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11767,10 +11767,10 @@ BYTE SkillStatus_273(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬274 ½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦ÉÏÉı¹Ì¶¨Öµ£¨Ìú¹ÇÖ®»ê£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€274 è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›ä¸Šå‡å›ºå®šå€¼ï¼ˆé“éª¨ä¹‹é­‚ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_274(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11813,10 +11813,10 @@ BYTE SkillStatus_274(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬275 »Ø¹â·µÕÕ¼¼ÄÜ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€275 å›å…‰è¿”ç…§æŠ€èƒ½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_275(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11860,10 +11860,10 @@ BYTE SkillStatus_275(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬276 ½ÇÉ«»òÄ¿±êµÄÎïÀí·ÀÓùÁ¦ÉÏÉı°Ù·Ö±È£¨Ìú¹ÇÓùÌå£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€276 è§’è‰²æˆ–ç›®æ ‡çš„ç‰©ç†é˜²å¾¡åŠ›ä¸Šå‡ç™¾åˆ†æ¯”ï¼ˆé“éª¨å¾¡ä½“ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_276(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11906,10 +11906,10 @@ BYTE SkillStatus_276(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬277 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦°Ù·Ö±È(Â³Ã§¼¼ÄÜ×¨ÓÃ)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€277 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”(é²è½æŠ€èƒ½ä¸“ç”¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_277(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11952,10 +11952,10 @@ BYTE SkillStatus_277(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬278 Ìá¸ß·¨ÊõÖ®À×µçÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€278 æé«˜æ³•æœ¯ä¹‹é›·ç”µç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_278(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -11996,10 +11996,10 @@ BYTE SkillStatus_278(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬279 ³èÎï×ÔÉ±¹¥»÷
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€279 å® ç‰©è‡ªæ€æ”»å‡»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_279(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12040,10 +12040,10 @@ BYTE SkillStatus_279(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬280 Ìá¸ß·¨ÊõÖ®À×µçÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€280 æé«˜æ³•æœ¯ä¹‹é›·ç”µç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_280(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12087,10 +12087,10 @@ BYTE SkillStatus_280(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬281 Ìá¸ß·¨ÊõÖ®À×µçÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€281 æé«˜æ³•æœ¯ä¹‹é›·ç”µç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_281(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12129,10 +12129,10 @@ BYTE SkillStatus_281(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬282 Ìá¸ß·¨ÊõÖ®»ğÑæÏµ¼¼ÄÜµÄÉËº¦
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€282 æé«˜æ³•æœ¯ä¹‹ç«ç„°ç³»æŠ€èƒ½çš„ä¼¤å®³
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_282(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12173,10 +12173,10 @@ BYTE SkillStatus_282(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬283 Ê¹½ÇÉ«»òÄ¿±ê·¨ÊõÖµ³ÖĞøÏÂ½µ,ËÙ¶ÈÓëÉúÃüÖµ³ÖĞø½µµÍÏàµ±
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€283 ä½¿è§’è‰²æˆ–ç›®æ ‡æ³•æœ¯å€¼æŒç»­ä¸‹é™,é€Ÿåº¦ä¸ç”Ÿå‘½å€¼æŒç»­é™ä½ç›¸å½“
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_283(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12226,10 +12226,10 @@ BYTE SkillStatus_283(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬284 Ôö¼Ó×´Ì¬½ÓÊÜÕßÎïÀí¹¥»÷Á¦°Ù·Ö±È(ÏÉÊõÄ³¼¼ÄÜ×¨ÓÃ)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€284 å¢åŠ çŠ¶æ€æ¥å—è€…ç‰©ç†æ”»å‡»åŠ›ç™¾åˆ†æ¯”(ä»™æœ¯æŸæŠ€èƒ½ä¸“ç”¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_284(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12273,10 +12273,10 @@ BYTE SkillStatus_284(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬285 ·¨Êõ·ÀÓùÉÏÉı°Ù·Ö±È(ÏÉÊõÄ³¼¼ÄÜ×¨ÓÃ)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€285 æ³•æœ¯é˜²å¾¡ä¸Šå‡ç™¾åˆ†æ¯”(ä»™æœ¯æŸæŠ€èƒ½ä¸“ç”¨)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_285(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12319,10 +12319,10 @@ BYTE SkillStatus_285(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬286 ÉñÅ©»¤ÓÓ×¨ÓÃ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€286 ç¥å†œæŠ¤ä½‘ä¸“ç”¨
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_286(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12367,10 +12367,10 @@ BYTE SkillStatus_286(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬287 PKÖµ¼ÓËÙ½µµÍ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€287 PKå€¼åŠ é€Ÿé™ä½
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_287(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12409,10 +12409,10 @@ BYTE SkillStatus_287(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬288 Ñ£ÔÎ£¨³å·æ×¨ÓÃ£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€288 çœ©æ™•ï¼ˆå†²é”‹ä¸“ç”¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_288(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12480,10 +12480,10 @@ BYTE SkillStatus_288(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬289 ÌáÉıÁ¦Á¿ÊôĞÔ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€289 æå‡åŠ›é‡å±æ€§ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_289(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12525,10 +12525,10 @@ BYTE SkillStatus_289(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬290 ÌáÉıËùÓĞÊôĞÔÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€290 æå‡æ‰€æœ‰å±æ€§å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_290(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12570,10 +12570,10 @@ BYTE SkillStatus_290(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬292 ËÀÍöºóÁ¢¼´¸´»î
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€292 æ­»äº¡åç«‹å³å¤æ´»
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_292(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12615,10 +12615,10 @@ BYTE SkillStatus_292(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬293 ËùÓĞÊôĞÔÖµÏÂ½µÊıÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€293 æ‰€æœ‰å±æ€§å€¼ä¸‹é™æ•°å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_293(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12659,10 +12659,10 @@ BYTE SkillStatus_293(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬294 ËùÓĞÊôĞÔÖµÏÂ½µ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€294 æ‰€æœ‰å±æ€§å€¼ä¸‹é™ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_294(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12703,10 +12703,10 @@ BYTE SkillStatus_294(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬295 Ëæ»úÌáÉı5¸öÊôĞÔÖµÖĞµÄÒ»¸ö
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€295 éšæœºæå‡5ä¸ªå±æ€§å€¼ä¸­çš„ä¸€ä¸ª
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_295(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12768,10 +12768,10 @@ BYTE SkillStatus_295(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬296 ¹¥»÷Á¦È¡ÏÂÏŞ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€296 æ”»å‡»åŠ›å–ä¸‹é™
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_296(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12812,10 +12812,10 @@ BYTE SkillStatus_296(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬298 ¹¥»÷Á¦È¡ÏÂÏŞ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€298 æ”»å‡»åŠ›å–ä¸‹é™
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_298(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12858,10 +12858,10 @@ BYTE SkillStatus_298(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬299 ÎïÀí¹¥»÷ÃâÒß
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€299 ç‰©ç†æ”»å‡»å…ç–«
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_299(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12902,10 +12902,10 @@ BYTE SkillStatus_299(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬300 Ä§·¨¹¥»÷ÃâÒß
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€300 é­”æ³•æ”»å‡»å…ç–«
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_300(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12946,10 +12946,10 @@ BYTE SkillStatus_300(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬301 ÔöÇ¿Ä§ÊŞ(ÕÙ»½ÊŞ±»¶¯£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€301 å¢å¼ºé­”å…½(å¬å”¤å…½è¢«åŠ¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_301(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -12994,10 +12994,10 @@ BYTE SkillStatus_301(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬302 ½Ù»ğ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€302 åŠ«ç«
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_302(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13024,7 +13024,7 @@ BYTE SkillStatus_302(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -13052,7 +13052,7 @@ BYTE SkillStatus_302(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -13111,10 +13111,10 @@ BYTE SkillStatus_302(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬303 ÔªËØÖ®ÃÅ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€303 å…ƒç´ ä¹‹é—¨
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_303(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13131,10 +13131,10 @@ BYTE SkillStatus_303(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					switch(pEntry->summon->id)
 					{
-						case 42221 ... 42230://Ê¯Áé
-						case 42241 ... 42250://·çÁé
-						case 45001 ... 45010://ÌúÁé
-						case 45041 ... 45050://ÑæÄ§¾ıÖ÷
+						case 42221 ... 42230://çŸ³çµ
+						case 42241 ... 42250://é£çµ
+						case 45001 ... 45010://é“çµ
+						case 45041 ... 45050://ç„°é­”å›ä¸»
 							{
 								if ((pEntry->summon->getHp() == pEntry->summon->getMaxHP())&&(pEntry->summon->boostupHpMaxP==0))
 								{
@@ -13166,10 +13166,10 @@ BYTE SkillStatus_303(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					switch(pEntry->summon->id)
 					{
-						case 42221 ... 42230://Ê¯Áé
-						case 42241 ... 42250://·çÁé
-						case 45001 ... 45010://ÌúÁé
-						case 45041 ... 45050://ÑæÄ§¾ıÖ÷
+						case 42221 ... 42230://çŸ³çµ
+						case 42241 ... 42250://é£çµ
+						case 45001 ... 45010://é“çµ
+						case 45041 ... 45050://ç„°é­”å›ä¸»
 							{
 								pEntry->summon->boostupHpMaxP = 0;
 								pEntry->summon->sendData();
@@ -13188,10 +13188,10 @@ BYTE SkillStatus_303(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬304 Ú¤·ûÖ®ÃÅ£¨¼ÓÍöÁéÀàµÄÉúÃüÖµÉÏÏŞ)
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€304 å†¥ç¬¦ä¹‹é—¨ï¼ˆåŠ äº¡çµç±»çš„ç”Ÿå‘½å€¼ä¸Šé™)
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_304(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13208,10 +13208,10 @@ BYTE SkillStatus_304(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					switch(pEntry->summon->id)
 					{
-						case 42061 ... 42070://÷¼÷ÃÕ½Ê¿
-						case 42081 ... 42090://ÓÄ»ê
-						case 44061 ... 44070://º¡¹ÇÊØÎÀ
-						case 45081 ... 45090://ÁùµÀ¹íÍõ
+						case 42061 ... 42070://éª·é«…æˆ˜å£«
+						case 42081 ... 42090://å¹½é­‚
+						case 44061 ... 44070://éª¸éª¨å®ˆå«
+						case 45081 ... 45090://å…­é“é¬¼ç‹
 							{
 								if ((pEntry->summon->getHp() == pEntry->summon->getMaxHP())&&(pEntry->summon->boostupHpMaxP==0))
 								{
@@ -13243,10 +13243,10 @@ BYTE SkillStatus_304(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					switch(pEntry->summon->id)
 					{
-						case 42061 ... 42070://÷¼÷ÃÕ½Ê¿
-						case 42081 ... 42090://ÓÄ»ê
-						case 44061 ... 44070://º¡¹ÇÊØÎÀ
-						case 45081 ... 45090://ÁùµÀ¹íÍõ
+						case 42061 ... 42070://éª·é«…æˆ˜å£«
+						case 42081 ... 42090://å¹½é­‚
+						case 44061 ... 44070://éª¸éª¨å®ˆå«
+						case 45081 ... 45090://å…­é“é¬¼ç‹
 							{
 								pEntry->summon->boostupHpMaxP = 0;
 								pEntry->summon->sendData();
@@ -13265,10 +13265,10 @@ BYTE SkillStatus_304(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬305 Ìì½ìÖ®ÃÅ¼ÓÕÙ»½ÉúÃüÉÏÏŞ£¨ÌìÏÉÏµ£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€305 å¤©å±Šä¹‹é—¨åŠ å¬å”¤ç”Ÿå‘½ä¸Šé™ï¼ˆå¤©ä»™ç³»ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_305(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13285,10 +13285,10 @@ BYTE SkillStatus_305(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					switch(pEntry->summon->id)
 					{
-						case 42181 ... 42190://Éñ±ø
-						case 42161 ... 42170://Ìì½«
-						case 42121 ... 42130://ÌìÏÉ
-						case 46021 ... 46030://Èı½çÌìÍõ
+						case 42181 ... 42190://ç¥å…µ
+						case 42161 ... 42170://å¤©å°†
+						case 42121 ... 42130://å¤©ä»™
+						case 46021 ... 46030://ä¸‰ç•Œå¤©ç‹
 							{
 								if ((pEntry->summon->getHp() == pEntry->summon->getMaxHP())&&(pEntry->summon->boostupHpMaxP==0))
 								{
@@ -13320,10 +13320,10 @@ BYTE SkillStatus_305(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				{
 					switch(pEntry->summon->id)
 					{
-						case 42181 ... 42190://Éñ±ø
-						case 42161 ... 42170://Ìì½«
-						case 42121 ... 42130://ÌìÏÉ
-						case 46021 ... 46030://Èı½çÌìÍõ
+						case 42181 ... 42190://ç¥å…µ
+						case 42161 ... 42170://å¤©å°†
+						case 42121 ... 42130://å¤©ä»™
+						case 46021 ... 46030://ä¸‰ç•Œå¤©ç‹
 							{
 								pEntry->summon->boostupHpMaxP = 0;
 								pEntry->summon->sendData();
@@ -13342,10 +13342,10 @@ BYTE SkillStatus_305(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬306 ÓĞ¼¸ÂÊÊ¹¶ÔµĞÈËµÄÉËº¦±ä³É×Ô¼ºµÄÉúÃüÖµ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€306 æœ‰å‡ ç‡ä½¿å¯¹æ•Œäººçš„ä¼¤å®³å˜æˆè‡ªå·±çš„ç”Ÿå‘½å€¼
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_306(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13383,10 +13383,10 @@ BYTE SkillStatus_306(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬307 ½µµÍµĞÈËµÄÖÇÁ¦ºÍ¾«Éñ°Ù·Ö±È£¨ÍÀÄ§ÏİÚå×¨ÓÃ£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€307 é™ä½æ•Œäººçš„æ™ºåŠ›å’Œç²¾ç¥ç™¾åˆ†æ¯”ï¼ˆå± é­”é™·é˜±ä¸“ç”¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_307(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13427,10 +13427,10 @@ BYTE SkillStatus_307(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬308 ½µµÍµĞÈËµÄÁ¦Á¿ºÍÃô½İ°Ù·Ö±È£¨ÍÀÄ§ÏİÚå×¨ÓÃ£©
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€308 é™ä½æ•Œäººçš„åŠ›é‡å’Œæ•æ·ç™¾åˆ†æ¯”ï¼ˆå± é­”é™·é˜±ä¸“ç”¨ï¼‰
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_308(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13471,10 +13471,10 @@ BYTE SkillStatus_308(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬309 Ò»»÷±ØÉ±
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€309 ä¸€å‡»å¿…æ€
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_309(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13515,10 +13515,10 @@ BYTE SkillStatus_309(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬311 µØÃğ£¬Ëæ»ú³éÈ¡Í¬ÆÁµÄÈËÀ´³Ğµ£ËÀÍöĞ§¹û¡£
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€311 åœ°ç­ï¼ŒéšæœºæŠ½å–åŒå±çš„äººæ¥æ‰¿æ‹…æ­»äº¡æ•ˆæœã€‚
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_311(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13559,10 +13559,10 @@ BYTE SkillStatus_311(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬312 ÑªÕ®Ñª³¥
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€312 è¡€å€ºè¡€å¿
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_312(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13603,10 +13603,10 @@ BYTE SkillStatus_312(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬315 ×ÇË®Ö®Îè
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€315 æµŠæ°´ä¹‹èˆ
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_315(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13638,7 +13638,7 @@ BYTE SkillStatus_315(SceneEntryPk *pEntry, SkillStatusElement &sse)
 				SceneEntryPk *pAtt = NULL;
 				switch(sse.attacktype)
 				{
-					case zSceneEntry::SceneEntry_Player:	// Íæ¼Ò½ÇÉ«
+					case zSceneEntry::SceneEntry_Player:	// ç©å®¶è§’è‰²
 						{
 							pAtt = SceneUserManager::getMe().getUserByTempID(sse.dwTempID);
 						}
@@ -13679,10 +13679,10 @@ BYTE SkillStatus_315(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬316 ·ÖÁÑ
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€316 åˆ†è£‚
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_316(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13744,10 +13744,10 @@ BYTE SkillStatus_316(SceneEntryPk *pEntry, SkillStatusElement &sse)
 
 
 /**
- * \brief	×´Ì¬317 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€317 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_317(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13823,10 +13823,10 @@ BYTE SkillStatus_317(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬318 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€318 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_318(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13902,10 +13902,10 @@ BYTE SkillStatus_318(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬319 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€319 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_319(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -13981,10 +13981,10 @@ BYTE SkillStatus_319(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬320 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€320 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_320(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -14060,10 +14060,10 @@ BYTE SkillStatus_320(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬321 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€321 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_321(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -14139,10 +14139,10 @@ BYTE SkillStatus_321(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬322 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€322 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_322(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -14218,10 +14218,10 @@ BYTE SkillStatus_322(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬323 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€323 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_323(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -14297,10 +14297,10 @@ BYTE SkillStatus_323(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬324 Ã¿ÃëÊÍ·ÅÒ»¸ö¼¼ÄÜÈÃÒ»ÆÁ·¶Î§ÄÚµÄÓÑ¾ü·ÀÓùÌáÉı
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€324 æ¯ç§’é‡Šæ”¾ä¸€ä¸ªæŠ€èƒ½è®©ä¸€å±èŒƒå›´å†…çš„å‹å†›é˜²å¾¡æå‡
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_324(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -14376,10 +14376,10 @@ BYTE SkillStatus_324(SceneEntryPk *pEntry, SkillStatusElement &sse)
 }
 
 /**
- * \brief	×´Ì¬325 ·¨Êõ·ÀÓù½µµÍ°Ù·Ö±È
- * \param pEntry ×´Ì¬ËùÓĞÕß
- * \param sse ¼¼ÄÜ×´Ì¬
- * \return ¼¼ÄÜ×´Ì¬·µ»ØÖµ£¬²Î¼ûÍ·ÎÄ¼şÖĞµÄ¼¼ÄÜ×´Ì¬´¦Àí·µ»ØÖµÃ¶¾Ù
+ * \brief	çŠ¶æ€325 æ³•æœ¯é˜²å¾¡é™ä½ç™¾åˆ†æ¯”
+ * \param pEntry çŠ¶æ€æ‰€æœ‰è€…
+ * \param sse æŠ€èƒ½çŠ¶æ€
+ * \return æŠ€èƒ½çŠ¶æ€è¿”å›å€¼ï¼Œå‚è§å¤´æ–‡ä»¶ä¸­çš„æŠ€èƒ½çŠ¶æ€å¤„ç†è¿”å›å€¼æšä¸¾
  */
 BYTE SkillStatus_325(SceneEntryPk *pEntry, SkillStatusElement &sse)
 {
@@ -14424,7 +14424,7 @@ BYTE SkillStatus_325(SceneEntryPk *pEntry, SkillStatusElement &sse)
 //--------------------------------------------------
 
 /**
- * \brief ¼¼ÄÜ×´Ì¬¹ÜÀíÆ÷¹¹Ôìº¯Êı
+ * \brief æŠ€èƒ½çŠ¶æ€ç®¡ç†å™¨æ„é€ å‡½æ•°
  * \author fqnewman
  */
 SkillStatusManager::SkillStatusManager()
@@ -14435,7 +14435,7 @@ SkillStatusManager::SkillStatusManager()
 
 
 /**
- * \brief ¼¼ÄÜ×´Ì¬¹ÜÀíÆ÷Îö¹¹º¯Êı
+ * \brief æŠ€èƒ½çŠ¶æ€ç®¡ç†å™¨ææ„å‡½æ•°
  * \author fqnewman
  */
 SkillStatusManager::~SkillStatusManager()
@@ -14444,8 +14444,8 @@ SkillStatusManager::~SkillStatusManager()
 }
 
 /**
- * \brief ¼¼ÄÜ×´Ì¬¹ÜÀíÆ÷Îö¹¹º¯Êı
- * \param pEntry ´«Èë¼¼ÄÜ¹ÜÀíÆ÷µÄÊ¹ÓÃ¶ÔÏó
+ * \brief æŠ€èƒ½çŠ¶æ€ç®¡ç†å™¨ææ„å‡½æ•°
+ * \param pEntry ä¼ å…¥æŠ€èƒ½ç®¡ç†å™¨çš„ä½¿ç”¨å¯¹è±¡
  * \author fqnewman
  */
 void SkillStatusManager::initMe(SceneEntryPk *pEntry)
@@ -14791,8 +14791,8 @@ void SkillStatusManager::initMe(SceneEntryPk *pEntry)
 }
 
 /**
- * \brief Í¨ÖªÄ³¸ö×´Ì¬ÊıÖµ
- * \author Íõº£¾ü
+ * \brief é€šçŸ¥æŸä¸ªçŠ¶æ€æ•°å€¼
+ * \author ç‹æµ·å†›
  */
 void SkillStatusManager::sendSelectStates(SceneEntryPk *pThis , DWORD state , WORD value , WORD time)
 {
@@ -14801,8 +14801,8 @@ void SkillStatusManager::sendSelectStates(SceneEntryPk *pThis , DWORD state , WO
 }
 
 /**
- * \brief µÃµ½µ±Ç°7´ó×´Ì¬µÄÊıÖµ
- * \author Íõº£¾ü
+ * \brief å¾—åˆ°å½“å‰7å¤§çŠ¶æ€çš„æ•°å€¼
+ * \author ç‹æµ·å†›
  */
 void SkillStatusManager::getSelectStates(Cmd::stSelectReturnStatesPropertyUserCmd *buf , unsigned long maxSize)
 {
@@ -14812,7 +14812,7 @@ void SkillStatusManager::getSelectStates(Cmd::stSelectReturnStatesPropertyUserCm
 	zRTime ctv;
 	for(tIterator = _activeElement.begin() ; tIterator !=_activeElement.end(); tIterator++)
 	{
-		//Zebra::logger->debug("Ä¿Ç°×´Ì¬%u , %u , %u" , tIterator->first , tIterator->second.id , tIterator->second.state);
+		//Zebra::logger->debug("ç›®å‰çŠ¶æ€%u , %u , %u" , tIterator->first , tIterator->second.id , tIterator->second.state);
 /*		switch(tIterator->second.state)
 		{
 			case USTATE_POISON:
@@ -14852,7 +14852,7 @@ void SkillStatusManager::getSelectStates(Cmd::stSelectReturnStatesPropertyUserCm
 }
 
 /**
- * \brief ¼ÓÔØÀúÊ·µÄ¼¼ÄÜ×´Ì¬£¬ÉÏ´ÎÏÂÏßµÄÊ±ºò¼¼ÄÜ»¹´æÁôÔÚÉíÉÏµÄ¼¼ÄÜ×´Ì¬¼ÌĞøÓĞĞ§
+ * \brief åŠ è½½å†å²çš„æŠ€èƒ½çŠ¶æ€ï¼Œä¸Šæ¬¡ä¸‹çº¿çš„æ—¶å€™æŠ€èƒ½è¿˜å­˜ç•™åœ¨èº«ä¸Šçš„æŠ€èƒ½çŠ¶æ€ç»§ç»­æœ‰æ•ˆ
  * \author fqnewman
  */
 void SkillStatusManager::loadSkillStatus(char *buf, DWORD length)
@@ -14874,13 +14874,13 @@ void SkillStatusManager::loadSkillStatus(char *buf, DWORD length)
 	length-=statelen;
 
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("[Îª½ÇÉ«(%s)(%d)¼ÓÔØ±£´æµÄ¼¼ÄÜ×´Ì¬]", entry->name,entry->id);
+	Zebra::logger->debug("[ä¸ºè§’è‰²(%s)(%d)åŠ è½½ä¿å­˜çš„æŠ€èƒ½çŠ¶æ€]", entry->name,entry->id);
 #endif
 	//COfflineSkillStatus::getOfflineSkillStatus(entry->id,buf,length);
 	count = length/sizeof(SkillStatusElement);
 	notify = false;
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("[ÓĞ%d¸ö¼¼ÄÜ×´Ì¬ĞèÒª¼ÓÔØ]", count);
+	Zebra::logger->debug("[æœ‰%dä¸ªæŠ€èƒ½çŠ¶æ€éœ€è¦åŠ è½½]", count);
 #endif
 	value = (SkillStatusElement *)(buf+statelen);
 
@@ -14899,7 +14899,7 @@ void SkillStatusManager::loadSkillStatus(char *buf, DWORD length)
 			case SKILL_RECOVERY:
 				{
 #ifdef _DEBUGLOG
-					Zebra::logger->debug("[%dºÅ¼¼ÄÜ×´Ì¬±»¼ÓÔØµ½ÁÙÊ±±»¶¯±íÄÚ]", value->id);
+					Zebra::logger->debug("[%då·æŠ€èƒ½çŠ¶æ€è¢«åŠ è½½åˆ°ä¸´æ—¶è¢«åŠ¨è¡¨å†…]", value->id);
 #endif
 					//value->refresh = 1;
 					//value->qwTime = SceneTimeTick::currentTime.msecs()+value->dwTime *1000;
@@ -14917,7 +14917,7 @@ void SkillStatusManager::loadSkillStatus(char *buf, DWORD length)
 			case SKILL_ACTIVE:
 				{
 #ifdef _DEBUGLOG
-					Zebra::logger->debug("[%dºÅ¼¼ÄÜ×´Ì¬±»¼ÓÔØµ½Ö÷¶¯±íÄÚ]", value->id);
+					Zebra::logger->debug("[%då·æŠ€èƒ½çŠ¶æ€è¢«åŠ è½½åˆ°ä¸»åŠ¨è¡¨å†…]", value->id);
 #endif
 					_activeElement[value->id/*value->byMutexType*/]=*value;
 					_recoveryElement[value->id].qwTime = SceneTimeTick::currentTime.msecs()+_recoveryElement[value->id].dwTime *1000;
@@ -14932,7 +14932,7 @@ void SkillStatusManager::loadSkillStatus(char *buf, DWORD length)
 				break;
 			default:
 #ifdef _DEBUGLOG
-					Zebra::logger->debug("[%dºÅ¼¼ÄÜ×´Ì¬ÎŞ·¨±»¼Óµ½¶ÔÓ¦µÄ±íÖĞ]", value->id);
+					Zebra::logger->debug("[%då·æŠ€èƒ½çŠ¶æ€æ— æ³•è¢«åŠ åˆ°å¯¹åº”çš„è¡¨ä¸­]", value->id);
 #endif
 				break;
 		}
@@ -14946,7 +14946,7 @@ void SkillStatusManager::loadSkillStatus(char *buf, DWORD length)
 }
 
 /**
- * \brief ´æ´¢ÀúÊ·µÄ¼¼ÄÜ×´Ì¬£¬ÉÏ´ÎÏÂÏßµÄÊ±ºò¼¼ÄÜ»¹´æÁôÔÚÉíÉÏµÄ¼¼ÄÜ×´Ì¬¼ÌĞøÓĞĞ§
+ * \brief å­˜å‚¨å†å²çš„æŠ€èƒ½çŠ¶æ€ï¼Œä¸Šæ¬¡ä¸‹çº¿çš„æ—¶å€™æŠ€èƒ½è¿˜å­˜ç•™åœ¨èº«ä¸Šçš„æŠ€èƒ½çŠ¶æ€ç»§ç»­æœ‰æ•ˆ
  * \author fqnewman
  */
 void SkillStatusManager::saveSkillStatus(char *buf , DWORD &size)
@@ -14971,7 +14971,7 @@ void SkillStatusManager::saveSkillStatus(char *buf , DWORD &size)
 	{
 		memcpy(value,&tIterator->second, length);
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("[¼¼ÄÜ×´Ì¬%d±»´æ´¢]", tIterator->second.id);
+		Zebra::logger->debug("[æŠ€èƒ½çŠ¶æ€%dè¢«å­˜å‚¨]", tIterator->second.id);
 #endif
 		count++;
 		value++;
@@ -14984,7 +14984,7 @@ void SkillStatusManager::saveSkillStatus(char *buf , DWORD &size)
 		{
 			memcpy(value,&tIterator->second, length);
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("[¼¼ÄÜ×´Ì¬%d±»´æ´¢]", tIterator->second.id);
+		Zebra::logger->debug("[æŠ€èƒ½çŠ¶æ€%dè¢«å­˜å‚¨]", tIterator->second.id);
 #endif
 			count++;
 			value++;
@@ -14994,16 +14994,16 @@ void SkillStatusManager::saveSkillStatus(char *buf , DWORD &size)
 	//if (count >0) COfflineSkillStatus::writeOfflineSkillStatus(entry->id,buf,count*length);
 	size = statelen + count*length;
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("[ÓĞ%d¸ö¼¼ÄÜ×´Ì¬ĞèÒª´æ´¢]", count);
+	Zebra::logger->debug("[æœ‰%dä¸ªæŠ€èƒ½çŠ¶æ€éœ€è¦å­˜å‚¨]", count);
 #endif
 }
 
 /**
- * \brief ½«Ò»¸ö¼¼ÄÜ²Ù×÷Ê©¼ÓÔÚÎÒµÄÉíÉÏ
- * \param carrier ¼¼ÄÜ²Ù×÷Í¶ËÍÆ÷£¬ÀïÃæ°üº¬ÁË¼¼ÄÜ×´Ì¬
- * \param good ±êÖ¾Õâ¸ö¼¼ÄÜÊÇ²»ÊÇÒ»¸öÔöÒæµÄ¼¼ÄÜ
+ * \brief å°†ä¸€ä¸ªæŠ€èƒ½æ“ä½œæ–½åŠ åœ¨æˆ‘çš„èº«ä¸Š
+ * \param carrier æŠ€èƒ½æ“ä½œæŠ•é€å™¨ï¼Œé‡Œé¢åŒ…å«äº†æŠ€èƒ½çŠ¶æ€
+ * \param good æ ‡å¿—è¿™ä¸ªæŠ€èƒ½æ˜¯ä¸æ˜¯ä¸€ä¸ªå¢ç›Šçš„æŠ€èƒ½
  * \author fqnewman
- * \return true Îª¼ÌĞøÏÂÒ»¸ö²Ù×÷£¬falseÎªÍ£Ö¹²¢·µ»Ø¡£
+ * \return true ä¸ºç»§ç»­ä¸‹ä¸€ä¸ªæ“ä½œï¼Œfalseä¸ºåœæ­¢å¹¶è¿”å›ã€‚
  */
 bool SkillStatusManager::putOperationToMe(const SkillStatusCarrier &carrier, const bool good, SWORD rangDamageBonus)
 {
@@ -15053,8 +15053,8 @@ bool SkillStatusManager::putOperationToMe(const SkillStatusCarrier &carrier, con
 			case SKILL_RECOVERY:
 				{
 #ifdef _DEBUGLOG
-					Zebra::logger->debug("[ÁÙÊ±±»¶¯]µÚ[%u]ºÅ×´Ì¬±»Ê©¼ÓÔÚÉíÉÏ³ÖĞøÊ±¼äÎª[%u]", element.id,element.dwTime);
-					Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS, "[ÁÙÊ±±»¶¯]µÚ[%u]ºÅ×´Ì¬±»Ê©¼ÓÔÚÉíÉÏ³ÖĞøÊ±¼äÎª[%u]", element.id,element.dwTime);
+					Zebra::logger->debug("[ä¸´æ—¶è¢«åŠ¨]ç¬¬[%u]å·çŠ¶æ€è¢«æ–½åŠ åœ¨èº«ä¸ŠæŒç»­æ—¶é—´ä¸º[%u]", element.id,element.dwTime);
+					Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS, "[ä¸´æ—¶è¢«åŠ¨]ç¬¬[%u]å·çŠ¶æ€è¢«æ–½åŠ åœ¨èº«ä¸ŠæŒç»­æ—¶é—´ä¸º[%u]", element.id,element.dwTime);
 #endif
 					element.qwTime = SceneTimeTick::currentTime.msecs()+element.dwTime *1000;
 					if (element.state >0)
@@ -15080,8 +15080,8 @@ bool SkillStatusManager::putOperationToMe(const SkillStatusCarrier &carrier, con
 			case SKILL_ACTIVE:
 				{
 #ifdef _DEBUGLOG
-					Zebra::logger->debug("[ÉËº¦×´Ì¬]µÚ[%u]ºÅ×´Ì¬±»Ê©¼ÓÔÚÉíÉÏ³ÖĞøÊ±¼äÎª[%u]",element.id,element.dwTime);
-					Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS, "[¹¥»÷×´Ì¬]µÚ[%u]ºÅ×´Ì¬±»Ê©¼ÓÔÚÉíÉÏ³ÖĞøÊ±¼äÎª[%u]",element.id,element.dwTime);
+					Zebra::logger->debug("[ä¼¤å®³çŠ¶æ€]ç¬¬[%u]å·çŠ¶æ€è¢«æ–½åŠ åœ¨èº«ä¸ŠæŒç»­æ—¶é—´ä¸º[%u]",element.id,element.dwTime);
+					Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS, "[æ”»å‡»çŠ¶æ€]ç¬¬[%u]å·çŠ¶æ€è¢«æ–½åŠ åœ¨èº«ä¸ŠæŒç»­æ—¶é—´ä¸º[%u]",element.id,element.dwTime);
 #endif
 					if (element.dwTime==0) break;
 					clearMapElement(element.id/*element.byMutexType*/,_activeElement, element.id);
@@ -15105,8 +15105,8 @@ bool SkillStatusManager::putOperationToMe(const SkillStatusCarrier &carrier, con
 		entry->AttackMe(carrier.attacker, &carrier.revCmd, entry->isPhysics, rangDamageBonus);
 		carrier.attacker->setPetsChaseTarget(entry);
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("[×ß¹¥·À¼ÆËã¹«Ê½]");
-		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[ÉËº¦·¨Êõ]");
+		Zebra::logger->debug("[èµ°æ”»é˜²è®¡ç®—å…¬å¼]");
+		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[ä¼¤å®³æ³•æœ¯]");
 #endif
 	}
 	else
@@ -15132,8 +15132,8 @@ bool SkillStatusManager::putOperationToMe(const SkillStatusCarrier &carrier, con
 		}
 		//entry->processDeath(carrier.attacker);
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("[²»×ß¹¥·À¼ÆËã¹«Ê½]");
-		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[·ÇÉËÑªĞÔ·¨Êõ]");
+		Zebra::logger->debug("[ä¸èµ°æ”»é˜²è®¡ç®—å…¬å¼]");
+		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[éä¼¤è¡€æ€§æ³•æœ¯]");
 #endif
 	}
 	entry->isPhysics = false;
@@ -15142,7 +15142,7 @@ bool SkillStatusManager::putOperationToMe(const SkillStatusCarrier &carrier, con
 }
 
 /**
- * \brief ¶¨Ê±Æ÷Ë¢ĞÂ
+ * \brief å®šæ—¶å™¨åˆ·æ–°
  * \author fqnewman
  */
 void SkillStatusManager::timer()
@@ -15154,8 +15154,8 @@ void SkillStatusManager::timer()
 	for(tIterator = _activeElement.begin() ; tIterator !=_activeElement.end() ; )
 	{
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("[¼ÆÊ±.ÉË]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬Ê£ÏÂÊ±¼ä[%u]",tIterator->second.id,tIterator->second.dwTime);
-		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[¼ÆÊ±.ÉË]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬Ê£ÏÂÊ±¼ä[%u]",tIterator->second.id, tIterator->second.dwTime);
+		Zebra::logger->debug("[è®¡æ—¶.ä¼¤]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€å‰©ä¸‹æ—¶é—´[%u]",tIterator->second.id,tIterator->second.dwTime);
+		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[è®¡æ—¶.ä¼¤]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€å‰©ä¸‹æ—¶é—´[%u]",tIterator->second.id, tIterator->second.dwTime);
 #endif
 		if (tIterator->second.dwTime>0)
 		{
@@ -15180,8 +15180,8 @@ void SkillStatusManager::timer()
 				entry->showCurrentEffect(tIterator->second.state, false);
 			}
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("[ÉËº¦×´Ì¬]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬±»É¾³ı",tIterator->second.id);
-		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[ÉËº¦×´Ì¬]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬±»É¾³ı",tIterator->second.id);
+		Zebra::logger->debug("[ä¼¤å®³çŠ¶æ€]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€è¢«åˆ é™¤",tIterator->second.id);
+		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[ä¼¤å®³çŠ¶æ€]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€è¢«åˆ é™¤",tIterator->second.id);
 #endif
 			delIterator = tIterator;
 			tIterator ++;
@@ -15197,9 +15197,9 @@ void SkillStatusManager::timer()
 	for(tIterator = _recoveryElement.begin() ; tIterator !=_recoveryElement.end();)
 	{
 #ifdef _DEBUGLOG
-		Zebra::logger->debug("[¼ÆÊ±.ÁÙ]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬Ê£ÓàÊ±¼äÎª[%u]",tIterator->second.id,tIterator->second.dwTime);
+		Zebra::logger->debug("[è®¡æ—¶.ä¸´]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€å‰©ä½™æ—¶é—´ä¸º[%u]",tIterator->second.id,tIterator->second.dwTime);
 		time_t tempValue = (time_t)(tIterator->second.qwTime/1000);
-		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[¼ÆÊ±.ÁÙ]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬Ê£ÓàÊ±¼äÎª[%s]",tIterator->second.id,ctime(&tempValue));
+		Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[è®¡æ—¶.ä¸´]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€å‰©ä½™æ—¶é—´ä¸º[%s]",tIterator->second.id,ctime(&tempValue));
 #endif
 		QWORD curQtime = SceneTimeTick::currentTime.msecs();
 		if(curQtime >= tIterator->second.qwTime)
@@ -15213,8 +15213,8 @@ void SkillStatusManager::timer()
 				entry->showCurrentEffect(tIterator->second.state, false);
 			}
 #ifdef _DEBUGLOG
-			Zebra::logger->debug("[ÁÙÊ±±»¶¯]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬±»É¾³ı",tIterator->second.id);
-			Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[ÁÙÊ±±»¶¯]Ê©¼ÓÔÚÉíÉÏµÄµÚ[%u]ºÅ×´Ì¬±»É¾³ı",tIterator->second.id);
+			Zebra::logger->debug("[ä¸´æ—¶è¢«åŠ¨]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€è¢«åˆ é™¤",tIterator->second.id);
+			Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[ä¸´æ—¶è¢«åŠ¨]æ–½åŠ åœ¨èº«ä¸Šçš„ç¬¬[%u]å·çŠ¶æ€è¢«åˆ é™¤",tIterator->second.id);
 #endif
 			delIterator = tIterator;
 			tIterator ++;
@@ -15271,7 +15271,7 @@ void SkillStatusManager::timer()
 }
 
 /**
- * \brief ÖØĞÂÔËĞĞ±»¶¯×´Ì¬£¬°üÀ¨ÓÀ¾Ã±»¶¯ºÍÁÙÊ±±»¶¯
+ * \brief é‡æ–°è¿è¡Œè¢«åŠ¨çŠ¶æ€ï¼ŒåŒ…æ‹¬æ°¸ä¹…è¢«åŠ¨å’Œä¸´æ—¶è¢«åŠ¨
  * \author fqnewman
  */
 void SkillStatusManager::processPassiveness()
@@ -15294,14 +15294,14 @@ void SkillStatusManager::processPassiveness()
 }
 
 /**
- * \brief Ö´ĞĞÒ»¸ö¾ßÌåµÄ×´Ì¬
- * \author Íõº£¾ü£¬fqnewman
- * \return ×´Ì¬·µ»ØÖµ
-			SKILL_ACTIVE		//	¼Óµ½»î¶¯MAPÖĞ
-			SKILL_RECOVERY		//	¼Óµ½ÁÙÊ±±»¶¯MAPÖĞ
-			SKILL_PASSIVENESS	//	¼Óµ½ÓÀ¾Ã±»¶¯MAPÖĞ
-			SKILL_RETURN		//	·µ»Ø²»×öÈÎºÎ²Ù×÷
-			SKILL_DONOW			//	Á¢¼´Ö´ĞĞÊôĞÔÖµ¿Û³ı¶¯×÷
+ * \brief æ‰§è¡Œä¸€ä¸ªå…·ä½“çš„çŠ¶æ€
+ * \author ç‹æµ·å†›ï¼Œfqnewman
+ * \return çŠ¶æ€è¿”å›å€¼
+			SKILL_ACTIVE		//	åŠ åˆ°æ´»åŠ¨MAPä¸­
+			SKILL_RECOVERY		//	åŠ åˆ°ä¸´æ—¶è¢«åŠ¨MAPä¸­
+			SKILL_PASSIVENESS	//	åŠ åˆ°æ°¸ä¹…è¢«åŠ¨MAPä¸­
+			SKILL_RETURN		//	è¿”å›ä¸åšä»»ä½•æ“ä½œ
+			SKILL_DONOW			//	ç«‹å³æ‰§è¡Œå±æ€§å€¼æ‰£é™¤åŠ¨ä½œ
  */
 BYTE SkillStatusManager::runStatusElement(SkillStatusElement &element)
 {
@@ -15309,7 +15309,7 @@ BYTE SkillStatusManager::runStatusElement(SkillStatusElement &element)
 }
 
 /**
- * \brief  Çå³ıÈËÎïÉíÉÏµÄ²»Á¼µÄ·ÇÓÀ¾Ã×´Ì¬
+ * \brief  æ¸…é™¤äººç‰©èº«ä¸Šçš„ä¸è‰¯çš„éæ°¸ä¹…çŠ¶æ€
  * \author fqnewman
  */
 void SkillStatusManager::clearBadActiveSkillStatus()
@@ -15360,7 +15360,7 @@ void SkillStatusManager::clearBadActiveSkillStatus()
 }
 
 /**
- * \brief  Çå³ıÈËÎïÉíÉÏµÄ·ÇÓÀ¾ÃĞÔ×´Ì¬
+ * \brief  æ¸…é™¤äººç‰©èº«ä¸Šçš„éæ°¸ä¹…æ€§çŠ¶æ€
  * \author fqnewman
  */
 void SkillStatusManager::clearActiveSkillStatus()
@@ -15369,7 +15369,7 @@ void SkillStatusManager::clearActiveSkillStatus()
 }
 
 /**
- * \brief  Çå³ıÈËÎïÉíÉÏµÄ·ÇÓÀ¾ÃĞÔ×´Ì¬
+ * \brief  æ¸…é™¤äººç‰©èº«ä¸Šçš„éæ°¸ä¹…æ€§çŠ¶æ€
  * \author fqnewman
  */
 void SkillStatusManager::clearActiveSkillStatusOnlyUseToStatus48()
@@ -15396,7 +15396,7 @@ void SkillStatusManager::clearActiveSkillStatusOnlyUseToStatus48()
 		if (tIterator->second.id == 173)
 		{ 
 			tIterator++;
-			continue; //²»ºÃÒâË¼ÌØÊâ´¦ÀíÒ»ÏÂ
+			continue; //ä¸å¥½æ„æ€ç‰¹æ®Šå¤„ç†ä¸€ä¸‹
 		}
 		tIterator->second.byStep = ACTION_STEP_CLEAR;
 		runStatusElement(tIterator->second);
@@ -15414,7 +15414,7 @@ void SkillStatusManager::clearActiveSkillStatusOnlyUseToStatus48()
 
 
 /**
- * \brief  Çå³ıÖ¸¶¨¼¼ÄÜIDµÄ¼¼ÄÜ×´Ì¬
+ * \brief  æ¸…é™¤æŒ‡å®šæŠ€èƒ½IDçš„æŠ€èƒ½çŠ¶æ€
  * \author fqnewman
  */
 void SkillStatusManager::clearSkill(DWORD dwSkillID)
@@ -15468,9 +15468,9 @@ void SkillStatusManager::clearSkill(DWORD dwSkillID)
 
 
 /**
- * \brief °´±»¶¯¼¼ÄÜÀ´´¦ÀíÕâ¸ö²Ù×÷
- * \param skillid ¼¼ÄÜid
- * \param pSkillStatus ¼¼ÄÜÖĞµÄ²Ù×÷
+ * \brief æŒ‰è¢«åŠ¨æŠ€èƒ½æ¥å¤„ç†è¿™ä¸ªæ“ä½œ
+ * \param skillid æŠ€èƒ½id
+ * \param pSkillStatus æŠ€èƒ½ä¸­çš„æ“ä½œ
  * \author fqnewman
  */
 void SkillStatusManager::putPassivenessOperationToMe(const DWORD skillid, const SkillStatus *pSkillStatus)
@@ -15491,14 +15491,14 @@ void SkillStatusManager::putPassivenessOperationToMe(const DWORD skillid, const 
 		_passivenessElement[element.id]=element;
 
 #ifdef _DEBUGLOG
-			Zebra::logger->debug("[ÓÀ¾Ã±»¶¯]Ö®[%u]ºÅ×´Ì¬±»Ê©¼ÓÔÚÉíÉÏ",element.id);
-			Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[ÓÀ¾Ã±»¶¯]Ö®[%u]ºÅ×´Ì¬±»Ê©¼ÓÔÚÉíÉÏ",element.id);
+			Zebra::logger->debug("[æ°¸ä¹…è¢«åŠ¨]ä¹‹[%u]å·çŠ¶æ€è¢«æ–½åŠ åœ¨èº«ä¸Š",element.id);
+			Channel::sendSys(entry->tempid, Cmd::INFO_TYPE_SYS,"[æ°¸ä¹…è¢«åŠ¨]ä¹‹[%u]å·çŠ¶æ€è¢«æ–½åŠ åœ¨èº«ä¸Š",element.id);
 #endif
 	}
 }
 
 /**
- * \brief  Ôö¼Ó²»Á¼×´Ì¬µÄ³ÖĞøÊ±¼äÊıÖµ
+ * \brief  å¢åŠ ä¸è‰¯çŠ¶æ€çš„æŒç»­æ—¶é—´æ•°å€¼
  * \author fqnewman
  */
 void SkillStatusManager::addBadSkillStatusPersistTime(const DWORD &value)
@@ -15524,7 +15524,7 @@ void SkillStatusManager::addBadSkillStatusPersistTime(const DWORD &value)
 }
 
 /**
- * \brief  Ôö¼Ó²»Á¼×´Ì¬µÄ³ÖĞøÊ±¼ä°Ù·Ö±È
+ * \brief  å¢åŠ ä¸è‰¯çŠ¶æ€çš„æŒç»­æ—¶é—´ç™¾åˆ†æ¯”
  * \author fqnewman
  */
 void SkillStatusManager::addBadSkillStatusPersistTimePercent(const DWORD &value)
@@ -15550,10 +15550,10 @@ void SkillStatusManager::addBadSkillStatusPersistTimePercent(const DWORD &value)
 }
 
 /**
- * \brief  Çå³ı³ÖĞø×´Ì¬ÖĞµÄÖ¸¶¨Àà±ğ
- * \param byMutexType ¼¼ÄÜ´óÀà
- * \param myMap ²Ù×÷µÄ×´Ì¬map
- * \param dwID ¹ıÂË×´Ì¬id
+ * \brief  æ¸…é™¤æŒç»­çŠ¶æ€ä¸­çš„æŒ‡å®šç±»åˆ«
+ * \param byMutexType æŠ€èƒ½å¤§ç±»
+ * \param myMap æ“ä½œçš„çŠ¶æ€map
+ * \param dwID è¿‡æ»¤çŠ¶æ€id
  * \author fqnewman
  */
 void SkillStatusManager::clearMapElement(const BYTE &byMutexType, std::map<DWORD, SkillStatusElement> &myMap, DWORD dwID,bool notify)
@@ -15651,105 +15651,105 @@ void SkillStatusManager::processDeath()
 
 
 /**
- * \brief  ²âÊÔº¯ÊıÓÃÀ´ÏÔÊ¾¼¼ÄÜ×´Ì¬µ±Ç°Öµ
+ * \brief  æµ‹è¯•å‡½æ•°ç”¨æ¥æ˜¾ç¤ºæŠ€èƒ½çŠ¶æ€å½“å‰å€¼
  * \author fqnewman
  */
 void SkillStatusManager::showValue()
 {
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "½ÇÉ«ÉíÉÏµÄ[SkillValue]ÊôĞÔÁĞ±í:---------------------------");
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÉËº¦ÖµÔö¼Ó¹Ì¶¨ÊıÖµ1=%ld",entry->skillValue.dvalue);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÉËº¦ÖµÔö¼Óx%2=%ld",entry->skillValue.dvaluep);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÎïÀí·ÀÓùÊıÖµ±ä¸ü 57£¬86=%ld",entry->skillValue.pdefence);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÎïÀí·ÀÓù±ä¸ü°Ù·Ö±È=%ld",entry->skillValue.pdefencep);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "±äÎªËæ»úĞ¡¶¯Îï79=%ld",entry->skillValue.topet);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "²úÉú¶îÍâÉËº¦83=%ld",entry->skillValue.appenddam);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÒÆ¶¯ËÙ¶È±ä¸ü°Ù·Ö±È 16£¬56=%ld",entry->skillValue.movespeed);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼õÉÙ¼¼ÄÜÊ©·Å¼ä¸ô17=%ld",entry->skillValue.mgspeed);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼õÉÙÏİÈë±ù¶³×´Ì¬¼¸ÂÊ18=%ld",entry->skillValue.coldp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼õÉÙÏİÈëÖĞ¶¾×´Ì¬¼¸ÂÊ19=%ld",entry->skillValue.poisonp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼õÉÙÏİÈëÊ¯»¯×´Ì¬¼¸ÂÊ20=%ld",entry->skillValue.petrifyp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼õÉÙÏİÈëÊ§Ã÷×´Ì¬¼¸ÂÊ21=%ld",entry->skillValue.blindp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼õÉÙÏİÈë»ìÂÒ×´Ì¬¼¸ÂÊ22=%ld",entry->skillValue.chaosp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÃüÖĞÂÊÔö¼Ó33,64=%ld",entry->skillValue.atrating);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÃüÖĞÂÊÔö¼Ó33,64=%ld",entry->skillValue.reduce_atrating);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "è§’è‰²èº«ä¸Šçš„[SkillValue]å±æ€§åˆ—è¡¨:---------------------------");
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ä¼¤å®³å€¼å¢åŠ å›ºå®šæ•°å€¼1=%ld",entry->skillValue.dvalue);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ä¼¤å®³å€¼å¢åŠ x%2=%ld",entry->skillValue.dvaluep);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ç‰©ç†é˜²å¾¡æ•°å€¼å˜æ›´ 57ï¼Œ86=%ld",entry->skillValue.pdefence);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ç‰©ç†é˜²å¾¡å˜æ›´ç™¾åˆ†æ¯”=%ld",entry->skillValue.pdefencep);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å˜ä¸ºéšæœºå°åŠ¨ç‰©79=%ld",entry->skillValue.topet);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "äº§ç”Ÿé¢å¤–ä¼¤å®³83=%ld",entry->skillValue.appenddam);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ç§»åŠ¨é€Ÿåº¦å˜æ›´ç™¾åˆ†æ¯” 16ï¼Œ56=%ld",entry->skillValue.movespeed);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‡å°‘æŠ€èƒ½æ–½æ”¾é—´éš”17=%ld",entry->skillValue.mgspeed);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‡å°‘é™·å…¥å†°å†»çŠ¶æ€å‡ ç‡18=%ld",entry->skillValue.coldp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‡å°‘é™·å…¥ä¸­æ¯’çŠ¶æ€å‡ ç‡19=%ld",entry->skillValue.poisonp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‡å°‘é™·å…¥çŸ³åŒ–çŠ¶æ€å‡ ç‡20=%ld",entry->skillValue.petrifyp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‡å°‘é™·å…¥å¤±æ˜çŠ¶æ€å‡ ç‡21=%ld",entry->skillValue.blindp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‡å°‘é™·å…¥æ··ä¹±çŠ¶æ€å‡ ç‡22=%ld",entry->skillValue.chaosp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‘½ä¸­ç‡å¢åŠ 33,64=%ld",entry->skillValue.atrating);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "å‘½ä¸­ç‡å¢åŠ 33,64=%ld",entry->skillValue.reduce_atrating);
 
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÉúÃüÖµ»Ö¸´ËÙ¶ÈÔö¼Ó34=%ld",entry->skillValue.hpspeedup);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "·¨ÊõÖµ»Ö¸´ËÙ¶ÈÔö¼Ó35=%ld",entry->skillValue.mpspeedup);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÌåÁ¦Öµ»Ö¸´ËÙ¶ÈÔö¼Ó36=%ld",entry->skillValue.spspeedup);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÉÁ±ÜÂÊÉÏÉı37=%ld",entry->skillValue.akdodge);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "·´µ¯45=%ld",entry->skillValue.reflect);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "·´µ¯x%46=%ld",entry->skillValue.reflectp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "Îª·´µ¯°Ù·ÖÖ®¼¸µÄµĞÈËÉËº¦50=%ld",entry->skillValue.reflect2);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "·¨Êõ·ÀÓù±ä¸ü59£¬=%ld",entry->skillValue.mdefence);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "·¨Êõ·ÀÓù±ä¸ü°Ù·Ö±Èx%=%ld",entry->skillValue.mdefencep);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¹¥»÷ËÙ¶È±ä¸ü80£¬81=%ld",entry->skillValue.uattackspeed);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "½µµÍÏİÈëÆß´ó×´Ì¬¼¸ÂÊ82=%ld",entry->skillValue.sevendownp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÉËº¦×ªÒÆ°Ù·Ö±È=%ld",entry->skillValue.tsfdamp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "±»¶¯:¶îÍâÉËº¦=%ld",entry->skillValue.passdam);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "½ÇÉ«ÉíÉÏµÄ[PkValue]ÊôĞÔÁĞ±í:---------------------------");
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÎïÀí¹¥»÷Á¦=%ld",entry->pkValue.pdamage);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÎïÀí·ÀÓùÁ¦=%ld",entry->pkValue.pdefence);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "·¨Êõ¹¥»÷Á¦=%ld",entry->pkValue.mdamage);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "·¨Êõ·ÀÓùÁ¦=%ld",entry->pkValue.mdefence);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÏûºÄ·¨ÊõÖµ=%ld",entry->pkValue.mcost);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÏûºÄÉúÃüÖµ=%ld",entry->pkValue.hpcost);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÏûºÄÌåÁ¦Öµ=%ld",entry->pkValue.spcost);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¾­ÑéÏûºÄ=%ld",entry->pkValue.exp);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÉËº¦Öµ=%ld",entry->pkValue.dvalue);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÉËº¦ÖµÔö¼Ó°Ù·Ö±È=%ld",entry->pkValue.dvaluep);
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ÁĞ±í½áÊø:----------------------------------------------");
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ç”Ÿå‘½å€¼æ¢å¤é€Ÿåº¦å¢åŠ 34=%ld",entry->skillValue.hpspeedup);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ³•æœ¯å€¼æ¢å¤é€Ÿåº¦å¢åŠ 35=%ld",entry->skillValue.mpspeedup);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ä½“åŠ›å€¼æ¢å¤é€Ÿåº¦å¢åŠ 36=%ld",entry->skillValue.spspeedup);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "é—ªé¿ç‡ä¸Šå‡37=%ld",entry->skillValue.akdodge);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "åå¼¹45=%ld",entry->skillValue.reflect);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "åå¼¹x%46=%ld",entry->skillValue.reflectp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ä¸ºåå¼¹ç™¾åˆ†ä¹‹å‡ çš„æ•Œäººä¼¤å®³50=%ld",entry->skillValue.reflect2);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ³•æœ¯é˜²å¾¡å˜æ›´59ï¼Œ=%ld",entry->skillValue.mdefence);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ³•æœ¯é˜²å¾¡å˜æ›´ç™¾åˆ†æ¯”x%=%ld",entry->skillValue.mdefencep);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ”»å‡»é€Ÿåº¦å˜æ›´80ï¼Œ81=%ld",entry->skillValue.uattackspeed);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "é™ä½é™·å…¥ä¸ƒå¤§çŠ¶æ€å‡ ç‡82=%ld",entry->skillValue.sevendownp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ä¼¤å®³è½¬ç§»ç™¾åˆ†æ¯”=%ld",entry->skillValue.tsfdamp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "è¢«åŠ¨:é¢å¤–ä¼¤å®³=%ld",entry->skillValue.passdam);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "è§’è‰²èº«ä¸Šçš„[PkValue]å±æ€§åˆ—è¡¨:---------------------------");
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ç‰©ç†æ”»å‡»åŠ›=%ld",entry->pkValue.pdamage);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ç‰©ç†é˜²å¾¡åŠ›=%ld",entry->pkValue.pdefence);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ³•æœ¯æ”»å‡»åŠ›=%ld",entry->pkValue.mdamage);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ³•æœ¯é˜²å¾¡åŠ›=%ld",entry->pkValue.mdefence);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ¶ˆè€—æ³•æœ¯å€¼=%ld",entry->pkValue.mcost);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ¶ˆè€—ç”Ÿå‘½å€¼=%ld",entry->pkValue.hpcost);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æ¶ˆè€—ä½“åŠ›å€¼=%ld",entry->pkValue.spcost);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ç»éªŒæ¶ˆè€—=%ld",entry->pkValue.exp);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ä¼¤å®³å€¼=%ld",entry->pkValue.dvalue);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "ä¼¤å®³å€¼å¢åŠ ç™¾åˆ†æ¯”=%ld",entry->pkValue.dvaluep);
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "åˆ—è¡¨ç»“æŸ:----------------------------------------------");
 }
 
 /**
- * \brief  ´òÓ¡¼¼ÄÜ×´Ì¬µ±Ç°Öµµ½logÎÄ¼şÖĞ
+ * \brief  æ‰“å°æŠ€èƒ½çŠ¶æ€å½“å‰å€¼åˆ°logæ–‡ä»¶ä¸­
  * \author fqnewman
  */
 void SkillStatusManager::showValueToLog()
 {
-	Zebra::logger->debug("½ÇÉ«ÉíÉÏµÄ[SkillValue]ÊôĞÔÁĞ±í:---------------------------");
-	Zebra::logger->debug("ÉËº¦ÖµÔö¼Ó¹Ì¶¨ÊıÖµ1=%ld",entry->skillValue.dvalue);
-	Zebra::logger->debug("ÉËº¦ÖµÔö¼Óx%2=%ld",entry->skillValue.dvaluep);
-	Zebra::logger->debug("ÎïÀí·ÀÓùÊıÖµ±ä¸ü 57£¬86=%ld",entry->skillValue.pdefence);
-	Zebra::logger->debug("ÎïÀí·ÀÓù±ä¸ü°Ù·Ö±È=%ld",entry->skillValue.pdefencep);
-	Zebra::logger->debug("±äÎªËæ»úĞ¡¶¯Îï79=%ld",entry->skillValue.topet);
-	Zebra::logger->debug("²úÉú¶îÍâÉËº¦83=%ld",entry->skillValue.appenddam);
-	Zebra::logger->debug("ÒÆ¶¯ËÙ¶È±ä¸ü°Ù·Ö±È 16£¬56=%ld",entry->skillValue.movespeed);
-	Zebra::logger->debug("¼õÉÙ¼¼ÄÜÊ©·Å¼ä¸ô17=%ld",entry->skillValue.mgspeed);
-	Zebra::logger->debug("¼õÉÙÏİÈë±ù¶³×´Ì¬¼¸ÂÊ18=%ld",entry->skillValue.coldp);
-	Zebra::logger->debug("¼õÉÙÏİÈëÖĞ¶¾×´Ì¬¼¸ÂÊ19=%ld",entry->skillValue.poisonp);
-	Zebra::logger->debug("¼õÉÙÏİÈëÊ¯»¯×´Ì¬¼¸ÂÊ20=%ld",entry->skillValue.petrifyp);
-	Zebra::logger->debug("¼õÉÙÏİÈëÊ§Ã÷×´Ì¬¼¸ÂÊ21=%ld",entry->skillValue.blindp);
-	Zebra::logger->debug("¼õÉÙÏİÈë»ìÂÒ×´Ì¬¼¸ÂÊ22=%ld",entry->skillValue.chaosp);
-	Zebra::logger->debug("ÃüÖĞÂÊÔö¼Ó33,64=%ld",entry->skillValue.atrating);
-	Zebra::logger->debug("ÉúÃüÖµ»Ö¸´ËÙ¶ÈÔö¼Ó34=%ld",entry->skillValue.hpspeedup);
-	Zebra::logger->debug("·¨ÊõÖµ»Ö¸´ËÙ¶ÈÔö¼Ó35=%ld",entry->skillValue.mpspeedup);
-	Zebra::logger->debug("ÌåÁ¦Öµ»Ö¸´ËÙ¶ÈÔö¼Ó36=%ld",entry->skillValue.spspeedup);
-	Zebra::logger->debug("ÉÁ±ÜÂÊÉÏÉı37=%ld",entry->skillValue.akdodge);
-	Zebra::logger->debug("·´µ¯45=%ld",entry->skillValue.reflect);
-	Zebra::logger->debug("·´µ¯x%46=%ld",entry->skillValue.reflectp);
-	Zebra::logger->debug("Îª·´µ¯°Ù·ÖÖ®¼¸µÄµĞÈËÉËº¦50=%ld",entry->skillValue.reflect2);
-	Zebra::logger->debug("·¨Êõ·ÀÓù±ä¸ü59£¬=%ld",entry->skillValue.mdefence);
-	Zebra::logger->debug("·¨Êõ·ÀÓù±ä¸ü°Ù·Ö±Èx%=%ld",entry->skillValue.mdefencep);
-	Zebra::logger->debug("¹¥»÷ËÙ¶È±ä¸ü80£¬81=%ld",entry->skillValue.uattackspeed);
-	Zebra::logger->debug("½µµÍÏİÈëÆß´ó×´Ì¬¼¸ÂÊ82=%ld",entry->skillValue.sevendownp);
-	Zebra::logger->debug("ÉËº¦×ªÒÆ°Ù·Ö±È=%ld",entry->skillValue.tsfdamp);
-	Zebra::logger->debug("±»¶¯:¶îÍâÉËº¦=%ld",entry->skillValue.passdam);
-	Zebra::logger->debug("½ÇÉ«ÉíÉÏµÄ[PkValue]ÊôĞÔÁĞ±í:---------------------------");
-	Zebra::logger->debug("ÎïÀí¹¥»÷Á¦=%ld",entry->pkValue.pdamage);
-	Zebra::logger->debug("ÎïÀí·ÀÓùÁ¦=%ld",entry->pkValue.pdefence);
-	Zebra::logger->debug("·¨Êõ¹¥»÷Á¦=%ld",entry->pkValue.mdamage);
-	Zebra::logger->debug("·¨Êõ·ÀÓùÁ¦=%ld",entry->pkValue.mdefence);
-	Zebra::logger->debug("ÏûºÄ·¨ÊõÖµ=%ld",entry->pkValue.mcost);
-	Zebra::logger->debug("ÏûºÄÉúÃüÖµ=%ld",entry->pkValue.hpcost);
-	Zebra::logger->debug("ÏûºÄÌåÁ¦Öµ=%ld",entry->pkValue.spcost);
-	Zebra::logger->debug("¾­ÑéÏûºÄ=%ld",entry->pkValue.exp);
-	Zebra::logger->debug("ÉËº¦Öµ=%ld",entry->pkValue.dvalue);
-	Zebra::logger->debug("ÉËº¦ÖµÔö¼Ó°Ù·Ö±È=%ld",entry->pkValue.dvaluep);
-	Zebra::logger->debug("ÁĞ±í½áÊø:----------------------------------------------");
+	Zebra::logger->debug("è§’è‰²èº«ä¸Šçš„[SkillValue]å±æ€§åˆ—è¡¨:---------------------------");
+	Zebra::logger->debug("ä¼¤å®³å€¼å¢åŠ å›ºå®šæ•°å€¼1=%ld",entry->skillValue.dvalue);
+	Zebra::logger->debug("ä¼¤å®³å€¼å¢åŠ x%2=%ld",entry->skillValue.dvaluep);
+	Zebra::logger->debug("ç‰©ç†é˜²å¾¡æ•°å€¼å˜æ›´ 57ï¼Œ86=%ld",entry->skillValue.pdefence);
+	Zebra::logger->debug("ç‰©ç†é˜²å¾¡å˜æ›´ç™¾åˆ†æ¯”=%ld",entry->skillValue.pdefencep);
+	Zebra::logger->debug("å˜ä¸ºéšæœºå°åŠ¨ç‰©79=%ld",entry->skillValue.topet);
+	Zebra::logger->debug("äº§ç”Ÿé¢å¤–ä¼¤å®³83=%ld",entry->skillValue.appenddam);
+	Zebra::logger->debug("ç§»åŠ¨é€Ÿåº¦å˜æ›´ç™¾åˆ†æ¯” 16ï¼Œ56=%ld",entry->skillValue.movespeed);
+	Zebra::logger->debug("å‡å°‘æŠ€èƒ½æ–½æ”¾é—´éš”17=%ld",entry->skillValue.mgspeed);
+	Zebra::logger->debug("å‡å°‘é™·å…¥å†°å†»çŠ¶æ€å‡ ç‡18=%ld",entry->skillValue.coldp);
+	Zebra::logger->debug("å‡å°‘é™·å…¥ä¸­æ¯’çŠ¶æ€å‡ ç‡19=%ld",entry->skillValue.poisonp);
+	Zebra::logger->debug("å‡å°‘é™·å…¥çŸ³åŒ–çŠ¶æ€å‡ ç‡20=%ld",entry->skillValue.petrifyp);
+	Zebra::logger->debug("å‡å°‘é™·å…¥å¤±æ˜çŠ¶æ€å‡ ç‡21=%ld",entry->skillValue.blindp);
+	Zebra::logger->debug("å‡å°‘é™·å…¥æ··ä¹±çŠ¶æ€å‡ ç‡22=%ld",entry->skillValue.chaosp);
+	Zebra::logger->debug("å‘½ä¸­ç‡å¢åŠ 33,64=%ld",entry->skillValue.atrating);
+	Zebra::logger->debug("ç”Ÿå‘½å€¼æ¢å¤é€Ÿåº¦å¢åŠ 34=%ld",entry->skillValue.hpspeedup);
+	Zebra::logger->debug("æ³•æœ¯å€¼æ¢å¤é€Ÿåº¦å¢åŠ 35=%ld",entry->skillValue.mpspeedup);
+	Zebra::logger->debug("ä½“åŠ›å€¼æ¢å¤é€Ÿåº¦å¢åŠ 36=%ld",entry->skillValue.spspeedup);
+	Zebra::logger->debug("é—ªé¿ç‡ä¸Šå‡37=%ld",entry->skillValue.akdodge);
+	Zebra::logger->debug("åå¼¹45=%ld",entry->skillValue.reflect);
+	Zebra::logger->debug("åå¼¹x%46=%ld",entry->skillValue.reflectp);
+	Zebra::logger->debug("ä¸ºåå¼¹ç™¾åˆ†ä¹‹å‡ çš„æ•Œäººä¼¤å®³50=%ld",entry->skillValue.reflect2);
+	Zebra::logger->debug("æ³•æœ¯é˜²å¾¡å˜æ›´59ï¼Œ=%ld",entry->skillValue.mdefence);
+	Zebra::logger->debug("æ³•æœ¯é˜²å¾¡å˜æ›´ç™¾åˆ†æ¯”x%=%ld",entry->skillValue.mdefencep);
+	Zebra::logger->debug("æ”»å‡»é€Ÿåº¦å˜æ›´80ï¼Œ81=%ld",entry->skillValue.uattackspeed);
+	Zebra::logger->debug("é™ä½é™·å…¥ä¸ƒå¤§çŠ¶æ€å‡ ç‡82=%ld",entry->skillValue.sevendownp);
+	Zebra::logger->debug("ä¼¤å®³è½¬ç§»ç™¾åˆ†æ¯”=%ld",entry->skillValue.tsfdamp);
+	Zebra::logger->debug("è¢«åŠ¨:é¢å¤–ä¼¤å®³=%ld",entry->skillValue.passdam);
+	Zebra::logger->debug("è§’è‰²èº«ä¸Šçš„[PkValue]å±æ€§åˆ—è¡¨:---------------------------");
+	Zebra::logger->debug("ç‰©ç†æ”»å‡»åŠ›=%ld",entry->pkValue.pdamage);
+	Zebra::logger->debug("ç‰©ç†é˜²å¾¡åŠ›=%ld",entry->pkValue.pdefence);
+	Zebra::logger->debug("æ³•æœ¯æ”»å‡»åŠ›=%ld",entry->pkValue.mdamage);
+	Zebra::logger->debug("æ³•æœ¯é˜²å¾¡åŠ›=%ld",entry->pkValue.mdefence);
+	Zebra::logger->debug("æ¶ˆè€—æ³•æœ¯å€¼=%ld",entry->pkValue.mcost);
+	Zebra::logger->debug("æ¶ˆè€—ç”Ÿå‘½å€¼=%ld",entry->pkValue.hpcost);
+	Zebra::logger->debug("æ¶ˆè€—ä½“åŠ›å€¼=%ld",entry->pkValue.spcost);
+	Zebra::logger->debug("ç»éªŒæ¶ˆè€—=%ld",entry->pkValue.exp);
+	Zebra::logger->debug("ä¼¤å®³å€¼=%ld",entry->pkValue.dvalue);
+	Zebra::logger->debug("ä¼¤å®³å€¼å¢åŠ ç™¾åˆ†æ¯”=%ld",entry->pkValue.dvaluep);
+	Zebra::logger->debug("åˆ—è¡¨ç»“æŸ:----------------------------------------------");
 }
 
 /**
- * \brief  ÏÔÊ¾½ÇÉ«ÉíÉÏµÄÖ÷¶¯¼¼ÄÜ×´Ì¬
+ * \brief  æ˜¾ç¤ºè§’è‰²èº«ä¸Šçš„ä¸»åŠ¨æŠ€èƒ½çŠ¶æ€
  * \author fqnewman
  */
 void SkillStatusManager::showActive()
@@ -15757,7 +15757,7 @@ void SkillStatusManager::showActive()
 	std::map<DWORD, SkillStatusElement>::iterator tIterator;
 	SkillStatusElement *element;
 
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "½ÇÉ«ÉíÉÏµÄÖ÷¶¯×´Ì¬ÁĞ±í:");
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "è§’è‰²èº«ä¸Šçš„ä¸»åŠ¨çŠ¶æ€åˆ—è¡¨:");
 	for(tIterator = _activeElement.begin() ; tIterator !=_activeElement.end(); tIterator++)
 	{
 		std::string myname;
@@ -15768,16 +15768,16 @@ void SkillStatusManager::showActive()
 			myname = pUser->name;
 		else
 		{
-			sprintf(buf,"ÁÙÊ±ID:%u", element->dwTempID);
+			sprintf(buf,"ä¸´æ—¶ID:%u", element->dwTempID);
 			myname = buf;
 		}
-		Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼¼ÄÜ:%u ´óÀà:%u ×´Ì¬Àà±ğ:%u %s Ê£ÓàÊ±¼ä:%u ¹¥»÷Õß:%s ¼¸ÂÊ:%u ×ÜÊ±¼ä:%u ×´Ì¬Öµ%u ÌØĞ§Öµ:%u",element->dwSkillID,element->byMutexType,element->id, element->byGoodnessType==1?"ÉËº¦":"ºÍÆ½",element->dwTime,myname.c_str(), element->percent, element->dwTime,element->value, element->state);
+		Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æŠ€èƒ½:%u å¤§ç±»:%u çŠ¶æ€ç±»åˆ«:%u %s å‰©ä½™æ—¶é—´:%u æ”»å‡»è€…:%s å‡ ç‡:%u æ€»æ—¶é—´:%u çŠ¶æ€å€¼%u ç‰¹æ•ˆå€¼:%u",element->dwSkillID,element->byMutexType,element->id, element->byGoodnessType==1?"ä¼¤å®³":"å’Œå¹³",element->dwTime,myname.c_str(), element->percent, element->dwTime,element->value, element->state);
 	}
 	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "----------------------------------------------");
 }
 
 /**
- * \brief  ÏÔÊ¾½ÇÉ«ÉíÉÏµÄÁÙÊ±±»¶¯¼¼ÄÜ×´Ì¬
+ * \brief  æ˜¾ç¤ºè§’è‰²èº«ä¸Šçš„ä¸´æ—¶è¢«åŠ¨æŠ€èƒ½çŠ¶æ€
  * \author fqnewman
  */
 void SkillStatusManager::showRecovery()
@@ -15785,7 +15785,7 @@ void SkillStatusManager::showRecovery()
 	std::map<DWORD, SkillStatusElement>::iterator tIterator;
 	SkillStatusElement *element;
 
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "½ÇÉ«ÉíÉÏµÄÁÙÊ±±»¶¯×´Ì¬ÁĞ±í:");
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "è§’è‰²èº«ä¸Šçš„ä¸´æ—¶è¢«åŠ¨çŠ¶æ€åˆ—è¡¨:");
 	for(tIterator = _recoveryElement.begin() ; tIterator !=_recoveryElement.end(); tIterator++)
 	{
 		std::string myname;
@@ -15796,16 +15796,16 @@ void SkillStatusManager::showRecovery()
 			myname = pUser->name;
 		else
 		{
-			sprintf(buf,"ÁÙÊ±ID:%u", element->dwTempID);
+			sprintf(buf,"ä¸´æ—¶ID:%u", element->dwTempID);
 			myname = buf;
 		}
-		Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼¼ÄÜ:%u ´óÀà:%u ×´Ì¬Àà±ğ:%u %s Ê£ÓàÊ±¼ä:%u ¹¥»÷Õß:%s ¼¸ÂÊ:%u ×ÜÊ±¼ä:%u ×´Ì¬Öµ%u ÌØĞ§Öµ:%u",element->dwSkillID,element->byMutexType,element->id, element->byGoodnessType==1?"ÉËº¦":"ºÍÆ½",element->dwTime,myname.c_str(), element->percent, element->dwTime,element->value, element->state);
+		Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æŠ€èƒ½:%u å¤§ç±»:%u çŠ¶æ€ç±»åˆ«:%u %s å‰©ä½™æ—¶é—´:%u æ”»å‡»è€…:%s å‡ ç‡:%u æ€»æ—¶é—´:%u çŠ¶æ€å€¼%u ç‰¹æ•ˆå€¼:%u",element->dwSkillID,element->byMutexType,element->id, element->byGoodnessType==1?"ä¼¤å®³":"å’Œå¹³",element->dwTime,myname.c_str(), element->percent, element->dwTime,element->value, element->state);
 	}
 	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "----------------------------------------------");
 }
 
 /**
- * \brief  ÏÔÊ¾½ÇÉ«ÉíÉÏµÄÓÀ¾Ã±»¶¯¼¼ÄÜ×´Ì¬
+ * \brief  æ˜¾ç¤ºè§’è‰²èº«ä¸Šçš„æ°¸ä¹…è¢«åŠ¨æŠ€èƒ½çŠ¶æ€
  * \author fqnewman
  */
 void SkillStatusManager::showPassiveness()
@@ -15813,7 +15813,7 @@ void SkillStatusManager::showPassiveness()
 	std::map<DWORD, SkillStatusElement>::iterator tIterator;
 	SkillStatusElement *element;
 
-	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "½ÇÉ«ÉíÉÏµÄÓÀ¾Ã±»¶¯×´Ì¬ÁĞ±í:");
+	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "è§’è‰²èº«ä¸Šçš„æ°¸ä¹…è¢«åŠ¨çŠ¶æ€åˆ—è¡¨:");
 	for(tIterator = _passivenessElement.begin() ; tIterator !=_passivenessElement.end(); tIterator++)
 	{
 		std::string myname;
@@ -15824,16 +15824,16 @@ void SkillStatusManager::showPassiveness()
 			myname = pUser->name;
 		else
 		{
-			sprintf(buf,"ÁÙÊ±ID:%u", element->dwTempID);
+			sprintf(buf,"ä¸´æ—¶ID:%u", element->dwTempID);
 			myname = buf;
 		}
-		Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "¼¼ÄÜ:%u ´óÀà:%u ×´Ì¬Àà±ğ:%u %s Ê£ÓàÊ±¼ä:%u ¹¥»÷Õß:%s ¼¸ÂÊ:%u ×ÜÊ±¼ä:%u ×´Ì¬Öµ%u ÌØĞ§Öµ:%u",element->dwSkillID,element->byMutexType,element->id, element->byGoodnessType==1?"ÉËº¦":"ºÍÆ½",element->dwTime,myname.c_str(), element->percent, element->dwTime,element->value, element->state);
+		Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "æŠ€èƒ½:%u å¤§ç±»:%u çŠ¶æ€ç±»åˆ«:%u %s å‰©ä½™æ—¶é—´:%u æ”»å‡»è€…:%s å‡ ç‡:%u æ€»æ—¶é—´:%u çŠ¶æ€å€¼%u ç‰¹æ•ˆå€¼:%u",element->dwSkillID,element->byMutexType,element->id, element->byGoodnessType==1?"ä¼¤å®³":"å’Œå¹³",element->dwTime,myname.c_str(), element->percent, element->dwTime,element->value, element->state);
 	}
 	Channel::sendSys((SceneUser *)entry, Cmd::INFO_TYPE_SYS, "----------------------------------------------");
 }
 
 /**
- * \brief  »ñµÃµ±Ç°½ÇÉ«ËùĞ¯´øµÄ¼¼ÄÜ×´Ì¬ÊıÄ¿
+ * \brief  è·å¾—å½“å‰è§’è‰²æ‰€æºå¸¦çš„æŠ€èƒ½çŠ¶æ€æ•°ç›®
  */
 WORD SkillStatusManager::getSaveStatusSize()
 {

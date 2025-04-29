@@ -1,4 +1,4 @@
-#ifndef _CARTOON_H_
+ï»¿#ifndef _CARTOON_H_
 #define _CARTOON_H_
 
 #include "ScenePet.h"
@@ -10,7 +10,7 @@ class CartoonPet : public ScenePet
 		DWORD cartoonID;
 		Cmd::t_CartoonData cartoonData;
 
-		BYTE expRate;//ÊÍ·Å¾­ÑéµÄËÙÂÊ
+		BYTE expRate;//é‡Šæ”¾ç»éªŒçš„é€Ÿç‡
 		Timer _5_sec;
 		DWORD _5_sec_count;
 

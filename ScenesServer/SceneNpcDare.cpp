@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneNpcDare.cpp $
  * \author  
  * \date 
- * \brief NPCÕù¶áÕ½´¦ÀíÄ£¿é
+ * \brief NPCäº‰å¤ºæˆ˜å¤„ç†æ¨¡å—
  *
  * 
  */
@@ -19,7 +19,7 @@
 using namespace NpcDareDef;
 
 /**
- * \brief ±È½Ï½»Õ½ÎïÆ·
+ * \brief æ¯”è¾ƒäº¤æˆ˜ç‰©å“
  *
  */
 
@@ -38,17 +38,17 @@ class NpcDareObjectCompare:public UserObjectCompare
 
 
 /**
- * \brief Ö´ĞĞÌôÕ½Ö¸Áî
+ * \brief æ‰§è¡ŒæŒ‘æˆ˜æŒ‡ä»¤
  *
  *
- * \param rev ÌôÕ½Ö¸Áî
- * \param cmdLen ÏûÏ¢³¤¶È
- * \return ÊÇ·ñ³É¹¦
+ * \param rev æŒ‘æˆ˜æŒ‡ä»¤
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneUser::doNpcDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 {
 #ifdef _DEBUGLOG
-       Zebra::logger->debug("doNpcDareCmd´¦Àí[%d]ºÅÏûÏ¢", rev->byParam);
+       Zebra::logger->debug("doNpcDareCmdå¤„ç†[%d]å·æ¶ˆæ¯", rev->byParam);
 #endif 
 	switch (rev->byParam)
 	{
@@ -81,7 +81,7 @@ bool SceneUser::doNpcDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 								/*
 								NpcDareObjectCompare found;
 								found.dwObjectID = CREATE_NPCDARE_NEED_ITEM;
-								zObject *itemobj = packs.uom.getObject(found);// ²éÕÒµÀ¾ß
+								zObject *itemobj = packs.uom.getObject(found);// æŸ¥æ‰¾é“å…·
 								if (itemobj)
 								{
 									packs.removeObject(itemobj); //notify and delete
@@ -96,7 +96,7 @@ bool SceneUser::doNpcDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 								}
 								else
 								{
-									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "È±ÉÙÌôÕ½·¢ÆğµÀ¾ß£¡");
+									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç¼ºå°‘æŒ‘æˆ˜å‘èµ·é“å…·ï¼");
 								}
 								*/
 								if (this->packs.checkMoney(4000))
@@ -112,22 +112,22 @@ bool SceneUser::doNpcDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 								}
 								else
 								{
-									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "È±ÉÙ×ã¹»µÄÇ®À´·¢ÆğÌôÕ½£¡");
+									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç¼ºå°‘è¶³å¤Ÿçš„é’±æ¥å‘èµ·æŒ‘æˆ˜ï¼");
 								}
 							}
 							else
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äã»¹Ã»ÓĞ¼Ò×å²»ÄÜ·¢ÆğÌôÕ½£¡");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ è¿˜æ²¡æœ‰å®¶æ—ä¸èƒ½å‘èµ·æŒ‘æˆ˜ï¼");
 							}
 						}
 						else
 						{
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "²»ÔÚ×Ô¼º¹ú¼ÒÎŞ·¨·¢ÆğÌôÕ½£¡");
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä¸åœ¨è‡ªå·±å›½å®¶æ— æ³•å‘èµ·æŒ‘æˆ˜ï¼");
 						}
 					}
 					else
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¾àÀëÌ«Ô¶£¬ÎŞ·¨¶Ô»°£¡");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "è·ç¦»å¤ªè¿œï¼Œæ— æ³•å¯¹è¯ï¼");
 					}
 				}
 				return true;

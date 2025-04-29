@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryAlly.h  $
  * \author  
  * \date 
- * \brief ¹ú¼ÒÍ¬ÃË¹ÜÀíÆ÷
+ * \brief å›½å®¶åŒç›Ÿç®¡ç†å™¨
  *
  * 
  */
@@ -45,9 +45,9 @@ class CountryAllyM : public Singleton<CountryAllyM>
 	~CountryAllyM(){}
 
 	/**
-	 * \brief ³õÊ¼»¯
+	 * \brief åˆå§‹åŒ–
 	 *
-	 * ³õÊ¼»¯¸Ã³¡¾°ËùÓĞ¹ú¼ÒµÄ¹ú¼ÒÍ¬ÃËĞÅÏ¢
+	 * åˆå§‹åŒ–è¯¥åœºæ™¯æ‰€æœ‰å›½å®¶çš„å›½å®¶åŒç›Ÿä¿¡æ¯
 	 *
 	 */
 	void init();

@@ -1,4 +1,4 @@
-#ifndef _EMPERORFORBID_H_
+﻿#ifndef _EMPERORFORBID_H_
 #define _EMPERORFORBID_H_
 
 #include "zMisc.h"

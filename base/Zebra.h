@@ -1,4 +1,4 @@
-#ifndef _Zebra_h_
+ï»¿#ifndef _Zebra_h_
 #define _Zebra_h_
 
 #include "zLogger.h"
@@ -8,19 +8,19 @@
 namespace Zebra
 {
 	/**
-	 * \brief ÓÎÏ·Ê±¼ä
+	 * \brief æ¸¸æˆæ—¶é—´
 	 *
 	 */
 	extern volatile QWORD qwGameTime;
 
 	/**
-	 * \brief ÈÕÖ¾Ö¸Õë
+	 * \brief æ—¥å¿—æŒ‡é’ˆ
 	 *
 	 */
 	extern zLogger *logger;
 
 	/**
-	 * \brief ´æÈ¡È«¾Ö±äÁ¿µÄÈİÆ÷
+	 * \brief å­˜å–å…¨å±€å˜é‡çš„å®¹å™¨
 	 *
 	 */
 	extern zProperties global;

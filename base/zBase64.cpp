@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zBase64.cpp  $
  * \author  
  * \date 
- * \brief base64±àÂë½âÂëº¯Êı
+ * \brief base64ç¼–ç è§£ç å‡½æ•°
  *
  * 
  */

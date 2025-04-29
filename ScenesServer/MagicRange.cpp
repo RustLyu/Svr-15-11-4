@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MagicRange.cpp  $
  * \author  
  * \date 
- * \brief Èº¹¥¼¼ÄÜ·¶Î§¶¨Òå
+ * \brief ç¾¤æ”»æŠ€èƒ½èŒƒå›´å®šä¹‰
  *
  * 
  */
@@ -18,12 +18,12 @@
 #include "MagicRange.h"
 
 /**
- * \brief ¸ù¾İÏà¶Ô×ø±êµÃµ½¾ø¶Ô×ø±ê
+ * \brief æ ¹æ®ç›¸å¯¹åæ ‡å¾—åˆ°ç»å¯¹åæ ‡
  *
  *
- * \param center: Ïà¶Ô×ø±êÖĞĞÄµã
- * \param dir:Ïà¶Ô×ø±ê·½Ïò
- * \return ¾ø¶Ô×ø±ê
+ * \param center: ç›¸å¯¹åæ ‡ä¸­å¿ƒç‚¹
+ * \param dir:ç›¸å¯¹åæ ‡æ–¹å‘
+ * \return ç»å¯¹åæ ‡
  */
 zPos RelativePos::getAbsolutePos(const zPos &center , DWORD dir)
 {
@@ -72,16 +72,16 @@ zPos RelativePos::getAbsolutePos(const zPos &center , DWORD dir)
 }
 
 /**
- * \brief Î¨Ò»ÊµÀı
+ * \brief å”¯ä¸€å®ä¾‹
  *
  */
 MagicRangeInit *MagicRangeInit::instance = NULL;
 
 /**
- * \brief ³õÊ¼»¯¼¼ÄÜ·¶Î§
+ * \brief åˆå§‹åŒ–æŠ€èƒ½èŒƒå›´
  *
  *
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool MagicRangeInit::init()
 {
@@ -91,7 +91,7 @@ bool MagicRangeInit::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["magicrangefile"]))
 	{
-		Zebra::logger->error("¼ÓÔØÄ§·¨¹¥»÷·¶Î§ÎÄ¼ş %s Ê§°Ü", Zebra::global["magicrangefile"].c_str());
+		Zebra::logger->error("åŠ è½½é­”æ³•æ”»å‡»èŒƒå›´æ–‡ä»¶ %s å¤±è´¥", Zebra::global["magicrangefile"].c_str());
 		return false;
 	}
 
@@ -130,23 +130,23 @@ bool MagicRangeInit::init()
 
 			node = xml.getNextNode(node, NULL);
 		}
-		Zebra::logger->info("³õÊ¼»¯¹¥»÷·¶Î§³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–æ”»å‡»èŒƒå›´æˆåŠŸ");
 		rwlock.unlock();
 		return true;
 	}
 	rwlock.unlock();
 
-	Zebra::logger->error("¼ÓÔØ½Ç¹¥»÷·¶Î§ÅäÖÃÎÄ¼ş %s Ê§°Ü", Zebra::global["MagicRange"].c_str());
+	Zebra::logger->error("åŠ è½½è§’æ”»å‡»èŒƒå›´é…ç½®æ–‡ä»¶ %s å¤±è´¥", Zebra::global["MagicRange"].c_str());
 	return false;
 }
 
 /**
- * \brief ¸ü¾ßÈº¹¥ÀàĞÍºÍ·½ÏòµÃµ½¹¥»÷×ø±êµã
+ * \brief æ›´å…·ç¾¤æ”»ç±»å‹å’Œæ–¹å‘å¾—åˆ°æ”»å‡»åæ ‡ç‚¹
  *
  *
- * \param type: Èº¹¥ÀàĞÍ
- * \param dir: ·½Ïò
- * \param range:·¶Î§×ø±ê(Êä³ö)
+ * \param type: ç¾¤æ”»ç±»å‹
+ * \param dir: æ–¹å‘
+ * \param range:èŒƒå›´åæ ‡(è¾“å‡º)
  */
 void MagicRangeInit::get(const DWORD type , const DWORD dir , SMagicRange &range)
 {
@@ -161,7 +161,7 @@ void MagicRangeInit::get(const DWORD type , const DWORD dir , SMagicRange &range
 }
 
 /**
- * \brief Ğ¶ÔØ
+ * \brief å¸è½½
  *
  */
 void MagicRangeInit::final()
@@ -172,21 +172,21 @@ void MagicRangeInit::final()
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı,¸ü¾ßÈº¹¥ÀàĞÍºÍ·½ÏòµÃµ½¹¥»÷·¶Î§
+ * \brief æ„é€ å‡½æ•°,æ›´å…·ç¾¤æ”»ç±»å‹å’Œæ–¹å‘å¾—åˆ°æ”»å‡»èŒƒå›´
  *
  *
- * \param type: Èº¹¥ÀàĞÍ
- * \param dir: ·½Ïò
+ * \param type: ç¾¤æ”»ç±»å‹
+ * \param dir: æ–¹å‘
  */
 MagicPos::MagicPos(const DWORD type , const DWORD dir)
 {
 	MagicRangeInit::getInstance().get(type , dir % 2 , range);
 }
 /**
- * \brief Ö´ĞĞÃ¿Ò»¸öÈº¹¥×÷ÓÃµã
+ * \brief æ‰§è¡Œæ¯ä¸€ä¸ªç¾¤æ”»ä½œç”¨ç‚¹
  *
  *
- * \param pos: »Øµ÷º¯Êı
+ * \param pos: å›è°ƒå‡½æ•°
  */
 void MagicPos::execEvery(MagicPosExec &pos)
 {

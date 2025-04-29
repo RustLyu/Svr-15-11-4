@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zebraclientService.h  $
  * \author  
  * \date 
- * \brief »úÆ÷ÈË¿Í»§¶ËÖ÷³ÌĞò
+ * \brief æœºå™¨äººå®¢æˆ·ç«¯ä¸»ç¨‹åº
  *
  * 
  */
@@ -33,7 +33,7 @@ class zebraclientService : public zService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -65,7 +65,7 @@ class zebraclientService : public zService
 
 		static zebraclientService *instance;
 
-		zebraclientService() : zService("²âÊÔ¿Í»§¶Ë")
+		zebraclientService() : zService("æµ‹è¯•å®¢æˆ·ç«¯")
 		{
 			loop = false;
 		}

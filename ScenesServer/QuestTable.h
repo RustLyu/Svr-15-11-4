@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestTable.h $
  * \author	
  * \date		
- * \brief		ÈÎÎñÏµÍ³
+ * \brief		ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
 
@@ -21,9 +21,9 @@ class EventManager;
 class SceneUser;
 
 /**
- * \brief ÊÂ¼şÇı¶¯±í¸ñ
+ * \brief äº‹ä»¶é©±åŠ¨è¡¨æ ¼
  *
- *¹ÜÀí²»Í¬ÀàĞÍµÄÊÂ¼şÁĞ±í,²¢Ìá¹©Í³Ò»µÄ´¦Àí·½Ê½
+ *ç®¡ç†ä¸åŒç±»å‹çš„äº‹ä»¶åˆ—è¡¨,å¹¶æä¾›ç»Ÿä¸€çš„å¤„ç†æ–¹å¼
  *
  */	
 class EventTable
@@ -33,13 +33,13 @@ public:
 	static EventTable& instance();
 
 	/**     
-	 * \brief  Ö´ĞĞÈÎÎñÊÂ¼ş
+	 * \brief  æ‰§è¡Œä»»åŠ¡äº‹ä»¶
 	 *
-	 * µ÷ÓÃÏàÓ¦µÄÊÂ¼ş¹ÜÀíÆ÷Ö´ĞĞ¸ÃÈÎÎñÊÂ¼ş
+	 * è°ƒç”¨ç›¸åº”çš„äº‹ä»¶ç®¡ç†å™¨æ‰§è¡Œè¯¥ä»»åŠ¡äº‹ä»¶
 	 *      
-	 * \param user: ÇëÇóµÄÓÃ»§
-	 * \param event:ÈÎÎñÊÂ¼ş
-	 * \return ´¦Àí½á¹û
+	 * \param user: è¯·æ±‚çš„ç”¨æˆ·
+	 * \param event:ä»»åŠ¡äº‹ä»¶
+	 * \return å¤„ç†ç»“æœ
 	 */		
 	template <typename E>
 	int execute (SceneUser& user, E& event)
@@ -48,12 +48,12 @@ public:
 	}
 
 	/**     
-	 * \brief  Ö´ĞĞÈÎÎñÊÂ¼ş
+	 * \brief  æ‰§è¡Œä»»åŠ¡äº‹ä»¶
 	 *
-	 * µ÷ÓÃÏàÓ¦µÄÊÂ¼ş¹ÜÀíÆ÷Ö´ĞĞ¸ÃÈÎÎñÊÂ¼ş
+	 * è°ƒç”¨ç›¸åº”çš„äº‹ä»¶ç®¡ç†å™¨æ‰§è¡Œè¯¥ä»»åŠ¡äº‹ä»¶
 	 *      
-	 * \param event:ÈÎÎñÊÂ¼ş
-	 * \return ´¦Àí½á¹û
+	 * \param event:ä»»åŠ¡äº‹ä»¶
+	 * \return å¤„ç†ç»“æœ
 	 */		
 	template <typename E>
 	int execute (E& event)
@@ -75,9 +75,9 @@ private:
 #include <ext/hash_map>
 
 /**
- * \brief ÈÎÎñ±í¸ñ
+ * \brief ä»»åŠ¡è¡¨æ ¼
  *
- *ÈÎÎñ¼¯ºÏ,´æ´¢¸÷¸öÈÎÎñµÄÏêÏ¸ĞÅÏ¢
+ *ä»»åŠ¡é›†åˆ,å­˜å‚¨å„ä¸ªä»»åŠ¡çš„è¯¦ç»†ä¿¡æ¯
  *
  */	
 class QuestTable

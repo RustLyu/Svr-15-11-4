@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryAlly.cpp $
  * \author   
  * \date 
- * \brief ¹ú¼Ò¿Æ¼¼¹ÜÀíÆ÷
+ * \brief å›½å®¶ç§‘æŠ€ç®¡ç†å™¨
  *
  * 
  */
@@ -47,7 +47,7 @@ void   CountryAllyM::processUpdate(Cmd::Session::t_updateAlly_SceneSession *rev)
 	rwlock.rdlock();
 	
 #ifdef 	_ZJW_DEBUG
-	Zebra::logger->debug("[¹ú¼ÒÁªÃË]: ÊÕµ½ %d ÌõÁªÃËÊý¾Ý", rev->dwSize);
+	Zebra::logger->debug("[å›½å®¶è”ç›Ÿ]: æ”¶åˆ° %d æ¡è”ç›Ÿæ•°æ®", rev->dwSize);
 #endif	
 	for (unsigned int i=0; i<rev->dwSize; i++)
 	{
@@ -55,7 +55,7 @@ void   CountryAllyM::processUpdate(Cmd::Session::t_updateAlly_SceneSession *rev)
 		if (pAlly)
 		{//update
 #ifdef 	_ZJW_DEBUG
-	Zebra::logger->debug("[¹ú¼ÒÁªÃË]: ¸üÐÂ %d,%d ÁªÃËÓÑºÃ¶È:%d", pAlly->dwCountryID, 
+	Zebra::logger->debug("[å›½å®¶è”ç›Ÿ]: æ›´æ–° %d,%d è”ç›Ÿå‹å¥½åº¦:%d", pAlly->dwCountryID, 
 			pAlly->dwAllyCountryID, pAlly->dwFriendDegree);
 #endif	
 
@@ -71,7 +71,7 @@ void   CountryAllyM::processUpdate(Cmd::Session::t_updateAlly_SceneSession *rev)
 				pAlly->dwFriendDegree = rev->data[i].dwFriendDegree;
 				allies.push_back(pAlly);
 #ifdef 	_ZJW_DEBUG
-	Zebra::logger->debug("[¹ú¼ÒÁªÃË]: ÐÂ½¨ %d,%d ÁªÃËÓÑºÃ¶È:%d", pAlly->dwCountryID, 
+	Zebra::logger->debug("[å›½å®¶è”ç›Ÿ]: æ–°å»º %d,%d è”ç›Ÿå‹å¥½åº¦:%d", pAlly->dwCountryID, 
 			pAlly->dwAllyCountryID, pAlly->dwFriendDegree);
 #endif	
 			}
@@ -99,7 +99,7 @@ DWORD  CountryAllyM::getFriendLevel(DWORD dwCountryID1, DWORD dwCountryID2)
 
 	if (pAlly && pAlly->dwFriendDegree>0)
 	{
-		return 2; // Ö»ÒªÓÑºÃ¶È´óÓÚ0¾ÍÊÇÐ­Á¦¹ØÏµ,ÃË¹ú¹ØÏµµÄµÚ¶þ¼¶
+		return 2; // åªè¦å‹å¥½åº¦å¤§äºŽ0å°±æ˜¯ååŠ›å…³ç³»,ç›Ÿå›½å…³ç³»çš„ç¬¬äºŒçº§
 /*		if (pAlly->dwFriendDegree>10000)
 		{
 			return 2;

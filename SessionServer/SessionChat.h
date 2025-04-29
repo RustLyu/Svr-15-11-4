@@ -1,4 +1,4 @@
-#ifndef _SESSION_CHAT_H_
+﻿#ifndef _SESSION_CHAT_H_
 #define _SESSION_CHAT_H_
 
 #include "zEntry.h"

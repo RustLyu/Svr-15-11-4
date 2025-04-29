@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: LoginSessionManager.h  $
  * \author  
  * \date 
- * \brief ±£´æµÇÂ½»á»°½¨Á¢Ö®Ç°µÄĞÅÏ¢
+ * \brief ä¿å­˜ç™»é™†ä¼šè¯å»ºç«‹ä¹‹å‰çš„ä¿¡æ¯
  *
  * 
  */
@@ -22,7 +22,7 @@
 #include "EncDec/EncDec.h"
 
 /**
- * \brief µÇÂ½»á»°¹ÜÀíÆ÷
+ * \brief ç™»é™†ä¼šè¯ç®¡ç†å™¨
  *
  */
 class LoginSessionManager
@@ -31,15 +31,15 @@ class LoginSessionManager
 	public:
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~LoginSessionManager() {};
 
 		/**
-		 * \brief »ñÈ¡µÇÂ½»á»°¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç™»é™†ä¼šè¯ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * \return »á»°¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \return ä¼šè¯ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 */
 		static LoginSessionManager &getInstance()
 		{
@@ -50,7 +50,7 @@ class LoginSessionManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -65,25 +65,25 @@ class LoginSessionManager
 	private:
 
 		/**
-		 * \brief »á»°¹ÜÀíÈİÆ÷Î¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ä¼šè¯ç®¡ç†å®¹å™¨å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static LoginSessionManager *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		LoginSessionManager() : lastUpdateTime() {};
 
 		/**
-		 * \brief ×îºóÒ»´Î¸üĞÂÊ±¼ä
+		 * \brief æœ€åä¸€æ¬¡æ›´æ–°æ—¶é—´
 		 *
 		 */
 		zRTime lastUpdateTime;
 
 		/**
-		 * \brief ¼ì²é¸üĞÂ¼ä¸ô
+		 * \brief æ£€æŸ¥æ›´æ–°é—´éš”
 		 *
 		 */
 		bool checkUpdateTime(const zRTime &ct)
@@ -119,27 +119,27 @@ class LoginSessionManager
 			}
 		};
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<DWORD, LoginSession> LoginSessionHashmap;
 		/**
-		 * \brief ¶¨Òåµü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef LoginSessionHashmap::iterator LoginSessionHashmap_iterator;
 		/**
-		 * \brief ¶¨Òå¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef LoginSessionHashmap::value_type LoginSessionHashmap_pair;
 		/**
-		 * \brief »á»°ÈİÆ÷
+		 * \brief ä¼šè¯å®¹å™¨
 		 *
 		 */
 		LoginSessionHashmap sessionData;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleTask.h  $
  * \author 
  * \date 
- * \brief ¶¨ÒåÊı¾İ¿â·ÃÎÊ·şÎñÆ÷µÄÈÎÎñ
+ * \brief å®šä¹‰æ•°æ®åº“è®¿é—®æœåŠ¡å™¨çš„ä»»åŠ¡
  */
 
 #ifndef _RoleTask_h_
@@ -20,14 +20,14 @@
 #include "zMisc.h"
 
 /**
-* \brief ´æ·Å½ÇÉ«ĞÅÏ¢µÄ½á¹¹Ìå
+* \brief å­˜æ”¾è§’è‰²ä¿¡æ¯çš„ç»“æ„ä½“
 */
 struct RoleData
 {  
-	char name[MAX_NAMESIZE];//½ÇÉ«Ãû
-	unsigned short game; //ÓÎÏ·±àºÅ
-	unsigned short zone; //ÓÎÏ·Çø±àºÅ
-	unsigned int accid;	//ÕÊºÅ±àºÅ
+	char name[MAX_NAMESIZE];//è§’è‰²å
+	unsigned short game; //æ¸¸æˆç¼–å·
+	unsigned short zone; //æ¸¸æˆåŒºç¼–å·
+	unsigned int accid;	//å¸å·ç¼–å·
 	
 	RoleData(){accid=0;zone=0;game=0;memset(name, 0, sizeof(name));}
 	RoleData(const RoleData &rd)
@@ -49,7 +49,7 @@ struct RoleData
 
 
 /**
- * \brief ¶¨ÒåÊı¾İ¿â·ÃÎÊ·şÎñÆ÷µÄÈÎÎñÀà
+ * \brief å®šä¹‰æ•°æ®åº“è®¿é—®æœåŠ¡å™¨çš„ä»»åŠ¡ç±»
  */
 class RoleTask : public zTCPTask
 {
@@ -60,10 +60,10 @@ class RoleTask : public zTCPTask
 		bool msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 	
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôÁ¬½Ó³Ø
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±è¿æ¥æ± 
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		RoleTask(zTCPTaskPool *pool, const int sock, 
 					const struct sockaddr_in *addr = NULL) : zTCPTask(pool, sock, addr)
@@ -71,7 +71,7 @@ class RoleTask : public zTCPTask
 		}
 		
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		~RoleTask()
 		{

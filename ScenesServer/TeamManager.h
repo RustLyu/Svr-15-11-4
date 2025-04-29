@@ -1,4 +1,4 @@
-#ifndef _TEAMMANAGER_H_
+ï»¿#ifndef _TEAMMANAGER_H_
 #define _TEAMMANAGER_H_
 
 #include "Team.h"
@@ -7,14 +7,14 @@
 
 struct SceneUser;
 
-/// ÓÑºÃ¶È³ÉÔ±
+/// å‹å¥½åº¦æˆå‘˜
 struct stDegreeMember{
 	DWORD dwUserID;
 	WORD  wdDegree;
 	WORD  wdTime;
 };
 
-/// ÓÑºÃ¶ÈÁÙÊ±½á¹¹
+/// å‹å¥½åº¦ä¸´æ—¶ç»“æ„
 struct stTempDegreeMember{
 	DWORD dwUserID;
 	WORD  wdDegree;
@@ -22,90 +22,90 @@ struct stTempDegreeMember{
 	BYTE  byType;
 };
 
-/// ÓÑºÃ¶È·¶Î§ 
+/// å‹å¥½åº¦èŒƒå›´ 
 const DWORD FRIENDDEGREE_RANGE_BTM = 3*60;
 
-/// ÓÑºÃ¶È·¶Î§
+/// å‹å¥½åº¦èŒƒå›´
 const DWORD FRIENDDEGREE_RANGE_MED = 15*60;
-// ÓÑºÃ¶È·¶Î§
+// å‹å¥½åº¦èŒƒå›´
 const DWORD FRIENDDEGREE_RANGE_TOP = 55*60;
 
-/// ·òÆŞ·ÀÓùÔöÒæ°Ù·Ö±È1
+/// å¤«å¦»é˜²å¾¡å¢ç›Šç™¾åˆ†æ¯”1
 const DWORD FRIENDDEGREE_CONSORT_DEFPLUS_RATE_TOP	= 8;	
-/// ·òÆŞ·ÀÓùÔöÒæ°Ù·Ö±È2
+/// å¤«å¦»é˜²å¾¡å¢ç›Šç™¾åˆ†æ¯”2
 const DWORD FRIENDDEGREE_CONSORT_DEFPLUS_RATE_MED	= 5;	
-/// ·òÆŞ·ÀÓùÔöÒæ°Ù·Ö±È3
+/// å¤«å¦»é˜²å¾¡å¢ç›Šç™¾åˆ†æ¯”3
 const DWORD FRIENDDEGREE_CONSORT_DEFPLUS_RATE_BTM	= 3;	
 
-/// Í½µÜ·ÀÓùÔöÒæ°Ù·Ö±È1
+/// å¾’å¼Ÿé˜²å¾¡å¢ç›Šç™¾åˆ†æ¯”1
 const DWORD FRIENDDEGREE_PRENTICE_DEFPLUS_RATE_TOP	= 2;	
-/// Í½µÜ·ÀÓùÔöÒæ°Ù·Ö±È2
+/// å¾’å¼Ÿé˜²å¾¡å¢ç›Šç™¾åˆ†æ¯”2
 const DWORD FRIENDDEGREE_PRENTICE_DEFPLUS_RATE_MED	= 2;	
-/// Í½µÜ·ÀÓùÔöÒæ°Ù·Ö±È3
+/// å¾’å¼Ÿé˜²å¾¡å¢ç›Šç™¾åˆ†æ¯”3
 const DWORD FRIENDDEGREE_PRENTICE_DEFPLUS_RATE_BTM	= 2;	
-/// Í½µÜ·ÀÓùÔöÒæ°Ù·Ö±È100
+/// å¾’å¼Ÿé˜²å¾¡å¢ç›Šç™¾åˆ†æ¯”100
 const DWORD FRIENDDEGREE_PRENTICE_DEFPLUS_RATE_FULL    = 100;
 
-/// Ê¦¸µ¹¥»÷ÔöÒæ°Ù·Ö±È1
+/// å¸ˆå‚…æ”»å‡»å¢ç›Šç™¾åˆ†æ¯”1
 const DWORD FRIENDDEGREE_TEACHER_ATTPLUS_RATE_TOP	= 4;	
-/// Ê¦¸µ¹¥»÷ÔöÒæ°Ù·Ö±È2
+/// å¸ˆå‚…æ”»å‡»å¢ç›Šç™¾åˆ†æ¯”2
 const DWORD FRIENDDEGREE_TEACHER_ATTPLUS_RATE_MED	= 4;	
-/// Ê¦¸µ¹¥»÷ÔöÒæ°Ù·Ö±È3
+/// å¸ˆå‚…æ”»å‡»å¢ç›Šç™¾åˆ†æ¯”3
 const DWORD FRIENDDEGREE_TEACHER_ATTPLUS_RATE_BTM	= 2;	
 
-/// ºÃÓÑ¹¥»÷ÔöÒæ°Ù·Ö±È1
+/// å¥½å‹æ”»å‡»å¢ç›Šç™¾åˆ†æ¯”1
 const DWORD FRIENDDEGREE_FRIEND_ATTPLUS_RATE_TOP	= 8;	
-/// ºÃÓÑ¹¥»÷ÔöÒæ°Ù·Ö±È2
+/// å¥½å‹æ”»å‡»å¢ç›Šç™¾åˆ†æ¯”2
 const DWORD FRIENDDEGREE_FRIEND_ATTPLUS_RATE_MED	= 5;	
-/// ºÃÓÑ¹¥»÷ÔöÒæ°Ù·Ö±È3
+/// å¥½å‹æ”»å‡»å¢ç›Šç™¾åˆ†æ¯”3
 const DWORD FRIENDDEGREE_FRIEND_ATTPLUS_RATE_BTM	= 3;	
 
-/// ¾­ÑéÔöÒæ°Ù·Ö±È
+/// ç»éªŒå¢ç›Šç™¾åˆ†æ¯”
 const DWORD FRIENDDEGREE_EXPPLUS_RATE	= 5;	
-/// ½ğÇ®ÔöÒæ°Ù·Ö±È
+/// é‡‘é’±å¢ç›Šç™¾åˆ†æ¯”
 const DWORD FRIENDDEGREE_MONEYPLUS_RATE = 20;  
 
-/// ÅóÓÑ¹ØÏµÔöÒæ¸ÅÂÊ1
+/// æœ‹å‹å…³ç³»å¢ç›Šæ¦‚ç‡1
 const DWORD FRIENDDEGREE_FRIEND_RATE_TOP	= 100;	
-/// ÅóÓÑ¹ØÏµÔöÒæ¸ÅÂÊ2
+/// æœ‹å‹å…³ç³»å¢ç›Šæ¦‚ç‡2
 const DWORD FRIENDDEGREE_FRIEND_RATE_MED	= 100;	
-/// ÅóÓÑ¹ØÏµÔöÒæ¸ÅÂÊ3
+/// æœ‹å‹å…³ç³»å¢ç›Šæ¦‚ç‡3
 const DWORD FRIENDDEGREE_FRIEND_RATE_BTM	= 100;	
 
-/// ·òÆŞ¹ØÏµÔöÒæ¸ÅÂÊ1
+/// å¤«å¦»å…³ç³»å¢ç›Šæ¦‚ç‡1
 const DWORD FRIENDDEGREE_CONSORT_RATE_TOP	= 100;	
-/// ·òÆŞ¹ØÏµÔöÒæ¸ÅÂÊ2
+/// å¤«å¦»å…³ç³»å¢ç›Šæ¦‚ç‡2
 const DWORD FRIENDDEGREE_CONSORT_RATE_MED	= 100;	
-/// ·òÆŞ¹ØÏµÔöÒæ¸ÅÂÊ3
+/// å¤«å¦»å…³ç³»å¢ç›Šæ¦‚ç‡3
 const DWORD FRIENDDEGREE_CONSORT_RATE_BTM	= 100;	
 
-/// Ê¦Í½¹ØÏµÔöÒæ¸ÅÂÊ1
+/// å¸ˆå¾’å…³ç³»å¢ç›Šæ¦‚ç‡1
 const DWORD FRIENDDEGREE_TEACHER_RATE_TOP	= 40;	
-/// Ê¦Í½¹ØÏµÔöÒæ¸ÅÂÊ2
+/// å¸ˆå¾’å…³ç³»å¢ç›Šæ¦‚ç‡2
 const DWORD FRIENDDEGREE_TEACHER_RATE_MED	= 20;	
-/// Ê¦Í½¹ØÏµÔöÒæ¸ÅÂÊ3
+/// å¸ˆå¾’å…³ç³»å¢ç›Šæ¦‚ç‡3
 const DWORD FRIENDDEGREE_TEACHER_RATE_BTM	= 20;	
 
-/// ÓÑºÃ¶ÈÔöÒæÓĞĞ§¾àÀë
+/// å‹å¥½åº¦å¢ç›Šæœ‰æ•ˆè·ç¦»
 const DWORD FRIENDDEGREE_VALIDATION_DISTANCE_WIDE = SCREEN_WIDTH; 
-/// ÓÑºÃ¶ÈÔöÒæÓĞĞ§¾àÀë
+/// å‹å¥½åº¦å¢ç›Šæœ‰æ•ˆè·ç¦»
 const DWORD FRIENDDEGREE_VALIDATION_DISTANCE_HEIGHT = SCREEN_HEIGHT; 
 
 
 /**
- * \brief  ¶ÓÎé¹ÜÀíÆ÷
+ * \brief  é˜Ÿä¼ç®¡ç†å™¨
  */
 class TeamManager
 {
 	private:
-		//ÎïÆ··ÖÅäÄ£Ê½
+		//ç‰©å“åˆ†é…æ¨¡å¼
 		BYTE obj_mode;
-		//¾­Ñé·ÖÅäÄ£Ê½
+		//ç»éªŒåˆ†é…æ¨¡å¼
 		BYTE exp_mode;
-		// /¶ÓÎé¶ÔÏó
+		// /é˜Ÿä¼å¯¹è±¡
 		Team team;
 
-		/// ÅÅĞò·½·¨
+		/// æ’åºæ–¹æ³•
 		struct ltword
 		{
 			bool operator()(const WORD s1, const WORD s2) const
@@ -114,29 +114,29 @@ class TeamManager
 			}
 		};
 
-		/// ÅóÓÑÁĞ±í
+		/// æœ‹å‹åˆ—è¡¨
 		std::map<WORD, struct stDegreeMember,ltword> friendList;
 
-		/// ·òÆŞÁĞ±í
+		/// å¤«å¦»åˆ—è¡¨
 		std::map<WORD, struct stDegreeMember,ltword> consortList;
 
-		/// Ê¦¸µÁĞ±í
+		/// å¸ˆå‚…åˆ—è¡¨
 		std::map<WORD, struct stDegreeMember,ltword> teacherList;
 
-		/// Í½µÜÁĞ±í
+		/// å¾’å¼Ÿåˆ—è¡¨
 		std::map<WORD, struct stDegreeMember,ltword> prenticeList;
 
-		/// Éç»á¹ØÏµ¶ÁĞ´Ëø
+		/// ç¤¾ä¼šå…³ç³»è¯»å†™é”
 		zRWLock relationlock;
 
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef std::map<WORD, struct stDegreeMember, ltword>::value_type insValueType;
 
-		/// ¹ÜÀíÆ÷ÓµÓĞÕß
+		/// ç®¡ç†å™¨æ‹¥æœ‰è€…
 		SceneUser * me;
 
-		bool giveupstatus; //Õó·¨·ÅÆú±êÖ¾
-		zRTime giveuptime; //Õó·¨·ÅÆúÊ±¼ä 
+		bool giveupstatus; //é˜µæ³•æ”¾å¼ƒæ ‡å¿—
+		zRTime giveuptime; //é˜µæ³•æ”¾å¼ƒæ—¶é—´ 
 
 	public:
 
@@ -181,8 +181,8 @@ class TeamManager
 			exp_mode = mode;
 		}
 		/**
-		 * \brief  ¹¹Ôì³õÊ¼»¯
-		 * \param  pUser ¶ÓÎé¹ÜÀíÆ÷ÓµÓĞÕß
+		 * \brief  æ„é€ åˆå§‹åŒ–
+		 * \param  pUser é˜Ÿä¼ç®¡ç†å™¨æ‹¥æœ‰è€…
 		 */
 		TeamManager(SceneUser *pUser)
 		{
@@ -193,8 +193,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  ÅĞ¶Ï¶ÓÎéÊÇ·ñÒÑ¾­´ïµ½×î´óÈËÊı
-		 * \return true ¶ÓÎéÒÑ¾­´ïµ½×î´óÈËÊı£¬ false »¹Ã»ÓĞ
+		 * \brief  åˆ¤æ–­é˜Ÿä¼æ˜¯å¦å·²ç»è¾¾åˆ°æœ€å¤§äººæ•°
+		 * \return true é˜Ÿä¼å·²ç»è¾¾åˆ°æœ€å¤§äººæ•°ï¼Œ false è¿˜æ²¡æœ‰
 		 */
 		bool IsFull()
 		{
@@ -202,16 +202,16 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  »ñÈ¡¶ÓÎé³ÉÔ±ÈËÊı
-		 * \return ÈËÊı
+		 * \brief  è·å–é˜Ÿä¼æˆå‘˜äººæ•°
+		 * \return äººæ•°
 		 */
 		int getSize();
 		
 		int getExpSize(zPosI pos , DWORD sceneid);
 
 		/**
-		 * \brief  ÊÇ·ñÔÊĞí×é¶Ó
-		 * \return true ÔÊĞí×é¶Ó false ²»ÔÊĞí×é¶Ó
+		 * \brief  æ˜¯å¦å…è®¸ç»„é˜Ÿ
+		 * \return true å…è®¸ç»„é˜Ÿ false ä¸å…è®¸ç»„é˜Ÿ
 		 */
 		bool IsOpen()
 		{
@@ -219,8 +219,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  ÉèÖÃÔÊĞí×é¶Ó±êÖ¾
-		 * \param  is ÔÊĞí×é¶Ó±êÖ¾
+		 * \brief  è®¾ç½®å…è®¸ç»„é˜Ÿæ ‡å¿—
+		 * \param  is å…è®¸ç»„é˜Ÿæ ‡å¿—
 		 */
 		void setOpen(bool is)
 		{
@@ -228,8 +228,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  ÊÇ·ñ×é¶Ó
-		 * \return true ×é¶Ó£¬ false Ã»ÓĞ×é¶Ó
+		 * \brief  æ˜¯å¦ç»„é˜Ÿ
+		 * \return true ç»„é˜Ÿï¼Œ false æ²¡æœ‰ç»„é˜Ÿ
 		 */
 		bool IsTeamed()
 		{
@@ -237,8 +237,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  »ñÈ¡¶Ó³¤µÄÁÙÊ±id
-		 * \return ¶Ó³¤ÁÙÊ±id
+		 * \brief  è·å–é˜Ÿé•¿çš„ä¸´æ—¶id
+		 * \return é˜Ÿé•¿ä¸´æ—¶id
 		 */
 		DWORD getLeader() const
 		{
@@ -246,8 +246,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  ¼ÇÂ¼¶Ó³¤µÄÁÙÊ±id
-		 * \param  tempid »Øµ÷·½·¨
+		 * \brief  è®°å½•é˜Ÿé•¿çš„ä¸´æ—¶id
+		 * \param  tempid å›è°ƒæ–¹æ³•
 		 */
 		bool setLeader(DWORD tempid)
 		{
@@ -256,8 +256,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  ½ÇÉ«Éı¼¶Êı¾İ±ä¸ü´¦Àí
-		 * \param  pUser Éı¼¶µÄ½ÇÉ«
+		 * \brief  è§’è‰²å‡çº§æ•°æ®å˜æ›´å¤„ç†
+		 * \param  pUser å‡çº§çš„è§’è‰²
 		 */
 		void userupgrade(SceneUser *pUser)
 		{
@@ -265,8 +265,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  »ñµÃ¶ÓÎéÆ½¾ù·ÖÅä¾­Ñé
-		 * \return Æ½¾ù¾­Ñé
+		 * \brief  è·å¾—é˜Ÿä¼å¹³å‡åˆ†é…ç»éªŒ
+		 * \return å¹³å‡ç»éªŒ
 		 */
 		DWORD getAverageExp()
 		{
@@ -274,8 +274,8 @@ class TeamManager
 		}
 
 		/**
-		 * \brief  »ñµÃ¶ÓÎé¶ÔÏó
-		 * \return ¶ÓÎé¶ÔÏó
+		 * \brief  è·å¾—é˜Ÿä¼å¯¹è±¡
+		 * \return é˜Ÿä¼å¯¹è±¡
 		 */
 		const Team& getTeam() const
 		{
@@ -305,7 +305,7 @@ class TeamManager
 		void decreaseAverageExp(DWORD leaderid , SceneUser *pUser);
 		void calAverageExp(zPosI pos,DWORD sceneid);
 
-		// ÉèÖÃ¸ÃÓÃ»§µÄÓÑºÃ¶ÈÏà¹ØÉç»á¹ØÏµ
+		// è®¾ç½®è¯¥ç”¨æˆ·çš„å‹å¥½åº¦ç›¸å…³ç¤¾ä¼šå…³ç³»
 		void setFriendDegree(Cmd::Session::t_ReturnFriendDegree_SceneSession * = NULL);
 		DWORD getExpPlus(WORD wdExp);
 		DWORD getAttPlus();

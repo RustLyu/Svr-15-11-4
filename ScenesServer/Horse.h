@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Horse.h $
  * \author  
  * \date 	
- * \brief 	ÂíÆ¥Ïà¹Ø
+ * \brief 	é©¬åŒ¹ç›¸å…³
  *
  * 
  */
@@ -17,47 +17,47 @@ class SceneUser;
 #include "Command.h"
 #include "zObject.h"
 
-//ÂíµÄÀàÐÍ
-const DWORD HORSE_TYPE_NOTHORSE = 0;//Ã»Âí
-const DWORD HORSE_TYPE_NORMAL = 1;//ÆÕÍ¨
-const DWORD HORSE_TYPE_BATTLE = 2;//Õ½Âí
-const DWORD HORSE_TYPE_SUPER = 3;//¸ß¼¶Õ½Âí
+//é©¬çš„ç±»åž‹
+const DWORD HORSE_TYPE_NOTHORSE = 0;//æ²¡é©¬
+const DWORD HORSE_TYPE_NORMAL = 1;//æ™®é€š
+const DWORD HORSE_TYPE_BATTLE = 2;//æˆ˜é©¬
+const DWORD HORSE_TYPE_SUPER = 3;//é«˜çº§æˆ˜é©¬
 
-//ÂíµÄPKÊý¾Ý.Æï³ËÊ±¼Óµ½Ö÷ÈËÉíÉÏµÄ
+//é©¬çš„PKæ•°æ®.éª‘ä¹˜æ—¶åŠ åˆ°ä¸»äººèº«ä¸Šçš„
 struct t_HorsePkData
 {
 		DWORD id;       //npcid
-		char name[MAX_NAMESIZE];//Ãû×Ö
-		DWORD lv;       //µÈ¼¶
-		WORD str;       //Á¦Á¿
-		WORD intel;     //ÖÇÁ¦
-		WORD dex;       //Ãô½Ý
-		WORD men;       //¾«Éñ
-		WORD con;       //ÌåÖÊ
-		WORD speed;     //ËÙ¶È
-		BYTE pdam;      //Ôö¼ÓÎïÀí¹¥»÷Á¦%
-		BYTE pdef;      //Ôö¼ÓÎïÀí·ÀÓùÁ¦%
-		BYTE mdam;      //Ôö¼ÓÄ§·¨¹¥»÷Á¦%
-		BYTE mdef;      //Ôö¼ÓÄ§·¨·ÀÓùÁ¦%
-		WORD maxhp;     //×î´óHP
-		WORD maxmp;     //×î´óMP
-		DWORD callTime;     //ÕÙ»½¼ä¸ô
-		Cmd::horseState state;   //ÂíµÄ×´Ì¬
-		WORD poisonRes;     //¿¹¶¾
-		WORD lullRes;       //¿¹Âé±Ô
-		WORD faintRes;      //¿¹ÔÎÑ£
-		WORD chaosRes;      //¿¹»ìÂÒ
-		WORD freezeRes;     //¿¹±ù¶³
-		WORD petrifyRes;    //¿¹Ê¯»¯
-		WORD blindRes;      //¿¹Ê§Ã÷
-		WORD slowRes;       //¿¹¼õËÙ
-		DWORD horseid;      //ÂíµÄid£¨µÀ¾ßid£©
+		char name[MAX_NAMESIZE];//åå­—
+		DWORD lv;       //ç­‰çº§
+		WORD str;       //åŠ›é‡
+		WORD intel;     //æ™ºåŠ›
+		WORD dex;       //æ•æ·
+		WORD men;       //ç²¾ç¥ž
+		WORD con;       //ä½“è´¨
+		WORD speed;     //é€Ÿåº¦
+		BYTE pdam;      //å¢žåŠ ç‰©ç†æ”»å‡»åŠ›%
+		BYTE pdef;      //å¢žåŠ ç‰©ç†é˜²å¾¡åŠ›%
+		BYTE mdam;      //å¢žåŠ é­”æ³•æ”»å‡»åŠ›%
+		BYTE mdef;      //å¢žåŠ é­”æ³•é˜²å¾¡åŠ›%
+		WORD maxhp;     //æœ€å¤§HP
+		WORD maxmp;     //æœ€å¤§MP
+		DWORD callTime;     //å¬å”¤é—´éš”
+		Cmd::horseState state;   //é©¬çš„çŠ¶æ€
+		WORD poisonRes;     //æŠ—æ¯’
+		WORD lullRes;       //æŠ—éº»ç—¹
+		WORD faintRes;      //æŠ—æ™•çœ©
+		WORD chaosRes;      //æŠ—æ··ä¹±
+		WORD freezeRes;     //æŠ—å†°å†»
+		WORD petrifyRes;    //æŠ—çŸ³åŒ–
+		WORD blindRes;      //æŠ—å¤±æ˜Ž
+		WORD slowRes;       //æŠ—å‡é€Ÿ
+		DWORD horseid;      //é©¬çš„idï¼ˆé“å…·idï¼‰
 };
 
 /**
- * \brief ÂíÆ¥Àà
+ * \brief é©¬åŒ¹ç±»
  *
- * ·â×°ÁËÓÐ¹ØÂíÆ¥µÄ´¦Àíº¯Êý
+ * å°è£…äº†æœ‰å…³é©¬åŒ¹çš„å¤„ç†å‡½æ•°
  */
 class Horse
 {

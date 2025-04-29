@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Team.h  $
  * \author  
  * \date 
- * \brief Session±£´æµÄ¶ÓÎéĞÅÏ¢
+ * \brief Sessionä¿å­˜çš„é˜Ÿä¼ä¿¡æ¯
  *
  * 
  */
@@ -19,7 +19,7 @@
 //#include "Session.h"
 using namespace std;
 /**
- * \brief SessionµÄ¶ÓÎéĞÅÏ¢
+ * \brief Sessionçš„é˜Ÿä¼ä¿¡æ¯
  *
  */
 struct Team
@@ -40,7 +40,7 @@ struct Team
 };
 
 /**
- * \brief Session¶ÓÎé¹ÜÀíÆ÷
+ * \brief Sessioné˜Ÿä¼ç®¡ç†å™¨
  *
  */
 class GlobalTeamIndex

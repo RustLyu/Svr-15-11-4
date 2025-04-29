@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareEmperor.cpp $
  * \author  
  * \date T
- * \brief »Ê³ÇÕù¶áÕ½
+ * \brief çš‡åŸŽäº‰å¤ºæˆ˜
  *
  * 
  */
@@ -53,7 +53,7 @@ void CDareEmperor::setActiveState()
 	DWORD dwMapID = (NEUTRAL_COUNTRY_ID<<16) + 134;
 	Cmd::Session::t_setEmperorDare_SceneSession send;
 
-	// ÉèÖÃ×´Ì¬
+	// è®¾ç½®çŠ¶æ€
 	rwlock.wrlock();
 	this->state = CDare::DARE_ACTIVE;
 	rwlock.unlock();   
@@ -62,7 +62,7 @@ void CDareEmperor::setActiveState()
 	send.dwDefCountryID = this->secondID;
 	SceneSession *pScene = SceneSessionManager::getInstance()->getSceneByID(dwMapID);
 	pScene->sendCmd(&send, sizeof(send));
-	SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, "»Ê³ÇÕù¶áÕ½ÏÖÔÚ¿ªÊ¼£¬Çë×öºÃ×¼±¸¡£");
+	SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, "çš‡åŸŽäº‰å¤ºæˆ˜çŽ°åœ¨å¼€å§‹ï¼Œè¯·åšå¥½å‡†å¤‡ã€‚");
 }
 
 void CDareEmperor::setReadyOverState()
@@ -79,17 +79,17 @@ void CDareEmperor::setReadyOverState()
 		CCountry* pCountry = CCountryM::getMe().find(NEUTRAL_COUNTRY_ID);
 		pCountry->changeEmperor(this->dwWinnerID);
 	
-		// ½«ÖÐÁ¢Çø»Ê³ÇÕ¼ÁìÕß°ï»á,ÉèÎªÓ®¼Ò¹ú¼Ò¹úÍõËùÊô°ï»á
-		SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, "%s »ñµÃ»Ê³Ç¿ØÖÆÈ¨", 
+		// å°†ä¸­ç«‹åŒºçš‡åŸŽå é¢†è€…å¸®ä¼š,è®¾ä¸ºèµ¢å®¶å›½å®¶å›½çŽ‹æ‰€å±žå¸®ä¼š
+		SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, "%s èŽ·å¾—çš‡åŸŽæŽ§åˆ¶æƒ", 
 				CCountryM::getMe().find(this->dwWinnerID)->name);
 	}
 	else
 	{
-		SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, "%s ¾­¹ýÔ¡Ñª·ÜÕ½³É¹¦ÊØ×¡»Ê³Ç", 
+		SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, "%s ç»è¿‡æµ´è¡€å¥‹æˆ˜æˆåŠŸå®ˆä½çš‡åŸŽ", 
 				CCountryM::getMe().find(this->secondID)->name);
 	}
 
-	// Í¨¸æ¶ÔÕ½½á¹û
+	// é€šå‘Šå¯¹æˆ˜ç»“æžœ
 	this->setOverState();
 }
 

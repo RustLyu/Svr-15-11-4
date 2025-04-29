@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MiniServer.cpp  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿¼Æ·Ñ·şÎñÆ÷
+ * \brief zebraé¡¹ç›®è®¡è´¹æœåŠ¡å™¨
  *
  */
 
@@ -26,11 +26,11 @@ MiniService *MiniService::instance = NULL;
 MetaData* MiniService::metaData = NULL;
 
 /**
- * \brief ³õÊ¼»¯ÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–ç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zService::init</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zService::init</code>
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool MiniService::init()
 {
@@ -40,7 +40,7 @@ bool MiniService::init()
 	if (NULL == dbConnPool
 			|| !dbConnPool->putURL(0, Zebra::global["mysql"].c_str(), false))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü");
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥");
 		return false;
 	}
 
@@ -49,16 +49,16 @@ bool MiniService::init()
 	if (NULL == metaData
 			|| !metaData->init(Zebra::global["mysql"]))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü");
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥");
 		return false;
 	}
 
 	/*
 	tradelog = new zLogger("minilog");
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	tradelog->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["gold_tradelog"])
 	{
 		tradelog->addLocalFileLog(Zebra::global["gold_tradelog"]);
@@ -66,7 +66,7 @@ bool MiniService::init()
 	}
 	*/
 
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -89,36 +89,36 @@ bool MiniService::init()
 }
 
 /**
- * \brief ĞÂ½¨Á¢Ò»¸öÁ¬½ÓÈÎÎñ
+ * \brief æ–°å»ºç«‹ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zNetService::newTCPTask</code>
+ * å®ç°çº¯è™šå‡½æ•°<code>zNetService::newTCPTask</code>
  *
- * \param sock TCP/IPÁ¬½Ó
- * \param addr µØÖ·
+ * \param sock TCP/IPè¿æ¥
+ * \param addr åœ°å€
  */
 void MiniService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	//Zebra::logger->debug(__PRETTY_FUNCTION__);
 	MiniTask *tcpTask = new MiniTask(taskPool, sock, addr);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
 
 /**
- * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
  *
- * ÕâĞ©Ö¸ÁîÊÇÍø¹ØºÍ·şÎñÆ÷¹ÜÀíÆ÷½»»¥µÄÖ¸Áî<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zSubNetService::msgParse_SuperService</code>
+ * è¿™äº›æŒ‡ä»¤æ˜¯ç½‘å…³å’ŒæœåŠ¡å™¨ç®¡ç†å™¨äº¤äº’çš„æŒ‡ä»¤<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zSubNetService::msgParse_SuperService</code>
  *
- * \param ptNullCmd ´ı½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ı½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool MiniService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -131,9 +131,9 @@ bool MiniService::msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const u
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨
  *
- * ÊµÏÖÁË´¿Ğéº¯Êı<code>zService::final</code>
+ * å®ç°äº†çº¯è™šå‡½æ•°<code>zService::final</code>
  *
  */
 void MiniService::final()
@@ -157,7 +157,7 @@ void MiniService::final()
 }
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  *
  */
 static struct argp_option account_options[] =
@@ -173,12 +173,12 @@ static struct argp_option account_options[] =
 };
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
  *
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t account_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -226,13 +226,13 @@ static error_t account_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char account_doc[] = "\nMiniServer\n" "\tĞ¡ÓÎÏ··şÎñÆ÷¡£";
+static char account_doc[] = "\nMiniServer\n" "\tå°æ¸¸æˆæœåŠ¡å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -240,7 +240,7 @@ const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild time      :\t" __DATE__ ", " __TIME__;
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  *
  */
 class MiniConfile:public zConfile
@@ -263,7 +263,7 @@ class MiniConfile:public zConfile
 };
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶ï¼Œä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  *
  */
 void MiniService::reloadConfig()
@@ -271,7 +271,7 @@ void MiniService::reloadConfig()
 	Zebra::logger->debug("%s", __PRETTY_FUNCTION__);
 	MiniConfile rc;
 	rc.parse("MiniServer");
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -285,26 +285,26 @@ void MiniService::reloadConfig()
 }
 
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
+ * \brief ä¸»ç¨‹åºå…¥å£
  *
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("MiniServer");
 
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["mysql"] = "mysql://Zebra:Zebra@192.168.1.162:3306/MiniServer";
 	Zebra::global["logfilename"] = "/tmp/miniserver.log";
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	MiniConfile rc;
 	if (!rc.parse("MiniServer"))
 		return EXIT_FAILURE;
 
-	//Ö¸Áî¼ì²â¿ª¹Ø
+	//æŒ‡ä»¤æ£€æµ‹å¼€å…³
 	if(Zebra::global["cmdswitch"] == "true")
 	{
 		zTCPTask::analysis._switch = true;
@@ -315,18 +315,18 @@ int main(int argc, char **argv)
 		zTCPTask::analysis._switch = false;
 		zTCPClient::analysis._switch=false;
 	}
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(account_options, account_parse_opt, 0, account_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();

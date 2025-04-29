@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zntop.cpp  $
  * \author 
  * \date 
- * \brief ÊµÏÖÁ÷Á¿¼à¿Ø³ÌĞò
+ * \brief å®ç°æµé‡ç›‘æ§ç¨‹åº
  *
  * 
  */
@@ -33,16 +33,16 @@
 #include "CollectServerInfo.h"
 
 /**
- * \brief ÏòÖÕ¶ËÊä³ö×Ö·û´®
+ * \brief å‘ç»ˆç«¯è¾“å‡ºå­—ç¬¦ä¸²
  *
  */
 #define PUTP(x) (tputs(x, 1, putchar))
 
 
 /**
- * \brief Íø¿¨Á÷Á¿¼à¿Ø³ÌĞòÀà£¬ÊµÊ±Á÷Á¿Í³¼Æ£¬¿ÉÒÔ¼ÆÊ±Ğ´ÎÄ¼ş
+ * \brief ç½‘å¡æµé‡ç›‘æ§ç¨‹åºç±»ï¼Œå®æ—¶æµé‡ç»Ÿè®¡ï¼Œå¯ä»¥è®¡æ—¶å†™æ–‡ä»¶
  *
- * Õâ¸öÀàÊ¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³Ì»·¾³Ö»ÓĞÒ»¸öÀàµÄÊµÀı¡£
+ * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ç¯å¢ƒåªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹ã€‚
  */
 class zntopService : public zService
 {
@@ -50,7 +50,7 @@ class zntopService : public zService
 	public:
 
 		/**
-		 * \brief Îö¹ºº¯Êı
+		 * \brief æè´­å‡½æ•°
 		 *
 		 */
 		~zntopService()
@@ -59,9 +59,9 @@ class zntopService : public zService
 		}
 
 		/**
-		 * \brief »ñÈ¡ÀàÎ¨Ò»µÄÊµÀı
+		 * \brief è·å–ç±»å”¯ä¸€çš„å®ä¾‹
 		 *
-		 * \return ÀàµÄÎ¨Ò»ÊµÀı
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static zntopService &getInstance()
 		{
@@ -72,7 +72,7 @@ class zntopService : public zService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -89,7 +89,7 @@ class zntopService : public zService
 		bool do_key(char c);
 
 		/**
-		 * \brief Çå³şÆÁÄ»
+		 * \brief æ¸…æ¥šå±å¹•
 		 *
 		 */
 		void clear_screen()
@@ -109,13 +109,13 @@ class zntopService : public zService
 
 		static zntopService *instance;
 
-		static const int BUFF_LEN = 200;		/**< »º³å´óĞ¡ */
-		static const long sleeptime = 1000;		/**< Ë¢ĞÂÖÕ¶ËÏÔÊ¾Ö®¼äµÄ¼ä¸ô£¬ºÁÃë */
+		static const int BUFF_LEN = 200;		/**< ç¼“å†²å¤§å° */
+		static const long sleeptime = 1000;		/**< åˆ·æ–°ç»ˆç«¯æ˜¾ç¤ºä¹‹é—´çš„é—´éš”ï¼Œæ¯«ç§’ */
 
-		zTime started;							/**< ¿ªÊ¼Ê±¼ä */
+		zTime started;							/**< å¼€å§‹æ—¶é—´ */
 
-		struct termios savetty;					/**< ±£´æµÄÖÕ¶ËĞÅÏ¢ */
-		struct termios rawtty;					/**< ±£´æµÄÔ­Ê¼×´Ì¬ÖÕ¶ËĞÅÏ¢ */
+		struct termios savetty;					/**< ä¿å­˜çš„ç»ˆç«¯ä¿¡æ¯ */
+		struct termios rawtty;					/**< ä¿å­˜çš„åŸå§‹çŠ¶æ€ç»ˆç«¯ä¿¡æ¯ */
 		char *cm;
 		char *cl;
 		char *top_clrtobot;
@@ -124,22 +124,22 @@ class zntopService : public zService
 		char *md;
 		char *me;
 		char *mr;
-		int lines;								/**< ÖÕ¶ËĞĞÊı */
-		int cols;								/**< ÖÕ¶ËÁĞÊı */
+		int lines;								/**< ç»ˆç«¯è¡Œæ•° */
+		int cols;								/**< ç»ˆç«¯åˆ—æ•° */
 
-		zTime writeFileTime;					/**< ×îºóĞ´ÎÄ¼şÊ±¼ä */
-		std::string out_filename;				/**< Ğ´Á÷Á¿ĞÅÏ¢µ½ÎÄ¼şµÄÎÄ¼şÃû³Æ */
-		int out_interval;						/**< Ğ´ÎÄ¼ş¼ä¸ôÆµÂÊ */
-		FILE *out;								/**< ´ò¿ªµÄÎÄ¼şÖ¸Õë */
+		zTime writeFileTime;					/**< æœ€åå†™æ–‡ä»¶æ—¶é—´ */
+		std::string out_filename;				/**< å†™æµé‡ä¿¡æ¯åˆ°æ–‡ä»¶çš„æ–‡ä»¶åç§° */
+		int out_interval;						/**< å†™æ–‡ä»¶é—´éš”é¢‘ç‡ */
+		FILE *out;								/**< æ‰“å¼€çš„æ–‡ä»¶æŒ‡é’ˆ */
 
 };
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */
 zntopService::zntopService()
-	: zService("Íø¿¨Á÷Á¿¼à¿Ø")
+	: zService("ç½‘å¡æµé‡ç›‘æ§")
 {
 	out= NULL;
 	out_filename = Zebra::global["outfile"];
@@ -152,15 +152,15 @@ zntopService::zntopService()
 }
 
 /**
- * \brief ÀàµÄÎ¨Ò»ÊµÀı
+ * \brief ç±»çš„å”¯ä¸€å®ä¾‹
  *
  */
 zntopService *zntopService::instance = NULL;
 
 /**
- * \brief ³õÊ¼»¯³ÌĞò
+ * \brief åˆå§‹åŒ–ç¨‹åº
  *
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool zntopService::init()
 {
@@ -194,9 +194,9 @@ bool zntopService::init()
 }
 
 /**
- * \brief ³ÌĞòÖ÷»Øµ÷º¯Êı
+ * \brief ç¨‹åºä¸»å›è°ƒå‡½æ•°
  *
- * \return »Øµ÷ÊÇ·ñ³É¹¦
+ * \return å›è°ƒæ˜¯å¦æˆåŠŸ
  */
 bool zntopService::serviceCallback()
 {
@@ -230,9 +230,9 @@ bool zntopService::serviceCallback()
 }
 
 /**
- * \brief ·şÎñ³ÌĞò½áÊø
+ * \brief æœåŠ¡ç¨‹åºç»“æŸ
  *
- * »¹Ô­ÖÕ¶ËÉèÖÃ
+ * è¿˜åŸç»ˆç«¯è®¾ç½®
  */
 void zntopService::final()
 {
@@ -248,9 +248,9 @@ void zntopService::final()
 }
 
 /**
- * \brief ³õÊ¼»¯ÖÕ¶Ë
+ * \brief åˆå§‹åŒ–ç»ˆç«¯
  *
- * return ³õÊ¼»¯ÖÕ¶ËÊÇ·ñ³É¹¦
+ * return åˆå§‹åŒ–ç»ˆç«¯æ˜¯å¦æˆåŠŸ
  */
 bool zntopService::setup_terminal()
 {
@@ -300,7 +300,7 @@ bool zntopService::setup_terminal()
 }
 
 /**
- * \brief Êä³öÍø¿¨Á÷Á¿Í³¼ÆĞÅÏ¢µ½ÖÕ¶Ë
+ * \brief è¾“å‡ºç½‘å¡æµé‡ç»Ÿè®¡ä¿¡æ¯åˆ°ç»ˆç«¯
  *
  */
 void zntopService::update()
@@ -438,7 +438,7 @@ void zntopService::update()
 	printf("\n");
 	PUTP(top_clrtoeol);
 
-	//Ğ´ÎÄ¼ş
+	//å†™æ–‡ä»¶
 	{
 		zTime currentTime;
 		if (writeFileTime.elapse(currentTime) >= out_interval)
@@ -478,9 +478,9 @@ void zntopService::update()
 }
 
 /**
- * \brief ´¦Àí°´¼ü
+ * \brief å¤„ç†æŒ‰é”®
  * 
- * Ïàµ±ÓÚ´¦Àí¹¦ÄÜ¼ü
+ * ç›¸å½“äºå¤„ç†åŠŸèƒ½é”®
  *
  */
 bool zntopService::do_key(char c)
@@ -492,11 +492,11 @@ bool zntopService::do_key(char c)
 }
 
 /**
- * \brief ÉèÖÃÖÕ¶Ë´óĞ¡
+ * \brief è®¾ç½®ç»ˆç«¯å¤§å°
  *
- * Í¬Ê±Ò²ÓÃÓÚ´¦Àí´°¿ÚËõ·ÅµÄĞÅºÅ
+ * åŒæ—¶ä¹Ÿç”¨äºå¤„ç†çª—å£ç¼©æ”¾çš„ä¿¡å·
  *
- * \param signo ĞÅºÅ
+ * \param signo ä¿¡å·
  */
 void zntopService::window_size(int signo)
 {
@@ -519,7 +519,7 @@ void zntopService::window_size(int signo)
 }
 
 /**
- * \brief ²ÎÊı¶¨Òå
+ * \brief å‚æ•°å®šä¹‰
  *
  */
 static const struct argp_option zntop_options[] = {
@@ -529,12 +529,12 @@ static const struct argp_option zntop_options[] = {
 };
 
 /**
- * \brief ²ÎÊı½âÎö´¦Àíº¯Êı
+ * \brief å‚æ•°è§£æå¤„ç†å‡½æ•°
  *
- * \param key ¹Ø¼ü×Ö
- * \param arg Öµ
- * \param state ×´Ì¬
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param key å…³é”®å­—
+ * \param arg å€¼
+ * \param state çŠ¶æ€
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 error_t zntop_parse_opt(int key, char *arg, struct argp_state * state)
 {
@@ -553,13 +553,13 @@ error_t zntop_parse_opt(int key, char *arg, struct argp_state * state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char zntop_doc[] = "\nzntop\n" "\tÍø¿¨Á÷Á¿ÊµÊ±¼à¿Ø³ÌĞò¡£";
+static char zntop_doc[] = "\nzntop\n" "\tç½‘å¡æµé‡å®æ—¶ç›‘æ§ç¨‹åºã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -570,12 +570,12 @@ int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger();
 
-	//²âÊÔÒ»Î¬Êı×éÒÔ¼°¶şÎ¬Êı×éµÄĞ§ÂÊ
+	//æµ‹è¯•ä¸€ç»´æ•°ç»„ä»¥åŠäºŒç»´æ•°ç»„çš„æ•ˆç‡
 #if 0
 	const unsigned int high = 100, weight = 100, maxcount = 1000;
 	std::vector<unsigned int> vec(high * weight, 999);
 	{
-		FunctionTime func_time(0,__PRETTY_FUNCTION__,"Õû¸öÈÎÎñ±éÀúĞèÒªµÄÊ±¼ä" , 32);
+		FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ•´ä¸ªä»»åŠ¡éå†éœ€è¦çš„æ—¶é—´" , 32);
 		for(unsigned int k = 0; k < maxcount; k++)
 		{
 			for(unsigned int i = 0; i < high; i++)
@@ -595,7 +595,7 @@ int main(int argc, char **argv)
 			one_dim[i] = 999;
 	}
 	{
-		FunctionTime func_time(0,__PRETTY_FUNCTION__,"Õû¸öÈÎÎñ±éÀúĞèÒªµÄÊ±¼ä" , 32);
+		FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ•´ä¸ªä»»åŠ¡éå†éœ€è¦çš„æ—¶é—´" , 32);
 		for(unsigned int k = 0; k < maxcount; k++)
 		{
 			for(unsigned int i = 0; i < high; i++)
@@ -618,7 +618,7 @@ int main(int argc, char **argv)
 		}
 	}
 	{
-		FunctionTime func_time(0,__PRETTY_FUNCTION__,"Õû¸öÈÎÎñ±éÀúĞèÒªµÄÊ±¼ä" , 32);
+		FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ•´ä¸ªä»»åŠ¡éå†éœ€è¦çš„æ—¶é—´" , 32);
 		for(unsigned int k = 0; k < maxcount; k++)
 		{
 			for(unsigned int i = 0; i < high; i++)
@@ -632,7 +632,7 @@ int main(int argc, char **argv)
 		}
 	}
 	{
-		FunctionTime func_time(0,__PRETTY_FUNCTION__,"Õû¸öÈÎÎñ±éÀúĞèÒªµÄÊ±¼ä" , 32);
+		FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ•´ä¸ªä»»åŠ¡éå†éœ€è¦çš„æ—¶é—´" , 32);
 		for(unsigned int k = 0; k < maxcount; k++)
 		{
 			for(unsigned int i = 0; i < high; i++)
@@ -648,7 +648,7 @@ int main(int argc, char **argv)
 
 	return true;
 #endif
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(zntop_options, zntop_parse_opt, 0, zntop_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);

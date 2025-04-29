@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoClient.cpp g $
  * \author  
  * \date 
- * \brief ¶¨Òå·þÎñÆ÷ÐÅÏ¢ÊÕ¼¯µÄ¿Í»§¶ËÁ¬½Ó
+ * \brief å®šä¹‰æœåŠ¡å™¨ä¿¡æ¯æ”¶é›†çš„å®¢æˆ·ç«¯è¿žæŽ¥
  */
 
 #include "zTCPClientTask.h"
@@ -19,9 +19,9 @@
 DWORD InfoClient::tempidAllocator = 0;
 
 /**
- * \brief ¹¹Ôìº¯Êý
- * \param ip ·þÎñÆ÷µØÖ·
- * \param port ·þÎñÆ÷¶Ë¿Ú
+ * \brief æž„é€ å‡½æ•°
+ * \param ip æœåŠ¡å™¨åœ°å€
+ * \param port æœåŠ¡å™¨ç«¯å£
  */
 InfoClient::InfoClient(
 		const std::string &ip, 
@@ -30,7 +30,7 @@ InfoClient::InfoClient(
 }
 
 /**
- * \brief Îö¹¹º¯Êý
+ * \brief æžæž„å‡½æ•°
  *
  */
 InfoClient::~InfoClient()
@@ -45,7 +45,7 @@ int InfoClient::checkRebound()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êý¾Ý°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓÐÊý¾ÝÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»Žç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æŽ¥è¿”å›ž
 			return 0;
 		else
 		{
@@ -55,7 +55,7 @@ int InfoClient::checkRebound()
 			if (CMD_LOGIN == ptCmd->cmd
 					&& PARA_LOGIN_OK == ptCmd->para)
 			{
-				Zebra::logger->debug("µÇÂ½InfoServer³É¹¦£¬ÊÕµ½ÇøµÄ±àºÅ£º%u(%u, %u), %s, %u",
+				Zebra::logger->debug("ç™»é™†InfoServeræˆåŠŸï¼Œæ”¶åˆ°åŒºçš„ç¼–å·ï¼š%u(%u, %u), %s, %u",
 						ptCmd->gameZone.id,
 						ptCmd->gameZone.game,
 						ptCmd->gameZone.zone,
@@ -68,7 +68,7 @@ int InfoClient::checkRebound()
 			}
 			else
 			{
-				Zebra::logger->error("µÇÂ½InfoServerÊ§°Ü");
+				Zebra::logger->error("ç™»é™†InfoServerå¤±è´¥");
 				return -1;
 			}
 		}
@@ -123,7 +123,7 @@ bool InfoClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 							if (PARA_BROADCAST_GMTOOL==ptNullCmd->para)
 							{
 								t_Broadcast_GmTool * rev = (t_Broadcast_GmTool *)ptNullCmd;
-								Zebra::logger->debug("[GM¹¤¾ß]ÊÕµ½GM¹«¸æÏûÏ¢ %s:%s", rev->GM, rev->content);
+								Zebra::logger->debug("[GMå·¥å…·]æ”¶åˆ°GMå…¬å‘Šæ¶ˆæ¯ %s:%s", rev->GM, rev->content);
 							}
 #endif
 							ServerManager::getInstance().broadcastByType(SESSIONSERVER, ptNullCmd, nCmdLen);
@@ -146,7 +146,7 @@ bool InfoClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 							t_Request_OnlineNum *ptCmd = (t_Request_OnlineNum *)ptNullCmd;
 
 							{
-								//ÏòSession·þÎñÆ÷ÇëÇóÃ¿¸ö¹ú¼ÒµÄÐÅÏ¢
+								//å‘SessionæœåŠ¡å™¨è¯·æ±‚æ¯ä¸ªå›½å®¶çš„ä¿¡æ¯
 								Cmd::Super::t_Request_CountryOnline req;
 								req.rTimestamp = ptCmd->rTimestamp;
 								req.infoTempID = tempid;

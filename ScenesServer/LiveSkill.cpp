@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: LiveSkill.cpp  $
  * \author	
  * \date	
- * \brief	ÊµÏÖÉú»î¼¼ÄÜ
+ * \brief	å®ç°ç”Ÿæ´»æŠ€èƒ½
  * 
  */
  
@@ -18,10 +18,10 @@
 const int LiveSkill::odds[] = {9000, 500, 10, 5, 1, 1, 0};
 
 /**
- * \brief ÏûºÄÌåÁ¦Öµ
+ * \brief æ¶ˆè€—ä½“åŠ›å€¼
  *
  *
- * \return ĞèÒªÏûºÄµÄÌåÁ¦Öµ
+ * \return éœ€è¦æ¶ˆè€—çš„ä½“åŠ›å€¼
  */
 int LiveSkill::consume_sp()
 {
@@ -40,20 +40,20 @@ LiveSkills::~LiveSkills()
 
 
 /**
- * \brief ÀÍ¶¯Íê³ÉºóµÃµ½µÄ½±Àø
+ * \brief åŠ³åŠ¨å®Œæˆåå¾—åˆ°çš„å¥–åŠ±
  *
  *
- * \param user: Íê³ÉÀÍ¶¯µÄÓÃ»§
- * \param points: Ó¦¸ÃµÃµ½µÄ¾­Ñéµã,Èç¹ûÊÇÖÖÖ²Àà¼¼ÄÜÊ¹ÓÃÄ¬ÈÏÖµ0 ,µÀ¾ß´òÔìÀà¼¼ÄÜ¸ÃµãÀ´×ÔµÀ¾ß
- * \return Èç¹û´æÔÚ¸Ã¼¼ÄÜ·µ»Ø0,·ñÔò·µ»Ø-1
+ * \param user: å®ŒæˆåŠ³åŠ¨çš„ç”¨æˆ·
+ * \param points: åº”è¯¥å¾—åˆ°çš„ç»éªŒç‚¹,å¦‚æœæ˜¯ç§æ¤ç±»æŠ€èƒ½ä½¿ç”¨é»˜è®¤å€¼0 ,é“å…·æ‰“é€ ç±»æŠ€èƒ½è¯¥ç‚¹æ¥è‡ªé“å…·
+ * \return å¦‚æœå­˜åœ¨è¯¥æŠ€èƒ½è¿”å›0,å¦åˆ™è¿”å›-1
  */
 int LiveSkill::bonus(SceneUser* user, int points)
 {
-	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:ÀÍ¶¯Íê³É!");	
+	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:åŠ³åŠ¨å®Œæˆ!");	
 	zLiveSkillB* skill_base = liveskillbm.get( (level << 16) | id );
 	//must be exist
 	if (!skill_base) return -1;
-/*Ä¿Ç°²»´¦ÀíÌåÁ¦ËùÒÔ×¢ÊÍµô
+/*ç›®å‰ä¸å¤„ç†ä½“åŠ›æ‰€ä»¥æ³¨é‡Šæ‰
 	user->charbase.sp -= LiveSkill::consume_sp();
 	if ((int)user->charbase.sp < 0) user->charbase.sp = 0;
 	//notify me
@@ -67,11 +67,11 @@ int LiveSkill::bonus(SceneUser* user, int points)
 /*	if (skill_base->upgrade) {
 		if (level < skill_base->max_level) {
 			if (!points) {
-				//»ù±¾ÀÍ¶¯
+				//åŸºæœ¬åŠ³åŠ¨
 				int add = zMisc::randBetween(skill_base->min_point_bonus, skill_base->max_point_bonus);
 				point += add;
 			}else {
-				//´òÔìÀà
+				//æ‰“é€ ç±»
 				point += points;
 			}
 
@@ -80,9 +80,9 @@ int LiveSkill::bonus(SceneUser* user, int points)
 				++level;
 				
 				//maybe can do this check by client
-				//»ù±¾¼¼ÄÜÂú×ãÒªÇó²¢ÇÒÃ»ÓĞ»ñµÃ½ø½×¼¼ÄÜ
+				//åŸºæœ¬æŠ€èƒ½æ»¡è¶³è¦æ±‚å¹¶ä¸”æ²¡æœ‰è·å¾—è¿›é˜¶æŠ€èƒ½
 				if (skill_base->kind == LiveSkill::BASIC_WORK && level > ADVANCE_LEVEL && !user->live_skills.skill(skill_base->up_skill_id)) {	
-					Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "Äã¿ÉÒÔÍ¨¹ıÈÎÎñÀ´»ñµÃ¸Ã¼¼ÄÜµÄ½ø½×¼¼ÄÜÁË!");
+					Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "ä½ å¯ä»¥é€šè¿‡ä»»åŠ¡æ¥è·å¾—è¯¥æŠ€èƒ½çš„è¿›é˜¶æŠ€èƒ½äº†!");
 				}
 			}
 		}
@@ -93,7 +93,7 @@ int LiveSkill::bonus(SceneUser* user, int points)
 		ret.wdLevel = level;
 		ret.dwExperience = point;
 		user->sendCmdToMe(&ret ,sizeof(ret));
-		//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:¼¼ÄÜ(%s, %ld, %ld)", skill_base->name, level, point);			
+		//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:æŠ€èƒ½(%s, %ld, %ld)", skill_base->name, level, point);			
 	}
 
 
@@ -113,11 +113,11 @@ int LiveSkill::bonus(SceneUser* user, int points)
 }
 
 /**
- * \brief ÀÍ¶¯µÃµ½¾­ÑéÖµ
+ * \brief åŠ³åŠ¨å¾—åˆ°ç»éªŒå€¼
  *
  *
- * \param user: ÀÍ¶¯µÄÓÃ»§
- * \param exp: Ó¦¸ÃµÃµ½µÄ¾­Ñé
+ * \param user: åŠ³åŠ¨çš„ç”¨æˆ·
+ * \param exp: åº”è¯¥å¾—åˆ°çš„ç»éªŒ
  * \return 0
  */
 int LiveSkill::bonus_exp(SceneUser* user, DWORD exp)
@@ -126,10 +126,10 @@ int LiveSkill::bonus_exp(SceneUser* user, DWORD exp)
 	user->addExp(exp);
 	/*
 	user->charbase.exp += exp;
-	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:½±Àø¾­Ñé(%ld)!", skill_base->exp_bonus);		
+	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:å¥–åŠ±ç»éªŒ(%ld)!", skill_base->exp_bonus);		
 	ScenePk::attackRTExp(user , exp);
 	if (user->charbase.exp >= user->charstate.nextexp) { 
-		//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:Éı¼¶!");	
+		//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:å‡çº§!");	
 		user->upgrade();
 	}
 	*/
@@ -138,12 +138,12 @@ int LiveSkill::bonus_exp(SceneUser* user, DWORD exp)
 }
 
 /**
- * \brief ÀÍ¶¯µÃµ½ÎïÆ·
+ * \brief åŠ³åŠ¨å¾—åˆ°ç‰©å“
  *
  *
- * \param user: ÀÍ¶¯µÄÓÃ»§
- * \param base_skill: Ê¹ÓÃµÄÀÍ¶¯
- * \return µÃµ½ÎïÆ·Ê§°Ü·µ»Ø-1,·ñÔò·µ»ØµÃµ½µÃµ½ÎïÆ·Êı
+ * \param user: åŠ³åŠ¨çš„ç”¨æˆ·
+ * \param base_skill: ä½¿ç”¨çš„åŠ³åŠ¨
+ * \return å¾—åˆ°ç‰©å“å¤±è´¥è¿”å›-1,å¦åˆ™è¿”å›å¾—åˆ°å¾—åˆ°ç‰©å“æ•°
  */
 int LiveSkill::bonus_items(SceneUser* user, zLiveSkillB* base_skill)
 {
@@ -153,7 +153,7 @@ int LiveSkill::bonus_items(SceneUser* user, zLiveSkillB* base_skill)
 	while (it != base_skill->items.end()) {
 		int odds = it->odds;
 		if (user->live_skills.skill(base_skill->up_skill_id)) {
-			//½ø½×¼¼ÄÜ¼Ó³É
+			//è¿›é˜¶æŠ€èƒ½åŠ æˆ
 			odds += LiveSkill::ADVANCE_WORK_BONUS;
 		}
 		
@@ -182,7 +182,7 @@ int LiveSkill::bonus_items(SceneUser* user, zLiveSkillB* base_skill)
 					if (upgrade_count[level]) {
 						//1 means package is full
 						if (user->addObjectNum(it->item, upgrade_count[level], level) == 1) {
-							Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "°ü¹üÒÑÂú!");
+							Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "åŒ…è£¹å·²æ»¡!");
 							return -1;
 						}
 						
@@ -192,7 +192,7 @@ int LiveSkill::bonus_items(SceneUser* user, zLiveSkillB* base_skill)
 			}else {
 				//1 means package is full
 				if (user->addObjectNum(it->item, number) == 1) {
-					Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "°ü¹üÒÑÂú!");
+					Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "åŒ…è£¹å·²æ»¡!");
 					return -1;
 				}
 				
@@ -207,11 +207,11 @@ int LiveSkill::bonus_items(SceneUser* user, zLiveSkillB* base_skill)
 }
 
 /**
- * \brief ¸ù¾İidµÃµ½Éú»î¼¼ÄÜ
+ * \brief æ ¹æ®idå¾—åˆ°ç”Ÿæ´»æŠ€èƒ½
  *
  *
- * \param id: Éú»î¼¼ÄÜµÄid
- * \return ´æÔÚ¸ÃÉú»î¼¼ÄÜ·µ»Ø,·ñÔò·µ»ØNULL
+ * \param id: ç”Ÿæ´»æŠ€èƒ½çš„id
+ * \return å­˜åœ¨è¯¥ç”Ÿæ´»æŠ€èƒ½è¿”å›,å¦åˆ™è¿”å›NULL
  */
 LiveSkill* LiveSkills::skill(WORD id)
 {
@@ -224,13 +224,13 @@ LiveSkill* LiveSkills::skill(WORD id)
 }
 
 /**
- * \brief ÔÚÀÍ¶¯¹ı³ÌÖĞ¹ıÂÇ½ûÖ¹µÄ²Ù×÷
+ * \brief åœ¨åŠ³åŠ¨è¿‡ç¨‹ä¸­è¿‡è™‘ç¦æ­¢çš„æ“ä½œ
  *
  *
- * \param user: ÀÍ¶¯ÖĞµÄÓÃ»§
- * \param ptNullCmd: ÀÍ¶¯¹ı³ÌÖĞÊÕµ½µÄÖ¸Áî
- * \param cmdLen: Ö¸Áî³¤¶È
- * \return Èç¹û¸ÃÖ¸Áî¿ÉÒÔÔÚÀÍ¶¯¹ı³ÌÖĞ´¦Àí·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: åŠ³åŠ¨ä¸­çš„ç”¨æˆ·
+ * \param ptNullCmd: åŠ³åŠ¨è¿‡ç¨‹ä¸­æ”¶åˆ°çš„æŒ‡ä»¤
+ * \param cmdLen: æŒ‡ä»¤é•¿åº¦
+ * \return å¦‚æœè¯¥æŒ‡ä»¤å¯ä»¥åœ¨åŠ³åŠ¨è¿‡ç¨‹ä¸­å¤„ç†è¿”å›true,å¦åˆ™è¿”å›false
  */
 bool LiveSkillsManager::command_filter(SceneUser* user, const Cmd::t_NullCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -267,19 +267,19 @@ bool LiveSkillsManager::command_filter(SceneUser* user, const Cmd::t_NullCmd *pt
 		user->live_skills.skill_id = 0;
 		//notify client
 		user->clearStateToNine(user->live_skills.state());
-		//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:ÀÍ¶¯±»È¡Ïû!");	
+		//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:åŠ³åŠ¨è¢«å–æ¶ˆ!");	
 	}
 */
 	return result;
 }
 
 /**
- * \brief ¿ªÊ¼ÀÍ¶¯
+ * \brief å¼€å§‹åŠ³åŠ¨
  *
  *
- * \param user: ÇëÇóÀÍ¶¯µÄÓÃ»§
- * \param ob: ÀÍ¶¯±ØĞëµÄÎïÆ·
- * \return Èç¹ûÌõ¼şÂú×ã¿ÉÒÔÀÍ¶¯·µ»Ø0,·ñÔò·µ»Ø-1
+ * \param user: è¯·æ±‚åŠ³åŠ¨çš„ç”¨æˆ·
+ * \param ob: åŠ³åŠ¨å¿…é¡»çš„ç‰©å“
+ * \return å¦‚æœæ¡ä»¶æ»¡è¶³å¯ä»¥åŠ³åŠ¨è¿”å›0,å¦åˆ™è¿”å›-1
  */
 int LiveSkillsManager::execute(SceneUser* user, zObject* ob)
 {
@@ -287,7 +287,7 @@ int LiveSkillsManager::execute(SceneUser* user, zObject* ob)
 		Factory::iterator it = factory.identifies.find(ob->data.dwObjectID);
 		if (it == factory.identifies.end() ) {
 			//not work tool
-			//Zebra::logger->debug("%s(%d)²»ÊÇÀÍ¶¯¹¤¾ß", ob->base->name, ob->data.dwObjectID);
+			//Zebra::logger->debug("%s(%d)ä¸æ˜¯åŠ³åŠ¨å·¥å…·", ob->base->name, ob->data.dwObjectID);
 			return 1;
 		}
 	}
@@ -295,7 +295,7 @@ int LiveSkillsManager::execute(SceneUser* user, zObject* ob)
 	{
 		if ( (static_cast<SWORD>(ob->data.dur)) <= 0) {
 			ob->data.dur = 0;
-			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ÇëÏÈÈ¥ĞŞÀíÄãµÄ%s!", ob->data.strName);
+			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "è¯·å…ˆå»ä¿®ç†ä½ çš„%s!", ob->data.strName);
 			return -1;	
 		}
 		user->live_skills.tool = ob;
@@ -310,18 +310,18 @@ int LiveSkillsManager::execute(SceneUser* user, zObject* ob)
 	std::map<DWORD, DWORD>::iterator it = factory.skills.find( (tile->type << 16) | ob->data.dwObjectID );
 	if (it == factory.skills.end()) {
 		//wrong map
-		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ÀÍ¶¯µØµã²»¶Ô£¬²»ÄÜÊ¹ÓÃ¸ÃÎïÆ·!");
+		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "åŠ³åŠ¨åœ°ç‚¹ä¸å¯¹ï¼Œä¸èƒ½ä½¿ç”¨è¯¥ç‰©å“!");
 		return -1;
 	}
 
 	if ((int)user->charbase.sp < LiveSkill::MAX_NEED_SP) {
-		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ÌåÁ¦Öµ²»×ã£¬²»ÄÜÀÍ¶¯!");
+		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ä½“åŠ›å€¼ä¸è¶³ï¼Œä¸èƒ½åŠ³åŠ¨!");
 		return -1;	
 	}
 	
 	//check if package is full
 	if ( !user->packs.main.space() < 1) {
-		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "°ü¹ü¿Õ¼ä²»×ã£¬ÎŞ·¨ÀÍ¶¯!");
+		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "åŒ…è£¹ç©ºé—´ä¸è¶³ï¼Œæ— æ³•åŠ³åŠ¨!");
 		return -1;
 	}
 	
@@ -330,7 +330,7 @@ int LiveSkillsManager::execute(SceneUser* user, zObject* ob)
 		
 	zLiveSkillB* skill_base = liveskillbm.get( (level << 16) | it->second );
 	if (!skill_base) {
-		Zebra::logger->debug("ÓÃ»§(%ld)ÇëÇóÁË²»´æÔÚµÄÉú»î¼¼ÄÜ", user->accid);
+		Zebra::logger->debug("ç”¨æˆ·(%ld)è¯·æ±‚äº†ä¸å­˜åœ¨çš„ç”Ÿæ´»æŠ€èƒ½", user->accid);
 		return -1;
 	}
 
@@ -349,7 +349,7 @@ int LiveSkillsManager::execute(SceneUser* user, zObject* ob)
 
 	user->setUState(user->live_skills.state());
 
-	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:¿ªÊ¼ÀÍ¶¯!");	
+	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:å¼€å§‹åŠ³åŠ¨!");	
 	//notify client
 	user->setStateToNine(user->live_skills.state());
 */
@@ -357,11 +357,11 @@ int LiveSkillsManager::execute(SceneUser* user, zObject* ob)
 }
 
 /**
- * \brief Ë¢ĞÂÀÍ¶¯×´Ì¬
+ * \brief åˆ·æ–°åŠ³åŠ¨çŠ¶æ€
  *
  *
- * \param user: ÀÍ¶¯ÖĞµÄÓÃ»§
- * \return Ë¢ĞÂ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: åŠ³åŠ¨ä¸­çš„ç”¨æˆ·
+ * \return åˆ·æ–°æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool LiveSkillsManager::update(SceneUser* user)
 {
@@ -380,21 +380,21 @@ bool LiveSkillsManager::update(SceneUser* user)
 		
 		if ( (static_cast<SWORD>(user->live_skills.tool->data.dur)) <= 0) {
 			user->live_skills.tool->data.dur = 0;
-			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ÄãµÄ%sÒÑ¾­Ëğ»µÁË!", user->live_skills.tool->data.strName);
+			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ä½ çš„%så·²ç»æŸåäº†!", user->live_skills.tool->data.strName);
 			user->clearUState(user->live_skills.state());
 			user->live_skills.skill_id = 0;
 			return true;	
 		}
 		
 		if ((int)user->charbase.sp < LiveSkill::MAX_NEED_SP) {
-			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ÌåÁ¦Öµ²»×ã£¬²»ÄÜ¼ÌĞøÀÍ¶¯!");
+			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ä½“åŠ›å€¼ä¸è¶³ï¼Œä¸èƒ½ç»§ç»­åŠ³åŠ¨!");
 			user->clearUState(user->live_skills.state());
 			user->live_skills.skill_id = 0;
 			return true;	
 		}
 
 		if ( !user->packs.main.space() < 1 ) {
-			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "°ü¹ü¿Õ¼ä²»×ã£¬ÎŞ·¨¼ÌĞøÀÍ¶¯!");
+			Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "åŒ…è£¹ç©ºé—´ä¸è¶³ï¼Œæ— æ³•ç»§ç»­åŠ³åŠ¨!");
 			user->clearUState(user->live_skills.state());
 			user->live_skills.skill_id = 0;
 			return true;
@@ -405,24 +405,24 @@ bool LiveSkillsManager::update(SceneUser* user)
 		return false;
 	}
 
-	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:ÀÍ¶¯ÖĞ!");
+	//Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "TO REMOVE:åŠ³åŠ¨ä¸­!");
 */	
 	return false;
 }
 
 /**
- * \brief ¼ÓÔØÉú»î¼¼ÄÜ
+ * \brief åŠ è½½ç”Ÿæ´»æŠ€èƒ½
  *
  *
- * \param user: ÓµÓĞ¸Ã¼¼ÄÜµÄÓÃ»§
- * \param live_skill: Éú»î¼¼ÄÜ
- * \return ¼ÓÔØ³É¹¦·µ»Ø0,·ñÔò·µ»Ø-1
+ * \param user: æ‹¥æœ‰è¯¥æŠ€èƒ½çš„ç”¨æˆ·
+ * \param live_skill: ç”Ÿæ´»æŠ€èƒ½
+ * \return åŠ è½½æˆåŠŸè¿”å›0,å¦åˆ™è¿”å›-1
  */
 int LiveSkillsManager::load(SceneUser* user, const LiveSkill& live_skill)
 {
 	zLiveSkillB* skill_base = liveskillbm.get( (live_skill.level << 16) | live_skill.id );
 	if (!skill_base)  {
-		Zebra::logger->debug("Éú»î¼¼ÄÜ²»´æÔÚ(%d, %d, %d)", live_skill.id, live_skill.level, live_skill.point);
+		Zebra::logger->debug("ç”Ÿæ´»æŠ€èƒ½ä¸å­˜åœ¨(%d, %d, %d)", live_skill.id, live_skill.level, live_skill.point);
 		return -1;
 	}
 		
@@ -432,12 +432,12 @@ int LiveSkillsManager::load(SceneUser* user, const LiveSkill& live_skill)
 }
 
 /**
- * \brief ±£´æÉú»î¼¼ÄÜ
+ * \brief ä¿å­˜ç”Ÿæ´»æŠ€èƒ½
  *
  *
- * \param user: ÓÃ»§
- * \param dest: Éú»î¼¼ÄÜÊä³öbuf(Êä³ö)
- * \return Ìî³äbufµÄ³¤¶È
+ * \param user: ç”¨æˆ·
+ * \param dest: ç”Ÿæ´»æŠ€èƒ½è¾“å‡ºbuf(è¾“å‡º)
+ * \return å¡«å……bufçš„é•¿åº¦
  */
 int LiveSkillsManager::save(SceneUser* user, unsigned char* dest)
 {
@@ -445,7 +445,7 @@ int LiveSkillsManager::save(SceneUser* user, unsigned char* dest)
 	int len = sizeof(DWORD);
 /*	int count = user->live_skills.count();
 	memcpy(dest, (unsigned char*)&count, len);
-	//Zebra::logger->debug("Ñ¹ËõÉú»î¼¼ÄÜ¸öÊı(%d)", count);
+	//Zebra::logger->debug("å‹ç¼©ç”Ÿæ´»æŠ€èƒ½ä¸ªæ•°(%d)", count);
 	
 	//store real data
 	LiveSkills::iterator it = user->live_skills.skills.begin();
@@ -460,10 +460,10 @@ int LiveSkillsManager::save(SceneUser* user, unsigned char* dest)
 }
 
 /**
- * \brief ·¢ËÍ×Ô¼ºµÄÉú»î¼¼ÄÜ¸ø¿Í»§¶Ë
+ * \brief å‘é€è‡ªå·±çš„ç”Ÿæ´»æŠ€èƒ½ç»™å®¢æˆ·ç«¯
  *
  *
- * \param user: ÓÃ»§
+ * \param user: ç”¨æˆ·
  */
 void LiveSkillsManager::notify(SceneUser* user)
 {
@@ -487,10 +487,10 @@ void LiveSkillsManager::notify(SceneUser* user)
 LiveSkillsManager* LiveSkillsManager::instance_ = NULL;
 
 /**
- * \brief µÃµ½Î¨Ò»ÊµÀı
+ * \brief å¾—åˆ°å”¯ä¸€å®ä¾‹
  *
  *
- * \return ·µ»ØÉú»î¼¼ÄÜ¹ÜÀíÆ÷
+ * \return è¿”å›ç”Ÿæ´»æŠ€èƒ½ç®¡ç†å™¨
  */
 LiveSkillsManager& LiveSkillsManager::instance()
 {
@@ -504,7 +504,7 @@ LiveSkillsManager& LiveSkillsManager::instance()
 
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */
 LiveSkillsManager::LiveSkillsManager()

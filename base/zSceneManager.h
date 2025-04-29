@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSceneManager.h $
  * \author  
  * \date 
- * \brief ³¡¾°¹ÜÀíÆ÷¶¨Òå
+ * \brief åœºæ™¯ç®¡ç†å™¨å®šä¹‰
  */
 
 #ifndef _ZSCENEMANAGER_H_
@@ -13,15 +13,15 @@
 #include "zEntryManager.h"
 
 /**
- * \brief ³¡¾°¹ÜÀíÆ÷
+ * \brief åœºæ™¯ç®¡ç†å™¨
  *
- * ÒÔÃû×ÖºÍÁÙÊ±IDË÷Òı,Ã»ÓĞIDË÷Òı£¬ÒòÎª³¡¾°¿ÉÄÜÖØ¸´
+ * ä»¥åå­—å’Œä¸´æ—¶IDç´¢å¼•,æ²¡æœ‰IDç´¢å¼•ï¼Œå› ä¸ºåœºæ™¯å¯èƒ½é‡å¤
  */
 class zSceneManager:public zEntryManager<zEntryID, zEntryTempID, zEntryName>
 {
 	protected:
 		/**
-		 * \brief ·ÃÎÊ¹ÜÀíÆ÷µÄ»¥³âËø
+		 * \brief è®¿é—®ç®¡ç†å™¨çš„äº’æ–¥é”
 		 */
 		zRWLock rwlock;
 
@@ -59,8 +59,8 @@ class zSceneManager:public zEntryManager<zEntryID, zEntryTempID, zEntryName>
 		}
 
 		/**
-		 * \brief ÒÆ³ö·ûºÏÌõ¼şµÄ½ÇÉ«
-		 * \param pred Ìõ¼ş¶ÏÑÔ
+		 * \brief ç§»å‡ºç¬¦åˆæ¡ä»¶çš„è§’è‰²
+		 * \param pred æ¡ä»¶æ–­è¨€
 		 */
 		template <class YourSceneEntry>
 		void removeScene_if(removeEntry_Pred<YourSceneEntry> &pred)
@@ -72,14 +72,14 @@ class zSceneManager:public zEntryManager<zEntryID, zEntryTempID, zEntryName>
 
 	public:
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		zSceneManager()
 		{
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		virtual ~zSceneManager()
 		{

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zUrl.cpp  $
  * \author  
  * \date 
- * \brief ·â×°Ò»Ğ©url²Ù×÷º¯Êı
+ * \brief å°è£…ä¸€äº›urlæ“ä½œå‡½æ•°
  */
 
 #include <stdio.h>
@@ -15,15 +15,15 @@
 
 namespace Zebra
 {
-	/// Ê®Áù½øÖÆ¶ÔÓ¦µÄ×Ö·û
+	/// åå…­è¿›åˆ¶å¯¹åº”çš„å­—ç¬¦
 	static unsigned char hexchars[] = "0123456789ABCDEF";
 
 	/**
-	 * \brief ¶ÔurlÌØÊâ×Ö·û½øĞĞ±àÂë
-	 * \param s ÊäÈë×Ö·û´®
-	 * \param len ÊäÈë×Ö·û´®³¤¶È
-	 * \param new_length Êä³ö×Ö·û´®³¤¶È
-	 * \return Êä³ö±àÂëºóµÄurl×Ö·û´®£¬Õâ¶ÎÄÚ´æÔÙÊ¹ÓÃÍê³ÉÒÔºóĞèÒªÊÍ·Å
+	 * \brief å¯¹urlç‰¹æ®Šå­—ç¬¦è¿›è¡Œç¼–ç 
+	 * \param s è¾“å…¥å­—ç¬¦ä¸²
+	 * \param len è¾“å…¥å­—ç¬¦ä¸²é•¿åº¦
+	 * \param new_length è¾“å‡ºå­—ç¬¦ä¸²é•¿åº¦
+	 * \return è¾“å‡ºç¼–ç åçš„urlå­—ç¬¦ä¸²ï¼Œè¿™æ®µå†…å­˜å†ä½¿ç”¨å®Œæˆä»¥åéœ€è¦é‡Šæ”¾
 	 */
 	char *url_encode(const char *s, int len, int *new_length)
 	{
@@ -84,10 +84,10 @@ namespace Zebra
 	}
 
 	/**
-	 * \brief url×Ö·û´®½âÂë
-	 * \param str ´ı½âÂëµÄ×Ö·û´®£¬Í¬Ê±Ò²×÷ÎªÊä³ö
-	 * \param len ´ı½âÂë×Ö·û´®µÄ³¤¶È
-	 * \return ½âÂëÒÔºóµÄ×Ö·û´®³¤¶È
+	 * \brief urlå­—ç¬¦ä¸²è§£ç 
+	 * \param str å¾…è§£ç çš„å­—ç¬¦ä¸²ï¼ŒåŒæ—¶ä¹Ÿä½œä¸ºè¾“å‡º
+	 * \param len å¾…è§£ç å­—ç¬¦ä¸²çš„é•¿åº¦
+	 * \return è§£ç ä»¥åçš„å­—ç¬¦ä¸²é•¿åº¦
 	 */
 	int url_decode(char *str, int len)
 	{
@@ -111,8 +111,8 @@ namespace Zebra
 	}
 
 	/**
-	 * \brief url×Ö·û´®½âÂë
-	 * \param str ´ı½âÂëµÄ×Ö·û´®£¬Í¬Ê±Ò²×÷ÎªÊä³ö
+	 * \brief urlå­—ç¬¦ä¸²è§£ç 
+	 * \param str å¾…è§£ç çš„å­—ç¬¦ä¸²ï¼ŒåŒæ—¶ä¹Ÿä½œä¸ºè¾“å‡º
 	 */
 	void url_decode(std::string &str)
 	{

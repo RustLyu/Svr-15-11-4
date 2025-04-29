@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "zSingleton.h"
 #include "MiniUserCommand.h"
 #include <list>

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: PingTask.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåPINGÁĞ±íÁ¬½ÓÈÎÎñ
+ * \brief å®šä¹‰PINGåˆ—è¡¨è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -20,7 +20,7 @@
 #include "zTime.h"
 
 /**
- * \brief ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
  */
 class PingTask : public zTCPTask
@@ -29,9 +29,9 @@ class PingTask : public zTCPTask
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param sock TCP/IPÌ×½Ó¿Ú
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param sock TCP/IPå¥—æ¥å£
 		 */
 		PingTask(
 				zTCPTaskPool *pool,
@@ -48,7 +48,7 @@ class PingTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~PingTask() {};

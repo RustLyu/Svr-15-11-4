@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPServer.h  $
  * \author  
  * \date 
- * \brief ·â×°TCPµÄ·şÎñÆ÷¼àÌıÄ£¿é
+ * \brief å°è£…TCPçš„æœåŠ¡å™¨ç›‘å¬æ¨¡å—
  *
  * 
  */
@@ -20,7 +20,7 @@
 #include "zSocket.h"
 
 /**
- * \brief zTCPServerÀà£¬·â×°ÁË·şÎñÆ÷¼àÌıÄ£¿é£¬¿ÉÒÔ·½±ãµÄ´´½¨Ò»¸ö·şÎñÆ÷¶ÔÏó£¬µÈ´ı¿Í»§¶ËµÄÁ¬½Ó
+ * \brief zTCPServerç±»ï¼Œå°è£…äº†æœåŠ¡å™¨ç›‘å¬æ¨¡å—ï¼Œå¯ä»¥æ–¹ä¾¿çš„åˆ›å»ºä¸€ä¸ªæœåŠ¡å™¨å¯¹è±¡ï¼Œç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥
  *
  */
 class zTCPServer : private zNoncopyable
@@ -35,11 +35,11 @@ class zTCPServer : private zNoncopyable
 
 	private:
 
-		static const int T_MSEC =2100;			/**< ÂÖÑ¯³¬Ê±£¬ºÁÃë */
-		static const int MAX_WAITQUEUE = 2000;	/**< ×î´óµÈ´ı¶ÓÁĞ */
+		static const int T_MSEC =2100;			/**< è½®è¯¢è¶…æ—¶ï¼Œæ¯«ç§’ */
+		static const int MAX_WAITQUEUE = 2000;	/**< æœ€å¤§ç­‰å¾…é˜Ÿåˆ— */
 
-		std::string name;						/**< ·şÎñÆ÷Ãû³Æ */
-		int sock;								/**< Ì×½Ó¿Ú */
+		std::string name;						/**< æœåŠ¡å™¨åç§° */
+		int sock;								/**< å¥—æ¥å£ */
 #ifdef _USE_EPOLL_
 		int kdpfd;
 #endif

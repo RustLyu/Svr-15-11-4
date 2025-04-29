@@ -1,4 +1,4 @@
-#ifndef _USE_CMD_NAMESPACE
+ï»¿#ifndef _USE_CMD_NAMESPACE
 #define _USE_CMD_NAMESPACE
 #endif
 
@@ -63,12 +63,12 @@ int RecordEditor::Uncompress(const unsigned char * data ,const DWORD dataSize){
                 case Z_MEM_ERROR:
                 case Z_BUF_ERROR:
                 case Z_DATA_ERROR:
-                        cout<<"½âÑ¹µµ°¸Ê§°Ü"<<endl;
+                        cout<<"è§£åŽ‹æ¡£æ¡ˆå¤±è´¥"<<endl;
                         bufSize = 0;
                         //return false;
                         break;
                 default:
-                        cout<<"½âÑ¹µµ°¸Ê§°ÜÎ´Öª´íÎó"<<endl;
+                        cout<<"è§£åŽ‹æ¡£æ¡ˆå¤±è´¥æœªçŸ¥é”™è¯¯"<<endl;
                         bufSize = 0;
                         //return false;
                         break;
@@ -120,8 +120,8 @@ void RecordEditor::Index(){
                               else ;
 			break;
 		    case Z_MEM_ERROR:
-		    case Z_BUF_ERROR: cout<<"Ñ¹Ëõµµ°¸Êý¾ÝÊ§°Ü"<<endl;    exit(0);
-		    default:cout<<"Ñ¹Ëõµµ°¸Êý¾ÝÊ§°Ü,Î´ÖªÔ­Òò"<<endl;     exit(0);
+		    case Z_BUF_ERROR: cout<<"åŽ‹ç¼©æ¡£æ¡ˆæ•°æ®å¤±è´¥"<<endl;    exit(0);
+		    default:cout<<"åŽ‹ç¼©æ¡£æ¡ˆæ•°æ®å¤±è´¥,æœªçŸ¥åŽŸå› "<<endl;     exit(0);
 		}
 	    }
     }

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CSept.cpp $
  * \author  
  * \date 
- * \brief ÊµÏÖ¼Ò×å¹ÜÀí¹¦ÄÜ
+ * \brief å®ç°å®¶æ—ç®¡ç†åŠŸèƒ½
  *
  */
 
@@ -27,10 +27,10 @@ using namespace SeptDef;
 class CSeptSort
 {
 	public:
-		char  septName[MAX_NAMESIZE];           // ¼Ò×åÃû³Æ
-		DWORD dwRepute;                         // ¼Ò×åÉùÍû
-		DWORD dwOrder;                          // ¼Ò×åÅÅÃû
-		DWORD dwCountryID;			// ËùÊô¹ú¼Ò
+		char  septName[MAX_NAMESIZE];           // å®¶æ—åç§°
+		DWORD dwRepute;                         // å®¶æ—å£°æœ›
+		DWORD dwOrder;                          // å®¶æ—æ’å
+		DWORD dwCountryID;			// æ‰€å±å›½å®¶
 
 		CSeptSort()
 		{
@@ -69,7 +69,7 @@ class CSeptSort
 
 //==[CSeptMember]==================================================
 /**
-* \brief ¼Ò×å³ÉÔ±¹¹Ôìº¯Êı£¬³õÊ¼»¯»ù±¾ÊôĞÔ
+* \brief å®¶æ—æˆå‘˜æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–åŸºæœ¬å±æ€§
 * \author fqnewman
 */
 CSeptMember::CSeptMember()
@@ -79,8 +79,8 @@ CSeptMember::CSeptMember()
 }
 
 /**
-* \brief ¼Ò×å³ÉÔ±³õÊ¼»¯
-* \param info ³ÉÔ±ĞÅÏ¢½á¹¹
+* \brief å®¶æ—æˆå‘˜åˆå§‹åŒ–
+* \param info æˆå‘˜ä¿¡æ¯ç»“æ„
 * \author fqnewman
 */
 void CSeptMember::init(const stSeptMemberInfo& info)
@@ -91,13 +91,13 @@ void CSeptMember::init(const stSeptMemberInfo& info)
 	strncpy(name,info.name,MAX_NAMESIZE);
 	strncpy(aliasname, info.aliasname, MAX_NAMESIZE);
 	wdOccupation = info.wdOccupation;
-	byStatus = CSeptMember::Offline;                  // »áÔ±×´Ì¬
+	byStatus = CSeptMember::Offline;                  // ä¼šå‘˜çŠ¶æ€
 	rwlock.unlock();
 }
 
 /**
-* \brief »ñÈ¡³ÉÔ±µÄ»ù±¾ĞÅÏ¢
-* \param info ·µ»ØµÄĞÅÏ¢½á¹¹
+* \brief è·å–æˆå‘˜çš„åŸºæœ¬ä¿¡æ¯
+* \param info è¿”å›çš„ä¿¡æ¯ç»“æ„
 * \author fqnewman
 */
 void CSeptMember::getMemberBaseInfo(struct Cmd::stSeptRember& info)
@@ -126,9 +126,9 @@ void CSeptMember::getMemberBaseInfo(struct Cmd::stSeptRember& info)
 }
 
 /**
-* \brief ·¢ËÍÏûÏ¢¸ø³ÉÔ±¶ÔÓ¦µÄ¿Í»§¶Ë
-* \param  pstrCmd ÏûÏ¢Ìå
-* \param  nCmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€æ¶ˆæ¯ç»™æˆå‘˜å¯¹åº”çš„å®¢æˆ·ç«¯
+* \param  pstrCmd æ¶ˆæ¯ä½“
+* \param  nCmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CSeptMember::sendCmdToMe(const Cmd::stNullUserCmd *pstrCmd, const unsigned int nCmdLen)
@@ -152,7 +152,7 @@ void CSeptMember::sendCmdToMe(const Cmd::stNullUserCmd *pstrCmd, const unsigned 
 }
 
 /**
-* \brief ¸üĞÂ³ÉÔ±µÄÊı¾İ¿â´æµµ
+* \brief æ›´æ–°æˆå‘˜çš„æ•°æ®åº“å­˜æ¡£
 * \author fqnewman
 */
 void CSeptMember::writeDatabase()
@@ -164,7 +164,7 @@ void CSeptMember::writeDatabase()
 		{ NULL, 0, 0}
 	};
 	struct {
-		WORD  wdOccupation;						// »áÔ±µÄÖ°Òµ
+		WORD  wdOccupation;						// ä¼šå‘˜çš„èŒä¸š
 		char  aliasname[MAX_NAMESIZE+1];
 	} __attribute__ ((packed))
 	updateseptmember_data;
@@ -173,7 +173,7 @@ void CSeptMember::writeDatabase()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -191,12 +191,12 @@ void CSeptMember::writeDatabase()
 
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("CSeptMember ĞŞ¸Ä»áÔ±µµ°¸Ê§°Ü£ºSEPTID=%u CHARID=%u retcode=%u", mySept->getID(), id, retcode);
+		Zebra::logger->error("CSeptMember ä¿®æ”¹ä¼šå‘˜æ¡£æ¡ˆå¤±è´¥ï¼šSEPTID=%u CHARID=%u retcode=%u", mySept->getID(), id, retcode);
 	}
 }
 
 /**
-* \brief ½«³ÉÔ±¼ÇÂ¼²åÈëÊı¾İ¿â
+* \brief å°†æˆå‘˜è®°å½•æ’å…¥æ•°æ®åº“
 * \author fqnewman
 */
 void CSeptMember::insertDatabase()
@@ -211,22 +211,22 @@ void CSeptMember::insertDatabase()
 		{ NULL, 0, 0}
 	};
 	struct {
-		DWORD dwSeptID;						// ¼Ò×å±àºÅ
-		DWORD	dwCharID;						// »áÔ±½ÇÉ«ID
-		char  name[MAX_NAMESIZE+1];           // ×åÔ±Ãû³Æ
-		char  aliasname[MAX_NAMESIZE+1];           // ×åÔ±±ğÃû
-		WORD  wdOccupation;						// »áÔ±½ÇÉ«
+		DWORD dwSeptID;						// å®¶æ—ç¼–å·
+		DWORD	dwCharID;						// ä¼šå‘˜è§’è‰²ID
+		char  name[MAX_NAMESIZE+1];           // æ—å‘˜åç§°
+		char  aliasname[MAX_NAMESIZE+1];           // æ—å‘˜åˆ«å
+		WORD  wdOccupation;						// ä¼šå‘˜è§’è‰²
 	} __attribute__ ((packed))
 	createseptmember_data;
 
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-					Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+					Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 					return;
 	}
 
-	//²åÈëÊı¾İ¿â½ÇÉ«ĞÅÏ¢
+	//æ’å…¥æ•°æ®åº“è§’è‰²ä¿¡æ¯
 	bzero(&createseptmember_data, sizeof(createseptmember_data));
 
 	rwlock.rdlock();
@@ -243,7 +243,7 @@ void CSeptMember::insertDatabase()
 		SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("²åÈë¼Ò×å³ÉÔ±Êı¾İ¿â³ö´í %u %u", mySept->getID(), id);
+		Zebra::logger->error("æ’å…¥å®¶æ—æˆå‘˜æ•°æ®åº“å‡ºé”™ %u %u", mySept->getID(), id);
 	}
 	return;
 }
@@ -295,7 +295,7 @@ void CSeptMember::update_normal_data()
 
 
 /**
-* \brief Îö¹¹º¯Êı£¬Îö¹¹µÄÊ±ºòË¢ĞÂ³ÉÔ±µÄÊı¾İ¿â´æµµ
+* \brief ææ„å‡½æ•°ï¼Œææ„çš„æ—¶å€™åˆ·æ–°æˆå‘˜çš„æ•°æ®åº“å­˜æ¡£
 * \author fqnewman
 */
 CSeptMember::~CSeptMember()
@@ -304,8 +304,8 @@ CSeptMember::~CSeptMember()
 }
 
 /**
-* \brief ÉèÖÃ³ÉÔ±µÄËùÊô¼Ò×å¶ÔÏó
-* \param pSept ¼Ò×å¶ÔÏóÖ¸Õë
+* \brief è®¾ç½®æˆå‘˜çš„æ‰€å±å®¶æ—å¯¹è±¡
+* \param pSept å®¶æ—å¯¹è±¡æŒ‡é’ˆ
 * \author fqnewman
 */
 void CSeptMember::setSept(CSept * pSept)
@@ -316,9 +316,9 @@ void CSeptMember::setSept(CSept * pSept)
 }
 
 /**
-* \brief ·¢ËÍÁÄÌìÏûÏ¢¸ø³ÉÔ±µÄ¿Í»§¶Ë
-* \param type ÏûÏ¢ÀàĞÍ
-* \param message ÏûÏ¢Ìå
+* \brief å‘é€èŠå¤©æ¶ˆæ¯ç»™æˆå‘˜çš„å®¢æˆ·ç«¯
+* \param type æ¶ˆæ¯ç±»å‹
+* \param message æ¶ˆæ¯ä½“
 * \author fqnewman
 */
 void CSeptMember::sendMessageToMe(int type, const char *message)
@@ -328,9 +328,9 @@ void CSeptMember::sendMessageToMe(int type, const char *message)
 }
 
 /**
-* \brief ½«±¾³ÉÔ±µÄÊı¾İ¿â¼ÇÂ¼´Ó¿âÖĞÉ¾³ı
+* \brief å°†æœ¬æˆå‘˜çš„æ•°æ®åº“è®°å½•ä»åº“ä¸­åˆ é™¤
 * \author fqnewman
-* \return true ³É¹¦£¬ false Ê§°Ü
+* \return true æˆåŠŸï¼Œ false å¤±è´¥
 */
 bool CSeptMember::deleteMeFromDB()
 {
@@ -340,7 +340,7 @@ bool CSeptMember::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -350,7 +350,7 @@ bool CSeptMember::deleteMeFromDB()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->debug("É¾³ı¼Ò×å³ÉÔ±Ê§°Ü %u", id);
+		Zebra::logger->debug("åˆ é™¤å®¶æ—æˆå‘˜å¤±è´¥ %u", id);
 		return false;
 	}
 	else
@@ -361,8 +361,8 @@ bool CSeptMember::deleteMeFromDB()
 }
 
 /**
-* \brief ½â³ı³ÉÔ±Óë¼Ò×åµÄ¹ØÏµ
-* \param notify Í¨Öª±êÖ¾£¬Îªtrue±íÊ¾ÒªÍ¨ÖªËùÓĞµÄÔÚÏß³ÉÔ±£¬Îªflase±íÊ¾²»Í¨Öª
+* \brief è§£é™¤æˆå‘˜ä¸å®¶æ—çš„å…³ç³»
+* \param notify é€šçŸ¥æ ‡å¿—ï¼Œä¸ºtrueè¡¨ç¤ºè¦é€šçŸ¥æ‰€æœ‰çš„åœ¨çº¿æˆå‘˜ï¼Œä¸ºflaseè¡¨ç¤ºä¸é€šçŸ¥
 * \author fqnewman
 */
 void CSeptMember::fireMe(const bool notify, const bool checkunion)
@@ -373,7 +373,7 @@ void CSeptMember::fireMe(const bool notify, const bool checkunion)
 		if (notify) 
 		{
 			mySept->notifyMemberFire(name);
-			mySept->sendSeptNotify("%s ÍË³öÁË¼Ò×å", name);
+			mySept->sendSeptNotify("%s é€€å‡ºäº†å®¶æ—", name);
 		}
 		
 		CUnion* pUnion = CUnionM::getMe().getUnionByID(this->mySept->dwUnionID);
@@ -397,19 +397,19 @@ void CSeptMember::fireMe(const bool notify, const bool checkunion)
 			send.dwCharID = id;
 			
 			send.dwMapTempID = pUser->scene->tempid;
-			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireSeptMember_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireSeptMember_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 			pUser->septid = 0;
 			CNpcDareM::getMe().sendUserData(pUser);
 		}
 	}
 	else
 	{
-		Zebra::logger->error("[¼Ò×å]:¿ª³ı %s ³ÉÔ±Ê§°Ü", this->name);
+		Zebra::logger->error("[å®¶æ—]:å¼€é™¤ %s æˆå‘˜å¤±è´¥", this->name);
 	}
 }
 
 /**
-* \brief ·¢ËÍÓÃ»§µÄ¼Ò×å³ÉÔ±Êı¾İ
+* \brief å‘é€ç”¨æˆ·çš„å®¶æ—æˆå‘˜æ•°æ®
 * \author fqnewman
 */
 void CSeptMember::sendUserSeptData()
@@ -417,15 +417,15 @@ void CSeptMember::sendUserSeptData()
 	UserSession *pUser = UserSessionManager::getInstance()->getUserByID(id);
 	if (mySept && pUser)
 	{
-		mySept->sendSeptInfoToUser(pUser); // ·¢ËÍ¼Ò×åµÄĞÅÏ¢¸øµ±Ç°³ÉÔ±
-		mySept->sendSeptMemberList(pUser); // ·¢ËÍ¼Ò×åµÄ³ÉÔ±ÁĞ±í¸øµ±Ç°³ÉÔ±
+		mySept->sendSeptInfoToUser(pUser); // å‘é€å®¶æ—çš„ä¿¡æ¯ç»™å½“å‰æˆå‘˜
+		mySept->sendSeptMemberList(pUser); // å‘é€å®¶æ—çš„æˆå‘˜åˆ—è¡¨ç»™å½“å‰æˆå‘˜
 	}
 }
 
 /**
-* \brief ÅĞ¶Ï³ÉÔ±ÊÇ·ñÔÚÏß
+* \brief åˆ¤æ–­æˆå‘˜æ˜¯å¦åœ¨çº¿
 * \author fqnewman
-* \return trueÔÚÏß  false ²»ÔÚÏß
+* \return trueåœ¨çº¿  false ä¸åœ¨çº¿
 */
 bool CSeptMember::isOnline()
 {
@@ -433,8 +433,8 @@ bool CSeptMember::isOnline()
 }
 
 /** 
-* \brief ³ÉÔ±ÉÏÏß´¦Àí
-* \param status ³ÉÔ±µÄÉÏÏß×´Ì¬
+* \brief æˆå‘˜ä¸Šçº¿å¤„ç†
+* \param status æˆå‘˜çš„ä¸Šçº¿çŠ¶æ€
 * \author fqnewman
 */
 void CSeptMember::online(const unsigned int status)
@@ -473,12 +473,12 @@ void CSeptMember::online(const unsigned int status)
 	}
 	else
 	{
-		Zebra::logger->error("ÔÚ¼Ò×å³ÉÔ±%sÕÒ²»µ½×Ô¼ºµÄ¼Ò×å¶ÔÏó",send.name);
+		Zebra::logger->error("åœ¨å®¶æ—æˆå‘˜%sæ‰¾ä¸åˆ°è‡ªå·±çš„å®¶æ—å¯¹è±¡",send.name);
 	}
 }
 
 /**
-* \brief ³ÉÔ±ÏÂÏß´¦Àí
+* \brief æˆå‘˜ä¸‹çº¿å¤„ç†
 * \author fqnewman
 */
 void CSeptMember::offline()
@@ -494,13 +494,13 @@ void CSeptMember::offline()
 	if (mySept) mySept->sendCmdToAllMember(&send,sizeof(send));
 	else
 	{
-		Zebra::logger->error("ÔÚ¼Ò×å³ÉÔ±%sÕÒ²»µ½×Ô¼ºµÄ¼Ò×å¶ÔÏó",send.name);
+		Zebra::logger->error("åœ¨å®¶æ—æˆå‘˜%sæ‰¾ä¸åˆ°è‡ªå·±çš„å®¶æ—å¯¹è±¡",send.name);
 	}
 }
 
 /** 
-* \brief Í¨Öª¼Ò×å³ÉÔ±Õ¼ÁìNPCµÄĞÅÏ¢
-* \param status ³ÉÔ±µÄÉÏÏß×´Ì¬
+* \brief é€šçŸ¥å®¶æ—æˆå‘˜å é¢†NPCçš„ä¿¡æ¯
+* \param status æˆå‘˜çš„ä¸Šçº¿çŠ¶æ€
 * \author fqnewman
 */
 void CSeptMember::notifyNpcHoldData()
@@ -530,8 +530,8 @@ void CSeptMember::sendGoldToMember(DWORD userID, DWORD num)
 //---------------------------------------new---------------------------------------------
 
 /**
-* \brief É¾³ıÊµÌå¸ù¾İÃû³Æ
-* \param name ÊµÌåÃû³Æ
+* \brief åˆ é™¤å®ä½“æ ¹æ®åç§°
+* \param name å®ä½“åç§°
 * \author fqnewman
 */
 void CSept::removeEntryByName(const char * name)
@@ -541,8 +541,8 @@ void CSept::removeEntryByName(const char * name)
 }
 
 /**
-* \brief ¼Ò×å³õÊ¼»¯£¬¸ù¾İ´«ÈëÊı¾İ³õÊ¼»¯¼Ò×åµÄ»ù±¾ĞÅÏ¢
-* \param info ¼Ò×åÊı¾İ½á¹¹
+* \brief å®¶æ—åˆå§‹åŒ–ï¼Œæ ¹æ®ä¼ å…¥æ•°æ®åˆå§‹åŒ–å®¶æ—çš„åŸºæœ¬ä¿¡æ¯
+* \param info å®¶æ—æ•°æ®ç»“æ„
 * \author fqnewman
 */
 void CSept::init(const stSeptInfo & info)
@@ -568,8 +568,8 @@ void CSept::init(const stSeptInfo & info)
 }
 
 /**
-* \brief ´´½¨Ò»¸ö¼Ò×åµÄ°ïÖ÷³ÉÔ±£¬·ÖÅäÈ¨ÏŞ
-* \param info ¼Ò×å³ÉÔ±Êı¾İ½á¹¹
+* \brief åˆ›å»ºä¸€ä¸ªå®¶æ—çš„å¸®ä¸»æˆå‘˜ï¼Œåˆ†é…æƒé™
+* \param info å®¶æ—æˆå‘˜æ•°æ®ç»“æ„
 * \author fqnewman
 */
 CSeptMember * CSept::addSeptMaster(const stSeptInfo& info)
@@ -580,15 +580,15 @@ CSeptMember * CSept::addSeptMaster(const stSeptInfo& info)
 	UserSession *pUser = UserSessionManager::getInstance()->getUserByID(masterInfo.dwCharID);
 	if (pUser) masterInfo.wdOccupation = pUser->occupation;
 	strncpy(masterInfo.name,info.masterName,MAX_NAMESIZE);
-	strncpy(masterInfo.aliasname, "×å³¤", MAX_NAMESIZE);
+	strncpy(masterInfo.aliasname, "æ—é•¿", MAX_NAMESIZE);
 	return addSeptMember(masterInfo);	
 }
 
 /**
-* \brief ´´½¨²¢³õÊ¼»¯¼Ò×å³ÉÔ±
-* \param info ¼Ò×å³ÉÔ±Êı¾İ½á¹¹
+* \brief åˆ›å»ºå¹¶åˆå§‹åŒ–å®¶æ—æˆå‘˜
+* \param info å®¶æ—æˆå‘˜æ•°æ®ç»“æ„
 * \author fqnewman
-* \return ³É¹¦·µ»ØĞÂ´´½¨µÄ¼Ò×å³ÉÔ±¶ÔÏó£¬Ê§°Ü·µ»ØNULL
+* \return æˆåŠŸè¿”å›æ–°åˆ›å»ºçš„å®¶æ—æˆå‘˜å¯¹è±¡ï¼Œå¤±è´¥è¿”å›NULL
 */
 CSeptMember * CSept::addSeptMember(const stSeptMemberInfo& info)
 {
@@ -603,13 +603,13 @@ CSeptMember * CSept::addSeptMember(const stSeptMemberInfo& info)
 		addEntry(pMember);
 		rwlock.unlock();
 
-		CSeptM::getMe().addMemberIndex(info.name, pMember);  // ÔÚCSeptMÖĞ¼ÓÈëË÷ÒıÕâÑù¿ÉÒÔÊ¹ÍâÃæµÄ·ÃÎÊÕßÍ¨¹ıCSeptMÕÒµ½×Ô¼º¡£
+		CSeptM::getMe().addMemberIndex(info.name, pMember);  // åœ¨CSeptMä¸­åŠ å…¥ç´¢å¼•è¿™æ ·å¯ä»¥ä½¿å¤–é¢çš„è®¿é—®è€…é€šè¿‡CSeptMæ‰¾åˆ°è‡ªå·±ã€‚
 	}
 	return pMember;
 }
 
 /**
-* \brief ´¦Àí¸ñÊ½½âÎöµÄºê
+* \brief å¤„ç†æ ¼å¼è§£æçš„å®
 */
 #define getMessage(msg,msglen,pat)      \
 do      \
@@ -622,8 +622,8 @@ do      \
 }while(false)
 
 /**
-* \brief Í¨Öª¼Ò×åÕ½½á¹û
-* \param  msg ... Í¨ÖªÄÚÈİ
+* \brief é€šçŸ¥å®¶æ—æˆ˜ç»“æœ
+* \param  msg ... é€šçŸ¥å†…å®¹
 */
 void CSept::notifyWarResult(const char* msg, ...)
 {
@@ -660,9 +660,9 @@ void CSept::notifyWarResult(const char* msg, ...)
 }
 
 /**
-  * \brief ·¢ËÍ¼Ò×åÍ¨Öª
+  * \brief å‘é€å®¶æ—é€šçŸ¥
   *
-  * \param message ÏûÏ¢
+  * \param message æ¶ˆæ¯
   *
   * \author zjw
   */
@@ -684,7 +684,7 @@ void CSept::sendSeptNotify(const char* message, ...)
 	bzero(send.pstrName, sizeof(send.pstrName));
 	bzero(send.pstrChat, sizeof(send.pstrChat));
 
-	sprintf((char*)send.pstrName, "¼Ò×åÍ¨Öª");
+	sprintf((char*)send.pstrName, "å®¶æ—é€šçŸ¥");
 	sprintf((char*)send.pstrChat, "%s", buf);
 
 	this->sendCmdToAllMember(&send, sizeof(send));
@@ -708,7 +708,7 @@ void CSept::delSeptAllMember()
 {
 	rwlock.rdlock();
 	
-	Zebra::logger->trace("[¼Ò×å]¼Ò×åÇå¿ÕËùÓĞ³ÉÔ±:%s", this->name);
+	Zebra::logger->trace("[å®¶æ—]å®¶æ—æ¸…ç©ºæ‰€æœ‰æˆå‘˜:%s", this->name);
 	std::vector<DWORD> vMemberID;
 
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
@@ -731,9 +731,9 @@ void CSept::delSeptAllMember()
 }
 
 /**
-* \brief ·¢ËÍÃüÁî¸ø³¡¾°ËùÓĞ³ÉÔ±
-* \param pNullCmd ½øÈëÕ½Õù×´Ì¬Í¨ÖªÏûÏ¢
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å‘½ä»¤ç»™åœºæ™¯æ‰€æœ‰æˆå‘˜
+* \param pNullCmd è¿›å…¥æˆ˜äº‰çŠ¶æ€é€šçŸ¥æ¶ˆæ¯
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 */
 void CSept::sendNpcDareCmdToScene(Cmd::Session::t_NpcDare_NotifyScene_SceneSession* pCmd, const unsigned int cmdLen)
 {
@@ -769,9 +769,9 @@ void CSept::sendNpcDareCmdToScene(Cmd::Session::t_NpcDare_NotifyScene_SceneSessi
 }
 
 /**
-* \brief ·¢ËÍÃüÁî¸ø³¡¾°ÉèÖÃËùÓĞ³ÉÔ±µÄÕ½Õù×´Ì¬²¢Í¨Öª¿Í»§¶Ë
-* \param ptEnterWarCmd ½øÈëÕ½Õù×´Ì¬Í¨ÖªÏûÏ¢
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å‘½ä»¤ç»™åœºæ™¯è®¾ç½®æ‰€æœ‰æˆå‘˜çš„æˆ˜äº‰çŠ¶æ€å¹¶é€šçŸ¥å®¢æˆ·ç«¯
+* \param ptEnterWarCmd è¿›å…¥æˆ˜äº‰çŠ¶æ€é€šçŸ¥æ¶ˆæ¯
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 */
 void CSept::sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptEnterWarCmd, const unsigned int cmdLen)
 {
@@ -799,11 +799,11 @@ void CSept::sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptEnt
 
 				if (cmd->dwStatus)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÒÑ½øÈë¼Ò×å¶ÔÕ½×´Ì¬¡£");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨å·²è¿›å…¥å®¶æ—å¯¹æˆ˜çŠ¶æ€ã€‚");
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÒÑÍË³ö¼Ò×å¶ÔÕ½×´Ì¬¡£");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨å·²é€€å‡ºå®¶æ—å¯¹æˆ˜çŠ¶æ€ã€‚");
 				}
 
 				pUser->scene->sendCmd(cmd, cmdLen);
@@ -859,9 +859,9 @@ void CSept::sendCallCmdToAllMemberScene(Cmd::Session::t_GoTo_Leader_Check_SceneS
 }
 
 /**
-* \brief ·¢ËÍÃüÁî¸øËùÓĞµÄ³ÉÔ±£¨¿Í»§¶Ë£©
-* \param ptCmd ÏûÏ¢Ìå
-* \param nCmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å‘½ä»¤ç»™æ‰€æœ‰çš„æˆå‘˜ï¼ˆå®¢æˆ·ç«¯ï¼‰
+* \param ptCmd æ¶ˆæ¯ä½“
+* \param nCmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CSept::sendCmdToAllMember(const Cmd::stNullUserCmd * ptCmd, const unsigned int nCmdLen )
@@ -894,9 +894,9 @@ void CSept::sendCmdToAllMember(const Cmd::stNullUserCmd * ptCmd, const unsigned 
 }
 
 /**
-* \brief ·¢ËÍÃüÁî¸øËùÓĞµÄ³ÉÔ±£¨¿Í»§¶Ë£©
-* \param ptCmd ÏûÏ¢Ìå
-* \param nCmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å‘½ä»¤ç»™æ‰€æœ‰çš„æˆå‘˜ï¼ˆå®¢æˆ·ç«¯ï¼‰
+* \param ptCmd æ¶ˆæ¯ä½“
+* \param nCmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CSept::sendCmdToAllMemberExcept(const Cmd::stNullUserCmd * ptCmd, const unsigned int nCmdLen , const char * except)
@@ -931,9 +931,9 @@ void CSept::sendCmdToAllMemberExcept(const Cmd::stNullUserCmd * ptCmd, const uns
 }
 
 /**
-* \brief ¼Ò×å¾­Ñé·ÖÅä½á¹û·¢ËÍµ½³¡¾°
-* \param dwUserID ¾­ÑéÌá¹©ÕßµÄID
-* \param ptCmd ¾­Ñé·ÖÅäÏûÏ¢
+* \brief å®¶æ—ç»éªŒåˆ†é…ç»“æœå‘é€åˆ°åœºæ™¯
+* \param dwUserID ç»éªŒæä¾›è€…çš„ID
+* \param ptCmd ç»éªŒåˆ†é…æ¶ˆæ¯
 * \author fqnewman
 */
 void CSept::sendDistributeSeptExpToScene(const DWORD dwUserID, const Cmd::Session::t_distributeSeptExp_SceneSession * ptCmd)
@@ -958,7 +958,7 @@ void CSept::sendDistributeSeptExpToScene(const DWORD dwUserID, const Cmd::Sessio
 				if (pUser && pUser->scene)
 				{
 #ifdef _DEBUGLOG
-					Zebra::logger->debug("·¢ËÍ¾­Ñé·ÖÅäÍ¨Öª¸ø%s¾­ÑéÎª%u",pUser->name, cmd->dwExp);
+					Zebra::logger->debug("å‘é€ç»éªŒåˆ†é…é€šçŸ¥ç»™%sç»éªŒä¸º%u",pUser->name, cmd->dwExp);
 #endif
 					pUser->septExp +=cmd->dwExp;
 					if (pUser->septExp >=30)
@@ -981,8 +981,8 @@ void CSept::sendDistributeSeptExpToScene(const DWORD dwUserID, const Cmd::Sessio
 
 
 /**
-* \brief Í¨Öª¼Ò×åÄÚÓĞ³ÉÔ±±»¿ª³ı
-* \param pName ±»¿ª³ıÕßµÄÃû³Æ
+* \brief é€šçŸ¥å®¶æ—å†…æœ‰æˆå‘˜è¢«å¼€é™¤
+* \param pName è¢«å¼€é™¤è€…çš„åç§°
 * \author fqnewman
 */
 void CSept::notifyMemberFire(const char * pName)
@@ -995,8 +995,8 @@ void CSept::notifyMemberFire(const char * pName)
 }
 
 /**
-* \brief ·¢ËÍÓÃ»§µÄ¼Ò×åÊı¾İµ½¿Í»§¶Ë
-* \param pName ½ÓÊÕĞÅÏ¢µÄÓÃ»§
+* \brief å‘é€ç”¨æˆ·çš„å®¶æ—æ•°æ®åˆ°å®¢æˆ·ç«¯
+* \param pName æ¥æ”¶ä¿¡æ¯çš„ç”¨æˆ·
 * \author fqnewman
 */
 void CSept::sendUserSeptData(const char *pName)
@@ -1011,8 +1011,8 @@ void CSept::sendUserSeptData(const char *pName)
 }
 
 /**
-* \brief ·¢ËÍ¼Ò×åĞÅÏ¢¸øÖ¸¶¨ÓÃ»§µÄ¿Í»§¶Ë£¬ÓÃÔÚÓÃ»§ÉÏÏß³õÊ¼»¯µÄÊ±ºò¡£
-* \param pUser ÉÏÏßÓÃ»§
+* \brief å‘é€å®¶æ—ä¿¡æ¯ç»™æŒ‡å®šç”¨æˆ·çš„å®¢æˆ·ç«¯ï¼Œç”¨åœ¨ç”¨æˆ·ä¸Šçº¿åˆå§‹åŒ–çš„æ—¶å€™ã€‚
+* \param pUser ä¸Šçº¿ç”¨æˆ·
 * \author fqnewman
 */
 void CSept::sendSeptInfoToUser(UserSession *pUser)
@@ -1020,8 +1020,8 @@ void CSept::sendSeptInfoToUser(UserSession *pUser)
 	Cmd::stSeptBaseInfoCmd retSept;
 
 	rwlock.rdlock();
-	strncpy(retSept.septName,name,MAX_NAMESIZE);     // ¼Ò×åÃû³Æ
-	strncpy(retSept.master,master->name,MAX_NAMESIZE); // ¼Ò×å»á³¤
+	strncpy(retSept.septName,name,MAX_NAMESIZE);     // å®¶æ—åç§°
+	strncpy(retSept.master,master->name,MAX_NAMESIZE); // å®¶æ—ä¼šé•¿
 	
 	if (master->id == pUser->id) 
 		retSept.dwMasterTempID = pUser->tempid;
@@ -1073,8 +1073,8 @@ CSeptMember* CSept::getMemberByName(const char* pName)
 }
 
 /**
-* \brief ·¢ËÍ¼Ò×å³ÉÔ±ÁĞ±í£¬·¢ËÍÓĞ×î´óÏŞÖÆ£¬×î¶àÖ»·¢100Ìõ¼Ò×å³ÉÔ±¼ÇÂ¼¡£
-* \param pUser Êı¾İ½ÓÊÜÕß¶ÔÏó
+* \brief å‘é€å®¶æ—æˆå‘˜åˆ—è¡¨ï¼Œå‘é€æœ‰æœ€å¤§é™åˆ¶ï¼Œæœ€å¤šåªå‘100æ¡å®¶æ—æˆå‘˜è®°å½•ã€‚
+* \param pUser æ•°æ®æ¥å—è€…å¯¹è±¡
 * \author fqnewman
 */
 void CSept::sendSeptMemberList(UserSession *pUser)
@@ -1100,7 +1100,7 @@ void CSept::sendSeptMemberList(UserSession *pUser)
 		if (1000==count)
 		{
 
-			goto breakfor; // µ±¼ÇÂ¼³¬¹ı100µÄÊ±ºò»á³¬¹ıÃüÁî·¢ËÍµÄ×î´óÏŞÖÆ
+			goto breakfor; // å½“è®°å½•è¶…è¿‡100çš„æ—¶å€™ä¼šè¶…è¿‡å‘½ä»¤å‘é€çš„æœ€å¤§é™åˆ¶
 		}
 	}
 breakfor:
@@ -1110,9 +1110,9 @@ breakfor:
 }
 
 /**
-* \brief ¿ª³ı¼Ò×å³ÉÔ±
-* \param master ĞĞÊ¹È¨ÀûÕßµÄÃû³Æ 
-* \param member ±»¿ª³ıÕßµÄÃû³Æ
+* \brief å¼€é™¤å®¶æ—æˆå‘˜
+* \param master è¡Œä½¿æƒåˆ©è€…çš„åç§° 
+* \param member è¢«å¼€é™¤è€…çš„åç§°
 * \author fqnewman
 * \return 
 */
@@ -1126,11 +1126,11 @@ void  CSept::fireSeptMember(const char * master, const char *member)
 		{
 			if (pMaster->id == pMember->id)
 			{
-				pMaster->sendMessageToMe(Cmd::INFO_TYPE_FAIL, "²»ÄÜ¿ª³ı×Ô¼º");
+				pMaster->sendMessageToMe(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½å¼€é™¤è‡ªå·±");
 				return;
 			}
 
-			if (pMaster->id == this->master->id) //Ö»ÓĞ»á³¤ÓĞ×Ê¸ñ
+			if (pMaster->id == this->master->id) //åªæœ‰ä¼šé•¿æœ‰èµ„æ ¼
 			{
 				removeEntryByName(member);
 				pMember->fireMe();
@@ -1138,25 +1138,25 @@ void  CSept::fireSeptMember(const char * master, const char *member)
 			}
 			else
 			{
-				pMaster->sendMessageToMe(Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ¿ª³ı³ÉÔ±µÄÈ¨Á¦£¬Èç¹ûÄã·¢ÏÖ´íÎóÇë±¨¸æ¸øGM");
+				pMaster->sendMessageToMe(Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰å¼€é™¤æˆå‘˜çš„æƒåŠ›ï¼Œå¦‚æœä½ å‘ç°é”™è¯¯è¯·æŠ¥å‘Šç»™GM");
 			}
 		}
 		else
 		{
-			pMaster->sendMessageToMe(Cmd::INFO_TYPE_FAIL, "ÄãËùÔÚµÄ¼Ò×åÖĞÃ»ÓĞ´ËÈË,ÇëÈ·ÈÏÃû×ÖÊÇ·ñÕıÈ·");
+			pMaster->sendMessageToMe(Cmd::INFO_TYPE_FAIL, "ä½ æ‰€åœ¨çš„å®¶æ—ä¸­æ²¡æœ‰æ­¤äºº,è¯·ç¡®è®¤åå­—æ˜¯å¦æ­£ç¡®");
 		}
 	}
 	else
 	{
-		Zebra::logger->debug("¿ª³ı¼Ò×å³ÉÔ±²Ù×÷ÖĞ³öÏÖ´íÎóµÄ×´Ì¬");
+		Zebra::logger->debug("å¼€é™¤å®¶æ—æˆå‘˜æ“ä½œä¸­å‡ºç°é”™è¯¯çš„çŠ¶æ€");
 	}
 }
 
 /**
-* \brief Ö±½Ó¿ª³ı¼Ò×å³ÉÔ±
-* \param dwSeptID ±»¿ª³ıµÄ¼Ò×å³ÉÔ±ID
+* \brief ç›´æ¥å¼€é™¤å®¶æ—æˆå‘˜
+* \param dwSeptID è¢«å¼€é™¤çš„å®¶æ—æˆå‘˜ID
 * \author fqnewman
-* \return 1 ³É¹¦ 2 Ê§°Ü
+* \return 1 æˆåŠŸ 2 å¤±è´¥
 */
 int CSept::fireSeptMemberDirect(const DWORD dwCharID, const bool checkunion)
 {
@@ -1182,7 +1182,7 @@ int CSept::fireSeptMemberDirect(const DWORD dwCharID, const bool checkunion)
 }
 
 /**
-* \brief ¸üĞÂÊı¾İ¿â¼ÇÂ¼
+* \brief æ›´æ–°æ•°æ®åº“è®°å½•
 * \author fqnewman
 */
 void CSept::writeDatabase()
@@ -1225,7 +1225,7 @@ void CSept::writeDatabase()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return;
 	}
 
@@ -1256,12 +1256,12 @@ void CSept::writeDatabase()
 
 	if ((DWORD)-1 == retcode)
 	{
-		Zebra::logger->error("CSept ĞŞ¸Ä»áÔ±µµ°¸Ê§°Ü£ºSEPTID=%u retcode=%u", id, retcode);
+		Zebra::logger->error("CSept ä¿®æ”¹ä¼šå‘˜æ¡£æ¡ˆå¤±è´¥ï¼šSEPTID=%u retcode=%u", id, retcode);
 	}
 }
 
 /**
-* \brief ¹¹Ôì¼Ò×å£¬³õÊ¼»¯±äÁ¿
+* \brief æ„é€ å®¶æ—ï¼Œåˆå§‹åŒ–å˜é‡
 * \author fqnewman
 */
 CSept::CSept()
@@ -1274,7 +1274,7 @@ CSept::CSept()
 }
 
 /**
-* \brief Îö¹¹¼Ò×å¼°ÆäËùÓĞ³ÉÔ±
+* \brief ææ„å®¶æ—åŠå…¶æ‰€æœ‰æˆå‘˜
 * \author fqnewman
 */
 CSept::~CSept()
@@ -1295,14 +1295,14 @@ CSept::~CSept()
 }
 
 /**
-* \brief ½âÉ¢¼Ò×å£¬½«ËùÓĞ³ÉÔ±µÄ¼Ò×å¹ØÏµ½â³ı°üÀ¨°ïÖ÷×Ô¼º
+* \brief è§£æ•£å®¶æ—ï¼Œå°†æ‰€æœ‰æˆå‘˜çš„å®¶æ—å…³ç³»è§£é™¤åŒ…æ‹¬å¸®ä¸»è‡ªå·±
 * \author fqnewman
 */
 void CSept::disbandSept()
 {
 	rwlock.wrlock();
 	
-	Zebra::logger->trace("[¼Ò×å]:%s ¼Ò×å½âÉ¢", this->name);
+	Zebra::logger->trace("[å®¶æ—]:%s å®¶æ—è§£æ•£", this->name);
 	destroy = true;
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
 	{
@@ -1319,9 +1319,9 @@ void CSept::disbandSept()
 }
 
 /**
-* \brief É¾³ı±¾¼Ò×åµÄÊı¾İ¿â¼ÇÂ¼
+* \brief åˆ é™¤æœ¬å®¶æ—çš„æ•°æ®åº“è®°å½•
 * \author fqnewman
-* \return true ³É¹¦ false Ê§°Ü
+* \return true æˆåŠŸ false å¤±è´¥
 */
 bool CSept::deleteMeFromDB()
 {
@@ -1331,7 +1331,7 @@ bool CSept::deleteMeFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -1341,7 +1341,7 @@ bool CSept::deleteMeFromDB()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("É¾³ı¼Ò×åÊ§°Ü %u", id);
+		Zebra::logger->error("åˆ é™¤å®¶æ—å¤±è´¥ %u", id);
 		return false;
 	}
 	else
@@ -1352,9 +1352,9 @@ bool CSept::deleteMeFromDB()
 }
 
 /**
-* \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØ¼Ò×å³ÉÔ±
+* \brief ä»æ•°æ®åº“ä¸­åŠ è½½å®¶æ—æˆå‘˜
 * \author fqnewman
-* \return true ¼ÓÔØ³É¹¦£¬ false ¼ÓÔØÊ§°Ü
+* \return true åŠ è½½æˆåŠŸï¼Œ false åŠ è½½å¤±è´¥
 */
 bool CSept::loadSeptMemberFromDB()
 {
@@ -1374,7 +1374,7 @@ bool CSept::loadSeptMemberFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
@@ -1384,7 +1384,7 @@ bool CSept::loadSeptMemberFromDB()
 	if ((unsigned int)-1 == retcode
 			|| 0 == retcode)
 	{
-		Zebra::logger->debug("Ã»ÓĞÕÒµ½¼Ò×å³ÉÔ±¼ÇÂ¼");
+		Zebra::logger->debug("æ²¡æœ‰æ‰¾åˆ°å®¶æ—æˆå‘˜è®°å½•");
 		return true;
 	}
 
@@ -1397,8 +1397,8 @@ bool CSept::loadSeptMemberFromDB()
 			CSeptMember *member = addSeptMember(info);
 			if (info.dwCharID == tempid) 
 			{
-				//Zebra::logger->trace("[¼Ò×å¼ÓÔØ]:%s(%d) ×å³¤¼ÓÔØ³É¹¦", member->name, this->id);
-				master = member; // masterid±»±£´æÔÚtempidÖĞ£»ÕâÀï³õÊ¼»¯master¶ÔÏó
+				//Zebra::logger->trace("[å®¶æ—åŠ è½½]:%s(%d) æ—é•¿åŠ è½½æˆåŠŸ", member->name, this->id);
+				master = member; // masteridè¢«ä¿å­˜åœ¨tempidä¸­ï¼›è¿™é‡Œåˆå§‹åŒ–masterå¯¹è±¡
 			}
 			tempPoint++;
 		}
@@ -1406,13 +1406,13 @@ bool CSept::loadSeptMemberFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("¼Ò×åÊı¾İ³õÊ¼»¯Ê§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("å®¶æ—æ•°æ®åˆå§‹åŒ–å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 	}
 
 	if (this->master==NULL)
 	{
 		this->byVote = 1;
-		Zebra::logger->trace("[¼Ò×å¼ÓÔØ]:(%d) ×å³¤¼ÓÔØÊ§°Ü", this->id);
+		Zebra::logger->trace("[å®¶æ—åŠ è½½]:(%d) æ—é•¿åŠ è½½å¤±è´¥", this->id);
 		return false;
 	}
 	
@@ -1420,9 +1420,9 @@ bool CSept::loadSeptMemberFromDB()
 }
 
 /**
-* \brief »ñÈ¡¼Ò×å³ÉÔ±ÊıÄ¿
+* \brief è·å–å®¶æ—æˆå‘˜æ•°ç›®
 * \author fqnewman
-* \return ¼Ò×å³ÉÔ±Êı×Ö
+* \return å®¶æ—æˆå‘˜æ•°å­—
 */
 DWORD CSept::size()
 {
@@ -1430,9 +1430,9 @@ DWORD CSept::size()
 }
 
 /**
-* \brief ÅĞ¶ÏÊÇ·ñÔÚÍ¶Æ±×´Ì¬
+* \brief åˆ¤æ–­æ˜¯å¦åœ¨æŠ•ç¥¨çŠ¶æ€
 * \author fqnewman
-* \return true »¹ÔÚÍ¶Æ±ÖĞ false Í¶Æ±ÒÑ½áÊø
+* \return true è¿˜åœ¨æŠ•ç¥¨ä¸­ false æŠ•ç¥¨å·²ç»“æŸ
 */
 bool CSept::isVote()
 {
@@ -1440,7 +1440,7 @@ bool CSept::isVote()
 }
 
 /**
-* \brief Í¶Æ±½áÊø´¦Àí
+* \brief æŠ•ç¥¨ç»“æŸå¤„ç†
 * \author fqnewman
 */
 void CSept::letVoteOver()
@@ -1472,8 +1472,8 @@ void CSept::letVoteOver()
 }
 
 /**
-* \brief ÉèÖÃ¼Ò×åµÄ½éÉÜ£¨²¢´æ¿â£©
-* \param pCmd ¼Ò×åÉèÖÃÏûÏ¢
+* \brief è®¾ç½®å®¶æ—çš„ä»‹ç»ï¼ˆå¹¶å­˜åº“ï¼‰
+* \param pCmd å®¶æ—è®¾ç½®æ¶ˆæ¯
 * \author fqnewman
 */
 void CSept::setNote(Cmd::stNoteSeptCmd *pCmd)
@@ -1492,11 +1492,11 @@ DWORD CSept::getRepute()
 		CUnion* pUnion = CUnionM::getMe().getUnionByID(this->dwUnionID);
 		if (pUnion)
 		{
-			// TODO:ÅĞ¶ÏÊÇ·ñÊÇ³ÇÖ÷»ò¹úÍõ 
+			// TODO:åˆ¤æ–­æ˜¯å¦æ˜¯åŸä¸»æˆ–å›½ç‹ 
 			if (pUnion->master && this->master && (pUnion->master->id == this->master->id))
-			{//±¾×å×å³¤ÊÇ°ïÖ÷
+			{//æœ¬æ—æ—é•¿æ˜¯å¸®ä¸»
 				if (CCityM::getMe().findByUnionID(pUnion->id) !=NULL)
-				{//ÊÇ¹úÍõ»ò³ÇÖ÷
+				{//æ˜¯å›½ç‹æˆ–åŸä¸»
 					return (DWORD)(this->dwRepute*1.1);
 				}
 			}
@@ -1517,7 +1517,7 @@ void CSept::sendSeptReputeToAll()
 			UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pMember->id);
 			if (pMember->mySept && pUser)
 			{
-				pMember->mySept->sendSeptInfoToUser(pUser); // ·¢ËÍ¼Ò×åµÄĞÅÏ¢¸øµ±Ç°³ÉÔ±
+				pMember->mySept->sendSeptInfoToUser(pUser); // å‘é€å®¶æ—çš„ä¿¡æ¯ç»™å½“å‰æˆå‘˜
 			}
 
 			pMember->update_normal_data();
@@ -1544,17 +1544,17 @@ void CSept::sendSeptInfoToAll()
 
 void CSept::changeRepute(int repute)
 {
-	FunctionTime func_time(0,__PRETTY_FUNCTION__,"¸Ä±äÒ»¸ö¼Ò×åÉùÍûËùĞèÊ±¼ä" , 32);
+	FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ”¹å˜ä¸€ä¸ªå®¶æ—å£°æœ›æ‰€éœ€æ—¶é—´" , 32);
 	
 	if (this->isVote()) return;
 	if (repute>0)
 	{
 		this->dwRepute+=repute;
-		this->sendSeptNotify("±¾¼Ò×åÉùÍûÉÏÉı %d µã", repute);
+		this->sendSeptNotify("æœ¬å®¶æ—å£°æœ›ä¸Šå‡ %d ç‚¹", repute);
 	}
 	else
 	{
-		this->sendSeptNotify("±¾¼Ò×åÉùÍû½µµÍ %d µã", abs(repute));
+		this->sendSeptNotify("æœ¬å®¶æ—å£°æœ›é™ä½ %d ç‚¹", abs(repute));
 		
 		if ((int)this->dwRepute>abs(repute))
 		{
@@ -1604,7 +1604,7 @@ void CSept::changeLevel(int level)
 }
 
 /**
-* \brief Í¨Öª¼Ò×å³ÉÔ±ĞÂµÄNPC¿ØÖÆÊı¾İ
+* \brief é€šçŸ¥å®¶æ—æˆå‘˜æ–°çš„NPCæ§åˆ¶æ•°æ®
 * \author fqnewman
 */
 void CSept::notifyNpcHoldData()
@@ -1634,13 +1634,13 @@ void CSept::sendGoldToMember(DWORD userID, DWORD num)
 //-------------------------------------------------------------------------------------
 
 /**
-* \brief ÉùÃ÷¹ÜÀíÆ÷ÊµÀı
+* \brief å£°æ˜ç®¡ç†å™¨å®ä¾‹
 * \author fqnewman
 */
 CSeptM *CSeptM::um(NULL);
 
 /**
-* \brief ¹ÜÀíÆ÷¹¹Ôìº¯Êı
+* \brief ç®¡ç†å™¨æ„é€ å‡½æ•°
 * \author fqnewman
 */
 CSeptM::CSeptM()
@@ -1648,7 +1648,7 @@ CSeptM::CSeptM()
 }
 
 /**
-* \brief ¹ÜÀíÆ÷Îö¹¹º¯Êı
+* \brief ç®¡ç†å™¨ææ„å‡½æ•°
 * \author fqnewman
 */
 CSeptM::~CSeptM()
@@ -1664,7 +1664,7 @@ CSeptM::~CSeptM()
 }
 
 /**
-* \brief Ö÷¶¯ÊÍ·Å¹ÜÀíÆ÷
+* \brief ä¸»åŠ¨é‡Šæ”¾ç®¡ç†å™¨
 * \author fqnewman
 */
 void CSeptM::destroyMe()
@@ -1673,8 +1673,8 @@ void CSeptM::destroyMe()
 }
 
 /**
-* \brief ÔÚ³ÉÔ±Ë÷ÒıÀïÃæ²éÕÒ³ÉÔ±µü´ú
-* return µü´úÖ¸Õë
+* \brief åœ¨æˆå‘˜ç´¢å¼•é‡Œé¢æŸ¥æ‰¾æˆå‘˜è¿­ä»£
+* return è¿­ä»£æŒ‡é’ˆ
 */
 std::map<std::string, CSeptMember *>::iterator  CSeptM::findMemberIndex(const char *pName)
 {
@@ -1685,8 +1685,8 @@ std::map<std::string, CSeptMember *>::iterator  CSeptM::findMemberIndex(const ch
 }
 
 /**
-* \brief ¸ù¾İÊµÌåÃû³ÆÉ¾³ı¹ÜÀíÊµÌå
-* \param name ÊµÌåµÄÃû³Æ
+* \brief æ ¹æ®å®ä½“åç§°åˆ é™¤ç®¡ç†å®ä½“
+* \param name å®ä½“çš„åç§°
 * \author fqnewman
 */
 void CSeptM::removeEntryByName(const char * name)
@@ -1696,10 +1696,10 @@ void CSeptM::removeEntryByName(const char * name)
 }
 
 /**
-  * \brief ¸ø¼Ò×åÈ«ÌåÔÚÏß³ÉÔ±·¢ËÍÏûÏ¢
+  * \brief ç»™å®¶æ—å…¨ä½“åœ¨çº¿æˆå‘˜å‘é€æ¶ˆæ¯
   *
-  * \param septID ¼Ò×åID
-  * \param message ÏûÏ¢³¤¶È
+  * \param septID å®¶æ—ID
+  * \param message æ¶ˆæ¯é•¿åº¦
   *
   * \author fqnewman
   */
@@ -1714,15 +1714,15 @@ void CSeptM::sendNpcDareCmdToScene(const DWORD septID, Cmd::Session::t_NpcDare_N
 	}
 	else
 	{       
-		Zebra::logger->error("·¢ËÍÃüÁî¸ø¼Ò×åÈ«Ìå³ÉÔ±Ê±£¬Î´ÕÒµ½¼Ò×å:%d", septID);
+		Zebra::logger->error("å‘é€å‘½ä»¤ç»™å®¶æ—å…¨ä½“æˆå‘˜æ—¶ï¼Œæœªæ‰¾åˆ°å®¶æ—:%d", septID);
 	}
 }
 
 /**
-  * \brief ·¢ËÍ¼Ò×åÍ¨Öª
+  * \brief å‘é€å®¶æ—é€šçŸ¥
   *
-  * \param septID ¼Ò×åID
-  * \param message ÏûÏ¢³¤¶È
+  * \param septID å®¶æ—ID
+  * \param message æ¶ˆæ¯é•¿åº¦
   *
   * \author zjw
   */
@@ -1747,7 +1747,7 @@ void CSeptM::sendSeptNotify(const DWORD septID, const char* message, ...)
 	bzero(send.pstrName, sizeof(send.pstrName));
 	bzero(send.pstrChat, sizeof(send.pstrChat));
 
-	sprintf((char*)send.pstrName, "¼Ò×åÍ¨Öª");
+	sprintf((char*)send.pstrName, "å®¶æ—é€šçŸ¥");
 	sprintf((char*)send.pstrChat, "%s", buf);
 
 	if (pSept)
@@ -1756,14 +1756,14 @@ void CSeptM::sendSeptNotify(const DWORD septID, const char* message, ...)
 	}
 	else
 	{       
-		Zebra::logger->error("·¢ËÍ¼Ò×åÍ¨ÖªÊ±£¬Î´ÕÒµ½¼Ò×å:%d", septID);
+		Zebra::logger->error("å‘é€å®¶æ—é€šçŸ¥æ—¶ï¼Œæœªæ‰¾åˆ°å®¶æ—:%d", septID);
 	}
 }
 
 /**
-* \brief ³õÊ¼»¯¼Ò×å¹ÜÀíÆ÷£¬´ÓÊı¾İ¿âÖĞ¼ÓÔØËùÓĞµÄ¼Ò×åÊı¾İ
+* \brief åˆå§‹åŒ–å®¶æ—ç®¡ç†å™¨ï¼Œä»æ•°æ®åº“ä¸­åŠ è½½æ‰€æœ‰çš„å®¶æ—æ•°æ®
 * \author fqnewman
-* \return true ¼ÓÔØ³É¹¦  false ¼ÓÔØÊ§°Ü
+* \return true åŠ è½½æˆåŠŸ  false åŠ è½½å¤±è´¥
 */
 bool CSeptM::init()
 {
@@ -1799,7 +1799,7 @@ bool CSeptM::init()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -1821,7 +1821,7 @@ bool CSeptM::init()
 			{
 				if (pSept->byVote && pSept->dwUnionID)
 				{
-					delSept(pSept->id);  // Èç¹ûÊÇ×å³¤¾Í½âÉ¢¼Ò×å
+					delSept(pSept->id);  // å¦‚æœæ˜¯æ—é•¿å°±è§£æ•£å®¶æ—
 				}
 			}
 			//2005.11.3 modify by markzhong
@@ -1833,15 +1833,15 @@ bool CSeptM::init()
 	}
 	else
 	{
-		Zebra::logger->error("¼Ò×åÊı¾İ³õÊ¼»¯Ê§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("å®¶æ—æ•°æ®åˆå§‹åŒ–å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 	}
 	return false;
 }
 
 /**
-* \brief »ñÈ¡¼Ò×å¹ÜÀíÆ÷µÄÎ¨Ò»ÊµÀı
+* \brief è·å–å®¶æ—ç®¡ç†å™¨çš„å”¯ä¸€å®ä¾‹
 * \author fqnewman
-* \return ¼Ò×å¹ÜÀíÆ÷ÊµÀı
+* \return å®¶æ—ç®¡ç†å™¨å®ä¾‹
 */
 CSeptM &CSeptM::getMe()
 {
@@ -1853,10 +1853,10 @@ CSeptM &CSeptM::getMe()
 }
 
 /**
-* \brief ³õÊ¼»¯¼Ò×å¶ÔÏó²¢Ìí¼Ó°ïÖ÷³ÉÔ± £¨createNewUnion()µ÷ÓÃ´Ë·½·¨£©
-* \param info ¼Ò×åµÄÊı¾İ½á¹¹
+* \brief åˆå§‹åŒ–å®¶æ—å¯¹è±¡å¹¶æ·»åŠ å¸®ä¸»æˆå‘˜ ï¼ˆcreateNewUnion()è°ƒç”¨æ­¤æ–¹æ³•ï¼‰
+* \param info å®¶æ—çš„æ•°æ®ç»“æ„
 * \author fqnewman
-* \return ´´½¨²¢³õÊ¼»¯ºÃµÄ¼Ò×å¶ÔÏó
+* \return åˆ›å»ºå¹¶åˆå§‹åŒ–å¥½çš„å®¶æ—å¯¹è±¡
 */
 CSept* CSeptM::createSeptAndAddMaster(const stSeptInfo & info)
 {
@@ -1884,16 +1884,16 @@ CSept* CSeptM::createSeptAndAddMaster(const stSeptInfo & info)
 		pSept->master->update_data();
 	}
 
-	Zebra::logger->trace("[¼Ò×å]:%s(%u) ¼Ò×å ±» %s ½¨Á¢³É¹¦", pSept->name, pSept->id, pSept->master->name);
-	SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, pSept->dwCountryID, "¹§Ï²%s³ÉÁ¢ÁË%s¼Ò×å", pSept->master->name, pSept->name);
+	Zebra::logger->trace("[å®¶æ—]:%s(%u) å®¶æ— è¢« %s å»ºç«‹æˆåŠŸ", pSept->name, pSept->id, pSept->master->name);
+	SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, pSept->dwCountryID, "æ­å–œ%sæˆç«‹äº†%så®¶æ—", pSept->master->name, pSept->name);
 	return pSept;
 }
 
 /**
-* \brief ¸ù¾İÊı¾İ¿â¼ÇÂ¼½¨Á¢¼Ò×å¶ÔÏó£¬ÏµÍ³¼ÓÔØµÄÊ±ºòÊ¹ÓÃ
-* \param info ¼Ò×åµÄÊı¾İ½á¹¹
+* \brief æ ¹æ®æ•°æ®åº“è®°å½•å»ºç«‹å®¶æ—å¯¹è±¡ï¼Œç³»ç»ŸåŠ è½½çš„æ—¶å€™ä½¿ç”¨
+* \param info å®¶æ—çš„æ•°æ®ç»“æ„
 * \author fqnewman
-* \return ´´½¨³É¹¦µÄ¼Ò×å¶ÔÏóÖ¸Õë
+* \return åˆ›å»ºæˆåŠŸçš„å®¶æ—å¯¹è±¡æŒ‡é’ˆ
 */
 CSept* CSeptM::createSeptByDBRecord(const stSeptInfo & info)
 {
@@ -1908,16 +1908,16 @@ CSept* CSeptM::createSeptByDBRecord(const stSeptInfo & info)
 
 	if (!ret)
 	{
-		Zebra::logger->trace("[¼Ò×å]: %s(%u) ¼Ò×åÌí¼Ó½øCSeptM¹ÜÀíÆ÷Ê§°Ü", pSept->name, pSept->id);
+		Zebra::logger->trace("[å®¶æ—]: %s(%u) å®¶æ—æ·»åŠ è¿›CSeptMç®¡ç†å™¨å¤±è´¥", pSept->name, pSept->id);
 	}
 	
 	return pSept;
 }
 
 /**
-* \brief ¿ª³ıÖ¸¶¨µÄ¼Ò×å³ÉÔ±
-* \param master ĞĞÊ¹¿ª³ıÈ¨µÄ¼Ò×å³ÉÔ±£¬Ò»°ãÊÇ»á³¤
-* \param member ±»¿ª³ıµÄ³ÉÔ±
+* \brief å¼€é™¤æŒ‡å®šçš„å®¶æ—æˆå‘˜
+* \param master è¡Œä½¿å¼€é™¤æƒçš„å®¶æ—æˆå‘˜ï¼Œä¸€èˆ¬æ˜¯ä¼šé•¿
+* \param member è¢«å¼€é™¤çš„æˆå‘˜
 * \author fqnewman
 * \return 
 */
@@ -1940,7 +1940,7 @@ void CSeptM::fireSeptMember(UserSession * master, const char * member)
 	}
 	else
 	{
-		master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ¼ÓÈë¼Ò×å");
+		master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰åŠ å…¥å®¶æ—");
 	}
 }
 
@@ -1965,7 +1965,7 @@ int CSeptM::fireSeptMember(DWORD dwUserID, bool find)
 			if (_status == 1)
 			{
 #ifdef _ZJW_DEBUG
-				Zebra::logger->debug("%d ÊÇ×åÔ±£¬½â³ıÆäÉç»á¹ØÏµ", _dwUserID);
+				Zebra::logger->debug("%d æ˜¯æ—å‘˜ï¼Œè§£é™¤å…¶ç¤¾ä¼šå…³ç³»", _dwUserID);
 #endif
 				if (_pSept)
 				{
@@ -2001,7 +2001,7 @@ int CSeptM::fireSeptMember(DWORD dwUserID, bool find)
 					if (pSept->master->id == _dwUserID)
 					{
 #ifdef _ZJW_DEBUG
-						Zebra::logger->debug("%dÊÇ×å³¤£¬²»ÄÜ½â³ıÉç»á¹ØÏµ", _dwUserID);
+						Zebra::logger->debug("%dæ˜¯æ—é•¿ï¼Œä¸èƒ½è§£é™¤ç¤¾ä¼šå…³ç³»", _dwUserID);
 #endif
 						_pSept = pSept;
 						_status = 3;
@@ -2012,7 +2012,7 @@ int CSeptM::fireSeptMember(DWORD dwUserID, bool find)
 						if (pSept->isMember(_dwUserID))
 						{
 #ifdef _ZJW_DEBUG
-							Zebra::logger->debug("%d ÊÇ %s ×åÔ±£¬ÄÜ½â³ıÉç»á¹ØÏµ", _dwUserID, pSept->name);
+							Zebra::logger->debug("%d æ˜¯ %s æ—å‘˜ï¼Œèƒ½è§£é™¤ç¤¾ä¼šå…³ç³»", _dwUserID, pSept->name);
 #endif
 							_pSept = pSept;
 							_status = 1;
@@ -2021,7 +2021,7 @@ int CSeptM::fireSeptMember(DWORD dwUserID, bool find)
 						else
 						{
 #ifdef _ZJW_DEBUG
-							Zebra::logger->debug("%d ²»ÊÇ %s µÄ×åÔ±", _dwUserID, pSept->name);
+							Zebra::logger->debug("%d ä¸æ˜¯ %s çš„æ—å‘˜", _dwUserID, pSept->name);
 #endif
 							_status = 2;
 						}
@@ -2029,7 +2029,7 @@ int CSeptM::fireSeptMember(DWORD dwUserID, bool find)
 				}
 				else
 				{
-					Zebra::logger->error("%s Ã»ÓĞ×å³¤ĞÅÏ¢£¬Çë¼ì²é°ï»áĞÅÏ¢µÄÍêÕûĞÔ¡£", pSept->name);
+					Zebra::logger->error("%s æ²¡æœ‰æ—é•¿ä¿¡æ¯ï¼Œè¯·æ£€æŸ¥å¸®ä¼šä¿¡æ¯çš„å®Œæ•´æ€§ã€‚", pSept->name);
 				}
 			}
 
@@ -2049,10 +2049,10 @@ int CSeptM::fireSeptMember(DWORD dwUserID, bool find)
 }
 
 /**
-* \brief ¸ù¾İ½ÇÉ«²éÕÒÆäËù¹ÜÏ½µÄ¼Ò×å
-* \param dwUserID ½ÇÉ«ID
+* \brief æ ¹æ®è§’è‰²æŸ¥æ‰¾å…¶æ‰€ç®¡è¾–çš„å®¶æ—
+* \param dwUserID è§’è‰²ID
 * \author fqnewman
-* \return Èç¹ûÓĞÎª¼Ò×åID·ñÔòÎª0
+* \return å¦‚æœæœ‰ä¸ºå®¶æ—IDå¦åˆ™ä¸º0
 */
 DWORD CSeptM::findUserSept(DWORD dwUserID)
 {
@@ -2095,7 +2095,7 @@ DWORD CSeptM::findUserSept(DWORD dwUserID)
 }
 
 /**
-* \brief Çå³ıËùÓĞ¼Ò×åµÄ³ÉÔ±
+* \brief æ¸…é™¤æ‰€æœ‰å®¶æ—çš„æˆå‘˜
 * \author zjw
 */
 void CSeptM::delSeptAllMember()
@@ -2134,11 +2134,11 @@ void CSeptM::delSeptAllMember()
 }
 
 /**
-* \brief Ôö¼ÓĞÂ³ÉÔ±µ½¼Ò×å
-* \param dwSeptID ¼Ò×åID
-* \param info ĞÂ³ÉÔ±µÄĞÅÏ¢½á¹¹
+* \brief å¢åŠ æ–°æˆå‘˜åˆ°å®¶æ—
+* \param dwSeptID å®¶æ—ID
+* \param info æ–°æˆå‘˜çš„ä¿¡æ¯ç»“æ„
 * \author fqnewman
-* \return true ³É¹¦ false Ê§°Ü
+* \return true æˆåŠŸ false å¤±è´¥
 */
 bool CSeptM::addNewMemberToSept(const DWORD dwSeptID, const stSeptMemberInfo& info)
 {
@@ -2160,7 +2160,7 @@ bool CSeptM::addNewMemberToSept(const DWORD dwSeptID, const stSeptMemberInfo& in
 				CSeptMember *pMember = pSept->addSeptMember(info);
 				if (pMember)
 				{
-					Zebra::logger->trace("[¼Ò×å]: %s ÕĞÊÕ %s ½øÈë¼Ò×å", pSept->name, pMember->name);
+					Zebra::logger->trace("[å®¶æ—]: %s æ‹›æ”¶ %s è¿›å…¥å®¶æ—", pSept->name, pMember->name);
 					pMember->insertDatabase();
 					pMember->online(Cmd::SEPT_MEMBER_STATUS_NEWMEMBER);
 					pMember->sendUserSeptData();
@@ -2186,7 +2186,7 @@ bool CSeptM::addNewMemberToSept(const DWORD dwSeptID, const stSeptMemberInfo& in
 								if (pMember->mySept && pMember->mySept->master 
 										&& pMember->mySept->master->id == pUser->id)
 								{       
-									strncpy(info.aliasname, "×å³¤", MAX_NAMESIZE);
+									strncpy(info.aliasname, "æ—é•¿", MAX_NAMESIZE);
 								}
 								else
 								{       
@@ -2207,25 +2207,25 @@ bool CSeptM::addNewMemberToSept(const DWORD dwSeptID, const stSeptMemberInfo& in
 			else
 			{
 				UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pSept->master->id);
-				if (pUser)	pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÄ¿Ç°µÄÕĞÊÕÈËÊıÉÏÏŞÊÇ%uÈË£¬ÒÑ¾­ÂúÁË²»ÄÜÔÙÕĞÁË",CREATE_SEPT_NEED_MAN_NUM);//value);
+				if (pUser)	pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ç›®å‰çš„æ‹›æ”¶äººæ•°ä¸Šé™æ˜¯%uäººï¼Œå·²ç»æ»¡äº†ä¸èƒ½å†æ‹›äº†",CREATE_SEPT_NEED_MAN_NUM);//value);
 			}
 		}
 		else
 		{
-			Zebra::logger->error("ÎŞ·¨½«³ÉÔ±%u¼ÓÈë¼Ò×å%uÖĞ",info.dwCharID, dwSeptID);
+			Zebra::logger->error("æ— æ³•å°†æˆå‘˜%uåŠ å…¥å®¶æ—%uä¸­",info.dwCharID, dwSeptID);
 		}
 
 	}
 	else
 	{
-		Zebra::logger->error("Êı¾İ²»ÍêÕû¼Ò×å¹ÜÀíÆ÷ÖĞÃ»ÓĞ%u¼Ò×å£¬¶ø³ÉÔ±%uÇëÇó¼ÓÈë¸Ã¼Ò×å",dwSeptID,info.dwCharID);
+		Zebra::logger->error("æ•°æ®ä¸å®Œæ•´å®¶æ—ç®¡ç†å™¨ä¸­æ²¡æœ‰%uå®¶æ—ï¼Œè€Œæˆå‘˜%uè¯·æ±‚åŠ å…¥è¯¥å®¶æ—",dwSeptID,info.dwCharID);
 	}
 	return false;
 }
 
 /**
-* \brief ÓÃ»§ÉÏÏß´¦Àí£¬Èç¹ûÉÏÏßÓÃ»§ÊÇÄ³¸ö¼Ò×åµÄ³ÉÔ±Ôò×öÏàÓ¦µÄÉÏÏß³õÊ¼»¯
-* \param pUser ÉÏÏßÓÃ»§
+* \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†ï¼Œå¦‚æœä¸Šçº¿ç”¨æˆ·æ˜¯æŸä¸ªå®¶æ—çš„æˆå‘˜åˆ™åšç›¸åº”çš„ä¸Šçº¿åˆå§‹åŒ–
+* \param pUser ä¸Šçº¿ç”¨æˆ·
 * \author fqnewman
 */
 void CSeptM::userOnline(UserSession * pUser)
@@ -2265,7 +2265,7 @@ void CSeptM::userOnline(UserSession * pUser)
 			pUser->septid = pSeptMember->mySept->id;
 			if (pSeptMember->id == pSeptMember->mySept->tempid)
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÍíÉÏÆßµãÖÁÊ®µã,¿ÉÒÔ´øÁì×åÔ±,ÁìÈ¡¼Ò×å¾­Ñé");
+				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ™šä¸Šä¸ƒç‚¹è‡³åç‚¹,å¯ä»¥å¸¦é¢†æ—å‘˜,é¢†å–å®¶æ—ç»éªŒ");
 			}
 		}
 	}
@@ -2276,15 +2276,15 @@ void CSeptM::userOnline(UserSession * pUser)
 			Cmd::Session::t_fireSeptMember_SceneSession send;
 			send.dwCharID = pUser->id;
 			send.dwMapTempID = pUser->scene->tempid;
-			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireSeptMember_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pUser->scene->sendCmd(&send,sizeof(Cmd::Session::t_fireSeptMember_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 			pUser->septid = 0;
 		}
 	}
 }
 
 /**
-* \brief ³ÉÔ±ÏÂÏß´¦Àí,½«»áÅĞ¶ÏÖ¸¶¨µÄÓÃ»§ÊÇ·ñÊÇ¼Ò×å³ÉÔ±£¬ÈçÊÇ×öÏÂÏß´¦Àí
-* \param pUser ÏÂÏßÓÃ»§
+* \brief æˆå‘˜ä¸‹çº¿å¤„ç†,å°†ä¼šåˆ¤æ–­æŒ‡å®šçš„ç”¨æˆ·æ˜¯å¦æ˜¯å®¶æ—æˆå‘˜ï¼Œå¦‚æ˜¯åšä¸‹çº¿å¤„ç†
+* \param pUser ä¸‹çº¿ç”¨æˆ·
 * \author fqnewman
 */
 void CSeptM::userOffline(const UserSession * pUser)
@@ -2303,8 +2303,8 @@ void CSeptM::userOffline(const UserSession * pUser)
 }
 
 /**
-* \brief ½¨Á¢ĞÂµÄ¼Ò×å¶ÔÏó
-* \param data ¼Ò×å´´½¨ÏûÏ¢
+* \brief å»ºç«‹æ–°çš„å®¶æ—å¯¹è±¡
+* \param data å®¶æ—åˆ›å»ºæ¶ˆæ¯
 * \author fqnewman
 */
 void CSeptM::createNewSept(Cmd::Session::t_addSept_SceneSession *data)
@@ -2319,41 +2319,41 @@ void CSeptM::createNewSept(Cmd::Session::t_addSept_SceneSession *data)
 	if (pSeptMember)
 	{
 		UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pSeptMember->id);
-		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÔÙ´´Á¢¼Ò×åÁË£¡");
+		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½å†åˆ›ç«‹å®¶æ—äº†ï¼");
 		return;
 	}
 
 	zRTime ctv;
 	data->info.dwCrTime = ctv.sec();
-	if (createSeptDBRecord(data->info))  /// ¼Ò×åÊı¾İ¿â¼ÇÂ¼´´½¨¹¤×÷
+	if (createSeptDBRecord(data->info))  /// å®¶æ—æ•°æ®åº“è®°å½•åˆ›å»ºå·¥ä½œ
 	{
-		/*CSept *pSept = */createSeptAndAddMaster(data->info);  /// ³õÊ¼»¯¼Ò×å¹ÜÀíÆ÷ÖĞµÄ¼Ò×å¶ÔÏó
+		/*CSept *pSept = */createSeptAndAddMaster(data->info);  /// åˆå§‹åŒ–å®¶æ—ç®¡ç†å™¨ä¸­çš„å®¶æ—å¯¹è±¡
 
-		data->byRetcode =1;            /// ´´½¨·µ»ØÊ±£º0 ±íÊ¾´´½¨Ê§°ÜÃû³ÆÖØ¸´£¬ 1±íÊ¾³É¹¦
+		data->byRetcode =1;            /// åˆ›å»ºè¿”å›æ—¶ï¼š0 è¡¨ç¤ºåˆ›å»ºå¤±è´¥åç§°é‡å¤ï¼Œ 1è¡¨ç¤ºæˆåŠŸ
 		SceneSession * pScene = SceneSessionManager::getInstance()->getSceneByTempID(data->dwMapTempID);
 		if (pScene)
 		{
-			pScene->sendCmd(data,sizeof(Cmd::Session::t_addSept_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pScene->sendCmd(data,sizeof(Cmd::Session::t_addSept_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 		}
 		//because vote 
 		//if (pSept) pSept->sendUserSeptData(data->info.masterName);
 	}
 	else
 	{
-		data->byRetcode =0;            /// ´´½¨·µ»ØÊ±£º0 ±íÊ¾´´½¨Ê§°ÜÃû³ÆÖØ¸´£¬ 1±íÊ¾³É¹¦
+		data->byRetcode =0;            /// åˆ›å»ºè¿”å›æ—¶ï¼š0 è¡¨ç¤ºåˆ›å»ºå¤±è´¥åç§°é‡å¤ï¼Œ 1è¡¨ç¤ºæˆåŠŸ
 		SceneSession * pScene = SceneSessionManager::getInstance()->getSceneByTempID(data->dwMapTempID);
 		if (pScene)
 		{
-			pScene->sendCmd(data,sizeof(Cmd::Session::t_addSept_SceneSession)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pScene->sendCmd(data,sizeof(Cmd::Session::t_addSept_SceneSession)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 		}
 	}
 }
 
 /**
-* \brief ´´½¨ĞÂµÄ¼Ò×åÊı¾İ¿â¼ÇÂ¼
-* \param info ĞÂµÄ¼Ò×å½á¹¹ĞÅÏ¢
+* \brief åˆ›å»ºæ–°çš„å®¶æ—æ•°æ®åº“è®°å½•
+* \param info æ–°çš„å®¶æ—ç»“æ„ä¿¡æ¯
 * \author fqnewman
-* \return true ³É¹¦  false Ê§°Ü
+* \return true æˆåŠŸ  false å¤±è´¥
 */
 bool CSeptM::createSeptDBRecord(stSeptInfo& info)
 {
@@ -2406,11 +2406,11 @@ bool CSeptM::createSeptDBRecord(stSeptInfo& info)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
-	//Ê×ÏÈÑéÖ¤Ãû³ÆÊÇ·ñÖØ¸´
+	//é¦–å…ˆéªŒè¯åç§°æ˜¯å¦é‡å¤
 	bzero(where, sizeof(where));
 	std::string escapeName;
 	snprintf(where, sizeof(where) - 1, "NAME = '%s'", SessionService::dbConnPool->escapeString(handle,info.name,escapeName).c_str());
@@ -2422,7 +2422,7 @@ bool CSeptM::createSeptDBRecord(stSeptInfo& info)
 	}
 
 	retcode = 0;	
-	// ÑéÖ¤×å³¤ÊÇ·ñÖØ¸´
+	// éªŒè¯æ—é•¿æ˜¯å¦é‡å¤
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where) - 1, "CHARID = '%d'", info.dwCharID);
 	retcode = SessionService::dbConnPool->exeSelectLimit(handle, "`SEPT`", verifymasterid_define, 
@@ -2437,7 +2437,7 @@ bool CSeptM::createSeptDBRecord(stSeptInfo& info)
 	UserSession *pUser = NULL;
 	pUser = UserSessionManager::getInstance()->getUserByID(info.dwCharID);
 	
-	//²åÈëÊı¾İ¿â½ÇÉ«ĞÅÏ¢
+	//æ’å…¥æ•°æ®åº“è§’è‰²ä¿¡æ¯
 	bzero(&createsept_data, sizeof(createsept_data));
 	
 	if (pUser) 
@@ -2465,7 +2465,7 @@ bool CSeptM::createSeptDBRecord(stSeptInfo& info)
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("´´½¨¼Ò×å²åÈëÊı¾İ¿â³ö´í %u, %s", info.dwCharID, info.name);
+		Zebra::logger->error("åˆ›å»ºå®¶æ—æ’å…¥æ•°æ®åº“å‡ºé”™ %u, %s", info.dwCharID, info.name);
 		return false;
 	}
 
@@ -2474,11 +2474,11 @@ bool CSeptM::createSeptDBRecord(stSeptInfo& info)
 }
 
 /**
-* \brief Ìí¼Ó³ÉÔ±Ë÷Òı
-* \param pName Ôö¼ÓµÄ³ÉÔ±µÄÃû³Æ
-* \param pSeptMember ³ÉÔ±¶ÔÏó
+* \brief æ·»åŠ æˆå‘˜ç´¢å¼•
+* \param pName å¢åŠ çš„æˆå‘˜çš„åç§°
+* \param pSeptMember æˆå‘˜å¯¹è±¡
 * \author fqnewman
-* \return true Ìí¼Ó³É¹¦ false Ìí¼ÓÊ§°Ü
+* \return true æ·»åŠ æˆåŠŸ false æ·»åŠ å¤±è´¥
 */
 bool CSeptM::addMemberIndex(const char *pName, CSeptMember *pSeptMember)
 {
@@ -2493,7 +2493,7 @@ bool CSeptM::addMemberIndex(const char *pName, CSeptMember *pSeptMember)
 	
 	if (!retval.second)
 	{
-		Zebra::logger->error("[¼Ò×å]: %s Ìí¼Ó½ømemberIndexÊ§°Ü", pName);
+		Zebra::logger->error("[å®¶æ—]: %s æ·»åŠ è¿›memberIndexå¤±è´¥", pName);
 		CSeptMember *pTemp = NULL;
 
 		std::map <std::string, CSeptMember*>::iterator sIterator;
@@ -2503,17 +2503,17 @@ bool CSeptM::addMemberIndex(const char *pName, CSeptMember *pSeptMember)
 		rwlock.unlock();
 		if (pTemp)
 		{
-			Zebra::logger->error("[¼Ò×å]: %s Õ¼ÓÃÁË %s µÄË÷ÒıÎ»ÖÃ", pTemp->name, pName);
+			Zebra::logger->error("[å®¶æ—]: %s å ç”¨äº† %s çš„ç´¢å¼•ä½ç½®", pTemp->name, pName);
 		}
 		else
 		{
-			Zebra::logger->error("[¼Ò×å]: Ã»ÓĞÈËÕ¼ÓÃ,µ«»¹ÊÇÌí¼Ó %s Ê§°ÜÁË", temp_name);
+			Zebra::logger->error("[å®¶æ—]: æ²¡æœ‰äººå ç”¨,ä½†è¿˜æ˜¯æ·»åŠ  %s å¤±è´¥äº†", temp_name);
 		}
 	}
 	else
 	{
 #ifdef _ZJW_DEBUG		
-			Zebra::logger->error("[¼Ò×å]: Ìí¼Ó %s ½øÈë¼Ò×åmemberIndex³É¹¦", temp_name);
+			Zebra::logger->error("[å®¶æ—]: æ·»åŠ  %s è¿›å…¥å®¶æ—memberIndexæˆåŠŸ", temp_name);
 #endif			
 	}
 	
@@ -2521,10 +2521,10 @@ bool CSeptM::addMemberIndex(const char *pName, CSeptMember *pSeptMember)
 }
 
 /**
-* \brief É¾³ı³ÉÔ±ÔÚË÷ÒıÖĞµÄ¼ÇÂ¼
-* \param pName ³ÉÔ±Ãû³Æ
+* \brief åˆ é™¤æˆå‘˜åœ¨ç´¢å¼•ä¸­çš„è®°å½•
+* \param pName æˆå‘˜åç§°
 * \author fqnewman
-* \return true É¾³ı³É¹¦ false É¾³ıÊ§°Ü
+* \return true åˆ é™¤æˆåŠŸ false åˆ é™¤å¤±è´¥
 */
 bool CSeptM::removeMemberIndex(const char *pName)
 {
@@ -2540,8 +2540,8 @@ bool CSeptM::removeMemberIndex(const char *pName)
 }
 
 /**
-* \brief ½âÉ¢¼Ò×å
-* \param dwSeptID ±»½âÉ¢µÄ¼Ò×åµÄID
+* \brief è§£æ•£å®¶æ—
+* \param dwSeptID è¢«è§£æ•£çš„å®¶æ—çš„ID
 * \author fqnewman
 */
 void CSeptM::delSept(const DWORD dwSeptID)
@@ -2556,9 +2556,9 @@ void CSeptM::delSept(const DWORD dwSeptID)
 		
 		//if (pDare==NULL && pNpcDare==NULL)
 		//{
-			pSept->sendSeptNotify("%s ¼Ò×å½âÉ¢", pSept->name);
+			pSept->sendSeptNotify("%s å®¶æ—è§£æ•£", pSept->name);
 			//SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, pSept->dwCountryID, 
-			//		"ºÜÒÅº¶ %s ¼Ò×å½âÉ¢", pSept->name);
+			//		"å¾ˆé—æ†¾ %s å®¶æ—è§£æ•£", pSept->name);
 			
 			rwlock.wrlock();
 			removeEntry(pSept);
@@ -2572,7 +2572,7 @@ void CSeptM::delSept(const DWORD dwSeptID)
 		//	UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pSept->master->id);
 		//	if (pSept->master && pUser)
 		//	{
-		//		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÕıÔÚ¶ÔÕ½×´Ì¬£¬²»ÔÊĞí½âÉ¢¼Ò×å!");
+		//		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ­£åœ¨å¯¹æˆ˜çŠ¶æ€ï¼Œä¸å…è®¸è§£æ•£å®¶æ—!");
 		//	}	
 		
 		//}
@@ -2611,7 +2611,7 @@ void CSeptM::processRequestSeptNormalExpMessage(UserSession* pUser,
 				if (pUser->scene)
 				{
 					pUser->scene->sendCmd(&send, sizeof(send));
-					Zebra::logger->trace("[¼Ò×å]: %s(%u) ÁìÈ¡ %s ÆÕÍ¨¼Ò×å¾­Ñé", 
+					Zebra::logger->trace("[å®¶æ—]: %s(%u) é¢†å– %s æ™®é€šå®¶æ—ç»éªŒ", 
 							pUser->name, pUser->id, pSept->name);
 				}
 
@@ -2620,17 +2620,17 @@ void CSeptM::processRequestSeptNormalExpMessage(UserSession* pUser,
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "½ñÌìÒÑÁìÈ¡,»ò²»ÔÚ19µãµ½22µãÖ®¼ä");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä»Šå¤©å·²é¢†å–,æˆ–ä¸åœ¨19ç‚¹åˆ°22ç‚¹ä¹‹é—´");
 			}
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ×å³¤²»ÄÜÁìÈ¡¼Ò×å¾­Ñé");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯æ—é•¿ä¸èƒ½é¢†å–å®¶æ—ç»éªŒ");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ×å³¤²»ÄÜÁìÈ¡¼Ò×å¾­Ñé");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯æ—é•¿ä¸èƒ½é¢†å–å®¶æ—ç»éªŒ");
 	}
 }
 
@@ -2654,28 +2654,28 @@ void CSeptM::processRequestSeptExpMessage(UserSession* pUser, const Cmd::stReque
 					{
 						pUser->scene->sendCmd(&send, sizeof(send));
 						pSept->clearExp();
-						Zebra::logger->trace("[¼Ò×å]: %s(%u) ÁìÈ¡ %s ¼Ò×å¾­Ñé", 
+						Zebra::logger->trace("[å®¶æ—]: %s(%u) é¢†å– %s å®¶æ—ç»éªŒ", 
 								pUser->name, pUser->id, pSept->name);
 					}
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "½ñÌìµÄ¼Ò×å¾­ÑéÒÑ¾­ÁìÈ¡¡£");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä»Šå¤©çš„å®¶æ—ç»éªŒå·²ç»é¢†å–ã€‚");
 				}
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÃÇ¼Ò×å»¹Ã»¼ÓÈëÈÎºÎ°ï»á»òËùÔÚ°ï»á²¢Î´Õ¼Áì³ÇÊĞ");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä»¬å®¶æ—è¿˜æ²¡åŠ å…¥ä»»ä½•å¸®ä¼šæˆ–æ‰€åœ¨å¸®ä¼šå¹¶æœªå é¢†åŸå¸‚");
 			}
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ×å³¤²»ÄÜÁìÈ¡¼Ò×å¾­Ñé");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯æ—é•¿ä¸èƒ½é¢†å–å®¶æ—ç»éªŒ");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ×å³¤²»ÄÜÁìÈ¡¼Ò×å¾­Ñé");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯æ—é•¿ä¸èƒ½é¢†å–å®¶æ—ç»éªŒ");
 	}
 }
 
@@ -2750,9 +2750,9 @@ void CSeptM::processSeptSortMessage(UserSession* pUser, const Cmd::stReqSeptSort
 }
 
 /**
-* \brief ´¦Àí³ÉÔ±Àë»á
-* \param dwSeptID ¼Ò×åID
-* \param dwCharID Àë¿ªÕßµÄID
+* \brief å¤„ç†æˆå‘˜ç¦»ä¼š
+* \param dwSeptID å®¶æ—ID
+* \param dwCharID ç¦»å¼€è€…çš„ID
 * \author fqnewman
 */
 void CSeptM::processMemberLeave(const DWORD dwSeptID, const DWORD dwCharID)
@@ -2774,27 +2774,27 @@ void CSeptM::processMemberLeave(const DWORD dwSeptID, const DWORD dwCharID)
 				if (pSept->dwUnionID >0)
 				{
 					UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pMember->id);
-					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Äú±ØĞëÏÈÍË³ö°ï»á£¬²ÅÄÜ½âÉ¢¼Ò×å");
+					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ‚¨å¿…é¡»å…ˆé€€å‡ºå¸®ä¼šï¼Œæ‰èƒ½è§£æ•£å®¶æ—");
 				}
 				else
 				{
-					delSept(dwSeptID);  // Èç¹ûÊÇ×å³¤¾Í½âÉ¢¼Ò×å
+					delSept(dwSeptID);  // å¦‚æœæ˜¯æ—é•¿å°±è§£æ•£å®¶æ—
 				}
 			}
 		}
 		else
 		{
-			Zebra::logger->error("¼Ò×å%sÃ»ÓĞÕıÈ·µÄ»á³¤¶ÔÏó£¬Çë¼ì²éÊı¾İµÄÍêÕûĞÔ", pSept->name);
+			Zebra::logger->error("å®¶æ—%sæ²¡æœ‰æ­£ç¡®çš„ä¼šé•¿å¯¹è±¡ï¼Œè¯·æ£€æŸ¥æ•°æ®çš„å®Œæ•´æ€§", pSept->name);
 		}
 	}
 
 }
 
 /**
-* \brief ·¢ËÍ¼Ò×åÁÄÌìÏûÏ¢
-* \param pUser ÏûÏ¢·¢ËÍÕß
-* \param pCmd ÁÄÌìÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å®¶æ—èŠå¤©æ¶ˆæ¯
+* \param pUser æ¶ˆæ¯å‘é€è€…
+* \param pCmd èŠå¤©æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CSeptM::sendSeptChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *pCmd, const unsigned int cmdLen)
@@ -2815,15 +2815,15 @@ void CSeptM::sendSeptChatMessages(const UserSession *pUser, const Cmd::stChannel
 	}
 	else
 	{
-		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "±ØĞëÏÈ¼ÓÈë¼Ò×å²ÅÄÜÊ¹ÓÃ¼Ò×åÁÄÌì");
+		if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¿…é¡»å…ˆåŠ å…¥å®¶æ—æ‰èƒ½ä½¿ç”¨å®¶æ—èŠå¤©");
 	}
 }
 
 /**
-* \brief ·¢ËÍ¼Ò×åË½ÁÄĞÅÏ¢
-* \param pUser ÏûÏ¢·¢ËÍÕß
-* \param rev ÁÄÌìÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å‘é€å®¶æ—ç§èŠä¿¡æ¯
+* \param pUser æ¶ˆæ¯å‘é€è€…
+* \param rev èŠå¤©æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
 */
 void CSeptM::sendSeptPrivateChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *rev, const unsigned int cmdLen)
@@ -2857,12 +2857,12 @@ void CSeptM::sendSeptPrivateChatMessages(const UserSession *pUser, const Cmd::st
 }
 
 /**
-* \brief ´¦Àí Gateway ×ª·¢¹ıÀ´µÄ¿Í»§¶ËÏûÏ¢
-* \param pUser ÏûÏ¢½ÓÊÕÕß
-* \param ptNullCmd ÏûÏ¢º¯Êı
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç† Gateway è½¬å‘è¿‡æ¥çš„å®¢æˆ·ç«¯æ¶ˆæ¯
+* \param pUser æ¶ˆæ¯æ¥æ”¶è€…
+* \param ptNullCmd æ¶ˆæ¯å‡½æ•°
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -2893,7 +2893,7 @@ bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 								if (pSept)
 								{
 #ifdef _ZJW_DEBUG
-									Zebra::logger->debug("[ÓÅ»¯]: %s ÇëÇó %s ¼Ò×åÃû³Æ", pUser->name, pSept->name);
+									Zebra::logger->debug("[ä¼˜åŒ–]: %s è¯·æ±‚ %s å®¶æ—åç§°", pUser->name, pSept->name);
 #endif								
 
 									strncpy(send->list[send->num].name, pSept->name, MAX_NAMESIZE);
@@ -2920,7 +2920,7 @@ bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 							if (pSept)
 							{
 #ifdef _ZJW_DEBUG
-								Zebra::logger->debug("[ÓÅ»¯]: %s ÇëÇó %s ¼Ò×åÃû³Æ", pUser->name, pSept->name);
+								Zebra::logger->debug("[ä¼˜åŒ–]: %s è¯·æ±‚ %s å®¶æ—åç§°", pUser->name, pSept->name);
 #endif								
 
 								strncpy(send.name, pSept->name, MAX_NAMESIZE);
@@ -2944,13 +2944,13 @@ bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 								else
 								{
 									pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-										"¹ó¼Ò×å»¹Î´Õ¼ÁìÈÎºÎÉÌÈË");
+										"è´µå®¶æ—è¿˜æœªå é¢†ä»»ä½•å•†äºº");
 								}
 							}
 							else
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-										"Äú²»ÊÇ×å³¤£¬²»ÄÜ·ÅÆú");
+										"æ‚¨ä¸æ˜¯æ—é•¿ï¼Œä¸èƒ½æ”¾å¼ƒ");
 							}
 							
 							return true;
@@ -3004,7 +3004,7 @@ bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 						{
 							/*if (pUser->level<20)
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÈ¼¶²»¹»20¼¶²»ÄÜ²ÎÓëÍ¶Æ±");
+								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ç­‰çº§ä¸å¤Ÿ20çº§ä¸èƒ½å‚ä¸æŠ•ç¥¨");
 								return true;
 							}*/
 
@@ -3021,13 +3021,13 @@ bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 								{
 									SceneSession *scene= SceneSessionManager::getInstance()->getSceneByID((npcdare->get_country()<<16)+npcdare->get_mapid());
 									if (scene)
-										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ÄãµÄ¼Ò×åÏÖÔÚ¿ØÖÆ×Å%s(%u,%u)´¦µÄÉÌÈË£¡", scene->name, npcdare->get_posx(), npcdare->get_posy());
+										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ä½ çš„å®¶æ—ç°åœ¨æ§åˆ¶ç€%s(%u,%u)å¤„çš„å•†äººï¼", scene->name, npcdare->get_posx(), npcdare->get_posy());
 									else
-										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ÎŞ·¨ºË²éÄãµÄ¼Ò×å¿ØÖÆµÄÉÌÈËÔÚÄÇÀï");
+										pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ— æ³•æ ¸æŸ¥ä½ çš„å®¶æ—æ§åˆ¶çš„å•†äººåœ¨é‚£é‡Œ");
 								}
 								else
 								{
-									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ÄãµÄ¼Ò×åÃ»ÓĞ¿ØÖÆµÄÉÌÈË");
+									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ä½ çš„å®¶æ—æ²¡æœ‰æ§åˆ¶çš„å•†äºº");
 								}
 							}
 							return true;
@@ -3048,7 +3048,7 @@ bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 										}
 										else
 										{
-											pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "×å³¤%sÄ¿Ç°²»ÔÚÏß", ptCmd->name);
+											pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ—é•¿%sç›®å‰ä¸åœ¨çº¿", ptCmd->name);
 										}
 									}
 									break;
@@ -3071,7 +3071,7 @@ bool CSeptM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 						{
 							if (pUser->level<20)
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãµÈ¼¶²»¹»20¼¶²»ÄÜ²ÎÓëÇ©Ãû");
+								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ç­‰çº§ä¸å¤Ÿ20çº§ä¸èƒ½å‚ä¸ç­¾å");
 								return true;
 							}
 
@@ -3139,11 +3139,11 @@ bool CSeptM::processSceneSeptMessage(const Cmd::t_NullCmd *ptNullCmd, const unsi
 	return false;
 }
 /**
-* \brief ´¦Àí´Ó³¡¾°¹ıÀ´µÄÏûÏ¢
-* \param cmd ÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç†ä»åœºæ™¯è¿‡æ¥çš„æ¶ˆæ¯
+* \param cmd æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CSeptM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen)
 {
@@ -3167,7 +3167,7 @@ bool CSeptM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int c
 				rwlock.unlock();
 				if (pSept == NULL)
 				{
-					Zebra::logger->error("[¼Ò×å]:ÕĞÊÕĞÂ³ÉÔ±£¬µ«Î´ÕÒµ½Ö¸¶¨µÄ¼Ò×å");
+					Zebra::logger->error("[å®¶æ—]:æ‹›æ”¶æ–°æˆå‘˜ï¼Œä½†æœªæ‰¾åˆ°æŒ‡å®šçš„å®¶æ—");
 					return true;
 				}
 
@@ -3185,14 +3185,14 @@ bool CSeptM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int c
 					if (pSept && pSept->master && pUser)
 					{
 
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑ¼ÓÈë¼Ò×å£¬²»ÄÜÕĞÊÕ");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²åŠ å…¥å®¶æ—ï¼Œä¸èƒ½æ‹›æ”¶");
 					}
 
 					pUser = UserSessionManager::getInstance()->getUserByID(pSeptMember->id);
 					if (pSeptMember && pUser)
 					{
 						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-								"ÄãÒÑ¼ÓÈë¼Ò×å£¬Ğè·ÅÆúºó²ÅÄÜ¼ÓÈëÁíÍâµÄ¼Ò×å");
+								"ä½ å·²åŠ å…¥å®¶æ—ï¼Œéœ€æ”¾å¼ƒåæ‰èƒ½åŠ å…¥å¦å¤–çš„å®¶æ—");
 					}
 				}
 				else
@@ -3205,12 +3205,12 @@ bool CSeptM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int c
 					UserSession *pUser = UserSessionManager::getInstance()->getUserByID(pSept->master->id);
 					if (pSept && pSept->master && pUser)	
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%s ½ÓÊÜÁËÄúµÄÑûÇë¼ÓÈëÁË¼Ò×å", ptCmd->member.name);
+						pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "%s æ¥å—äº†æ‚¨çš„é‚€è¯·åŠ å…¥äº†å®¶æ—", ptCmd->member.name);
 					}
 
 					if (addNewMemberToSept(ptCmd->dwSeptID, ptCmd->member))
 					{
-						if (pSept) pSept->sendSeptNotify("»¶Ó­ %s ¼ÓÈë¼Ò×å", ptCmd->member.name);
+						if (pSept) pSept->sendSeptNotify("æ¬¢è¿ %s åŠ å…¥å®¶æ—", ptCmd->member.name);
 					}
 				}
 					
@@ -3239,11 +3239,11 @@ bool CSeptM::processSceneMessage(const Cmd::t_NullCmd *cmd, const unsigned int c
 }
 
 /**
-* \brief ´¦Àí´ÓGateway¹ıÀ´µÄÏûÏ¢
-* \param cmd ÏûÏ¢Ìå
-* \param cmdLen ÏûÏ¢³¤¶È
+* \brief å¤„ç†ä»Gatewayè¿‡æ¥çš„æ¶ˆæ¯
+* \param cmd æ¶ˆæ¯ä½“
+* \param cmdLen æ¶ˆæ¯é•¿åº¦
 * \author fqnewman
-* \return true ´¦Àí³É¹¦ false ÏûÏ¢²»ÔÚ´¦Àí·¶Î§Ö®ÄÚ
+* \return true å¤„ç†æˆåŠŸ false æ¶ˆæ¯ä¸åœ¨å¤„ç†èŒƒå›´ä¹‹å†…
 */
 bool CSeptM::processGateMessage(const Cmd::t_NullCmd *cmd, const unsigned int cmdLen)
 {
@@ -3264,8 +3264,8 @@ bool CSeptM::processGateMessage(const Cmd::t_NullCmd *cmd, const unsigned int cm
 }
 
 /**
-* \brief ·¢ËÍµ±Ç°ÏµÍ³ÖĞÔÚµÈ´ıÍ¶Æ±µÄ¼Ò×åÁĞ±í¸øÖ¸¶¨µÄÓÃ»§
-* \param pUser ÇëÇóÍ¶Æ±ÁĞ±íÕß
+* \brief å‘é€å½“å‰ç³»ç»Ÿä¸­åœ¨ç­‰å¾…æŠ•ç¥¨çš„å®¶æ—åˆ—è¡¨ç»™æŒ‡å®šçš„ç”¨æˆ·
+* \param pUser è¯·æ±‚æŠ•ç¥¨åˆ—è¡¨è€…
 * \author fqnewman
 */
 void CSeptM::sendVoteListToUser(const UserSession *pUser)
@@ -3333,7 +3333,7 @@ void CSeptM::sendVoteListToUser(const UserSession *pUser)
 					if (psept->master)
 						strncpy(tempPoint->master, psept->master->name,MAX_NAMESIZE);
 					else
-						strncpy(tempPoint->master, "Î´Öª",MAX_NAMESIZE);
+						strncpy(tempPoint->master, "æœªçŸ¥",MAX_NAMESIZE);
 					strncpy(tempPoint->note, psept->note,255);
 					tempPoint->wdVoteNumber = psept->size();
 					tempPoint++;
@@ -3372,8 +3372,8 @@ void CSeptM::sendVoteListToUser(const UserSession *pUser)
 
 
 /**
-* \brief ·¢ËÍµ±Ç°ÏµÍ³ÖĞµÄ¼Ò×åÁĞ±í¸øÖ¸¶¨µÄÓÃ»§
-* \param pUser ÇëÇóÁĞ±íÕß
+* \brief å‘é€å½“å‰ç³»ç»Ÿä¸­çš„å®¶æ—åˆ—è¡¨ç»™æŒ‡å®šçš„ç”¨æˆ·
+* \param pUser è¯·æ±‚åˆ—è¡¨è€…
 * \author fqnewman
 */
 void CSeptM::sendListToUser(const UserSession *pUser)
@@ -3419,7 +3419,7 @@ void CSeptM::sendListToUser(const UserSession *pUser)
 					if (psept->master)
 						strncpy(tempPoint->master, psept->master->name,MAX_NAMESIZE);
 					else
-						strncpy(tempPoint->master, "Î´Öª",MAX_NAMESIZE);
+						strncpy(tempPoint->master, "æœªçŸ¥",MAX_NAMESIZE);
 					strncpy(tempPoint->note, psept->note,255);
 					//tempPoint->wdVoteNumber = psept->size();
 					tempPoint++;
@@ -3436,8 +3436,8 @@ void CSeptM::sendListToUser(const UserSession *pUser)
 }
 
 /**
- * \brief ·¢ËÍµ±Ç°ÏµÍ³ÖĞ¿ÉÒÔ±»ÌôÕ½µÄ°ï»áÁĞ±í
- * \param pUser ÇëÇóÍ¶Æ±Õß
+ * \brief å‘é€å½“å‰ç³»ç»Ÿä¸­å¯ä»¥è¢«æŒ‘æˆ˜çš„å¸®ä¼šåˆ—è¡¨
+ * \param pUser è¯·æ±‚æŠ•ç¥¨è€…
  * \author zjw
  */
 void CSeptM::sendDareListToUser(const UserSession *pUser)
@@ -3493,9 +3493,9 @@ void CSeptM::sendDareListToUser(const UserSession *pUser)
 	myList.sendList();
 }
 /**
-* \brief ÓÃ»§Í¶Æ±¸øÖ¸¶¨µÄ¼Ò×å
-* \param pUser Í¶Æ±Õß
-* \param pName ¼Ò×åÃû³Æ
+* \brief ç”¨æˆ·æŠ•ç¥¨ç»™æŒ‡å®šçš„å®¶æ—
+* \param pUser æŠ•ç¥¨è€…
+* \param pName å®¶æ—åç§°
 * \author fqnewman
 */
 void CSeptM::userVote(const UserSession *pUser, const char *pName)
@@ -3516,13 +3516,13 @@ void CSeptM::userVote(const UserSession *pUser, const char *pName)
 			{
 				if (pSeptMember == pSeptMember->mySept->master)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÊÇ%s×åµÄÔ¤±¸×å³¤²»ÄÜÔÙÇ©Ãû", pSeptMember->mySept->name);
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ˜¯%sæ—çš„é¢„å¤‡æ—é•¿ä¸èƒ½å†ç­¾å", pSeptMember->mySept->name);
 				}
 				else
 				{
 					if (strncmp(pName,pSeptMember->mySept->name,MAX_NAMESIZE)!=0)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÒÑ¶Ô%s×åÇ©Ãû£¬ÄãÖ®Ç°¶Ô%s×åµÄÇ©Ãû½«±»×÷·Ï.",pName, pSeptMember->mySept->name);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å·²å¯¹%sæ—ç­¾åï¼Œä½ ä¹‹å‰å¯¹%sæ—çš„ç­¾åå°†è¢«ä½œåºŸ.",pName, pSeptMember->mySept->name);
 						processMemberLeave(pSeptMember->mySept->id, pUser->id);
 						addVoteMemberToSept(pUser,pName);
 						return;
@@ -3531,22 +3531,22 @@ void CSeptM::userVote(const UserSession *pUser, const char *pName)
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÒÑ¾­¼ÓÈëÆäËû¼Ò×åÁË£¬Ã»ÓĞÇ©ÃûµÄ×Ê¸ñ");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å·²ç»åŠ å…¥å…¶ä»–å®¶æ—äº†ï¼Œæ²¡æœ‰ç­¾åçš„èµ„æ ¼");
 			}
 		}
 		else
 		{
-			Zebra::logger->error("CSeptM::userVote():Ò»¸öÔÚÏßµÄ¼Ò×å³ÉÔ±Ã»ÓĞÓĞĞ§µÄÓÃ»§Ö¸Õë");
+			Zebra::logger->error("CSeptM::userVote():ä¸€ä¸ªåœ¨çº¿çš„å®¶æ—æˆå‘˜æ²¡æœ‰æœ‰æ•ˆçš„ç”¨æˆ·æŒ‡é’ˆ");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã¶Ô%s×å½øĞĞÁËÇ©Ãû", pName);
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å¯¹%sæ—è¿›è¡Œäº†ç­¾å", pName);
 		addVoteMemberToSept(pUser,pName);
 		return;
 	}
 
-	// Í¨ÖªÍ¶Æ±Ê§°Ü
+	// é€šçŸ¥æŠ•ç¥¨å¤±è´¥
 	Cmd::stVoteSeptCmd send;
 	strncpy(send.septName,pName,MAX_NAMESIZE);
 	send.bySuccess = 0;
@@ -3554,9 +3554,9 @@ void CSeptM::userVote(const UserSession *pUser, const char *pName)
 }
 
 /**
-* \brief ÓÃ»§·ÅÆúÍ¶Æ±
-* \param pUser ·ÅÆúÍ¶Æ±µÄ³ÉÔ±
-* \param pName ±»·ÅÆú¼Ò×åÃû³Æ
+* \brief ç”¨æˆ·æ”¾å¼ƒæŠ•ç¥¨
+* \param pUser æ”¾å¼ƒæŠ•ç¥¨çš„æˆå‘˜
+* \param pName è¢«æ”¾å¼ƒå®¶æ—åç§°
 * \author fqnewman
 * \return 
 */
@@ -3579,7 +3579,7 @@ void CSeptM::userAboutVote(const UserSession *pUser, const char *pName)
 				if (pSeptMember == pSeptMember->mySept->master)
 				{
 					
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÊÇ%s×åµÄÔ¤±¸×å³¤,·ÅÆúÇ©Ãû£¬¼Ò×å½âÉ¢", 
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ˜¯%sæ—çš„é¢„å¤‡æ—é•¿,æ”¾å¼ƒç­¾åï¼Œå®¶æ—è§£æ•£", 
 							pSeptMember->mySept->name);
 
 					processMemberLeave(pSeptMember->mySept->id, pUser->id);
@@ -3591,7 +3591,7 @@ void CSeptM::userAboutVote(const UserSession *pUser, const char *pName)
 				{
 					if (strncmp(pName,pSeptMember->mySept->name,MAX_NAMESIZE)==0)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã·ÅÆúÁË%s×åµÄÆ±.",pName);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ”¾å¼ƒäº†%sæ—çš„ç¥¨.",pName);
 						processMemberLeave(pSeptMember->mySept->id, pUser->id);
 						Cmd::stVoteSeptCmd send;
 						strncpy(send.septName,pName,MAX_NAMESIZE);
@@ -3603,16 +3603,16 @@ void CSeptM::userAboutVote(const UserSession *pUser, const char *pName)
 			}
 			else
 			{
-				Zebra::logger->error("[%s]¼Ò×åÒÑ¾­³ÉÁ¢£¬µ«ÊÇÇ©Ãû»¹Ã»È¡Ïû",pName);
+				Zebra::logger->error("[%s]å®¶æ—å·²ç»æˆç«‹ï¼Œä½†æ˜¯ç­¾åè¿˜æ²¡å–æ¶ˆ",pName);
 			}
 		}
 		else
 		{
-			Zebra::logger->error("CSeptM::userVote():Ò»¸öÔÚÏßµÄ¼Ò×å³ÉÔ±Ã»ÓĞÓĞĞ§µÄÓÃ»§Ö¸Õë");
+			Zebra::logger->error("CSeptM::userVote():ä¸€ä¸ªåœ¨çº¿çš„å®¶æ—æˆå‘˜æ²¡æœ‰æœ‰æ•ˆçš„ç”¨æˆ·æŒ‡é’ˆ");
 		}
 	}
 
-	// Í¨ÖªÍ¶Æ±Ê§°Ü
+	// é€šçŸ¥æŠ•ç¥¨å¤±è´¥
 	Cmd::stVoteSeptCmd send;
 	strncpy(send.septName,pName,MAX_NAMESIZE);
 	send.bySuccess = 0;
@@ -3620,9 +3620,9 @@ void CSeptM::userAboutVote(const UserSession *pUser, const char *pName)
 }
 
 /**
-* \brief Í¶Æ±¸øÖ¸¶¨µÄ¼Ò×å
-* \param pUser Í¶Æ±Õß
-* \param pName ¼Ò×åÃû³Æ
+* \brief æŠ•ç¥¨ç»™æŒ‡å®šçš„å®¶æ—
+* \param pUser æŠ•ç¥¨è€…
+* \param pName å®¶æ—åç§°
 * \author fqnewman
 */
 void CSeptM::addVoteMemberToSept(const UserSession *pUser, const char *pName)
@@ -3653,7 +3653,7 @@ void CSeptM::addVoteMemberToSept(const UserSession *pUser, const char *pName)
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s×åµÄÇ©ÃûÆÚÒÑ¾­½áÊø£¬ÇëÖ±½ÓÈ¥ÕÒ×å³¤Ğ­ÉÌÓĞ¹ØÈë»áÊÂÒË.", pName);
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%sæ—çš„ç­¾åæœŸå·²ç»ç»“æŸï¼Œè¯·ç›´æ¥å»æ‰¾æ—é•¿åå•†æœ‰å…³å…¥ä¼šäº‹å®œ.", pName);
 			Cmd::stVoteSeptCmd send;
 			strncpy(send.septName,pName,MAX_NAMESIZE);
 			send.bySuccess = 0;
@@ -3663,8 +3663,8 @@ void CSeptM::addVoteMemberToSept(const UserSession *pUser, const char *pName)
 }
 
 /**
-* \brief ¼Ò×åÄÚ·ÖÅä¾­Ñé
-* \param cmd ¼Ò×å¾­Ñé·ÖÅäÏûÏ¢
+* \brief å®¶æ—å†…åˆ†é…ç»éªŒ
+* \param cmd å®¶æ—ç»éªŒåˆ†é…æ¶ˆæ¯
 * \author fqnewman
 */
 void CSeptM::disributeExp(Cmd::Session::t_distributeSeptExp_SceneSession *cmd)
@@ -3690,10 +3690,10 @@ void CSeptM::disributeExp(Cmd::Session::t_distributeSeptExp_SceneSession *cmd)
 }
 
 /**
-* \brief ¸ù¾İÃû³Æ»ñÈ¡¼Ò×å¶ÔÏó
-* \param name ¼Ò×åµÄÃû³Æ
+* \brief æ ¹æ®åç§°è·å–å®¶æ—å¯¹è±¡
+* \param name å®¶æ—çš„åç§°
 * \author fqnewman
-* \return ³É¹¦·µ»Ø¼Ò×å¶ÔÏó Ê§°Ü·µ»ØNULL
+* \return æˆåŠŸè¿”å›å®¶æ—å¯¹è±¡ å¤±è´¥è¿”å›NULL
 */
 CSept * CSeptM::getSeptByName( const char * name)
 {
@@ -3704,10 +3704,10 @@ CSept * CSeptM::getSeptByName( const char * name)
 }
 
 /**
-* \brief ¸ù¾İID»ñÈ¡¼Ò×å¶ÔÏó
-* \param dwSeptID ¼Ò×åµÄID
+* \brief æ ¹æ®IDè·å–å®¶æ—å¯¹è±¡
+* \param dwSeptID å®¶æ—çš„ID
 * \author fqnewman
-* \return ³É¹¦·µ»Ø¼Ò×å¶ÔÏó£¬Ê§°Ü·µ»Ø NULL
+* \return æˆåŠŸè¿”å›å®¶æ—å¯¹è±¡ï¼Œå¤±è´¥è¿”å› NULL
 */
 CSept* CSeptM::getSeptByID(DWORD dwSeptID)
 {
@@ -3718,9 +3718,9 @@ CSept* CSeptM::getSeptByID(DWORD dwSeptID)
 }
 
 /**
-* \brief ÉèÖÃ¼Ò×å½éÉÜ
-* \param pUser ÉèÖÃÕßµÄ UserSession¶ÔÏó
-* \param pCmd ½éÉÜÉèÖÃÏûÏ¢
+* \brief è®¾ç½®å®¶æ—ä»‹ç»
+* \param pUser è®¾ç½®è€…çš„ UserSessionå¯¹è±¡
+* \param pCmd ä»‹ç»è®¾ç½®æ¶ˆæ¯
 * \author fqnewman
 */
 void CSeptM::setSeptNote(UserSession *pUser, Cmd::stNoteSeptCmd *pCmd)
@@ -3741,7 +3741,7 @@ void CSeptM::setSeptNote(UserSession *pUser, Cmd::stNoteSeptCmd *pCmd)
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÎŞ·¨ÉèÖÃ¼Ò×å½éÉÜ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨æ— æ³•è®¾ç½®å®¶æ—ä»‹ç»");
 		}
 	}
 }
@@ -3774,19 +3774,19 @@ void CSeptM::change_aliasname(UserSession* pUser, Cmd::stChangeSeptMemberAliasNa
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÎŞÈ¨¸ü¸Ä³ÆºÅ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨æ— æƒæ›´æ”¹ç§°å·");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊôÓÚÈÎºÎ¼Ò×å");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸å±äºä»»ä½•å®¶æ—");
 	}
 
 }
 
 void CSeptM::changeAllRepute(DWORD countryid, int repute)
 {
-	FunctionTime func_time(0,__PRETTY_FUNCTION__,"±éÀúËùÓĞ¼Ò×å¿Û¼õÉùÍûËùĞèÊ±¼ä" , 32);
+	FunctionTime func_time(0,__PRETTY_FUNCTION__,"éå†æ‰€æœ‰å®¶æ—æ‰£å‡å£°æœ›æ‰€éœ€æ—¶é—´" , 32);
 
 	rwlock.rdlock();
 	for(zEntryName::hashmap::iterator it=zEntryName::ets.begin();it!=zEntryName::ets.end();it++)
@@ -3823,11 +3823,11 @@ void CSeptM::changeLevel(DWORD dwSeptID, int level)
 		return pSept->changeLevel(level);
 }
 /**
- * \brief ¸ù¾İ½ÇÉ«Ãû×Ö»ñÈ¡ÆäËùÊô°ïÅÉÃû×Ö
+ * \brief æ ¹æ®è§’è‰²åå­—è·å–å…¶æ‰€å±å¸®æ´¾åå­—
  *
  *
- * \param Name ½ÇÉ«Ãû³Æ
- * \return ·µ»Ø°ï»áÃû³Æ»òÕßNULL
+ * \param Name è§’è‰²åç§°
+ * \return è¿”å›å¸®ä¼šåç§°æˆ–è€…NULL
  */
 char * CSeptM::getSeptNameByUserName(char *Name)
 {
@@ -3848,11 +3848,11 @@ char * CSeptM::getSeptNameByUserName(char *Name)
 }
 
 /**
- * \brief ¸ù¾İ½ÇÉ«Ãû×Ö»ñÈ¡ÆäËùÊô¼Ò×åID
+ * \brief æ ¹æ®è§’è‰²åå­—è·å–å…¶æ‰€å±å®¶æ—ID
  *
  *
- * \param Name ½ÇÉ«Ãû³Æ
- * \return ·µ»Ø°ï»áÃû³Æ»òÕßNULL
+ * \param Name è§’è‰²åç§°
+ * \return è¿”å›å¸®ä¼šåç§°æˆ–è€…NULL
  */
 DWORD CSeptM::getSeptIDByUserName(char *Name)
 {
@@ -3873,8 +3873,8 @@ DWORD CSeptM::getSeptIDByUserName(char *Name)
 }
 
 /**
- * \brief ¸ù¾İ¼Ò×åIDÀ´Í¨ÖªÖ¸¶¨¼Ò×åµÄNPC¿ØÖÆÊı¾İ
- * \param septid ¼Ò×åID
+ * \brief æ ¹æ®å®¶æ—IDæ¥é€šçŸ¥æŒ‡å®šå®¶æ—çš„NPCæ§åˆ¶æ•°æ®
+ * \param septid å®¶æ—ID
  */
 void CSeptM::notifyNpcHoldData(DWORD septid)
 {

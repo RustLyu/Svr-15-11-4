@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zThread.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÀàzThread
+ * \brief å®ç°ç±»zThread
  *
  * 
  */
@@ -19,19 +19,19 @@
 #include "zThread.h"
 
 /**
- * \brief Ïß³Ìº¯Êı
+ * \brief çº¿ç¨‹å‡½æ•°
  *
- * ÔÚº¯ÊıÌåÀïÃæ»áµ÷ÓÃÏß³ÌÀà¶ÔÏóÊµÏÖµÄ»Øµ÷º¯Êı
+ * åœ¨å‡½æ•°ä½“é‡Œé¢ä¼šè°ƒç”¨çº¿ç¨‹ç±»å¯¹è±¡å®ç°çš„å›è°ƒå‡½æ•°
  *
- * \param arg ´«ÈëÏß³ÌµÄ²ÎÊı
- * \return ·µ»ØÏß³Ì½áÊøĞÅÏ¢
+ * \param arg ä¼ å…¥çº¿ç¨‹çš„å‚æ•°
+ * \return è¿”å›çº¿ç¨‹ç»“æŸä¿¡æ¯
  */
 void *zThread::threadFunc(void *arg)
 {
 	zThread *thread = (zThread *)arg;
 
 	//Zebra::logger->debug("%s", __PRETTY_FUNCTION__);
-	//³õÊ¼»¯Ëæ»úÊı
+	//åˆå§‹åŒ–éšæœºæ•°
 	Zebra::seedp = time(NULL);
 	//Zebra::logger->debug("%s: %u", __FUNCTION__, seedp);
 	thread->mlock.lock();
@@ -39,14 +39,14 @@ void *zThread::threadFunc(void *arg)
 	thread->cond.broadcast();
 	thread->mlock.unlock();
 
-	//ÉèÖÃÏß³ÌĞÅºÅ´¦Àí¾ä±ú
+	//è®¾ç½®çº¿ç¨‹ä¿¡å·å¤„ç†å¥æŸ„
 	sigset_t sig_mask;
 	sigfillset(&sig_mask);
 	pthread_sigmask(SIG_SETMASK, &sig_mask, NULL);
 
 	mysql_thread_init();
 
-	//ÔËĞĞÏß³ÌµÄÖ÷»Øµ÷º¯Êı
+	//è¿è¡Œçº¿ç¨‹çš„ä¸»å›è°ƒå‡½æ•°
 	thread->run();
 
 	mysql_thread_end();
@@ -56,7 +56,7 @@ void *zThread::threadFunc(void *arg)
 	thread->cond.broadcast();
 	thread->mlock.unlock();
 
-	//Èç¹û²»ÊÇjoinable£¬ĞèÒª»ØÊÕÏß³Ì×ÊÔ´
+	//å¦‚æœä¸æ˜¯joinableï¼Œéœ€è¦å›æ”¶çº¿ç¨‹èµ„æº
 	if (!thread->isJoinable())
 	{
 		thread->mlock.lock();
@@ -70,16 +70,16 @@ void *zThread::threadFunc(void *arg)
 }
 
 /**
- * \brief ´´½¨Ïß³Ì£¬Æô¶¯Ïß³Ì
+ * \brief åˆ›å»ºçº¿ç¨‹ï¼Œå¯åŠ¨çº¿ç¨‹
  *
- * \return ´´½¨Ïß³ÌÊÇ·ñ³É¹¦
+ * \return åˆ›å»ºçº¿ç¨‹æ˜¯å¦æˆåŠŸ
  */
 bool zThread::start()
 {
-	//Ïß³ÌÒÑ¾­´´½¨ÔËĞĞ£¬Ö±½Ó·µ»Ø
+	//çº¿ç¨‹å·²ç»åˆ›å»ºè¿è¡Œï¼Œç›´æ¥è¿”å›
 	if (alive)
 	{
-		Zebra::logger->warn("Ïß³Ì %s ÒÑ¾­´´½¨ÔËĞĞ£¬»¹ÔÚ³¢ÊÔÔËĞĞÏß³Ì", getThreadName().c_str());
+		Zebra::logger->warn("çº¿ç¨‹ %s å·²ç»åˆ›å»ºè¿è¡Œï¼Œè¿˜åœ¨å°è¯•è¿è¡Œçº¿ç¨‹", getThreadName().c_str());
 		return true;
 	}
 
@@ -89,7 +89,7 @@ bool zThread::start()
 
 	if (0 != ::pthread_create(&thread, NULL, zThread::threadFunc, this)) 
 	{
-		Zebra::logger->error("´´½¨Ïß³Ì %s Ê§°Ü", getThreadName().c_str());
+		Zebra::logger->error("åˆ›å»ºçº¿ç¨‹ %s å¤±è´¥", getThreadName().c_str());
 		return false;
 	}
 
@@ -100,13 +100,13 @@ bool zThread::start()
 		cond.wait(mlock);
 	mlock.unlock();
 
-	//Zebra::logger->debug("´´½¨Ïß³Ì %s ³É¹¦", getThreadName().c_str());
+	//Zebra::logger->debug("åˆ›å»ºçº¿ç¨‹ %s æˆåŠŸ", getThreadName().c_str());
 
 	return true;
 }
 
 /**
- * \brief µÈ´ıÒ»¸öÏß³Ì½áÊø
+ * \brief ç­‰å¾…ä¸€ä¸ªçº¿ç¨‹ç»“æŸ
  *
  */
 void zThread::join()
@@ -125,7 +125,7 @@ void zThread::join()
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */
 zThreadGroup::zThreadGroup() : vts(), rwlock()
@@ -133,7 +133,7 @@ zThreadGroup::zThreadGroup() : vts(), rwlock()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 zThreadGroup::~zThreadGroup()
@@ -142,8 +142,8 @@ zThreadGroup::~zThreadGroup()
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÏß³Ìµ½·Ö×éÖĞ
- * \param thread ´ıÌí¼ÓµÄÏß³Ì
+ * \brief æ·»åŠ ä¸€ä¸ªçº¿ç¨‹åˆ°åˆ†ç»„ä¸­
+ * \param thread å¾…æ·»åŠ çš„çº¿ç¨‹
  */
 void zThreadGroup::add(zThread *thread)
 {
@@ -154,9 +154,9 @@ void zThreadGroup::add(zThread *thread)
 }
 
 /**
- * \brief °´ÕÕindexÏÂ±ê»ñÈ¡Ïß³Ì
- * \param index ÏÂ±ê±àºÅ
- * \return Ïß³Ì
+ * \brief æŒ‰ç…§indexä¸‹æ ‡è·å–çº¿ç¨‹
+ * \param index ä¸‹æ ‡ç¼–å·
+ * \return çº¿ç¨‹
  */
 zThread *zThreadGroup::getByIndex(const Container::size_type index)
 {
@@ -168,9 +168,9 @@ zThread *zThreadGroup::getByIndex(const Container::size_type index)
 }
 
 /**
- * \brief ÖØÔØ[]ÔËËã·û£¬°´ÕÕindexÏÂ±ê»ñÈ¡Ïß³Ì
- * \param index ÏÂ±ê±àºÅ
- * \return Ïß³Ì
+ * \brief é‡è½½[]è¿ç®—ç¬¦ï¼ŒæŒ‰ç…§indexä¸‹æ ‡è·å–çº¿ç¨‹
+ * \param index ä¸‹æ ‡ç¼–å·
+ * \return çº¿ç¨‹
  */
 zThread *zThreadGroup::operator[] (const Container::size_type index)
 {
@@ -182,7 +182,7 @@ zThread *zThreadGroup::operator[] (const Container::size_type index)
 }
 
 /**
- * \brief µÈ´ı·Ö×éÖĞµÄËùÓĞÏß³Ì½áÊø
+ * \brief ç­‰å¾…åˆ†ç»„ä¸­çš„æ‰€æœ‰çº¿ç¨‹ç»“æŸ
  */
 void zThreadGroup::joinAll()
 {
@@ -201,8 +201,8 @@ void zThreadGroup::joinAll()
 }
 
 /**
- * \brief ¶ÔÈİÆ÷ÖĞµÄËùÓĞÔªËØµ÷ÓÃ»Øµ÷º¯Êı
- * \param cb »Øµ÷º¯ÊıÊµÀı
+ * \brief å¯¹å®¹å™¨ä¸­çš„æ‰€æœ‰å…ƒç´ è°ƒç”¨å›è°ƒå‡½æ•°
+ * \param cb å›è°ƒå‡½æ•°å®ä¾‹
  */
 void zThreadGroup::execAll(Callback &cb)
 {

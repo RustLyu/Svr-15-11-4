@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: URLManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ¹ÜÀíÊı¾İ¿âÁ¬½ÓurlµÄÀà
+ * \brief å®ç°ç®¡ç†æ•°æ®åº“è¿æ¥urlçš„ç±»
  *
  * 
  */

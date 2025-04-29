@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.h  $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  *
  * 
  */
@@ -20,23 +20,23 @@
 #include "zTime.h"
 
 /**
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  */
 class SceneTimeTick : public zThread
 {
 
 	public:
 
-		/// µ±Ç°Ê±¼ä
+		/// å½“å‰æ—¶é—´
 		static zRTime currentTime;
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		~SceneTimeTick() {};
 
 		/**
-		 * \brief »ñÈ¡Î¨Ò»ÊµÀı
+		 * \brief è·å–å”¯ä¸€å®ä¾‹
 		 */
 		static SceneTimeTick &getInstance()
 		{
@@ -47,7 +47,7 @@ class SceneTimeTick : public zThread
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static void delInstance()
 		{
@@ -57,20 +57,20 @@ class SceneTimeTick : public zThread
 		void run();
 
 	private:
-		/// ÎåÃëÖÓ¼ÆÊıÆ÷
+		/// äº”ç§’é’Ÿè®¡æ•°å™¨
 		Timer _five_sec;
 
-		// Ò»·ÖÖÓ¼ÆÊıÆ÷
+		// ä¸€åˆ†é’Ÿè®¡æ•°å™¨
 		Timer _one_min;
 
-		// ¾ºÈü½øĞĞ±êÖ¾
+		// ç«èµ›è¿›è¡Œæ ‡å¿—
 		bool quiz;
 
-		/// Î¨Ò»ÊµÀı
+		/// å”¯ä¸€å®ä¾‹
 		static SceneTimeTick *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		SceneTimeTick() : zThread("TimeTick"), _five_sec(5),_one_min(60),quiz(false) {};
 
@@ -83,10 +83,10 @@ class My_FunctionTime
 		struct My_Times
 		{
 			My_Times():_times(0),_total_time(0),_all_times(0),_all_total_time(0) {}
-			unsigned long _times;			//µ÷ÓÃ´ÎÊı
-			unsigned long _total_time;		//µ÷ÓÃÊ±¼ä
-			unsigned long _all_times;		//×Üµ÷ÓÃ´ÎÊı
-			unsigned long _all_total_time;	//×Üµ÷ÓÃÊ±¼ä
+			unsigned long _times;			//è°ƒç”¨æ¬¡æ•°
+			unsigned long _total_time;		//è°ƒç”¨æ—¶é—´
+			unsigned long _all_times;		//æ€»è°ƒç”¨æ¬¡æ•°
+			unsigned long _all_total_time;	//æ€»è°ƒç”¨æ—¶é—´
 		};
 		std::map<std::string, My_Times> _times; 
 		Timer _log_timer;
@@ -99,7 +99,7 @@ class My_FunctionTime
 			if (mt._times)
 			{
 				//if (mt._total_time && mt._total_time * 10 <= total * mt._times)
-				//	Zebra::logger->debug("[·ÖÊ±Í³¼Æ]£ºÒì³££¬%s, %luus, %luus, %lu´Î", func.c_str(), mt._total_time, total * mt._times, mt._times);
+				//	Zebra::logger->debug("[åˆ†æ—¶ç»Ÿè®¡]ï¼šå¼‚å¸¸ï¼Œ%s, %luus, %luus, %luæ¬¡", func.c_str(), mt._total_time, total * mt._times, mt._times);
 				mt._times++;
 				mt._total_time += total;
 			}
@@ -115,12 +115,12 @@ class My_FunctionTime
 		{
 			if (force_print || _log_timer(ct))
 			{
-				Zebra::logger->debug("[·ÖÊ±Í³¼Æ]£º%s, %u", force_print ? "force" : "timer", _times.size());
+				Zebra::logger->debug("[åˆ†æ—¶ç»Ÿè®¡]ï¼š%s, %u", force_print ? "force" : "timer", _times.size());
 				for(std::map<std::string, My_Times>::iterator it = _times.begin(); it != _times.end(); ++it)
 				{
 					if (it->second._times)
 					{
-						Zebra::logger->debug("[·ÖÊ±Í³¼Æ]£º%s, %luus, %lu´Î, %luus/´Î, %luus, %lu´Î, %luus/´Î",
+						Zebra::logger->debug("[åˆ†æ—¶ç»Ÿè®¡]ï¼š%s, %luus, %luæ¬¡, %luus/æ¬¡, %luus, %luæ¬¡, %luus/æ¬¡",
 								it->first.c_str(),
 								it->second._total_time, it->second._times, it->second._total_time / it->second._times,
 								it->second._all_total_time, it->second._all_times, it->second._all_times ? it->second._all_total_time / it->second._all_times : 0);

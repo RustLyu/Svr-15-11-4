@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPClient.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÀàzTCPClient£¬TCPÁ¬½Ó¿Í»§¶Ë¡£
+ * \brief å®ç°ç±»zTCPClientï¼ŒTCPè¿æ¥å®¢æˆ·ç«¯ã€‚
  *
  * 
  */
@@ -24,12 +24,12 @@
 #include "zTCPClient.h"
 #include "Zebra.h"
 
-CmdAnalysis zTCPClient::analysis("ClientÖ¸Áî·¢ËÍÍ³¼Æ",600);
+CmdAnalysis zTCPClient::analysis("ClientæŒ‡ä»¤å‘é€ç»Ÿè®¡",600);
 /**
- * \brief ½¨Á¢Ò»¸öµ½·şÎñÆ÷µÄTCPÁ¬½Ó
+ * \brief å»ºç«‹ä¸€ä¸ªåˆ°æœåŠ¡å™¨çš„TCPè¿æ¥
  *
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿æ¥æ˜¯å¦æˆåŠŸ
  */
 bool zTCPClient::connect()
 {
@@ -41,11 +41,11 @@ bool zTCPClient::connect()
 	nSocket = ::socket(PF_INET, SOCK_STREAM, 0);
 	if (-1 == nSocket)
 	{
-		Zebra::logger->error("´´½¨Ì×½Ó¿ÚÊ§°Ü");
+		Zebra::logger->error("åˆ›å»ºå¥—æ¥å£å¤±è´¥");
 		return false;
 	}
 
-	//ÉèÖÃÌ×½Ó¿Ú·¢ËÍ½ÓÊÕ»º³å£¬²¢ÇÒ¿Í»§¶ËµÄ±ØĞëÔÚconnectÖ®Ç°ÉèÖÃ
+	//è®¾ç½®å¥—æ¥å£å‘é€æ¥æ”¶ç¼“å†²ï¼Œå¹¶ä¸”å®¢æˆ·ç«¯çš„å¿…é¡»åœ¨connectä¹‹å‰è®¾ç½®
 	socklen_t window_size = 128 * 1024;
 	retcode = ::setsockopt(nSocket, SOL_SOCKET, SO_RCVBUF, &window_size, sizeof(window_size));
 	if (-1 == retcode)
@@ -68,7 +68,7 @@ bool zTCPClient::connect()
 	retcode = TEMP_FAILURE_RETRY(::connect(nSocket, (struct sockaddr *) &addr, sizeof(addr)));
 	if (-1 == retcode)
 	{
-		Zebra::logger->error("´´½¨µ½·şÎñÆ÷(%s:%u) µÄÁ¬½ÓÊ§°Ü", ip.c_str(), port);
+		Zebra::logger->error("åˆ›å»ºåˆ°æœåŠ¡å™¨(%s:%u) çš„è¿æ¥å¤±è´¥", ip.c_str(), port);
 		TEMP_FAILURE_RETRY(::close(nSocket));
 		return false;
 	}
@@ -76,23 +76,23 @@ bool zTCPClient::connect()
 	pSocket = new zSocket(nSocket, &addr, compress);
 	if (NULL == pSocket)
 	{
-		Zebra::logger->fatal("Ã»ÓĞ×ã¹»µÄÄÚ´æ£¬²»ÄÜ´´½¨zSocketÊµÀı");
+		Zebra::logger->fatal("æ²¡æœ‰è¶³å¤Ÿçš„å†…å­˜ï¼Œä¸èƒ½åˆ›å»ºzSocketå®ä¾‹");
 		TEMP_FAILURE_RETRY(::close(nSocket));
 		return false;
 	}
 
-	Zebra::logger->info("´´½¨µ½·şÎñÆ÷(%s:%u)µÄÁ¬½Ó³É¹¦", ip.c_str(), port);
+	Zebra::logger->info("åˆ›å»ºåˆ°æœåŠ¡å™¨(%s:%u)çš„è¿æ¥æˆåŠŸ", ip.c_str(), port);
 
 	return true;
 }
 
 /**
- * \brief ÏòÌ×½Ó¿Ú·¢ËÍÖ¸Áî
+ * \brief å‘å¥—æ¥å£å‘é€æŒ‡ä»¤
  *
  *
- * \param pstrCmd ´ı·¢ËÍµÄÖ¸Áî
- * \param nCmdLen ´ı·¢ËÍÖ¸ÁîµÄ´óĞ¡
- * \return ·¢ËÍÊÇ·ñ³É¹¦
+ * \param pstrCmd å¾…å‘é€çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…å‘é€æŒ‡ä»¤çš„å¤§å°
+ * \return å‘é€æ˜¯å¦æˆåŠŸ
  */
 bool zTCPClient::sendCmd(const void *pstrCmd, const int nCmdLen)
 {
@@ -109,7 +109,7 @@ bool zTCPClient::sendCmd(const void *pstrCmd, const int nCmdLen)
 	}
 }
 /**
- * \brief ÖØÔØzThreadÖĞµÄ´¿Ğéº¯Êı£¬ÊÇÏß³ÌµÄÖ÷»Øµ÷º¯Êı£¬ÓÃÓÚ´¦Àí½ÓÊÕµ½µÄÖ¸Áî
+ * \brief é‡è½½zThreadä¸­çš„çº¯è™šå‡½æ•°ï¼Œæ˜¯çº¿ç¨‹çš„ä¸»å›è°ƒå‡½æ•°ï¼Œç”¨äºå¤„ç†æ¥æ”¶åˆ°çš„æŒ‡ä»¤
  *
  */
 void zTCPClient::run()
@@ -127,10 +127,10 @@ void zTCPClient::run()
 			if (Cmd::CMD_NULL == ptNullCmd->cmd
 					&& Cmd::PARA_NULL == ptNullCmd->para)
 			{
-				//Zebra::logger->debug("¿Í»§¶ËÊÕµ½²âÊÔĞÅºÅ");
+				//Zebra::logger->debug("å®¢æˆ·ç«¯æ”¶åˆ°æµ‹è¯•ä¿¡å·");
 				if (!sendCmd(pstrCmd, nCmdLen))
 				{
-					//·¢ËÍÖ¸ÁîÊ§°Ü£¬ÍË³öÑ­»·£¬½áÊøÏß³Ì
+					//å‘é€æŒ‡ä»¤å¤±è´¥ï¼Œé€€å‡ºå¾ªç¯ï¼Œç»“æŸçº¿ç¨‹
 					break;
 				}
 			}
@@ -139,8 +139,8 @@ void zTCPClient::run()
 		}
 		else if (-1 == nCmdLen)
 		{
-			//½ÓÊÕÖ¸ÁîÊ§°Ü£¬ÍË³öÑ­»·£¬½áÊøÏß³Ì
-			Zebra::logger->error("½ÓÊÕÖ¸ÁîÊ§°Ü£¬¹Ø±Õ %s", getThreadName().c_str());
+			//æ¥æ”¶æŒ‡ä»¤å¤±è´¥ï¼Œé€€å‡ºå¾ªç¯ï¼Œç»“æŸçº¿ç¨‹
+			Zebra::logger->error("æ¥æ”¶æŒ‡ä»¤å¤±è´¥ï¼Œå…³é—­ %s", getThreadName().c_str());
 			break;
 		}
 	}
@@ -171,7 +171,7 @@ bool zTCPBufferClient::ListeningRecv()
 			unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 			int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 			if (nCmdLen <= 0)
-				//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+				//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 				break;
 			else
 			{
@@ -179,10 +179,10 @@ bool zTCPBufferClient::ListeningRecv()
 				if (Cmd::CMD_NULL == ptNullCmd->cmd
 						&& Cmd::PARA_NULL == ptNullCmd->para)
 				{
-					//Zebra::logger->debug("¿Í»§¶ËÊÕµ½²âÊÔĞÅºÅ");
+					//Zebra::logger->debug("å®¢æˆ·ç«¯æ”¶åˆ°æµ‹è¯•ä¿¡å·");
 					if (!sendCmd(pstrCmd, nCmdLen))
 					{
-						//·¢ËÍÖ¸ÁîÊ§°Ü£¬ÍË³öÑ­»·£¬½áÊøÏß³Ì
+						//å‘é€æŒ‡ä»¤å¤±è´¥ï¼Œé€€å‡ºå¾ªç¯ï¼Œç»“æŸçº¿ç¨‹
 						return false;
 					}
 				}
@@ -227,10 +227,10 @@ void zTCPBufferClient::run()
                         if (Cmd::CMD_NULL == ptNullCmd->cmd
                                         && Cmd::PARA_NULL == ptNullCmd->para)
                         {
-                                //Zebra::logger->debug("¿Í»§¶ËÊÕµ½²âÊÔĞÅºÅ");
+                                //Zebra::logger->debug("å®¢æˆ·ç«¯æ”¶åˆ°æµ‹è¯•ä¿¡å·");
                                 if (!sendCmd(pstrCmd, nCmdLen))
                                 {
-                                        //·¢ËÍÖ¸ÁîÊ§°Ü£¬ÍË³öÑ­»·£¬½áÊøÏß³Ì
+                                        //å‘é€æŒ‡ä»¤å¤±è´¥ï¼Œé€€å‡ºå¾ªç¯ï¼Œç»“æŸçº¿ç¨‹
                                         break;
                                 }
                         }
@@ -239,8 +239,8 @@ void zTCPBufferClient::run()
                 }
                 else if (-1 == nCmdLen)
                 {
-                        //½ÓÊÕÖ¸ÁîÊ§°Ü£¬ÍË³öÑ­»·£¬½áÊøÏß³Ì
-                        Zebra::logger->error("½ÓÊÕÖ¸ÁîÊ§°Ü£¬¹Ø±Õ %s", getThreadName().c_str());
+                        //æ¥æ”¶æŒ‡ä»¤å¤±è´¥ï¼Œé€€å‡ºå¾ªç¯ï¼Œç»“æŸçº¿ç¨‹
+                        Zebra::logger->error("æ¥æ”¶æŒ‡ä»¤å¤±è´¥ï¼Œå…³é—­ %s", getThreadName().c_str());
                         break;
                 }
         }
@@ -263,18 +263,18 @@ void zTCPBufferClient::run()
 		{
 			if (pfds_r.revents & (POLLERR | POLLPRI))
 			{
-				//Ì×½Ó¿Ú³öÏÖ´íÎó
-				Zebra::logger->fatal("%s: Ì×½Ó¿Ú´íÎó", __PRETTY_FUNCTION__);
+				//å¥—æ¥å£å‡ºç°é”™è¯¯
+				Zebra::logger->fatal("%s: å¥—æ¥å£é”™è¯¯", __PRETTY_FUNCTION__);
 				break;
 			}
 			else
 			{
 				if (pfds_r.revents & POLLIN)
 				{
-					//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+					//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 					if (!ListeningRecv())
 					{
-						Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+						Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 						break;
 					}
 				}
@@ -290,27 +290,27 @@ void zTCPBufferClient::run()
 			{
 				if (pfds.revents & (POLLERR | POLLPRI))
 				{
-					//Ì×½Ó¿Ú³öÏÖ´íÎó
-					Zebra::logger->fatal("%s: Ì×½Ó¿Ú´íÎó", __PRETTY_FUNCTION__);
+					//å¥—æ¥å£å‡ºç°é”™è¯¯
+					Zebra::logger->fatal("%s: å¥—æ¥å£é”™è¯¯", __PRETTY_FUNCTION__);
 					break;
 				}
 				else
 				{
 					if (pfds.revents & POLLIN)
 					{
-						//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+						//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 						if (!ListeningRecv())
 						{
-							Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+							Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 							break;
 						}
 					}
 					if (pfds.revents & POLLOUT)
 					{
-						//Ì×½Ó¿Ú×¼±¸ºÃÁËĞ´Èë²Ù×÷
+						//å¥—æ¥å£å‡†å¤‡å¥½äº†å†™å…¥æ“ä½œ
 						if (!ListeningSend())
 						{
-							Zebra::logger->debug("%s: Ì×½Ó¿ÚĞ´²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+							Zebra::logger->debug("%s: å¥—æ¥å£å†™æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 							break;
 						}
 					}
@@ -321,7 +321,7 @@ void zTCPBufferClient::run()
 		//zThread::usleep(usleep_time);
 	}
 
-	//±£Ö¤»º³åµÄÊı¾İ·¢ËÍÍê³É
+	//ä¿è¯ç¼“å†²çš„æ•°æ®å‘é€å®Œæˆ
 	sync();
 	_buffered = false;
 #endif

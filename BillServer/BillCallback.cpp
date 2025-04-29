@@ -1,12 +1,12 @@
-/**
+﻿/**
  * \file
  * \version  $Id: BillCallback.cpp  $
  * \author  
  * \date 
- * \brief ����Ʒѿͻ��˽ӿ�
+ * \brief 定义计费客户端接口
  * <p>
- * �ṩ�Ʒѿͻ��˻ص��������Ͷ��壬<br>
- * �Լ��Ʒѿͻ���ģ���ʼ���ͻ��սӿڡ�
+ * 提供计费客户端回调函数类型定义，<br>
+ * 以及计费客户端模块初始化和回收接口。
  * </p>
  */
 
@@ -27,7 +27,7 @@ bool Bill_init(const char *confile, const char *tradelog, struct BillCallback *b
 			|| NULL == tradelog
 			|| NULL == bc)
 	{
-		Zebra::logger->debug("��ʼ�����׿ͻ���ʧ��");
+		Zebra::logger->debug("初始化交易客户端失败");
 		return false;
 	}
 	BillCache::newInstance();

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zConfile.cpp  $
  * \author 
  * \date 
- * \brief ÅäÖÃÎÄ¼ş½âÎöÆ÷¶¨Òå,
+ * \brief é…ç½®æ–‡ä»¶è§£æå™¨å®šä¹‰,
  */
 
 #include <string.h>
@@ -13,8 +13,8 @@
 #include "zBase64.h"
 
 /**
- * \brief ¹¹Ôìº¯Êı
- * \param confile ÅäÖÃÎÄ¼şÃû×Ö
+ * \brief æ„é€ å‡½æ•°
+ * \param confile é…ç½®æ–‡ä»¶åå­—
  */
 zConfile::zConfile(const char *confile)
 {
@@ -22,7 +22,7 @@ zConfile::zConfile(const char *confile)
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 zConfile::~zConfile()
 {
@@ -30,9 +30,9 @@ zConfile::~zConfile()
 }
 
 /**
- * \brief È«¾Ö½âÎöº¯Êı
- * \param node È«¾ÖÅäÖÃ½Úµã
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \brief å…¨å±€è§£æå‡½æ•°
+ * \param node å…¨å±€é…ç½®èŠ‚ç‚¹
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool zConfile::globalParse(const xmlNodePtr node)
 {
@@ -49,9 +49,9 @@ bool zConfile::globalParse(const xmlNodePtr node)
 }
 
 /**
- * \brief ÆÕÍ¨²ÎÊı½âÎö,Ö»ÊÇ¼òµ¥µÄ°Ñ²ÎÊı·ÅÈëglobalÈİÆ÷ÖĞ
- * \param node Òª½âÎöµÄ½Úµã
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \brief æ™®é€šå‚æ•°è§£æ,åªæ˜¯ç®€å•çš„æŠŠå‚æ•°æ”¾å…¥globalå®¹å™¨ä¸­
+ * \param node è¦è§£æçš„èŠ‚ç‚¹
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool zConfile::parseNormal(const xmlNodePtr node)
 {
@@ -74,13 +74,13 @@ bool zConfile::parseNormal(const xmlNodePtr node)
 }
 
 /**
- * \brief SuperServer²ÎÊı½âÎö£¬»áÔÚglobalÈİÆ÷ÖĞ·ÅÈëÁ½¸ö²ÎÊı
+ * \brief SuperServerå‚æ•°è§£æï¼Œä¼šåœ¨globalå®¹å™¨ä¸­æ”¾å…¥ä¸¤ä¸ªå‚æ•°
  *
- * server SuperServerµØÖ·
+ * server SuperServeråœ°å€
  *
- * port SuperServer¶Ë¿Ú
- * \param node SuperServer²ÎÊı½Úµã
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * port SuperServerç«¯å£
+ * \param node SuperServerå‚æ•°èŠ‚ç‚¹
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool zConfile::parseSuperServer(const xmlNodePtr node)
 {
@@ -99,10 +99,10 @@ bool zConfile::parseSuperServer(const xmlNodePtr node)
 }
 
 /**
- * \brief ¿ªÊ¼½âÎöÅäÖÃÎÄ¼ş
+ * \brief å¼€å§‹è§£æé…ç½®æ–‡ä»¶
  *
- * \param name Ê¹ÓÃÕß×Ô¼º²ÎÊıµÄ¶¨Òå½ÚµãÃû×Ö
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param name ä½¿ç”¨è€…è‡ªå·±å‚æ•°çš„å®šä¹‰èŠ‚ç‚¹åå­—
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool zConfile::parse(const char *name)
 {
@@ -118,7 +118,7 @@ bool zConfile::parse(const char *name)
 					return false;
 			}
 			else
-				Zebra::logger->warn("ÎŞÈ«¾ÖÅäÖÃ¶ÎÂä.");
+				Zebra::logger->warn("æ— å…¨å±€é…ç½®æ®µè½.");
 			xmlNodePtr otherNode=parser.getChildNode(root,name);
 			if(otherNode)
 			{
@@ -126,7 +126,7 @@ bool zConfile::parse(const char *name)
 					return false;
 			}
 			else
-				Zebra::logger->warn("ÎŞ %s ÅäÖÃ¶ÎÂä.",name);
+				Zebra::logger->warn("æ—  %s é…ç½®æ®µè½.",name);
 			return true;
 		}
 	}

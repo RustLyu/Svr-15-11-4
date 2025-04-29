@@ -1,4 +1,4 @@
-#ifndef _SKILLBASE_H_
+ï»¿#ifndef _SKILLBASE_H_
 #define _SKILLBASE_H_
 
 #include "zType.h"
@@ -7,14 +7,14 @@
 
 typedef struct _Skill
 {
-	DWORD	skillid;					//¼¼ÄÜID
-	DWORD	level;						//¼¼ÄÜµÈ¼¶
-//	DWORD	maxlevel;					//¼¼ÄÜµÈ¼¶
-//	DWORD	nextlevel;					//ĞèÒª½ÇÉ«µÈ¼¶
-//	DWORD	needtype;					// ĞèÒªÖ°Òµ
-//	DWORD	five;						// ÎåĞĞÊôĞÔ
-//	DWORD	firstfive;					// ×î³õÎåĞĞµãÊı
-	//DWORD	nextfive;					// ÎåĞĞµãÊı
+	DWORD	skillid;					//æŠ€èƒ½ID
+	DWORD	level;						//æŠ€èƒ½ç­‰çº§
+//	DWORD	maxlevel;					//æŠ€èƒ½ç­‰çº§
+//	DWORD	nextlevel;					//éœ€è¦è§’è‰²ç­‰çº§
+//	DWORD	needtype;					// éœ€è¦èŒä¸š
+//	DWORD	five;						// äº”è¡Œå±æ€§
+//	DWORD	firstfive;					// æœ€åˆäº”è¡Œç‚¹æ•°
+	//DWORD	nextfive;					// äº”è¡Œç‚¹æ•°
 }t_Skill;
 
 
@@ -41,51 +41,51 @@ namespace SkillDef
 	};
 	enum 	SKILL_STATUS
 	{
-		SKILL_default, //0Ä¬ÈÏÎª´íÎóÀàĞÍ
-		SKILL_dvalue, //ÉËº¦Öµ
-		SKILL_reflect, //·´µ¯
-		SKILL_sdam, //¼¼ÄÜ¹¥»÷Á¦
-		SKILL_mdam,//·¨Êõ¹¥»÷Á¦
-		SKILL_maxmp,//·¨ÊõÖµÉÏÏŞ
-		SKILL_mpspeed,//·¨ÊõÖµ»Ø¸´ËÙ¶È
-		SKILL_mppersist,//·¨ÊõÖµ³ÖĞø
-		SKILL_mp,				//·¨ÊõÖµ
-		SKILL_mpdef,		//·¨Êõ·ÀÓù
-		SKILL_sp,				//ÌåÁ¦Öµ
-		SKILL_maxsp,//ÌåÁ¦ÖµÉÏÏŞ
-		SKILL_sppersist,//ÌåÁ¦Öµ³ÖĞø
-		SKILL_spspeed,	//ÌåÁ¦Öµ»Ø¸´ËÙ¶È
-		SKILL_hp,				//ÉúÃüÖµ
-		SKILL_maxhp,		//ÉúÃüÖµÉÏÏŞ
-		SKILL_hppersist,//ÉúÃüÖµ³ÖĞø
-		SKILL_hpspeed,	//ÉúÃüÖµ»Ø¸´ËÙ¶È
-		SKILL_mvspeed,	//ÒÆ¶¯ËÙ¶È
-		SKILL_pdam,			//ÎïÀí¹¥»÷Á¦
-		SKILL_atrating,	//ÃüÖĞÂÊ
-		SKILL_skillrating,//¼¼ÄÜÃüÖĞÂÊ
-		SKILL_akdodge, //ÉÁ±ÜÂÊ
-		SKILL_cancel, //×´Ì¬Ïû³ı
-		SKILL_aspeed,	//¹¥»÷ËÙ¶È
-		SKILL_relive,//¸´»î
-		SKILL_hitback,//»÷ÍË
-		SKILL_change,//¹¥»÷Ä¿±ê±äÎªÊ©·¨Õß
-		SKILL_topet,//±äÎªËæ»úĞ¡¶¯Îï
-		SKILL_dam2ddef,//¹¥·À×ª»»
-		SKILL_poison, //ÖĞ¶¾×´Ì¬
-		SKILL_petrify, //Ê¯»¯×´Ì¬
-		SKILL_blind, //Ê§Ã÷×´Ì¬
-		SKILL_chaos, //»ìÂÒ×´Ì¬
-		SKILL_cold, //±ù¶³×´Ì¬
-		SKILL_palsy,//Âé±Ô×´Ì¬
-		SKILL_bleeding,//Á÷Ñª×´Ì¬
-		SKILL_sevenp,//½µµÍÏİÈëÆß´ó×´Ì¬¼¸ÂÊ
-		SKILL_coldp, //¼õÉÙÏİÈë±ù¶³×´Ì¬¼¸ÂÊ
-		SKILL_poisonp, //¼õÉÙÏİÈëÖĞ¶¾×´Ì¬¼¸ÂÊ
-		SKILL_petrifyp, //¼õÉÙÏİÈëÊ¯»¯×´Ì¬¼¸ÂÊ
-		SKILL_blindp, //¼õÉÙÏİÈëÊ§Ã÷×´Ì¬¼¸ÂÊ
-		SKILL_chaosp, //¼õÉÙÏİÈë»ìÂÒ×´Ì¬¼¸ÂÊ
-		SKILL_mgspeed, //¼õÉÙ¼¼ÄÜÊ©·Å¼ä¸ô
-		SKILL_cancelatt //²»ÄÜ¹¥»÷Ê©·¨Õß
+		SKILL_default, //0é»˜è®¤ä¸ºé”™è¯¯ç±»å‹
+		SKILL_dvalue, //ä¼¤å®³å€¼
+		SKILL_reflect, //åå¼¹
+		SKILL_sdam, //æŠ€èƒ½æ”»å‡»åŠ›
+		SKILL_mdam,//æ³•æœ¯æ”»å‡»åŠ›
+		SKILL_maxmp,//æ³•æœ¯å€¼ä¸Šé™
+		SKILL_mpspeed,//æ³•æœ¯å€¼å›å¤é€Ÿåº¦
+		SKILL_mppersist,//æ³•æœ¯å€¼æŒç»­
+		SKILL_mp,				//æ³•æœ¯å€¼
+		SKILL_mpdef,		//æ³•æœ¯é˜²å¾¡
+		SKILL_sp,				//ä½“åŠ›å€¼
+		SKILL_maxsp,//ä½“åŠ›å€¼ä¸Šé™
+		SKILL_sppersist,//ä½“åŠ›å€¼æŒç»­
+		SKILL_spspeed,	//ä½“åŠ›å€¼å›å¤é€Ÿåº¦
+		SKILL_hp,				//ç”Ÿå‘½å€¼
+		SKILL_maxhp,		//ç”Ÿå‘½å€¼ä¸Šé™
+		SKILL_hppersist,//ç”Ÿå‘½å€¼æŒç»­
+		SKILL_hpspeed,	//ç”Ÿå‘½å€¼å›å¤é€Ÿåº¦
+		SKILL_mvspeed,	//ç§»åŠ¨é€Ÿåº¦
+		SKILL_pdam,			//ç‰©ç†æ”»å‡»åŠ›
+		SKILL_atrating,	//å‘½ä¸­ç‡
+		SKILL_skillrating,//æŠ€èƒ½å‘½ä¸­ç‡
+		SKILL_akdodge, //é—ªé¿ç‡
+		SKILL_cancel, //çŠ¶æ€æ¶ˆé™¤
+		SKILL_aspeed,	//æ”»å‡»é€Ÿåº¦
+		SKILL_relive,//å¤æ´»
+		SKILL_hitback,//å‡»é€€
+		SKILL_change,//æ”»å‡»ç›®æ ‡å˜ä¸ºæ–½æ³•è€…
+		SKILL_topet,//å˜ä¸ºéšæœºå°åŠ¨ç‰©
+		SKILL_dam2ddef,//æ”»é˜²è½¬æ¢
+		SKILL_poison, //ä¸­æ¯’çŠ¶æ€
+		SKILL_petrify, //çŸ³åŒ–çŠ¶æ€
+		SKILL_blind, //å¤±æ˜çŠ¶æ€
+		SKILL_chaos, //æ··ä¹±çŠ¶æ€
+		SKILL_cold, //å†°å†»çŠ¶æ€
+		SKILL_palsy,//éº»ç—¹çŠ¶æ€
+		SKILL_bleeding,//æµè¡€çŠ¶æ€
+		SKILL_sevenp,//é™ä½é™·å…¥ä¸ƒå¤§çŠ¶æ€å‡ ç‡
+		SKILL_coldp, //å‡å°‘é™·å…¥å†°å†»çŠ¶æ€å‡ ç‡
+		SKILL_poisonp, //å‡å°‘é™·å…¥ä¸­æ¯’çŠ¶æ€å‡ ç‡
+		SKILL_petrifyp, //å‡å°‘é™·å…¥çŸ³åŒ–çŠ¶æ€å‡ ç‡
+		SKILL_blindp, //å‡å°‘é™·å…¥å¤±æ˜çŠ¶æ€å‡ ç‡
+		SKILL_chaosp, //å‡å°‘é™·å…¥æ··ä¹±çŠ¶æ€å‡ ç‡
+		SKILL_mgspeed, //å‡å°‘æŠ€èƒ½æ–½æ”¾é—´éš”
+		SKILL_cancelatt //ä¸èƒ½æ”»å‡»æ–½æ³•è€…
 	};
 #define TARGET_SELF 1
 #define TARGET_FRIEND 2

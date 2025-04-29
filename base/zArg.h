@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zArg.h  $
  * \author  
  * \date 
- * \brief ²ÎÊı½âÎöÀàµÄ¶¨Òå¡£
+ * \brief å‚æ•°è§£æç±»çš„å®šä¹‰ã€‚
  *
  * 
  */
@@ -16,33 +16,33 @@
 #include "zNoncopyable.h"
 
 /**
- * \brief ²ÎÊı·ÖÎöº¯Êı¶¨Òå
+ * \brief å‚æ•°åˆ†æå‡½æ•°å®šä¹‰
  */
 typedef error_t(* argsParser)(int key, char *arg, struct argp_state *state) ;
 
 /**
- * \brief ²ÎÊıÀà,Ò»¸ö½ø³ÌÖ»ÓĞÒ»¸ö
+ * \brief å‚æ•°ç±»,ä¸€ä¸ªè¿›ç¨‹åªæœ‰ä¸€ä¸ª
  *
- * ½¨ÒéËùÓĞ²ÎÊı±£´æÔÚzArg::argsÖĞ£¬ËüµÄÊ¹ÓÃ²Î¼û#zProperties.
+ * å»ºè®®æ‰€æœ‰å‚æ•°ä¿å­˜åœ¨zArg::argsä¸­ï¼Œå®ƒçš„ä½¿ç”¨å‚è§#zProperties.
  *
- * ½¨ÒéÓÃ¼Ì³ĞÊµÏÖÄ³Ò»ÀàµÄ³ÌĞòµÄÄ¬ÈÏ²ÎÊı.
+ * å»ºè®®ç”¨ç»§æ‰¿å®ç°æŸä¸€ç±»çš„ç¨‹åºçš„é»˜è®¤å‚æ•°.
  *
- * ¹ØÓÚ²ÎÊı·ÖÎöµÄarg_optionsºÍ·ÖÎöº¯Êı£¬²Î¼ûinfo argp_parse
+ * å…³äºå‚æ•°åˆ†æçš„arg_optionså’Œåˆ†æå‡½æ•°ï¼Œå‚è§info argp_parse
  */
 class zArg:private zNoncopyable
 {
 	friend error_t zparse_opt(int, char *, struct argp_state *);
 	protected:
 		/**
-		 * \brief ²ÎÊı·ÖÎöÊı¾İ½á¹¹
+		 * \brief å‚æ•°åˆ†ææ•°æ®ç»“æ„
 		 */
 		struct argp argp;
 		/**
-		 * \brief ÓÃ»§¶¨ÒåµÄ²ÎÊı·ÖÎöº¯Êı
+		 * \brief ç”¨æˆ·å®šä¹‰çš„å‚æ•°åˆ†æå‡½æ•°
 		 */
 		argsParser user_parser;
 		/**
-		 * \brief ²ÎÊı·ÖÎöÆ÷µÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief å‚æ•°åˆ†æå™¨çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 */
 		zArg();
 		~zArg();
@@ -50,7 +50,7 @@ class zArg:private zNoncopyable
 		static zArg * argInstance;
 		void addOptions(const struct argp_option *options);
 		/**
-		 * \brief ËùÓĞ²ÎÊıÑ¡ÏîÖ¸Õë
+		 * \brief æ‰€æœ‰å‚æ•°é€‰é¡¹æŒ‡é’ˆ
 		 */
 		struct argp_option *alloptions;
 

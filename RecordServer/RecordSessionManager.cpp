@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordSessionManager.cpp  $
  * \author 
  * \date 
- * \brief ÈİÆ÷£¬ÓÃÓÚ±£Ö¤²»»á³öÏÖÖØ¸´µÇÂ½
+ * \brief å®¹å™¨ï¼Œç”¨äºä¿è¯ä¸ä¼šå‡ºç°é‡å¤ç™»é™†
  *
  * 
  */
@@ -16,12 +16,12 @@
 RecordSessionManager *RecordSessionManager::instance = NULL;
 
 /**
- * \brief ¶ÁÈ¡µµ°¸ĞÅÏ¢µÄÊ±ºò£¬ĞèÒªÌí¼Ó¼ÇÂ¼£¬²¢ÇÒÑéÖ¤ÊÇ·ñ´æÔÚÖØ¸´¼ÇÂ¼
+ * \brief è¯»å–æ¡£æ¡ˆä¿¡æ¯çš„æ—¶å€™ï¼Œéœ€è¦æ·»åŠ è®°å½•ï¼Œå¹¶ä¸”éªŒè¯æ˜¯å¦å­˜åœ¨é‡å¤è®°å½•
  *
- * \param accid ÕÊºÅ
- * \param id ½ÇÉ«±àºÅ
- * \param wdServerID ·şÎñÆ÷±àºÅ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \param accid å¸å·
+ * \param id è§’è‰²ç¼–å·
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool RecordSessionManager::add(const DWORD accid, const DWORD id, const WORD wdServerID)
 {
@@ -32,7 +32,7 @@ bool RecordSessionManager::add(const DWORD accid, const DWORD id, const WORD wdS
 	RecordSessionHashmap_iterator it = sessionMap.find(accid);
 	if (it == sessionMap.end())
 	{
-		//Ã»ÓĞÕÒµ½£¬ĞèÒª²åÈëĞÂµÄ¼ÇÂ¼
+		//æ²¡æœ‰æ‰¾åˆ°ï¼Œéœ€è¦æ’å…¥æ–°çš„è®°å½•
 		RecordSession session(accid, id, wdServerID);
 		sessionMap.insert(RecordSessionHashmap_pair(accid, session));
 		retval = true;
@@ -43,12 +43,12 @@ bool RecordSessionManager::add(const DWORD accid, const DWORD id, const WORD wdS
 }
 
 /**
- * \brief »ØĞ´µµ°¸ĞèÒªÑéÖ¤»á»°ĞÅÏ¢ÊÇ·ñ´æÔÚ
+ * \brief å›å†™æ¡£æ¡ˆéœ€è¦éªŒè¯ä¼šè¯ä¿¡æ¯æ˜¯å¦å­˜åœ¨
  *
- * \param accid ÕÊºÅ
- * \param id ½ÇÉ«±àºÅ
- * \param wdServerID ·şÎñÆ÷±àºÅ
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param accid å¸å·
+ * \param id è§’è‰²ç¼–å·
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool RecordSessionManager::verify(const DWORD accid, const DWORD id, const WORD wdServerID)
 {
@@ -62,7 +62,7 @@ bool RecordSessionManager::verify(const DWORD accid, const DWORD id, const WORD 
 			&& it->second.id == id
 			&& it->second.wdServerID == wdServerID)
 	{
-		//ÕÒµ½ÁË
+		//æ‰¾åˆ°äº†
 		retval = true;
 		it->second.lastsavetime.now();
 	}
@@ -72,12 +72,12 @@ bool RecordSessionManager::verify(const DWORD accid, const DWORD id, const WORD 
 }
 
 /**
- * \brief ½ÇÉ«ÍË³öÊ±ºò£¬»ØĞ´µµ°¸Íê³ÉÒÔºóĞèÒªÒÆ³ı»á»°¼ÇÂ¼
+ * \brief è§’è‰²é€€å‡ºæ—¶å€™ï¼Œå›å†™æ¡£æ¡ˆå®Œæˆä»¥åéœ€è¦ç§»é™¤ä¼šè¯è®°å½•
  *
- * \param accid ÕÊºÅ
- * \param id ½ÇÉ«±àºÅ
- * \param wdServerID ·şÎñÆ÷±àºÅ
- * \return ÒÆ³ıÊÇ·ñ³É¹¦
+ * \param accid å¸å·
+ * \param id è§’è‰²ç¼–å·
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
+ * \return ç§»é™¤æ˜¯å¦æˆåŠŸ
  */
 bool RecordSessionManager::remove(const DWORD accid, const DWORD id, const WORD wdServerID)
 {
@@ -91,7 +91,7 @@ bool RecordSessionManager::remove(const DWORD accid, const DWORD id, const WORD 
 			&& it->second.id == id
 			&& it->second.wdServerID == wdServerID)
 	{
-		//ÕÒµ½ÁË
+		//æ‰¾åˆ°äº†
 		retval = true;
 		sessionMap.erase(it);
 	}
@@ -101,9 +101,9 @@ bool RecordSessionManager::remove(const DWORD accid, const DWORD id, const WORD 
 }
 
 /**
- * \brief ³¡¾°·şÎñÆ÷¹Ø±ÕµÄÊ±ºò£¬ĞèÒª°ÑËùÓĞµÄÓëÕâ¸ö·şÎñÆ÷Ïà¹ØµÄ»á»°¼ÇÂ¼Çå³ı
+ * \brief åœºæ™¯æœåŠ¡å™¨å…³é—­çš„æ—¶å€™ï¼Œéœ€è¦æŠŠæ‰€æœ‰çš„ä¸è¿™ä¸ªæœåŠ¡å™¨ç›¸å…³çš„ä¼šè¯è®°å½•æ¸…é™¤
  *
- * \param wdServerID ·şÎñÆ÷±àºÅ
+ * \param wdServerID æœåŠ¡å™¨ç¼–å·
  */
 void RecordSessionManager::removeAllByServerID(const WORD wdServerID)
 {

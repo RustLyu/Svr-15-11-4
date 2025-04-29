@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionTaskManager.h  $
  * \author 
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -21,7 +21,7 @@
 #include "zRWLock.h"
 
 /**
- * \brief Session·şÎñÆ÷×ÓÁ¬½Ó¹ÜÀíÆ÷
+ * \brief SessionæœåŠ¡å™¨å­è¿æ¥ç®¡ç†å™¨
  *
  */
 class SessionTaskManager : private zNoncopyable
@@ -30,15 +30,15 @@ class SessionTaskManager : private zNoncopyable
 	public:
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~SessionTaskManager() {};
 
 		/**
-		 * \brief »ñÈ¡×ÓÁ¬½Ó¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \brief è·å–å­è¿æ¥ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 *
-		 * \return ×ÓÁ¬½ÓÎ¨Ò»ÊµÀı
+		 * \return å­è¿æ¥å”¯ä¸€å®ä¾‹
 		 */
 		static SessionTaskManager &getInstance()
 		{
@@ -49,7 +49,7 @@ class SessionTaskManager : private zNoncopyable
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -71,65 +71,65 @@ class SessionTaskManager : private zNoncopyable
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static SessionTaskManager *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		SessionTaskManager() {};
 
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<WORD, SessionTask *> SessionTaskHashmap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef SessionTaskHashmap::iterator SessionTaskHashmap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷³£Á¿µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨å¸¸é‡è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef SessionTaskHashmap::const_iterator SessionTaskHashmap_const_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef SessionTaskHashmap::value_type SessionTaskHashmap_pair;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef std::list<SessionTask *> TaskContainer;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef TaskContainer::iterator TaskContainer_iterator;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zRWLock rwlock;
 		//zMutex mlock;
 		/**
-		 * \brief ÉùÃ÷Ò»¸öÈİÆ÷£¬´æ·ÅËùÓĞµÄ×ÓÁ¬½Ó
+		 * \brief å£°æ˜ä¸€ä¸ªå®¹å™¨ï¼Œå­˜æ”¾æ‰€æœ‰çš„å­è¿æ¥
 		 *
 		 */
 		SessionTaskHashmap sessionTaskSet;
 		/**
-		 * \brief Óë³¡¾°·şÎñÆ÷Á¬½ÓµÄÁ´±í
+		 * \brief ä¸åœºæ™¯æœåŠ¡å™¨è¿æ¥çš„é“¾è¡¨
 		 *
 		 */
 		TaskContainer sceneTaskList;
 		/**
-		 * \brief ÓëÍø¹Ø·şÎñÆ÷Á¬½ÓµÄÁ´±í
+		 * \brief ä¸ç½‘å…³æœåŠ¡å™¨è¿æ¥çš„é“¾è¡¨
 		 *
 		 */
 		TaskContainer gatewayTaskList;

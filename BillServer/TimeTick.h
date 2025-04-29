@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.h  $
  * \author  
  * \date 2
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  *
  * 
  */
@@ -26,7 +26,7 @@ class BillTimeTick : public zThread
 
 		~BillTimeTick() {};
 
-		/// µ±Ç°Ê±¼ä
+		/// å½“å‰æ—¶é—´
 		static zRTime currentTime;
 		static Timer _one_min;
 		static Timer _one_sec;
@@ -39,7 +39,7 @@ class BillTimeTick : public zThread
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CRelationManager.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåºÃÓÑ¹ØÏµ¹ÜÀíÀà
+ * \brief å®šä¹‰å¥½å‹å…³ç³»ç®¡ç†ç±»
  *
  */
 
@@ -22,49 +22,49 @@
 
 class UserSession;
 
-/// ¼ä¸ôÁùÊ®Ğ¡Ê±ÒÔÃëÎªµ¥Î»µÄÊı×Ö
+/// é—´éš”å…­åå°æ—¶ä»¥ç§’ä¸ºå•ä½çš„æ•°å­—
 #define MAX_GROUP_TIME_GAP 60*60*60
 
-/// ÓÑºÃ¶È¿Û³ıµãÊıµ¥Î»Îª·ÖÖÓ
+/// å‹å¥½åº¦æ‰£é™¤ç‚¹æ•°å•ä½ä¸ºåˆ†é’Ÿ
 #define DEDUCT_POINT 5*60
 
 struct CRelation : public zEntry
 {
 public:
-	///	¹ØÏµÀàĞÍ 
+	///	å…³ç³»ç±»å‹ 
 	BYTE  type;
 
-	///  ¹ØÏµ¼¶±ğ
+	///  å…³ç³»çº§åˆ«
 	WORD  level;
 
-	///	ÓÃ»§Session¶ÔÏó
+	///	ç”¨æˆ·Sessionå¯¹è±¡
 //	UserSession *user;
 	bool online;
 
-	/// ÓÃ»§½ÇÉ«ID
+	/// ç”¨æˆ·è§’è‰²ID
 	DWORD charid;
 
-	///  ×îºó¸üĞÂÊ±¼ä
+	///  æœ€åæ›´æ–°æ—¶é—´
 	DWORD lasttime;
 
-	///  Ö°Òµ
+	///  èŒä¸š
 	WORD  occupation;
 
 	CRelation();
 	void sendNotifyToScene();
 	bool isOnline();
 private:
-	/// ¶ÁĞ´Ëø
+	/// è¯»å†™é”
 	//zRWLock rwlock;
 };
 
 class CRelationManager : public zEntryManager<zEntryID, zEntryName>
 {
 private:
-	/// ¶ÁĞ´Ëø
+	/// è¯»å†™é”
 	//zRWLock rwlock;
 
-	/// ÓÃ»§¶ÔÏó
+	/// ç”¨æˆ·å¯¹è±¡
 	UserSession *user;
 
 public:

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Session.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ»á»°Àà
+ * \brief å®ç°ä¼šè¯ç±»
  *
  * 
  */
@@ -21,8 +21,8 @@
 #include "SessionManager.h"
 
 /**
- * \brief ¹¹Ôìº¯Êı
- * \param task ¸Ã»á»°µÄÁ¬½Ó
+ * \brief æ„é€ å‡½æ•°
+ * \param task è¯¥ä¼šè¯çš„è¿æ¥
  */
 UserSession::UserSession(SessionTask *task):zUser(),Session(task)
 {
@@ -38,24 +38,24 @@ UserSession::UserSession(SessionTask *task):zUser(),Session(task)
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 UserSession::~UserSession()
 {
-	Zebra::logger->trace("ÓÃ»§%s(%u)ÓÎÏ·Ê±¼ä:%u·ÖÖÓ",name,id,(regTime.elapse(SessionTimeTick::currentTime)/1000)/60); 
+	Zebra::logger->trace("ç”¨æˆ·%s(%u)æ¸¸æˆæ—¶é—´:%uåˆ†é’Ÿ",name,id,(regTime.elapse(SessionTimeTick::currentTime)/1000)/60); 
 	UserSession::country_map[this->country]--;
 	if((int)UserSession::country_map[this->country] < 0)
 	{
 		UserSession::country_map.erase(this->country);
 	}
-	Zebra::logger->debug("SessionÄ¿Ç°ÔÚÏßÈËÊı:%u",--user_count);
+	Zebra::logger->debug("Sessionç›®å‰åœ¨çº¿äººæ•°:%u",--user_count);
 	SessionChannelManager::getMe().removeUser(this);
 }
 /**
- * \brief ¼ì²éÏûÏ¢ÀàĞÍ£¬¸ù¾İÏµÍ³ÉèÖÃ½øĞĞ¹ıÂË
- * \param pstrCmd ´ı¼ì²éµÄÏûÏ¢
- * \param nCmdLen ÏûÏ¢³¤¶È
- * \return ¸ÃÏûÏ¢ÊÇ·ñÍ¨¹ı¼ì²é
+ * \brief æ£€æŸ¥æ¶ˆæ¯ç±»å‹ï¼Œæ ¹æ®ç³»ç»Ÿè®¾ç½®è¿›è¡Œè¿‡æ»¤
+ * \param pstrCmd å¾…æ£€æŸ¥çš„æ¶ˆæ¯
+ * \param nCmdLen æ¶ˆæ¯é•¿åº¦
+ * \return è¯¥æ¶ˆæ¯æ˜¯å¦é€šè¿‡æ£€æŸ¥
  */
 bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned int nCmdLen) const
 {
@@ -137,7 +137,7 @@ bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 				}
 				break;
 		// */
-			case REQUEST_TEAM_USERCMD_PARA://ÑûÇë×é¶Ó
+			case REQUEST_TEAM_USERCMD_PARA://é‚€è¯·ç»„é˜Ÿ
 				{
 					if (!isset_state(sysSetting , USER_SETTING_TEAM))
 						return false;
@@ -150,13 +150,13 @@ bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 		break;
 	case TRADE_USERCMD:
 		{
-			//ÇëÇó½»Ò×
+			//è¯·æ±‚äº¤æ˜“
 			if (REQUEST_TRADE_USERCMD_PARAMETER==pstrCmd->byParam)
 				if (!isset_state(sysSetting , USER_SETTING_TRADE))
 					return false;
 		}
 		break;
-	case SCHOOL_USERCMD://ÑûÇë¼ÓÈëÊ¦ÃÅ
+	case SCHOOL_USERCMD://é‚€è¯·åŠ å…¥å¸ˆé—¨
 		{
 			if (ADD_MEMBER_TO_SCHOOL_PARA==pstrCmd->byParam)
 			{
@@ -166,13 +166,13 @@ bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 					{
 						UserSession * pUser = UserSessionManager::getInstance()->getUserSessionByName(rev->memberName);
 						if (pUser)
-								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s ¼ÓÈëÊ¦ÃÅÎ´¿ªÆô", name);
+								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s åŠ å…¥å¸ˆé—¨æœªå¼€å¯", name);
 						return false;
 					}
 			}
 		}
 		break;
-	case UNION_USERCMD://ÑûÇë¼ÓÈë°ï»á
+	case UNION_USERCMD://é‚€è¯·åŠ å…¥å¸®ä¼š
 		{
 			if (ADD_MEMBER_TO_UNION_PARA==pstrCmd->byParam)
 				if(QUESTION==((stAddMemberToUnionCmd*)pstrCmd)->byState)
@@ -180,7 +180,7 @@ bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 						return false;
 		}
 		break;
-	case SEPT_USERCMD://ÑûÇë¼ÓÈë¼Ò×å
+	case SEPT_USERCMD://é‚€è¯·åŠ å…¥å®¶æ—
 		{
 			if (ADD_MEMBER_TO_SEPT_PARA==pstrCmd->byParam)
 				if(SEPT_QUESTION==((stAddMemberToSeptCmd*)pstrCmd)->byState)
@@ -188,7 +188,7 @@ bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 						return false;
 		}
 		break;
-	case RELATION_USERCMD://ÑûÇë¼ÓÎªºÃÓÑ
+	case RELATION_USERCMD://é‚€è¯·åŠ ä¸ºå¥½å‹
 		{
 			if (RELATION_STATUS_PARA==pstrCmd->byParam)
 			{
@@ -198,7 +198,7 @@ bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 					{
 						UserSession * pUser = UserSessionManager::getInstance()->getUserSessionByName(rev->name);
 						if (pUser)
-								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s Ìí¼ÓºÃÓÑÎ´¿ªÆô", name);
+								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s æ·»åŠ å¥½å‹æœªå¼€å¯", name);
 						return false;
 					}
 			}
@@ -211,9 +211,9 @@ bool UserSession::checkChatCmd(const Cmd::stNullUserCmd *pstrCmd, const unsigned
 }
 
 /**
- * \brief Ïò¸ÃÍæ¼Ò·¢ËÍÏûÏ¢
- * \param pstrCmd ´ı·¢ËÍµÄÏûÏ¢
- * \param nCmdLen ÏûÏ¢³¤¶È
+ * \brief å‘è¯¥ç©å®¶å‘é€æ¶ˆæ¯
+ * \param pstrCmd å¾…å‘é€çš„æ¶ˆæ¯
+ * \param nCmdLen æ¶ˆæ¯é•¿åº¦
  */
 void UserSession::sendCmdToMe(const void *pstrCmd, const unsigned int nCmdLen) const 
 {
@@ -242,9 +242,9 @@ do	\
 }while(false)
 
 /**
- * \brief ÏòÍæ¼Ò·¢ËÍÏµÍ³ÁÄÌìÏûÏ¢
- * \param type ÏµÍ³ÏûÏ¢ÀàĞÍ
- * \param pattern ÄÚÈİ
+ * \brief å‘ç©å®¶å‘é€ç³»ç»ŸèŠå¤©æ¶ˆæ¯
+ * \param type ç³»ç»Ÿæ¶ˆæ¯ç±»å‹
+ * \param pattern å†…å®¹
  */
 void UserSession::sendSysChat(int type, const char *pattern, ...) const
 {
@@ -261,9 +261,9 @@ void UserSession::sendSysChat(int type, const char *pattern, ...) const
 }
 
 /**
- * \brief ÏòÍæ¼Ò·¢ËÍGMÁÄÌìÏûÏ¢
- * \param type ÏµÍ³ÏûÏ¢ÀàĞÍ
- * \param pattern ÄÚÈİ
+ * \brief å‘ç©å®¶å‘é€GMèŠå¤©æ¶ˆæ¯
+ * \param type ç³»ç»Ÿæ¶ˆæ¯ç±»å‹
+ * \param pattern å†…å®¹
  */
 void UserSession::sendGmChat(int type, const char *pattern, ...) const
 {
@@ -280,8 +280,8 @@ void UserSession::sendGmChat(int type, const char *pattern, ...) const
 }
 
 /**
- * \brief ¸ù¾İÏûÏ¢ÉèÖÃÍæ¼ÒµÄÓÑºÃ¶È
- * \param rev ´æ·ÅÓÑºÃ¶ÈĞÅÏ¢µÄÏûÏ¢
+ * \brief æ ¹æ®æ¶ˆæ¯è®¾ç½®ç©å®¶çš„å‹å¥½åº¦
+ * \param rev å­˜æ”¾å‹å¥½åº¦ä¿¡æ¯çš„æ¶ˆæ¯
  */
 void UserSession::setFriendDegree(Cmd::Session::t_CountFriendDegree_SceneSession *rev)
 {
@@ -289,9 +289,9 @@ void UserSession::setFriendDegree(Cmd::Session::t_CountFriendDegree_SceneSession
 }
 
 /**
- * \brief Ïò³¡¾°·¢ËÍºÃÓÑ¹ØÏµĞÅÏ¢
- * ´«ÈëµÄÏûÏ¢°üº¬Ãû×ÖÁĞ±í£¬·¢ËÍÍæ¼ÒºÍÕâĞ©Ãû×ÖµÄÓÑºÃ¶È
- * \param rev °üº¬Ãû×ÖÁĞ±íµÄÏûÏ¢
+ * \brief å‘åœºæ™¯å‘é€å¥½å‹å…³ç³»ä¿¡æ¯
+ * ä¼ å…¥çš„æ¶ˆæ¯åŒ…å«åå­—åˆ—è¡¨ï¼Œå‘é€ç©å®¶å’Œè¿™äº›åå­—çš„å‹å¥½åº¦
+ * \param rev åŒ…å«åå­—åˆ—è¡¨çš„æ¶ˆæ¯
  */
 void UserSession::sendFriendDegree(Cmd::Session::t_RequestFriendDegree_SceneSession *rev)
 {
@@ -325,7 +325,7 @@ void UserSession::sendFriendDegree(Cmd::Session::t_RequestFriendDegree_SceneSess
 					temp->byType = Cmd::Session::TYPE_FRIEND;
 					break;
 				default:
-					Zebra::logger->error("·¢ËÍºÃÓÑ¹ØÏµÓĞ²»ÄÜÊ¶±ğµÄÀàĞÍ %u",rel->type);
+					Zebra::logger->error("å‘é€å¥½å‹å…³ç³»æœ‰ä¸èƒ½è¯†åˆ«çš„ç±»å‹ %u",rel->type);
 					break;
 			}
 			temp->wdDegree = rel->level;
@@ -358,10 +358,10 @@ void UserSession::sendFriendDegree(Cmd::Session::t_RequestFriendDegree_SceneSess
 }
 
 /**
- * \brief Ïòscene×ª·¢ÏûÏ¢
- * \param ptNullCmd ´ı×ª·¢µÄÏûÏ¢
- * \param nCmdLen ÏûÏ¢³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \brief å‘sceneè½¬å‘æ¶ˆæ¯
+ * \param ptNullCmd å¾…è½¬å‘çš„æ¶ˆæ¯
+ * \param nCmdLen æ¶ˆæ¯é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool UserSession::forwardScene(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -375,7 +375,7 @@ bool UserSession::forwardScene(const Cmd::stNullUserCmd *ptNullCmd, const unsign
 		sendCmd->size=nCmdLen;
 		bcopy(ptNullCmd,sendCmd->data,nCmdLen);
 		scene->sendCmd(buf,sizeof(Cmd::Scene::t_Scene_ForwardScene)+nCmdLen);
-		//Zebra::logger->debug("×ª·¢%ldµÄÏûÏ¢µ½%ld³¡¾°",pUser->id,pUser->sceneTempID);
+		//Zebra::logger->debug("è½¬å‘%ldçš„æ¶ˆæ¯åˆ°%ldåœºæ™¯",pUser->id,pUser->sceneTempID);
 		return true;
 	}
 	return false;

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ServerTask.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ·şÎñÆ÷Á¬½ÓÀà
+ * \brief å®ç°æœåŠ¡å™¨è¿æ¥ç±»
  *
  * 
  */
@@ -40,14 +40,14 @@
 #include "InfoClientManager.h"
 
 /**
- * \brief ÑéÖ¤Ò»¸ö·şÎñÆ÷Á¬½ÓÊÇ·ñºÏ·¨
+ * \brief éªŒè¯ä¸€ä¸ªæœåŠ¡å™¨è¿æ¥æ˜¯å¦åˆæ³•
  *
- * Ã¿Ò»Ì¨·şÎñÆ÷µÄĞÅÏ¢ÔÚÊı¾İ¿âÖĞ¶¼ÓĞ¼ÇÂ¼£¬Èç¹ûÊı¾İ¿âÖĞÃ»ÓĞÏàÓ¦µÄ¼ÇÂ¼£¬ÄÇÃ´Õâ¸ö·şÎñÆ÷Á¬½ÓÈÎÎñ¾ÍÊÇ²»ºÏ·¨µÄ£¬ĞèÒªÁ¢¼´¶Ï¿ªÁ¬½Ó<br>
- * ÕâÑù±£Ö¤ÁËÒ»¸öÇøÖĞµÄ·şÎñÆ÷Ö®¼äµÄĞÅÈÎ¹ØÏµ
+ * æ¯ä¸€å°æœåŠ¡å™¨çš„ä¿¡æ¯åœ¨æ•°æ®åº“ä¸­éƒ½æœ‰è®°å½•ï¼Œå¦‚æœæ•°æ®åº“ä¸­æ²¡æœ‰ç›¸åº”çš„è®°å½•ï¼Œé‚£ä¹ˆè¿™ä¸ªæœåŠ¡å™¨è¿æ¥ä»»åŠ¡å°±æ˜¯ä¸åˆæ³•çš„ï¼Œéœ€è¦ç«‹å³æ–­å¼€è¿æ¥<br>
+ * è¿™æ ·ä¿è¯äº†ä¸€ä¸ªåŒºä¸­çš„æœåŠ¡å™¨ä¹‹é—´çš„ä¿¡ä»»å…³ç³»
  *
- * \param wdType ·şÎñÆ÷ÀàĞÍ
- * \param pstrIP ·şÎñÆ÷µØÖ·
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param wdType æœåŠ¡å™¨ç±»å‹
+ * \param pstrIP æœåŠ¡å™¨åœ°å€
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::verify(WORD wdType, const char *pstrIP)
 {
@@ -61,7 +61,7 @@ bool ServerTask::verify(WORD wdType, const char *pstrIP)
 	connHandleID handle = SuperService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ´ÓÊı¾İ¿âÁ¬½Ó³Ø»ñÈ¡Á¬½Ó¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½ä»æ•°æ®åº“è¿æ¥æ± è·å–è¿æ¥å¥æŸ„");
 		return false;
 	}
 
@@ -92,25 +92,25 @@ bool ServerTask::verify(WORD wdType, const char *pstrIP)
 			|| retcode == 0
 			|| NULL == pData)
 	{
-		Zebra::logger->error("Êı¾İ¿âÖĞÃ»ÓĞÏàÓ¦µÄ·şÎñÆ÷¼ÇÂ¼ %u",wdType);
+		Zebra::logger->error("æ•°æ®åº“ä¸­æ²¡æœ‰ç›¸åº”çš„æœåŠ¡å™¨è®°å½• %u",wdType);
 		SuperService::dbConnPool->putHandle(handle);
 		return false;
 	}
 
 	SuperService::dbConnPool->putHandle(handle);
 
-	//Ä³Ğ©ÀàĞÍ·şÎñÆ÷ÔÚÒ»¸öÇøÖĞÖ»ÄÜÓÉÒ»Ì¨
+	//æŸäº›ç±»å‹æœåŠ¡å™¨åœ¨ä¸€ä¸ªåŒºä¸­åªèƒ½ç”±ä¸€å°
 	if (retcode > 1
 			&& (wdType == BILLSERVER
 			|| wdType == SESSIONSERVER)
 	)
 	{
 		SAFE_DELETE_VEC(pData);
-		Zebra::logger->error("ÕâÖÖÀàĞÍµÄ·şÎñÆ÷Ö»ÄÜÓĞÒ»Ì¨ %u", wdType);
+		Zebra::logger->error("è¿™ç§ç±»å‹çš„æœåŠ¡å™¨åªèƒ½æœ‰ä¸€å° %u", wdType);
 		return false;
 	}
 
-	//´ÓÊı¾İ¿âÖĞÈ¡Êı¾İ³É¹¦£¬ĞèÒª´ÓÕâĞ©Êı¾İÖĞÈ¡µÃÒ»¸ö¿ÉÓÃÏî
+	//ä»æ•°æ®åº“ä¸­å–æ•°æ®æˆåŠŸï¼Œéœ€è¦ä»è¿™äº›æ•°æ®ä¸­å–å¾—ä¸€ä¸ªå¯ç”¨é¡¹
 	unsigned int i;
 	for(i = 0; i < retcode; i++)
 	{
@@ -127,11 +127,11 @@ bool ServerTask::verify(WORD wdType, const char *pstrIP)
 	SAFE_DELETE_VEC(pData);
 	if (i == retcode)
 	{
-		Zebra::logger->error("·şÎñÆ÷ÒÑ¾­Æô¶¯Íê³ÉÁË£¬Ã»ÓĞ¿ÉÓÃ¼ÇÂ¼");
+		Zebra::logger->error("æœåŠ¡å™¨å·²ç»å¯åŠ¨å®Œæˆäº†ï¼Œæ²¡æœ‰å¯ç”¨è®°å½•");
 		return false;
 	}
 
-	//·µ»Ø·şÎñÆ÷ĞÅÏ¢µ½·şÎñÆ÷
+	//è¿”å›æœåŠ¡å™¨ä¿¡æ¯åˆ°æœåŠ¡å™¨
 	using namespace Cmd::Super;
 	t_Startup_Response tCmd;
 	tCmd.wdServerID = wdServerID;
@@ -141,7 +141,7 @@ bool ServerTask::verify(WORD wdType, const char *pstrIP)
 	if (!sendCmd(&tCmd, sizeof(tCmd)))
 	{
 		
-		Zebra::logger->error("Ïò·şÎñÆ÷·¢ËÍÖ¸ÁîÊ§°Ü%u(%s:%u),wdServerID,pstrExtIP,wdExprot");
+		Zebra::logger->error("å‘æœåŠ¡å™¨å‘é€æŒ‡ä»¤å¤±è´¥%u(%s:%u),wdServerID,pstrExtIP,wdExprot");
 		return false;
 	}
 
@@ -149,11 +149,11 @@ bool ServerTask::verify(WORD wdType, const char *pstrIP)
 }
 
 /**
- * \brief µÈ´ı½ÓÊÜÑéÖ¤Ö¸Áî²¢½øĞĞÑéÖ¤
+ * \brief ç­‰å¾…æ¥å—éªŒè¯æŒ‡ä»¤å¹¶è¿›è¡ŒéªŒè¯
  *
- * ÊµÏÖĞéº¯Êı<code>zTCPTask::verifyConn</code>
+ * å®ç°è™šå‡½æ•°<code>zTCPTask::verifyConn</code>
  *
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦£¬»òÕß³¬Ê±
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸï¼Œæˆ–è€…è¶…æ—¶
  */
 int ServerTask::verifyConn()
 {
@@ -164,7 +164,7 @@ int ServerTask::verifyConn()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
@@ -176,18 +176,18 @@ int ServerTask::verifyConn()
 			{
 				if (verify(ptCmd->wdServerType, ptCmd->pstrIP))
 				{
-					Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤(%s:%u)",ptCmd->pstrIP,ptCmd->wdServerType);
+					Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯(%s:%u)",ptCmd->pstrIP,ptCmd->wdServerType);
 					return 1;
 				}
 				else
 				{
-					Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÑéÖ¤Ê§°Ü(%s:%u)",ptCmd->pstrIP,ptCmd->wdServerType);
+					Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥éªŒè¯å¤±è´¥(%s:%u)",ptCmd->pstrIP,ptCmd->wdServerType);
 					return -1;
 				}
 			}
 			else
 			{
-				Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÖ¸ÁîÑéÖ¤Ê§°Ü(%s:%u)",ptCmd->pstrIP,ptCmd->wdServerType);
+				Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æŒ‡ä»¤éªŒè¯å¤±è´¥(%s:%u)",ptCmd->pstrIP,ptCmd->wdServerType);
 				return -1;
 			}
 		}
@@ -197,13 +197,13 @@ int ServerTask::verifyConn()
 }
 
 /**
- * \brief ±£´æ·şÎñÆ÷Ö®¼äµÄÒÀÀµ¹ØÏµ
+ * \brief ä¿å­˜æœåŠ¡å™¨ä¹‹é—´çš„ä¾èµ–å…³ç³»
  *
  */
 static __gnu_cxx::hash_map<int, std::vector<int> > serverSequence;
 
 /**
- * \brief ³õÊ¼»¯·şÎñÆ÷Ö®¼äµÄÒÀÀµ¹ØÏµ
+ * \brief åˆå§‹åŒ–æœåŠ¡å™¨ä¹‹é—´çš„ä¾èµ–å…³ç³»
 	
    gcc 
  *
@@ -228,11 +228,11 @@ void initServerSequence()
 }
 
 /**
- * \brief ÑéÖ¤Ä³ÖÖÀàĞÍµÄËùÓĞ·şÎñÆ÷ÊÇ·ñÍêÈ«Æô¶¯Íê³É
+ * \brief éªŒè¯æŸç§ç±»å‹çš„æ‰€æœ‰æœåŠ¡å™¨æ˜¯å¦å®Œå…¨å¯åŠ¨å®Œæˆ
  *
- * \param wdType ·şÎñÆ÷ÀàĞÍ
- * \param sv ÈİÆ÷£¬ÈİÄÉÆô¶¯³É¹¦µÄ·şÎñÆ÷ÁĞ±í
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param wdType æœåŠ¡å™¨ç±»å‹
+ * \param sv å®¹å™¨ï¼Œå®¹çº³å¯åŠ¨æˆåŠŸçš„æœåŠ¡å™¨åˆ—è¡¨
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::verifyTypeOK(const WORD wdType, std::vector<ServerTask *> &sv)
 {
@@ -254,7 +254,7 @@ bool ServerTask::verifyTypeOK(const WORD wdType, std::vector<ServerTask *> &sv)
 	connHandleID handle = SuperService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ´ÓÊı¾İ¿âÁ¬½Ó³Ø»ñÈ¡Á¬½Ó¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½ä»æ•°æ®åº“è¿æ¥æ± è·å–è¿æ¥å¥æŸ„");
 		return false;
 	}
 
@@ -263,7 +263,7 @@ bool ServerTask::verifyTypeOK(const WORD wdType, std::vector<ServerTask *> &sv)
 			|| retcode == 0
 			|| NULL == ID)
 	{
-		Zebra::logger->error("Êı¾İ¿âÖĞÃ»ÓĞÏàÓ¦µÄ·şÎñÆ÷¼ÇÂ¼ %u",wdType);
+		Zebra::logger->error("æ•°æ®åº“ä¸­æ²¡æœ‰ç›¸åº”çš„æœåŠ¡å™¨è®°å½• %u",wdType);
 		SuperService::dbConnPool->putHandle(handle);
 		return false;
 	}
@@ -272,7 +272,7 @@ bool ServerTask::verifyTypeOK(const WORD wdType, std::vector<ServerTask *> &sv)
 	bool retval = true;
 	for(unsigned int i = 0; i < retcode; i++)
 	{
-		//Õâ¸öÈİÆ÷ÀïÃæµÄ¿Ï¶¨ÊÇOK×´Ì¬
+		//è¿™ä¸ªå®¹å™¨é‡Œé¢çš„è‚¯å®šæ˜¯OKçŠ¶æ€
 		ServerTask * pServer = ServerManager::getInstance().getServer(ID[i]);
 		if (NULL == pServer)
 		{
@@ -290,8 +290,8 @@ bool ServerTask::verifyTypeOK(const WORD wdType, std::vector<ServerTask *> &sv)
 }
 
 /**
- * \brief Í¨ÖªËùÓĞÒÀÀµµÄ·şÎñÆ÷
- * \return Í¨ÖªÊÇ·ñ³É¹¦
+ * \brief é€šçŸ¥æ‰€æœ‰ä¾èµ–çš„æœåŠ¡å™¨
+ * \return é€šçŸ¥æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::notifyOther(WORD dstID)
 {
@@ -326,8 +326,8 @@ bool ServerTask::notifyOther(WORD dstID)
 	return true;
 }
 /**
- * \brief Í¨ÖªËùÓĞÒÀÀµµÄ·şÎñÆ÷
- * \return Í¨ÖªÊÇ·ñ³É¹¦
+ * \brief é€šçŸ¥æ‰€æœ‰ä¾èµ–çš„æœåŠ¡å™¨
+ * \return é€šçŸ¥æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::notifyOther()
 {
@@ -349,7 +349,7 @@ bool ServerTask::notifyOther()
 	for(Container::iterator it = ses.begin(); it != ses.end(); ++it)
 	{
 		Cmd.srcID = it->first.wdServerID;
-		// Í¨ÖªÒÀÀµµÄ·şÎñÆ÷
+		// é€šçŸ¥ä¾èµ–çš„æœåŠ¡å™¨
 		bool curval = ServerManager::getInstance().broadcastByID(Cmd.srcID, &Cmd, sizeof(Cmd));
 		Zebra::logger->trace("ServerTask::notifyOther()srcid=%u curval = %u",Cmd.srcID,curval);
 		retval &= curval;
@@ -358,8 +358,8 @@ bool ServerTask::notifyOther()
 }
 
 /**
- * \brief ÊÕµ½notifyOther»Ø¸´
- * \param wdServerID Ä¿µÄ·şÎñÆ÷±àºÅ
+ * \brief æ”¶åˆ°notifyOtherå›å¤
+ * \param wdServerID ç›®çš„æœåŠ¡å™¨ç¼–å·
  */
 void ServerTask::responseOther(const WORD wdServerID)
 {
@@ -368,15 +368,15 @@ void ServerTask::responseOther(const WORD wdServerID)
 	{
 		if (it->first.wdServerID == wdServerID)
 		{
-			Zebra::logger->debug("»Ø¸´³É¹¦ %s, %d", it->first.pstrName, it->first.wdServerID);
+			Zebra::logger->debug("å›å¤æˆåŠŸ %s, %d", it->first.pstrName, it->first.wdServerID);
 			it->second = true;
 		}
 	}
 }
 
 /**
- * \brief Í¨Öª·şÎñÆ÷ÆäÒÀÀµµÄ·şÎñÆ÷ĞÅÏ¢ÁĞ±í
- * \return Í¨ÖªÊÇ·ñ³É¹¦
+ * \brief é€šçŸ¥æœåŠ¡å™¨å…¶ä¾èµ–çš„æœåŠ¡å™¨ä¿¡æ¯åˆ—è¡¨
+ * \return é€šçŸ¥æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::notifyMe()
 {	
@@ -419,8 +419,8 @@ bool ServerTask::notifyMe()
 }
 
 /**
- * \brief ´¦Àí·şÎñÆ÷µÄÒÀÀµ¹ØÏµ£¬Ò²¾ÍÊÇÆô¶¯Ë³Ğò
- * \return ÊÇ·ñËùÓĞËùÒÀÀµµÄ·şÎñÆ÷ÒÑ¾­Æô¶¯Íê³É
+ * \brief å¤„ç†æœåŠ¡å™¨çš„ä¾èµ–å…³ç³»ï¼Œä¹Ÿå°±æ˜¯å¯åŠ¨é¡ºåº
+ * \return æ˜¯å¦æ‰€æœ‰æ‰€ä¾èµ–çš„æœåŠ¡å™¨å·²ç»å¯åŠ¨å®Œæˆ
  */
 bool ServerTask::processSequence()
 {
@@ -450,7 +450,7 @@ bool ServerTask::processSequence()
 				se.wdExtPort = (*sv_it)->wdExtPort;
 				se.state = (*sv_it)->state;
 
-				//½«ËùÒÀÀµµÄ·şÎñÆ÷¼ÓÈë×Ô¼ºËùÒÀÀµµÄÁĞ±íÖĞ,²¢Ó¦´ğÏûÏ¢Éè³É·ñ
+				//å°†æ‰€ä¾èµ–çš„æœåŠ¡å™¨åŠ å…¥è‡ªå·±æ‰€ä¾èµ–çš„åˆ—è¡¨ä¸­,å¹¶åº”ç­”æ¶ˆæ¯è®¾æˆå¦
 				ses.insert(Container::value_type(se, false));
 			}
 		}
@@ -464,13 +464,13 @@ bool ServerTask::processSequence()
 }
 
 /**
- * \brief µÈ´ı·şÎñÆ÷Æô¶¯Íê³É
+ * \brief ç­‰å¾…æœåŠ¡å™¨å¯åŠ¨å®Œæˆ
  *
- * ·şÎñÆ÷½ÓÊÜµ½·şÎñÆ÷¹ÜÀíÆ÷·µ»ØµÄ×ÔÉíĞÅÏ¢£¬»á½øĞĞ×ÔÉíµÄ³õÊ¼»¯£¬³õÊ¼»¯Íê±Ï·¢ËÍÆô¶¯Íê³ÉÖ¸Áîµ½·şÎñÆ÷¹ÜÀíÆ÷<br>
- * µ±·şÎñÆ÷¹ÜÀíÆ÷½ÓÊÜµ½È·ÈÏÆô¶¯Íê³ÉµÄÖ¸Áî¾Í»á°ÑÕâ¸ö·şÎñÆ÷¼ÓÈëµ½Íê³ÉÆô¶¯µÄ¶ÓÁĞÖĞ£¬ÕâÑù·şÎñÆ÷¾ÍÍê³ÉÁËÕû¸öÆô¶¯¹ı³Ì<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::waitSync</code>
+ * æœåŠ¡å™¨æ¥å—åˆ°æœåŠ¡å™¨ç®¡ç†å™¨è¿”å›çš„è‡ªèº«ä¿¡æ¯ï¼Œä¼šè¿›è¡Œè‡ªèº«çš„åˆå§‹åŒ–ï¼Œåˆå§‹åŒ–å®Œæ¯•å‘é€å¯åŠ¨å®ŒæˆæŒ‡ä»¤åˆ°æœåŠ¡å™¨ç®¡ç†å™¨<br>
+ * å½“æœåŠ¡å™¨ç®¡ç†å™¨æ¥å—åˆ°ç¡®è®¤å¯åŠ¨å®Œæˆçš„æŒ‡ä»¤å°±ä¼šæŠŠè¿™ä¸ªæœåŠ¡å™¨åŠ å…¥åˆ°å®Œæˆå¯åŠ¨çš„é˜Ÿåˆ—ä¸­ï¼Œè¿™æ ·æœåŠ¡å™¨å°±å®Œæˆäº†æ•´ä¸ªå¯åŠ¨è¿‡ç¨‹<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::waitSync</code>
  *
- * \return ·şÎñÆ÷Æô¶¯ÊÇ·ñÍ¨¹ı£¬Èç¹û³¬Ê±»¹Òª¼ÌĞøµÈ´ı
+ * \return æœåŠ¡å™¨å¯åŠ¨æ˜¯å¦é€šè¿‡ï¼Œå¦‚æœè¶…æ—¶è¿˜è¦ç»§ç»­ç­‰å¾…
  */
 int ServerTask::waitSync()
 {
@@ -483,7 +483,7 @@ int ServerTask::waitSync()
 	}
 	else if (retcode > 0)
 	{
-		//Ì×½Ó¿Ú×¼±¸ºÃÁË½ÓÊÕÊı¾İ£¬½ÓÊÕÊı¾İµ½»º³å£¬²¢³¢ÊÔ´¦ÀíÖ¸Áî
+		//å¥—æ¥å£å‡†å¤‡å¥½äº†æ¥æ”¶æ•°æ®ï¼Œæ¥æ”¶æ•°æ®åˆ°ç¼“å†²ï¼Œå¹¶å°è¯•å¤„ç†æŒ‡ä»¤
 		retcode = mSocket.recvToBuf_NoPoll();
 		if (-1 == retcode)
 		{
@@ -503,12 +503,12 @@ int ServerTask::waitSync()
 				&& PARA_STARTUP_OK == ptCmd->para
 				&& wdServerID == ptCmd->wdServerID)
 		{
-			Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¬²½ÑéÖ¤³É¹¦(%u, %u)", ptCmd->wdServerID, wdServerID);
+			Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥åŒæ­¥éªŒè¯æˆåŠŸ(%u, %u)", ptCmd->wdServerID, wdServerID);
 			return 1;
 		}
 		else
 		{
-			Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÍ¬²½ÑéÖ¤Ê§°Ü(%u, %u)", ptCmd->wdServerID, wdServerID);
+			Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥åŒæ­¥éªŒè¯å¤±è´¥(%u, %u)", ptCmd->wdServerID, wdServerID);
 			return -1;
 		}
 	}
@@ -519,37 +519,37 @@ int ServerTask::waitSync()
 
 	if (!blntime) 
 	{
-		Zebra::logger->debug("¼ì²é´¦ÀíÆô¶¯Ë³ĞòcheckSequenceTime()=false");
+		Zebra::logger->debug("æ£€æŸ¥å¤„ç†å¯åŠ¨é¡ºåºcheckSequenceTime()=false");
 		blntime = true;
 	}
 	if (!blnseq)
 	{
-		Zebra::logger->debug("¼ì²é´¦ÀíÆô¶¯Ë³ĞòprocessSequence()=false");
+		Zebra::logger->debug("æ£€æŸ¥å¤„ç†å¯åŠ¨é¡ºåºprocessSequence()=false");
 		blnseq = true;
 	}
 	if (!blnother)
 	{
-		Zebra::logger->debug("¼ì²é´¦ÀíÆô¶¯Ë³ĞònotifyOther()=false");
+		Zebra::logger->debug("æ£€æŸ¥å¤„ç†å¯åŠ¨é¡ºåºnotifyOther()=false");
 		blnother = true;
 	}
-	//Ê×ÏÈ¼ì²é´¦ÀíÆô¶¯Ë³Ğò
+	//é¦–å…ˆæ£€æŸ¥å¤„ç†å¯åŠ¨é¡ºåº
 	if (blntime && blnseq	&& blnother)
 		sequenceOK = true;	
 	if (sequenceOK)
 	{
 		notifyMe();		
 	}
-	//µÈ´ı³¬Ê±
+	//ç­‰å¾…è¶…æ—¶
 	return 0;
 }
 
 /**
- * \brief È·ÈÏÒ»¸ö·şÎñÆ÷Á¬½ÓµÄ×´Ì¬ÊÇ¿ÉÒÔ»ØÊÕµÄ
+ * \brief ç¡®è®¤ä¸€ä¸ªæœåŠ¡å™¨è¿æ¥çš„çŠ¶æ€æ˜¯å¯ä»¥å›æ”¶çš„
  *
- * µ±Ò»¸öÁ¬½Ó×´Ì¬ÊÇ¿ÉÒÔ»ØÊÕµÄ×´Ì¬£¬ÄÇÃ´ÒâÎ¶×ÅÕâ¸öÁ¬½ÓµÄÕû¸öÉúÃüÖÜÆÚ½áÊø£¬¿ÉÒÔ´ÓÄÚ´æÖĞ°²È«µÄÉ¾³ıÁË£º£©<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::recycleConn</code>
+ * å½“ä¸€ä¸ªè¿æ¥çŠ¶æ€æ˜¯å¯ä»¥å›æ”¶çš„çŠ¶æ€ï¼Œé‚£ä¹ˆæ„å‘³ç€è¿™ä¸ªè¿æ¥çš„æ•´ä¸ªç”Ÿå‘½å‘¨æœŸç»“æŸï¼Œå¯ä»¥ä»å†…å­˜ä¸­å®‰å…¨çš„åˆ é™¤äº†ï¼šï¼‰<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::recycleConn</code>
  *
- * \return ÊÇ·ñ¿ÉÒÔ»ØÊÕ
+ * \return æ˜¯å¦å¯ä»¥å›æ”¶
  */
 int ServerTask::recycleConn()
 {
@@ -557,9 +557,9 @@ int ServerTask::recycleConn()
 }
 
 /**
- * \brief Ìí¼Óµ½È«¾ÖÈİÆ÷ÖĞ
+ * \brief æ·»åŠ åˆ°å…¨å±€å®¹å™¨ä¸­
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::addToContainer</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::addToContainer</code>
  *
  */
 void ServerTask::addToContainer()
@@ -569,15 +569,15 @@ void ServerTask::addToContainer()
 }
 
 /**
- * \brief ´ÓÈ«¾ÖÈİÆ÷ÖĞÉ¾³ı
+ * \brief ä»å…¨å±€å®¹å™¨ä¸­åˆ é™¤
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::removeToContainer</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::removeToContainer</code>
  *
  */
 void ServerTask::removeFromContainer()
 {
 	Zebra::logger->trace("ServerTask::removeFromContainer");
-	//Èç¹ûÊÇÍø¹Ø·şÎñÆ÷¹Ø±Õ£¬Ê×ÏÈÍ¨ÖªËùÓĞµÄµÇÂ½·şÎñÆ÷Íø¹Ø¹Ø±Õ
+	//å¦‚æœæ˜¯ç½‘å…³æœåŠ¡å™¨å…³é—­ï¼Œé¦–å…ˆé€šçŸ¥æ‰€æœ‰çš„ç™»é™†æœåŠ¡å™¨ç½‘å…³å…³é—­
 	if (GATEWAYSERVER == wdServerType)
 	{
 		Cmd::FL::t_GYList_FL tCmd;
@@ -596,9 +596,9 @@ void ServerTask::removeFromContainer()
 }
 
 /**
- * \brief Ìí¼Óµ½Î¨Ò»ĞÔÑéÖ¤ÈİÆ÷ÖĞ
+ * \brief æ·»åŠ åˆ°å”¯ä¸€æ€§éªŒè¯å®¹å™¨ä¸­
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::uniqueAdd</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::uniqueAdd</code>
  *
  */
 bool ServerTask::uniqueAdd()
@@ -608,9 +608,9 @@ bool ServerTask::uniqueAdd()
 }
 
 /**
- * \brief ´ÓÎ¨Ò»ĞÔÑéÖ¤ÈİÆ÷ÖĞÉ¾³ı
+ * \brief ä»å”¯ä¸€æ€§éªŒè¯å®¹å™¨ä¸­åˆ é™¤
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::uniqueRemove</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::uniqueRemove</code>
  *
  */
 bool ServerTask::uniqueRemove()
@@ -620,11 +620,11 @@ bool ServerTask::uniqueRemove()
 }
 
 /**
- * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄ¹ØÓÚÆô¶¯µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„å…³äºå¯åŠ¨çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -635,7 +635,7 @@ bool ServerTask::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 	{
 		case PARA_STARTUP_SERVERENTRY_NOTIFYOTHER://1,4
 			{		
-				// ÏìÓ¦ÒÀÀµµÄ·şÎñÆ÷µÄNOTIFYOTHER»ØÓ¦ÏûÏ¢		
+				// å“åº”ä¾èµ–çš„æœåŠ¡å™¨çš„NOTIFYOTHERå›åº”æ¶ˆæ¯		
 				t_Startup_ServerEntry_NotifyOther *ptCmd = (t_Startup_ServerEntry_NotifyOther *)ptNullCmd;	
 				// 			
 				ServerManager::getInstance().responseOther(ptCmd->entry.wdServerID,ptCmd->srcID);
@@ -670,11 +670,11 @@ bool ServerTask::msgParse_Startup(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 }
 
 /**
- * \brief ½âÎöÀ´×Ô¼Æ·Ñ·şÎñÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªè®¡è´¹æœåŠ¡å™¨çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::msgParse_Bill(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -703,11 +703,11 @@ bool ServerTask::msgParse_Bill(const Cmd::t_NullCmd *ptNullCmd, const unsigned i
 }
 
 /**
- * \brief ½âÎöÀ´×ÔÍø¹Ø·şÎñÆ÷µÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªç½‘å…³æœåŠ¡å™¨çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -758,15 +758,15 @@ bool ServerTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				cmd.gameZone = SuperService::getInstance().getZoneID();
 				bcopy(ptCmd->name, cmd.name, sizeof(cmd.name));
 				cmd.state = ptCmd->state;
-				Zebra::logger->debug("½ÇÉ«Ãû³ÆÖ¸Áî£º%u, %s, %u", ptCmd->accid, ptCmd->name, ptCmd->state);
+				Zebra::logger->debug("è§’è‰²åç§°æŒ‡ä»¤ï¼š%u, %s, %u", ptCmd->accid, ptCmd->name, ptCmd->state);
 				if (!RoleregClientManager::getInstance().broadcastOne(&cmd, sizeof(cmd)))
 				{
 					if (ptCmd->state & ROLEREG_STATE_TEST)
 					{
-						Zebra::logger->error("ÇëÇóÊ§°Ü£¬²»ÔÊĞí´´½¨½ÇÉ«£º%u, %s", ptCmd->accid, ptCmd->name);
+						Zebra::logger->error("è¯·æ±‚å¤±è´¥ï¼Œä¸å…è®¸åˆ›å»ºè§’è‰²ï¼š%u, %s", ptCmd->accid, ptCmd->name);
 						t_Charname_Gateway tCmd;
 						bcopy(ptCmd, &tCmd, sizeof(tCmd));
-						tCmd.state |= ROLEREG_STATE_HAS;	//ÉèÖÃÒÑ¾­´æÔÚ±êÖ¾
+						tCmd.state |= ROLEREG_STATE_HAS;	//è®¾ç½®å·²ç»å­˜åœ¨æ ‡å¿—
 						sendCmd(&tCmd, sizeof(tCmd));
 					}
 					if (ptCmd->state & (ROLEREG_STATE_WRITE | ROLEREG_STATE_CLEAN))
@@ -785,11 +785,11 @@ bool ServerTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 }
 
 /**
- * \brief ½âÎöGM¹¤¾ßµÄÖ¸Áî
+ * \brief è§£æGMå·¥å…·çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::msgParse_GmTool(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -814,9 +814,9 @@ bool ServerTask::msgParse_GmTool(const Cmd::t_NullCmd *ptNullCmd, const unsigned
 				InfoClientManager::getInstance().broadcastOne(rev, nCmdLen);
 				/*
 				if (ret)
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢ÁÄÌìÏûÏ¢µ½InfoServer, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘èŠå¤©æ¶ˆæ¯åˆ°InfoServer, %s åŒº(%u)", rev->userName, rev->zone.id);
 				else
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢ÁÄÌìÏûÏ¢µ½InfoServerÊ§°Ü, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘èŠå¤©æ¶ˆæ¯åˆ°InfoServerå¤±è´¥, %s åŒº(%u)", rev->userName, rev->zone.id);
 					*/
 				return true;
 			}
@@ -829,9 +829,9 @@ bool ServerTask::msgParse_GmTool(const Cmd::t_NullCmd *ptNullCmd, const unsigned
 				InfoClientManager::getInstance().broadcastOne(rev, sizeof(t_Msg_GmTool));
 				/*
 				if (ret)
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢GM¶¨µ¥µ½InfoServer, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘GMå®šå•åˆ°InfoServer, %s åŒº(%u)", rev->userName, rev->zone.id);
 				else
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢GM¶¨µ¥µ½InfoServerÊ§°Ü, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘GMå®šå•åˆ°InfoServerå¤±è´¥, %s åŒº(%u)", rev->userName, rev->zone.id);
 					*/
 				return true;
 			}
@@ -843,9 +843,9 @@ bool ServerTask::msgParse_GmTool(const Cmd::t_NullCmd *ptNullCmd, const unsigned
 				InfoClientManager::getInstance().broadcastOne(rev, sizeof(t_NewMsg_GmTool));
 				/*
 				if (ret)
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢GM¶¨µ¥µ½InfoServer, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘GMå®šå•åˆ°InfoServer, %s åŒº(%u)", rev->userName, rev->zone.id);
 				else
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢GM¶¨µ¥µ½InfoServerÊ§°Ü, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘GMå®šå•åˆ°InfoServerå¤±è´¥, %s åŒº(%u)", rev->userName, rev->zone.id);
 					*/
 				return true;
 			}
@@ -858,9 +858,9 @@ bool ServerTask::msgParse_GmTool(const Cmd::t_NullCmd *ptNullCmd, const unsigned
 				InfoClientManager::getInstance().broadcastOne(rev, sizeof(t_Punish_GmTool));
 				/*
 				if (ret)
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢GM´¦·£µ½InfoServer, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘GMå¤„ç½šåˆ°InfoServer, %s åŒº(%u)", rev->userName, rev->zone.id);
 				else
-					Zebra::logger->debug("[GM¹¤¾ß]×ª·¢GM´¦·£µ½InfoServerÊ§°Ü, %s Çø(%u)", rev->userName, rev->zone.id);
+					Zebra::logger->debug("[GMå·¥å…·]è½¬å‘GMå¤„ç½šåˆ°InfoServerå¤±è´¥, %s åŒº(%u)", rev->userName, rev->zone.id);
 					*/
 				return true;
 			}
@@ -902,11 +902,11 @@ bool ServerTask::msgParse_CountryOnline(const Cmd::t_NullCmd *ptNullCmd, const u
 }
 
 /**
- * \brief ½âÎöÀ´×Ô¸÷¸ö·şÎñÆ÷Á¬½ÓµÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªå„ä¸ªæœåŠ¡å™¨è¿æ¥çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool ServerTask::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -950,7 +950,7 @@ bool ServerTask::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 					case Cmd::Super::PARA_SHUTDOWN:
 						{
 							SuperService::getInstance().Terminate();
-							Zebra::logger->info("SessionÇëÇóÍ£»úÎ¬»¤");
+							Zebra::logger->info("Sessionè¯·æ±‚åœæœºç»´æŠ¤");
 							return true;
 						}
 						break;

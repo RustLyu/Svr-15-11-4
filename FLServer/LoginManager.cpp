@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: LoginManager.cpp  $
  * \author  
  * \date 
- * \brief µÇÂ½Á¬½Ó¹ÜÀíÈİÆ÷
+ * \brief ç™»é™†è¿æ¥ç®¡ç†å®¹å™¨
  *
  * 
  */
@@ -20,10 +20,10 @@ LoginManager *LoginManager::instance = NULL;
 DWORD LoginManager::maxGatewayUser=MAX_GATEWAYUSER;
 
 /**
- * \brief ÏòÈİÆ÷ÖĞÌí¼ÓÒ»¸öÁ¬½Ó
+ * \brief å‘å®¹å™¨ä¸­æ·»åŠ ä¸€ä¸ªè¿æ¥
  *
- * \param task Ò»¸öÁ¬½ÓÈÎÎñ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \param task ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool LoginManager::add(LoginTask *task)
 {
@@ -47,9 +47,9 @@ bool LoginManager::add(LoginTask *task)
 }
 
 /**
- * \brief ´ÓÒ»¸öÈİÆ÷ÖĞÒÆ³ıÒ»¸öÁ¬½Ó
+ * \brief ä»ä¸€ä¸ªå®¹å™¨ä¸­ç§»é™¤ä¸€ä¸ªè¿æ¥
  *
- * \param task Ò»¸öÁ¬½ÓÈÎÎñ
+ * \param task ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  */
 void LoginManager::remove(LoginTask *task)
 {
@@ -63,12 +63,12 @@ void LoginManager::remove(LoginTask *task)
 }
 
 /**
- * \brief ¹ã²¥Ö¸Áîµ½Ö¸¶¨µÄµÇÂ½Á¬½Ó
+ * \brief å¹¿æ’­æŒ‡ä»¤åˆ°æŒ‡å®šçš„ç™»é™†è¿æ¥
  *
- * \param loginTempID µÇÂ½Á¬½ÓµÄÎ¨Ò»±àºÅ
- * \param pstrCmd ´ı×ª·¢µÄÖ¸Áî
- * \param nCmdLen ´ı×ª·¢µÄÖ¸Áî³¤¶È
- * \return ×ª·¢ÊÇ·ñ³É¹¦
+ * \param loginTempID ç™»é™†è¿æ¥çš„å”¯ä¸€ç¼–å·
+ * \param pstrCmd å¾…è½¬å‘çš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è½¬å‘çš„æŒ‡ä»¤é•¿åº¦
+ * \return è½¬å‘æ˜¯å¦æˆåŠŸ
  */
 bool LoginManager::broadcast(const DWORD loginTempID, const void *pstrCmd, int nCmdLen)
 {
@@ -82,10 +82,10 @@ bool LoginManager::broadcast(const DWORD loginTempID, const void *pstrCmd, int n
 }
 
 /**
- * \brief µÇÂ½ÑéÖ¤·µ»Ø
- * \param loginTempID Ö¸¶¨µÄ¿Í»§¶ËÁ¬½ÓÁÙÊ±±àºÅ
- * \param retcode ´ı·µ»ØµÄ´úÂë
- * \param session µÇÂ½ÑéÖ¤·µ»ØµÄ»á»°ĞÅÏ¢
+ * \brief ç™»é™†éªŒè¯è¿”å›
+ * \param loginTempID æŒ‡å®šçš„å®¢æˆ·ç«¯è¿æ¥ä¸´æ—¶ç¼–å·
+ * \param retcode å¾…è¿”å›çš„ä»£ç 
+ * \param session ç™»é™†éªŒè¯è¿”å›çš„ä¼šè¯ä¿¡æ¯
  */
 void LoginManager::verifyReturn(const DWORD loginTempID, const BYTE retcode, const t_NewLoginSession &session)
 {
@@ -103,18 +103,18 @@ void LoginManager::verifyReturn(const DWORD loginTempID, const BYTE retcode, con
 				{
 					if (session.state == 0)
 					{
-						Zebra::logger->debug("µÇÂ½³É¹¦Ö±½Ó·ÖÅäÍø¹Ø");
-						//µÇÂ½³É¹¦Ö±½Ó·ÖÅäÍø¹Ø
+						Zebra::logger->debug("ç™»é™†æˆåŠŸç›´æ¥åˆ†é…ç½‘å…³");
+						//ç™»é™†æˆåŠŸç›´æ¥åˆ†é…ç½‘å…³
 						GYList *gy = GYListManager::getInstance().getAvl(session.gameZone);
 						if (NULL == gy)
 						{
 							task->LoginReturn(Cmd::LOGIN_RETURN_GATEWAYNOTAVAILABLE);
-							Zebra::logger->error("Íø¹ØÃ»ÓĞ¿ª");
+							Zebra::logger->error("ç½‘å…³æ²¡æœ‰å¼€");
 						}
 						else if (gy->wdNumOnline >= (maxGatewayUser - 10))
 						{
 							task->LoginReturn(Cmd::LOGIN_RETURN_USERMAX);
-							Zebra::logger->error("ÓÃ»§ÊıÂú,µ±Ç°ÊıÁ¿%d" , gy->wdNumOnline);
+							Zebra::logger->error("ç”¨æˆ·æ•°æ»¡,å½“å‰æ•°é‡%d" , gy->wdNumOnline);
 						}
 						else
 						{
@@ -123,10 +123,10 @@ void LoginManager::verifyReturn(const DWORD loginTempID, const BYTE retcode, con
 							tCmd.session.wdGatewayID = gy->wdServerID;
 
 #ifdef _ENCDEC_MSG
-							//Éú³Édes¼ÓÃÜÃÜÔ¿
+							//ç”ŸæˆdesåŠ å¯†å¯†é’¥
 							CEncrypt e;
 							e.random_key_des(&tCmd.session.des_key);
-							Zebra::logger->debug("Éú³ÉÃÜÔ¿:%u %u %u %u %u %u %u %u", tCmd.session.des_key[0], tCmd.session.des_key[1], tCmd.session.des_key[2], tCmd.session.des_key[3], tCmd.session.des_key[4], tCmd.session.des_key[5], tCmd.session.des_key[6], tCmd.session.des_key[7]);
+							Zebra::logger->debug("ç”Ÿæˆå¯†é’¥:%u %u %u %u %u %u %u %u", tCmd.session.des_key[0], tCmd.session.des_key[1], tCmd.session.des_key[2], tCmd.session.des_key[3], tCmd.session.des_key[4], tCmd.session.des_key[5], tCmd.session.des_key[6], tCmd.session.des_key[7]);
 							/*
 							   for (int i=0; i<sizeof(tCmd.session.des_key); i++)
 							   tCmd.session.des_key[i] = (unsigned int)zMisc::randBetween(0,255);
@@ -139,26 +139,26 @@ void LoginManager::verifyReturn(const DWORD loginTempID, const BYTE retcode, con
 						}
 					}
 					else if (session.state == 1)
-					{//ÕÊºÅ´¦ÓÚËø¶¨×´Ì¬
+					{//å¸å·å¤„äºé”å®šçŠ¶æ€
 						task->LoginReturn(Cmd::LOGIN_RETURN_LOCK);
-						Zebra::logger->error("ÕÊºÅÒÑËø¶¨");
+						Zebra::logger->error("å¸å·å·²é”å®š");
 					}
 					else if (session.state == 4)
-					{//ÕÊºÅ´¦ÓÚ´ı¼¤»î×´Ì¬
+					{//å¸å·å¤„äºå¾…æ¿€æ´»çŠ¶æ€
 						task->LoginReturn(Cmd::LOGIN_RETURN_WAITACTIVE);
-						Zebra::logger->error("ÕÊºÅ´ı¼¤»î");
+						Zebra::logger->error("å¸å·å¾…æ¿€æ´»");
 					}
 				}
 				break;
 			case SESSIONCHECK_DB_FAILURE:
 				{
-					Zebra::logger->debug("Êı¾İ¿â³ö´í£¬µÇÂ½Ê§°Ü");
+					Zebra::logger->debug("æ•°æ®åº“å‡ºé”™ï¼Œç™»é™†å¤±è´¥");
 					task->LoginReturn(Cmd::LOGIN_RETURN_DB);
 				}
 				break;
 			case SESSIONCHECK_PWD_FAILURE:
 				{
-					Zebra::logger->debug("ÕËºÅÃÜÂë´íÎó£¬µÇÂ½Ê§°Ü");
+					Zebra::logger->debug("è´¦å·å¯†ç é”™è¯¯ï¼Œç™»é™†å¤±è´¥");
 					task->LoginReturn(Cmd::LOGIN_RETURN_PASSWORDERROR);
 				}
 				break;
@@ -167,10 +167,10 @@ void LoginManager::verifyReturn(const DWORD loginTempID, const BYTE retcode, con
 }
 
 /**
- * \brief ·µ»Ø´íÎó´úÂëµ½Ö¸¶¨µÄ¿Í»§¶Ë
- * \param loginTempID Ö¸¶¨µÄ¿Í»§¶ËÁ¬½ÓÁÙÊ±±àºÅ
- * \param retcode ´ı·µ»ØµÄ´úÂë
- * \param tm ·µ»ØĞÅÏ¢ÒÔºóÊÇ·ñ¶Ï¿ªÁ¬½Ó£¬È±Ê¡ÊÇ¶Ï¿ªÁ¬½Ó
+ * \brief è¿”å›é”™è¯¯ä»£ç åˆ°æŒ‡å®šçš„å®¢æˆ·ç«¯
+ * \param loginTempID æŒ‡å®šçš„å®¢æˆ·ç«¯è¿æ¥ä¸´æ—¶ç¼–å·
+ * \param retcode å¾…è¿”å›çš„ä»£ç 
+ * \param tm è¿”å›ä¿¡æ¯ä»¥åæ˜¯å¦æ–­å¼€è¿æ¥ï¼Œç¼ºçœæ˜¯æ–­å¼€è¿æ¥
  */
 void LoginManager::loginReturn(const DWORD loginTempID, const BYTE retcode, const bool tm)
 {
@@ -183,8 +183,8 @@ void LoginManager::loginReturn(const DWORD loginTempID, const BYTE retcode, cons
 }
 
 /**
- * \brief ¶ÔÈİÆ÷ÖĞµÄËùÓĞÔªËØµ÷ÓÃ»Øµ÷º¯Êı
- * \param cb »Øµ÷º¯ÊıÊµÀı
+ * \brief å¯¹å®¹å™¨ä¸­çš„æ‰€æœ‰å…ƒç´ è°ƒç”¨å›è°ƒå‡½æ•°
+ * \param cb å›è°ƒå‡½æ•°å®ä¾‹
  */
 void LoginManager::execAll(LoginTaskCallback &cb)
 {

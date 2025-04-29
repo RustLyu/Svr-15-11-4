@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneEntryPk.h $
  * \author 
  * \date 
- * \brief PKÏà¹Ø±äÁ¿ºÍĞé·½·¨
+ * \brief PKç›¸å…³å˜é‡å’Œè™šæ–¹æ³•
  */
 
 #ifndef _ZSCENEENTRYPK_H_
@@ -26,7 +26,7 @@ class ScenePet;
 
 
 /**
- * \brief ½ÇÉ«PK¶¨ÒåÀà,ÓĞ´ıÀ©³ä
+ * \brief è§’è‰²PKå®šä¹‰ç±»,æœ‰å¾…æ‰©å……
  */
 struct SceneEntryPk: public zSceneEntry
 {
@@ -34,16 +34,16 @@ struct SceneEntryPk: public zSceneEntry
 		typedef std::set<DWORD> SelectedSet;
 		typedef SelectedSet::value_type SelectedSet_value_type;
 		typedef SelectedSet::iterator SelectedSet_iterator;
-		///±»Ñ¡ÖĞÁĞ±í
+		///è¢«é€‰ä¸­åˆ—è¡¨
 		SelectedSet selected;
 		//zMutex selected_lock;
 	public:
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬³õÊ¼»¯
+		 * \brief æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–
 		 *
 		 *
-		 * \param type ÀàĞÍ
-		 * \param state ³õÊ¼×´Ì¬
+		 * \param type ç±»å‹
+		 * \param state åˆå§‹çŠ¶æ€
 		 * \return 
 		 */
 		SceneEntryPk(SceneEntryType type, const SceneEntryState state = SceneEntry_Normal):zSceneEntry(type,state)
@@ -52,156 +52,156 @@ struct SceneEntryPk: public zSceneEntry
 			moveAction = true;
 			skillAction = true;
 			ignoreDam = false;
-			ignorePhysicDam = false; ///ÎïÀí¹¥»÷ÃâÒß
-			ignoreMagicDam = false;  ///Ä§·¨¹¥»÷ÃâÒß
+			ignorePhysicDam = false; ///ç‰©ç†æ”»å‡»å…ç–«
+			ignoreMagicDam = false;  ///é­”æ³•æ”»å‡»å…ç–«
 			blind  = false;
 			mplock = false;
 			hplock = false;
 			splock = false;
 			maxattack=false;
-			mdeftozero=false;   /// Ä§·¨·ÀÓù±ä³É0
-			pdeftozero=false;   /// Ä§·¨·ÀÓù±ä³É0
-			useRes=true;		// ¿É·ñÊ¹ÓÃÎïÆ·
-			isAutoRestitute=true;// ×Ô¶¯»Ö¸´HP,MP,SP
-			frenzy = false; // ¿ñ±©×´Ì¬
+			mdeftozero=false;   /// é­”æ³•é˜²å¾¡å˜æˆ0
+			pdeftozero=false;   /// é­”æ³•é˜²å¾¡å˜æˆ0
+			useRes=true;		// å¯å¦ä½¿ç”¨ç‰©å“
+			isAutoRestitute=true;// è‡ªåŠ¨æ¢å¤HP,MP,SP
+			frenzy = false; // ç‹‚æš´çŠ¶æ€
 			huntermark = false; //
-			isPhysics =  false; // ×ßÎïÀí¼ÆËã
-			dread = false;// ¿ÖÏÅ
-			dropweapon = false; //½ÉĞµ
-			tosh = false; //ºúÑÔÂÒÓï
-			stone = false; // Ê¯»¯
-			watchTrap = false; //¹Û²ìÏİÚå
+			isPhysics =  false; // èµ°ç‰©ç†è®¡ç®—
+			dread = false;// æå“
+			dropweapon = false; //ç¼´æ¢°
+			tosh = false; //èƒ¡è¨€ä¹±è¯­
+			stone = false; // çŸ³åŒ–
+			watchTrap = false; //è§‚å¯Ÿé™·é˜±
 			mhpd = false;
-			blazeflag = false; // »ğÑæÏµ·¨Êõ¼Ó³É±êÖ¾
-			levinflag = false; // À×µçÏµ·¨Êõ¼Ó³É±êÖ¾
-			trapflag = false; // ÏİÚåÏµ·¨Êõ¼Ó³É±êÖ¾
-			iceflag = false; // ±ùÏµ·¨Êõ¼Ó³É±êÖ¾
-			swapdamcharid = 0; //  Ï×Éí£¬Ê©·¨ÕßµÄÁÙÊ±ID
-			swapdamcharid2 = 0; //¹Ø°®£¬ÉËº¦×ªÒÆÊ©·¨ÕßµÄÁÙÊ±ID
+			blazeflag = false; // ç«ç„°ç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+			levinflag = false; // é›·ç”µç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+			trapflag = false; // é™·é˜±ç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+			iceflag = false; // å†°ç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+			swapdamcharid = 0; //  çŒ®èº«ï¼Œæ–½æ³•è€…çš„ä¸´æ—¶ID
+			swapdamcharid2 = 0; //å…³çˆ±ï¼Œä¼¤å®³è½¬ç§»æ–½æ³•è€…çš„ä¸´æ—¶ID
 			reSendData = false;
-			changeface = false; // Ò×ÈİÊõ¿ÉÒÔ·ÃÎÊ¹úÍâNPC
-			hideme = false; //Òş²Ø×Ô¼º
-			icebox = false; //±ùÁé¹ñ×´Ì¬
-			liquidState = false; //ÒºÌ¬£¨ÎŞ×èµ²£©
+			changeface = false; // æ˜“å®¹æœ¯å¯ä»¥è®¿é—®å›½å¤–NPC
+			hideme = false; //éšè—è‡ªå·±
+			icebox = false; //å†°çµæŸœçŠ¶æ€
+			liquidState = false; //æ¶²æ€ï¼ˆæ— é˜»æŒ¡ï¼‰
 			resist = 0;
-			dmpbyhp = 0; //ÎüÄ§½£·¨
-			mdmtomp = 0; //Ä§·¨ÉËº¦×ª»»³ÉÄ§·¨Öµ
-			mdmtompper = 0; //Ä§·¨ÉËº¦×ª»»³ÉÄ§·¨Öµ¼¸ÂÊ
-			icedam	= 0; //±ù¶³½á½çÎüÊÕµÄÉËº¦Öµ
+			dmpbyhp = 0; //å¸é­”å‰‘æ³•
+			mdmtomp = 0; //é­”æ³•ä¼¤å®³è½¬æ¢æˆé­”æ³•å€¼
+			mdmtompper = 0; //é­”æ³•ä¼¤å®³è½¬æ¢æˆé­”æ³•å€¼å‡ ç‡
+			icedam	= 0; //å†°å†»ç»“ç•Œå¸æ”¶çš„ä¼¤å®³å€¼
 			unitaryBattleKeepTime = 0;
 
-			afreetMode = false; /// ¶ñÄ§É±ÎŞÉâ£¨¿³ÈË±ØËÀ£©
-			angelMode = false;  /// ÌìÊ¹ÎŞµĞ£¨ÓÅÓÚ¶ñÄ§£¬¿³²»ËÀ£©
-			isPhysicBang = false;///ÊÇ·ñ±©»÷
-			isMagicBang = false;///ÊÇ·ñ±©»÷
-			isHPhysicBang = false;///ÊÇ·ñ±©»÷
-			isHMagicBang = false;///ÊÇ·ñ±©»÷
+			afreetMode = false; /// æ¶é­”æ€æ— èµ¦ï¼ˆç äººå¿…æ­»ï¼‰
+			angelMode = false;  /// å¤©ä½¿æ— æ•Œï¼ˆä¼˜äºæ¶é­”ï¼Œç ä¸æ­»ï¼‰
+			isPhysicBang = false;///æ˜¯å¦æš´å‡»
+			isMagicBang = false;///æ˜¯å¦æš´å‡»
+			isHPhysicBang = false;///æ˜¯å¦æš´å‡»
+			isHMagicBang = false;///æ˜¯å¦æš´å‡»
 			assault = false;
 			curMagicManType =0;
 			curMagicManID =0;
 			lastPkTime=0;
 			bombskillId = 0;
 			dietodam = 0;
-			attacklow = false; ///¹¥»÷Á¦È¡ÏÂÏŞ
-			killnow=0; ///Ò»»÷±ØÉ±°Ù·Ö±È
-			diewithme=0; //ÑªÕ®Ñª³¥
-			switchdie=0; //Í¬ÆÁÄÚ×ªÒÆËÀÍö×´Ì¬
-			summonsplit = 0; // ÑæÄ§¾ıÖ÷ËÀÍöºó·ÖÁÑ±êÖ¾
-			damtohpper = 0;	/// ½ÇÉ«µÄÉËº¦×ª»¯³ÉÉúÃüÖµµÄ¼¸ÂÊ;
-			damtohpvalper = 0; /// ½ÇÉ«µÄÉËº¦×ª»¯³ÉÉúÃüÖµµÄ°Ù·Ö±È 
+			attacklow = false; ///æ”»å‡»åŠ›å–ä¸‹é™
+			killnow=0; ///ä¸€å‡»å¿…æ€ç™¾åˆ†æ¯”
+			diewithme=0; //è¡€å€ºè¡€å¿
+			switchdie=0; //åŒå±å†…è½¬ç§»æ­»äº¡çŠ¶æ€
+			summonsplit = 0; // ç„°é­”å›ä¸»æ­»äº¡ååˆ†è£‚æ ‡å¿—
+			damtohpper = 0;	/// è§’è‰²çš„ä¼¤å®³è½¬åŒ–æˆç”Ÿå‘½å€¼çš„å‡ ç‡;
+			damtohpvalper = 0; /// è§’è‰²çš„ä¼¤å®³è½¬åŒ–æˆç”Ÿå‘½å€¼çš„ç™¾åˆ†æ¯” 
 			reSendOther=false; 
 		}
 		virtual ~SceneEntryPk(){};
-		///pk×´Ì¬
+		///pkçŠ¶æ€
 		ScenePkState pkState;
-		///PK¹ı³ÌÖĞ±ä»¯µÄÊıÖµ
+		///PKè¿‡ç¨‹ä¸­å˜åŒ–çš„æ•°å€¼
 		PkValue pkValue;
-		///¼¼ÄÜ¸½¼ÓµÄ×´Ì¬
+		///æŠ€èƒ½é™„åŠ çš„çŠ¶æ€
 		SkillState skillValue;
-		///PK¹ı³ÌÏà¶Ô²»±ãµÄÊıÖµ
+		///PKè¿‡ç¨‹ç›¸å¯¹ä¸ä¾¿çš„æ•°å€¼
 		PkPreValue pkpreValue;
 
-		SkillStatusManager skillStatusM;	/// ¼¼ÄÜ×´Ì¬¹ÜÀíÆ÷
-		SkillStatusCarrier carrier;			/// ¼¼ÄÜ²Ù×÷Í¶ËÍÆ÷
-		//std::map<BYTE,BYTE>	_effectState;	/// ¼¼ÄÜ×´Ì¬ÌØĞ§¼ÆÊıÆ÷
-		SceneEntryPk *attackTarget;			/// ÎäÆ÷¸½´ø¹¥»÷×´Ì¬¹¥»÷Ä¿±ê
+		SkillStatusManager skillStatusM;	/// æŠ€èƒ½çŠ¶æ€ç®¡ç†å™¨
+		SkillStatusCarrier carrier;			/// æŠ€èƒ½æ“ä½œæŠ•é€å™¨
+		//std::map<BYTE,BYTE>	_effectState;	/// æŠ€èƒ½çŠ¶æ€ç‰¹æ•ˆè®¡æ•°å™¨
+		SceneEntryPk *attackTarget;			/// æ­¦å™¨é™„å¸¦æ”»å‡»çŠ¶æ€æ”»å‡»ç›®æ ‡
 
-		bool attackAction;	/// ¹¥»÷Ğí¿É
-		bool moveAction;	/// ÒÆ¶¯Ğí¿É
-		bool skillAction;   /// ¼¼ÄÜ¹¥»÷Ğí¿É
-		bool ignoreDam;		/// ºöÂÔÉËº¦
-		bool ignorePhysicDam; /// ºöÂÔÎïÀíÉËº¦
-		bool ignoreMagicDam; /// ºöÂÔÄ§·¨ÉËº¦
-		bool blind;        /// Ê§Ã÷×´Ì¬
-		bool notifyHMS;		/// Í¨ÖªHP,MP,SP¸Ä±ä
-		bool maxattack;    /// ¹¥»÷È¡ÉÏÏŞ
-		bool mdeftozero;   /// Ä§·¨·ÀÓù±ä³É0
-		bool pdeftozero;   /// Ä§·¨·ÀÓù±ä³É0
-		bool useRes;		/// ¿É·ñÊ¹ÓÃÎïÆ·
-		bool isAutoRestitute; // ÊÇ·ñ×Ô¶¯»Ö¸´
-		bool frenzy;       /// ¿ñ±©×´Ì¬
-		bool huntermark;	/// ÁÔÊÖ±ê¼Ç
-		bool isPhysics;		/// ¼ÆËã¹«Ê½×ßÎïÀí
-		bool dread;			/// ¿Ö¾å
-		bool dropweapon;   /// ½ÉĞµ
-		bool tosh;        /// ºúÑÔÂÒÓï
-		bool stone;			/// Ê¯»¯
-		bool watchTrap;    /// ¹Û²ìÏİÚå
-		bool mhpd;  /// Ä§·¨ÉËº¦¼õ°ë£¬ÎïÀíÉËº¦¼Ó±¶±êÖ¾¡£
-		bool blazeflag; ///»ğÑæÏµ·¨Êõ¼Ó³É±êÖ¾
-		bool levinflag;  ///À×µçÏµ·¨Êõ¼Ó³É±êÖ¾
-		bool trapflag;  ///ÏİÚåÏµ·¨Êõ¼Ó³É±êÖ¾
-		bool iceflag;  ///±ùÏµ·¨Êõ¼Ó³É±êÖ¾
-		DWORD swapdamcharid; ///Ï×ÉíÊ©·¨ÕßµÄÁÙÊ±ID
-		DWORD swapdamcharid2; ///¹Ø°®Ê©·¨×ÅµÄÁÙÊ±ID
-		bool changeface;  ///Ò×ÈİÊõ£¬¿ÉÒÔ·ÃÎÊ¹úÍâNPC
-		bool hideme;     /// Òş²Ø×Ô¼º
-		bool icebox;	 /// ±ùÁé¹ñ×´Ì¬
-		bool liquidState; ///ÒºÌ¬£¨ÎŞ×èµ²£©
-		BYTE resist;     ///¸ñµµ£¬ÓĞÒ»´ÎµÖÓùÉËº¦µÄ»ú»á
-		BYTE dmpbyhp;  ///ÎüÄ§½£·¨
-		BYTE mdmtomp;  ///½«·¨ÊõÉËº¦×ª³ÉÄ§·¨Öµ°Ù·Ö±È
-		BYTE mdmtompper; ///½«·¨ÊõÉËº¦×ª³ÉÄ§·¨Öµ°Ù·Ö±È¼¸ÂÊ
-		SDWORD icedam;  ///±ù¶³½á½çÎüÊÕµÄÉËº¦ÊıÖµ
-		unsigned long long unitaryBattleKeepTime; //Ò»ÔªÕó·¨³ÖĞøÊ±¼ä
-		SDWORD dietodam; ///ËÀÍö¹¥»÷ÊıÖµ
-		bool attacklow; ///¹¥»÷Á¦È¡ÏÂÏŞ
-		BYTE killnow; //Ò»»÷±ØÉ±
-		BYTE diewithme; //ÑªÕ®Ñª³¥
-		BYTE switchdie; //Í¬ÆÁ×ªÒÆËÀÍö×´Ì¬µÄ¼¸ÂÊ
-		BYTE summonsplit; //ÑæÄ§¾ıÖ÷ËÀÍöºó·ÖÁÑ±êÖ¾
-
-
-		bool reSendData;	/// ÖØĞÂ·¢ËÍNPC»ò½ÇÉ«Êı¾İ¸ø×Ô¼º
-		bool reSendOther;	/// ÖØĞÂ·¢ËÍNPC»ò½ÇÉ«Êı¾İ¸øÆäËüÈË
-
-		bool mplock;	///¶Ômp½øĞĞËø¶¨
-		bool hplock;	///¶Ôhp½øĞĞËø¶¨
-		bool splock;	///¶Ôsp½øĞĞËø¶¨
-
-		bool afreetMode; /// ¶ñÄ§É±ÎŞÉâ£¨¿³ÈË±ØËÀ£©
-		bool angelMode;  /// ÌìÊ¹ÎŞµĞ£¨ÓÅÓÚ¶ñÄ§£¬¿³²»ËÀ£©
-
-		bool isPhysicBang; /// ÊÇ·ñÎïÀí±©»÷
-		bool isMagicBang; /// ÊÇ·ñÄ§·¨±©»÷
-		bool isHPhysicBang; /// ÊÇ·ñÎïÀí±©»÷
-		bool isHMagicBang; /// ÊÇ·ñÄ§·¨±©»÷
-
-		bool assault; ///³å·æ
-
-		zPos keepPos;  /// ±£´æ¼¼ÄÜµÄ¹¥»÷Ä¿±êµã£¬´«µİ¸øĞèÒªÊ¹ÓÃµÄ¹¦ÄÜ
-		BYTE keepDir;  /// ±£´æ¼¼ÄÜµÄ¹¥»÷·½Ïò£¬´«µİ¸øĞèÒªÊ¹ÓÃµÄ¹¦ÄÜ
-		BYTE  lastPkTime; //×îºóPK±êÖ¾
-		DWORD bombskillId; /// ÈËÎïËÀÍöºóÍ¶ËÍ¼¼ÄÜID
-
-		BYTE damtohpper;	/// ½ÇÉ«µÄÉËº¦×ª»¯³ÉÉúÃüÖµµÄ¼¸ÂÊ;
-		BYTE damtohpvalper; /// ½ÇÉ«µÄÉËº¦×ª»¯³ÉÉúÃüÖµµÄ°Ù·Ö±È 
+		bool attackAction;	/// æ”»å‡»è®¸å¯
+		bool moveAction;	/// ç§»åŠ¨è®¸å¯
+		bool skillAction;   /// æŠ€èƒ½æ”»å‡»è®¸å¯
+		bool ignoreDam;		/// å¿½ç•¥ä¼¤å®³
+		bool ignorePhysicDam; /// å¿½ç•¥ç‰©ç†ä¼¤å®³
+		bool ignoreMagicDam; /// å¿½ç•¥é­”æ³•ä¼¤å®³
+		bool blind;        /// å¤±æ˜çŠ¶æ€
+		bool notifyHMS;		/// é€šçŸ¥HP,MP,SPæ”¹å˜
+		bool maxattack;    /// æ”»å‡»å–ä¸Šé™
+		bool mdeftozero;   /// é­”æ³•é˜²å¾¡å˜æˆ0
+		bool pdeftozero;   /// é­”æ³•é˜²å¾¡å˜æˆ0
+		bool useRes;		/// å¯å¦ä½¿ç”¨ç‰©å“
+		bool isAutoRestitute; // æ˜¯å¦è‡ªåŠ¨æ¢å¤
+		bool frenzy;       /// ç‹‚æš´çŠ¶æ€
+		bool huntermark;	/// çŒæ‰‹æ ‡è®°
+		bool isPhysics;		/// è®¡ç®—å…¬å¼èµ°ç‰©ç†
+		bool dread;			/// ææƒ§
+		bool dropweapon;   /// ç¼´æ¢°
+		bool tosh;        /// èƒ¡è¨€ä¹±è¯­
+		bool stone;			/// çŸ³åŒ–
+		bool watchTrap;    /// è§‚å¯Ÿé™·é˜±
+		bool mhpd;  /// é­”æ³•ä¼¤å®³å‡åŠï¼Œç‰©ç†ä¼¤å®³åŠ å€æ ‡å¿—ã€‚
+		bool blazeflag; ///ç«ç„°ç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+		bool levinflag;  ///é›·ç”µç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+		bool trapflag;  ///é™·é˜±ç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+		bool iceflag;  ///å†°ç³»æ³•æœ¯åŠ æˆæ ‡å¿—
+		DWORD swapdamcharid; ///çŒ®èº«æ–½æ³•è€…çš„ä¸´æ—¶ID
+		DWORD swapdamcharid2; ///å…³çˆ±æ–½æ³•ç€çš„ä¸´æ—¶ID
+		bool changeface;  ///æ˜“å®¹æœ¯ï¼Œå¯ä»¥è®¿é—®å›½å¤–NPC
+		bool hideme;     /// éšè—è‡ªå·±
+		bool icebox;	 /// å†°çµæŸœçŠ¶æ€
+		bool liquidState; ///æ¶²æ€ï¼ˆæ— é˜»æŒ¡ï¼‰
+		BYTE resist;     ///æ ¼æ¡£ï¼Œæœ‰ä¸€æ¬¡æŠµå¾¡ä¼¤å®³çš„æœºä¼š
+		BYTE dmpbyhp;  ///å¸é­”å‰‘æ³•
+		BYTE mdmtomp;  ///å°†æ³•æœ¯ä¼¤å®³è½¬æˆé­”æ³•å€¼ç™¾åˆ†æ¯”
+		BYTE mdmtompper; ///å°†æ³•æœ¯ä¼¤å®³è½¬æˆé­”æ³•å€¼ç™¾åˆ†æ¯”å‡ ç‡
+		SDWORD icedam;  ///å†°å†»ç»“ç•Œå¸æ”¶çš„ä¼¤å®³æ•°å€¼
+		unsigned long long unitaryBattleKeepTime; //ä¸€å…ƒé˜µæ³•æŒç»­æ—¶é—´
+		SDWORD dietodam; ///æ­»äº¡æ”»å‡»æ•°å€¼
+		bool attacklow; ///æ”»å‡»åŠ›å–ä¸‹é™
+		BYTE killnow; //ä¸€å‡»å¿…æ€
+		BYTE diewithme; //è¡€å€ºè¡€å¿
+		BYTE switchdie; //åŒå±è½¬ç§»æ­»äº¡çŠ¶æ€çš„å‡ ç‡
+		BYTE summonsplit; //ç„°é­”å›ä¸»æ­»äº¡ååˆ†è£‚æ ‡å¿—
 
 
-		///ËùÔÚµÄ³¡¾°Ö¸Õë
+		bool reSendData;	/// é‡æ–°å‘é€NPCæˆ–è§’è‰²æ•°æ®ç»™è‡ªå·±
+		bool reSendOther;	/// é‡æ–°å‘é€NPCæˆ–è§’è‰²æ•°æ®ç»™å…¶å®ƒäºº
+
+		bool mplock;	///å¯¹mpè¿›è¡Œé”å®š
+		bool hplock;	///å¯¹hpè¿›è¡Œé”å®š
+		bool splock;	///å¯¹spè¿›è¡Œé”å®š
+
+		bool afreetMode; /// æ¶é­”æ€æ— èµ¦ï¼ˆç äººå¿…æ­»ï¼‰
+		bool angelMode;  /// å¤©ä½¿æ— æ•Œï¼ˆä¼˜äºæ¶é­”ï¼Œç ä¸æ­»ï¼‰
+
+		bool isPhysicBang; /// æ˜¯å¦ç‰©ç†æš´å‡»
+		bool isMagicBang; /// æ˜¯å¦é­”æ³•æš´å‡»
+		bool isHPhysicBang; /// æ˜¯å¦ç‰©ç†æš´å‡»
+		bool isHMagicBang; /// æ˜¯å¦é­”æ³•æš´å‡»
+
+		bool assault; ///å†²é”‹
+
+		zPos keepPos;  /// ä¿å­˜æŠ€èƒ½çš„æ”»å‡»ç›®æ ‡ç‚¹ï¼Œä¼ é€’ç»™éœ€è¦ä½¿ç”¨çš„åŠŸèƒ½
+		BYTE keepDir;  /// ä¿å­˜æŠ€èƒ½çš„æ”»å‡»æ–¹å‘ï¼Œä¼ é€’ç»™éœ€è¦ä½¿ç”¨çš„åŠŸèƒ½
+		BYTE  lastPkTime; //æœ€åPKæ ‡å¿—
+		DWORD bombskillId; /// äººç‰©æ­»äº¡åæŠ•é€æŠ€èƒ½ID
+
+		BYTE damtohpper;	/// è§’è‰²çš„ä¼¤å®³è½¬åŒ–æˆç”Ÿå‘½å€¼çš„å‡ ç‡;
+		BYTE damtohpvalper; /// è§’è‰²çš„ä¼¤å®³è½¬åŒ–æˆç”Ÿå‘½å€¼çš„ç™¾åˆ†æ¯” 
+
+
+		///æ‰€åœ¨çš„åœºæ™¯æŒ‡é’ˆ
 		Scene *scene;
 
-		//¼¼ÄÜ
+		//æŠ€èƒ½
 		UserSkillM usm;
 
 		virtual void sendtoSelectedHpAndMp() = 0;
@@ -210,129 +210,129 @@ struct SceneEntryPk: public zSceneEntry
 		void sendCmdToSelected(const void *pstrCmd, const unsigned int nCmdLen);
 
 		/**
-		 * \brief Ôì³ÉÖ±½ÓÉËº¦
-		 * \param pAtt ¹¥»÷Õß
-		 * \param dam ÉËº¦
-		 * \param notify ÊÇ·ñÍ¨Öª¿Í»§¶Ë
+		 * \brief é€ æˆç›´æ¥ä¼¤å®³
+		 * \param pAtt æ”»å‡»è€…
+		 * \param dam ä¼¤å®³
+		 * \param notify æ˜¯å¦é€šçŸ¥å®¢æˆ·ç«¯
 		 * \author fqnewman
-		 * \return ÉËº¦Öµ
+		 * \return ä¼¤å®³å€¼
 		 */
 		virtual SWORD directDamage(SceneEntryPk *pAtt, const SDWORD &dam, bool notify=false);
 
 		/**
-		 * \brief ¸Ä±ä½ÇÉ«µÄhp
-		 * \param hp ±ä¸üµÄHP
+		 * \brief æ”¹å˜è§’è‰²çš„hp
+		 * \param hp å˜æ›´çš„HP
 		 * \author fqnewman
 		 */
 		virtual void changeHP(const SDWORD &hp)=0;
 
 		/**
-		 * \brief ¸Ä±ä½ÇÉ«µÄsp
-		 * \param sp ±ä¸üµÄSP
+		 * \brief æ”¹å˜è§’è‰²çš„sp
+		 * \param sp å˜æ›´çš„SP
 		 * \author fqnewman
 		 */
 		virtual void changeSP(const SDWORD &sp)=0;
 
 		/**
-		 * \brief ¸Ä±ä½ÇÉ«µÄmp
-		 * \param mp ±ä¸üµÄMP
+		 * \brief æ”¹å˜è§’è‰²çš„mp
+		 * \param mp å˜æ›´çš„MP
 		 * \author fqnewman
 		 */
 		virtual void changeMP(const SDWORD &mp)=0;
 
 		/**
-		 * \brief »ñµÃ×î´óµÄhp
+		 * \brief è·å¾—æœ€å¤§çš„hp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		virtual DWORD getMaxHP(){return 0;}
 
 		/**
-		 * \brief »ñµÃ×î´óµÄhp
+		 * \brief è·å¾—æœ€å¤§çš„hp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		virtual DWORD getBaseMaxHP(){return 0;}
 
 		/**
-		 * \brief »ñµÃ×î´óµÄmp
+		 * \brief è·å¾—æœ€å¤§çš„mp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		virtual DWORD getMaxMP(){return 0;}
 
 		/**
-		 * \brief »ñµÃ×î´óµÄmp
+		 * \brief è·å¾—æœ€å¤§çš„mp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		virtual DWORD getBaseMaxMP(){return 0;}
 
 		/**
-		 * \brief »ñµÃ×î´óµÄsp
+		 * \brief è·å¾—æœ€å¤§çš„sp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		virtual DWORD getMaxSP(){return 0;}
 
 		/**
-		 * \brief »ñµÃµ±Ç°Ä§·¨¹¥»÷Á¦
+		 * \brief è·å¾—å½“å‰é­”æ³•æ”»å‡»åŠ›
 		 * \author fqnewman
-		 * \return Ä§·¨¹¥»÷Á¦
+		 * \return é­”æ³•æ”»å‡»åŠ›
 		 */
 		virtual DWORD getMaxMDamage(){return 0;}
 
 		/**
-		 * \brief »ñµÃµ±Ç°ÎïÀí¹¥»÷Á¦
+		 * \brief è·å¾—å½“å‰ç‰©ç†æ”»å‡»åŠ›
 		 * \author fqnewman
-		 * \return ÎïÀí¹¥»÷Á¦
+		 * \return ç‰©ç†æ”»å‡»åŠ›
 		 */
 		virtual DWORD getMaxPDamage(){return 0;}
 
 		/**
-		 * \brief »ñµÃµ±Ç°ÎïÀí·ÀÓùÁ¦
+		 * \brief è·å¾—å½“å‰ç‰©ç†é˜²å¾¡åŠ›
 		 * \author fqnewman
-		 * \return ÎïÀí·ÀÓùÁ¦
+		 * \return ç‰©ç†é˜²å¾¡åŠ›
 		 */
 		virtual DWORD getPDefence(){return 0;}
 
 		/**
-		 * \brief »ñµÃµ±Ç°Ä§·¨·ÀÓùÁ¦
+		 * \brief è·å¾—å½“å‰é­”æ³•é˜²å¾¡åŠ›
 		 * \author fqnewman
-		 * \return Ä§·¨·ÀÓùÁ¦
+		 * \return é­”æ³•é˜²å¾¡åŠ›
 		 */
 		virtual DWORD getMDefence(){return 0;}
 
 		/**
-		 * \brief ÖØÖÃ×î´óµÄhp
+		 * \brief é‡ç½®æœ€å¤§çš„hp
 		 * \author fqnewman
 		 */
 		virtual void changeAndRefreshHMS(bool lock=true, bool sendData=true){}
 
 		/**
-		 * \brief ÔÚ±»×Ô¼º¹¥»÷Ö®Ç°µÄ´¦Àí£¬°üÀ¨£¬×°±¸ËğºÄ´¦Àí£¬¹¥»÷ÓĞĞ§¼¸ÂÊÅĞ¶ÏµÈ
-		 * \param pUser ¹¥»÷Õß
-		 * \param rev ±¾´Î¹¥»÷µÄ´¥·¢Ö¸Áî
-		 * \param physics ÊÇ·ñÎïÀí¹¥»÷
-		 * \param good ÎªtrueÔò±ØÖĞ£¬falseÒªÅĞ¶Ï»Ø±ÜÂÊ
+		 * \brief åœ¨è¢«è‡ªå·±æ”»å‡»ä¹‹å‰çš„å¤„ç†ï¼ŒåŒ…æ‹¬ï¼Œè£…å¤‡æŸè€—å¤„ç†ï¼Œæ”»å‡»æœ‰æ•ˆå‡ ç‡åˆ¤æ–­ç­‰
+		 * \param pUser æ”»å‡»è€…
+		 * \param rev æœ¬æ¬¡æ”»å‡»çš„è§¦å‘æŒ‡ä»¤
+		 * \param physics æ˜¯å¦ç‰©ç†æ”»å‡»
+		 * \param good ä¸ºtrueåˆ™å¿…ä¸­ï¼Œfalseè¦åˆ¤æ–­å›é¿ç‡
 		 * \author fqnewman
-		 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+		 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 		 */
 		virtual bool preAttackMe(SceneEntryPk *pUser, const Cmd::stAttackMagicUserCmd *rev, bool physics=true, const bool good = false)=0;
 
 		/**
-		 * \brief ½ÇÉ«±»¹¥»÷
-		 * \param pUser ¹¥»÷Õß
-		 * \param rev ±¾´Î¹¥»÷µÄ´¥·¢ÏûÏ¢
-		 * \param physics ÊÇ·ñÎïÀí¹¥»÷
+		 * \brief è§’è‰²è¢«æ”»å‡»
+		 * \param pUser æ”»å‡»è€…
+		 * \param rev æœ¬æ¬¡æ”»å‡»çš„è§¦å‘æ¶ˆæ¯
+		 * \param physics æ˜¯å¦ç‰©ç†æ”»å‡»
 		 * \author fqnewman
-		 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+		 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 		 */
 		virtual bool AttackMe(SceneEntryPk *pUser, const Cmd::stAttackMagicUserCmd *rev, bool physics=true, SWORD rangDamageBonus=0);
 
 		/**
-		 * \brief ÉèÖÃ½ÇÉ«ÉíÉÏµÄÌØĞ§×´Ì¬£¬¶ÔÓ¦×´Ì¬µÄ·ÃÎÊ¼ÆÊı½«ÀÛ¼Ó
-		 * \param state ×´Ì¬ID ¸ù¾İenum SceneEntryStateÈ¡Öµ
+		 * \brief è®¾ç½®è§’è‰²èº«ä¸Šçš„ç‰¹æ•ˆçŠ¶æ€ï¼Œå¯¹åº”çŠ¶æ€çš„è®¿é—®è®¡æ•°å°†ç´¯åŠ 
+		 * \param state çŠ¶æ€ID æ ¹æ®enum SceneEntryStateå–å€¼
 		 * \author fqnewman
 		 */
 		//void setEffectStatus(const WORD &state)
@@ -346,8 +346,8 @@ struct SceneEntryPk: public zSceneEntry
 
 
 		/**
-		 * \brief Çå³ı½ÇÉ«ÉíÉÏµÄÌØĞ§×´Ì¬£¬¶ÔÓ¦×´Ì¬µÄ·ÃÎÊ¼ÆÊı½«¼õ£¬¼õÎª0µÄÊ±ºòÇå³ı¸Ã×´Ì¬
-		 * \param state ×´Ì¬ID ¸ù¾İenum SceneEntryStateÈ¡Öµ
+		 * \brief æ¸…é™¤è§’è‰²èº«ä¸Šçš„ç‰¹æ•ˆçŠ¶æ€ï¼Œå¯¹åº”çŠ¶æ€çš„è®¿é—®è®¡æ•°å°†å‡ï¼Œå‡ä¸º0çš„æ—¶å€™æ¸…é™¤è¯¥çŠ¶æ€
+		 * \param state çŠ¶æ€ID æ ¹æ®enum SceneEntryStateå–å€¼
 		 * \author fqnewman
 		 */
 		//void clearEffectStatus(const WORD &state)
@@ -360,345 +360,345 @@ struct SceneEntryPk: public zSceneEntry
 		//}
 
 		/**
-		 * \brief ÈÃ³èÎïÖØÉú
+		 * \brief è®©å® ç‰©é‡ç”Ÿ
 		 * \author fqnewman
 		 */
 		virtual void relivePet(){};
 
 		/**
-		 * \brief ÈÃ½ÇÉ«ÖØÉú
+		 * \brief è®©è§’è‰²é‡ç”Ÿ
 		 * \author fqnewman
 		 */
 		virtual void relive(){};
 
 		/**
-		 * \brief µÃµ½Íæ¼ÒµÄÈ¨ÏŞµÈ¼¶
-		 * \return Íæ¼ÒµÄÈ¨ÏŞµÈ¼¶
+		 * \brief å¾—åˆ°ç©å®¶çš„æƒé™ç­‰çº§
+		 * \return ç©å®¶çš„æƒé™ç­‰çº§
 		 */
 		virtual BYTE getPriv(){return 0;}
 
 		/**
-		 * \brief ½ÇÉ«±»»÷ÍËN¸ñ
+		 * \brief è§’è‰²è¢«å‡»é€€Næ ¼
 		 * \author fqnewman
 		 */
 		virtual void standBack(const DWORD dwAttTempID, DWORD grids)=0;
 
 		/**
-		 * \brief ½«¹¥»÷Ä¿±ê»»³ÉdwTempIDËùÖ¸ÏòµÄ½ÇÉ«Íæ¼Ò
-		 * \param dwTempID Ä¿±ê½ÇÉ«µÄÁÙÊ±ID
+		 * \brief å°†æ”»å‡»ç›®æ ‡æ¢æˆdwTempIDæ‰€æŒ‡å‘çš„è§’è‰²ç©å®¶
+		 * \param dwTempID ç›®æ ‡è§’è‰²çš„ä¸´æ—¶ID
 		 * \author fqnewman
 		 */
 		virtual void changeAttackTarget(const DWORD &dwTempID){};
 
 		/**
-		 * \brief ÈÃ½ÇÉ«ËÀÍö
-		 * \param dwTempID ¹¥»÷ÕßµÄÁÙÊ±ID
+		 * \brief è®©è§’è‰²æ­»äº¡
+		 * \param dwTempID æ”»å‡»è€…çš„ä¸´æ—¶ID
 		 * \author fqnewman
 		 */
 		virtual void toDie(const DWORD &dwTempID)=0;
 
 		/**
-		 * \brief ÔÚÆÁÄ»ÄÚËæ»úÒÆ¶¯
+		 * \brief åœ¨å±å¹•å†…éšæœºç§»åŠ¨
 		 * \author fqnewman
 		 */
 		virtual void goToRandomScreen(){};
 
 		/**
-		 * \brief ÔÚÆÁÄ»ÄÚ¶¨µãÒÆ¶¯
+		 * \brief åœ¨å±å¹•å†…å®šç‚¹ç§»åŠ¨
 		 * \author fqnewman
 		 */
 		virtual void jumpTo(zPos &newPos){};
 
 		/**
-		 * \brief Í¨Öª¿Í»§¶ËÉúÃüÖµµÄ±ä»¯
+		 * \brief é€šçŸ¥å®¢æˆ·ç«¯ç”Ÿå‘½å€¼çš„å˜åŒ–
 		 * \author fqnewman
 		 */
 		virtual void attackRTHpAndMp(){};
 
 		/**
-		 * \brief ÅĞ¶Ï½ÇÉ«ÊÇ·ñËÀÍö
+		 * \brief åˆ¤æ–­è§’è‰²æ˜¯å¦æ­»äº¡
 		 * \author fqnewman
 		 */
 		virtual bool isDie() = 0;
 
 		/**
-		 * \brief »ñÈ¡½ÇÉ«µÄ¼¶±ğ
+		 * \brief è·å–è§’è‰²çš„çº§åˆ«
 		 * \author fqnewman
 		 */
 		virtual DWORD getLevel() const =0;
 
 		/**
-		 * \brief »ñÈ¡ÎåĞĞµãÊı
+		 * \brief è·å–äº”è¡Œç‚¹æ•°
 		 * \author whj
-		 * \return ·µ»Ø¸ÃÀàĞÍµÄÎåĞĞµãÊı
+		 * \return è¿”å›è¯¥ç±»å‹çš„äº”è¡Œç‚¹æ•°
 		 */
 		virtual DWORD getFiveType() {return 0;}
 
 		/**
-		 * \brief ĞèÒªµÄÖ°ÒµÀàĞÍ£¬¾ö¶¨¿ÉÒÔÊ¹ÓÃµÄ¼¼ÄÜÀàĞÍ
+		 * \brief éœ€è¦çš„èŒä¸šç±»å‹ï¼Œå†³å®šå¯ä»¥ä½¿ç”¨çš„æŠ€èƒ½ç±»å‹
 		 * \author fqnewman
 		 */
 		virtual bool needType(const DWORD &needtype)=0;
 
 		/**
-		 * \brief ĞèÒªµÄÖ°ÒµÀàĞÍ£¬¾ö¶¨¿ÉÒÔÊ¹ÓÃµÄ¼¼ÄÜÀàĞÍ
+		 * \brief éœ€è¦çš„èŒä¸šç±»å‹ï¼Œå†³å®šå¯ä»¥ä½¿ç”¨çš„æŠ€èƒ½ç±»å‹
 		 * \author fqnewman
 		 */
 		virtual bool addSkillToMe(zSkill *skill)=0;
 
 		/**
-		 * \brief ÊÇ·ñÓĞ¸Ã¼¼ÄÜĞèÒªµÄÎäÆ÷
+		 * \brief æ˜¯å¦æœ‰è¯¥æŠ€èƒ½éœ€è¦çš„æ­¦å™¨
 		 * \author fqnewman
-		 * \return true ÓĞ false Ã»ÓĞ
+		 * \return true æœ‰ false æ²¡æœ‰
 		 */
 		virtual bool needWeapon(DWORD skillid)=0;
 
 		/**
-		 * \brief ÊÇ·ñPkÇøÓò
-		 * \param other PKÏà¹ØÈË
+		 * \brief æ˜¯å¦PkåŒºåŸŸ
+		 * \param other PKç›¸å…³äºº
 		 * \author fqnewman
-		 * \return true ÊÇ false ·ñ
+		 * \return true æ˜¯ false å¦
 		 */
 		virtual bool isPkZone(SceneEntryPk *other=NULL)=0;
 
 		/**
-		 * \brief ÒÀÀµÎïÆ·ÏûºÄĞÍ·¨Êõ
-		 * \param object ÏûºÄÎïÆ·µÄÀàĞÍ
-		 * \param num ÏûºÄÎïÆ·µÄÊıÁ¿
+		 * \brief ä¾èµ–ç‰©å“æ¶ˆè€—å‹æ³•æœ¯
+		 * \param object æ¶ˆè€—ç‰©å“çš„ç±»å‹
+		 * \param num æ¶ˆè€—ç‰©å“çš„æ•°é‡
 		 * \author fqnewman
-		 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+		 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 		 */
 		virtual bool reduce(const DWORD &object, const BYTE num)=0;
 
 		/**
-		 * \brief ¼ì²é¿ÉÏûºÄÎïÆ·ÊÇ·ñ×ã¹»
-		 * \param object ÏûºÄÎïÆ·µÄÀàĞÍ
-		 * \param num ÏûºÄÎïÆ·µÄÊıÁ¿
+		 * \brief æ£€æŸ¥å¯æ¶ˆè€—ç‰©å“æ˜¯å¦è¶³å¤Ÿ
+		 * \param object æ¶ˆè€—ç‰©å“çš„ç±»å‹
+		 * \param num æ¶ˆè€—ç‰©å“çš„æ•°é‡
 		 * \author fqnewman
-		 * \return true ×ã¹» false ²»¹»
+		 * \return true è¶³å¤Ÿ false ä¸å¤Ÿ
 		 */
 		virtual bool checkReduce(const DWORD &object, const BYTE num)=0;
 		/**
-		 * \brief »ñÈ¡×°±¸ÉËº¦¼Ó³É
+		 * \brief è·å–è£…å¤‡ä¼¤å®³åŠ æˆ
 		 * \author fqnewman
-		 * \return ÉËº¦¼Ó³É
+		 * \return ä¼¤å®³åŠ æˆ
 		 */
 		virtual WORD getDamageBonus() {return 0;}
 
 		/**
-		 * \brief Ê©·Å¼¼ÄÜËùµ¼ÖÂµÄÏûºÄMP,HP,SP
-		 * \param base ¼¼ÄÜ»ù±¾ÊôĞÔ¶ÔÏó
+		 * \brief æ–½æ”¾æŠ€èƒ½æ‰€å¯¼è‡´çš„æ¶ˆè€—MP,HP,SP
+		 * \param base æŠ€èƒ½åŸºæœ¬å±æ€§å¯¹è±¡
 		 * \author fqnewman
-		 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+		 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 		 */
 		virtual bool doSkillCost(const zSkillB *base) = 0;
 
 		/**
-		 * \brief ¼ì²éÊÇ·ñÆïÂí
+		 * \brief æ£€æŸ¥æ˜¯å¦éª‘é©¬
 		 * \author fqnewman
-		 * \return true ÆïÂí false Ã»Æï
+		 * \return true éª‘é©¬ false æ²¡éª‘
 		 */
 		virtual bool checkMountHorse() {return false;}
 
 		/**
-		 * \brief ¼ì²éÊ©·Å¼¼ÄÜËùµ¼ÖÂµÄÏûºÄMP,HP,SPÊÇ·ñ×ã¹»
-		 * \param base ¼¼ÄÜ»ù±¾ÊôĞÔ¶ÔÏó
+		 * \brief æ£€æŸ¥æ–½æ”¾æŠ€èƒ½æ‰€å¯¼è‡´çš„æ¶ˆè€—MP,HP,SPæ˜¯å¦è¶³å¤Ÿ
+		 * \param base æŠ€èƒ½åŸºæœ¬å±æ€§å¯¹è±¡
 		 * \author fqnewman
-		 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+		 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 		 */
 		virtual bool checkSkillCost(const zSkillB *base) = 0;
 
 		/**
-		 * \brief ¼ì²é×ÔÉíµÄÊ©·Å³É¹¦¼¸ÂÊ£¬¾ö¶¨Õâ´Î¼¼ÄÜÊÇ·ñ¿ÉÒÔÊ©·Å
+		 * \brief æ£€æŸ¥è‡ªèº«çš„æ–½æ”¾æˆåŠŸå‡ ç‡ï¼Œå†³å®šè¿™æ¬¡æŠ€èƒ½æ˜¯å¦å¯ä»¥æ–½æ”¾
 		 * \author fqnewman
-		 * \return true ³É¹¦ false Ê§°Ü
+		 * \return true æˆåŠŸ false å¤±è´¥
 		 */
 		virtual bool checkPercent()=0;
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñÊÇµĞÈË
+		 * \brief åˆ¤æ–­æ˜¯å¦æ˜¯æ•Œäºº
 		 * \author fqnewman
-		 * \return true ÊÇ false ²»ÊÇ
+		 * \return true æ˜¯ false ä¸æ˜¯
 		 */
 		virtual int isEnemy(SceneEntryPk *entry, bool notify = false, bool good = false)=0;
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñ¿É¹¥»÷
+		 * \brief åˆ¤æ–­æ˜¯å¦å¯æ”»å‡»
 		 * \author fqnewman
-		 * \return true ÊÇ false ²»ÊÇ
+		 * \return true æ˜¯ false ä¸æ˜¯
 		 */
 		virtual bool isBugbear(){return true;}
 
 		/**
-		 * \brief »ñÈ¡×Ô¼ºµÄÖ÷ÈË£¬Ò»°ãÕë¶ÔNPC¶øÑÔ£¬PlayerµÄÖ÷ÈËÊÇ×Ô¼º
+		 * \brief è·å–è‡ªå·±çš„ä¸»äººï¼Œä¸€èˆ¬é’ˆå¯¹NPCè€Œè¨€ï¼ŒPlayerçš„ä¸»äººæ˜¯è‡ªå·±
 		 * \author fqnewman
-		 * \return NULL»òÕßÖ÷ÈËµÄ¶ÔÏóÖ¸Õë
+		 * \return NULLæˆ–è€…ä¸»äººçš„å¯¹è±¡æŒ‡é’ˆ
 		 */
 		virtual SceneEntryPk *getMaster()=0 ;
 
 		/**
-		 * \brief µÃµ½×îÉÏ²ãµÄÖ÷ÈË
+		 * \brief å¾—åˆ°æœ€ä¸Šå±‚çš„ä¸»äºº
 		 *
-		 * \return Ö÷ÈË
+		 * \return ä¸»äºº
 		 */
 		virtual SceneEntryPk *getTopMaster() =0;
 
 		/**
-		 * \brief ¼ì²é·ÉĞĞÂ·¾¶
-		 * \param pTarget ±»¹¥»÷Õß
-		 * \param aType ·ÉĞĞ·½Ê½
+		 * \brief æ£€æŸ¥é£è¡Œè·¯å¾„
+		 * \param pTarget è¢«æ”»å‡»è€…
+		 * \param aType é£è¡Œæ–¹å¼
 		 * \author fqnewman
-		 * \return ÊÇ·ñË³Àû¹¥»÷
+		 * \return æ˜¯å¦é¡ºåˆ©æ”»å‡»
 		 */
 		virtual bool checkMagicFlyRoute(zSceneEntry *pTarget, BYTE aType);
 
 		/**
-		 * \brief ½ÇÉ«ËÀÍö¼ì²é
-		 * \param pAtt ¹¥»÷Õß
+		 * \brief è§’è‰²æ­»äº¡æ£€æŸ¥
+		 * \param pAtt æ”»å‡»è€…
 		 * \author fqnewman
 		 */
 		virtual bool processDeath(SceneEntryPk *pAtt);
 		virtual void leaveBattle();
 
 		/**
-		 * \brief Í¨¹ıÉ±ËÀ±È×Ô¼ºµÈ¼¶¸ßµÄnpcÀ´¼õÉÙÉÆ¶ñ¶È
+		 * \brief é€šè¿‡æ€æ­»æ¯”è‡ªå·±ç­‰çº§é«˜çš„npcæ¥å‡å°‘å–„æ¶åº¦
 		 *
-		 * \param pNpc É±ËÀµÄnpc
+		 * \param pNpc æ€æ­»çš„npc
 		 */
 		virtual void reduceGoodness(SceneNpc *pNpc){};
 
 		virtual void setupCharBase(bool lock=true) {};
 		/**
-		 * \brief ÖØĞÂ·¢ËÍ±¾½ÇÉ«µÄµØÍ¼Êı¾İ
+		 * \brief é‡æ–°å‘é€æœ¬è§’è‰²çš„åœ°å›¾æ•°æ®
 		 */
 		virtual void reSendMyMapData()=0;
 
 		/**
-		 * \brief ¹¥»÷Õß³åÏòÎÒ
-		 * \param attacktype ¹¥»÷ÕßµÄÀàĞÍ
-		 * \param tempid ¹¥»÷ÕßµÄÁÙÊ±id
+		 * \brief æ”»å‡»è€…å†²å‘æˆ‘
+		 * \param attacktype æ”»å‡»è€…çš„ç±»å‹
+		 * \param tempid æ”»å‡»è€…çš„ä¸´æ—¶id
 		 * \author fqnewman
 		 */
 		virtual void assaultMe(BYTE attacktype, DWORD tempid) {}
 
 		/**
-		 * \brief ÕÙ»½³èÎï
+		 * \brief å¬å”¤å® ç‰©
 		 */
 		//virtual ScenePet* summonPet(DWORD id, Cmd::petType type) {return NULL;}
 		/**
-		 * \brief ÕÙ»½Í¼ÌÚ
+		 * \brief å¬å”¤å›¾è…¾
 		 */
 		virtual ScenePet* summonPet(DWORD id, Cmd::petType type, DWORD standTime = 0, DWORD sid=0, const char * petName = "", DWORD anpcid=0, zPos pos=zPos(0,0), BYTE dir=4) = 0;
 
 		/**
-		 * \brief ÉèÖÃÕ½¶·Àà³èÎïµÄ¸ú×Ù¹¥»÷Ä¿±ê
+		 * \brief è®¾ç½®æˆ˜æ–—ç±»å® ç‰©çš„è·Ÿè¸ªæ”»å‡»ç›®æ ‡
 		 */
 		virtual void setPetsChaseTarget(SceneEntryPk *entry){};
 
 		/**
-		 * \brief ÉèÖÃÕ½¶·Àà³èÎïµÄ¸ú×Ù¹¥»÷Ä¿±ê
-		 * \param weaponType ÎäÆ÷ÀàĞÍ
-		 * \return trueÎäÆ÷ÀàĞÍ·ûºÏ£¬falseÎäÆ÷ÀàĞÍ²»·ûºÏ
+		 * \brief è®¾ç½®æˆ˜æ–—ç±»å® ç‰©çš„è·Ÿè¸ªæ”»å‡»ç›®æ ‡
+		 * \param weaponType æ­¦å™¨ç±»å‹
+		 * \return trueæ­¦å™¨ç±»å‹ç¬¦åˆï¼Œfalseæ­¦å™¨ç±»å‹ä¸ç¬¦åˆ
 		 */
 		virtual bool checkWeapon(BYTE weaponType){return true;}
 
 
 		/**
-		 * \brief »ñÈ¡¿¹¶¾Ôö¼Ó	
+		 * \brief è·å–æŠ—æ¯’å¢åŠ 	
 		 */
 		virtual SWORD getPoisondef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹Âé±ÔÔö¼Ó	
+		 * \brief è·å–æŠ—éº»ç—¹å¢åŠ 	
 		 */
 		virtual SWORD getLulldef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹Ñ£ÔÎÔö¼Ó	
+		 * \brief è·å–æŠ—çœ©æ™•å¢åŠ 	
 		 */
 		virtual SWORD getReeldef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹ÊÉÄ§Ôö¼Ó	
+		 * \brief è·å–æŠ—å™¬é­”å¢åŠ 	
 		 */
 		virtual SWORD getEvildef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹ÊÉÁ¦Ôö¼Ó	
+		 * \brief è·å–æŠ—å™¬åŠ›å¢åŠ 	
 		 */
 		virtual SWORD getBitedef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹»ìÂÒÔö¼Ó	
+		 * \brief è·å–æŠ—æ··ä¹±å¢åŠ 	
 		 */
 		virtual SWORD getChaosdef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹±ù¶³Ôö¼Ó	
+		 * \brief è·å–æŠ—å†°å†»å¢åŠ 	
 		 */
 		virtual SWORD getColddef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹Ê¯»¯Ôö¼Ó	
+		 * \brief è·å–æŠ—çŸ³åŒ–å¢åŠ 	
 		 */
 		virtual SWORD getPetrifydef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹Ê§Ã÷Ôö¼Ó	
+		 * \brief è·å–æŠ—å¤±æ˜å¢åŠ 	
 		 */
 		virtual SWORD getBlinddef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹¶¨ÉíÔö¼Ó	
+		 * \brief è·å–æŠ—å®šèº«å¢åŠ 	
 		 */
 		virtual SWORD getStabledef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹¼õËÙÔö¼Ó	
+		 * \brief è·å–æŠ—å‡é€Ÿå¢åŠ 	
 		 */
 		virtual SWORD getSlowdef(){return 0;}
 		/**
-		 * \brief »ñÈ¡¿¹ÓÕ»óÔö¼Ó
+		 * \brief è·å–æŠ—è¯±æƒ‘å¢åŠ 
 		 */
 		virtual SWORD getLuredef(){return 0;}
 
 
 		/**
-		 * \brief »ñÈ¡¶¾Ôö¼Ó	
+		 * \brief è·å–æ¯’å¢åŠ 	
 		 */
 		virtual SWORD getPoison(){return 0;}
 		/**
-		 * \brief »ñÈ¡Âé±ÔÔö¼Ó	
+		 * \brief è·å–éº»ç—¹å¢åŠ 	
 		 */
 		virtual SWORD getLull(){return 0;}
 		/**
-		 * \brief »ñÈ¡Ñ£ÔÎÔö¼Ó	
+		 * \brief è·å–çœ©æ™•å¢åŠ 	
 		 */
 		virtual SWORD getReel(){return 0;}
 		/**
-		 * \brief »ñÈ¡ÊÉÄ§Ôö¼Ó	
+		 * \brief è·å–å™¬é­”å¢åŠ 	
 		 */
 		virtual SWORD getEvil(){return 0;}
 		/**
-		 * \brief »ñÈ¡ÊÉÁ¦Ôö¼Ó	
+		 * \brief è·å–å™¬åŠ›å¢åŠ 	
 		 */
 		virtual SWORD getBite(){return 0;}
 		/**
-		 * \brief »ñÈ¡»ìÂÒÔö¼Ó	
+		 * \brief è·å–æ··ä¹±å¢åŠ 	
 		 */
 		virtual SWORD getChaos(){return 0;}
 		/**
-		 * \brief »ñÈ¡±ù¶³Ôö¼Ó	
+		 * \brief è·å–å†°å†»å¢åŠ 	
 		 */
 		virtual SWORD getCold(){return 0;}
 		/**
-		 * \brief »ñÈ¡Ê¯»¯Ôö¼Ó	
+		 * \brief è·å–çŸ³åŒ–å¢åŠ 	
 		 */
 		virtual SWORD getPetrify(){return 0;}
 		/**
-		 * \brief »ñÈ¡Ê§Ã÷Ôö¼Ó	
+		 * \brief è·å–å¤±æ˜å¢åŠ 	
 		 */
 		virtual SWORD getBlind(){return 0;}
 		/**
-		 * \brief »ñÈ¡¶¨ÉíÔö¼Ó	
+		 * \brief è·å–å®šèº«å¢åŠ 	
 		 */
 		virtual SWORD getStable(){return 0;}
 		/**
-		 * \brief »ñÈ¡¼õËÙÔö¼Ó	
+		 * \brief è·å–å‡é€Ÿå¢åŠ 	
 		 */
 		virtual SWORD getSlow(){return 0;}
 		/**
-		 * \brief »ñÈ¡ÓÕ»óÔö¼Ó
+		 * \brief è·å–è¯±æƒ‘å¢åŠ 
 		 */
 		virtual SWORD getLure(){return 0;}
 
@@ -706,15 +706,15 @@ struct SceneEntryPk: public zSceneEntry
 		virtual void appendAttack(const Cmd::stAttackMagicUserCmd *rev) {};
 
 
-		///³èÎï
+		///å® ç‰©
 		ScenePet * pet;
-		///ÕÙ»½ÊŞ
+		///å¬å”¤å…½
 		ScenePet * summon;
-		///Í¼ÌÚ
+		///å›¾è…¾
 		std::list<ScenePet *> totems;
 
 		/**
-		 * \brief È¡ÏûÕÙ»½µÄ³èÎï
+		 * \brief å–æ¶ˆå¬å”¤çš„å® ç‰©
 		 */
 		virtual bool killOnePet(ScenePet *)=0;
 		virtual void killAllPets()=0;
@@ -728,23 +728,23 @@ struct SceneEntryPk: public zSceneEntry
 		DWORD getHp();
 		DWORD getMaxHp();
 		bool isFighting();
-		///ÍÑÀëÕ½¶·×´Ì¬µÄÊ±¼ä
+		///è„±ç¦»æˆ˜æ–—çŠ¶æ€çš„æ—¶é—´
 		zRTime endBattleTime;
-		///Ê©·¨Õß
+		///æ–½æ³•è€…
 		DWORD curMagicManID;
-		///¶ÔÊ©·¨ÕßÀàĞÍ
+		///å¯¹æ–½æ³•è€…ç±»å‹
 		DWORD curMagicManType;
-		///¶ÔÊÖ
+		///å¯¹æ‰‹
 		DWORD curTargetID;
-		///¶ÔÊÖÀàĞÍ
+		///å¯¹æ‰‹ç±»å‹
 		DWORD curTargetType;
 		virtual bool setCurTarget(SceneEntryPk *, bool=false);
 		virtual bool setCurTarget(DWORD, DWORD, bool=false);
 		SceneEntryPk * getCurTarget();
 
-		///·ÀÓùµÄ¶ÔÊÖ
+		///é˜²å¾¡çš„å¯¹æ‰‹
 		DWORD defTargetID;
-		///·ÀÓùµÄ¶ÔÊÖÀàĞÍ
+		///é˜²å¾¡çš„å¯¹æ‰‹ç±»å‹
 		DWORD defTargetType;
 		virtual bool setDefTarget(SceneEntryPk *, bool=false);
 		virtual bool setDefTarget(DWORD, DWORD, bool=false);
@@ -767,9 +767,9 @@ struct SceneEntryPk: public zSceneEntry
 		virtual void setSpeedRate(float rate){};
 		virtual void resetSpeedRate(){};
 		/**
-		 * \brief ÉèÖÃ½ÇÉ«µÄµ±Ç°×´Ì¬£¬²¢¸ù¾İµ±Ç°×´Ì¬³ÊÏÖ½ÇÉ«µÄÌØĞ§»òÕß¹Ø±ÕÌØĞ§
-		 * \param state ×´Ì¬ID ¸ù¾İenum SceneEntryStateÈ¡Öµ
-		 * \param isShow ÊÇ·ñÏÔÊ¾ÌØĞ§
+		 * \brief è®¾ç½®è§’è‰²çš„å½“å‰çŠ¶æ€ï¼Œå¹¶æ ¹æ®å½“å‰çŠ¶æ€å‘ˆç°è§’è‰²çš„ç‰¹æ•ˆæˆ–è€…å…³é—­ç‰¹æ•ˆ
+		 * \param state çŠ¶æ€ID æ ¹æ®enum SceneEntryStateå–å€¼
+		 * \param isShow æ˜¯å¦æ˜¾ç¤ºç‰¹æ•ˆ
 		 * \author fqnewman
 		 */
 		virtual void showCurrentEffect(const WORD &state, bool isShow,bool notify=true) = 0;
@@ -785,7 +785,7 @@ struct SceneEntryPk: public zSceneEntry
 
 
 /**
- * \brief ÉËº¦×ªÒÆ»Øµ÷º¯Êı£¬Ëæ»ú½«ÉËº¦×ªÒÆµ½Ò»ÆÁÄÚµÄÄ³Ò»¸ö¿ÉÉËº¦¶ÔÏó
+ * \brief ä¼¤å®³è½¬ç§»å›è°ƒå‡½æ•°ï¼Œéšæœºå°†ä¼¤å®³è½¬ç§»åˆ°ä¸€å±å†…çš„æŸä¸€ä¸ªå¯ä¼¤å®³å¯¹è±¡
  * \author fqnewman
   */
 struct DamagCallback: public zSceneEntryCallBack

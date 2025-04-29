@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSceneEntryIndex.cpp  $
  * \author  
  * \date 
- * \brief µØÍ¼Îï¼şÆÁË÷Òı¶¨Òå
+ * \brief åœ°å›¾ç‰©ä»¶å±ç´¢å¼•å®šä¹‰
  */
 
 #include "zSceneEntryIndex.h"
@@ -14,9 +14,9 @@
 #include "Scene.h"
 
 /**
- * \brief ÉèÖÃ³¡¾°¿í¸ß
- * \param scenewh ³¡¾°µÄ¿í¸ß
- * \param screenMax ×î´óÆÁ±àºÅ
+ * \brief è®¾ç½®åœºæ™¯å®½é«˜
+ * \param scenewh åœºæ™¯çš„å®½é«˜
+ * \param screenMax æœ€å¤§å±ç¼–å·
  */
 void zSceneEntryIndex::setSceneWH(const zPos sceneWH, const DWORD screenx, const DWORD screeny, const DWORD screenMax)
 {
@@ -31,14 +31,14 @@ void zSceneEntryIndex::setSceneWH(const zPos sceneWH, const DWORD screenx, const
 		}
 	}
 
-	//Ô¤ÏÈ½¨Á¢µØÍ¼¾ÅÆÁË÷Òı
+	//é¢„å…ˆå»ºç«‹åœ°å›¾ä¹å±ç´¢å¼•
 	const int adjust[9][2] = { {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, 0} };
 	for(DWORD j=0; j < screenMax ; j ++)
 	{
 		int nScreenX = j % screenx;
 		int nScreenY = j / screenx;
 		//Zebra::logger->debug("%u, %u, %u", screenMax, nScreenX, nScreenY);
-		//¼ÆËãÖÜÎ§¾ÅÆÁ
+		//è®¡ç®—å‘¨å›´ä¹å±
 		{
 			zPosIVector pv;
 			for(int i = 0; i < 9; i++) {
@@ -50,19 +50,19 @@ void zSceneEntryIndex::setSceneWH(const zPos sceneWH, const DWORD screenx, const
 			}
 			ninescreen.insert(NineScreen_map_value_type(j,pv));
 		}
-		//¼ÆËãÕıÏò±ä»¯ÎåÆÁ»òÕßÈıÆÁ
+		//è®¡ç®—æ­£å‘å˜åŒ–äº”å±æˆ–è€…ä¸‰å±
 		for(int dir = 0; dir < 8; dir++)
 		{
 			int start, end;
 			zPosIVector pv;
 
 			if (1 == dir % 2) {
-				//Ğ±·½Ïò
+				//æ–œæ–¹å‘
 				start = 6;
 				end = 10;
 			}
 			else {
-				//Õı·½Ïò
+				//æ­£æ–¹å‘
 				start = 7;
 				end = 9;
 			}
@@ -75,19 +75,19 @@ void zSceneEntryIndex::setSceneWH(const zPos sceneWH, const DWORD screenx, const
 			}
 			direct_screen[dir].insert(NineScreen_map_value_type(j,pv));
 		}
-		//¼ÆËã·´Ïò±ä»¯ÎåÆÁ»òÕßÈıÆÁ
+		//è®¡ç®—åå‘å˜åŒ–äº”å±æˆ–è€…ä¸‰å±
 		for(int dir = 0; dir < 8; dir++)
 		{
 			int start, end;
 			zPosIVector pv;
 
 			if (1 == dir % 2) {
-				//Ğ±·½Ïò
+				//æ–œæ–¹å‘
 				start = 2;
 				end = 6;
 			}
 			else {
-				//Õı·½Ïò
+				//æ­£æ–¹å‘
 				start = 3;
 				end = 5;
 			}
@@ -104,12 +104,12 @@ void zSceneEntryIndex::setSceneWH(const zPos sceneWH, const DWORD screenx, const
 }
 
 /**
- * \brief Ë¢ĞÂ³¡¾°Îï¼ş
- * Èç¹ûÃ»ÓĞÌí¼ÓÎï¼ş£¬Èç¹ûÓĞË¢ĞÂ
- * ±ØĞë±£Ö¤ĞÂ×ø±êµÄºÏ·¨ĞÔ£¬Õâ¸öº¯ÊıÀïÃæ²»»áÑéÖ¤×ø±êµÄºÏ·¨ĞÔ
- * \param e ÒªË¢ĞÂµÄ³¡¾°Îï¼ş
- * \param newPos Îï¼şµÄĞÂ×ø±ê
- * \return Ë¢ĞÂÊÇ·ñ³É¹¦
+ * \brief åˆ·æ–°åœºæ™¯ç‰©ä»¶
+ * å¦‚æœæ²¡æœ‰æ·»åŠ ç‰©ä»¶ï¼Œå¦‚æœæœ‰åˆ·æ–°
+ * å¿…é¡»ä¿è¯æ–°åæ ‡çš„åˆæ³•æ€§ï¼Œè¿™ä¸ªå‡½æ•°é‡Œé¢ä¸ä¼šéªŒè¯åæ ‡çš„åˆæ³•æ€§
+ * \param e è¦åˆ·æ–°çš„åœºæ™¯ç‰©ä»¶
+ * \param newPos ç‰©ä»¶çš„æ–°åæ ‡
+ * \return åˆ·æ–°æ˜¯å¦æˆåŠŸ
  */
 bool zSceneEntryIndex::refresh(zSceneEntry *e,const zPos & newPos)
 {
@@ -117,7 +117,7 @@ bool zSceneEntryIndex::refresh(zSceneEntry *e,const zPos & newPos)
 	zSceneEntry::SceneEntryType type = e->getType();
 	if(e->inserted)
 	{
-		//ÒÑ¾­¼ÓÈëµØÍ¼£¬Ö»ÊÇÔÚÆÁÖ®¼äÀ´»ØÇĞ»»
+		//å·²ç»åŠ å…¥åœ°å›¾ï¼Œåªæ˜¯åœ¨å±ä¹‹é—´æ¥å›åˆ‡æ¢
 		bool ret=false;
 		zPosI orgscreen=e->getPosI();
 
@@ -128,7 +128,7 @@ bool zSceneEntryIndex::refresh(zSceneEntry *e,const zPos & newPos)
 			ret=true;
 			if(orgscreen!=e->getPosI())
 			{
-				//Zebra::logger->debug("%s ÇĞÆÁ(%ld->%ld)",e->name,orgscreen,e->getPosI());
+				//Zebra::logger->debug("%s åˆ‡å±(%ld->%ld)",e->name,orgscreen,e->getPosI());
 				pimi.erase(it);
 				index[type][e->getPosI()].insert(e);
 				if(type == zSceneEntry::SceneEntry_Player)
@@ -143,18 +143,18 @@ bool zSceneEntryIndex::refresh(zSceneEntry *e,const zPos & newPos)
 	}
 	else
 	{
-		//ĞÂ¼ÓÈëµØÍ¼
+		//æ–°åŠ å…¥åœ°å›¾
 		if(e->setPos(sceneWH,newPos))
 		{
 			index[type][e->getPosI()].insert(e);
-			//ÔÚÈ«¾ÖË÷ÒıÖĞÌí¼Ó
+			//åœ¨å…¨å±€ç´¢å¼•ä¸­æ·»åŠ 
 			all[type].insert(e);
-			//ÔÚnpcË÷ÒıÖĞÌí¼Ó
+			//åœ¨npcç´¢å¼•ä¸­æ·»åŠ 
 			if (zSceneEntry::SceneEntry_NPC == type)
 			{
 				SceneNpc *npc = (SceneNpc *)e;
 				special_index[npc->id].insert(npc);
-				//ÔÚ¹¦ÄÜnpcË÷ÒıÖĞÌí¼Ó
+				//åœ¨åŠŸèƒ½npcç´¢å¼•ä¸­æ·»åŠ 
 				if (npc->isFunctionNpc())
 				{
 					functionNpc.insert(npc);
@@ -168,19 +168,19 @@ bool zSceneEntryIndex::refresh(zSceneEntry *e,const zPos & newPos)
 
 			e->inserted=true;
 			//Zebra::logger->debug("%s(%x) really inserted into scene entry index", e->name, e);
-			//Zebra::logger->debug("%s ¼ÓÈëµØÍ¼(%d,%d,%d)",e->name,e->getPosI(),e->getPos().x,e->getPos().y);
+			//Zebra::logger->debug("%s åŠ å…¥åœ°å›¾(%d,%d,%d)",e->name,e->getPosI(),e->getPos().x,e->getPos().y);
 		}
 		else
-			Zebra::logger->debug("ÏòÆÁË÷Òı²åÈë %s Ê§°Ü (%u,%u)", e->name, newPos.x, newPos.y);
+			Zebra::logger->debug("å‘å±ç´¢å¼•æ’å…¥ %s å¤±è´¥ (%u,%u)", e->name, newPos.x, newPos.y);
 
 		return e->inserted;
 	}
 }
 
 /**
- * \brief ÒÆ³ö³¡¾°Îï¼ş
- * \param e ÒªÒÆ³öµÄ³¡¾°Îï¼ş
- * \return  trueÒÆ³ö³É¹¦£¬ false Ê§°Ü
+ * \brief ç§»å‡ºåœºæ™¯ç‰©ä»¶
+ * \param e è¦ç§»å‡ºçš„åœºæ™¯ç‰©ä»¶
+ * \return  trueç§»å‡ºæˆåŠŸï¼Œ false å¤±è´¥
  */
 bool zSceneEntryIndex::removeSceneEntry(zSceneEntry *e)
 {
@@ -191,16 +191,16 @@ bool zSceneEntryIndex::removeSceneEntry(zSceneEntry *e)
 	SceneEntry_SET::iterator it = pimi.find(e);
 	if (it != pimi.end())
 	{
-		//ÔÚÆÁË÷ÒıÖĞÉ¾³ı
+		//åœ¨å±ç´¢å¼•ä¸­åˆ é™¤
 		pimi.erase(it);
-		//ÔÚÈ«¾ÖË÷ÒıÖĞÉ¾³ı
+		//åœ¨å…¨å±€ç´¢å¼•ä¸­åˆ é™¤
 		all[type].erase(e);
-		//ÔÚnpcË÷ÒıÖĞÉ¾³ı
+		//åœ¨npcç´¢å¼•ä¸­åˆ é™¤
 		if (zSceneEntry::SceneEntry_NPC == type)
 		{
 			SceneNpc *npc = (SceneNpc *)e;
 			special_index[npc->id].erase(npc);
-			//ÔÚ¹¦ÄÜnpcË÷ÒıÖĞÉ¾³ı
+			//åœ¨åŠŸèƒ½npcç´¢å¼•ä¸­åˆ é™¤
 			if (npc->isFunctionNpc())
 			{
 				functionNpc.erase(npc);
@@ -209,7 +209,7 @@ bool zSceneEntryIndex::removeSceneEntry(zSceneEntry *e)
 		if(type == zSceneEntry::SceneEntry_Player)
 		{
 			freshEffectPosi(e->getPosI(),(zPosI)-1);
-			freshGateScreenIndex((SceneUser*)e , (DWORD)-1); //-1±íÊ¾´Óµ±Ç°ÆÁË÷ÒıÖĞÉ¾³ı
+			freshGateScreenIndex((SceneUser*)e , (DWORD)-1); //-1è¡¨ç¤ºä»å½“å‰å±ç´¢å¼•ä¸­åˆ é™¤
 		}
 		e->inserted=false;
 		//Zebra::logger->debug("%s(%x) really removed from scene entry index", e->name, e);
@@ -220,10 +220,10 @@ bool zSceneEntryIndex::removeSceneEntry(zSceneEntry *e)
 }
 
 /**
- * \brief ±éÀúÒ»ÆÁµÄÎï¼ş,²¢¶ÔÆä²Ù×÷
- * ±éÀúËùÓĞ£¬°üÀ¨ËùÓĞµÄÎï¼şÀàĞÍ
- * \param screen Ä³Ò»ÆÁµÄÆÁ±àºÅ
- * \param callback Òª¶ÔÎï¼ş½øĞĞ²Ù×÷µÄ»Øµ÷Àà
+ * \brief éå†ä¸€å±çš„ç‰©ä»¶,å¹¶å¯¹å…¶æ“ä½œ
+ * éå†æ‰€æœ‰ï¼ŒåŒ…æ‹¬æ‰€æœ‰çš„ç‰©ä»¶ç±»å‹
+ * \param screen æŸä¸€å±çš„å±ç¼–å·
+ * \param callback è¦å¯¹ç‰©ä»¶è¿›è¡Œæ“ä½œçš„å›è°ƒç±»
  */
 void zSceneEntryIndex::execAllOfScreen(const zPosI screen,zSceneEntryCallBack &callback)
 {
@@ -232,7 +232,7 @@ void zSceneEntryIndex::execAllOfScreen(const zPosI screen,zSceneEntryCallBack &c
 		SceneEntry_SET &pimi = index[i][screen];
 		for(SceneEntry_SET::iterator it=pimi.begin();it!=pimi.end();)
 		{
-			//Ô¤ÏÈ±£´æµü´úÆ÷£¬·ÀÖ¹»Øµ÷ÖĞÊ¹µü´úÆ÷Ê§Ğ§
+			//é¢„å…ˆä¿å­˜è¿­ä»£å™¨ï¼Œé˜²æ­¢å›è°ƒä¸­ä½¿è¿­ä»£å™¨å¤±æ•ˆ
 			SceneEntry_SET::iterator tmp = it;
 			it++;
 			zSceneEntry *eee = *tmp;
@@ -242,18 +242,18 @@ void zSceneEntryIndex::execAllOfScreen(const zPosI screen,zSceneEntryCallBack &c
 }
 
 /**
- * \brief ±éÀúÒ»ÆÁµÄÎï¼ş,²¢¶ÔÆä²Ù×÷
- * ±éÀúÌØ¶¨ÀàĞÍµÄËùÓĞÎï¼ş
- * \param type Îï¼şÀàĞÍ
- * \param screen Ä³Ò»ÆÁµÄÆÁ±àºÅ
- * \param callback Òª¶ÔÎï¼ş½øĞĞ²Ù×÷µÄ»Øµ÷Àà
+ * \brief éå†ä¸€å±çš„ç‰©ä»¶,å¹¶å¯¹å…¶æ“ä½œ
+ * éå†ç‰¹å®šç±»å‹çš„æ‰€æœ‰ç‰©ä»¶
+ * \param type ç‰©ä»¶ç±»å‹
+ * \param screen æŸä¸€å±çš„å±ç¼–å·
+ * \param callback è¦å¯¹ç‰©ä»¶è¿›è¡Œæ“ä½œçš„å›è°ƒç±»
  */
 void zSceneEntryIndex::execAllOfScreen(const zSceneEntry::SceneEntryType type,const zPosI screen,zSceneEntryCallBack &callback)
 {
 	SceneEntry_SET &pimi = index[type][screen];
 	for(SceneEntry_SET::iterator it=pimi.begin();it!=pimi.end();)
 	{
-		//Ô¤ÏÈ±£´æµü´úÆ÷£¬·ÀÖ¹»Øµ÷ÖĞÊ¹µü´úÆ÷Ê§Ğ§
+		//é¢„å…ˆä¿å­˜è¿­ä»£å™¨ï¼Œé˜²æ­¢å›è°ƒä¸­ä½¿è¿­ä»£å™¨å¤±æ•ˆ
 		SceneEntry_SET::iterator tmp = it;
 		it++;
 		zSceneEntry *eee = *tmp;
@@ -262,9 +262,9 @@ void zSceneEntryIndex::execAllOfScreen(const zSceneEntry::SceneEntryType type,co
 }
 
 /**
- * \brief ±éÀúÒ»ÆÁµÄÎï¼ş,²¢¶ÔÆä²Ù×÷
- * ±éÀúËùÓĞ£¬°üÀ¨ËùÓĞµÄÎï¼şÀàĞÍ
- * \param callback Òª¶ÔÎï¼ş½øĞĞ²Ù×÷µÄ»Øµ÷Àà
+ * \brief éå†ä¸€å±çš„ç‰©ä»¶,å¹¶å¯¹å…¶æ“ä½œ
+ * éå†æ‰€æœ‰ï¼ŒåŒ…æ‹¬æ‰€æœ‰çš„ç‰©ä»¶ç±»å‹
+ * \param callback è¦å¯¹ç‰©ä»¶è¿›è¡Œæ“ä½œçš„å›è°ƒç±»
  */
 void zSceneEntryIndex::execAllOfScene(zSceneEntryCallBack &callback)
 {
@@ -272,7 +272,7 @@ void zSceneEntryIndex::execAllOfScene(zSceneEntryCallBack &callback)
 	{
 		for(SceneEntry_SET::iterator it = all[i].begin(); it != all[i].end();)
 		{
-			//Ô¤ÏÈ±£´æµü´úÆ÷£¬·ÀÖ¹»Øµ÷ÖĞÊ¹µü´úÆ÷Ê§Ğ§
+			//é¢„å…ˆä¿å­˜è¿­ä»£å™¨ï¼Œé˜²æ­¢å›è°ƒä¸­ä½¿è¿­ä»£å™¨å¤±æ•ˆ
 			SceneEntry_SET::iterator tmp = it;
 			it++;
 			zSceneEntry *eee = *tmp;
@@ -282,16 +282,16 @@ void zSceneEntryIndex::execAllOfScene(zSceneEntryCallBack &callback)
 }
 
 /**
- * \brief ±éÀúÒ»ÆÁµÄÎï¼ş,²¢¶ÔÆä²Ù×÷
- * ±éÀúÌØ¶¨ÀàĞÍµÄËùÓĞÎï¼ş
- * \param type Îï¼şÀàĞÍ
- * \param callback Òª¶ÔÎï¼ş½øĞĞ²Ù×÷µÄ»Øµ÷Àà
+ * \brief éå†ä¸€å±çš„ç‰©ä»¶,å¹¶å¯¹å…¶æ“ä½œ
+ * éå†ç‰¹å®šç±»å‹çš„æ‰€æœ‰ç‰©ä»¶
+ * \param type ç‰©ä»¶ç±»å‹
+ * \param callback è¦å¯¹ç‰©ä»¶è¿›è¡Œæ“ä½œçš„å›è°ƒç±»
  */
 void zSceneEntryIndex::execAllOfScene(const zSceneEntry::SceneEntryType type,zSceneEntryCallBack &callback)
 {
 	for(SceneEntry_SET::iterator it = all[type].begin(); it != all[type].end();)
 	{
-		//Ô¤ÏÈ±£´æµü´úÆ÷£¬·ÀÖ¹»Øµ÷ÖĞÊ¹µü´úÆ÷Ê§Ğ§
+		//é¢„å…ˆä¿å­˜è¿­ä»£å™¨ï¼Œé˜²æ­¢å›è°ƒä¸­ä½¿è¿­ä»£å™¨å¤±æ•ˆ
 		SceneEntry_SET::iterator tmp = it;
 		it++;
 		zSceneEntry *eee = *tmp;
@@ -300,10 +300,10 @@ void zSceneEntryIndex::execAllOfScene(const zSceneEntry::SceneEntryType type,zSc
 }
 
 /**
- * \brief ±éÀúµØÍ¼ÉÏËùÓĞÌØ¶¨ÀàĞÍµÄnpc£¬¶ÔÆäµ÷ÓÃ»Øµ÷º¯Êı
- * ×¢£º´Ë»Øµ÷Ö»Ìá¹©±éÀúÖ´ĞĞ£¬²»Ìá¹©É¾³ı¹¦ÄÜ
- * \param id npcÀàĞÍ
- * \param callback »Øµ÷º¯Êı
+ * \brief éå†åœ°å›¾ä¸Šæ‰€æœ‰ç‰¹å®šç±»å‹çš„npcï¼Œå¯¹å…¶è°ƒç”¨å›è°ƒå‡½æ•°
+ * æ³¨ï¼šæ­¤å›è°ƒåªæä¾›éå†æ‰§è¡Œï¼Œä¸æä¾›åˆ é™¤åŠŸèƒ½
+ * \param id npcç±»å‹
+ * \param callback å›è°ƒå‡½æ•°
  */
 void zSceneEntryIndex::execAllOfScene_npc(const DWORD id, zSceneEntryCallBack &callback)
 {
@@ -318,9 +318,9 @@ void zSceneEntryIndex::execAllOfScene_npc(const DWORD id, zSceneEntryCallBack &c
 }
 
 /**
- * \brief ±éÀúµØÍ¼ÉÏËùÓĞ¹¦ÄÜnpc£¬¶ÔÆäµ÷ÓÃ»Øµ÷º¯Êı
- * ×¢£º´Ë»Øµ÷Ö»Ìá¹©±éÀúÖ´ĞĞ£¬²»Ìá¹©É¾³ı¹¦ÄÜ
- * \param callback »Øµ÷º¯Êı
+ * \brief éå†åœ°å›¾ä¸Šæ‰€æœ‰åŠŸèƒ½npcï¼Œå¯¹å…¶è°ƒç”¨å›è°ƒå‡½æ•°
+ * æ³¨ï¼šæ­¤å›è°ƒåªæä¾›éå†æ‰§è¡Œï¼Œä¸æä¾›åˆ é™¤åŠŸèƒ½
+ * \param callback å›è°ƒå‡½æ•°
  */
 void zSceneEntryIndex::execAllOfScene_functionNpc(zSceneEntryCallBack &callback)
 {
@@ -331,12 +331,12 @@ void zSceneEntryIndex::execAllOfScene_functionNpc(zSceneEntryCallBack &callback)
 }
 
 /**
- * \brief ¸ù¾İ×ø±ê£¬»ñÈ¡Õ¾ÔÚÕâ¸ö×ø±êµãÉÏÃæµÄµØÍ¼Îï¼ş
- * \param type Îï¼şÀàĞÍ
- * \param pos ×ø±êµã
- * \param bState ÊÇ·ñÅĞ¶ÏÎï¼ş×´Ì¬
- * \param byState Îï¼ş×´Ì¬
- * \return µØÍ¼Îï¼ş
+ * \brief æ ¹æ®åæ ‡ï¼Œè·å–ç«™åœ¨è¿™ä¸ªåæ ‡ç‚¹ä¸Šé¢çš„åœ°å›¾ç‰©ä»¶
+ * \param type ç‰©ä»¶ç±»å‹
+ * \param pos åæ ‡ç‚¹
+ * \param bState æ˜¯å¦åˆ¤æ–­ç‰©ä»¶çŠ¶æ€
+ * \param byState ç‰©ä»¶çŠ¶æ€
+ * \return åœ°å›¾ç‰©ä»¶
  */
 zSceneEntry *zSceneEntryIndex::getSceneEntryByPos(zSceneEntry::SceneEntryType type, const zPos &pos,  const bool bState, const zSceneEntry::SceneEntryState byState)
 {
@@ -354,10 +354,10 @@ zSceneEntry *zSceneEntryIndex::getSceneEntryByPos(zSceneEntry::SceneEntryType ty
 			{
 				if(e->getPos() == pos)
 				{
-					// ÓÉÓÚËÀÍö×´Ì¬ºÍÒş²Ø×´Ì¬µÄEntry¶¼ÔÚÆÁË÷ÒıÖĞ£¬ËùÒÔ¼ÓÉÏÕâ¾ä±ä³É´ø×´Ì¬µÄ¼ìË÷
+					// ç”±äºæ­»äº¡çŠ¶æ€å’Œéšè—çŠ¶æ€çš„Entryéƒ½åœ¨å±ç´¢å¼•ä¸­ï¼Œæ‰€ä»¥åŠ ä¸Šè¿™å¥å˜æˆå¸¦çŠ¶æ€çš„æ£€ç´¢
 					if (_bState && e->getState() != _byState)
 						return true;
-					//Ê¹¸ù¾İÎ»ÖÃÈ¡Í¼ÌÚÏİÚåÀàµÄnpcÎŞ·¨È¡³ö
+					//ä½¿æ ¹æ®ä½ç½®å–å›¾è…¾é™·é˜±ç±»çš„npcæ— æ³•å–å‡º
 					if (e->getType() == zSceneEntry::SceneEntry_NPC
 							&& ((SceneNpc *)e)->getPetType() == Cmd::PET_TYPE_TOTEM)
 					{
@@ -377,9 +377,9 @@ zSceneEntry *zSceneEntryIndex::getSceneEntryByPos(zSceneEntry::SceneEntryType ty
 }
 
 /**
- * \brief Î¬»¤Ó°ÏìnpcµÄÆÁ
- * \param oldscreen ÓÃ»§ÇĞÆÁÇ°±àºÅ(-1±íÊ¾Ö»²åÈë)
- * \param newscreen ÓÃ»§ÇĞÆÁºó±àºÅ(-1±íÊ¾Ö»É¾³ı)
+ * \brief ç»´æŠ¤å½±å“npcçš„å±
+ * \param oldscreen ç”¨æˆ·åˆ‡å±å‰ç¼–å·(-1è¡¨ç¤ºåªæ’å…¥)
+ * \param newscreen ç”¨æˆ·åˆ‡å±åç¼–å·(-1è¡¨ç¤ºåªåˆ é™¤)
  */
 void zSceneEntryIndex::freshEffectPosi(const zPosI oldposi, const zPosI newposi)
 {
@@ -395,7 +395,7 @@ void zSceneEntryIndex::freshEffectPosi(const zPosI oldposi, const zPosI newposi)
 				if(iter->second == 0)
 				{
 					posiEffect[(*it)%MAX_NPC_GROUP].erase(iter);
-					//Zebra::logger->debug("É¾³ıÓĞĞ§ÆÁË÷Òı%d",iter->first);
+					//Zebra::logger->debug("åˆ é™¤æœ‰æ•ˆå±ç´¢å¼•%d",iter->first);
 				}
 			}
 		}
@@ -406,7 +406,7 @@ void zSceneEntryIndex::freshEffectPosi(const zPosI oldposi, const zPosI newposi)
 		for(zPosIVector::const_iterator it = pv.begin(); it != pv.end(); it++)
 		{
 			posiEffect[(*it)%MAX_NPC_GROUP][*it]++;
-			//Zebra::logger->debug("Ìí¼ÓÓĞĞ§ÆÁË÷Òı%d,ÓĞĞ§´ÎÊı%d",*it,posiEffect[(*it)%MAX_NPC_GROUP][*it]);
+			//Zebra::logger->debug("æ·»åŠ æœ‰æ•ˆå±ç´¢å¼•%d,æœ‰æ•ˆæ¬¡æ•°%d",*it,posiEffect[(*it)%MAX_NPC_GROUP][*it]);
 		}
 	}
 }
@@ -417,17 +417,17 @@ void zSceneEntryIndex::execAllOfEffectNpcScreen(const DWORD group, zSceneEntryCa
 	for( ;iter != posiEffect[group%MAX_NPC_GROUP].end() ; iter++)
 	{
 		/*
-		//Ô¤ÏÈ±£´æµü´úÆ÷£¬·ÀÖ¹»Øµ÷ÖĞÊ¹µü´úÆ÷Ê§Ğ§
+		//é¢„å…ˆä¿å­˜è¿­ä»£å™¨ï¼Œé˜²æ­¢å›è°ƒä¸­ä½¿è¿­ä»£å™¨å¤±æ•ˆ
 		PosiEffectMap_iter iter_tmp = iter; 
 		iter++;
 		SceneEntry_SET &pimi = index[zSceneEntry::SceneEntry_NPC][iter_tmp->first];
 		// */
-		// ÕâÀïÎŞÂÛÈçºÎÒÆ¶¯,Ö»Òª²»³¬¹ı9ÆÁ,¾Í²»»áÒıÆğ±¾ÆÁµÄÎŞĞ§,µ«ÊÇ¿ÉÄÜ»áÒıÆğiter++µÄÎŞĞ§,
-		// ËùÒÔ²»ÄÜÏÈ++ÔÙ´¦Àí
+		// è¿™é‡Œæ— è®ºå¦‚ä½•ç§»åŠ¨,åªè¦ä¸è¶…è¿‡9å±,å°±ä¸ä¼šå¼•èµ·æœ¬å±çš„æ— æ•ˆ,ä½†æ˜¯å¯èƒ½ä¼šå¼•èµ·iter++çš„æ— æ•ˆ,
+		// æ‰€ä»¥ä¸èƒ½å…ˆ++å†å¤„ç†
 		SceneEntry_SET &pimi = index[zSceneEntry::SceneEntry_NPC][iter->first];
 		for(SceneEntry_SET::iterator it=pimi.begin();it!=pimi.end();)
 		{
-			//Ô¤ÏÈ±£´æµü´úÆ÷£¬·ÀÖ¹»Øµ÷ÖĞÊ¹µü´úÆ÷Ê§Ğ§
+			//é¢„å…ˆä¿å­˜è¿­ä»£å™¨ï¼Œé˜²æ­¢å›è°ƒä¸­ä½¿è¿­ä»£å™¨å¤±æ•ˆ
 			SceneEntry_SET::iterator tmp = it;
 			it++;
 			zSceneEntry *eee = *tmp;
@@ -437,23 +437,23 @@ void zSceneEntryIndex::execAllOfEffectNpcScreen(const DWORD group, zSceneEntryCa
 }
 
 /**
- * \brief µÃµ½Ä³Ò»Î»ÖÃÒ»¶¨·¶Î§ÄÚµÄÆÁÁĞ±í
- * \param pos Ö¸¶¨×ø±ê
- * \param range Ö¸¶¨·¶Î§
- * \return ÆÁÁĞ±í
+ * \brief å¾—åˆ°æŸä¸€ä½ç½®ä¸€å®šèŒƒå›´å†…çš„å±åˆ—è¡¨
+ * \param pos æŒ‡å®šåæ ‡
+ * \param range æŒ‡å®šèŒƒå›´
+ * \return å±åˆ—è¡¨
  */
 const zPosIVector &zSceneEntryIndex::getScreenByRange(const zPos &pos, const int range)
 {
 	static zPosIVector pv;
 	pv.clear();
-	int scnX = pos.x / SCREEN_WIDTH;//ÆÁ±àºÅ
+	int scnX = pos.x / SCREEN_WIDTH;//å±ç¼–å·
 	int scnY = pos.y / SCREEN_HEIGHT;
-	int offX = pos.x % SCREEN_WIDTH;//ÔÚÒ»ÆÁÖĞµÄÎ»ÖÃ
+	int offX = pos.x % SCREEN_WIDTH;//åœ¨ä¸€å±ä¸­çš„ä½ç½®
 	int offY = pos.y % SCREEN_HEIGHT;
 
 	int x=0,y=0;
 
-	//±¾ÆÁ
+	//æœ¬å±
 	x = scnX;
 	y = scnY;
 	if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
@@ -461,7 +461,7 @@ const zPosIVector &zSceneEntryIndex::getScreenByRange(const zPos &pos, const int
 
 	if (offX<range)
 	{
-		//×ó
+		//å·¦
 		x = scnX - 1;
 		y = scnY;
 		if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
@@ -469,13 +469,13 @@ const zPosIVector &zSceneEntryIndex::getScreenByRange(const zPos &pos, const int
 
 		if (offY<range)
 		{
-			//ÉÏ
+			//ä¸Š
 			x = scnX;
 			y = scnY - 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
 				pv.push_back(y * screenx + x);
 
-			//×óÉÏ
+			//å·¦ä¸Š
 			x = scnX - 1;
 			y = scnY - 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
@@ -484,13 +484,13 @@ const zPosIVector &zSceneEntryIndex::getScreenByRange(const zPos &pos, const int
 
 		if (offY+range>SCREEN_HEIGHT)
 		{
-			//ÏÂ
+			//ä¸‹
 			x = scnX;
 			y = scnY + 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
 				pv.push_back(y * screenx + x);
 
-			//×óÏÂ
+			//å·¦ä¸‹
 			x = scnX - 1;
 			y = scnY + 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
@@ -500,7 +500,7 @@ const zPosIVector &zSceneEntryIndex::getScreenByRange(const zPos &pos, const int
 
 	if (offX+range>SCREEN_WIDTH)
 	{
-		//ÓÒ
+		//å³
 		x = scnX + 1;
 		y = scnY;
 		if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
@@ -508,13 +508,13 @@ const zPosIVector &zSceneEntryIndex::getScreenByRange(const zPos &pos, const int
 
 		if (offY<range)
 		{
-			//ÉÏ
+			//ä¸Š
 			x = scnX;
 			y = scnY - 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
 				pv.push_back(y * screenx + x);
 
-			//ÓÒÉÏ
+			//å³ä¸Š
 			x = scnX + 1;
 			y = scnY - 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
@@ -523,13 +523,13 @@ const zPosIVector &zSceneEntryIndex::getScreenByRange(const zPos &pos, const int
 
 		if (offY+range>SCREEN_HEIGHT)
 		{
-			//ÏÂ
+			//ä¸‹
 			x = scnX;
 			y = scnY + 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)
 				pv.push_back(y * screenx + x);
 
-			//ÓÒÏÂ
+			//å³ä¸‹
 			x = scnX + 1;
 			y = scnY + 1;
 			if (x >= 0 && y >= 0 && x < (int)screenx && y < (int)screeny)

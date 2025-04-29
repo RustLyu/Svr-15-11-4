@@ -1,4 +1,4 @@
-
+ï»¿
 #include "SceneUserManager.h"
 #include "Scene.h"
 #include "QuestEvent.h"
@@ -29,7 +29,7 @@ SceneUserManager &SceneUserManager::getMe()
 	if(sum==NULL)
 	{
 		sum=new SceneUserManager();
-		//Zebra::logger->debug("¶ÁÐ´Ëø¼ÆÊý:(¶Á=%u , Ð´=%u)" , sum->rwlock.rd_count , sum->rwlock.wr_count);
+		//Zebra::logger->debug("è¯»å†™é”è®¡æ•°:(è¯»=%u , å†™=%u)" , sum->rwlock.rd_count , sum->rwlock.wr_count);
 	}
 	return *sum;
 }
@@ -38,7 +38,7 @@ void SceneUserManager::destroyMe()
 {
 	if(sum!=NULL)
 	{
-		//Zebra::logger->debug("¶ÁÐ´Ëø¼ÆÊý:(¶Á=%u , Ð´=%u)" , sum->rwlock.rd_count , sum->rwlock.wr_count);
+		//Zebra::logger->debug("è¯»å†™é”è®¡æ•°:(è¯»=%u , å†™=%u)" , sum->rwlock.rd_count , sum->rwlock.wr_count);
 		SAFE_DELETE(sum);
 	}
 }
@@ -188,14 +188,14 @@ void SceneUserManager::removeUserByTask(SceneTask *task)
 			pUser->save(Cmd::Record::LOGOUT_WRITEBACK);
 			//pUser->killAllPets();
 			pUser->unreg();
-			Zebra::logger->trace("ÓÃ»§%s(%ld)ÒòÐ¶ÔØÍø¹Ø×¢Ïú",pUser->name,pUser->id);
+			Zebra::logger->trace("ç”¨æˆ·%s(%ld)å› å¸è½½ç½‘å…³æ³¨é”€",pUser->name,pUser->id);
 		}
 		else
 		{
 			SceneUser *pUser=SceneUserManager::getMe().getUserByIDOut(*iter);
 			if(pUser)
 			{
-				Zebra::logger->trace("ÓÃ»§%s(%ld)ÒòÐ¶ÔØÍø¹Ø×¢Ïú,µ«Õâ¸öÈËÕýÔÚ¶ÁÈ¡µµ°¸",pUser->name,pUser->id);
+				Zebra::logger->trace("ç”¨æˆ·%s(%ld)å› å¸è½½ç½‘å…³æ³¨é”€,ä½†è¿™ä¸ªäººæ­£åœ¨è¯»å–æ¡£æ¡ˆ",pUser->name,pUser->id);
 				Cmd::Record::t_RemoveUser_SceneRecord rec_ret;
 				rec_ret.accid = pUser->accid;
 				rec_ret.id = pUser->id;
@@ -235,7 +235,7 @@ void SceneUserManager::removeAllUser()
 		{
 			//pUser->save(Cmd::Record::LOGOUT_WRITEBACK);
 			//SceneUserManager::getMe().removeUser(pUser);
-			Zebra::logger->trace("ÓÃ»§%s(%ld)Òò·þÎñÆ÷¹Ø±ÕÐ¶ÔØ",pUser->name,pUser->id);
+			Zebra::logger->trace("ç”¨æˆ·%s(%ld)å› æœåŠ¡å™¨å…³é—­å¸è½½",pUser->name,pUser->id);
 //			OnQuit event(1);
 //			EventTable::instance().execute(*pUser, event);
 //			execute_script_event(pUser,"quit");
@@ -243,7 +243,7 @@ void SceneUserManager::removeAllUser()
 			pUser->save(Cmd::Record::LOGOUT_WRITEBACK);
 			//pUser->killAllPets();
 			pUser->unreg();
-			//Í¨ÖªÍø¹Ø·þÎñÆ÷
+			//é€šçŸ¥ç½‘å…³æœåŠ¡å™¨
 			Cmd::Scene::t_Unreg_LoginScene retgate;
 			retgate.dwUserID = pUser->id;
 			retgate.dwSceneTempID = pUser->scene->tempid;
@@ -281,7 +281,7 @@ void SceneUserManager::removeUserInOneScene(Scene *scene)
 		{
 			//pUser->save(Cmd::Record::LOGOUT_WRITEBACK);
 			//SceneUserManager::getMe().removeUser(pUser);
-			Zebra::logger->trace("ÓÃ»§%s(%ld)ÒòÐ¶ÔØ³¡¾°×¢Ïú",pUser->name,pUser->id);
+			Zebra::logger->trace("ç”¨æˆ·%s(%ld)å› å¸è½½åœºæ™¯æ³¨é”€",pUser->name,pUser->id);
 //			OnQuit event(1);
 //			EventTable::instance().execute(*pUser, event);
 //			execute_script_event(pUser,"quit");
@@ -289,7 +289,7 @@ void SceneUserManager::removeUserInOneScene(Scene *scene)
 			pUser->save(Cmd::Record::LOGOUT_WRITEBACK);
 			//pUser->killAllPets();
 			pUser->unreg();
-			//Í¨ÖªÍø¹Ø·þÎñÆ÷
+			//é€šçŸ¥ç½‘å…³æœåŠ¡å™¨
 			Cmd::Scene::t_Unreg_LoginScene retgate;
 			retgate.dwUserID = pUser->id;
 			retgate.dwSceneTempID = pUser->scene->tempid;
@@ -357,14 +357,14 @@ void SceneUserManager::enterWar(Cmd::Session::t_enterWar_SceneSession* cmd)
 				if (ptCmd->dwStatus == 1)
 				{
 #ifdef _ALL_SUPER_GM					
-					Zebra::logger->debug("µ±Ç°¶ÔÕ½¼ÇÂ¼Êý: %u", su->warSize());
-					Zebra::logger->debug("¼ÓÈë¹úÕ½: toRelation:%u, isAtt:%u", 
+					Zebra::logger->debug("å½“å‰å¯¹æˆ˜è®°å½•æ•°: %u", su->warSize());
+					Zebra::logger->debug("åŠ å…¥å›½æˆ˜: toRelation:%u, isAtt:%u", 
 							ptCmd->dwToRelationID, ptCmd->isAtt);
 #endif
 					su->addWarRecord(ptCmd->dwWarType, ptCmd->dwToRelationID, ptCmd->isAtt);
 
 #ifdef _ALL_SUPER_GM					
-					Zebra::logger->debug("µ±Ç°¶ÔÕ½¼ÇÂ¼Êý: %u", su->warSize());
+					Zebra::logger->debug("å½“å‰å¯¹æˆ˜è®°å½•æ•°: %u", su->warSize());
 #endif					
 
 					if (ptCmd->isAntiAtt)
@@ -383,24 +383,24 @@ void SceneUserManager::enterWar(Cmd::Session::t_enterWar_SceneSession* cmd)
 				else
 				{
 #ifdef _ALL_SUPER_GM					
-					Zebra::logger->debug("µ±Ç°¶ÔÕ½¼ÇÂ¼Êý: %u", su->warSize());
-					Zebra::logger->debug("É¾³ý¹úÕ½: toRelation:%u, isAtt:%u", 
+					Zebra::logger->debug("å½“å‰å¯¹æˆ˜è®°å½•æ•°: %u", su->warSize());
+					Zebra::logger->debug("åˆ é™¤å›½æˆ˜: toRelation:%u, isAtt:%u", 
 							ptCmd->dwToRelationID, ptCmd->isAtt);
 #endif					
 
 					su->removeWarRecord(ptCmd->dwWarType, ptCmd->dwToRelationID);
 					
 #ifdef _ALL_SUPER_GM					
-					Zebra::logger->debug("µ±Ç°¶ÔÕ½¼ÇÂ¼Êý: %u", su->warSize());
+					Zebra::logger->debug("å½“å‰å¯¹æˆ˜è®°å½•æ•°: %u", su->warSize());
 #endif					
 
 					//if (!su->isSpecWar(Cmd::COUNTRY_FORMAL_DARE))
-					//{// ²»ÔÚ¹úÕ½×´Ì¬ÁË
+					//{// ä¸åœ¨å›½æˆ˜çŠ¶æ€äº†
 						su->setDeathBackToMapID(su->scene);
 					//}
 				}
 
-				//su->sendNineToMe(); // ¼°Ê±¸üÐÂ¶ÔÕ½×´Ì¬
+				//su->sendNineToMe(); // åŠæ—¶æ›´æ–°å¯¹æˆ˜çŠ¶æ€
 				//FunctionTimes times(40,__FUNCTION__);
 				su->setStateToNine(Cmd::USTATE_WAR);
 			}
@@ -443,7 +443,7 @@ void SceneUserManager::countryTrans(DWORD dwCountryID, DWORD dwLevel)
 					pUser->charbase.exploit = 0;
 				}
 
-				Channel::sendSys(pUser, Cmd::INFO_TYPE_EXP, "¹úÍõµãÈ¼ÁË·é»ðÌ¨£¬Ó¢ÓÂµÄÄã±»¹úÍõÑ¡Ôñ¼ÓÈëÕ½³¡");
+				Channel::sendSys(pUser, Cmd::INFO_TYPE_EXP, "å›½çŽ‹ç‚¹ç‡ƒäº†çƒ½ç«å°ï¼Œè‹±å‹‡çš„ä½ è¢«å›½çŽ‹é€‰æ‹©åŠ å…¥æˆ˜åœº");
 			}
 		}
 
@@ -502,7 +502,7 @@ bool SceneRecycleUserManager::canReg(DWORD id)
 	}
 	else
 	{
-		Zebra::logger->debug("µÈ´ý»ØÊÕÊ±ÔÙ´ÎµÇÂ½:%s",ret->name);
+		Zebra::logger->debug("ç­‰å¾…å›žæ”¶æ—¶å†æ¬¡ç™»é™†:%s",ret->name);
 		rwlock.wrlock();
 		SceneRecycleUserManager::getInstance().removeUser(ret);
 		ret->gatetask=NULL;
@@ -587,7 +587,7 @@ void SceneUserManager::removeUserToHuangcheng(Scene *scene)
 		SceneUser *pUser=SceneUserManager::getMe().getUserByID(*iter);
 		if(pUser)
 		{
-			Gm::gomap(pUser, "name=ÖÐÁ¢Çø¡¤»Ê³Ç type=4");
+			Gm::gomap(pUser, "name=ä¸­ç«‹åŒºÂ·çš‡åŸŽ type=4");
 		}
 	}
 }

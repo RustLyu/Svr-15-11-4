@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneRelation.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ¶Ô¹ØÏµÃüÁîµÄ´¦Àí
+ * \brief å®ç°å¯¹å…³ç³»å‘½ä»¤çš„å¤„ç†
  *
  */
 
@@ -28,10 +28,10 @@
 
 
 /**
-  * \brief Ò»¸ö±È½ÏÆ÷
+  * \brief ä¸€ä¸ªæ¯”è¾ƒå™¨
   *
-  *  ÓÃÀ´±È½ÏÁ½¸özObjectÊµÀıÊÇ·ñÊÇÏàµÈµÄ
-  *  (ÔİÊ±Î´Ê¹ÓÃ)
+  *  ç”¨æ¥æ¯”è¾ƒä¸¤ä¸ªzObjectå®ä¾‹æ˜¯å¦æ˜¯ç›¸ç­‰çš„
+  *  (æš‚æ—¶æœªä½¿ç”¨)
   *
   */
 class ItemObjectCompare:public UserObjectCompare 
@@ -47,7 +47,7 @@ class ItemObjectCompare:public UserObjectCompare
 };
 
 /**
-  * \brief ½øĞĞ»éÒöµÄÆ¥Åä£¬²éÕÒ·ûºÏÌõ¼şµÄÒ»¶Ô
+  * \brief è¿›è¡Œå©šå§»çš„åŒ¹é…ï¼ŒæŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„ä¸€å¯¹
   * 
   *
   */
@@ -77,21 +77,21 @@ struct FindConsort : public TeamMemExec
 		{
 			switch(pUser->charbase.type)
 			{
-				case PROFESSION_1:		//ÏÀ¿Í
-				case PROFESSION_3:		//¼ıÏÀ
-				case PROFESSION_5:		//ÌìÊ¦
-				case PROFESSION_7:		//·¨Ê¦
+				case PROFESSION_1:		//ä¾ å®¢
+				case PROFESSION_3:		//ç®­ä¾ 
+				case PROFESSION_5:		//å¤©å¸ˆ
+				case PROFESSION_7:		//æ³•å¸ˆ
 					male = pUser;
 					break;
-				case PROFESSION_2:		//ÏÀÅ®
-				case PROFESSION_4:		//¼ıÁé
-				case PROFESSION_6:		//ÃÀÅ®
-				case PROFESSION_8:		//ÏÉÅ®
+				case PROFESSION_2:		//ä¾ å¥³
+				case PROFESSION_4:		//ç®­çµ
+				case PROFESSION_6:		//ç¾å¥³
+				case PROFESSION_8:		//ä»™å¥³
 					feme = pUser;
 					break;
-				case PROFESSION_NONE:	//ÎŞÒµ
+				case PROFESSION_NONE:	//æ— ä¸š
 				default:
-					Zebra::logger->error("´íÎóµÄÖ°ÒµÀàĞÍ");
+					Zebra::logger->error("é”™è¯¯çš„èŒä¸šç±»å‹");
 					break;
 			}
 		}
@@ -120,16 +120,16 @@ void SceneUser::addObjectToUserPacket(int objectid, SceneUser *pUser)
 }
 
 /**
-  * \brief ´¦Àí¹ØÏµÃüÁî
+  * \brief å¤„ç†å…³ç³»å‘½ä»¤
   *
-  * ´¦ÀíµÄ¹ØÏµÃüÁîÈçÏÂ:
+  * å¤„ç†çš„å…³ç³»å‘½ä»¤å¦‚ä¸‹:
   *
   * Cmd::MARRY_STATUS_CHECK_PARA
   *
-  * \param rev: ¹ØÏµÃüÁî
-  * \param cmdLen: ÃüÁî³¤¶È
+  * \param rev: å…³ç³»å‘½ä»¤
+  * \param cmdLen: å‘½ä»¤é•¿åº¦
   *
-  * \return ÃüÁî±»´¦Àí·µ»ØTRUE,·ñÔòÎªFALSE
+  * \return å‘½ä»¤è¢«å¤„ç†è¿”å›TRUE,å¦åˆ™ä¸ºFALSE
   *
   *
   */
@@ -142,9 +142,9 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 				/*
 				char countrymap[][MAX_NAMESIZE]=
 				{
-					"µ¥","ÉĞ","°½","º£Èó³Ç",
-					"Ò«»Ô³Ç","Óí","ÏÍ","ÔÀ",
-					"Ñ×","ºã","Ğş","ºşº£³Ç"
+					"å•","å°š","æ•–","æµ·æ¶¦åŸ",
+					"è€€è¾‰åŸ","ç¦¹","è´¤","å²³",
+					"ç‚","æ’","ç„","æ¹–æµ·åŸ"
 				};
 				*/
 				Cmd::stMarryStatusCheckCmd *ptCmd=(Cmd::stMarryStatusCheckCmd *)rev;
@@ -157,7 +157,7 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 					{
 						this->answerMarry=false;
 						this->friendID=0;
-						Channel::sendSys(pUser, Cmd::INFO_TYPE_MSG, "·Ç³£ÒÅº¶£¬¶Ô·½¾Ü¾øÁËÄã£¡");
+						Channel::sendSys(pUser, Cmd::INFO_TYPE_MSG, "éå¸¸é—æ†¾ï¼Œå¯¹æ–¹æ‹’ç»äº†ä½ ï¼");
 					}
 					return true;
 				}
@@ -197,7 +197,7 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 
 				if (pUser->charbase.country != i)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "²»´¦ÀíÍâ¹úÈËµÄ»éÒöµÇ¼Ç£¡");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä¸å¤„ç†å¤–å›½äººçš„å©šå§»ç™»è®°ï¼");
 					return true;
 				}
 				*/
@@ -273,7 +273,7 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 											{
 												case Cmd::MARRY_PAY_MONEY:
 													{
-														if (packs.checkMoney(MARRY_REQUEST_MONEY) && packs.removeMoney(MARRY_REQUEST_MONEY,"½á»é0"))
+														if (packs.checkMoney(MARRY_REQUEST_MONEY) && packs.removeMoney(MARRY_REQUEST_MONEY,"ç»“å©š0"))
 														{
 															addObjectToUserPacket(MARRY_PRESENT_MALE, callback.male);
 															addObjectToUserPacket(MARRY_PRESENT_FEME, callback.feme);
@@ -282,14 +282,14 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 														{
 															ptCmd->byStep = Cmd::MARRY_NO_MONEY;
 															sendCmdToMe(ptCmd, cmdLen);
-															Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ×ã¹»µÄÇ®À´½»ÄÉ½á»é·ÑÓÃ");
+															Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰è¶³å¤Ÿçš„é’±æ¥äº¤çº³ç»“å©šè´¹ç”¨");
 															return true;
 														}
 													}
 													break;
 												case Cmd::MARRY_PAY_MONEY1:
 													{
-														if (packs.checkMoney(MARRY_REQUEST_MONEY1) && packs.removeMoney(MARRY_REQUEST_MONEY1,"½á»é1"))
+														if (packs.checkMoney(MARRY_REQUEST_MONEY1) && packs.removeMoney(MARRY_REQUEST_MONEY1,"ç»“å©š1"))
 														{
 															addObjectToUserPacket(MARRY_PRESENT_MALE, callback.male);
 															addObjectToUserPacket(1723, callback.male);
@@ -302,14 +302,14 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 														{
 															ptCmd->byStep = Cmd::MARRY_NO_MONEY;
 															sendCmdToMe(ptCmd, cmdLen);
-															Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ×ã¹»µÄÇ®À´½»ÄÉ½á»é·ÑÓÃ");
+															Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰è¶³å¤Ÿçš„é’±æ¥äº¤çº³ç»“å©šè´¹ç”¨");
 															return true;
 														}
 													}
 													break;
 												case Cmd::MARRY_PAY_MONEY2:
 													{
-														if (packs.checkMoney(MARRY_REQUEST_MONEY2) && packs.removeMoney(MARRY_REQUEST_MONEY2,"½á»é2"))
+														if (packs.checkMoney(MARRY_REQUEST_MONEY2) && packs.removeMoney(MARRY_REQUEST_MONEY2,"ç»“å©š2"))
 														{
 															addObjectToUserPacket(MARRY_PRESENT_MALE, callback.male);
 															addObjectToUserPacket(1723, callback.male);
@@ -336,7 +336,7 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 														{
 															ptCmd->byStep = Cmd::MARRY_NO_MONEY;
 															sendCmdToMe(ptCmd, cmdLen);
-															Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ×ã¹»µÄÇ®À´½»ÄÉ½á»é·ÑÓÃ");
+															Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰è¶³å¤Ÿçš„é’±æ¥äº¤çº³ç»“å©šè´¹ç”¨");
 															return true;
 														}
 													}
@@ -365,32 +365,32 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 											this->forwardSession(&send, sizeof(send));
 
 											sendCmdToMe(ptCmd, cmdLen);
-											//Channel::sendSys(callback.feme, Cmd::INFO_TYPE_GAME, "¹§Ï²ÄãÃÇ½á»é³É¹¦");
-											//Channel::sendSys(callback.male, Cmd::INFO_TYPE_GAME, "¹§Ï²ÄãÃÇ½á»é³É¹¦");
+											//Channel::sendSys(callback.feme, Cmd::INFO_TYPE_GAME, "æ­å–œä½ ä»¬ç»“å©šæˆåŠŸ");
+											//Channel::sendSys(callback.male, Cmd::INFO_TYPE_GAME, "æ­å–œä½ ä»¬ç»“å©šæˆåŠŸ");
 
 
 											char buf[MAX_CHATINFO];
-											sprintf(buf, "Õ÷Í¾¹§×£%sÓë%sÏ²½áÁ«Àí£¬°×Í·ÙÉÀÏ£¡", callback.feme->name,callback.male->name);
+											sprintf(buf, "å¾é€”æ­ç¥%sä¸%så–œç»“è²ç†ï¼Œç™½å¤´å•è€ï¼", callback.feme->name,callback.male->name);
 											zRTime ctv;
 											Cmd::stChannelChatUserCmd sendMsg;
 											sendMsg.dwType=Cmd::CHAT_TYPE_COUNTRY_MARRY;
 											switch(ptCmd->byStep)
 											{
 												case Cmd::MARRY_PAY_MONEY:
-													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SYS;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SYS;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 													break;
 												case Cmd::MARRY_PAY_MONEY1:
-													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SKYROCKET1;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SKYROCKET1;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 													break;
 												case Cmd::MARRY_PAY_MONEY2:
-													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SKYROCKET2;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SKYROCKET2;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 													break;
 												default:
-													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SYS;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+													sendMsg.dwSysInfoType = Cmd::INFO_TYPE_SYS;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 													break;
 											}
 
-											//sendMsg.dwSysInfoType = Cmd::INFO_TYPE_EXP;//ÏµÍ³ÏûÏ¢µÄÀàĞÍ
+											//sendMsg.dwSysInfoType = Cmd::INFO_TYPE_EXP;//ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹
 											sendMsg.dwChatTime = ctv.sec();
 											bzero(sendMsg.pstrName, sizeof(sendMsg.pstrName));
 											bzero(sendMsg.pstrChat, sizeof(sendMsg.pstrChat));
@@ -407,17 +407,17 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 												sendCmdToMe(ptCmd, cmdLen);
 												if (!mitemobj)
 												{
-													Channel::sendSys(callback.male, Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ×¼±¸×ê½ä£¿¿ìÈ¥ÕÒºìÄïÖÃ±¸²ÊÀñ°É");
+													Channel::sendSys(callback.male, Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰å‡†å¤‡é’»æˆ’ï¼Ÿå¿«å»æ‰¾çº¢å¨˜ç½®å¤‡å½©ç¤¼å§");
 												}
 												if (!witemobj)
 												{
-													Channel::sendSys(callback.feme, Cmd::INFO_TYPE_FAIL, "ÄãµÄ¼Ş×±»¹Ã»ÓĞºÃ£¿¿ìÈ¥ÕÒºìÄïÎÊÎÊ°É");
+													Channel::sendSys(callback.feme, Cmd::INFO_TYPE_FAIL, "ä½ çš„å«å¦†è¿˜æ²¡æœ‰å¥½ï¼Ÿå¿«å»æ‰¾çº¢å¨˜é—®é—®å§");
 												}
 												return true;
 											}
 											else
 											{
-												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Ã»ÓĞ¶¨ÇéÎï£¡");
+												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ²¡æœ‰å®šæƒ…ç‰©ï¼");
 												return true;
 											}
 										}
@@ -425,35 +425,35 @@ bool SceneUser::doRelationCmd(const Cmd::stRelationUserCmd *rev,unsigned int cmd
 									}
 									else
 									{
-										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃÇÖĞ¼äÓĞÈËÒÑ¾­ÓĞÅäÅ¼£¬ÖØ»éÊÇ²»ÔÊĞíµÄ£¡");
+										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ä»¬ä¸­é—´æœ‰äººå·²ç»æœ‰é…å¶ï¼Œé‡å©šæ˜¯ä¸å…è®¸çš„ï¼");
 									}
 								}
 								else
 								{
-									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃÇµÈ¼¶»¹²»¹»£¬³ÉÊìµãÔÙÀ´°É£¡");
+									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ä»¬ç­‰çº§è¿˜ä¸å¤Ÿï¼Œæˆç†Ÿç‚¹å†æ¥å§ï¼");
 								}
 							}
 							else
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃÇÁ©µÄ¹ú¼®²»Ò»Ñù£¬ÎÒÕâ²»ÊÜÀíÒì¹ú»éÒöµÇ¼Ç£¬ÒªÃ´¸Ä¹ú¼®ÒÔºóÔÙÀ´ÕÒÎÒ£¡");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ä»¬ä¿©çš„å›½ç±ä¸ä¸€æ ·ï¼Œæˆ‘è¿™ä¸å—ç†å¼‚å›½å©šå§»ç™»è®°ï¼Œè¦ä¹ˆæ”¹å›½ç±ä»¥åå†æ¥æ‰¾æˆ‘ï¼");
 							}
 						}
 						else
 						{
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÃÇ±ØĞë¶¼µ½ÎÒ¸úÇ°À´£¬ÎÒ²ÅÄÜ°ïÄãÃÇ°ìÀí½á»éÊÖĞø£¡");
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ä»¬å¿…é¡»éƒ½åˆ°æˆ‘è·Ÿå‰æ¥ï¼Œæˆ‘æ‰èƒ½å¸®ä½ ä»¬åŠç†ç»“å©šæ‰‹ç»­ï¼");
 						}
 					}
 					else
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶÷....Í¬ĞÔÊÇ²»ÄÜ½á»éµÄ£¡");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ©....åŒæ€§æ˜¯ä¸èƒ½ç»“å©šçš„ï¼");
 					}
 				}
 				else
 				{
 					if (team.getSize()<2)
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "µÃ¸úÄãµÄĞÄÉÏÈËÏÈ×éºÃ¶Ó£¡");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¾—è·Ÿä½ çš„å¿ƒä¸Šäººå…ˆç»„å¥½é˜Ÿï¼");
 					else
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãµÄ¶ÓÎéÀïÃæÖ»ÄÜÓĞ2¸öÈË£¬ÎŞ¹ØÈËÔ±ÇëÈÃËûÃÇÍË³ö£¡");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ çš„é˜Ÿä¼é‡Œé¢åªèƒ½æœ‰2ä¸ªäººï¼Œæ— å…³äººå‘˜è¯·è®©ä»–ä»¬é€€å‡ºï¼");
 				}
 				ptCmd->byStep = Cmd::MARRY_AHEAD_CHECK_FAIL;
 				sendCmdToMe(ptCmd, cmdLen);

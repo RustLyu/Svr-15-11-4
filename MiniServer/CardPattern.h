@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "MiniUserCommand.h"
 #include "Zebra.h"
 
@@ -11,12 +11,12 @@ class CardPattern
 		static bool match_pattern(const DWORD &packNum, const Cmd::Card *cards, const DWORD &num, CardPattern &pat);
 
 		CardList list;
-		DWORD serialNum;//Á¬Ğø¼¸¸ö
-		DWORD unitNum;//Ò»×é¼¸¸ö
-		Cmd::Card value;//Öµ£¬°´ĞòÁĞ×î´óµÄËã
+		DWORD serialNum;//è¿ç»­å‡ ä¸ª
+		DWORD unitNum;//ä¸€ç»„å‡ ä¸ª
+		Cmd::Card value;//å€¼ï¼ŒæŒ‰åºåˆ—æœ€å¤§çš„ç®—
 		BYTE bomb;
 		BYTE missile;
-		BYTE add;//ÓĞ¼¸ÕÅ¸½´øÅÆ(3Ë³)
+		BYTE add;//æœ‰å‡ å¼ é™„å¸¦ç‰Œ(3é¡º)
 
 		CardPattern():serialNum(1),unitNum(1),bomb(0),missile(0),add(0),_valid(false){}
 		CardPattern &operator=(const CardPattern &c);

@@ -1,11 +1,11 @@
-#ifndef _WORD_FILTER_H
+ï»¿#ifndef _WORD_FILTER_H
 #define _WORD_FILTER_H
 
 #include <fstream>
 #include "zRegex.h"
 
 /**
- * \brief ½ûÑÔ¹ýÂÇÀà
+ * \brief ç¦è¨€è¿‡è™‘ç±»
  *
  */
 class wordFilter
@@ -34,20 +34,20 @@ class wordFilter
 
 wordFilter *wordFilter::instance = 0;
 /**
- * \brief ¶ÁÈ¡½ûÑÔ¹ýÂË±í¸ñ
+ * \brief è¯»å–ç¦è¨€è¿‡æ»¤è¡¨æ ¼
  *
  *
  */
 void wordFilter::init()
 {
-	//½ûÖ¹´Ê»ã
+	//ç¦æ­¢è¯æ±‡
 	std::string f = Zebra::global["forbidWordsFile"];
 	if (""==f)
 		f = "forbidWords";
 	std::ifstream src(f.c_str());
 	if (!src)
 	{
-		Zebra::logger->warn("´ò¿ª´Ê»ã¹ýÂËÁÐ±íÊ§°Ü£¡file=%s", Zebra::global["forbidWordsFile"].c_str());
+		Zebra::logger->warn("æ‰“å¼€è¯æ±‡è¿‡æ»¤åˆ—è¡¨å¤±è´¥ï¼file=%s", Zebra::global["forbidWordsFile"].c_str());
 		return;
 	}
 
@@ -65,7 +65,7 @@ void wordFilter::init()
 			replacer++;
 			word = replacer++;
 
-			//×ª»»³ÉÐ¡Ð´
+			//è½¬æ¢æˆå°å†™
 			bzero(buf,sizeof(buf));
 			word->copy(buf, word->length(), 0);
 			for (unsigned int i=0; i<word->length(); i++)
@@ -77,20 +77,20 @@ void wordFilter::init()
 		}
 	}
 
-	Zebra::logger->debug("¼ÓÔØ´Ê»ã¹ýÂËÁÐ±í %d", forbidWords.size());
+	Zebra::logger->debug("åŠ è½½è¯æ±‡è¿‡æ»¤åˆ—è¡¨ %d", forbidWords.size());
 }
 
 /**
- * \brief ½ûÑÔ¹ýÂÇ
+ * \brief ç¦è¨€è¿‡è™‘
  *
  *
- * \param text: ¹ýÂÇÄÚÈÝ
- * \param len: ÄÚÈÝ³¤¶È
+ * \param text: è¿‡è™‘å†…å®¹
+ * \param len: å†…å®¹é•¿åº¦
  * \return 
  */
 bool wordFilter::doFilter(char *text, unsigned int len)
 {
-	//½øÐÐ´Ê»ã¹ýÂË
+	//è¿›è¡Œè¯æ±‡è¿‡æ»¤
 	zRegex regex;
 	bool ret = true;
 	
@@ -110,7 +110,7 @@ bool wordFilter::doFilter(char *text, unsigned int len)
 		{
 			BYTE val = 0;
 			if (pos)
-				val = content_copy.c_str()[pos-1];//ÊÇ·ñºº×ÖµÄºóÃæÒ»°ë
+				val = content_copy.c_str()[pos-1];//æ˜¯å¦æ±‰å­—çš„åŽé¢ä¸€åŠ
 
 			if (val>=0x80)
 				pos = content_copy.find(it->first.c_str(), pos+1);

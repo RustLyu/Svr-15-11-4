@@ -1,4 +1,4 @@
-//#include "MiniUserCommand.h"
+ï»¿//#include "MiniUserCommand.h"
 #include "MiniHall.h"
 #include "MiniRoom.h"
 #include "MiniGame.h"
@@ -18,25 +18,25 @@ bool MiniGame::userEnter(MiniUser *u, Cmd::MiniUserPosition seatID)
 	Cmd::stEnterGameRetCommonMiniGameCmd send;
 	if (money && !u->checkMoney(money*30))
 	{
-		send.ret = 5;//Ç®²»×ã
+		send.ret = 5;//é’±ä¸è¶³
 		u->sendCmdToMe(&send, sizeof(send));
 		return false;
 	}
 	if (full())
 	{
-		send.ret = 2;//Âú
+		send.ret = 2;//æ»¡
 		u->sendCmdToMe(&send, sizeof(send));
 		return false;
 	}
 	if (Cmd::MGS_PREPARE!=state)
 	{
-		send.ret = 3;//ÒÑ¿ªÊ¼
+		send.ret = 3;//å·²å¼€å§‹
 		u->sendCmdToMe(&send, sizeof(send));
 		return false;
 	}
 	if (seatList[seatID.seat].user)
 	{
-		send.ret = 4;//ÒÑÓĞÈË
+		send.ret = 4;//å·²æœ‰äºº
 		u->sendCmdToMe(&send, sizeof(send));
 		return false;
 	}
@@ -44,7 +44,7 @@ bool MiniGame::userEnter(MiniUser *u, Cmd::MiniUserPosition seatID)
 			|| u->getGameState(id.type)!=Cmd::MUS_ROOM
 			|| seatList[seatID.seat].open!=1)
 	{
-		send.ret = 0;//Ê§°Ü
+		send.ret = 0;//å¤±è´¥
 		u->sendCmdToMe(&send, sizeof(send));
 		return false;
 	}
@@ -54,7 +54,7 @@ bool MiniGame::userEnter(MiniUser *u, Cmd::MiniUserPosition seatID)
 	u->setGameState(id.type, Cmd::MUS_SEAT);
 	u->setGamePos(id.type, seatID);
 
-	send.ret = 1;//³É¹¦
+	send.ret = 1;//æˆåŠŸ
 	send.seatID = seatID;
 	u->sendCmdToMe(&send, sizeof(send));
 
@@ -68,7 +68,7 @@ bool MiniGame::userEnter(MiniUser *u, Cmd::MiniUserPosition seatID)
 		setHost(seatID.seat);
 
 	v_userEnter(u, seatID);
-	Zebra::logger->debug("%s(%u) ×øÏÂ seatID=%u", u->name, u->id, seatID.id());
+	Zebra::logger->debug("%s(%u) åä¸‹ seatID=%u", u->name, u->id, seatID.id());
 	return true;
 }
 
@@ -117,10 +117,10 @@ void MiniGame::userLeave(MiniUser *u)
 		enableAllSeats();
 	}
 
-	Zebra::logger->debug("%s(%u) Àë¿ª×À×Ó %u", u->name, u->id, makeSeatID(seat).id());
+	Zebra::logger->debug("%s(%u) ç¦»å¼€æ¡Œå­ %u", u->name, u->id, makeSeatID(seat).id());
 }
 
-//·µ»Ø×ùÎ»ºÅ
+//è¿”å›åº§ä½å·
 BYTE MiniGame::find(MiniUser *u)
 {
 	if (!u) return 0;
@@ -157,7 +157,7 @@ void MiniGame::sendUserToGame(MiniUser *u)
 
 	sendCmdToAll(cmd, sizeof(Cmd::stAddGameUserCommonMiniGameCmd)+sizeof(Cmd::MiniUserData));
 
-	Zebra::logger->debug("sendUserToGame ¹ã²¥ %s(%u) µÄĞÅÏ¢", u->name, u->id);
+	Zebra::logger->debug("sendUserToGame å¹¿æ’­ %s(%u) çš„ä¿¡æ¯", u->name, u->id);
 }
 
 void MiniGame::sendGameToUser(MiniUser *u)
@@ -182,7 +182,7 @@ void MiniGame::sendGameToUser(MiniUser *u)
 	if (cmd->num)
 	{
 		u->sendCmdToMe(cmd, sizeof(Cmd::stAddGameUserCommonMiniGameCmd)+sizeof(Cmd::MiniUserData));
-		Zebra::logger->debug("sendGameToUser ¸ø %s(%u) ·¢ËÍ %u ¸öÍæ¼ÒĞÅÏ¢", u->name, u->id, cmd->num);
+		Zebra::logger->debug("sendGameToUser ç»™ %s(%u) å‘é€ %u ä¸ªç©å®¶ä¿¡æ¯", u->name, u->id, cmd->num);
 	}
 }
 */
@@ -201,7 +201,7 @@ void MiniGame::setHost(BYTE seat)
 	/*
 	if (seat>maxUserNum)
 	{
-		Zebra::logger->error("gameID=%u ÉèÖÃ·¿¼äÖ÷ÈË´íÎó seat=%u", id.id(), seat);
+		Zebra::logger->error("gameID=%u è®¾ç½®æˆ¿é—´ä¸»äººé”™è¯¯ seat=%u", id.id(), seat);
 		return;
 	}
 
@@ -213,7 +213,7 @@ void MiniGame::setHost(BYTE seat)
 		send.data.isHost = 0;
 		getRoom()->sendCmdToAll(&send, sizeof(send));
 
-		Zebra::logger->debug("Çå³ı×ÀÖ÷ gameID=%u seat=%u", id.id(), hostSeat);
+		Zebra::logger->debug("æ¸…é™¤æ¡Œä¸» gameID=%u seat=%u", id.id(), hostSeat);
 	}
 
 	hostSeat = seat;
@@ -228,7 +228,7 @@ void MiniGame::setHost(BYTE seat)
 		send.data.isHost = 1;
 		getRoom()->sendCmdToAll(&send, sizeof(send));
 
-		Zebra::logger->debug("ÉèÖÃ×ÀÖ÷ gameID=%u seat=%u", id.id(), seat);
+		Zebra::logger->debug("è®¾ç½®æ¡Œä¸» gameID=%u seat=%u", id.id(), seat);
 	}
 	*/
 }
@@ -256,7 +256,7 @@ void MiniGame::toggleSeat(MiniUser *host, Cmd::MiniSeatID seatID)
 
 	getRoom()->sendCmdToAll(&send, sizeof(send));
 
-	Zebra::logger->debug("%s(%u) ÉèÖÃ×ùÎ»×´Ì¬ %u state=%u", host->name, host->id, seatID.id(), seatList[seatID.seat].open);
+	Zebra::logger->debug("%s(%u) è®¾ç½®åº§ä½çŠ¶æ€ %u state=%u", host->name, host->id, seatID.id(), seatList[seatID.seat].open);
 	*/
 }
 
@@ -272,7 +272,7 @@ void MiniGame::kickUser(MiniUser *host, MiniUser *u)
 
 	userLeave(u);
 
-	Zebra::logger->debug("%s ±» %s Ìß³öÓÎÏ·£¬½øÈë·¿¼ä %u", u->name, host->name, id.roomID());
+	Zebra::logger->debug("%s è¢« %s è¸¢å‡ºæ¸¸æˆï¼Œè¿›å…¥æˆ¿é—´ %u", u->name, host->name, id.roomID());
 	*/
 }
 
@@ -288,7 +288,7 @@ void MiniGame::full_MiniSeatData(Cmd::stSeatStateCommonMiniGameCmd *cmd)
 		}
 	}
 
-	/*//´ø×ÀÖ÷µÄ´úÂë
+	/*//å¸¦æ¡Œä¸»çš„ä»£ç 
 	for (BYTE i=1; i<=maxUserNum; i++)
 	{
 		if (0==seatList[i].open || i==hostSeat)
@@ -312,7 +312,7 @@ bool MiniGame::toggleReady(MiniUser *u)
 	BYTE seat = find(u);
 	if (!seat) return false;
 
-	/* //´ø×ÀÖ÷µÄ´úÂë
+	/* //å¸¦æ¡Œä¸»çš„ä»£ç 
 	if (seat==hostSeat)
 	{
 		if (canStart())
@@ -320,7 +320,7 @@ bool MiniGame::toggleReady(MiniUser *u)
 			start();
 			return true;
 		}
-		u->sendSys(Cmd::INFO_TYPE_FAIL, "ËùÓĞÈË¶¼×¼±¸ºÃ²ÅÄÜ¿ªÊ¼ÓÎÏ·");
+		u->sendSys(Cmd::INFO_TYPE_FAIL, "æ‰€æœ‰äººéƒ½å‡†å¤‡å¥½æ‰èƒ½å¼€å§‹æ¸¸æˆ");
 		return false;
 	}
 	*/
@@ -332,7 +332,7 @@ bool MiniGame::toggleReady(MiniUser *u)
 
 	getRoom()->sendUserStateToRoom(u);
 
-	Zebra::logger->debug("%s(%u) %s %u", u->name, u->id, u->getGameState(id.type)==Cmd::MUS_READY?"×¼±¸":"È¡Ïû×¼±¸", makeSeatID(seat).id());
+	Zebra::logger->debug("%s(%u) %s %u", u->name, u->id, u->getGameState(id.type)==Cmd::MUS_READY?"å‡†å¤‡":"å–æ¶ˆå‡†å¤‡", makeSeatID(seat).id());
 
 	if (canStart())
 		start();
@@ -375,7 +375,7 @@ bool MiniGame::start()
 
 	if (!v_start()) return false;
 
-	Zebra::logger->debug("%u ÓÎÏ·¿ªÊ¼", id.gameID());
+	Zebra::logger->debug("%u æ¸¸æˆå¼€å§‹", id.gameID());
 	return true;
 }
 
@@ -399,16 +399,16 @@ bool MiniGame::end()
 
 	state = Cmd::MGS_PREPARE;
 
-	//Ç®²»¹»µÄÌß³öÈ¥
+	//é’±ä¸å¤Ÿçš„è¸¢å‡ºå»
 	for (BYTE i=1; i<=maxUserNum; i++)
 		if (seatList[i].user && !seatList[i].user->checkMoney(money*30))
 		{
-			seatList[i].user->sendMiniInfo(Cmd::MCT_POPUP, "¶Ô²»Æğ£¬ÄúµÄÏÉµ¤´¢±¸²»×ã %u Á££¬²»ÄÜÔÙ¼ÌĞøÓÎÏ·", money*30);
-			Zebra::logger->trace("%s(%u) ½ğÇ®²»×ã±»Ìß³öÓÎÏ· gameID=%u", seatList[i].user->name, seatList[i].user->id, id.id());
+			seatList[i].user->sendMiniInfo(Cmd::MCT_POPUP, "å¯¹ä¸èµ·ï¼Œæ‚¨çš„ä»™ä¸¹å‚¨å¤‡ä¸è¶³ %u ç²’ï¼Œä¸èƒ½å†ç»§ç»­æ¸¸æˆ", money*30);
+			Zebra::logger->trace("%s(%u) é‡‘é’±ä¸è¶³è¢«è¸¢å‡ºæ¸¸æˆ gameID=%u", seatList[i].user->name, seatList[i].user->id, id.id());
 			userLeave(seatList[i].user);
 		}
 
-	Zebra::logger->debug("%02u%02u%02u%02u ÓÎÏ·½áÊø", id.type, id.room, id.game, id.seat);
+	Zebra::logger->debug("%02u%02u%02u%02u æ¸¸æˆç»“æŸ", id.type, id.room, id.game, id.seat);
 	return true;
 }
 

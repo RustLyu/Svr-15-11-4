@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: NpcDare.h $
  * \author  
  * \date 
- * \brief ¶¨ÒåNPCÕù¶áµÄ¹«¹²ÐÅÏ¢
+ * \brief å®šä¹‰NPCäº‰å¤ºçš„å…¬å…±ä¿¡æ¯
  *
  */
 
@@ -18,17 +18,17 @@
 namespace NpcDareDef
 {
 
-	const DWORD CREATE_NPCDARE_NEED_ITEM = 738; // ·¢Æð¶ÔÕ½ÐèÒªµÄµÀ¾ß µØÓðÁî
+	const DWORD CREATE_NPCDARE_NEED_ITEM = 738; // å‘èµ·å¯¹æˆ˜éœ€è¦çš„é“å…· åœ°ç¾½ä»¤
 
 	struct NpcDareRecord {
-		DWORD dwCountry;			/// ¹ú¼Ò
-		DWORD dwMapID;				/// µØÍ¼ID
+		DWORD dwCountry;			/// å›½å®¶
+		DWORD dwMapID;				/// åœ°å›¾ID
 		DWORD dwNpcID;				/// NPC id
-		DWORD dwPosX;				/// npcµÄ x ×ø±ê
-		DWORD dwPosY;				/// npcµÄ y ×ø±ê
-		DWORD dwHoldSeptID;			/// Ä¿Ç°¸ÃnpcµÄËùÓÐ¼Ò×å
-		DWORD dwDareSeptID;			/// Ä¿Ç°¸ÃnpcµÄÌôÕ½¼Ò×å
-		DWORD dwGold;				/// ½áÓàË°½ð
+		DWORD dwPosX;				/// npcçš„ x åæ ‡
+		DWORD dwPosY;				/// npcçš„ y åæ ‡
+		DWORD dwHoldSeptID;			/// ç›®å‰è¯¥npcçš„æ‰€æœ‰å®¶æ—
+		DWORD dwDareSeptID;			/// ç›®å‰è¯¥npcçš„æŒ‘æˆ˜å®¶æ—
+		DWORD dwGold;				/// ç»“ä½™ç¨Žé‡‘
 	} __attribute__ ((packed));
 
 }

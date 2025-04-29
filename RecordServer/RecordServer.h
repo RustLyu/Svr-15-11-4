@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordServer.h  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿µµ°¸·şÎñÆ÷£¬ÓÃÓÚ´´½¨¡¢´¢´æºÍ¶ÁÈ¡µµ°¸
+ * \brief zebraé¡¹ç›®æ¡£æ¡ˆæœåŠ¡å™¨ï¼Œç”¨äºåˆ›å»ºã€å‚¨å­˜å’Œè¯»å–æ¡£æ¡ˆ
  *
  */
 
@@ -16,10 +16,10 @@
 #include "zDBConnPool.h"
 
 /**
- * \brief ¶¨Òåµµ°¸·şÎñÀà
+ * \brief å®šä¹‰æ¡£æ¡ˆæœåŠ¡ç±»
  *
- * ÏîÄ¿µµ°¸·şÎñÆ÷£¬ÓÃÓÚ´´½¨¡¢´¢´æºÍ¶ÁÈ¡µµ°¸<br>
- * Õâ¸öÀàÊ¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+ * é¡¹ç›®æ¡£æ¡ˆæœåŠ¡å™¨ï¼Œç”¨äºåˆ›å»ºã€å‚¨å­˜å’Œè¯»å–æ¡£æ¡ˆ<br>
+ * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
  *
  */
 class RecordService : public zSubNetService
@@ -30,14 +30,14 @@ class RecordService : public zSubNetService
 		bool msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~RecordService()
 		{
 			instance = NULL;
 
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -58,9 +58,9 @@ class RecordService : public zSubNetService
 		}
 
 		/**
-		 * \brief ·µ»ØÎ¨Ò»µÄÀàÊµÀı
+		 * \brief è¿”å›å”¯ä¸€çš„ç±»å®ä¾‹
 		 *
-		 * \return Î¨Ò»µÄÀàÊµÀı
+		 * \return å”¯ä¸€çš„ç±»å®ä¾‹
 		 */
 		static RecordService &getInstance()
 		{
@@ -71,7 +71,7 @@ class RecordService : public zSubNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -82,7 +82,7 @@ class RecordService : public zSubNetService
 		void reloadConfig();
 
 		/**
-		 * \brief Ö¸ÏòÊı¾İ¿âÁ¬½Ó³ØÊµÀıµÄÖ¸Õë
+		 * \brief æŒ‡å‘æ•°æ®åº“è¿æ¥æ± å®ä¾‹çš„æŒ‡é’ˆ
 		 *
 		 */
 		static zDBConnPool *dbConnPool;
@@ -90,18 +90,18 @@ class RecordService : public zSubNetService
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static RecordService *instance;
 
-		zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		RecordService() : zSubNetService("µµ°¸·şÎñÆ÷", RECORDSERVER)
+		RecordService() : zSubNetService("æ¡£æ¡ˆæœåŠ¡å™¨", RECORDSERVER)
 		{
 			taskPool = NULL;
 		}

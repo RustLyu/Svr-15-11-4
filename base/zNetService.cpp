@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zNetService.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍøÂç·şÎñÆ÷
+ * \brief å®ç°ç½‘ç»œæœåŠ¡å™¨
  *
  * 
  */
@@ -23,12 +23,12 @@
 zNetService *zNetService::instance = NULL;
 
 /**
- * \brief ³õÊ¼»¯·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–æœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖ<code>zService::init</code>µÄĞéº¯Êı
+ * å®ç°<code>zService::init</code>çš„è™šå‡½æ•°
  *
- * \param port ¶Ë¿Ú
- * \return ÊÇ·ñ³É¹¦
+ * \param port ç«¯å£
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool zNetService::init(unsigned short port)
 {
@@ -36,7 +36,7 @@ bool zNetService::init(unsigned short port)
 	if (!zService::init())
 		return false;
 	
-	//³õÊ¼»¯·şÎñÆ÷
+	//åˆå§‹åŒ–æœåŠ¡å™¨
 	tcpServer = new zTCPServer(serviceName);
 	if (NULL == tcpServer)
 		return false;
@@ -48,11 +48,11 @@ bool zNetService::init(unsigned short port)
 }
 
 /**
- * \brief ÍøÂç·şÎñ³ÌĞòµÄÖ÷»Øµ÷º¯Êı
+ * \brief ç½‘ç»œæœåŠ¡ç¨‹åºçš„ä¸»å›è°ƒå‡½æ•°
  *
- * ÊµÏÖĞéº¯Êı<code>zService::serviceCallback</code>£¬Ö÷ÒªÓÃÓÚ¼àÌı·şÎñ¶Ë¿Ú£¬Èç¹û·µ»Øfalse½«½áÊø³ÌĞò£¬·µ»Øtrue¼ÌĞøÖ´ĞĞ·şÎñ
+ * å®ç°è™šå‡½æ•°<code>zService::serviceCallback</code>ï¼Œä¸»è¦ç”¨äºç›‘å¬æœåŠ¡ç«¯å£ï¼Œå¦‚æœè¿”å›falseå°†ç»“æŸç¨‹åºï¼Œè¿”å›trueç»§ç»­æ‰§è¡ŒæœåŠ¡
  *
- * \return »Øµ÷ÊÇ·ñ³É¹¦
+ * \return å›è°ƒæ˜¯å¦æˆåŠŸ
  */
 bool zNetService::serviceCallback()
 {
@@ -61,7 +61,7 @@ bool zNetService::serviceCallback()
 	int retcode = tcpServer->accept(&addr);
 	if (retcode >= 0) 
 	{
-		//½ÓÊÕÁ¬½Ó³É¹¦£¬´¦ÀíÁ¬½Ó
+		//æ¥æ”¶è¿æ¥æˆåŠŸï¼Œå¤„ç†è¿æ¥
 		newTCPTask(retcode, &addr);
 	}
 
@@ -69,9 +69,9 @@ bool zNetService::serviceCallback()
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖ´¿Ğéº¯Êı<code>zService::final</code>£¬»ØÊÕ×ÊÔ´
+ * å®ç°çº¯è™šå‡½æ•°<code>zService::final</code>ï¼Œå›æ”¶èµ„æº
  *
  */
 void zNetService::final()

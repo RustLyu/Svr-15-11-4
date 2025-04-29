@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Scene.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåµØÍ¼³¡¾°
+ * \brief å®šä¹‰åœ°å›¾åœºæ™¯
  *
  * 
  */
@@ -37,7 +37,7 @@ const DWORD WANGCHENG_MAP_ID = 139;
 const DWORD PK_MAP_ID = 213;
 
 /**
- * \brief µØÍ¼³¡¾°
+ * \brief åœ°å›¾åœºæ™¯
  */
 class Scene:public zScene, public zSceneEntryIndex
 {
@@ -48,16 +48,16 @@ class Scene:public zScene, public zSceneEntryIndex
 
 	public:
 
-		//ÓÉSession¿ØÖÆË¢ĞÂµÄnpc
+		//ç”±Sessionæ§åˆ¶åˆ·æ–°çš„npc
 		std::map<DWORD, SceneNpc *> bossMap;
 
 		/**
-		 * \brief ³¡¾°ÀàĞÍ¶¨Òå
+		 * \brief åœºæ™¯ç±»å‹å®šä¹‰
 		 */
 		enum SceneType
 		{
-			STATIC,		/// ¾²Ì¬µØÍ¼
-			GANG		/// ¶¯Ì¬µØÍ¼
+			STATIC,		/// é™æ€åœ°å›¾
+			GANG		/// åŠ¨æ€åœ°å›¾
 		};
 
 		virtual ~Scene();
@@ -84,119 +84,119 @@ class Scene:public zScene, public zSceneEntryIndex
 		bool refreshNpc(SceneNpc *sceneNpc,const zPos & newPos);
 
 		/**
-		 * \brief »ñÈ¡ÖØÉúµØÍ¼
-		 * \return ÖØÉúµØÍ¼ID
+		 * \brief è·å–é‡ç”Ÿåœ°å›¾
+		 * \return é‡ç”Ÿåœ°å›¾ID
 		 */
 		DWORD backtoMap() const { return backtoMapID; }
 		/**
-		 * \brief »ñÈ¡»Ø³ÇµØÍ¼
-		 * \return »Ø³ÇµØÍ¼ID
+		 * \brief è·å–å›åŸåœ°å›¾
+		 * \return å›åŸåœ°å›¾ID
 		 */
 		DWORD backtoCityMap() const { return backtoCityMapID; }
 		/**
-		 * \brief ÔÊĞíÏà»¥pkµÄµÈ¼¶
-		 * \return ÊÇtrue
+		 * \brief å…è®¸ç›¸äº’pkçš„ç­‰çº§
+		 * \return æ˜¯true
 		 */
 		DWORD getPkLevel() const { return pklevel; }
 		/**
-		 * \brief ¼ì²â¸ÃµØÍ¼ÊÇ·ñ¿ÉÒÔÆïÂí
-		 * \return ¿ÉÆïÂíÊ±true
+		 * \brief æ£€æµ‹è¯¥åœ°å›¾æ˜¯å¦å¯ä»¥éª‘é©¬
+		 * \return å¯éª‘é©¬æ—¶true
 		 */
 		bool canRide() const { return !(function & 0x1); }
 		/**
-		 * \brief ²»ÄÜÊ¹ÓÃ¾íÖá
-		 * \return ÊÇÖ÷³Ç·µ»Øtrue
+		 * \brief ä¸èƒ½ä½¿ç”¨å·è½´
+		 * \return æ˜¯ä¸»åŸè¿”å›true
 		 */
 		bool canUserScroll() const { return !(function & 0x8); }
 		/**
-		 * \brief ¼ì²â¸ÃµØÍ¼ÊÇ·ñ¿ÉÒÔ×é¶Ó
-		 * \return ¿ÉÆïÂíÊ±true
+		 * \brief æ£€æµ‹è¯¥åœ°å›¾æ˜¯å¦å¯ä»¥ç»„é˜Ÿ
+		 * \return å¯éª‘é©¬æ—¶true
 		 */
 		bool noTeam() const { return (function & 0x40); }
 		/**
-		 * \brief ¼ì²â¸ÃµØÍ¼ÊÇ·ñ¿ÉÒÔÊ¹ÓÃÁîÅÆ
-		 * \return ÊÇ·ñ¿ÉÓÃ
+		 * \brief æ£€æµ‹è¯¥åœ°å›¾æ˜¯å¦å¯ä»¥ä½¿ç”¨ä»¤ç‰Œ
+		 * \return æ˜¯å¦å¯ç”¨
 		 */
 		bool checkCallObj() const { return (function & 0x80); }
 		/**
-		 * \brief ÊÇ·ñÊÇÖ÷³Ç
-		 * \return ÊÇÖ÷³Ç·µ»Øtrue
+		 * \brief æ˜¯å¦æ˜¯ä¸»åŸ
+		 * \return æ˜¯ä¸»åŸè¿”å›true
 		 */
 		bool isMainCity() const { return (function & 0x2); }
 		/**
-		 * \brief ÊÇ·ñÊÇµØ¶´Àà
-		 * \return ÊÇÖ÷³Ç·µ»Øtrue
+		 * \brief æ˜¯å¦æ˜¯åœ°æ´ç±»
+		 * \return æ˜¯ä¸»åŸè¿”å›true
 		 */
 		bool isField() const { return (function & 0x4); }
 		/**
-		 * \brief ÊÇ·ñÊÇÔöÖµµØÍ¼
-		 * \return ÊÇÖ÷³Ç·µ»Øtrue
+		 * \brief æ˜¯å¦æ˜¯å¢å€¼åœ°å›¾
+		 * \return æ˜¯ä¸»åŸè¿”å›true
 		 */
 		bool isIncScene() const { return (function & 0x20); }
 		/**
-		 * \brief ÊÇ·ñÊÇ²»ºìÃûµØÍ¼
-		 * \return ÊÇtrue
+		 * \brief æ˜¯å¦æ˜¯ä¸çº¢ååœ°å›¾
+		 * \return æ˜¯true
 		 */
 		bool isNoRedScene() const { return (function & 0x10); }
 		/**
-		 * \brief ÊÇ·ñÊÇPKµØÍ¼
-		 * \return ÊÇtrue
+		 * \brief æ˜¯å¦æ˜¯PKåœ°å›¾
+		 * \return æ˜¯true
 		 */
 		bool isPkMap() const { return getRealMapID()>=213 && getRealMapID()<=215; }
 		/**
-		 * \brief »ñÈ¡µØÍ¼±àºÅ
-		 * \return µØÍ¼±àºÅ
+		 * \brief è·å–åœ°å›¾ç¼–å·
+		 * \return åœ°å›¾ç¼–å·
 		 */
 		const DWORD getRealMapID() const { return id & 0x0000FFFF; }
 		/**
-		 * \brief »ñÈ¡µØÍ¼ËùÊô¹ú¼Ò
-		 * \return µØÍ¼ËùÊô¹ú¼Ò
+		 * \brief è·å–åœ°å›¾æ‰€å±å›½å®¶
+		 * \return åœ°å›¾æ‰€å±å›½å®¶
 		 */
 		const DWORD getCountryID() const { return countryID; }
 
 		const char *getCountryName() const;
 
 		/**
-		 * \brief »ñÈ¡µØÍ¼Ãû³Æ
-		 * \return µØÍ¼Ãû³Æ(ÓÃÓÚ·şÎñ¼ä)
+		 * \brief è·å–åœ°å›¾åç§°
+		 * \return åœ°å›¾åç§°(ç”¨äºæœåŠ¡é—´)
 		 */
 		const char *getName() const { return name; }
 		/**
-		 * \brief »ñÈ¡µØÍ¼Ãû³Æ
-		 * \return µØÍ¼Ãû³Æ(Î´½øĞĞ×éºÏµÄÃû³Æ)
+		 * \brief è·å–åœ°å›¾åç§°
+		 * \return åœ°å›¾åç§°(æœªè¿›è¡Œç»„åˆçš„åç§°)
 		 */
 		const char *getRealName() const
 		{
-			const char *real = strstr(name , "¡¤");
+			const char *real = strstr(name , "Â·");
 			if( real != NULL)
 				return real + 2;
 			else
 				return name;
 		}
 		/**
-		 * \brief »ñÈ¡µØÍ¼ÎÄ¼şÃû³Æ
-		 * Ãû³Æ²»°üÀ¨Ç°×º
-		 * \return µØÍ¼ÎÄ¼şÃû³Æ(ÓÃÓÚ·şÎñ¼ä)
+		 * \brief è·å–åœ°å›¾æ–‡ä»¶åç§°
+		 * åç§°ä¸åŒ…æ‹¬å‰ç¼€
+		 * \return åœ°å›¾æ–‡ä»¶åç§°(ç”¨äºæœåŠ¡é—´)
 		 */
 		const char *getFileName() const { return fileName.c_str(); }
 		/**
-		 * \brief »ñÈ¡µØÍ¼ÎÄ¼şÃû³Æ
-		 * Ãû³Æ²»°üÀ¨Ç°×º
-		 * \return µØÍ¼ÎÄ¼şÃû³Æ(Îª½øĞĞ×éºÏµÄÃû³Æ)
+		 * \brief è·å–åœ°å›¾æ–‡ä»¶åç§°
+		 * åç§°ä¸åŒ…æ‹¬å‰ç¼€
+		 * \return åœ°å›¾æ–‡ä»¶åç§°(ä¸ºè¿›è¡Œç»„åˆçš„åç§°)
 		 */
 		const char *getRealFileName() const { return fileName.c_str() + fileName.find(".") + 1; }
 		/**
-		 * \brief »ñÈ¡Ö¸¶¨µØÍ¼ÎÄ¼şÃû³Æ
-		 * Ãû³Æ²»°üÀ¨Ç°×º
-		 * \param file ÎÄ¼şÃû
-		 * \return µØÍ¼ÎÄ¼şÃû³Æ(Îª½øĞĞ×éºÏµÄÃû³Æ)
+		 * \brief è·å–æŒ‡å®šåœ°å›¾æ–‡ä»¶åç§°
+		 * åç§°ä¸åŒ…æ‹¬å‰ç¼€
+		 * \param file æ–‡ä»¶å
+		 * \return åœ°å›¾æ–‡ä»¶åç§°(ä¸ºè¿›è¡Œç»„åˆçš„åç§°)
 		 */
 		const char *getRealFileName(std::string file) const { return file.c_str() + file.find(".") + 1; }
 		/**
-		 * \brief ¼ì²é×ø±ê×èµ²ĞÅÏ¢
-		 * \param pos ×ø±ê
-		 * \param block ×èµ²±ê¼Ç
-		 * \return ÊÇ·ñ×èµ²µã
+		 * \brief æ£€æŸ¥åæ ‡é˜»æŒ¡ä¿¡æ¯
+		 * \param pos åæ ‡
+		 * \param block é˜»æŒ¡æ ‡è®°
+		 * \return æ˜¯å¦é˜»æŒ¡ç‚¹
 		 */
 		const bool checkBlock(const zPos &pos, const BYTE block) const
 		{
@@ -206,15 +206,15 @@ class Scene:public zScene, public zSceneEntryIndex
 				return true;
 		}
 		/**
-		 * \brief ¼ì²é×ø±ê×èµ²ĞÅÏ¢
-		 * \param pos ×ø±ê
-		 * \return ÊÇ·ñ×èµ²µã
+		 * \brief æ£€æŸ¥åæ ‡é˜»æŒ¡ä¿¡æ¯
+		 * \param pos åæ ‡
+		 * \return æ˜¯å¦é˜»æŒ¡ç‚¹
 		 */
 		const bool checkBlock(const zPos &pos) const { return checkBlock(pos, TILE_BLOCK | TILE_ENTRY_BLOCK); }
 		/**
-		 * \brief ÉèÖÃÄ¿±ê×èµ²µã±ê¼Ç
-		 * \param pos ×ø±ê
-		 * \param block ×èµ²±ê¼Ç
+		 * \brief è®¾ç½®ç›®æ ‡é˜»æŒ¡ç‚¹æ ‡è®°
+		 * \param pos åæ ‡
+		 * \param block é˜»æŒ¡æ ‡è®°
 		 */
 		void setBlock(const zPos &pos, const BYTE block)
 		{
@@ -222,14 +222,14 @@ class Scene:public zScene, public zSceneEntryIndex
 				allTiles[pos.y * width() + pos.x].flags |= block;
 		}
 		/**
-		 * \brief ÉèÖÃÄ¿±ê×èµ²µã±ê¼Ç
-		 * \param pos ×ø±ê
+		 * \brief è®¾ç½®ç›®æ ‡é˜»æŒ¡ç‚¹æ ‡è®°
+		 * \param pos åæ ‡
 		 */
 		void setBlock(const zPos &pos) { setBlock(pos, TILE_ENTRY_BLOCK); }
 		/**
-		 * \brief Çå³ıÄ¿±ê×èµ²µã±ê¼Ç
-		 * \param pos ×ø±ê
-		 * \param block ×èµ²±ê¼Ç
+		 * \brief æ¸…é™¤ç›®æ ‡é˜»æŒ¡ç‚¹æ ‡è®°
+		 * \param pos åæ ‡
+		 * \param block é˜»æŒ¡æ ‡è®°
 		 */
 		void clearBlock(const zPos &pos, const BYTE block)
 		{
@@ -237,33 +237,33 @@ class Scene:public zScene, public zSceneEntryIndex
 				allTiles[pos.y * width() + pos.x].flags &= ~block;
 		}
 		/**
-		 * \brief Çå³ıÄ¿±ê×èµ²µã±ê¼Ç
-		 * \param pos ×ø±ê
+		 * \brief æ¸…é™¤ç›®æ ‡é˜»æŒ¡ç‚¹æ ‡è®°
+		 * \param pos åæ ‡
 		 */
 		void clearBlock(const zPos &pos) { clearBlock(pos, TILE_ENTRY_BLOCK); }
 		/**
-		 * \brief ¼ì²é×ø±ê×èµ²ĞÅÏ¢
-		 * Ö÷ÒªÔÚ¶ªÎïÆ·µÄÊ±ºòÊ¹ÓÃ
-		 * \param pos ×ø±ê
-		 * \return ÊÇ·ñ×èµ²µã
+		 * \brief æ£€æŸ¥åæ ‡é˜»æŒ¡ä¿¡æ¯
+		 * ä¸»è¦åœ¨ä¸¢ç‰©å“çš„æ—¶å€™ä½¿ç”¨
+		 * \param pos åæ ‡
+		 * \return æ˜¯å¦é˜»æŒ¡ç‚¹
 		 */
 		const bool checkObjectBlock(const zPos &pos) const { return checkBlock(pos, TILE_BLOCK | TILE_OBJECT_BLOCK); }
 		/**
-		 * \brief ÉèÖÃÄ¿±ê×èµ²µã±ê¼Ç
-		 * Ö÷ÒªÔÚ¶ªÎïÆ·µÄÊ±ºòÊ¹ÓÃ
-		 * \param pos ×ø±ê
+		 * \brief è®¾ç½®ç›®æ ‡é˜»æŒ¡ç‚¹æ ‡è®°
+		 * ä¸»è¦åœ¨ä¸¢ç‰©å“çš„æ—¶å€™ä½¿ç”¨
+		 * \param pos åæ ‡
 		 */
 		void setObjectBlock(const zPos &pos) { setBlock(pos, TILE_OBJECT_BLOCK); }
 		/**
-		 * \brief Çå³ıÄ¿±ê×èµ²µã±ê¼Ç
-		 * Ö÷ÒªÔÚ¶ªÎïÆ·µÄÊ±ºòÊ¹ÓÃ
-		 * \param pos ×ø±ê
+		 * \brief æ¸…é™¤ç›®æ ‡é˜»æŒ¡ç‚¹æ ‡è®°
+		 * ä¸»è¦åœ¨ä¸¢ç‰©å“çš„æ—¶å€™ä½¿ç”¨
+		 * \param pos åæ ‡
 		 */
 		void clearObjectBlock(const zPos &pos) { clearBlock(pos, TILE_OBJECT_BLOCK); }
 		/**
-		 * \brief »ñÈ¡µØ±íÊı¾İ
-		 * \param pos ×ø±ê
-		 * \return ·µ»ØµØ±íÊı¾İ
+		 * \brief è·å–åœ°è¡¨æ•°æ®
+		 * \param pos åæ ‡
+		 * \return è¿”å›åœ°è¡¨æ•°æ®
 		 */
 		const Tile* getTile(const zPos &pos) const
 		{
@@ -273,35 +273,35 @@ class Scene:public zScene, public zSceneEntryIndex
 				return NULL;
 		}
 		/**
-		 * \brief ¸ù¾İÎ»ÖÃµÃµ½Â·µã
-		 * \param pos Òª²éÕÒµÄÎ»ÖÃ
-		 * \return ÕÒµ½µÄÂ·µã£¬Ê§°Ü·µ»Ø0
+		 * \brief æ ¹æ®ä½ç½®å¾—åˆ°è·¯ç‚¹
+		 * \param pos è¦æŸ¥æ‰¾çš„ä½ç½®
+		 * \return æ‰¾åˆ°çš„è·¯ç‚¹ï¼Œå¤±è´¥è¿”å›0
 		 */
 		const WayPoint *getWayPoint(const zPos &pos) const { return wpm.getWayPoint(pos); }
 		/**
-		 * \brief ¸ù¾İÄ¿±êÕÒµ½Â·µã
-		 * \param filename Ä¿±êµØÍ¼ÎÄ¼şÃû
-		 * \return ÕÒµ½µÄÂ·µã£¬Ê§°Ü·µ»Ø0
+		 * \brief æ ¹æ®ç›®æ ‡æ‰¾åˆ°è·¯ç‚¹
+		 * \param filename ç›®æ ‡åœ°å›¾æ–‡ä»¶å
+		 * \return æ‰¾åˆ°çš„è·¯ç‚¹ï¼Œå¤±è´¥è¿”å›0
 		 */
 		const WayPoint *getWayPoint(const char *filename) const { return wpm.getWayPoint(filename); }
 		/**
-		 * \brief Ëæ»úÑ¡Ò»¸öÂ·µã
-		 * \return ÕÒµ½µÄÂ·µã
+		 * \brief éšæœºé€‰ä¸€ä¸ªè·¯ç‚¹
+		 * \return æ‰¾åˆ°çš„è·¯ç‚¹
 		 */
 		const WayPoint *getRandWayPoint() const { return wpm.getRandWayPoint(); }
 		/**
-		 * \brief ·µ»ØµØÍ¼ÉÏµÄÈËÊı
-		 * \return Ò»ÕÅµØÍ¼ÉÏµÄÈËÊı
+		 * \brief è¿”å›åœ°å›¾ä¸Šçš„äººæ•°
+		 * \return ä¸€å¼ åœ°å›¾ä¸Šçš„äººæ•°
 		 */
 		const DWORD countUser() const { return userCount; }
 		/**
-		 * \brief ÈËÊıÔö¼Ó
-		 * \return Ôö¼ÓºóµÄÈËÊı
+		 * \brief äººæ•°å¢åŠ 
+		 * \return å¢åŠ åçš„äººæ•°
 		 */
 		const DWORD addUserCount() { return ++userCount; }
 		/**
-		 * \brief ÈËÊı¼õÉÙ
-		 * \return ¼õÉÙºóµÄÈËÊı
+		 * \brief äººæ•°å‡å°‘
+		 * \return å‡å°‘åçš„äººæ•°
 		 */
 		const DWORD subUserCount() { return --userCount; }
 
@@ -459,16 +459,16 @@ class Scene:public zScene, public zSceneEntryIndex
 		}
 		BYTE getLevel() const { return level; }
 		bool checkUserLevel(SceneUser *pUser);
-		///Õ½Ê¤¹ú¾­Ñé¼Ó³É±êÖ¾ 
+		///æˆ˜èƒœå›½ç»éªŒåŠ æˆæ ‡å¿— 
 		bool winner_exp; 
 
-		/// ¹úÕ½Õ½³¡ËÀÍöºó£¬¹¥·½ËÀÍö¸´»îµØ
+		/// å›½æˆ˜æˆ˜åœºæ­»äº¡åï¼Œæ”»æ–¹æ­»äº¡å¤æ´»åœ°
 		DWORD countryDareBackToMapID;
 
 
 		/**
-		 * \brief ÊÇ·ñÊÇÊÕ·ÑµØÍ¼
-		 * \return ÊÇ·ñÊÇÊÕ·ÑµØÍ¼
+		 * \brief æ˜¯å¦æ˜¯æ”¶è´¹åœ°å›¾
+		 * \return æ˜¯å¦æ˜¯æ”¶è´¹åœ°å›¾
 		 */
 		bool isTrainingMap()
 		{
@@ -487,104 +487,104 @@ class Scene:public zScene, public zSceneEntryIndex
 			}
 			char strMapName[MAX_NAMESIZE];
 		};
-		//Á·¹¦µãµØÍ¼
+		//ç»ƒåŠŸç‚¹åœ°å›¾
 		std::vector<stMapName> fieldMapName;
-		//Ö÷³ÇµØÍ¼
+		//ä¸»åŸåœ°å›¾
 		std::vector<stMapName> mainMapName;
-		//ÔöÖµµØÍ¼
+		//å¢å€¼åœ°å›¾
 		std::vector<stMapName> incMapName;
 		std::map<std::string, std::string> params;
 
-		///¸ønpc·Ö×é´¦Àí
+		///ç»™npcåˆ†ç»„å¤„ç†
 		DWORD execGroup;
 
-		/// °ï»á¶á³ÇÕ½½øĞĞ±êÖ¾
+		/// å¸®ä¼šå¤ºåŸæˆ˜è¿›è¡Œæ ‡å¿—
 		bool isUnionDare;
 		
-		/// ¸Ã³¡¾°ËùÊô°ï»á
+		/// è¯¥åœºæ™¯æ‰€å±å¸®ä¼š
 		DWORD dwHoldUnionID;
 
-		/// ¸Ã³¡¾°Õ¼ÁìÕß¹ú¼ÒID
+		/// è¯¥åœºæ™¯å é¢†è€…å›½å®¶ID
 		DWORD dwHoldCountryID;
 
 
-		/// ÕıÊ½¹úÕ½ÕıÔÚ¸Ã³¡¾°½øĞĞµÄ±êÖ¾
+		/// æ­£å¼å›½æˆ˜æ­£åœ¨è¯¥åœºæ™¯è¿›è¡Œçš„æ ‡å¿—
 		bool isCountryFormalDare;
 
-		/// »Ê³ÇÕ½ÕıÔÚ¸Ã³¡¾°½øĞĞµÄ±êÖ¾
+		/// çš‡åŸæˆ˜æ­£åœ¨è¯¥åœºæ™¯è¿›è¡Œçš„æ ‡å¿—
 		bool isEmperorDare;
 		
-		/// »Ê³ÇÕ½µÄÊØ·½
+		/// çš‡åŸæˆ˜çš„å®ˆæ–¹
 		DWORD dwEmperorDareDef;
 
-		///±¾³¡¾°µÄ¹¥³ÇÁĞ±í
+		///æœ¬åœºæ™¯çš„æ”»åŸåˆ—è¡¨
 		std::list<Rush *> rushList;
 
-		///Ò»Ãë¶¨Ê±Æ÷
+		///ä¸€ç§’å®šæ—¶å™¨
 		Timer _one_sec;
 
-		///ÒÑ¾­³õÊ¼»¯
+		///å·²ç»åˆå§‹åŒ–
 		bool inited;
 
-		///ËùÓĞµÄµØÍ¼¸ñ×Ó
+		///æ‰€æœ‰çš„åœ°å›¾æ ¼å­
 		zTiles allTiles;
-		///ËùÓĞµÄnpc¶¨Òå
+		///æ‰€æœ‰çš„npcå®šä¹‰
 		NpcDefineVector npcDefine;
-		///³¡¾°ÖĞ¸÷ÖÖÇøÓòµÄ¶¨Òå
+		///åœºæ™¯ä¸­å„ç§åŒºåŸŸçš„å®šä¹‰
 		ZoneTypeDefVector zoneTypeDef;
 
-		///±¾³¡¾°ÓÃ»§Êı
+		///æœ¬åœºæ™¯ç”¨æˆ·æ•°
 		DWORD userCount;
-		///Èç¹û±¾µØÍ¼Ã»ÓĞÖØÉúÇøÊ±ĞèÒªÌø×ªµ½µÄµØÍ¼
+		///å¦‚æœæœ¬åœ°å›¾æ²¡æœ‰é‡ç”ŸåŒºæ—¶éœ€è¦è·³è½¬åˆ°çš„åœ°å›¾
 		DWORD backtoMapID;
-		///»Øµ½Ö÷³ÇµÄµØÍ¼id
+		///å›åˆ°ä¸»åŸçš„åœ°å›¾id
 		DWORD backtoCityMapID;
-		///»Øµ½¹úÕ½Ä¿µÄµØ
+		///å›åˆ°å›½æˆ˜ç›®çš„åœ°
 		DWORD backtoDareMapID;
-		/// Íâ¹úÈËËÀÍöºóÓ¦¸Ã»Øµ½µÄµØÍ¼id(Ã»ÓĞ¹ú¼ÒĞÅÏ¢)
+		/// å¤–å›½äººæ­»äº¡ååº”è¯¥å›åˆ°çš„åœ°å›¾id(æ²¡æœ‰å›½å®¶ä¿¡æ¯)
 		DWORD foreignerBacktoMapID;
-		/// ÔÚ¹«¹²¹úËÀÍöºóÓ¦¸Ã»Øµ½µÄµØÍ¼id(Ã»ÓĞ¹ú¼ÒĞÅÏ¢)
+		/// åœ¨å…¬å…±å›½æ­»äº¡ååº”è¯¥å›åˆ°çš„åœ°å›¾id(æ²¡æœ‰å›½å®¶ä¿¡æ¯)
 		DWORD commonCountryBacktoMapID; 
-		/// ÎŞ¹ú¼®ÈËÔÚÍâ¹úËÀÍöÖØÉúµØ
+		/// æ— å›½ç±äººåœ¨å¤–å›½æ­»äº¡é‡ç”Ÿåœ°
 		DWORD commonUserBacktoMapID; 
-		/// ¹úÕ½Õ½³¡ËÀÍöºó£¬ÊØ·½ËÀÍö¸´»îµØ
+		/// å›½æˆ˜æˆ˜åœºæ­»äº¡åï¼Œå®ˆæ–¹æ­»äº¡å¤æ´»åœ°
 		DWORD countryDefBackToMapID;
-		///µØÍ¼ÌØÊâËµÃ÷
+		///åœ°å›¾ç‰¹æ®Šè¯´æ˜
 		DWORD function;
-		/// ¿ÉÏà»¥pkµÄµÈ¼¶
+		/// å¯ç›¸äº’pkçš„ç­‰çº§
 		DWORD pklevel;
-		///¹ú¼Òid
+		///å›½å®¶id
 		DWORD countryID;
-		///³¡¾°¶ÔÓ¦µÄÎÄ¼şÃû
+		///åœºæ™¯å¯¹åº”çš„æ–‡ä»¶å
 		std::string fileName;
-		///Â·µã¹ÜÀíÆ÷
+		///è·¯ç‚¹ç®¡ç†å™¨
 		WayPointM wpm;
-		///±¾µØÍ¼ÊÕÈ¡Ë°·Ñ
+		///æœ¬åœ°å›¾æ”¶å–ç¨è´¹
 		DWORD countryTax;
-		///±¾µØÍ¼ÔÊĞí½øÈëµÄ×îĞ¡Íæ¼ÒµÈ¼¶
+		///æœ¬åœ°å›¾å…è®¸è¿›å…¥çš„æœ€å°ç©å®¶ç­‰çº§
 		BYTE level;
-		///³¡¾°µØÍ¼¼Ó³É
+		///åœºæ™¯åœ°å›¾åŠ æˆ
 		float exprate;
 
 		struct FixedRush
 		{
 			DWORD id;//ID
-			DWORD nextTime;//ÏÂ´ÎµÄÊ±¼ä
-			DWORD allStart;//×Ü¿ªÊ¼Ê±¼ä
-			DWORD allEnd;//×Ü½áÊøÊ±¼ä
-			int weekDay;//ĞÇÆÚ¼¸
-			tm startTime;//Ò»ÌìÖĞ¿ªÊ¼µÄÊ±¼ä
-			tm endTime;//Ò»ÌìÖĞ½áÊøµÄÊ±¼ä
-			DWORD delay;//¿ªÊ¼ÑÓ³Ù
+			DWORD nextTime;//ä¸‹æ¬¡çš„æ—¶é—´
+			DWORD allStart;//æ€»å¼€å§‹æ—¶é—´
+			DWORD allEnd;//æ€»ç»“æŸæ—¶é—´
+			int weekDay;//æ˜ŸæœŸå‡ 
+			tm startTime;//ä¸€å¤©ä¸­å¼€å§‹çš„æ—¶é—´
+			tm endTime;//ä¸€å¤©ä¸­ç»“æŸçš„æ—¶é—´
+			DWORD delay;//å¼€å§‹å»¶è¿Ÿ
 
 			FixedRush()
 			{
 				id = 0;//ID
-				nextTime = 0;//ÏÂ´ÎµÄÊ±¼ä
-				allStart = 0;//×Ü¿ªÊ¼Ê±¼ä
-				allEnd = 0;//×Ü½áÊøÊ±¼ä
-				weekDay = 0;//ĞÇÆÚ¼¸
-				delay = 0;//¿ªÊ¼ÑÓ³Ù
+				nextTime = 0;//ä¸‹æ¬¡çš„æ—¶é—´
+				allStart = 0;//æ€»å¼€å§‹æ—¶é—´
+				allEnd = 0;//æ€»ç»“æŸæ—¶é—´
+				weekDay = 0;//æ˜ŸæœŸå‡ 
+				delay = 0;//å¼€å§‹å»¶è¿Ÿ
 			}
 		} fixedRush;
 
@@ -598,17 +598,17 @@ class Scene:public zScene, public zSceneEntryIndex
 
 		void updateSceneObject();
 
-		zPosIndex _index;	/// ·Ç×èµ²µãË÷Òı
+		zPosIndex _index;	/// éé˜»æŒ¡ç‚¹ç´¢å¼•
 };
 
 /**
- * \brief ÕÙ»½Ò»¸önpc
- * \param define npc¶¨Òå½á¹¹
- * \param pos ÕÙ»½Î»ÖÃ
- * \param base npc»ù±¾ĞÅÏ¢
- * \param standTime Í¼ÌÚÏµµÄ³ÖĞøÊ±¼ä
- * \param abase ÔöÇ¿npcµÄ»ù±¾ĞÅÏ¢
- * \return ÕÙ»½³önpcµÄÖ¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief å¬å”¤ä¸€ä¸ªnpc
+ * \param define npcå®šä¹‰ç»“æ„
+ * \param pos å¬å”¤ä½ç½®
+ * \param base npcåŸºæœ¬ä¿¡æ¯
+ * \param standTime å›¾è…¾ç³»çš„æŒç»­æ—¶é—´
+ * \param abase å¢å¼ºnpcçš„åŸºæœ¬ä¿¡æ¯
+ * \return å¬å”¤å‡ºnpcçš„æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 	template <typename Npc>
 Npc* Scene::summonOneNpc(const t_NpcDefine &define, const zPos &pos, zNpcB *base, DWORD standTime, zNpcB* abase, BYTE vdir)
@@ -621,7 +621,7 @@ Npc* Scene::summonOneNpc(const t_NpcDefine &define, const zPos &pos, zNpcB *base
 		{
 			sceneNpc->setDir(vdir);
 			sceneNpc->setStandingTime(standTime);
-			initNpc(sceneNpc, NULL, pos);//zPos(0,0));//ÌîNULLÔòÔÚdefine.region·¶Î§ÄÚÑ¡ÔñÎ»ÖÃ
+			initNpc(sceneNpc, NULL, pos);//zPos(0,0));//å¡«NULLåˆ™åœ¨define.regionèŒƒå›´å†…é€‰æ‹©ä½ç½®
 			if (sceneNpc->getState() == zSceneEntry::SceneEntry_Normal)
 			{
 				if (base->kind != NPC_TYPE_TRAP)
@@ -650,25 +650,25 @@ Npc* Scene::summonOneNpc(const t_NpcDefine &define, const zPos &pos, zNpcB *base
 			}
 #ifdef _XWL_DEBUG
 			else
-				Zebra::logger->debug("%s ³õÊ¼×´Ì¬ %u",sceneNpc->name, sceneNpc->getState());
+				Zebra::logger->debug("%s åˆå§‹çŠ¶æ€ %u",sceneNpc->name, sceneNpc->getState());
 #endif
 			return sceneNpc;
 		}
 		else
 		{
-			Zebra::logger->fatal("%s:SceneNpc·ÖÅäÄÚ´æÊ§°Ü", __FUNCTION__);
+			Zebra::logger->fatal("%s:SceneNpcåˆ†é…å†…å­˜å¤±è´¥", __FUNCTION__);
 			SAFE_DELETE(pDefine);
 		}
 	}
 	else
 	{
-		Zebra::logger->fatal("%s:t_NpcDefine·ÖÅäÄÚ´æÊ§°Ü", __FUNCTION__);
+		Zebra::logger->fatal("%s:t_NpcDefineåˆ†é…å†…å­˜å¤±è´¥", __FUNCTION__);
 	}
 	return NULL;
 }		
 
 /**
- * \brief ¾²Ì¬³¡¾°
+ * \brief é™æ€åœºæ™¯
  *
  */
 class StaticScene:public Scene
@@ -680,7 +680,7 @@ class StaticScene:public Scene
 };
 
 /**
- * \brief ¶¯Ì¬³¡¾°
+ * \brief åŠ¨æ€åœºæ™¯
  *
  */
 class GangScene:public Scene

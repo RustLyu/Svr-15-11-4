@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: FLServer.cpp  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿µÇÂ½·şÎñÆ÷£¬¸ºÔğµÇÂ½£¬½¨Á¢ÕÊºÅ¡¢µµ°¸µÈ¹¦ÄÜ
+ * \brief zebraé¡¹ç›®ç™»é™†æœåŠ¡å™¨ï¼Œè´Ÿè´£ç™»é™†ï¼Œå»ºç«‹å¸å·ã€æ¡£æ¡ˆç­‰åŠŸèƒ½
  *
  */
 
@@ -32,11 +32,11 @@ zDBConnPool * FLService::dbConnPool = NULL;
 FLService *FLService::instance = NULL;
 
 /**
- * \brief ³õÊ¼»¯ÍøÂç·şÎñÆ÷³ÌĞò
+ * \brief åˆå§‹åŒ–ç½‘ç»œæœåŠ¡å™¨ç¨‹åº
  *
- * ÊµÏÖÁËĞéº¯Êı<code>zService::init</code>
+ * å®ç°äº†è™šå‡½æ•°<code>zService::init</code>
  *
- * \return ÊÇ·ñ³É¹¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool FLService::init()
 {
@@ -47,7 +47,7 @@ bool FLService::init()
 	if (NULL == dbConnPool
 			|| !dbConnPool->putURL(0, Zebra::global["mysql"].c_str(), false))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü %s", Zebra::global["mysql"].c_str());
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥ %s", Zebra::global["mysql"].c_str());
 		return false;
 	}
 #endif
@@ -69,7 +69,7 @@ bool FLService::init()
 		return false;
 	
 
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -95,9 +95,9 @@ bool FLService::init()
 	inside_port = atoi(Zebra::global["inside_port"].c_str());
 	ping_port  = atoi(Zebra::global["ping_port"].c_str());
 	
-	if (!zMNetService::bind("µÇÂ½¶Ë¿Ú", login_port)
-			|| !zMNetService::bind("ÄÚ²¿·şÎñ¶Ë¿Ú", inside_port)
-			|| !zMNetService::bind("PING¶Ë¿Ú", ping_port))
+	if (!zMNetService::bind("ç™»é™†ç«¯å£", login_port)
+			|| !zMNetService::bind("å†…éƒ¨æœåŠ¡ç«¯å£", inside_port)
+			|| !zMNetService::bind("PINGç«¯å£", ping_port))
 	{
 		return false;
 	}
@@ -115,11 +115,11 @@ bool FLService::init()
 }
 
 /**
- * \brief ĞÂ½¨Á¢Ò»¸öÁ¬½ÓÈÎÎñ
- * ÊµÏÖ´¿Ğéº¯Êı<code>zMNetService::newTCPTask</code>
- * \param sock TCP/IPÁ¬½Ó
- * \param srcPort Á¬½ÓÀ´Ô´¶Ë¿Ú
- * \return ĞÂµÄÁ¬½ÓÈÎÎñ
+ * \brief æ–°å»ºç«‹ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+ * å®ç°çº¯è™šå‡½æ•°<code>zMNetService::newTCPTask</code>
+ * \param sock TCP/IPè¿æ¥
+ * \param srcPort è¿æ¥æ¥æºç«¯å£
+ * \return æ–°çš„è¿æ¥ä»»åŠ¡
  */
 void FLService::newTCPTask(const int sock, const unsigned short srcPort)
 {	
@@ -127,7 +127,7 @@ void FLService::newTCPTask(const int sock, const unsigned short srcPort)
 	
 	if (srcPort == login_port)
 	{
-		//¿Í»§¶ËµÇÂ½ÑéÖ¤Á¬½Ó
+		//å®¢æˆ·ç«¯ç™»é™†éªŒè¯è¿æ¥
 		zTCPTask *tcpTask = new LoginTask(loginTaskPool, sock);
 		if (NULL == tcpTask)
 			TEMP_FAILURE_RETRY(::close(sock));
@@ -138,7 +138,7 @@ void FLService::newTCPTask(const int sock, const unsigned short srcPort)
 	}
 	else if (srcPort == inside_port)
 	{
-		//Ã¿¸öÇøµÄ·şÎñÆ÷¹ÜÀíÆ÷Á¬½Ó
+		//æ¯ä¸ªåŒºçš„æœåŠ¡å™¨ç®¡ç†å™¨è¿æ¥
 		zTCPTask *tcpTask = new ServerTask(serverTaskPool, sock);
 		if (NULL == tcpTask)
 			TEMP_FAILURE_RETRY(::close(sock));
@@ -149,7 +149,7 @@ void FLService::newTCPTask(const int sock, const unsigned short srcPort)
 	}
 	else if(srcPort == ping_port)
 	{
-		// »ñÈ¡PING·şÎñÆ÷ÁĞ±í
+		// è·å–PINGæœåŠ¡å™¨åˆ—è¡¨
 		zTCPTask *tcpTask = new PingTask(serverTaskPool, sock);
 		if (NULL == tcpTask)
 			TEMP_FAILURE_RETRY(::close(sock));
@@ -163,9 +163,9 @@ void FLService::newTCPTask(const int sock, const unsigned short srcPort)
 }
 
 /**
- * \brief ½áÊøÍøÂç·şÎñÆ÷
+ * \brief ç»“æŸç½‘ç»œæœåŠ¡å™¨
  *
- * ÊµÏÖÁË´¿Ğéº¯Êı<code>zService::final</code>
+ * å®ç°äº†çº¯è™šå‡½æ•°<code>zService::final</code>
  *
  */
 void FLService::final()
@@ -188,7 +188,7 @@ void FLService::final()
 }
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı
+ * \brief å‘½ä»¤è¡Œå‚æ•°
  *
  */
 static struct argp_option login_options[] =
@@ -203,12 +203,12 @@ static struct argp_option login_options[] =
 };
 
 /**
- * \brief ÃüÁîĞĞ²ÎÊı½âÎöÆ÷
+ * \brief å‘½ä»¤è¡Œå‚æ•°è§£æå™¨
  *
- * \param key ²ÎÊıËõĞ´
- * \param arg ²ÎÊıÖµ
- * \param state ²ÎÊı×´Ì¬
- * \return ·µ»Ø´íÎó´úÂë
+ * \param key å‚æ•°ç¼©å†™
+ * \param arg å‚æ•°å€¼
+ * \param state å‚æ•°çŠ¶æ€
+ * \return è¿”å›é”™è¯¯ä»£ç 
  */
 static error_t login_parse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -251,20 +251,20 @@ static error_t login_parse_opt(int key, char *arg, struct argp_state *state)
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char login_doc[] = "\nFLServer\n" "\tµÇÂ½·şÎñÆ÷¡£";
+static char login_doc[] = "\nFLServer\n" "\tç™»é™†æœåŠ¡å™¨ã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
 									"\nBuild version   :\t" _S(BUILD_STRING);
 
 /**
- * \brief ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * \brief è¯»å–é…ç½®æ–‡ä»¶
  *
  */
 class LoginConfile:public zConfile
@@ -299,7 +299,7 @@ class LoginConfile:public zConfile
 };
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş£¬ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶ï¼Œä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  *
  */
 void FLService::reloadConfig()
@@ -315,17 +315,17 @@ void FLService::reloadConfig()
 }
 
 /**
- * \brief Ö÷³ÌĞòÈë¿Ú
+ * \brief ä¸»ç¨‹åºå…¥å£
  *
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return ÔËĞĞ½á¹û
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return è¿è¡Œç»“æœ
  */
 int main(int argc, char **argv)
 {
 	Zebra::logger=new zLogger("FLServer");
 
-	//ÉèÖÃÈ±Ê¡²ÎÊı
+	//è®¾ç½®ç¼ºçœå‚æ•°
 	Zebra::global["login_port"] = "7000";
 	Zebra::global["inside_port"] = "7001";
 	Zebra::global["ping_port"] = "7002";
@@ -337,7 +337,7 @@ int main(int argc, char **argv)
 	Zebra::global["InfoPort"]="9903";
 	Zebra::global["jpeg_passport"]="true";
 
-	//½âÎöÅäÖÃÎÄ¼ş²ÎÊı
+	//è§£æé…ç½®æ–‡ä»¶å‚æ•°
 	LoginConfile sc;
 	if (!sc.parse("FLServer"))
 		return EXIT_FAILURE;
@@ -350,18 +350,18 @@ int main(int argc, char **argv)
 		LoginManager::maxGatewayUser = atoi(Zebra::global["maxGatewayUser"].c_str());
 	}
 
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(login_options, login_parse_opt, 0, login_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);
 
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
-	//ÉèÖÃĞ´±¾µØÈÕÖ¾ÎÄ¼ş
+	//è®¾ç½®å†™æœ¬åœ°æ—¥å¿—æ–‡ä»¶
 	if ("" != Zebra::global["logfilename"])
 		Zebra::logger->addLocalFileLog(Zebra::global["logfilename"]);
 
-	//ÊÇ·ñÒÔºóÌ¨½ø³ÌµÄ·½Ê½ÔËĞĞ
+	//æ˜¯å¦ä»¥åå°è¿›ç¨‹çš„æ–¹å¼è¿è¡Œ
 	if ("true" == Zebra::global["daemon"]) {
 		Zebra::logger->info("Program will be run as a daemon");
 		Zebra::logger->removeConsoleLog();

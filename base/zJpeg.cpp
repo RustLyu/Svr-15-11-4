@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zJpeg.cpp  $
  * \author  
  * \date 
- * \brief png¸ñÊ½µÄÑéÖ¤ÂëÉú³ÉÆ÷
+ * \brief pngæ ¼å¼çš„éªŒè¯ç ç”Ÿæˆå™¨
  */
 
 
@@ -20,17 +20,17 @@ namespace Zebra
 	static const char hexchars[] = "0123456789abcdef";
 
 	/**
-	 * \brief jpegÍ¼ĞÎÑéÖ¤ÂëÉú³ÉÆ÷
-	 * \param buffer Éú³ÉµÄÑéÖ¤×Ö·û´®
-	 * \param buffer_len ´ıÉú³ÉÑéÖ¤×Ö·û´®»º³å³¤¶È
-	 * \param size ²úÉúµÄÍ¼ÏñÊı¾İµÄ³¤¶È
-	 * \return ²úÉúµÄjpegÍ¼ÏñÊı¾İÄÚ´æµØÖ·
+	 * \brief jpegå›¾å½¢éªŒè¯ç ç”Ÿæˆå™¨
+	 * \param buffer ç”Ÿæˆçš„éªŒè¯å­—ç¬¦ä¸²
+	 * \param buffer_len å¾…ç”ŸæˆéªŒè¯å­—ç¬¦ä¸²ç¼“å†²é•¿åº¦
+	 * \param size äº§ç”Ÿçš„å›¾åƒæ•°æ®çš„é•¿åº¦
+	 * \return äº§ç”Ÿçš„jpegå›¾åƒæ•°æ®å†…å­˜åœ°å€
 	 */
 	void *jpegPassport(char *buffer, const int buffer_len, int *size)
 	{
 //		int i;
 
-		//Éú³ÉÍ¼Æ¬
+		//ç”Ÿæˆå›¾ç‰‡
 //		gdImagePtr im;
 //		im = gdImageCreate(100, 20);
 //		if (im)
@@ -47,7 +47,7 @@ namespace Zebra
 //				gdImageSetPixel(im, cx, cy, confuseColor);
 //			}
 
-//			//Éú³ÉÑéÖ¤Âë
+//			//ç”ŸæˆéªŒè¯ç 
 //			for(i = 0; i < buffer_len - 1; i++)
 //			{
 //				buffer[i] = hexchars[zMisc::randBetween(0, strlen(hexchars) - 1)];

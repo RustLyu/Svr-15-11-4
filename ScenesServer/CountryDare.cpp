@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryDare.cpp  $
  * \author  
  * \date 
- * \brief ¹úÕ½¹ÜÀíÆ÷
+ * \brief å›½æˆ˜ç®¡ç†å™¨
  *
  * 
  */
@@ -31,7 +31,7 @@ void CountryDareM::timer()
 		{
 			Cmd::Session::t_countryNotify_SceneSession send;
 			bzero(send.info, sizeof(send.info));
-			sprintf(send.info, "%s", "·ï»Ë³ÇÔÚÊÜ¹¥»÷ÖÐ£¬ÇëËÙ»ØÔ®");
+			sprintf(send.info, "%s", "å‡¤å‡°åŸŽåœ¨å—æ”»å‡»ä¸­ï¼Œè¯·é€Ÿå›žæ´");
 			send.dwCountryID = dares[i].id;
 			send.infoType = Cmd::INFO_TYPE_ATT_FLAG;
 			sessionClient->sendCmd(&send, sizeof(send));
@@ -41,7 +41,7 @@ void CountryDareM::timer()
 		{
 			Cmd::Session::t_countryNotify_SceneSession send;
 			bzero(send.info, sizeof(send.info));
-			sprintf(send.info, "%s", "Íõ³ÇÔÚÊÜ¹¥»÷ÖÐ£¬ÇëËÙ»ØÔ®");
+			sprintf(send.info, "%s", "çŽ‹åŸŽåœ¨å—æ”»å‡»ä¸­ï¼Œè¯·é€Ÿå›žæ´");
 			send.infoType = Cmd::INFO_TYPE_ATT_FLAG;
 			send.dwCountryID = dares[i].id;
 			sessionClient->sendCmd(&send, sizeof(send));
@@ -50,7 +50,7 @@ void CountryDareM::timer()
 		{
 			Cmd::Session::t_countryNotify_SceneSession send;
 			bzero(send.info, sizeof(send.info));
-			sprintf(send.info, "%s", "ÎÒ¹úÍõ³ÇÔâµ½ÁË¹¥»÷£¬ÇëËÙ»ØÔ®");
+			sprintf(send.info, "%s", "æˆ‘å›½çŽ‹åŸŽé­åˆ°äº†æ”»å‡»ï¼Œè¯·é€Ÿå›žæ´");
 			send.dwCountryID = dares[i].id;
 			sessionClient->sendCmd(&send, sizeof(send));
 		}
@@ -59,7 +59,7 @@ void CountryDareM::timer()
 		{
 			Cmd::Session::t_countryNotify_SceneSession send;
 			bzero(send.info, sizeof(send.info));
-			sprintf(send.info, "%s", "ÎÒ¹úÍõ³ÇÔâµ½ÁË¹¥»÷£¬ÇëËÙ»ØÔ®");
+			sprintf(send.info, "%s", "æˆ‘å›½çŽ‹åŸŽé­åˆ°äº†æ”»å‡»ï¼Œè¯·é€Ÿå›žæ´");
 			send.dwCountryID = dares[i].id;
 			sessionClient->sendCmd(&send, sizeof(send));
 		}
@@ -68,18 +68,18 @@ void CountryDareM::timer()
 }
 
 /**
- * \brief Í³¼Æ´æ»îµÄÖ¸¶¨NPCµÄ¸öÊý
+ * \brief ç»Ÿè®¡å­˜æ´»çš„æŒ‡å®šNPCçš„ä¸ªæ•°
  */
 struct TotalAllNpc : public zSceneEntryCallBack
 {
-	int count;  /// ´æ»îµÄNPC¸öÊý
-	DWORD dwNpcID; // ÒªÍ³¼ÆµÄNPCID
+	int count;  /// å­˜æ´»çš„NPCä¸ªæ•°
+	DWORD dwNpcID; // è¦ç»Ÿè®¡çš„NPCID
 	TotalAllNpc() : count(0),dwNpcID(0) {};
 	
 	/**
-	 * \brief »Øµ÷º¯Êý
-	 * \param entry µØÍ¼Îï¼þ,ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñËÍ³É¹¦
+	 * \brief å›žè°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶,è¿™é‡Œæ˜¯çŽ©å®¶
+	 * \return å›žè°ƒæ˜¯å¦é€æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -93,16 +93,16 @@ struct TotalAllNpc : public zSceneEntryCallBack
 };
 
 /**
- * \brief ¸´»îËùÓÐ¸±Æì
+ * \brief å¤æ´»æ‰€æœ‰å‰¯æ——
  */
 struct ReliveSpecNpc : public zSceneEntryCallBack
 {
 	ReliveSpecNpc() {};
 	
 	/**
-	 * \brief »Øµ÷º¯Êý
-	 * \param entry µØÍ¼Îï¼þ,ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñËÍ³É¹¦
+	 * \brief å›žè°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶,è¿™é‡Œæ˜¯çŽ©å®¶
+	 * \return å›žè°ƒæ˜¯å¦é€æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -116,16 +116,16 @@ struct ReliveSpecNpc : public zSceneEntryCallBack
 };
 
 /**
- * \brief ÐÞ¸ÄËùÓÐ¸±Æì¸´»îÊ±¼ä
+ * \brief ä¿®æ”¹æ‰€æœ‰å‰¯æ——å¤æ´»æ—¶é—´
  */
 struct DelaySpecNpc : public zSceneEntryCallBack
 {
 	DelaySpecNpc() {};
 	
 	/**
-	 * \brief »Øµ÷º¯Êý
-	 * \param entry µØÍ¼Îï¼þ,ÕâÀïÊÇÍæ¼Ò
-	 * \return »Øµ÷ÊÇ·ñËÍ³É¹¦
+	 * \brief å›žè°ƒå‡½æ•°
+	 * \param entry åœ°å›¾ç‰©ä»¶,è¿™é‡Œæ˜¯çŽ©å®¶
+	 * \return å›žè°ƒæ˜¯å¦é€æˆåŠŸ
 	 */
 	bool exec(zSceneEntry *entry)
 	{
@@ -135,7 +135,7 @@ struct DelaySpecNpc : public zSceneEntryCallBack
 
 bool CountryDareM::isAttackMainGen(Scene* scene)
 {
-	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"¿³ÆìÅÐ¶ÏÊ±¼ä" , 32);
+	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"ç æ——åˆ¤æ–­æ—¶é—´" , 32);
 	TotalAllNpc totalnpc;
 
 	if (scene)
@@ -150,7 +150,7 @@ bool CountryDareM::isAttackMainGen(Scene* scene)
 
 bool CountryDareM::isAttackMainFlag(Scene* scene, DWORD dwNpcID)
 {
-	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"¿³ÆìÅÐ¶ÏÊ±¼ä" , 32);
+	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"ç æ——åˆ¤æ–­æ—¶é—´" , 32);
 	TotalAllNpc totalnpc;
 	if (scene)
 	{
@@ -214,7 +214,7 @@ void CountryDareM::updateGenAttackTime(DWORD countryid, time_t uptime)
 
 void CountryDareM::reliveSecondFlag(Scene* scene, DWORD dwNpcID)
 {
-	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"¿³ÆìÅÐ¶ÏÊ±¼ä" , 32);
+	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"ç æ——åˆ¤æ–­æ—¶é—´" , 32);
 	ReliveSpecNpc relivenpc;
 	if (scene)
 		scene->execAllOfScene_npc(dwNpcID, relivenpc);
@@ -222,7 +222,7 @@ void CountryDareM::reliveSecondFlag(Scene* scene, DWORD dwNpcID)
 
 void CountryDareM::delaySecondFlag(Scene* scene)
 {
-	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"¿³ÆìÅÐ¶ÏÊ±¼ä" , 32);
+	//FunctionTime func_time(500000,__PRETTY_FUNCTION__,"ç æ——åˆ¤æ–­æ—¶é—´" , 32);
 	DelaySpecNpc delaynpc;
 	if (scene)
 		scene->execAllOfScene_npc(COUNTRY_SEC_FLAG, delaynpc);

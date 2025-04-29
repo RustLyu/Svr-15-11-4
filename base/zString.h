@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zString.h $
  * \author  
  * \date 
- * \brief ·â×°Ò»Ğ©³£ÓÃµÄ×Ö·û´®²Ù×÷
+ * \brief å°è£…ä¸€äº›å¸¸ç”¨çš„å­—ç¬¦ä¸²æ“ä½œ
  *
  * 
  */
@@ -21,9 +21,9 @@ namespace Zebra
 {
 
 	/**
-	 * \brief °Ñ×Ö·û´®¸ù¾İtoken×ª»¯Îª¶à¸ö×Ö·û´®
+	 * \brief æŠŠå­—ç¬¦ä¸²æ ¹æ®tokenè½¬åŒ–ä¸ºå¤šä¸ªå­—ç¬¦ä¸²
 	 *
-	 * ÏÂÃæÊÇÊ¹ÓÃÀı×Ó³ÌĞò£º
+	 * ä¸‹é¢æ˜¯ä½¿ç”¨ä¾‹å­ç¨‹åºï¼š
 	 *    <pre>
 	 *    std::list<string> ls;
 	 *    stringtok (ls, " this  \t is\t\n  a test  ");
@@ -31,10 +31,10 @@ namespace Zebra
 	 *        std::cerr << ':' << (*i) << ":\n";
 	 *     </pre>
 	 *
-	 * \param container ÈİÆ÷£¬ÓÃÓÚ´æ·Å×Ö·û´®
-	 * \param in ÊäÈë×Ö·û´®
-	 * \param delimiters ·Ö¸ô·ûºÅ
-	 * \param deep Éî¶È£¬·Ö¸îµÄÉî¶È£¬È±Ê¡Ã»ÓĞÏŞÖÆ
+	 * \param container å®¹å™¨ï¼Œç”¨äºå­˜æ”¾å­—ç¬¦ä¸²
+	 * \param in è¾“å…¥å­—ç¬¦ä¸²
+	 * \param delimiters åˆ†éš”ç¬¦å·
+	 * \param deep æ·±åº¦ï¼Œåˆ†å‰²çš„æ·±åº¦ï¼Œç¼ºçœæ²¡æœ‰é™åˆ¶
 	 */
 	template <typename Container>
 		inline void
@@ -72,9 +72,9 @@ namespace Zebra
 		}
 
 	/**
-	 * \brief °Ñ×Ö·û×ª»¯ÎªĞ¡Ğ´µÄº¯Êı¶ÔÏó
+	 * \brief æŠŠå­—ç¬¦è½¬åŒ–ä¸ºå°å†™çš„å‡½æ•°å¯¹è±¡
 	 *
-	 * ÀıÈç£º
+	 * ä¾‹å¦‚ï¼š
 	 * <pre>
 	 * std::string  s ("Some Kind Of Initial Input Goes Here");
 	 * std::transform (s.begin(), s.end(), s.begin(), ToLower());
@@ -89,11 +89,11 @@ namespace Zebra
 	};
 
 	/**
-	 * \brief °Ñ×Ö·û´®×ª»¯ÎªĞ¡Ğ´
+	 * \brief æŠŠå­—ç¬¦ä¸²è½¬åŒ–ä¸ºå°å†™
 	 * 
-	 * °ÑÊäÈëµÄ×Ö·û´®×ª»¯ÎªĞ¡Ğ´
+	 * æŠŠè¾“å…¥çš„å­—ç¬¦ä¸²è½¬åŒ–ä¸ºå°å†™
 	 *
-	 * \param s ĞèÒª×ª»¯µÄ×Ö·û´®
+	 * \param s éœ€è¦è½¬åŒ–çš„å­—ç¬¦ä¸²
 	 */
 	inline void to_lower(std::string &s)
 	{
@@ -101,9 +101,9 @@ namespace Zebra
 	}
 
 	/**
-	 * \brief °Ñ×Ö·û×ª»¯Îª´óĞ´µÄº¯Êı¶ÔÏó
+	 * \brief æŠŠå­—ç¬¦è½¬åŒ–ä¸ºå¤§å†™çš„å‡½æ•°å¯¹è±¡
 	 *
-	 * ÀıÈç£º
+	 * ä¾‹å¦‚ï¼š
 	 * <pre>
 	 * std::string  s ("Some Kind Of Initial Input Goes Here");
 	 * std::transform (s.begin(), s.end(), s.begin(), ToUpper());
@@ -118,11 +118,11 @@ namespace Zebra
 	};
 
 	/**
-	 * \brief °Ñ×Ö·û´®×ª»¯Îª´óĞ´
+	 * \brief æŠŠå­—ç¬¦ä¸²è½¬åŒ–ä¸ºå¤§å†™
 	 * 
-	 * °ÑÊäÈëµÄ×Ö·û´®×ª»¯Îª´óĞ´
+	 * æŠŠè¾“å…¥çš„å­—ç¬¦ä¸²è½¬åŒ–ä¸ºå¤§å†™
 	 *
-	 * \param s ĞèÒª×ª»¯µÄ×Ö·û´®
+	 * \param s éœ€è¦è½¬åŒ–çš„å­—ç¬¦ä¸²
 	 */
 	inline void to_upper(std::string &s)
 	{

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneDare.cpp  $
  * \author  
  * \date
- * \brief ÊµÏÖ½»Õ½´¦ÀíµÄÀà
+ * \brief å®ç°äº¤æˆ˜å¤„ç†çš„ç±»
  *
  * 
  */
@@ -19,7 +19,7 @@
 using namespace DareDef;
 
 /**
- * \brief ±È½Ï½»Õ½ÎïÆ·
+ * \brief æ¯”è¾ƒäº¤æˆ˜ç‰©å“
  *
  */
 /*
@@ -38,12 +38,12 @@ class DareObjectCompare:public UserObjectCompare
 
 
 /**
- * \brief Ö´ĞĞÌôÕ½Ö¸Áî
+ * \brief æ‰§è¡ŒæŒ‘æˆ˜æŒ‡ä»¤
  *
  *
- * \param rev ÌôÕ½Ö¸Áî
- * \param cmdLen ÏûÏ¢³¤¶È
- * \return ÊÇ·ñ³É¹¦
+ * \param rev æŒ‘æˆ˜æŒ‡ä»¤
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneUser::doDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 {
@@ -69,14 +69,14 @@ bool SceneUser::doDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 				
 				if (this->charbase.unionid == 0)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "Äú»¹Ã»ÓĞ½¨Á¢°ï»á£¬²»ÄÜ·¢ÆğÌôÕ½");
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "æ‚¨è¿˜æ²¡æœ‰å»ºç«‹å¸®ä¼šï¼Œä¸èƒ½å‘èµ·æŒ‘æˆ˜");
 					return true;
 				}
 
 				if (packs.checkMoney(need_money) 
-					&& packs.removeMoney(need_money, "¶á³ÇÕ½¿Û³ıÌôÕ½·ÑÓÃ")) 
+					&& packs.removeMoney(need_money, "å¤ºåŸæˆ˜æ‰£é™¤æŒ‘æˆ˜è´¹ç”¨")) 
 				{
-					Zebra::logger->trace("[¶á³ÇÕ½]:%s ¿Û³ı°ï»á¶á³ÇÕ½ÌôÕ½·ÑÓÃ %d", 
+					Zebra::logger->trace("[å¤ºåŸæˆ˜]:%s æ‰£é™¤å¸®ä¼šå¤ºåŸæˆ˜æŒ‘æˆ˜è´¹ç”¨ %d", 
 							this->name, need_money);	
 
 					send.dwCountryID = this->charbase.country;
@@ -97,7 +97,7 @@ bool SceneUser::doDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 				}
 				else
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ÒøÁ½²»¹»£¬²»ÄÜ·¢ÆğÌôÕ½");
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "é“¶ä¸¤ä¸å¤Ÿï¼Œä¸èƒ½å‘èµ·æŒ‘æˆ˜");
 				}
 
 				return true;
@@ -109,15 +109,15 @@ bool SceneUser::doDareCmd(const Cmd::stDareUserCmd *rev,unsigned int cmdLen)
 
 				Cmd::Session::t_activeDare_SceneSession send;
 				send.dwWarID = pCmd->dwWarID;
-				Zebra::logger->debug("ÊÕ½Óµ½»á»°×ª·¢¹ıÀ´µÄACTIVE_DARE_PARAÃüÁî");
+				Zebra::logger->debug("æ”¶æ¥åˆ°ä¼šè¯è½¬å‘è¿‡æ¥çš„ACTIVE_DARE_PARAå‘½ä»¤");
 
 				if (packs.checkMoney(CREATE_DARE_NEED_PRICE_GOLD) && packs.removeMoney(CREATE_DARE_NEED_PRICE_GOLD)) {
 					send.dwStatus = Cmd::Session::SCENE_ACTIVEDARE_SUCCESS;
 				}
 				else
 				{
-					//±¨¸æÃ»ÓĞ×ã¹»µÄÇ®
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "Ã»ÓĞ×ã¹»µÄÇ®À´Ö§¸¶ÌôÕ½·ÑÓÃ£¡");
+					//æŠ¥å‘Šæ²¡æœ‰è¶³å¤Ÿçš„é’±
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "æ²¡æœ‰è¶³å¤Ÿçš„é’±æ¥æ”¯ä»˜æŒ‘æˆ˜è´¹ç”¨ï¼");
 					send.dwStatus = Cmd::Session::SCENE_ACTIVEDARE_FAIL;
 				}
 

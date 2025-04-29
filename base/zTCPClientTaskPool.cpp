@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPClientTaskPool.cpp 6285 2006-04-11 06:39:28Z whj $
  * \author  Songsiliang,songsiliang@netease.com
- * \date 2004Äê11ÔÂ18ÈÕ 14Ê±19·Ö29Ãë CST
- * \brief ÊµÏÖÏß³Ì³ØÀà£¬ÓÃÓÚ´¦Àí¶àÁ¬½Ó·şÎñÆ÷
+ * \date 2004å¹´11æœˆ18æ—¥ 14æ—¶19åˆ†29ç§’ CST
+ * \brief å®ç°çº¿ç¨‹æ± ç±»ï¼Œç”¨äºå¤„ç†å¤šè¿æ¥æœåŠ¡å™¨
  *
  * 
  */
@@ -23,7 +23,7 @@
 #include "zTime.h"
 
 /**
- * \brief ¼ì²âTCPÁ¬½Ó×´¿ö,Èç¹ûÎ´Á¬½Ó,³¢ÊÔÁ¬½Ó
+ * \brief æ£€æµ‹TCPè¿æ¥çŠ¶å†µ,å¦‚æœæœªè¿æ¥,å°è¯•è¿æ¥
  *
  */
 class zCheckconnectThread : public zThread
@@ -49,13 +49,13 @@ class zCheckconnectThread : public zThread
 };
 
 /**
- * \brief Á¬½ÓÈÎÎñÁ´±í
+ * \brief è¿æ¥ä»»åŠ¡é“¾è¡¨
  *
  */
 typedef std::list<zTCPClientTask *, __gnu_cxx::__pool_alloc<zTCPClientTask *> > zTCPClientTaskContainer;
 
 /**
- * \brief Á¬½ÓÈÎÎñÁ´±íµş´úÆ÷
+ * \brief è¿æ¥ä»»åŠ¡é“¾è¡¨å ä»£å™¨
  *
  */
 typedef zTCPClientTaskContainer::iterator zTCPClientTask_IT;
@@ -99,7 +99,7 @@ class zTCPClientTaskQueue
 };
 
 /**
- * \brief ´¦ÀíTCPÁ¬½ÓµÄÑéÖ¤£¬Èç¹ûÑéÖ¤²»Í¨¹ı£¬ĞèÒª»ØÊÕÕâ¸öÁ¬½Ó
+ * \brief å¤„ç†TCPè¿æ¥çš„éªŒè¯ï¼Œå¦‚æœéªŒè¯ä¸é€šè¿‡ï¼Œéœ€è¦å›æ”¶è¿™ä¸ªè¿æ¥
  *
  */
 class zCheckwaitThread : public zThread, public zTCPClientTaskQueue
@@ -108,8 +108,8 @@ class zCheckwaitThread : public zThread, public zTCPClientTaskQueue
 	private:
 
 		zTCPClientTaskPool *pool;
-		zTCPClientTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
-		zTCPClientTaskContainer::size_type task_count;          /**< tasks¼ÆÊı(±£Ö¤Ïß³Ì°²È«*/
+		zTCPClientTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
+		zTCPClientTaskContainer::size_type task_count;          /**< tasksè®¡æ•°(ä¿è¯çº¿ç¨‹å®‰å…¨*/
 #ifdef _USE_EPOLL_
 		int kdpfd;
 		epollfdContainer epfds;
@@ -118,8 +118,8 @@ class zCheckwaitThread : public zThread, public zTCPClientTaskQueue
 #endif
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸öÁ¬½ÓÈÎÎñ
-		 * \param task Á¬½ÓÈÎÎñ
+		 * \brief æ·»åŠ ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+		 * \param task è¿æ¥ä»»åŠ¡
 		 */
 		void _add(zTCPClientTask *task)
 		{
@@ -178,9 +178,9 @@ class zCheckwaitThread : public zThread, public zTCPClientTaskQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param name Ïß³ÌÃû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param name çº¿ç¨‹åç§°
 		 */
 		zCheckwaitThread(
 				zTCPClientTaskPool *pool,
@@ -196,7 +196,7 @@ class zCheckwaitThread : public zThread, public zTCPClientTaskQueue
 			}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~zCheckwaitThread()
@@ -211,7 +211,7 @@ class zCheckwaitThread : public zThread, public zTCPClientTaskQueue
 };
 
 /**
- * \brief µÈ´ı½ÓÊÜÑéÖ¤Ö¸Áî£¬²¢½øĞĞÑéÖ¤
+ * \brief ç­‰å¾…æ¥å—éªŒè¯æŒ‡ä»¤ï¼Œå¹¶è¿›è¡ŒéªŒè¯
  *
  */
 void zCheckwaitThread::run()
@@ -233,7 +233,7 @@ void zCheckwaitThread::run()
 					zTCPClientTask *task = (zTCPClientTask *)epfds[i].data.ptr;
 					if (epfds[i].events & (EPOLLERR | EPOLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
 						remove(task);
 						task->resetState();
 					}
@@ -242,16 +242,16 @@ void zCheckwaitThread::run()
 						switch(task->checkRebound())
 						{
 							case 1:
-								//ÑéÖ¤³É¹¦£¬»ñÈ¡ÏÂÒ»¸ö×´Ì¬
+								//éªŒè¯æˆåŠŸï¼Œè·å–ä¸‹ä¸€ä¸ªçŠ¶æ€
 								remove(task);
 								if (!pool->addMain(task))
 									task->resetState();
 								break;
 							case 0:
-								//³¬Ê±£¬ÏÂÃæ»á´¦Àí
+								//è¶…æ—¶ï¼Œä¸‹é¢ä¼šå¤„ç†
 								break;
 							case -1:
-								//ÑéÖ¤Ê§°Ü£¬»ØÊÕÈÎÎñ
+								//éªŒè¯å¤±è´¥ï¼Œå›æ”¶ä»»åŠ¡
 								remove(task);
 								task->resetState();
 								break;
@@ -264,7 +264,7 @@ void zCheckwaitThread::run()
 		zThread::msleep(50);
 	}
 
-	//°ÑËùÓĞµÈ´ıÑéÖ¤¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ç­‰å¾…éªŒè¯é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++)
 	{
 		zTCPClientTask *task = *it;
@@ -292,7 +292,7 @@ void zCheckwaitThread::run()
 					zTCPClientTask *task = *it;
 					if (pfds[i].revents & (POLLERR | POLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
 						remove(it, i--);
 						task->resetState();
 					}
@@ -301,16 +301,16 @@ void zCheckwaitThread::run()
 						switch(task->checkRebound())
 						{
 							case 1:
-								//ÑéÖ¤³É¹¦£¬»ñÈ¡ÏÂÒ»¸ö×´Ì¬
+								//éªŒè¯æˆåŠŸï¼Œè·å–ä¸‹ä¸€ä¸ªçŠ¶æ€
 								remove(it, i--);
 								if (!pool->addMain(task))
 									task->resetState();
 								break;
 							case 0:
-								//³¬Ê±£¬ÏÂÃæ»á´¦Àí
+								//è¶…æ—¶ï¼Œä¸‹é¢ä¼šå¤„ç†
 								break;
 							case -1:
-								//ÑéÖ¤Ê§°Ü£¬»ØÊÕÈÎÎñ
+								//éªŒè¯å¤±è´¥ï¼Œå›æ”¶ä»»åŠ¡
 								remove(it, i--);
 								task->resetState();
 								break;
@@ -323,7 +323,7 @@ void zCheckwaitThread::run()
 		zThread::msleep(50);
 	}
 
-	//°ÑËùÓĞµÈ´ıÑéÖ¤¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ç­‰å¾…éªŒè¯é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(i = 0, it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++, i++)
 	{
 		zTCPClientTask *task = *it;
@@ -334,7 +334,7 @@ void zCheckwaitThread::run()
 }
 
 /**
- * \brief TCPÁ¬½ÓµÄÖ÷´¦ÀíÏß³Ì£¬Ò»°ãÒ»¸öÏß³Ì´ø¼¸¸öTCPÁ¬½Ó£¬ÕâÑù¿ÉÒÔÏÔÖøÌá¸ßĞ§ÂÊ
+ * \brief TCPè¿æ¥çš„ä¸»å¤„ç†çº¿ç¨‹ï¼Œä¸€èˆ¬ä¸€ä¸ªçº¿ç¨‹å¸¦å‡ ä¸ªTCPè¿æ¥ï¼Œè¿™æ ·å¯ä»¥æ˜¾è‘—æé«˜æ•ˆç‡
  *
  */
 class zTCPClientTaskThread : public zThread, public zTCPClientTaskQueue
@@ -343,8 +343,8 @@ class zTCPClientTaskThread : public zThread, public zTCPClientTaskQueue
 	private:
 
 		zTCPClientTaskPool *pool;
-		zTCPClientTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
-		zTCPClientTaskContainer::size_type task_count;          /**< tasks¼ÆÊı(±£Ö¤Ïß³Ì°²È«*/
+		zTCPClientTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
+		zTCPClientTaskContainer::size_type task_count;          /**< tasksè®¡æ•°(ä¿è¯çº¿ç¨‹å®‰å…¨*/
 #ifdef _USE_EPOLL_
 		int kdpfd;
 		epollfdContainer epfds;
@@ -353,8 +353,8 @@ class zTCPClientTaskThread : public zThread, public zTCPClientTaskQueue
 #endif
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸öÁ¬½ÓÈÎÎñ
-		 * \param task Á¬½ÓÈÎÎñ
+		 * \brief æ·»åŠ ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+		 * \param task è¿æ¥ä»»åŠ¡
 		 */
 		void _add(zTCPClientTask *task)
 		{
@@ -402,12 +402,12 @@ class zTCPClientTaskThread : public zThread, public zTCPClientTaskQueue
 
 	public:
 
-		static const zTCPClientTaskContainer::size_type connPerThread = 256;	/**< Ã¿¸öÏß³Ì´øµÄÁ¬½ÓÊıÁ¿ */
+		static const zTCPClientTaskContainer::size_type connPerThread = 256;	/**< æ¯ä¸ªçº¿ç¨‹å¸¦çš„è¿æ¥æ•°é‡ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param name Ïß³ÌÃû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param name çº¿ç¨‹åç§°
 		 */
 		zTCPClientTaskThread(
 				zTCPClientTaskPool *pool,
@@ -423,7 +423,7 @@ class zTCPClientTaskThread : public zThread, public zTCPClientTaskQueue
 			}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~zTCPClientTaskThread()
@@ -436,8 +436,8 @@ class zTCPClientTaskThread : public zThread, public zTCPClientTaskQueue
 		virtual void run();
 
 		/**
-		 * \brief ·µ»ØÁ¬½ÓÈÎÎñµÄ¸öÊı
-		 * \return Õâ¸öÏß³Ì´¦ÀíµÄÁ¬½ÓÈÎÎñÊı
+		 * \brief è¿”å›è¿æ¥ä»»åŠ¡çš„ä¸ªæ•°
+		 * \return è¿™ä¸ªçº¿ç¨‹å¤„ç†çš„è¿æ¥ä»»åŠ¡æ•°
 		 */
 		const zTCPClientTaskContainer::size_type size() const
 		{
@@ -447,7 +447,7 @@ class zTCPClientTaskThread : public zThread, public zTCPClientTaskQueue
 };
 
 /**
- * \brief Ö÷´¦ÀíÏß³Ì£¬»Øµ÷´¦ÀíÁ¬½ÓµÄÊäÈëÊä³öÖ¸Áî
+ * \brief ä¸»å¤„ç†çº¿ç¨‹ï¼Œå›è°ƒå¤„ç†è¿æ¥çš„è¾“å…¥è¾“å‡ºæŒ‡ä»¤
  *
  */
 void zTCPClientTaskThread::run()
@@ -494,7 +494,7 @@ void zTCPClientTaskThread::run()
 					{
 						if (task->checkFirstMainLoop())
 						{
-							//Èç¹ûÊÇµÚÒ»´Î¼ÓÈë´¦Àí£¬ĞèÒªÔ¤ÏÈ´¦Àí»º³åÖĞµÄÊı¾İ
+							//å¦‚æœæ˜¯ç¬¬ä¸€æ¬¡åŠ å…¥å¤„ç†ï¼Œéœ€è¦é¢„å…ˆå¤„ç†ç¼“å†²ä¸­çš„æ•°æ®
 							task->ListeningRecv(false);
 						}
 						if(!task->isFdsrAdd())
@@ -525,8 +525,8 @@ void zTCPClientTaskThread::run()
 					zTCPClientTask *task = (zTCPClientTask *)epfds_r[i].data.ptr;
 					if (epfds_r[i].events & (EPOLLERR | EPOLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
-						Zebra::logger->debug("%s: Ì×½Ó¿ÚÒì³£´íÎó", __PRETTY_FUNCTION__);
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
+						Zebra::logger->debug("%s: å¥—æ¥å£å¼‚å¸¸é”™è¯¯", __PRETTY_FUNCTION__);
 						task->Terminate(zTCPClientTask::TM_sock_error);
 						check=true;
 					}
@@ -534,10 +534,10 @@ void zTCPClientTaskThread::run()
 					{
 						if (epfds_r[i].events & EPOLLIN)
 						{
-							//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+							//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 							if (!task->ListeningRecv(true))
 							{
-								Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+								Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 								task->Terminate(zTCPClientTask::TM_sock_error);
 								check=true;
 							}
@@ -577,27 +577,27 @@ void zTCPClientTaskThread::run()
 						zTCPClientTask *task = (zTCPClientTask *)epfds[i].data.ptr;
 						if (epfds[i].events & (EPOLLERR | EPOLLPRI))
 						{
-							//Ì×½Ó¿Ú³öÏÖ´íÎó
-							Zebra::logger->debug("%s: Ì×½Ó¿ÚÒì³£´íÎó", __PRETTY_FUNCTION__);
+							//å¥—æ¥å£å‡ºç°é”™è¯¯
+							Zebra::logger->debug("%s: å¥—æ¥å£å¼‚å¸¸é”™è¯¯", __PRETTY_FUNCTION__);
 							task->Terminate(zTCPClientTask::TM_sock_error);
 						}
 						else
 						{
 							if (epfds[i].events & EPOLLIN)
 							{
-								//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+								//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 								if (!task->ListeningRecv(true))
 								{
-									Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+									Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 									task->Terminate(zTCPClientTask::TM_sock_error);
 								}
 							}
 							if (epfds[i].events & EPOLLOUT)
 							{
-								//Ì×½Ó¿Ú×¼±¸ºÃÁËĞ´Èë²Ù×÷
+								//å¥—æ¥å£å‡†å¤‡å¥½äº†å†™å…¥æ“ä½œ
 								if (!task->ListeningSend())
 								{
-									Zebra::logger->debug("%s: Ì×½Ó¿ÚĞ´²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+									Zebra::logger->debug("%s: å¥—æ¥å£å†™æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 									task->Terminate(zTCPClientTask::TM_sock_error);
 								}
 							}
@@ -613,7 +613,7 @@ void zTCPClientTaskThread::run()
 		//zThread::usleep(pool->usleep_time);
 	}
 
-	//°ÑËùÓĞÈÎÎñ¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ä»»åŠ¡é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++)
 	{
 		zTCPClientTask *task = *it;
@@ -645,7 +645,7 @@ void zTCPClientTaskThread::run()
 					pfds[i].revents = 0;
 					if (task->checkFirstMainLoop())
 					{
-						//Èç¹ûÊÇµÚÒ»´Î¼ÓÈë´¦Àí£¬ĞèÒªÔ¤ÏÈ´¦Àí»º³åÖĞµÄÊı¾İ
+						//å¦‚æœæ˜¯ç¬¬ä¸€æ¬¡åŠ å…¥å¤„ç†ï¼Œéœ€è¦é¢„å…ˆå¤„ç†ç¼“å†²ä¸­çš„æ•°æ®
 						task->ListeningRecv(false);
 					}
 				}
@@ -658,27 +658,27 @@ void zTCPClientTaskThread::run()
 					zTCPClientTask *task = *it;
 					if (pfds[i].revents & (POLLERR | POLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
-						Zebra::logger->debug("%s: Ì×½Ó¿ÚÒì³£´íÎó", __PRETTY_FUNCTION__);
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
+						Zebra::logger->debug("%s: å¥—æ¥å£å¼‚å¸¸é”™è¯¯", __PRETTY_FUNCTION__);
 						task->Terminate(zTCPClientTask::TM_sock_error);
 					}
 					else
 					{
 						if (pfds[i].revents & POLLIN)
 						{
-							//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+							//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 							if (!task->ListeningRecv(true))
 							{
-								Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+								Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 								task->Terminate(zTCPClientTask::TM_sock_error);
 							}
 						}
 						if (pfds[i].revents & POLLOUT)
 						{
-							//Ì×½Ó¿Ú×¼±¸ºÃÁËĞ´Èë²Ù×÷
+							//å¥—æ¥å£å‡†å¤‡å¥½äº†å†™å…¥æ“ä½œ
 							if (!task->ListeningSend())
 							{
-								Zebra::logger->debug("%s: Ì×½Ó¿ÚĞ´²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+								Zebra::logger->debug("%s: å¥—æ¥å£å†™æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 								task->Terminate(zTCPClientTask::TM_sock_error);
 							}
 						}
@@ -690,7 +690,7 @@ void zTCPClientTaskThread::run()
 		zThread::usleep(pool->usleep_time);
 	}
 
-	//°ÑËùÓĞÈÎÎñ¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ä»»åŠ¡é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(i = 0, it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++, i++)
 	{
 		zTCPClientTask *task = *it;
@@ -704,7 +704,7 @@ void zTCPClientTaskThread::run()
 
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 zTCPClientTaskPool::~zTCPClientTaskPool()
@@ -747,9 +747,9 @@ zTCPClientTaskThread *zTCPClientTaskPool::newThread()
 }
 
 /**
- * \brief ³õÊ¼»¯Ïß³Ì³Ø£¬Ô¤ÏÈ´´½¨¸÷ÖÖÏß³Ì
+ * \brief åˆå§‹åŒ–çº¿ç¨‹æ± ï¼Œé¢„å…ˆåˆ›å»ºå„ç§çº¿ç¨‹
  *
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool zTCPClientTaskPool::init()
 {
@@ -771,8 +771,8 @@ bool zTCPClientTaskPool::init()
 }
 
 /**
- * \brief °ÑÒ»¸öÖ¸¶¨ÈÎÎñÌí¼Óµ½³ØÖĞ
- * \param task ´ıÌí¼ÓµÄÈÎÎñ
+ * \brief æŠŠä¸€ä¸ªæŒ‡å®šä»»åŠ¡æ·»åŠ åˆ°æ± ä¸­
+ * \param task å¾…æ·»åŠ çš„ä»»åŠ¡
  */
 bool zTCPClientTaskPool::put(zTCPClientTask *task)
 {
@@ -788,8 +788,8 @@ bool zTCPClientTaskPool::put(zTCPClientTask *task)
 }
 
 /**
- * \brief ¶¨Ê±Ö´ĞĞµÄÈÎÎñ
- * Ö÷ÒªÊÇÈç¹û¿Í»§¶Ë¶ÏÏß³¢ÊÔÖØÁ¬
+ * \brief å®šæ—¶æ‰§è¡Œçš„ä»»åŠ¡
+ * ä¸»è¦æ˜¯å¦‚æœå®¢æˆ·ç«¯æ–­çº¿å°è¯•é‡è¿
  */
 void zTCPClientTaskPool::timeAction(const zTime &ct)
 {
@@ -809,7 +809,7 @@ void zTCPClientTaskPool::timeAction(const zTime &ct)
 			case zTCPClientTask::sync:
 				break;
 			case zTCPClientTask::okay:
-				//ÒÑ¾­ÔÚÁ¬½Ó×´Ì¬£¬·¢ËÍÍøÂç²âÊÔĞÅºÅ
+				//å·²ç»åœ¨è¿æ¥çŠ¶æ€ï¼Œå‘é€ç½‘ç»œæµ‹è¯•ä¿¡å·
 				task->checkConn();
 				break;
 			case zTCPClientTask::recycle:
@@ -822,8 +822,8 @@ void zTCPClientTaskPool::timeAction(const zTime &ct)
 }
 
 /**
- * \brief °ÑÈÎÎñÌí¼Óµ½µÈ´ıÁ¬½ÓÈÏÖ¤·µ»ØµÄ¶ÓÁĞÖĞ
- * \param task ´ıÌí¼ÓµÄÈÎÎñ
+ * \brief æŠŠä»»åŠ¡æ·»åŠ åˆ°ç­‰å¾…è¿æ¥è®¤è¯è¿”å›çš„é˜Ÿåˆ—ä¸­
+ * \param task å¾…æ·»åŠ çš„ä»»åŠ¡
  */
 void zTCPClientTaskPool::addCheckwait(zTCPClientTask *task)
 {
@@ -832,9 +832,9 @@ void zTCPClientTaskPool::addCheckwait(zTCPClientTask *task)
 }
 
 /**
- * \brief °ÑÈÎÎñÌí¼Óµ½Ö÷´¦ÀíÑ­»·ÖĞ
- * \param task ´ıÌí¼ÓµÄÈÎÎñ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \brief æŠŠä»»åŠ¡æ·»åŠ åˆ°ä¸»å¤„ç†å¾ªç¯ä¸­
+ * \param task å¾…æ·»åŠ çš„ä»»åŠ¡
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTCPClientTaskPool::addMain(zTCPClientTask *task)
 {
@@ -859,7 +859,7 @@ bool zTCPClientTaskPool::addMain(zTCPClientTask *task)
 	}
 	else
 	{
-		Zebra::logger->fatal("%s: ²»ÄÜµÃµ½Ò»¸ö¿ÕÏĞÏß³Ì", __FUNCTION__);
+		Zebra::logger->fatal("%s: ä¸èƒ½å¾—åˆ°ä¸€ä¸ªç©ºé—²çº¿ç¨‹", __FUNCTION__);
 		return false;
 	}
 }

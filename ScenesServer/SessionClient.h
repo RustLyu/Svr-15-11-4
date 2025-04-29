@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionClient.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåSession·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰SessionæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
  */
 
@@ -26,10 +26,10 @@ class SessionClient : public zTCPBufferClient , public MessageQueue
 
 	public:
 		/**
-		* \brief ¹¹Ôìº¯Êı
-		* \param  name Ãû³Æ
-		* \param  ip   µØÖ·
-		* \param  port ¶Ë¿Ú
+		* \brief æ„é€ å‡½æ•°
+		* \param  name åç§°
+		* \param  ip   åœ°å€
+		* \param  port ç«¯å£
 		*/
 		SessionClient(
 				const std::string &name, 
@@ -58,7 +58,7 @@ class SessionClient : public zTCPBufferClient , public MessageQueue
 
 };
 
-/// ÉùÃ÷
+/// å£°æ˜
 extern SessionClient *sessionClient;
 
 #endif

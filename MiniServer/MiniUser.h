@@ -1,4 +1,4 @@
-#ifndef _MINIUSER_H_
+﻿#ifndef _MINIUSER_H_
 #define _MINIUSER_H_
 
 //#include "Zebra.h"

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CSept.h  $
  * \author  
  * \date
- * \brief ¶¨Òå¼Ò×åÀà£¬¼Ò×å¹ÜÀíÆ÷
+ * \brief å®šä¹‰å®¶æ—ç±»ï¼Œå®¶æ—ç®¡ç†å™¨
  *
  */
 
@@ -33,16 +33,16 @@ class CSept;
 class CSeptM:public zEntryManager<zEntryID,zEntryName>
 {
 	private:
-		/// ³ÉÔ±Ë÷Òı
+		/// æˆå‘˜ç´¢å¼•
 		std::map<std::string, CSeptMember*> memberIndex;
 
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef std::map<std::string, CSeptMember*>::value_type memberIndexValueType;
 
-		/// Î¨Ò»ÊµÀıÖ¸Õë
+		/// å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		static CSeptM * um;
 
-		/// ¶ÁĞ´Ëø
+		/// è¯»å†™é”
 		zRWLock rwlock;
 
 		CSept *	createSeptAndAddMaster(const stSeptInfo&);
@@ -85,16 +85,16 @@ class CSeptM:public zEntryManager<zEntryID,zEntryName>
 		void notifyNpcHoldData(DWORD septid);
 
 		/**
-		  * \brief É¾³ı¼Ò×å³ÉÔ±
+		  * \brief åˆ é™¤å®¶æ—æˆå‘˜
 		  *
-		  * Èç¹û¸Ã½ÇÉ«²»ÊÇ¼Ò×å×å³¤£¬ÔòÌß³ıËû£¬Èç¹ûÊÇ£¬Ôò±£Áô£¬²»×ö´¦Àí
+		  * å¦‚æœè¯¥è§’è‰²ä¸æ˜¯å®¶æ—æ—é•¿ï¼Œåˆ™è¸¢é™¤ä»–ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™ä¿ç•™ï¼Œä¸åšå¤„ç†
 		  *
-		  * \param dwUserID ½ÇÉ«ID
-		  * \param find     ÎªTRUE±íÊ¾²éÕÒ£¬ÎªFALSEÎªÉ¾³ı
+		  * \param dwUserID è§’è‰²ID
+		  * \param find     ä¸ºTRUEè¡¨ç¤ºæŸ¥æ‰¾ï¼Œä¸ºFALSEä¸ºåˆ é™¤
 		  *
-		  * \return Èç¹û¸Ã½ÇÉ«²»ÔÚÈÎºÎ¼Ò×åÖĞ£¬Ôò·µ»Ø2
-		  *         Èç¹û¸Ã½ÇÉ«ÊÇ×å³¤£¬Ôò·µ»Ø0
-		  *         Èç¹û¸Ã½ÇÉ«ÊÇ×åÔ±£¬²¢É¾³ı³É¹¦£¬Ôò·µ»Ø1
+		  * \return å¦‚æœè¯¥è§’è‰²ä¸åœ¨ä»»ä½•å®¶æ—ä¸­ï¼Œåˆ™è¿”å›2
+		  *         å¦‚æœè¯¥è§’è‰²æ˜¯æ—é•¿ï¼Œåˆ™è¿”å›0
+		  *         å¦‚æœè¯¥è§’è‰²æ˜¯æ—å‘˜ï¼Œå¹¶åˆ é™¤æˆåŠŸï¼Œåˆ™è¿”å›1
 		  *
 		  */
 		int  fireSeptMember(DWORD dwUserID, bool find);
@@ -134,18 +134,18 @@ class CSeptM:public zEntryManager<zEntryID,zEntryName>
 		void delSeptAllMember();
 
 		/**
-		 * \brief ¸ü¸Ä±ğÃû
+		 * \brief æ›´æ”¹åˆ«å
 		 *
-		 * \param pUser ÇëÇó¸üÃûÕß(Ä¿Ç°Ö»ÄÜÊÇ°ïÖ÷)
+		 * \param pUser è¯·æ±‚æ›´åè€…(ç›®å‰åªèƒ½æ˜¯å¸®ä¸»)
 		 *
-		 * \param pCmd ¸üÃûÃüÁî
+		 * \param pCmd æ›´åå‘½ä»¤
 		 *
 		 * \return 
 		 */
 		void change_aliasname(UserSession *pUser, Cmd::stChangeSeptMemberAliasName* pCmd);
 		void changeAllRepute(DWORD countryid, int repute);
-		DWORD getRepute(DWORD dwSeptID);//µÃµ½ÉùÍşÖµ
-		void changeRepute(DWORD dwSeptID, int repute);//¸Ä±äÉùÍşÖµ
+		DWORD getRepute(DWORD dwSeptID);//å¾—åˆ°å£°å¨å€¼
+		void changeRepute(DWORD dwSeptID, int repute);//æ”¹å˜å£°å¨å€¼
 		void changeLevel(DWORD dwSeptID, int level);
 		char * getSeptNameByUserName(char *Name);
 		DWORD getSeptIDByUserName(char *Name);		
@@ -154,29 +154,29 @@ class CSeptM:public zEntryManager<zEntryID,zEntryName>
 class CSept:public zEntryManager<zEntryID, zEntryName>, public zEntry
 {
 	private:
-		/// »ÙÃğ×´Ì¬²»ÔÙÖ´ĞĞĞ´¿âµÈ²Ù×÷
+		/// æ¯ç­çŠ¶æ€ä¸å†æ‰§è¡Œå†™åº“ç­‰æ“ä½œ
 		bool					destroy;
 		
-		/// ¶ÁĞ´Ëø
+		/// è¯»å†™é”
 		zRWLock rwlock;
 
 	public:
-		/// ÊÇ·ñ»¹´¦ÓÚÍ¶Æ±ÆÚ¼ä£¬1ÎªÊÇ0Îª·ñ
+		/// æ˜¯å¦è¿˜å¤„äºæŠ•ç¥¨æœŸé—´ï¼Œ1ä¸ºæ˜¯0ä¸ºå¦
 		BYTE					byVote;
 
-		/// ¼Ò×å»á³¤
+		/// å®¶æ—ä¼šé•¿
 		CSeptMember          *master;
 
-		/// ´´Á¢Ê±¼ä
+		/// åˆ›ç«‹æ—¶é—´
 		DWORD					dwCreateTime;
 
-		/// ½éÉÜ
+		/// ä»‹ç»
 		char					note[255];
 
-		/// ¼Ò×åËùÊô¹ú¼Ò
+		/// å®¶æ—æ‰€å±å›½å®¶
 		DWORD dwCountryID;
 
-		/// ¼Ò×åËùÊô°ï»á
+		/// å®¶æ—æ‰€å±å¸®ä¼š
 		DWORD dwUnionID;
 
 		/// 
@@ -188,23 +188,23 @@ class CSept:public zEntryManager<zEntryID, zEntryName>, public zEntry
 		}
 		
 
-		/// ¼Ò×åµÈ¼¶
+		/// å®¶æ—ç­‰çº§
 		DWORD dwLevel;
 
-		/// ¼Ò×åÉùÍû
+		/// å®¶æ—å£°æœ›
 		DWORD dwRepute;
 
-		/// ¼Ò×åÏû·Ñ½ğ±Ò
+		/// å®¶æ—æ¶ˆè´¹é‡‘å¸
 		DWORD dwSpendGold;
 		
-		/// ¼Ò×åÊÇ·ñÁìÈ¡¾­Ñé
+		/// å®¶æ—æ˜¯å¦é¢†å–ç»éªŒ
 		DWORD dwIsExp;
 
-		/// ÁîÅÆÊ¹ÓÃ´ÎÊı
+		/// ä»¤ç‰Œä½¿ç”¨æ¬¡æ•°
 		DWORD calltimes;
-		/// ÁîÅÆÊ¹ÓÃÊ±¼ä
+		/// ä»¤ç‰Œä½¿ç”¨æ—¶é—´
 		DWORD calldaytime;
-		/// ÉÏ´ÎÁìÈ¡ÆÕÍ¨¼Ò×å¾­ÑéµÄÊ±¼ä
+		/// ä¸Šæ¬¡é¢†å–æ™®é€šå®¶æ—ç»éªŒçš„æ—¶é—´
 		DWORD normal_exp_time;
 
 		template <class YourEntry>
@@ -283,11 +283,11 @@ class CSept:public zEntryManager<zEntryID, zEntryName>, public zEntry
 		void			setNote(Cmd::stNoteSeptCmd *pCmd);
 		void                    notifyWarResult(const char* msg, ...);
 		void 			delSeptAllMember();
-		DWORD 			getRepute();//µÃµ½ÉùÍşÖµ
-		void                    changeRepute(int repute);//¸Ä±äÉùÍşÖµ
+		DWORD 			getRepute();//å¾—åˆ°å£°å¨å€¼
+		void                    changeRepute(int repute);//æ”¹å˜å£°å¨å€¼
 		void			changeLevel(int level);
-		void			sendSeptInfoToAll(); // ÖØĞÂÍ¨Öª¼Ò×åĞÅÏ¢
-		void			sendSeptReputeToAll(); // Í¨ÖªËùÓĞ¼Ò×å³ÉÔ±ÉùÍûµÄ¸Ä±ä
+		void			sendSeptInfoToAll(); // é‡æ–°é€šçŸ¥å®¶æ—ä¿¡æ¯
+		void			sendSeptReputeToAll(); // é€šçŸ¥æ‰€æœ‰å®¶æ—æˆå‘˜å£°æœ›çš„æ”¹å˜
 		void			notifyNpcHoldData();
 		void			sendGoldToMember(DWORD userID, DWORD num);
 };
@@ -295,28 +295,28 @@ class CSept:public zEntryManager<zEntryID, zEntryName>, public zEntry
 struct CSeptMember:public zEntry
 {
 public:
-		/// ×åÔ±×´Ì¬
+		/// æ—å‘˜çŠ¶æ€
 		BYTE  byStatus;
 		
-		/// ×åÔ±±ğÃû
+		/// æ—å‘˜åˆ«å
 		char  aliasname[MAX_NAMESIZE+1];
 
-		/// ×åÔ±Ö°Òµ
+		/// æ—å‘˜èŒä¸š
 		WORD  wdOccupation;
 
-		/// ÓÃ»§µÄ»á»°¶ÔÏó
+		/// ç”¨æˆ·çš„ä¼šè¯å¯¹è±¡
 		//UserSession * user;
 
-		/// ¼Ò×å¹ÜÀíÆ÷¶ÔÏóÖ¸Õë
+		/// å®¶æ—ç®¡ç†å™¨å¯¹è±¡æŒ‡é’ˆ
 		CSept *mySept;
 
-		/// »ÙÃğ×´Ì¬²»ÔÙÖ´ĞĞĞ´¿âµÈ²Ù×÷
+		/// æ¯ç­çŠ¶æ€ä¸å†æ‰§è¡Œå†™åº“ç­‰æ“ä½œ
 		bool  destroy;
 		
-		/// »¥³âËø
+		/// äº’æ–¥é”
 		zRWLock rwlock;
 
-		/// ÔÙÏß×´Ì¬Ã¶¾Ù
+		/// å†çº¿çŠ¶æ€æšä¸¾
 		enum {
 					Offline,
 					Online

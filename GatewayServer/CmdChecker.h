@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: CmdChecker.h  $
  * \author	
  * \date	
- * \brief	Ö¸Áî¼ì²â
+ * \brief	æŒ‡ä»¤æ£€æµ‹
  * 
  */
 

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MiniTask.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå¼Æ·ÑÁ¬½ÓÈÎÎñ
+ * \brief å®šä¹‰è®¡è´¹è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -24,7 +24,7 @@
 #include "MessageQueue.h"
 
 /**
- * \brief ¶¨Òå¼Æ·ÑÁ¬½ÓÈÎÎñÀà
+ * \brief å®šä¹‰è®¡è´¹è¿æ¥ä»»åŠ¡ç±»
  *
  */
 class MiniTask : public zTCPTask , public MessageQueue
@@ -33,11 +33,11 @@ class MiniTask : public zTCPTask , public MessageQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		MiniTask(
 				zTCPTaskPool *pool,
@@ -51,7 +51,7 @@ class MiniTask : public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~MiniTask() {};
@@ -68,9 +68,9 @@ class MiniTask : public zTCPTask , public MessageQueue
 		bool checkRecycle();
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷±àºÅ
+		 * \brief è·å–æœåŠ¡å™¨ç¼–å·
 		 *
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getID() const
 		{
@@ -78,9 +78,9 @@ class MiniTask : public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷ÀàĞÍ
+		 * \brief è·å–æœåŠ¡å™¨ç±»å‹
 		 *
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{
@@ -93,13 +93,13 @@ class MiniTask : public zTCPTask , public MessageQueue
 	private:
 
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;
 				
-		WORD wdServerID;					/**< ·şÎñÆ÷±àºÅ£¬Ò»¸öÇøÎ¨Ò»µÄ */
-		WORD wdServerType;					/**< ·şÎñÆ÷ÀàĞÍ */
+		WORD wdServerID;					/**< æœåŠ¡å™¨ç¼–å·ï¼Œä¸€ä¸ªåŒºå”¯ä¸€çš„ */
+		WORD wdServerType;					/**< æœåŠ¡å™¨ç±»å‹ */
 
 		bool verifyLogin(const Cmd::Mini::t_LoginMini *ptCmd);
 		int recycle_state;

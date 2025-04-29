@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: RebuildObject.h  $
  * \author	
  * \date		2005-04-18
- * \brief		ĞÂÎïÆ·ºÏ³É£¬´òÔì£¬Éı¼¶£¬´ò¿×£¬ÏâÇ¶ÏµÍ³
+ * \brief		æ–°ç‰©å“åˆæˆï¼Œæ‰“é€ ï¼Œå‡çº§ï¼Œæ‰“å­”ï¼Œé•¶åµŒç³»ç»Ÿ
  * 
  */
  
@@ -27,9 +27,9 @@ struct stFoundItemPropertyUserCmd;
 class zObjectB;
 
 /**
- * \brief ÎïÆ·¸ÄÔì»ùÀà
+ * \brief ç‰©å“æ”¹é€ åŸºç±»
  *
- * ·â×°ÁË¼¸¸ö³£ÓÃµÄ²Ù×÷
+ * å°è£…äº†å‡ ä¸ªå¸¸ç”¨çš„æ“ä½œ
  *
  */	
 class Base
@@ -58,9 +58,9 @@ public:
 };
 
 /**
- * \brief ¿×
+ * \brief å­”
  *
- * ·â×°ÁË¶ÔÓë¿×Ïà¹ØµÄ´¦Àíº¯Êı
+ * å°è£…äº†å¯¹ä¸å­”ç›¸å…³çš„å¤„ç†å‡½æ•°
  *
  */	
 class Hole
@@ -87,9 +87,9 @@ public:
 };
 
 /**
- * \brief »êÆÇÊ¯
+ * \brief é­‚é­„çŸ³
  *
- * ·â×°ÁË¶Ô»êÆÇÊ¯µÄ´¦Àíº¯Êı£¬°üÀ¨ÏâÇ¶¼°ºÏ³ÉµÈ
+ * å°è£…äº†å¯¹é­‚é­„çŸ³çš„å¤„ç†å‡½æ•°ï¼ŒåŒ…æ‹¬é•¶åµŒåŠåˆæˆç­‰
  *
  */	
 class SoulStone
@@ -109,13 +109,13 @@ private:
 	static bool do_compose(zObject* first, zObject* second, zObject* dest);
 	
 	/**     
-	 * \brief »êÆÇÊôĞÔ¼ÆËã
+	 * \brief é­‚é­„å±æ€§è®¡ç®—
 	 *
-	 * \param first: µÚÒ»¿é»êÆÇÊ¯ÊôĞÔ
-	 * \param second: µÚ¶ş¿é»êÆÇÊ¯ÊôĞÔ
-	 * \param result: ¼ÆËã½á¹û
-	 * \param level:»êÆÇÊ¯µÈ¼¶
-	 * \return ÎŞ
+	 * \param first: ç¬¬ä¸€å—é­‚é­„çŸ³å±æ€§
+	 * \param second: ç¬¬äºŒå—é­‚é­„çŸ³å±æ€§
+	 * \param result: è®¡ç®—ç»“æœ
+	 * \param level:é­‚é­„çŸ³ç­‰çº§
+	 * \return æ— 
 	 */	
 	template<typename T>
 	static void additive(T first, T second, T& result, int level)
@@ -140,9 +140,9 @@ private:
 };
 
 /**
- * \brief Éı¼¶
+ * \brief å‡çº§
  *
- * ÊµÏÖÁËÎïÆ·Éı¼¶¹¦ÄÜ
+ * å®ç°äº†ç‰©å“å‡çº§åŠŸèƒ½
  *
  */	
 class Upgrade
@@ -157,20 +157,20 @@ private:
 };
 
 /**
- * \brief ÎïÆ··Ö½â
+ * \brief ç‰©å“åˆ†è§£
  *
- * ÊµÏÖÎïÆ··Ö½â¹¦ÄÜ
+ * å®ç°ç‰©å“åˆ†è§£åŠŸèƒ½
  *
  */
 class Decompose
 {
 public:	
 	/**     
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *
-	 * param ob : ´ı·Ö½âÎïÆ·
+	 * param ob : å¾…åˆ†è§£ç‰©å“
 	 *
 	 */   
 	Decompose(zObject* ob) : _ob(ob)
@@ -213,7 +213,7 @@ private:
 				}\
 			} \
 		}
-//½äÖ¸,ÏîÁ´
+//æˆ’æŒ‡,é¡¹é“¾
 #define BONUS_SKILL_RING {\
 	if(!bob->skill.empty())\
 	{\
@@ -238,9 +238,9 @@ private:
 		}
 
 /**
- * \brief ´òÔì
+ * \brief æ‰“é€ 
  *
- * ÊµÏÖÁËÎïÆ·´òÔì¹¦ÄÜ
+ * å®ç°äº†ç‰©å“æ‰“é€ åŠŸèƒ½
  *
  */	
 class EquipMaker
@@ -249,7 +249,7 @@ class EquipMaker
 		EquipMaker(SceneUser* user);
 
 		/**     
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */     
 		~EquipMaker() { }
@@ -315,42 +315,42 @@ class EquipMaker
 			{
 				switch (ob->base->kind)
 				{
-					case ItemType_ClothBody ://101´ú±í²¼ÖÊ¼ÓÉúÃüÀà·ş×°
+					case ItemType_ClothBody ://101ä»£è¡¨å¸ƒè´¨åŠ ç”Ÿå‘½ç±»æœè£…
 						additivePercent(ob->data.maxhp, bob->maxsp);
 						break;
-					case ItemType_FellBody :	    //102´ú±íÆ¤¼×¼ÓÄ§·ÀÀà·ş×°
+					case ItemType_FellBody :	    //102ä»£è¡¨çš®ç”²åŠ é­”é˜²ç±»æœè£…
 						additivePercent(ob->data.mdefence, bob->maxsp);	
 						break;
-					case ItemType_MetalBody:	//103´ú±í½ğÊôîø¼×¼ÓÎï·ÀÀà·ş×°
-					case ItemType_Shield: 	//112´ú±í¶ÜÅÆÀà
+					case ItemType_MetalBody:	//103ä»£è¡¨é‡‘å±é“ ç”²åŠ ç‰©é˜²ç±»æœè£…
+					case ItemType_Shield: 	//112ä»£è¡¨ç›¾ç‰Œç±»
 						additivePercent(ob->data.pdefence, bob->maxsp);			
 						break;
-					case ItemType_Blade:		    //104´ú±íÎäÊõµ¶ÀàÎäÆ÷
-					case ItemType_Sword:        //105´ú±íÎäÊõ½£ÀàÎäÆ÷
-					case ItemType_Axe:	           //106´ú±íÎäÊõ¸«ÀàÎäÆ÷
-					case ItemType_Hammer:	        //107´ú±íÎäÊõ¸«ÀàÎäÆ÷
-					case ItemType_Crossbow:	        //109´ú±í¼ıÊõ¹­ÀàÎäÆ÷
+					case ItemType_Blade:		    //104ä»£è¡¨æ­¦æœ¯åˆ€ç±»æ­¦å™¨
+					case ItemType_Sword:        //105ä»£è¡¨æ­¦æœ¯å‰‘ç±»æ­¦å™¨
+					case ItemType_Axe:	           //106ä»£è¡¨æ­¦æœ¯æ–§ç±»æ­¦å™¨
+					case ItemType_Hammer:	        //107ä»£è¡¨æ­¦æœ¯æ–§ç±»æ­¦å™¨
+					case ItemType_Crossbow:	        //109ä»£è¡¨ç®­æœ¯å¼“ç±»æ­¦å™¨
 						additivePercent(ob->data.pdamage, bob->maxsp);		
 						additivePercent(ob->data.maxpdamage, bob->maxsp);		
 						break;
-					case ItemType_Staff:		    //108´ú±í·¨ÊõÕÈÀàÎäÆ÷
-					case ItemType_Stick:	        //111´ú±íÕÙ»½¹÷ÀàÎäÆ÷
-					case ItemType_Fan:	           //110´ú±íÃÀÅ®ÉÈÀà
+					case ItemType_Staff:		    //108ä»£è¡¨æ³•æœ¯æ–ç±»æ­¦å™¨
+					case ItemType_Stick:	        //111ä»£è¡¨å¬å”¤æ£ç±»æ­¦å™¨
+					case ItemType_Fan:	           //110ä»£è¡¨ç¾å¥³æ‰‡ç±»
 						additivePercent(ob->data.mdamage, bob->maxsp);		
 						additivePercent(ob->data.maxmdamage, bob->maxsp);		
 						break;
-					case ItemType_Helm:		//113´ú±í½ÇÉ«Í·¿øÀà
-					case ItemType_Caestus:	//114´ú±í½ÇÉ«Ñü´øÀà
-					case ItemType_Cuff:		//115´ú±í½ÇÉ«»¤ÍóÀà
-					case ItemType_Shoes:		//116´ú±í½ÇÉ«Ğ¬×ÓÀà
+					case ItemType_Helm:		//113ä»£è¡¨è§’è‰²å¤´ç›”ç±»
+					case ItemType_Caestus:	//114ä»£è¡¨è§’è‰²è…°å¸¦ç±»
+					case ItemType_Cuff:		//115ä»£è¡¨è§’è‰²æŠ¤è…•ç±»
+					case ItemType_Shoes:		//116ä»£è¡¨è§’è‰²é‹å­ç±»
 						if (zMisc::randBetween(0, 1)) {
 							additivePercent(ob->data.pdefence, bob->maxsp);		
 						}else {
 							additivePercent(ob->data.mdefence, bob->maxsp);				
 						}
 						break;
-					case ItemType_Necklace:	//117´ú±í½ÇÉ«ÏîÁ´Àà
-					case ItemType_Fing:		//118´ú±í½ÇÉ«½äÖ¸Àà
+					case ItemType_Necklace:	//117ä»£è¡¨è§’è‰²é¡¹é“¾ç±»
+					case ItemType_Fing:		//118ä»£è¡¨è§’è‰²æˆ’æŒ‡ç±»
 						if (ob->data.pdamage || ob->data.maxpdamage) {
 							additivePercent(ob->data.pdamage, bob->maxsp);		
 							additivePercent(ob->data.maxpdamage, bob->maxsp);		
@@ -366,11 +366,11 @@ class EquipMaker
 
 
 		/**     
-		 * \brief ÊôĞÔÈ¡×î´óÖµ
+		 * \brief å±æ€§å–æœ€å¤§å€¼
 		 *
-		 * \param ret: ¼ÆËã½á¹û
-		 * \param lv: ÊôĞÔÈ¡Öµ·¶Î§
-		 * \return ÎŞ
+		 * \param ret: è®¡ç®—ç»“æœ
+		 * \param lv: å±æ€§å–å€¼èŒƒå›´
+		 * \return æ— 
 		 */	
 		template <typename T>
 			bool max(T& ret, const luckRangeValue &rv)
@@ -388,12 +388,12 @@ class EquipMaker
 				return false;
 			}
 		/**     
-		 * \brief Éú³ÉÌØÊâ×°±¸
+		 * \brief ç”Ÿæˆç‰¹æ®Šè£…å¤‡
 		 *
-		 * \param bob: ¶ÔÓ¦×°±¸»ù±¾±í
-		 * \param ob: ´òÔìÎïÆ·
-		 * \param kind: ×°±¸ÀàĞÍ
-		 * \return µ±Ç°×ÜÊÇ·µ»Øtrue
+		 * \param bob: å¯¹åº”è£…å¤‡åŸºæœ¬è¡¨
+		 * \param ob: æ‰“é€ ç‰©å“
+		 * \param kind: è£…å¤‡ç±»å‹
+		 * \return å½“å‰æ€»æ˜¯è¿”å›true
 		 */	
 		template <typename T>
 			bool assign_color(T* bob, zObject* ob, int kind, int props = 0,zObjectB *base=NULL ,bool drop=false)
@@ -423,39 +423,39 @@ class EquipMaker
 				}
 
 
-				COMPUTE_R( pdamage )		// ×îĞ¡Îï¹¥
-					COMPUTE_R( maxpdamage )		// ×î´óÎï¹¥
-					COMPUTE_R( mdamage )			// ×îĞ¡Ä§¹¥
-					COMPUTE_R( maxmdamage )		// ×î´óÄ§¹¥
-					COMPUTE_R( pdefence )			// Îï·À
-					COMPUTE_R( mdefence )			// Ä§·À
+				COMPUTE_R( pdamage )		// æœ€å°ç‰©æ”»
+					COMPUTE_R( maxpdamage )		// æœ€å¤§ç‰©æ”»
+					COMPUTE_R( mdamage )			// æœ€å°é­”æ”»
+					COMPUTE_R( maxmdamage )		// æœ€å¤§é­”æ”»
+					COMPUTE_R( pdefence )			// ç‰©é˜²
+					COMPUTE_R( mdefence )			// é­”é˜²
 
 					if (props) {
 						int index = zMisc::randBetween(0, 4);
 						if (index!=5) {
 
-							//ÏÖÔÚ²»ÓÃËæ»úÁË,Ö±½ÓÈ¡Öµ
+							//ç°åœ¨ä¸ç”¨éšæœºäº†,ç›´æ¥å–å€¼
 							additivePercent(*ob->_p1[index], bob->_p1[index]);
 						}else {
 							fix_kind(bob, ob);
 						}
 					}else {
-						COMPUTE_L( str )			// Á¦Á¿
-							COMPUTE_L( inte )			// ÖÇÁ¦
-							COMPUTE_L( dex )			// Ãô½İ
-							COMPUTE_L( spi )			// ¾«Éñ
-							COMPUTE_L( con )				// ÌåÖÊ
+						COMPUTE_L( str )			// åŠ›é‡
+							COMPUTE_L( inte )			// æ™ºåŠ›
+							COMPUTE_L( dex )			// æ•æ·
+							COMPUTE_L( spi )			// ç²¾ç¥
+							COMPUTE_L( con )				// ä½“è´¨
 					}		
 
-				COMPUTE_L( maxhp )		// ×î´óÉúÃüÖµ
-					COMPUTE_L( maxmp )		// ×î´ó·¨ÊõÖµ
-					//		COMPUTE_L( maxsp )		// ×î´óÌåÁ¦Öµ
+				COMPUTE_L( maxhp )		// æœ€å¤§ç”Ÿå‘½å€¼
+					COMPUTE_L( maxmp )		// æœ€å¤§æ³•æœ¯å€¼
+					//		COMPUTE_L( maxsp )		// æœ€å¤§ä½“åŠ›å€¼
 
-					COMPUTE_L( mvspeed )		// ÒÆ¶¯ËÙ¶È
-					COMPUTE_L( hpr )			// ÉúÃüÖµ»Ö¸´
-					COMPUTE_L( mpr )			// ·¨ÊõÖµ»Ö¸´
-					COMPUTE_L( spr )			// ÌåÁ¦Öµ»Ö¸´
-					COMPUTE_L( akspeed )		// ¹¥»÷ËÙ¶È
+					COMPUTE_L( mvspeed )		// ç§»åŠ¨é€Ÿåº¦
+					COMPUTE_L( hpr )			// ç”Ÿå‘½å€¼æ¢å¤
+					COMPUTE_L( mpr )			// æ³•æœ¯å€¼æ¢å¤
+					COMPUTE_L( spr )			// ä½“åŠ›å€¼æ¢å¤
+					COMPUTE_L( akspeed )		// æ”»å‡»é€Ÿåº¦
 
 					if (props) {
 						for (int i=0; i<=17; ++i){
@@ -499,7 +499,7 @@ class EquipMaker
 						/*
 						   std::vector<int> list;
 						   for (int i=0; i<=17; ++i) list.push_back(i);
-						//Ã¿¸ö¶¼ĞèÒªËæ»ú
+						//æ¯ä¸ªéƒ½éœ€è¦éšæœº
 						//int geted = props;
 						// */
 						/*
@@ -516,7 +516,7 @@ class EquipMaker
 						/*
 						   int index = zMisc::randBetween(0, list.size()-1 );
 						   int p = list[index];
-						//È¡×î´óÖµ
+						//å–æœ€å¤§å€¼
 						if(props == 17){
 						max(*ob->_p2[p], bob->_p2[p]);
 						}else{
@@ -529,25 +529,25 @@ class EquipMaker
 						//}
 
 					}else {
-						COMPUTE_L( pdam )		// Ôö¼ÓÎïÀí¹¥»÷Á¦
-							COMPUTE_L( mdam )		// Ôö¼ÓÄ§·¨¹¥»÷Á¦
-							COMPUTE_L( pdef )		// Ôö¼ÓÎïÀí·ÀÓùÁ¦
-							COMPUTE_L( mdef )		// Ôö¼ÓÄ§·¨·ÀÓùÁ¦
-							COMPUTE_L( atrating )		// ÃüÖĞÂÊ
-							COMPUTE_L( akdodge )		// ÉÁ±ÜÂÊ
+						COMPUTE_L( pdam )		// å¢åŠ ç‰©ç†æ”»å‡»åŠ›
+							COMPUTE_L( mdam )		// å¢åŠ é­”æ³•æ”»å‡»åŠ›
+							COMPUTE_L( pdef )		// å¢åŠ ç‰©ç†é˜²å¾¡åŠ›
+							COMPUTE_L( mdef )		// å¢åŠ é­”æ³•é˜²å¾¡åŠ›
+							COMPUTE_L( atrating )		// å‘½ä¸­ç‡
+							COMPUTE_L( akdodge )		// é—ªé¿ç‡
 
-							COMPUTE_L( poisondef )	// ¿¹¶¾Ôö¼Ó
-							COMPUTE_L( lulldef )		// ¿¹Âé±ÔÔö¼Ó
-							COMPUTE_L( reeldef )		// ¿¹Ñ£ÔÎÔö¼Ó
-							COMPUTE_L( evildef )		// ¿¹ÊÉÄ§Ôö¼Ó
-							COMPUTE_L( bitedef )		// ¿¹ÊÉÁ¦Ôö¼Ó
-							COMPUTE_L( chaosdef )	// ¿¹»ìÂÒÔö¼Ó
-							COMPUTE_L( colddef )		// ¿¹±ù¶³Ôö¼Ó
-							COMPUTE_L( petrifydef )		// ¿¹Ê¯»¯Ôö¼Ó
-							COMPUTE_L( blinddef )		// ¿¹Ê§Ã÷Ôö¼Ó
-							COMPUTE_L( stabledef )		// ¿¹¶¨ÉíÔö¼Ó
-							COMPUTE_L( slowdef )		// ¿¹¼õËÙÔö¼Ó
-							COMPUTE_L( luredef )		// ¿¹ÓÕ»óÔö¼Ó
+							COMPUTE_L( poisondef )	// æŠ—æ¯’å¢åŠ 
+							COMPUTE_L( lulldef )		// æŠ—éº»ç—¹å¢åŠ 
+							COMPUTE_L( reeldef )		// æŠ—çœ©æ™•å¢åŠ 
+							COMPUTE_L( evildef )		// æŠ—å™¬é­”å¢åŠ 
+							COMPUTE_L( bitedef )		// æŠ—å™¬åŠ›å¢åŠ 
+							COMPUTE_L( chaosdef )	// æŠ—æ··ä¹±å¢åŠ 
+							COMPUTE_L( colddef )		// æŠ—å†°å†»å¢åŠ 
+							COMPUTE_L( petrifydef )		// æŠ—çŸ³åŒ–å¢åŠ 
+							COMPUTE_L( blinddef )		// æŠ—å¤±æ˜å¢åŠ 
+							COMPUTE_L( stabledef )		// æŠ—å®šèº«å¢åŠ 
+							COMPUTE_L( slowdef )		// æŠ—å‡é€Ÿå¢åŠ 
+							COMPUTE_L( luredef )		// æŠ—è¯±æƒ‘å¢åŠ 
 					}
 
 				if (!ob->data.durpoint) {
@@ -558,9 +558,9 @@ class EquipMaker
 
 				}
 
-				COMPUTE_L( bang ) 			//ÖØ»÷
+				COMPUTE_L( bang ) 			//é‡å‡»
 					//ob->data.bang += bob->bang;
-					//½äÖ¸ÏîÁ´ÖÁÉÙÒ»¸ö
+					//æˆ’æŒ‡é¡¹é“¾è‡³å°‘ä¸€ä¸ª
 					if(ob->base->kind == ItemType_Fing || ob->base->kind == ItemType_Necklace)
 					{
 						BONUS_SKILL_RING
@@ -569,9 +569,9 @@ class EquipMaker
 					BONUS_SKILLS
 
 					if (props) 
-						ob->data.kind |= 2;//ÓĞÉ«×°±¸
+						ob->data.kind |= 2;//æœ‰è‰²è£…å¤‡
 					else 
-						ob->data.kind |= kind;//ÓĞÉ«×°±¸
+						ob->data.kind |= kind;//æœ‰è‰²è£…å¤‡
 
 				return true;
 			}
@@ -581,11 +581,11 @@ class EquipMaker
 		bool assign_set(zObject* ob);
 
 		/**     
-		 * \brief ÊôĞÔ¼ÆËã
+		 * \brief å±æ€§è®¡ç®—
 		 *
-		 * \param ret: ¼ÆËã½á¹û
-		 * \param lv: ÊôĞÔÈ¡Öµ·¶Î§
-		 * \return ÎŞ
+		 * \param ret: è®¡ç®—ç»“æœ
+		 * \param lv: å±æ€§å–å€¼èŒƒå›´
+		 * \return æ— 
 		 */	
 		template <typename T>
 			void additive(T& ret, const rangeValue &rv)
@@ -594,19 +594,19 @@ class EquipMaker
 			}
 
 		/**     
-		 * \brief ÉñÊ¥ÊôĞÔ¼ÆËã
+		 * \brief ç¥åœ£å±æ€§è®¡ç®—
 		 *
-		 * \param ret: ¼ÆËã½á¹û
-		 * \param lv: ÊôĞÔÈ¡Öµ·¶Î§
-		 * \param property: ÎïÆ·µ±Ç°ÊôĞÔÊıÄ¿
-		 * \return ÎŞ
+		 * \param ret: è®¡ç®—ç»“æœ
+		 * \param lv: å±æ€§å–å€¼èŒƒå›´
+		 * \param property: ç‰©å“å½“å‰å±æ€§æ•°ç›®
+		 * \return æ— 
 		 */	
 		template <typename T>
 			bool additive(T& ret, const luckRangeValue & lv, int& property)
 			{
 				int odds = lv.per;
 				//		int odds = odds_of_property(lv.per, property);
-				//		Zebra::logger->debug("ÊôĞÔ²úÉú¸ÅÂÊ%f, %f", lv.per*1.0, odds*1.0);
+				//		Zebra::logger->debug("å±æ€§äº§ç”Ÿæ¦‚ç‡%f, %f", lv.per*1.0, odds*1.0);
 				if( zMisc::selectByTenTh(odds) )	{
 					++property;
 
@@ -658,9 +658,9 @@ class EquipMaker
 #include "zDatabaseManager.h"
 
 /**
- * \brief ÎïÆ·¸ÄÔì
+ * \brief ç‰©å“æ”¹é€ 
  *
- * ÊµÏÖ¸÷ÖÖÎïÆ·¸ÄÔì¹¦ÄÜ,Ìá¹©Ò»¸öÍ³Ò»Èë¿Ú
+ * å®ç°å„ç§ç‰©å“æ”¹é€ åŠŸèƒ½,æä¾›ä¸€ä¸ªç»Ÿä¸€å…¥å£
  *
  */		
 class RebuildObject : public Base
@@ -695,13 +695,13 @@ public:
 	bool decompose(SceneUser& user, const Cmd::stPropertyUserCmd* cmd);
 private:	
 	/**     
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 */   	
 	RebuildObject() { }
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	~RebuildObject() { }

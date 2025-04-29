@@ -1,17 +1,17 @@
-#include "LoadMap.h"
+ï»¿#include "LoadMap.h"
 #include "Zebra.h"
 
 /**
- * \brief ¶ÁÈ¡µØÍ¼ÎÄ¼ş
- * \param pszFileName µØÍ¼ÎÄ¼şÃû
- * \param aTiles µØÍ¼¿é
- * \param width µØÍ¼¿í¶È
- * \param height µØÍ¼¸ß¶È
- * \return Èç¹û³É¹¦·µ»Øtrue·ñÔò·µ»Øfalse
+ * \brief è¯»å–åœ°å›¾æ–‡ä»¶
+ * \param pszFileName åœ°å›¾æ–‡ä»¶å
+ * \param aTiles åœ°å›¾å—
+ * \param width åœ°å›¾å®½åº¦
+ * \param height åœ°å›¾é«˜åº¦
+ * \return å¦‚æœæˆåŠŸè¿”å›trueå¦åˆ™è¿”å›false
  */
 bool LoadMap(const char* pszFileName,zTiles & aTiles,DWORD & width,DWORD & height)
 {
-	// aTiles : ¶şÎ¬Êı×é,ÒÔĞĞÓÅÏÈ
+	// aTiles : äºŒç»´æ•°ç»„,ä»¥è¡Œä¼˜å…ˆ
 	stMapFileHeader hdr;
 	FILE* fp = fopen(pszFileName,"rb");
 	if(!fp) return false;
@@ -19,7 +19,7 @@ bool LoadMap(const char* pszFileName,zTiles & aTiles,DWORD & width,DWORD & heigh
 	/*
 	if(hdr.magic != MAP_MAGIC || hdr.ver != MAP_VERSION)  
 	{
-		Zebra::logger->debug("¼ÓÔØµØÍ¼ %s °æ±¾²»ÕıÈ·", pszFileName);
+		Zebra::logger->debug("åŠ è½½åœ°å›¾ %s ç‰ˆæœ¬ä¸æ­£ç¡®", pszFileName);
 		fclose(fp);
 		return false;
 	}

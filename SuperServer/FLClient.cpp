@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: FLClient.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½·þÎñÆ÷¿Í»§¶Ë
+ * \brief å®šä¹‰ç™»é™†æœåŠ¡å™¨å®¢æˆ·ç«¯
  *
  * 
  */
@@ -18,15 +18,15 @@
 #include "FLClientManager.h"
 
 /**
- * \brief ÁÙÊ±±àºÅ·ÖÅäÆ÷
+ * \brief ä¸´æ—¶ç¼–å·åˆ†é…å™¨
  *
  */
 WORD FLClient::tempidAllocator = 0;
 
 /**
- * \brief ¹¹Ôìº¯Êý
- * \param ip ·þÎñÆ÷µØÖ·
- * \param port ·þÎñÆ÷¶Ë¿Ú
+ * \brief æž„é€ å‡½æ•°
+ * \param ip æœåŠ¡å™¨åœ°å€
+ * \param port æœåŠ¡å™¨ç«¯å£
  */
 FLClient::FLClient(
 		const std::string &ip, 
@@ -36,7 +36,7 @@ FLClient::FLClient(
 }
 
 /**
- * \brief Îö¹¹º¯Êý
+ * \brief æžæž„å‡½æ•°
  *
  */
 FLClient::~FLClient()
@@ -53,7 +53,7 @@ int FLClient::checkRebound()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = pSocket->recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êý¾Ý°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓÐÊý¾ÝÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»Žç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æŽ¥è¿”å›ž
 			return 0;
 		else
 		{
@@ -63,7 +63,7 @@ int FLClient::checkRebound()
 			if (CMD_LOGIN == ptCmd->cmd
 					&& PARA_LOGIN_OK == ptCmd->para)
 			{
-				Zebra::logger->debug("µÇÂ½FLServer³É¹¦£¬ÊÕµ½ÇøµÄ±àºÅ£ºzoneid=%u(gameid=%u, zone=%u), name=%s, nettype=%u",
+				Zebra::logger->debug("ç™»é™†FLServeræˆåŠŸï¼Œæ”¶åˆ°åŒºçš„ç¼–å·ï¼šzoneid=%u(gameid=%u, zone=%u), name=%s, nettype=%u",
 						ptCmd->gameZone.id,
 						ptCmd->gameZone.game,
 						ptCmd->gameZone.zone,
@@ -76,7 +76,7 @@ int FLClient::checkRebound()
 			}
 			else
 			{
-				Zebra::logger->error("µÇÂ½FLServerÊ§°Ü");
+				Zebra::logger->error("ç™»é™†FLServerå¤±è´¥");
 				return -1;
 			}
 		}

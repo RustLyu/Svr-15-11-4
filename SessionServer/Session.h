@@ -1,4 +1,4 @@
-#ifndef _SESSION_H_
+ï»¿#ifndef _SESSION_H_
 #define _SESSION_H_
 
 #include "zUser.h"
@@ -12,24 +12,24 @@
 #include <set>
 
 /**
- * \brief »á»°Àà
- * ÓÃ»§»á»°ºÍ³¡¾°»á»°µÄ»ùÀà
+ * \brief ä¼šè¯ç±»
+ * ç”¨æˆ·ä¼šè¯å’Œåœºæ™¯ä¼šè¯çš„åŸºç±»
  *
  */
 class Session:private zNoncopyable
 {
 
 	private:
-		///´´½¨Ê±¼ä
+		///åˆ›å»ºæ—¶é—´
 		time_t createtime;
-		///¸Ã»á»°µÄÁ¬½Ó
+		///è¯¥ä¼šè¯çš„è¿æ¥
 		SessionTask *task;
 
 	protected:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param task ¸Ã»á»°µÄÁ¬½Ó
+		 * \brief æ„é€ å‡½æ•°
+		 * \param task è¯¥ä¼šè¯çš„è¿æ¥
 		 */
 		Session(SessionTask *task)
 		{
@@ -38,12 +38,12 @@ class Session:private zNoncopyable
 		}
 
 	public:
-		///ÇëÇóÁìÑø¹ıµÄÈË
+		///è¯·æ±‚é¢†å…»è¿‡çš„äºº
 		DWORD reqAdopter;
 
 		/**
-		 * \brief µÃµ½¸Ã»á»°µÄÁ¬½Ó
-		 * \return ¸Ã»á»°µÄÁ¬½Ó
+		 * \brief å¾—åˆ°è¯¥ä¼šè¯çš„è¿æ¥
+		 * \return è¯¥ä¼šè¯çš„è¿æ¥
 		 */
 		SessionTask *  getTask() const
 		{
@@ -51,10 +51,10 @@ class Session:private zNoncopyable
 		}
 		
 		/**
-		 * \brief Ïò¶Ô·½·¢ËÍÏûÏ¢
-		 * \param pstrCmd Òª·¢ËÍµÄÏûÏ¢
-		 * \param nCmdLen ÏûÏ¢³¤¶È
-		 * \return ·¢ËÍÊÇ·ñ³É¹¦
+		 * \brief å‘å¯¹æ–¹å‘é€æ¶ˆæ¯
+		 * \param pstrCmd è¦å‘é€çš„æ¶ˆæ¯
+		 * \param nCmdLen æ¶ˆæ¯é•¿åº¦
+		 * \return å‘é€æ˜¯å¦æˆåŠŸ
 		 */
 		bool sendCmd(const void *pstrCmd, const int nCmdLen) const
 		{
@@ -67,7 +67,7 @@ class Session:private zNoncopyable
 };
 
 /**
- * \brief ³¡¾°»á»°
+ * \brief åœºæ™¯ä¼šè¯
  *
  */
 class SceneSession:public zScene,public Session
@@ -75,19 +75,19 @@ class SceneSession:public zScene,public Session
 
 	public:
 
-		///µ±Ç°µØÍ¼ÔÊĞíµÄ×îµÍÍæ¼ÒµÈ¼¶Îª0±íÊ¾²»ÏŞÖÆ
+		///å½“å‰åœ°å›¾å…è®¸çš„æœ€ä½ç©å®¶ç­‰çº§ä¸º0è¡¨ç¤ºä¸é™åˆ¶
 		BYTE level;
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		SceneSession(SessionTask *task):zScene(),Session(task)
 		{
 		}
 
 		/**
-		 * \brief Í¨¹ıÏûÏ¢×¢²áÒ»¸öµØÍ¼
-		 * \param reginfo µØÍ¼×¢²áÏûÏ¢
-		 * \return ÊÇ·ñ×¢²á³É¹¦
+		 * \brief é€šè¿‡æ¶ˆæ¯æ³¨å†Œä¸€ä¸ªåœ°å›¾
+		 * \param reginfo åœ°å›¾æ³¨å†Œæ¶ˆæ¯
+		 * \return æ˜¯å¦æ³¨å†ŒæˆåŠŸ
 		 */
 		bool reg(Cmd::Session::t_regScene_SceneSession *reginfo)
 		{
@@ -104,12 +104,12 @@ class SceneSession:public zScene,public Session
 				return false;
 		}
 
-		///¶ÔÓ¦µÄµØÍ¼ÎÄ¼şÃû
+		///å¯¹åº”çš„åœ°å›¾æ–‡ä»¶å
 		std::string file;
 };
 
 /**
- * \brief ÓÃ»§»á»°Àà
+ * \brief ç”¨æˆ·ä¼šè¯ç±»
  *
  */
 class UserSession:public zUser,public Session
@@ -119,58 +119,58 @@ class UserSession:public zUser,public Session
 		//std::set<DWORD> cartoonList;
 		//std::set<DWORD> adoptList;
 
-		char autoReply[MAX_CHATINFO];//×Ô¶¯»Ø¸´
+		char autoReply[MAX_CHATINFO];//è‡ªåŠ¨å›å¤
 
-		//²âÊÔ
+		//æµ‹è¯•
 		static DWORD user_count;
 
-		//¹ú¼ÒÅÅĞò
+		//å›½å®¶æ’åº
 		static std::map<DWORD , DWORD> country_map;
 
-		///ÕÊºÅid
+		///å¸å·id
 		DWORD accid;
-		///°ï»áid
+		///å¸®ä¼šid
 		DWORD unionid;
-		///¹ú¼Òid
+		///å›½å®¶id
 		DWORD country;
-		/// ¹ú¼ÒÃû³Æ
+		/// å›½å®¶åç§°
 		BYTE countryName[MAX_NAMESIZE+1];
-		///¼Ò×åid
+		///å®¶æ—id
 		DWORD septid;
-		///ÃÅÅÉid
+		///é—¨æ´¾id
 		DWORD schoolid;
-		///ÁÙÊ±id
+		///ä¸´æ—¶id
 		DWORD teamid;
-		///µÈ¼¶
+		///ç­‰çº§
 		WORD  level;
-		///Ö°Òµ
+		///èŒä¸š
 		WORD  occupation;
-		/// ÔÚÏßÊ±¼ä
+		/// åœ¨çº¿æ—¶é—´
 		zRTime regTime;
-		///Í·Ïñ
+		///å¤´åƒ
 		DWORD  face;
 		
-		// ¹¦Ñ«Öµ
+		// åŠŸå‹‹å€¼
 		DWORD dwExploit;
 
-		// ÎÄ²ÉÖµ
+		// æ–‡é‡‡å€¼
 		DWORD dwGrace;
 
-		// ÈËÎïµ±Ç°¾­Ñé
+		// äººç‰©å½“å‰ç»éªŒ
 		QWORD qwExp;
 
-		///ÏµÍ³ÉèÖÃĞÅÏ¢
-		BYTE sysSetting[20];//ÏµÍ³ÉèÖÃ
+		///ç³»ç»Ÿè®¾ç½®ä¿¡æ¯
+		BYTE sysSetting[20];//ç³»ç»Ÿè®¾ç½®
 
-		///ËùÔÚµÄ³¡¾°»á»°
+		///æ‰€åœ¨çš„åœºæ™¯ä¼šè¯
 		SceneSession *scene;
-		///Éç»á¹ØÏµ´¦ÀíÆ÷
+		///ç¤¾ä¼šå…³ç³»å¤„ç†å™¨
 		CRelationManager relationManager;
 
-		///ÏÂ´Î·ÅÑÌ»ğµÄÊ±¼ä
+		///ä¸‹æ¬¡æ”¾çƒŸç«çš„æ—¶é—´
 		zRTime nextBlessTime;
 
-		//¼Ò×å¾­Ñé
+		//å®¶æ—ç»éªŒ
 		WORD septExp;
 
 
@@ -178,9 +178,9 @@ class UserSession:public zUser,public Session
 		~UserSession();
 
 		/**
-		 * \brief ¸ù¾İ×¢²áÒ»¸öÍæ¼Ò
-		 * \param reginfo ´æ·ÅÍæ¼ÒĞÅÏ¢µÄÏûÏ¢
-		 * \return ÊÇ·ñ×¢²á³É¹¦
+		 * \brief æ ¹æ®æ³¨å†Œä¸€ä¸ªç©å®¶
+		 * \param reginfo å­˜æ”¾ç©å®¶ä¿¡æ¯çš„æ¶ˆæ¯
+		 * \return æ˜¯å¦æ³¨å†ŒæˆåŠŸ
 		 */
 		bool reg(Cmd::Session::t_regUser_GateSession *reginfo)
 		{
@@ -189,7 +189,7 @@ class UserSession:public zUser,public Session
 				accid=reginfo->accid;
 				id=reginfo->dwID;
 				tempid=reginfo->dwTempID;
-				//TODO septid ³õÊ¼»¯
+				//TODO septid åˆå§‹åŒ–
 				level=reginfo->wdLevel;
 				occupation=reginfo->wdOccupation;
 				country = reginfo->wdCountry;
@@ -217,8 +217,8 @@ class UserSession:public zUser,public Session
 		}
 
 		/**
-		 * \brief ÉèÖÃÉç»á¹ØÏµĞÅÏ¢
-		 * \param regsuccess ×¢²á³É¹¦µÄÏûÏ¢
+		 * \brief è®¾ç½®ç¤¾ä¼šå…³ç³»ä¿¡æ¯
+		 * \param regsuccess æ³¨å†ŒæˆåŠŸçš„æ¶ˆæ¯
 		 * \return 
 		 */
 		bool setRelationData(const Cmd::Session::t_regUserSuccess_SceneSession *regsuccess)
@@ -236,13 +236,13 @@ class UserSession:public zUser,public Session
 		}
 
 		/**
-		  * \brief ¸üĞÂÅäÅ¼ĞÅÏ¢µ½³¡¾°
+		  * \brief æ›´æ–°é…å¶ä¿¡æ¯åˆ°åœºæ™¯
 		  *
 		  */
 		void updateConsort();
 		
 		/**
-		  * \brief ¸üĞÂÅäÅ¼ĞÅÏ¢µ½³¡¾°
+		  * \brief æ›´æ–°é…å¶ä¿¡æ¯åˆ°åœºæ™¯
 		  *
 		  */
 		void updateCountryStar(); 

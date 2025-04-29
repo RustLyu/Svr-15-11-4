@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: Mask.cpp  $
  * \author	
  * \date	
- * \brief	ÃÉÃæÏµÍ³
+ * \brief	è’™é¢ç³»ç»Ÿ
  * 
  */
 
@@ -31,12 +31,12 @@ bool Mask::is_use(zObject* ob) const
 	return _mask == ob;
 }
 /**
- * \brief Ê¹ÓÃÃÉÃæ½í
+ * \brief ä½¿ç”¨è’™é¢å·¾
  *
  *
- * \param user: Ê¹ÓÃÃÉÃæ½íµÄÓÃ»§
- * \param ob: ÃÉÃæ½íÎïÆ·
- * \return ÎïÆ·ÀàĞÍ²»ÕıÈ··µ»Ø1,ÃÉÃæ½í´¦ÓÚÀäÈ´ÆÚ·µ»Ø-1,³É¹¦·µ»Ø0
+ * \param user: ä½¿ç”¨è’™é¢å·¾çš„ç”¨æˆ·
+ * \param ob: è’™é¢å·¾ç‰©å“
+ * \return ç‰©å“ç±»å‹ä¸æ­£ç¡®è¿”å›1,è’™é¢å·¾å¤„äºå†·å´æœŸè¿”å›-1,æˆåŠŸè¿”å›0
  */
 int Mask::on_use(SceneUser* user, zObject* ob)
 {
@@ -45,7 +45,7 @@ int Mask::on_use(SceneUser* user, zObject* ob)
 	}
 
 	if (_drop && _last > SceneTimeTick::currentTime) {
-		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "ÔİÊ±²»ÄÜÊ¹ÓÃ!");
+		Channel::sendSys(user, Cmd::INFO_TYPE_FAIL, "æš‚æ—¶ä¸èƒ½ä½¿ç”¨!");
 		return -1;
 	}
 
@@ -57,7 +57,7 @@ int Mask::on_use(SceneUser* user, zObject* ob)
 		_user = NULL;
 		user->sendMeToNine();
 		user->sendPetDataToNine();
-		Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "½â³ı%s!", ob->data.strName);
+		Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "è§£é™¤%s!", ob->data.strName);
 	}else {
 		if(_mask)
 		{
@@ -69,7 +69,7 @@ int Mask::on_use(SceneUser* user, zObject* ob)
 		{
 			_mask->data.dur = 0;
 		}
-		Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "Ê¹ÓÃ%s!", ob->data.strName);	
+		Channel::sendSys(user, Cmd::INFO_TYPE_GAME, "ä½¿ç”¨%s!", ob->data.strName);	
 		if ( user->tradeorder.hasBegin() ) {
 			user->tradeorder.cancel();
 		}
@@ -87,10 +87,10 @@ int Mask::on_use(SceneUser* user, zObject* ob)
 }
 
 /**
- * \brief ÅĞ¶ÏÊÇ·ñ´¦ÓÚÃÉÃæ×´Ì¬
+ * \brief åˆ¤æ–­æ˜¯å¦å¤„äºè’™é¢çŠ¶æ€
  *
  *
- * \return ÃÉÃæ·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \return è’™é¢è¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Mask::is_masking() const
 {
@@ -98,7 +98,7 @@ bool Mask::is_masking() const
 }
 
 /**
- * \brief ÃÉÃæÊ±½øĞĞ½»Ò×ÔòÈ¡ÏûÃÉÃæ×´Ì¬
+ * \brief è’™é¢æ—¶è¿›è¡Œäº¤æ˜“åˆ™å–æ¶ˆè’™é¢çŠ¶æ€
  *
  *
  * \return 0
@@ -114,7 +114,7 @@ int Mask::on_trade()
 }
 
 /**
- * \brief ÃÉÃæÊ±»ñµÃ»¤±¦×´Ì¬ÔòÈ¡ÏûÃÉÃæ×´Ì¬
+ * \brief è’™é¢æ—¶è·å¾—æŠ¤å®çŠ¶æ€åˆ™å–æ¶ˆè’™é¢çŠ¶æ€
  *
  *
  * \return 0
@@ -130,10 +130,10 @@ int Mask::on_gem()
 }
 
 /**
- * \brief ¶¨Ê±Æ÷ÏûºÄÄÍ¾Ã
+ * \brief å®šæ—¶å™¨æ¶ˆè€—è€ä¹…
  *
  *
- * \return ´¦ÓÚÃÉÃæ×´Ì¬·µ»Ø0,·ñÔò·µ»Ø-1
+ * \return å¤„äºè’™é¢çŠ¶æ€è¿”å›0,å¦åˆ™è¿”å›-1
  */
 int Mask::on_timer()
 {
@@ -152,10 +152,10 @@ int Mask::on_timer()
 }
 
 /**
- * \brief ÃÉÃæ×´Ì¬Ê±±»¹¥»÷,¿ÉÄÜÔì³ÉÃÉÃæ½íµôÂä
+ * \brief è’™é¢çŠ¶æ€æ—¶è¢«æ”»å‡»,å¯èƒ½é€ æˆè’™é¢å·¾æ‰è½
  *
  *
- * \return ´¦ÓÚÃÉÃæ×´Ì¬·µ»Ø0,·ñÔò·µ»Ø-1
+ * \return å¤„äºè’™é¢çŠ¶æ€è¿”å›0,å¦åˆ™è¿”å›-1
  */
 int Mask::on_defence()
 {
@@ -166,13 +166,13 @@ int Mask::on_defence()
 	
 		if (!_mask) return 0;	
 
-		return 0; //Ä¿Ç°²»´¦Àí±»´òµô£¬ËùÒÔÔÚÕâÀïÖ±½Ó·µ»ØÁË¡£
+		return 0; //ç›®å‰ä¸å¤„ç†è¢«æ‰“æ‰ï¼Œæ‰€ä»¥åœ¨è¿™é‡Œç›´æ¥è¿”å›äº†ã€‚
 
 		int drop = drop_odds();
-		Zebra::logger->debug("ÃÉÃæ½í±»´òµô¸ÅÂÊ:%d", drop);
+		Zebra::logger->debug("è’™é¢å·¾è¢«æ‰“æ‰æ¦‚ç‡:%d", drop);
 		if (zMisc::selectByTenTh(drop)) {
 			//FunctionTimes times(26,__FUNCTION__);
-			Channel::sendSys(_user, Cmd::INFO_TYPE_GAME, "ÄãµÄ%s±»´òµôÁË!", _mask->data.strName);
+			Channel::sendSys(_user, Cmd::INFO_TYPE_GAME, "ä½ çš„%sè¢«æ‰“æ‰äº†!", _mask->data.strName);
 			_drop = true;
 			_last = SceneTimeTick::currentTime;
 			_last.addDelay(ATTACK_USE_TIME);
@@ -191,23 +191,23 @@ int Mask::on_defence()
 
 
 /**
- * \brief ´¦ÓÚÃÉÃæ×´Ì¬Ê±¹¥»÷±ğÈË·¢³öÏµÍ³ÌáÊ¾
+ * \brief å¤„äºè’™é¢çŠ¶æ€æ—¶æ”»å‡»åˆ«äººå‘å‡ºç³»ç»Ÿæç¤º
  *
  *
- * \param victim: ±»¹¥»÷ÓÃ»§
+ * \param victim: è¢«æ”»å‡»ç”¨æˆ·
  * \return 0
  */
 int Mask::on_attack(SceneUser* victim)
 {
 	if (_mask && _user) {
-		Channel::sendSys(victim, Cmd::INFO_TYPE_GAME, "ÄãÕıÊÜµ½ÃÉÃæÈËµÄ¶ñÒâ¹¥»÷£¬Äã¿ÉÒÔ¶ÔÆäÕıµ±·ÀÎÀ!");
+		Channel::sendSys(victim, Cmd::INFO_TYPE_GAME, "ä½ æ­£å—åˆ°è’™é¢äººçš„æ¶æ„æ”»å‡»ï¼Œä½ å¯ä»¥å¯¹å…¶æ­£å½“é˜²å«!");
 	}
 	
 	return 0;
 }
 
 /**
- * \brief ÏûºÄÃÉÃæ½í³Ö¾Ã
+ * \brief æ¶ˆè€—è’™é¢å·¾æŒä¹…
  *
  *
  * \return 0
@@ -234,10 +234,10 @@ int Mask::reduce_permanence()
 }
 
 /**
- * \brief ÃÉÃæÊ±±»±ğÈË¹¥»÷ÏûºÄÄÍ¾Ã
+ * \brief è’™é¢æ—¶è¢«åˆ«äººæ”»å‡»æ¶ˆè€—è€ä¹…
  *
  *
- * \return ÏûºÄµÄÄÍ¾ÃÖµ
+ * \return æ¶ˆè€—çš„è€ä¹…å€¼
  */
 int Mask::drop_odds() const
 {

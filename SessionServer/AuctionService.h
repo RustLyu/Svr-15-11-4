@@ -1,4 +1,4 @@
-#ifndef _AUCTIONSERVICE_H_
+﻿#ifndef _AUCTIONSERVICE_H_
 #define _AUCTIONSERVICE_H_
 #include "zType.h"
 #include "zMisc.h"

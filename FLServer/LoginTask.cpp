@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: LoginTask.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½Á¬½ÓÈÎÎñ
+ * \brief å®šä¹‰ç™»é™†è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -34,9 +34,9 @@
 DWORD LoginTask::uniqueID = 0;
 
 /**
- * \brief ¹¹Ôìº¯Êı
- * \param pool ËùÊôµÄÁ¬½Ó³Ø
- * \param sock TCP/IPÌ×½Ó¿Ú
+ * \brief æ„é€ å‡½æ•°
+ * \param pool æ‰€å±çš„è¿æ¥æ± 
+ * \param sock TCP/IPå¥—æ¥å£
  */
 LoginTask::LoginTask( zTCPTaskPool *pool, const int sock) : zTCPTask(pool, sock, NULL, true, false), lifeTime()
 {
@@ -62,7 +62,7 @@ int LoginTask::verifyConn()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
@@ -70,17 +70,17 @@ int LoginTask::verifyConn()
 			Zebra::logger->debug(__PRETTY_FUNCTION__);
 
 			stUserVerifyVerCmd *ptCmd = (stUserVerifyVerCmd *)pstrCmd;
-			Zebra::logger->debug("¿Í»§¶Ëversion(%u)",ptCmd->version);
+			Zebra::logger->debug("å®¢æˆ·ç«¯version(%u)",ptCmd->version);
 			if (LOGON_USERCMD == ptCmd->byCmd
 					&& USER_VERIFY_VER_PARA == ptCmd->byParam)
 			{				
 				verify_client_version = ptCmd->version;
-				Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÖ¸ÁîÑéÖ¤Í¨¹ı(%s:%u)",mSocket.getIP(),mSocket.getPort());
+				Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥æŒ‡ä»¤éªŒè¯é€šè¿‡(%s:%u)",mSocket.getIP(),mSocket.getPort());
 				return 1;
 			}
 			else
 			{
-				Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÖ¸ÁîÑéÖ¤Ê§°Ü(%s:%u)",mSocket.getIP(),mSocket.getPort());
+				Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æŒ‡ä»¤éªŒè¯å¤±è´¥(%s:%u)",mSocket.getIP(),mSocket.getPort());
 				return -1;
 			}			
 		}
@@ -103,17 +103,17 @@ int LoginTask::recycleConn()
 		{
 			ptCmd->offset += retcode;
 			if (ptCmd->offset < ptCmd->nCmdLen)
-				//Õâ¸ö»º³åÃ»ÓĞ·¢ËÍÍê³É²»ÄÜ·¢ËÍÏÂÒ»¸ö»º³åbreak
+				//è¿™ä¸ªç¼“å†²æ²¡æœ‰å‘é€å®Œæˆä¸èƒ½å‘é€ä¸‹ä¸€ä¸ªç¼“å†²break
 				break;
 			else if (ptCmd->offset == ptCmd->nCmdLen)
 			{
-				//Õâ¸ö»º³å·¢ËÍÍê³ÉÁËcontinue
+				//è¿™ä¸ªç¼“å†²å‘é€å®Œæˆäº†continue
 				cmd_queue.pop();
 				SAFE_DELETE(ptCmd);
 			}
 #if 0
 			else if (ptCmd->offset > ptCmd->nCmdLen)
-				//ÑÏÖØ´íÎó£¬²»¿ÉÄÜ³öÏÖÕâÖÖÇé¿ö
+				//ä¸¥é‡é”™è¯¯ï¼Œä¸å¯èƒ½å‡ºç°è¿™ç§æƒ…å†µ
 				assert(0);
 #endif
 		}
@@ -145,7 +145,7 @@ void LoginTask::addToContainer()
 	{
 		if (size >  0 && size <= (int)(zSocket::MAX_DATASIZE - sizeof(stJpegPassportUserCmd) - 100))
 		{
-			Zebra::logger->debug("Éú³ÉÍ¼ĞÎÑéÖ¤Âë£º%s", jpegPassport);
+			Zebra::logger->debug("ç”Ÿæˆå›¾å½¢éªŒè¯ç ï¼š%s", jpegPassport);
 			cmd->size = size;
 			bcopy(ret, cmd->data, size);
 		}
@@ -174,30 +174,30 @@ bool LoginTask::requestLogin(const Cmd::stUserRequestLoginCmd *ptCmd)
 	using namespace Cmd;
 	using namespace Cmd::DBAccess;
 
-	//Éú³ÉÇøÎ¨Ò»±àºÅ
+	//ç”ŸæˆåŒºå”¯ä¸€ç¼–å·
 	GameZone_t gameZone;
 	gameZone.game = ptCmd->game;
 	gameZone.zone = ptCmd->zone;
-	Zebra::logger->debug("ÇëÇóµÇÂ½ÓÎÏ·Çø£º%u(%u, %u), %s", gameZone.id, gameZone.game, gameZone.zone, ptCmd->jpegPassport);
+	Zebra::logger->debug("è¯·æ±‚ç™»é™†æ¸¸æˆåŒºï¼š%u(%u, %u), %s", gameZone.id, gameZone.game, gameZone.zone, ptCmd->jpegPassport);
 
-	//ÑéÖ¤¿Í»§¶Ë°æ±¾ºÅ
+	//éªŒè¯å®¢æˆ·ç«¯ç‰ˆæœ¬å·
 	BYTE retcode = LOGIN_RETURN_VERSIONERROR;
 	if (GYListManager::getInstance().verifyVer(gameZone, verify_client_version, retcode))
 	{
-		Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ı°æ±¾ºÅÑéÖ¤");
+		Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡ç‰ˆæœ¬å·éªŒè¯");
 	}
 	else
 	{
-		Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÃ»ÓĞÍ¨¹ı°æ±¾ºÅÑéÖ¤ , ¿Í»§¶Ë°æ±¾ºÅ:%d",verify_client_version);
+		Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æ²¡æœ‰é€šè¿‡ç‰ˆæœ¬å·éªŒè¯ , å®¢æˆ·ç«¯ç‰ˆæœ¬å·:%d",verify_client_version);
 		LoginReturn(retcode);
 		return false;
 	}
 
-	//ÑéÖ¤jpegÍ¼ĞÎÑéÖ¤Âë
+	//éªŒè¯jpegå›¾å½¢éªŒè¯ç 
 	if (FLService::getInstance().jpeg_passport
 			&& strncmp(jpegPassport, ptCmd->jpegPassport, sizeof(jpegPassport)))
 	{
-		Zebra::logger->error("Í¼ĞÎÑéÖ¤Âë´íÎó£º%s, %s", jpegPassport, ptCmd->jpegPassport);
+		Zebra::logger->error("å›¾å½¢éªŒè¯ç é”™è¯¯ï¼š%s, %s", jpegPassport, ptCmd->jpegPassport);
 		LoginReturn(LOGIN_RETURN_JPEG_PASSPORT);
 		return false;
 	}
@@ -223,11 +223,11 @@ bool LoginTask::requestLogin(const Cmd::stUserRequestLoginCmd *ptCmd)
 	using namespace Cmd;
 	using namespace Cmd::DBAccess;
 	
-	//Éú³ÉÇøÎ¨Ò»±àºÅ
+	//ç”ŸæˆåŒºå”¯ä¸€ç¼–å·
 	GameZone_t gameZone;
 	gameZone.game = ptCmd->game;
 	gameZone.zone = ptCmd->zone;
-	Zebra::logger->debug("ÇëÇóµÇÂ½ÓÎÏ·Çø£ºgameid=%u(game=%u, zone=%u), jpegPassport=%s", gameZone.id, gameZone.game, gameZone.zone, ptCmd->jpegPassport);
+	Zebra::logger->debug("è¯·æ±‚ç™»é™†æ¸¸æˆåŒºï¼šgameid=%u(game=%u, zone=%u), jpegPassport=%s", gameZone.id, gameZone.game, gameZone.zone, ptCmd->jpegPassport);
 
 	t_LoginServer_SessionCheck tCmd;
 	bzero(&tCmd.session, sizeof(tCmd.session));
@@ -238,34 +238,34 @@ bool LoginTask::requestLogin(const Cmd::stUserRequestLoginCmd *ptCmd)
 	strncpy(tCmd.session.passwd, ptCmd->pstrPassword, sizeof(tCmd.session.passwd));
 	
 
-	//ÑéÖ¤¿Í»§¶Ë°æ±¾ºÅ
+	//éªŒè¯å®¢æˆ·ç«¯ç‰ˆæœ¬å·
 	/*
 	BYTE retcode = LOGIN_RETURN_VERSIONERROR;
 	if (GYListManager::getInstance().verifyVer(gameZone, verify_client_version, retcode))
 	{
-		Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ı°æ±¾ºÅÑéÖ¤");
+		Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡ç‰ˆæœ¬å·éªŒè¯");
 	}
 	else
 	{
-		Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÃ»ÓĞÍ¨¹ı°æ±¾ºÅÑéÖ¤ , ¿Í»§¶Ë°æ±¾ºÅ:%d",verify_client_version);
+		Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æ²¡æœ‰é€šè¿‡ç‰ˆæœ¬å·éªŒè¯ , å®¢æˆ·ç«¯ç‰ˆæœ¬å·:%d",verify_client_version);
 		LoginReturn(retcode);
 		return false;
 	}*/
 
 	
 
-	//ÑéÖ¤jpegÍ¼ĞÎÑéÖ¤Âë
+	//éªŒè¯jpegå›¾å½¢éªŒè¯ç 
 	if (FLService::getInstance().jpeg_passport
 			&& strncmp(jpegPassport, ptCmd->jpegPassport, sizeof(jpegPassport)))
 	{
-		Zebra::logger->error("Í¼ĞÎÑéÖ¤Âë´íÎó£º%s, %s", jpegPassport, ptCmd->jpegPassport);
+		Zebra::logger->error("å›¾å½¢éªŒè¯ç é”™è¯¯ï¼š%s, %s", jpegPassport, ptCmd->jpegPassport);
 		LoginReturn(LOGIN_RETURN_JPEG_PASSPORT);
 		return false;
 	}
 
 	
 
-	//ÑéÖ¤ÓÃ»§Ãû³ÆºÍÃÜÂëºÏ·¨ĞÔ
+	//éªŒè¯ç”¨æˆ·åç§°å’Œå¯†ç åˆæ³•æ€§
 	if (strlen(ptCmd->pstrName) == 0
 			|| strlen(ptCmd->pstrName) >= MAX_NAMESIZE
 			|| strlen(ptCmd->pstrPassword) == 0
@@ -292,7 +292,7 @@ bool LoginTask::requestLogin(const Cmd::stUserRequestLoginCmd *ptCmd)
 	data;
 	char where[128];
 
-	//ÑéÖ¤ÓÃ»§ÕËºÅºÍÃÜÂë
+	//éªŒè¯ç”¨æˆ·è´¦å·å’Œå¯†ç 
 	bzero(&data, sizeof(data));
 	connHandleID handle = FLService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
@@ -300,23 +300,23 @@ bool LoginTask::requestLogin(const Cmd::stUserRequestLoginCmd *ptCmd)
 		LoginReturn(LOGIN_RETURN_DB);
 		return false;
 	}
-	Zebra::logger->debug("ÓÃ»§ %s ×Ö·ûIDµÇÂ½", ptCmd->pstrName);
+	Zebra::logger->debug("ç”¨æˆ· %s å­—ç¬¦IDç™»é™†", ptCmd->pstrName);
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where) - 1, "LOGINID = '%s'", ptCmd->pstrName);
 	if (FLService::dbConnPool->exeSelectLimit(handle, "`LOGIN`", verifylogin_define, where, NULL, 1, (BYTE *)(&data)) != 1)
 	{
 		FLService::dbConnPool->putHandle(handle);
 		LoginReturn(LOGIN_RETURN_PASSWORDERROR);
-		Zebra::logger->error("Ã»ÓĞÕÒµ½¼ÇÂ¼");
+		Zebra::logger->error("æ²¡æœ‰æ‰¾åˆ°è®°å½•");
 		tCmd.session.state = 4;
 		//return false;
 	}
-	if (strcmp(data.pstrPassword, ptCmd->pstrPassword) //±È¶ÔÃÜÂë
+	if (strcmp(data.pstrPassword, ptCmd->pstrPassword) //æ¯”å¯¹å¯†ç 
 			|| strcmp(data.pstrName, ptCmd->pstrName))
 	{
 		FLService::dbConnPool->putHandle(handle);
 		LoginReturn(LOGIN_RETURN_PASSWORDERROR);
-		Zebra::logger->error("ÃÜÂë´íÎó£¬²»ÄÜµÇÂ½");		
+		Zebra::logger->error("å¯†ç é”™è¯¯ï¼Œä¸èƒ½ç™»é™†");		
 		return false;
 	}
 	FLService::dbConnPool->updateDatatimeCol(handle, "`LOGIN`", "`LASTACTIVEDATE`");
@@ -324,18 +324,18 @@ bool LoginTask::requestLogin(const Cmd::stUserRequestLoginCmd *ptCmd)
 
 	
 
-	//ÕËºÅÒÑ¾­ÔÚÊ¹ÓÃÖĞ
+	//è´¦å·å·²ç»åœ¨ä½¿ç”¨ä¸­
 	if (data.isUsed)
 	{
 		LoginReturn(LOGIN_RETURN_IDINUSE);
-		Zebra::logger->error("ÕËºÅÕıÔÚÊ¹ÓÃÖĞ");		
+		Zebra::logger->error("è´¦å·æ­£åœ¨ä½¿ç”¨ä¸­");		
 		return false;
 	}
-	// ÕËºÅÒÑ¾­±»½ûÖ¹
+	// è´¦å·å·²ç»è¢«ç¦æ­¢
 	if (data.isForbid)
 	{
 		LoginReturn(LOGIN_RETURN_IDINCLOSE);
-		Zebra::logger->error("ÕËºÅÒÑ¾­½ûÓÃ");
+		Zebra::logger->error("è´¦å·å·²ç»ç¦ç”¨");
 		tCmd.session.state = 1;
 		//return false;
 	}

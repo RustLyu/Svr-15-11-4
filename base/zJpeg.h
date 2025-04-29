@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zJpeg.h 916  $
  * \author  
  * \date 
- * \brief png¸ñÊ½µÄÑéÖ¤ÂëÉú³ÉÆ÷
+ * \brief pngæ ¼å¼çš„éªŒè¯ç ç”Ÿæˆå™¨
  */
 
 

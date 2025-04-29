@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneTask.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½Á¬½ÓÈÎÎñ
+ * \brief å®šä¹‰ç™»é™†è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -22,7 +22,7 @@
 
 class SceneUser;
 /**
- * \brief ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
  */
 class SceneTask : public zEntry, public zTCPTask , public MessageQueue
@@ -31,11 +31,11 @@ class SceneTask : public zEntry, public zTCPTask , public MessageQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		SceneTask(
 				zTCPTaskPool *pool,
@@ -49,7 +49,7 @@ class SceneTask : public zEntry, public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		virtual ~SceneTask();
@@ -63,11 +63,11 @@ class SceneTask : public zEntry, public zTCPTask , public MessageQueue
 		bool cmdMsgParse(const Cmd::t_NullCmd *, const unsigned int);
 
 		/**
-		 * \brief ·µ»Ø·şÎñÆ÷±àºÅ
+		 * \brief è¿”å›æœåŠ¡å™¨ç¼–å·
 		 *
-		 * ±àºÅÔÚÒ»¸öÇøÖĞÊÇÎ¨Ò»µÄ£¬±£´æÔÚ·şÎñÆ÷¹ÜÀíÆ÷ÖĞ
+		 * ç¼–å·åœ¨ä¸€ä¸ªåŒºä¸­æ˜¯å”¯ä¸€çš„ï¼Œä¿å­˜åœ¨æœåŠ¡å™¨ç®¡ç†å™¨ä¸­
 		 *
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getID() const
 		{
@@ -75,9 +75,9 @@ class SceneTask : public zEntry, public zTCPTask , public MessageQueue
 		}
 
 		/**
-		 * \brief ·µ»Ø·şÎñÆ÷ÀàĞÍ
+		 * \brief è¿”å›æœåŠ¡å™¨ç±»å‹
 		 *
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{

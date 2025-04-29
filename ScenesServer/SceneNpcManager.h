@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneNpcManager.h  $
  * \author  
  * \date 
- * \brief Npc¹ÜÀíÈİÆ÷
+ * \brief Npcç®¡ç†å®¹å™¨
  *
  * 
  */
@@ -17,7 +17,7 @@
 #include "zEntryManager.h"
 
 /**
- * \brief ¶ÔÃ¿¸öÌØÊânpcÖ´ĞĞµÄ»Øµ÷
+ * \brief å¯¹æ¯ä¸ªç‰¹æ®Šnpcæ‰§è¡Œçš„å›è°ƒ
  *
  */
 struct specialNpcCallBack
@@ -28,7 +28,7 @@ struct specialNpcCallBack
 };
 
 /**
- * \brief npc¹ÜÀíÆ÷
+ * \brief npcç®¡ç†å™¨
  *
  */
 class SceneNpcManager : public zEntryManager< zEntryTempID >
@@ -44,11 +44,11 @@ class SceneNpcManager : public zEntryManager< zEntryTempID >
 		static SceneNpcManager &getMe();
 		static void destroyMe();
 		/**
-		 * \brief ¶ÔÃ¿¸önpcÖ´ĞĞ»Øµ÷º¯Êı
+		 * \brief å¯¹æ¯ä¸ªnpcæ‰§è¡Œå›è°ƒå‡½æ•°
 		 *
 		 *
-		 * \param exec »Øµ÷º¯Êı
-		 * \return ÊÇ·ñ¼ÌĞøÖ´ĞĞ
+		 * \param exec å›è°ƒå‡½æ•°
+		 * \return æ˜¯å¦ç»§ç»­æ‰§è¡Œ
 		 */
 		template <class YourNpcEntry>
 		bool execEveryNpc(execEntry<YourNpcEntry> &exec)
@@ -60,9 +60,9 @@ class SceneNpcManager : public zEntryManager< zEntryTempID >
 		}
 
 		/**
-		 * \brief É¾³ı·ûºÏÌõ¼şµÄnpc
+		 * \brief åˆ é™¤ç¬¦åˆæ¡ä»¶çš„npc
 		 *
-		 * \param pred ÅĞ¶ÏÌõ¼ş
+		 * \param pred åˆ¤æ–­æ¡ä»¶
 		 */
 		template <class YourNpcEntry>
 		void removeNpc_if(removeEntry_Pred<YourNpcEntry> &pred)
@@ -73,18 +73,18 @@ class SceneNpcManager : public zEntryManager< zEntryTempID >
 		}
 
 		/**
-		 * \brief É¾³ıÒ»³¡¾°ÄÚµÄnpc
+		 * \brief åˆ é™¤ä¸€åœºæ™¯å†…çš„npc
 		 *
 		 *
-		 * \param scene ³¡¾°
+		 * \param scene åœºæ™¯
 		 */
 		void removeNpcInOneScene(Scene *scene);
 		void SpecialAI();
 		/**
-		 * \brief ¶ÔÃ¿¸öÌØÊânpcÖ´ĞĞ»Øµõµ÷º¯Êı
+		 * \brief å¯¹æ¯ä¸ªç‰¹æ®Šnpcæ‰§è¡Œå›åŠè°ƒå‡½æ•°
 		 *
 		 *
-		 * \param callback »Øµ÷º¯Êı
+		 * \param callback å›è°ƒå‡½æ•°
 		 * \return 
 		 */
 		void execAllSpecialNpc(specialNpcCallBack &callback)
@@ -109,24 +109,24 @@ class SceneNpcManager : public zEntryManager< zEntryTempID >
 		void removeSpecialNpc(SceneNpc *);
 		void closeFunctionNpc();
 	private:
-		///specialNpcÊÇÖ¸¼´Ê¹Ã»ÓĞÍæ¼ÒÔÚ¸½½üÒ²Òª×ö´¦ÀíµÄNPC
-		///°üÀ¨³èÎï¡¢boss¡¢ÈÎÎñNPC
+		///specialNpcæ˜¯æŒ‡å³ä½¿æ²¡æœ‰ç©å®¶åœ¨é™„è¿‘ä¹Ÿè¦åšå¤„ç†çš„NPC
+		///åŒ…æ‹¬å® ç‰©ã€bossã€ä»»åŠ¡NPC
 		MonkeyNpcs specialNpc;
 
 		SceneNpcManager();
 		~SceneNpcManager();
 
-		///SceneNpcManagerµÄÎ¨Ò»ÊµÀı
+		///SceneNpcManagerçš„å”¯ä¸€å®ä¾‹
 		static SceneNpcManager *snm;
-		///¶ÁĞ´Ëø
+		///è¯»å†™é”
 		zRWLock rwlock;
 
 		bool getUniqeID(DWORD &tempid) { return true; }       
 		void putUniqeID(const DWORD &tempid) {}
 
-		///npcËæ»úËµ»°µÄÄÚÈİ
+		///npcéšæœºè¯´è¯çš„å†…å®¹
 		std::map<DWORD, std::vector<std::string> > NpcCommonChatTable;
-		///npcËæ»úËµ»°µÄ¸ÅÂÊ
+		///npcéšæœºè¯´è¯çš„æ¦‚ç‡
 		std::map<DWORD, int> NpcCommonChatRate;
 
 		bool loadNpcCommonChatTable();

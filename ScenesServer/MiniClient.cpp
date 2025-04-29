@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MiniClient.cpp  $
  * \author  
  * \date 
- * \brief ¶¨Òå¼Æ·Ñ·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰è®¡è´¹æœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
  */
 
@@ -21,23 +21,23 @@
 #include "SceneTaskManager.h"
 
 /**
- * \brief ¼Æ·Ñ·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief è®¡è´¹æœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
- * Ò»¸öÇøÖĞÖ»ÓĞÒ»¸ö¼Æ·Ñ·şÎñÆ÷£¬ËùÒÔÕâÀïÖ»ĞèÒª±£ÁôÒ»¸öÖ¸Õë£¬²»ĞèÒªÁ¬½Ó¹ÜÀíÆ÷Ö®ÀàµÄ¶«¶«
+ * ä¸€ä¸ªåŒºä¸­åªæœ‰ä¸€ä¸ªè®¡è´¹æœåŠ¡å™¨ï¼Œæ‰€ä»¥è¿™é‡Œåªéœ€è¦ä¿ç•™ä¸€ä¸ªæŒ‡é’ˆï¼Œä¸éœ€è¦è¿æ¥ç®¡ç†å™¨ä¹‹ç±»çš„ä¸œä¸œ
  *
  */
 MiniClient *miniClient = NULL;
 
 /**
- * \brief ½¨Á¢µ½Mini·şÎñÆ÷µÄÁ¬½Ó
+ * \brief å»ºç«‹åˆ°MiniæœåŠ¡å™¨çš„è¿æ¥
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿æ¥æ˜¯å¦æˆåŠŸ
  */
 bool MiniClient::connectToMiniServer()
 {
 	if (!connect())
 	{
-		Zebra::logger->error("Á¬½ÓMini·şÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿æ¥MiniæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 
@@ -50,7 +50,7 @@ bool MiniClient::connectToMiniServer()
 }
 
 /**
- * \brief ÖØÔØzThreadÖĞµÄ´¿Ğéº¯Êı£¬ÊÇÏß³ÌµÄÖ÷»Øµ÷º¯Êı£¬ÓÃÓÚ´¦Àí½ÓÊÕµ½µÄÖ¸Áî
+ * \brief é‡è½½zThreadä¸­çš„çº¯è™šå‡½æ•°ï¼Œæ˜¯çº¿ç¨‹çš„ä¸»å›è°ƒå‡½æ•°ï¼Œç”¨äºå¤„ç†æ¥æ”¶åˆ°çš„æŒ‡ä»¤
  *
  */
 void MiniClient::run()
@@ -61,7 +61,7 @@ void MiniClient::run()
 	{
 		while(!connect())
 		{
-			Zebra::logger->error("Á¬½ÓĞ¡ÓÎÏ··şÎñÆ÷Ê§°Ü");
+			Zebra::logger->error("è¿æ¥å°æ¸¸æˆæœåŠ¡å™¨å¤±è´¥");
 			zThread::msleep(1000);
 		}
 		Cmd::Super::t_restart_ServerEntry_NotifyOther notify;
@@ -82,7 +82,7 @@ void MiniClient::run()
 			// */
 		zThread::msleep(1000);
 	}
-	//ÓëMiniÖ®¼äµÄÁ¬½Ó¶Ï¿ª£¬²»ĞèÒª¹Ø±Õ·şÎñÆ÷
+	//ä¸Miniä¹‹é—´çš„è¿æ¥æ–­å¼€ï¼Œä¸éœ€è¦å…³é—­æœåŠ¡å™¨
 	//ScenesService::getInstance().Terminate();
 }
 
@@ -146,11 +146,11 @@ struct DrawCombin : public PackageCallback
 		DWORD &_num;
 };
 /**
- * \brief ½âÎöÀ´×ÔMini·şÎñÆ÷µÄËùÓĞÖ¸Áî
+ * \brief è§£ææ¥è‡ªMiniæœåŠ¡å™¨çš„æ‰€æœ‰æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ı½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -173,7 +173,7 @@ bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 				if ((c.num()+u->packs.main.space()*base->maxnum)<rev->num)
 				{
 					stDrawRetCommonMiniGameCmd send;
-					send.ret = 3;//°ü¹üÂú
+					send.ret = 3;//åŒ…è£¹æ»¡
 					u->sendCmdToMe(&send, sizeof(send));
 					return true;
 				}
@@ -186,7 +186,7 @@ bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 				SceneUser *u = SceneUserManager::getMe().getUserByID(rev->userID);
 				if (!u)
 				{
-					rev->ret = 2;//²»ÔÚÏß
+					rev->ret = 2;//ä¸åœ¨çº¿
 					sendCmd(rev, nCmdLen);
 					return true;
 				}
@@ -194,16 +194,16 @@ bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 				zObjectB *base = objectbm.get(584);
 				if (!base)
 				{
-					rev->ret = 0;//Ê§°Ü
+					rev->ret = 0;//å¤±è´¥
 					sendCmd(rev, nCmdLen);
 					return false;
 				}
 
-				//ºÏ²¢
+				//åˆå¹¶
 				DrawCombin dc(u, 584, 0, rev->num);
 				u->packs.main.execEvery(dc);
 
-				//Ìí¼Ó°ü¹ü
+				//æ·»åŠ åŒ…è£¹
 				for (DWORD i=rev->num; i!=0;)
 				{
 					DWORD num = (i>base->maxnum)?base->maxnum:i;
@@ -216,13 +216,13 @@ bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 						Cmd::stAddObjectPropertyUserCmd send;
 						bcopy(&o->data, &send.object, sizeof(t_Object)); 
 						u->sendCmdToMe(&send, sizeof(send));
-						Channel::sendSys(u, Cmd::INFO_TYPE_GAME, "µÃµ½%s%ld¸ö",o->name,o->data.dwNum);
+						Channel::sendSys(u, Cmd::INFO_TYPE_GAME, "å¾—åˆ°%s%ldä¸ª",o->name,o->data.dwNum);
 					}
 
 					i -= num;
 				}
 
-				rev->ret = rev->num?3:1;//Ìí¼Ó°ü¹üÊ§°Ü
+				rev->ret = rev->num?3:1;//æ·»åŠ åŒ…è£¹å¤±è´¥
 				sendCmd(rev, nCmdLen);
 				return true;
 			}
@@ -233,9 +233,9 @@ bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 				SceneUser *u = SceneUserManager::getMe().getUserByID(rev->userID);
 				if (!u) return false;
 
-				if (!u->packs.checkMoney(rev->num*100) || !u->packs.removeMoney(rev->num*100, "Ğ¡ÓÎÏ·³äÖµ"))
+				if (!u->packs.checkMoney(rev->num*100) || !u->packs.removeMoney(rev->num*100, "å°æ¸¸æˆå……å€¼"))
 				{
-					Channel::sendSys(u, Cmd::INFO_TYPE_FAIL, "ÄãµÄ½ğÇ®²»×ã");
+					Channel::sendSys(u, Cmd::INFO_TYPE_FAIL, "ä½ çš„é‡‘é’±ä¸è¶³");
 					return true;
 				}
 				return sendCmd(rev, nCmdLen);

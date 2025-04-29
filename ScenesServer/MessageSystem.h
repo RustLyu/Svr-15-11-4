@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MessageSystem.h 3203 2005-10-03 03:56:05Z fangq $
- * \author  ËÎÊËÁ¼,songsiliang@netease.com
- * \date 2005Äê01ÔÂ29ÈÕ 21Ê±00·Ö38Ãë CST
- * \brief ÏµÍ³ÌáÊ¾ĞÅÏ¢
+ * \author  å®‹ä»•è‰¯,songsiliang@netease.com
+ * \date 2005å¹´01æœˆ29æ—¥ 21æ—¶00åˆ†38ç§’ CST
+ * \brief ç³»ç»Ÿæç¤ºä¿¡æ¯
  *
  * 
  */
@@ -18,7 +18,7 @@
 #include "SceneUser.h"
 
 /**
- * \brief ÏûÏ¢ÏµÍ³
+ * \brief æ¶ˆæ¯ç³»ç»Ÿ
  *
  */
 class MessageSystem
@@ -32,7 +32,7 @@ class MessageSystem
 		}
 
 		/**
-		 * \brief µÃµ½Î¨Ò»ÊµÀı
+		 * \brief å¾—åˆ°å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static MessageSystem &getInstance()
@@ -44,7 +44,7 @@ class MessageSystem
 		}
 
 		/**
-		 * \brief Ğ¶ÔØÎ¨Ò»ÊµÀı
+		 * \brief å¸è½½å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -63,7 +63,7 @@ class MessageSystem
 		void final();
 
 		/**
-		 * \brief ÏûÏ¢Êı¾İ½á¹¹
+		 * \brief æ¶ˆæ¯æ•°æ®ç»“æ„
 		 *
 		 */
 		struct t_Message

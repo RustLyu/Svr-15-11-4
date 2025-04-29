@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zMutex.h  $
  * \author  
  * \date 
- * \brief »¥³âÌåµÄ·â×°£¬Ö÷ÒªÊÇÎªÁËÊ¹ÓÃ·½±ã
+ * \brief äº’æ–¥ä½“çš„å°è£…ï¼Œä¸»è¦æ˜¯ä¸ºäº†ä½¿ç”¨æ–¹ä¾¿
  *
  * 
  */
@@ -17,7 +17,7 @@
 #include "zNoncopyable.h"
 
 /**
- * \brief »¥³âÌå£¬·â×°ÁËÏµÍ³»¥³âÌå£¬±ÜÃâÁËÊ¹ÓÃÏµÍ³»¥³âÌåÊ±ºòĞèÒªÊÖ¹¤³õÊ¼»¯ºÍÏú»Ù»¥³âÌå¶ÔÏóµÄ²Ù×÷
+ * \brief äº’æ–¥ä½“ï¼Œå°è£…äº†ç³»ç»Ÿäº’æ–¥ä½“ï¼Œé¿å…äº†ä½¿ç”¨ç³»ç»Ÿäº’æ–¥ä½“æ—¶å€™éœ€è¦æ‰‹å·¥åˆå§‹åŒ–å’Œé”€æ¯äº’æ–¥ä½“å¯¹è±¡çš„æ“ä½œ
  *
  */
 class zMutex : private zNoncopyable
@@ -28,7 +28,7 @@ class zMutex : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬¹¹ÔìÒ»¸ö»¥³âÌå¶ÔÏó
+		 * \brief æ„é€ å‡½æ•°ï¼Œæ„é€ ä¸€ä¸ªäº’æ–¥ä½“å¯¹è±¡
 		 *
 		 */
 		zMutex(int kind = PTHREAD_MUTEX_FAST_NP) 
@@ -41,7 +41,7 @@ class zMutex : private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬Ïú»ÙÒ»¸ö»¥³âÌå¶ÔÏó
+		 * \brief ææ„å‡½æ•°ï¼Œé”€æ¯ä¸€ä¸ªäº’æ–¥ä½“å¯¹è±¡
 		 *
 		 */
 		~zMutex()
@@ -51,7 +51,7 @@ class zMutex : private zNoncopyable
 		}
 
 		/**
-		 * \brief ¼ÓËøÒ»¸ö»¥³âÌå
+		 * \brief åŠ é”ä¸€ä¸ªäº’æ–¥ä½“
 		 *
 		 */
 		inline void lock()
@@ -60,7 +60,7 @@ class zMutex : private zNoncopyable
 		}
 
 		/**
-		 * \brief ½âËøÒ»¸ö»¥³âÌå
+		 * \brief è§£é”ä¸€ä¸ªäº’æ–¥ä½“
 		 *
 		 */
 		inline void unlock()
@@ -70,13 +70,13 @@ class zMutex : private zNoncopyable
 
 	private:
 
-		pthread_mutex_t mutex;		/**< ÏµÍ³»¥³âÌå */
+		pthread_mutex_t mutex;		/**< ç³»ç»Ÿäº’æ–¥ä½“ */
 
 };
 
 /**
  * \brief Wrapper
- * ·½±ãÔÚ¸´ÔÓº¯ÊıÖĞËøµÄÊ¹ÓÃ
+ * æ–¹ä¾¿åœ¨å¤æ‚å‡½æ•°ä¸­é”çš„ä½¿ç”¨
  */
 class zMutex_scope_lock : private zNoncopyable
 {
@@ -84,9 +84,9 @@ class zMutex_scope_lock : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * ¶ÔËø½øĞĞlock²Ù×÷
-		 * \param m ËøµÄÒıÓÃ
+		 * \brief æ„é€ å‡½æ•°
+		 * å¯¹é”è¿›è¡Œlockæ“ä½œ
+		 * \param m é”çš„å¼•ç”¨
 		 */
 		zMutex_scope_lock(zMutex &m) : mlock(m)
 		{
@@ -94,8 +94,8 @@ class zMutex_scope_lock : private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹ºº¯Êı
-		 * ¶ÔËø½øĞĞunlock²Ù×÷
+		 * \brief æè´­å‡½æ•°
+		 * å¯¹é”è¿›è¡Œunlockæ“ä½œ
 		 */
 		~zMutex_scope_lock()
 		{
@@ -105,7 +105,7 @@ class zMutex_scope_lock : private zNoncopyable
 	private:
 
 		/**
-		 * \brief ËøµÄÒıÓÃ
+		 * \brief é”çš„å¼•ç”¨
 		 */
 		zMutex &mlock;
 

@@ -1,4 +1,4 @@
-#ifndef _MINIUSERMANAGER_H_
+﻿#ifndef _MINIUSERMANAGER_H_
 #define _MINIUSERMANAGER_H_
 #include "MiniUser.h"
 #include "zEntryManager.h"

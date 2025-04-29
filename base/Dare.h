@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file
  * \version  $Id: Dare.h 6741 2006-06-05 10:12:13Z zjw $
- * \author  �ٿ�ΰ,mark.zhong@gmail.com
- * \date 2005��03��16�� 10ʱ32��01�� CST
- * \brief ����Ŷ�ս�Ļ����ṹ
+ * \author  仲俊伟,mark.zhong@gmail.com
+ * \date 2005年03月16日 10时32分01秒 CST
+ * \brief 定义才对战的基本结构
  *
  */
 
@@ -18,13 +18,13 @@
 namespace DareDef
 {
 
-	const DWORD CREATE_DARE_NEED_PRICE_GOLD = 500; // ��ս���۽��
-	const DWORD DARE_WINNER_GOLD = 800; // ��սʤ��һ����������
-	const DWORD READYTIME  = 300; // �ȴ�Ӧս��ʱ�䣬��λ:��
-	const DWORD ACTIVETIME = 3600; // ��ս����ʱ�䣬��λ:��
-	const DWORD CREATE_UNION_CITY_DARE_NEED_PRICE_MONEY = 20000; //����
-	const DWORD CREATE_UNION_KING_CITY_DARE_NEED_PRICE_MONEY = 50000; //�嶧
-	const DWORD CREATE_UNION_NEUTRAL_CITY_DARE_NEED_PRICE_MONEY = 50000; //�嶧
+	const DWORD CREATE_DARE_NEED_PRICE_GOLD = 500; // 对战所扣金额
+	const DWORD DARE_WINNER_GOLD = 800; // 对战胜者一方，所获金额
+	const DWORD READYTIME  = 300; // 等待应战的时间，单位:秒
+	const DWORD ACTIVETIME = 3600; // 对战进行时间，单位:秒
+	const DWORD CREATE_UNION_CITY_DARE_NEED_PRICE_MONEY = 20000; //两锭
+	const DWORD CREATE_UNION_KING_CITY_DARE_NEED_PRICE_MONEY = 50000; //五锭
+	const DWORD CREATE_UNION_NEUTRAL_CITY_DARE_NEED_PRICE_MONEY = 50000; //五锭
 
 	class SupportDareInterface
 	{
@@ -35,7 +35,7 @@ namespace DareDef
 
 	};
 
-	/// ״̬����
+	/// 状态描述
 	char str_state[][20]={"DARE_READY", "DARE_READY_QUESTION", "DARE_READY_ACTIVE", "DARE_RETURN_GOLD",
 		"DARE_ACTIVE", "DARE_DATAPROCESS", "DARE_READY_OVER", "DARE_WAIT_BOUNTY", "DARE_OVER"};
 

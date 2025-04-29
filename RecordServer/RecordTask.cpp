@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordTask.cpp w $
  * \author  
  * \date 
- * \brief ÊµÏÖ¶ÁµµÁ¬½ÓÀà
+ * \brief å®ç°è¯»æ¡£è¿æ¥ç±»
  *
  * 
  */
@@ -21,12 +21,12 @@
 #include "RecordSessionManager.h"
 #include <string>
 /**
- * \brief ÑéÖ¤µÇÂ½µµ°¸·şÎñÆ÷µÄÁ¬½ÓÖ¸Áî
+ * \brief éªŒè¯ç™»é™†æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿æ¥æŒ‡ä»¤
  *
- * Èç¹ûÑéÖ¤²»Í¨¹ıÖ±½Ó¶Ï¿ªÁ¬½Ó
+ * å¦‚æœéªŒè¯ä¸é€šè¿‡ç›´æ¥æ–­å¼€è¿æ¥
  *
- * \param ptCmd µÇÂ½Ö¸Áî
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param ptCmd ç™»é™†æŒ‡ä»¤
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool RecordTask::verifyLogin(const Cmd::Record::t_LoginRecord *ptCmd)
 {
@@ -52,11 +52,11 @@ bool RecordTask::verifyLogin(const Cmd::Record::t_LoginRecord *ptCmd)
 }
 
 /**
- * \brief µÈ´ı½ÓÊÜÑéÖ¤Ö¸Áî²¢½øĞĞÑéÖ¤
+ * \brief ç­‰å¾…æ¥å—éªŒè¯æŒ‡ä»¤å¹¶è¿›è¡ŒéªŒè¯
  *
- * ÊµÏÖĞéº¯Êı<code>zTCPTask::verifyConn</code>
+ * å®ç°è™šå‡½æ•°<code>zTCPTask::verifyConn</code>
  *
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦£¬»òÕß³¬Ê±
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸï¼Œæˆ–è€…è¶…æ—¶
  */
 int RecordTask::verifyConn()
 {
@@ -67,19 +67,19 @@ int RecordTask::verifyConn()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
 			using namespace Cmd::Record;
 			if (verifyLogin((t_LoginRecord *)pstrCmd))
 			{
-				Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤");
+				Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯");
 				return 1;
 			}
 			else
 			{
-				Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÑéÖ¤Ê§°Ü");
+				Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥éªŒè¯å¤±è´¥");
 				return -1;
 			}
 		}
@@ -89,18 +89,18 @@ int RecordTask::verifyConn()
 }
 
 /**
- * \brief È·ÈÏÒ»¸ö·şÎñÆ÷Á¬½ÓµÄ×´Ì¬ÊÇ¿ÉÒÔ»ØÊÕµÄ
+ * \brief ç¡®è®¤ä¸€ä¸ªæœåŠ¡å™¨è¿æ¥çš„çŠ¶æ€æ˜¯å¯ä»¥å›æ”¶çš„
  *
- * µ±Ò»¸öÁ¬½Ó×´Ì¬ÊÇ¿ÉÒÔ»ØÊÕµÄ×´Ì¬£¬ÄÇÃ´ÒâÎ¶×ÅÕâ¸öÁ¬½ÓµÄÕû¸öÉúÃüÖÜÆÚ½áÊø£¬¿ÉÒÔ´ÓÄÚ´æÖĞ°²È«µÄÉ¾³ıÁË£º£©<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::recycleConn</code>
+ * å½“ä¸€ä¸ªè¿æ¥çŠ¶æ€æ˜¯å¯ä»¥å›æ”¶çš„çŠ¶æ€ï¼Œé‚£ä¹ˆæ„å‘³ç€è¿™ä¸ªè¿æ¥çš„æ•´ä¸ªç”Ÿå‘½å‘¨æœŸç»“æŸï¼Œå¯ä»¥ä»å†…å­˜ä¸­å®‰å…¨çš„åˆ é™¤äº†ï¼šï¼‰<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::recycleConn</code>
  *
- * \return ÊÇ·ñ¿ÉÒÔ»ØÊÕ
+ * \return æ˜¯å¦å¯ä»¥å›æ”¶
  */
 int RecordTask::recycleConn()
 {
 	Zebra::logger->trace("RecordTask::recycleConn");
 	RecordSessionManager::getInstance().removeAllByServerID(getID());
-	//TODO ĞèÒª±£Ö¤´æµµÖ¸Áî´¦ÀíÍê³ÉÁË
+	//TODO éœ€è¦ä¿è¯å­˜æ¡£æŒ‡ä»¤å¤„ç†å®Œæˆäº†
 	return 1;
 }
 bool RecordTask::msgParse_Session(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
@@ -117,7 +117,7 @@ bool RecordTask::msgParse_Session(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				connHandleID handle = RecordService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+					Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 					return false;
 				}
 
@@ -190,7 +190,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 					char name[MAX_NAMESIZE+1];
 					BYTE available;
 				} __attribute__ ((packed))
-				delchar_data = { "", 0}; //²»¿ÉÓÃ£¬×÷·Ï
+				delchar_data = { "", 0}; //ä¸å¯ç”¨ï¼Œä½œåºŸ
 				// */
 				char where[128];
 
@@ -202,19 +202,19 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				connHandleID handle = RecordService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+					Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 					sendCmd(&cmd, sizeof(cmd));
 					return false;
 				}
 
-				//Ê×ÏÈÉ¾³ıÔ­À´ÒÑ¾­×÷·ÏµÄ½ÇÉ«
+				//é¦–å…ˆåˆ é™¤åŸæ¥å·²ç»ä½œåºŸçš„è§’è‰²
 				bzero(where, sizeof(where));
 				snprintf(where, sizeof(where) - 1, "ACCID = %u AND CHARID = %u", rev->accid, rev->id);
 				if ((unsigned int)-1 == RecordService::dbConnPool->exeDelete(handle, "`CHARBASE`", where))
 				{
 					RecordService::dbConnPool->putHandle(handle);
 					sendCmd(&cmd, sizeof(cmd));
-					Zebra::logger->trace("É¾³ı½ÇÉ«Ê±Ê§°Ü:%u, %u", rev->accid,rev->id);
+					Zebra::logger->trace("åˆ é™¤è§’è‰²æ—¶å¤±è´¥:%u, %u", rev->accid,rev->id);
 					return false;
 				}
 				/*
@@ -223,16 +223,16 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				{
 					RecordService::dbConnPool->putHandle(handle);
 					sendCmd(&cmd, sizeof(cmd));
-					Zebra::logger->trace("É¾³ı½ÇÉ«Ê±Ê×ÏÈÉ¾³ıÒÑ¾­×÷·ÏµÃ½ÇÉ«Ê±Ê§°Ü:%u, %u", rev->accid,rev->id);
+					Zebra::logger->trace("åˆ é™¤è§’è‰²æ—¶é¦–å…ˆåˆ é™¤å·²ç»ä½œåºŸå¾—è§’è‰²æ—¶å¤±è´¥:%u, %u", rev->accid,rev->id);
 					return false;
 				}
 				else
 				{
 					static const char charTable[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 					static const int charTable_length = strlen(charTable);
-					//°ÑĞèÒªÉ¾³ıµÄ½ÇÉ«±ê¼ÇÎª×÷·Ï
-					//²¢ÇÒÖØĞÂÃüÃû£¬ÕâÑùÔÚ»Ö¸´µµ°¸ĞÅÏ¢µÄÊ±ºòĞèÒªÖØĞÂÊäÈë½ÇÉ«Ãû³Æ
-					//Õâ¸öÃû³ÆÒÔ'_'¿ªÊ¼
+					//æŠŠéœ€è¦åˆ é™¤çš„è§’è‰²æ ‡è®°ä¸ºä½œåºŸ
+					//å¹¶ä¸”é‡æ–°å‘½åï¼Œè¿™æ ·åœ¨æ¢å¤æ¡£æ¡ˆä¿¡æ¯çš„æ—¶å€™éœ€è¦é‡æ–°è¾“å…¥è§’è‰²åç§°
+					//è¿™ä¸ªåç§°ä»¥'_'å¼€å§‹
 					int i = 0;
 					delchar_data.name[i++] = '_';
 					for(; i < MAX_NAMESIZE; i++)
@@ -247,29 +247,29 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 					{
 						RecordService::dbConnPool->putHandle(handle);
 						sendCmd(&cmd, sizeof(cmd));
-						Zebra::logger->trace("É¾³ı½ÇÉ«Ö´ĞĞupdateÊ§°Ü:%u, %u", rev->accid,rev->id);
+						Zebra::logger->trace("åˆ é™¤è§’è‰²æ‰§è¡Œupdateå¤±è´¥:%u, %u", rev->accid,rev->id);
 						return false;
 					}
 				}
 				// */
 				RecordService::dbConnPool->putHandle(handle);
-				Zebra::logger->trace("É¾³ı½ÇÉ«:%u, %u", rev->accid,rev->id);
+				Zebra::logger->trace("åˆ é™¤è§’è‰²:%u, %u", rev->accid,rev->id);
 
 				cmd.retcode = 1;
 				sendCmd(&cmd, sizeof(cmd));
-				//É¾³ı½ÇÉ«ºóÖØĞÂµÃµ½½ÇÉ«ÁĞ±í
+				//åˆ é™¤è§’è‰²åé‡æ–°å¾—åˆ°è§’è‰²åˆ—è¡¨
 				return getSelectInfo(rev->accid); 
 
 				return true;
 			}
 			break;
-			//ÇëÇó¹ú¼Òµµ°¸ÅÅĞò
+			//è¯·æ±‚å›½å®¶æ¡£æ¡ˆæ’åº
 		case REQUEST_GATE_COUNTRY_ORDER:
 			{
 				connHandleID handle = RecordService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+					Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 					return false;
 				}
 
@@ -300,7 +300,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				}
 				for(int i = 0 ; i < (int)ret_gate->order.size ; i ++)
 				{
-					Zebra::logger->debug("¹ú¼Ò:%d,×¢²áÈËÊı:%d",ret_gate->order.order[i].country , ret_gate->order.order[i].count);
+					Zebra::logger->debug("å›½å®¶:%d,æ³¨å†Œäººæ•°:%d",ret_gate->order.order[i].country , ret_gate->order.order[i].count);
 				}
 				sendCmd(ret_gate , sizeof(t_order_Country_GateRecord) 
 						+ sizeof(ret_gate->order.order[0]) * ret_gate->order.size); 
@@ -314,12 +314,12 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				t_CheckName_Return_GateRecord ret;
 				ret.accid = rev->accid;
 				strncpy(ret.name, rev->name, MAX_NAMESIZE-1);
-				//Ê×ÏÈÑéÖ¤Ãû³ÆÊÇ·ñÖØ¸´
+				//é¦–å…ˆéªŒè¯åç§°æ˜¯å¦é‡å¤
 
 				connHandleID handle = RecordService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+					Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 					return false;
 				}
 
@@ -338,7 +338,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				unsigned int retcode = RecordService::dbConnPool->exeSelectLimit(handle, "`CHARBASE`", verifyname_define, where, "CHARID DESC", 1, (BYTE *)(strName));
 
 				RecordService::dbConnPool->putHandle(handle);
-				Zebra::logger->debug("½ÇÉ«Ãû¼ì²é:%s have %d", upName.c_str(), retcode);
+				Zebra::logger->debug("è§’è‰²åæ£€æŸ¥:%s have %d", upName.c_str(), retcode);
 
 				ret.err_code = retcode;
 				sendCmd(&ret, sizeof(ret));
@@ -378,17 +378,17 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				connHandleID handle = RecordService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+					Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 					return false;
 				}
 
-				//¼ì²éÕÊºÅÈ¨ÏŞ
+				//æ£€æŸ¥å¸å·æƒé™
 				static const dbCol priv_define[] = {
 					{ "`PRIV`", zDBConnPool::DB_DWORD, sizeof(DWORD) }, 
 					{ NULL, 0, 0}
 				};
 				/*
-				//Ê×ÏÈÑéÖ¤Ãû³ÆÊÇ·ñÖØ¸´
+				//é¦–å…ˆéªŒè¯åç§°æ˜¯å¦é‡å¤
 				char strName[MAX_NAMESIZE+1];
 				char where[128];
 				static const dbCol verifyname_define[] = {
@@ -404,7 +404,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				unsigned int retcode = RecordService::dbConnPool->exeSelectLimit(handle, "`CHARBASE`", verifyname_define, where, "CHARID DESC", 1, (BYTE *)(strName));
 				if (retcode == 1)
 				{
-					Zebra::logger->error("½ÇÉ«Ãû³ÆÖØ¸´ %u, %s", rev->accid, rev->name);
+					Zebra::logger->error("è§’è‰²åç§°é‡å¤ %u, %s", rev->accid, rev->name);
 					RecordService::dbConnPool->putHandle(handle);
 
 					ret.accid = rev->accid;
@@ -416,7 +416,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				}
 				*/
 
-				//²åÈëÊı¾İ¿â½ÇÉ«ĞÅÏ¢
+				//æ’å…¥æ•°æ®åº“è§’è‰²ä¿¡æ¯
 				bzero(&createchar_data, sizeof(createchar_data));
 				createchar_data.accid = rev->accid;
 				strncpy(createchar_data.name, rev->name, MAX_NAMESIZE);
@@ -427,7 +427,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				createchar_data.mapid = 0;
 				strncpy(createchar_data.mapName, rev->mapName, MAX_NAMESIZE);
 				createchar_data.createip = rev->createip;
-				//Zebra::logger->debug("´´½¨½ÇÉ«IP %s(%u)", inet_ntoa(*(struct in_addr*)&createchar_data.createip),createchar_data.createip);
+				//Zebra::logger->debug("åˆ›å»ºè§’è‰²IP %s(%u)", inet_ntoa(*(struct in_addr*)&createchar_data.createip),createchar_data.createip);
 				char where[64];
 				bzero(where, sizeof(where));
 				snprintf(where, sizeof(where)-1, "ACCID=%u", rev->accid);
@@ -436,7 +436,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 				RecordService::dbConnPool->putHandle(handle);
 				if ((unsigned int)-1 == retcode)
 				{
-					Zebra::logger->error("´´½¨½ÇÉ«²åÈëÊı¾İ¿â³ö´í %u, %s", rev->accid, rev->name);
+					Zebra::logger->error("åˆ›å»ºè§’è‰²æ’å…¥æ•°æ®åº“å‡ºé”™ %u, %s", rev->accid, rev->name);
 
 					ret.accid = rev->accid;
 					ret.retcode = 0;
@@ -446,7 +446,7 @@ bool RecordTask::msgParse_Gateway(const Cmd::t_NullCmd *ptNullCmd, const unsigne
 					return false;
 				}
 
-				//·µ»ØĞÂ´´½¨½ÇÉ«ĞÅÏ¢µ½Íø¹Ø
+				//è¿”å›æ–°åˆ›å»ºè§’è‰²ä¿¡æ¯åˆ°ç½‘å…³
 				ret.accid = rev->accid;
 				ret.retcode = 1;
 				bzero(&ret.charinfo, sizeof(ret.charinfo));
@@ -570,27 +570,27 @@ bool RecordTask::readCharBase(const Cmd::Record::t_ReadUser_SceneRecord *rev)
 	connHandleID handle = RecordService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where) - 1, "CHARID = %u AND AVAILABLE = 1", rev->id);
 	unsigned int retcode = RecordService::dbConnPool->exeSelectLimit(
-			handle, "`CHARBASE`", charbase_define, where, "CHARID DESC", 1, (BYTE *)(&ret->charbase));//TODO µÈ´ıĞŞ¸Ä?
+			handle, "`CHARBASE`", charbase_define, where, "CHARID DESC", 1, (BYTE *)(&ret->charbase));//TODO ç­‰å¾…ä¿®æ”¹?
 	RecordService::dbConnPool->putHandle(handle);
 	if (1 == retcode)
 	{
-		Zebra::logger->trace("ÕÒµ½ºÏ¸ñµÄ½ÇÉ«¼ÇÂ¼£º%u, %s)", ret->charbase.id, ret->charbase.name);
+		Zebra::logger->trace("æ‰¾åˆ°åˆæ ¼çš„è§’è‰²è®°å½•ï¼š%u, %s)", ret->charbase.id, ret->charbase.name);
 	}
 	else
 	{
-		Zebra::logger->error("¶ÁÈ¡µµ°¸Ê§°Ü£¬Ã»ÓĞÕÒµ½¼ÇÂ¼");
+		Zebra::logger->error("è¯»å–æ¡£æ¡ˆå¤±è´¥ï¼Œæ²¡æœ‰æ‰¾åˆ°è®°å½•");
 		bzero(&ret->charbase , sizeof(ret->charbase));
 		ret->dataSize = (DWORD)PARA_SCENE_USER_READ_ERROR;
 		sendCmd(ret,sizeof(t_UserInfo_SceneRecord));
 		return false;
 	}
-	Zebra::logger->debug("¶ÁÈ¡µµ°¸·şÎñÆ÷Êı¾İ,Ñ¹ËõÊı¾İ´óĞ¡(size = %ld)" , ret->dataSize);
+	Zebra::logger->debug("è¯»å–æ¡£æ¡ˆæœåŠ¡å™¨æ•°æ®,å‹ç¼©æ•°æ®å¤§å°(size = %ld)" , ret->dataSize);
 	return sendCmd(ret,sizeof(t_UserInfo_SceneRecord) + ret->dataSize);
 }
 
@@ -602,7 +602,7 @@ bool RecordTask::saveCharBase(const Cmd::Record::t_WriteUser_SceneRecord *rev)
 	connHandleID handle = RecordService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
@@ -613,11 +613,11 @@ bool RecordTask::saveCharBase(const Cmd::Record::t_WriteUser_SceneRecord *rev)
 	//Zebra::logger->debug(where);
 	if (1 == retcode)
 	{
-		Zebra::logger->trace("±£´æµµ°¸³É¹¦£º%u, %u", rev->id, retcode);
+		Zebra::logger->trace("ä¿å­˜æ¡£æ¡ˆæˆåŠŸï¼š%u, %u", rev->id, retcode);
 	}
 	else
 	{
-		Zebra::logger->error("±£´æµµ°¸Ê§°Ü£º%u, %u", rev->id, retcode);
+		Zebra::logger->error("ä¿å­˜æ¡£æ¡ˆå¤±è´¥ï¼š%u, %u", rev->id, retcode);
 	}
 
 	return true;
@@ -656,7 +656,7 @@ bool RecordTask::msgParse_Scene(const Cmd::t_NullCmd *ptNullCmd, const unsigned 
 				}
 				else
 				{
-					Zebra::logger->error("»ØĞ´µµ°¸ÑéÖ¤Ê§°Ü£¬²»ÄÜ»ØĞ´µµ°¸£º%lu, %lu", rev->accid, rev->id);
+					Zebra::logger->error("å›å†™æ¡£æ¡ˆéªŒè¯å¤±è´¥ï¼Œä¸èƒ½å›å†™æ¡£æ¡ˆï¼š%lu, %lu", rev->accid, rev->id);
 				}
 			}
 			break;
@@ -683,7 +683,7 @@ bool RecordTask::msgParse_Scene(const Cmd::t_NullCmd *ptNullCmd, const unsigned 
 					ret.dwMapTempID=rev->dwMapTempID;
 					ret.dataSize = (DWORD)PARA_SCENE_USER_READ_ERROR;
 					sendCmd(&ret,sizeof(t_UserInfo_SceneRecord));
-					Zebra::logger->error("Ìí¼Ó¶ÁÈ¡¼ÇÂ¼Ê§°Ü£¬²»ÄÜ¶ÁÈ¡µµ°¸ĞÅÏ¢£º%lu, %lu", rev->accid, rev->id);
+					Zebra::logger->error("æ·»åŠ è¯»å–è®°å½•å¤±è´¥ï¼Œä¸èƒ½è¯»å–æ¡£æ¡ˆä¿¡æ¯ï¼š%lu, %lu", rev->accid, rev->id);
 					return true;
 				}
 			}
@@ -692,7 +692,7 @@ bool RecordTask::msgParse_Scene(const Cmd::t_NullCmd *ptNullCmd, const unsigned 
 			{
 				t_RemoveUser_SceneRecord *rev = (t_RemoveUser_SceneRecord *)ptNullCmd;
 				RecordSessionManager::getInstance().remove(rev->accid, rev->id, getID());
-				Zebra::logger->trace("ÓÃ»§ÔÚ¶ÁÈ¡µµ°¸¹ı³ÌÖĞÍË³ö(accid=%u,id=%u",rev->accid , rev->id);
+				Zebra::logger->trace("ç”¨æˆ·åœ¨è¯»å–æ¡£æ¡ˆè¿‡ç¨‹ä¸­é€€å‡º(accid=%u,id=%u",rev->accid , rev->id);
 				return true;
 			}
 			break;
@@ -703,7 +703,7 @@ bool RecordTask::msgParse_Scene(const Cmd::t_NullCmd *ptNullCmd, const unsigned 
 				connHandleID handle = RecordService::dbConnPool->getHandle();
 				if ((connHandleID)-1 == handle)
 				{
-					Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+					Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 					return false;
 				}
 
@@ -777,11 +777,11 @@ bool RecordTask::msgParse_Scene(const Cmd::t_NullCmd *ptNullCmd, const unsigned 
 }
 
 /**
- * \brief ½âÎöÀ´×Ô¸÷¸ö·şÎñÆ÷Á¬½ÓµÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªå„ä¸ªæœåŠ¡å™¨è¿æ¥çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool RecordTask::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -838,7 +838,7 @@ bool RecordTask::getSelectInfo(DWORD accid)
 	connHandleID handle = RecordService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
@@ -850,13 +850,13 @@ bool RecordTask::getSelectInfo(DWORD accid)
 	if ((unsigned int)-1 == retcode
 			|| 0 == retcode)
 	{
-		//Zebra::logger->debug("Ã»ÓĞÕÒµ½¼ÇÂ¼");
+		//Zebra::logger->debug("æ²¡æœ‰æ‰¾åˆ°è®°å½•");
 		ret.num = 0;
 		bzero(ret.info, sizeof(ret.info));
 	}
 	else
 	{
-		//Zebra::logger->debug("ÕÒµ½ %u ÌõºÏ¸ñµÄ½ÇÉ«¼ÇÂ¼", retcode);
+		//Zebra::logger->debug("æ‰¾åˆ° %u æ¡åˆæ ¼çš„è§’è‰²è®°å½•", retcode);
 		ret.num = retcode;
 	}
 	ret.accid=accid;
@@ -865,12 +865,12 @@ bool RecordTask::getSelectInfo(DWORD accid)
 	std::string s;
 	ret.info[0].id=rev->accid*2;
 	char name[32];
-	snprintf(name,32,"²âÊÔÓÃ»§%d",ret.info[0].id);
+	snprintf(name,32,"æµ‹è¯•ç”¨æˆ·%d",ret.info[0].id);
 	s=name;
 	strcpy((char *)ret.info[0].name,s.c_str());
 	ret.info[0].level=1;
 	ret.info[0].mapid=1;
-	s="²âÊÔµØÍ¼";
+	s="æµ‹è¯•åœ°å›¾";
 	strcpy((char *)ret.info[0].mapName,s.c_str());
 #endif
 
@@ -896,11 +896,11 @@ const dbCol RecordTask::chartest_define[] = {
 	{ NULL, 0, 0}
 };
 /**
- * \brief ¶ÁÈ¡²âÊÔÊı¾İµµ°¸
+ * \brief è¯»å–æµ‹è¯•æ•°æ®æ¡£æ¡ˆ
  *
  *
- * \param rev: ÊÕµ½µÄ¶ÁÈ¡Ö¸Áî
- * \return ¶ÁÈ¡ÊÇ·ñ³É¹¦
+ * \param rev: æ”¶åˆ°çš„è¯»å–æŒ‡ä»¤
+ * \return è¯»å–æ˜¯å¦æˆåŠŸ
  */
 bool RecordTask::readCharTest(Cmd::Record::t_Read_CharTest_SceneRecord *rev)
 {
@@ -916,32 +916,32 @@ bool RecordTask::readCharTest(Cmd::Record::t_Read_CharTest_SceneRecord *rev)
 	connHandleID handle = RecordService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
 	std::string escapeName;
 	snprintf(where, sizeof(where) - 1, "`NAME` = '%s' AND `LEVEL` = %u", RecordService::dbConnPool->escapeString(handle,ret.name,escapeName).c_str(), ret.level);
 	unsigned int retcode = RecordService::dbConnPool->exeSelectLimit(
-			handle, "`CHARTEST`", chartest_define, where, "`NAME` DESC", 1, (BYTE *)(ret.name));//TODO µÈ´ıĞŞ¸Ä?
+			handle, "`CHARTEST`", chartest_define, where, "`NAME` DESC", 1, (BYTE *)(ret.name));//TODO ç­‰å¾…ä¿®æ”¹?
 	RecordService::dbConnPool->putHandle(handle);
 	if (1 == retcode)
 	{
-		Zebra::logger->debug("¶ÁÈ¡²âÊÔÍ³¼ÆÊı¾İ³É¹¦(%s)", ret.name);
+		Zebra::logger->debug("è¯»å–æµ‹è¯•ç»Ÿè®¡æ•°æ®æˆåŠŸ(%s)", ret.name);
 	}
 	else
 	{
-		Zebra::logger->debug("Î´ÕÒµ½Í³¼ÆÊı¾İ(%s)", ret.name);
+		Zebra::logger->debug("æœªæ‰¾åˆ°ç»Ÿè®¡æ•°æ®(%s)", ret.name);
 		return false;
 	}
 	return sendCmd(&ret,sizeof(ret));
 }
 /**
- * \brief ²åÈë²âÊÔÊı¾İ
+ * \brief æ’å…¥æµ‹è¯•æ•°æ®
  *
  *
- * \param rev: ÊÕµ½µÄ²åÈëÖ¸Áî
- * \return ²åÈëÊÇ·ñ³É¹¦
+ * \param rev: æ”¶åˆ°çš„æ’å…¥æŒ‡ä»¤
+ * \return æ’å…¥æ˜¯å¦æˆåŠŸ
  */
 bool RecordTask::insertCharTest(Cmd::Record::t_Insert_CharTest_SceneRecord *rev)
 {
@@ -952,17 +952,17 @@ bool RecordTask::insertCharTest(Cmd::Record::t_Insert_CharTest_SceneRecord *rev)
 	RecordService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("½ÇÉ«²åÈë²âÊÔÊı¾İ¿â³ö´í %s", rev->name);
+		Zebra::logger->error("è§’è‰²æ’å…¥æµ‹è¯•æ•°æ®åº“å‡ºé”™ %s", rev->name);
 		return false;
 	}
 	return true;
 }
 /**
- * \brief ¸üĞÂ²âÊÔÊı¾İ
+ * \brief æ›´æ–°æµ‹è¯•æ•°æ®
  *
  *
- * \param rev: ÊÕµ½µÄ¸üĞÂÇëÇóÖ¸Áî
- * \return ¸üĞÂÊÇ·ñ³É¹¦
+ * \param rev: æ”¶åˆ°çš„æ›´æ–°è¯·æ±‚æŒ‡ä»¤
+ * \return æ›´æ–°æ˜¯å¦æˆåŠŸ
  */
 bool RecordTask::updateCharTest(Cmd::Record::t_Update_CharTest_SceneRecord *rev)
 {
@@ -972,7 +972,7 @@ bool RecordTask::updateCharTest(Cmd::Record::t_Update_CharTest_SceneRecord *rev)
 	connHandleID handle = RecordService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	bzero(where, sizeof(where));
@@ -984,20 +984,20 @@ bool RecordTask::updateCharTest(Cmd::Record::t_Update_CharTest_SceneRecord *rev)
 	Zebra::logger->debug(where);
 	if (1 == retcode)
 	{
-		Zebra::logger->debug("±£´æ²âÊÔÊı¾İ³É¹¦%s, %u", rev->name, retcode);
+		Zebra::logger->debug("ä¿å­˜æµ‹è¯•æ•°æ®æˆåŠŸ%s, %u", rev->name, retcode);
 	}
 	else
 	{
-		Zebra::logger->error("±£´æ²âÊÔÊı¾İÊ§°Ü£º%s, %u", rev->name, retcode);
+		Zebra::logger->error("ä¿å­˜æµ‹è¯•æ•°æ®å¤±è´¥ï¼š%s, %u", rev->name, retcode);
 	}
 	return true;
 }
 /**
- * \brief É¾³ı²âÊÔÊı¾İ
+ * \brief åˆ é™¤æµ‹è¯•æ•°æ®
  *
  *
- * \param rev: ÊÕµ½µÄÉ¾³ıÇëÇóÖ¸Áî
- * \return É¾³ıÊÇ·ñ³É¹¦
+ * \param rev: æ”¶åˆ°çš„åˆ é™¤è¯·æ±‚æŒ‡ä»¤
+ * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
  */
 bool RecordTask::deleteCharTest(Cmd::Record::t_Delete_CharTest_SceneRecord *rev)
 {

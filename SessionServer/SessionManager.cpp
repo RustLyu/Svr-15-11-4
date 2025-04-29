@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SessionManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ»á»°¹ÜÀíÆ÷
+ * \brief å®ç°ä¼šè¯ç®¡ç†å™¨
  *
  * 
  */
@@ -20,10 +20,10 @@
 #include "CArmy.h"
 #include "CCityManager.h"
 
-///ÓÃ»§»á»°¹ÜÀíÆ÷ÊµÀı
+///ç”¨æˆ·ä¼šè¯ç®¡ç†å™¨å®ä¾‹
 UserSessionManager * UserSessionManager::sm(NULL);
 DWORD UserSession::user_count=0;
-//¹ú¼ÒÅÅĞò
+//å›½å®¶æ’åº
 std::map<DWORD , DWORD> UserSession::country_map;
 class CGraceUser
 {
@@ -75,7 +75,7 @@ bool lessExploit(const CGraceUser& p1, const CGraceUser& p2)
 }
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  */
 UserSessionManager::UserSessionManager():zUserManager()
 {
@@ -83,7 +83,7 @@ UserSessionManager::UserSessionManager():zUserManager()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 UserSessionManager::~UserSessionManager()
 {
@@ -91,9 +91,9 @@ UserSessionManager::~UserSessionManager()
 }
 
 /**
- * \brief È¡µÃ¹ÜÀíÆ÷ÊµÀı
- * Èç¹û»¹Ã»ÓĞ³õÊ¼»¯¾ÍÔÚÕâÀï½øĞĞ
- * \return ¹ÜÀíÆ÷ÊµÀıÖ¸Õë
+ * \brief å–å¾—ç®¡ç†å™¨å®ä¾‹
+ * å¦‚æœè¿˜æ²¡æœ‰åˆå§‹åŒ–å°±åœ¨è¿™é‡Œè¿›è¡Œ
+ * \return ç®¡ç†å™¨å®ä¾‹æŒ‡é’ˆ
  */
 UserSessionManager *UserSessionManager::getInstance()
 {
@@ -103,7 +103,7 @@ UserSessionManager *UserSessionManager::getInstance()
 }
 
 /**
- * \brief É¾³ı¹ÜÀíÆ÷ÊµÀı
+ * \brief åˆ é™¤ç®¡ç†å™¨å®ä¾‹
  */
 void UserSessionManager::delInstance()
 {
@@ -111,8 +111,8 @@ void UserSessionManager::delInstance()
 }
 
 /**
- * \brief »ñÈ¡Ò»¸öÎ¨Ò»ID
- * \return ÊÇ·ñ³É¹¦
+ * \brief è·å–ä¸€ä¸ªå”¯ä¸€ID
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool UserSessionManager::getUniqeID(DWORD &tempid)
 {
@@ -120,7 +120,7 @@ bool UserSessionManager::getUniqeID(DWORD &tempid)
 }
 
 /**
- * \brief ÊÍ·ÅÒ»¸öÎ¨Ò»ID
+ * \brief é‡Šæ”¾ä¸€ä¸ªå”¯ä¸€ID
  * \return 
  */
 void UserSessionManager::putUniqeID(const DWORD &tempid)
@@ -128,23 +128,23 @@ void UserSessionManager::putUniqeID(const DWORD &tempid)
 }
 
 /**
- * \brief ³õÊ¼»¯ÓÃ»§¹ÜÀíÆ÷
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–ç”¨æˆ·ç®¡ç†å™¨
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool UserSessionManager::init()
 {
 	if(inited)
 	{
-		Zebra::logger->warn("User Session¹ÜÀíÆ÷ÒÑ¾­±»³õÊ¼»¯¹ı...");
+		Zebra::logger->warn("User Sessionç®¡ç†å™¨å·²ç»è¢«åˆå§‹åŒ–è¿‡...");
 		return true;
 	}
 	inited=true;
-	Zebra::logger->info("³õÊ¼»¯User Session¹ÜÀíÆ÷³É¹¦...");
+	Zebra::logger->info("åˆå§‹åŒ–User Sessionç®¡ç†å™¨æˆåŠŸ...");
 	return inited;
 }
 
 /**
- * \brief ½áÊøÓÃ»§¹ÜÀíÆ÷
+ * \brief ç»“æŸç”¨æˆ·ç®¡ç†å™¨
  */
 void UserSessionManager::final()
 {
@@ -155,9 +155,9 @@ void UserSessionManager::final()
 }
 
 /**
- * \brief ¸ù¾İÃû×ÖµÃµ½ÓÃ»§»á»°µÄÖ¸Õë
- * \param name ÓÃ»§Ãû×Ö
- * \return ÕÒµ½µÄ»á»°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief æ ¹æ®åå­—å¾—åˆ°ç”¨æˆ·ä¼šè¯çš„æŒ‡é’ˆ
+ * \param name ç”¨æˆ·åå­—
+ * \return æ‰¾åˆ°çš„ä¼šè¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 UserSession * UserSessionManager::getUserSessionByName( const char * name)
 {
@@ -171,9 +171,9 @@ UserSession * UserSessionManager::getUserSessionByName( const char * name)
 }
 
 /**
- * \brief ¸ù¾İÁÙÊ±IDµÃµ½ÓÃ»§»á»°µÄÖ¸Õë
- * \param tempid ÓÃ»§ÁÙÊ±id
- * \return ÕÒµ½µÄ»á»°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief æ ¹æ®ä¸´æ—¶IDå¾—åˆ°ç”¨æˆ·ä¼šè¯çš„æŒ‡é’ˆ
+ * \param tempid ç”¨æˆ·ä¸´æ—¶id
+ * \return æ‰¾åˆ°çš„ä¼šè¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 UserSession *UserSessionManager::getUserByTempID(DWORD tempid)
 {
@@ -181,9 +181,9 @@ UserSession *UserSessionManager::getUserByTempID(DWORD tempid)
 }
 
 /**
- * \brief ¸ù¾İIDµÃµ½ÓÃ»§»á»°µÄÖ¸Õë
- * \param id ÓÃ»§id
- * \return ÕÒµ½µÄ»á»°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief æ ¹æ®IDå¾—åˆ°ç”¨æˆ·ä¼šè¯çš„æŒ‡é’ˆ
+ * \param id ç”¨æˆ·id
+ * \return æ‰¾åˆ°çš„ä¼šè¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 UserSession *UserSessionManager::getUserByID(DWORD id)
 {
@@ -299,7 +299,7 @@ void UserSessionManager::sendExploitSort(UserSession* pUser)
 				user->sendCmdToMe(retCmd, (retCmd->dwSize*sizeof(Cmd::stWaitGenItem)+
 							sizeof(Cmd::stRtnWaitGenUserCmd)));
 				
-				user->sendSysChat(Cmd::INFO_TYPE_FAIL, "µ±Ç°Ã»ÓĞ¿ÉÈÎÃüµÄ´ıÑ¡½«¾ü¡£ÇëÉÔºóÔÙÊÔ");
+				user->sendSysChat(Cmd::INFO_TYPE_FAIL, "å½“å‰æ²¡æœ‰å¯ä»»å‘½çš„å¾…é€‰å°†å†›ã€‚è¯·ç¨åå†è¯•");
 			}
 		}
 		
@@ -359,9 +359,9 @@ void UserSessionManager::sendCmdByCondition(const Cmd::stNullUserCmd *pstrCmd, c
 }
 
 /**
- * \brief É¾³ıÒ»¸ötaskÉÏµÄËùÓĞÓÃ»§»á»°
- * Ò»¸ötaskÓĞ¹ÜÀí¶à¸öÁ¬½Ó
- * \param task taskÖ¸Õë
+ * \brief åˆ é™¤ä¸€ä¸ªtaskä¸Šçš„æ‰€æœ‰ç”¨æˆ·ä¼šè¯
+ * ä¸€ä¸ªtaskæœ‰ç®¡ç†å¤šä¸ªè¿æ¥
+ * \param task taskæŒ‡é’ˆ
  * \return 
  */
 void UserSessionManager::removeAllUserByTask(SessionTask *task)
@@ -373,7 +373,7 @@ void UserSessionManager::removeAllUserByTask(SessionTask *task)
 		{
 			if(su->getTask()==task || (su->scene!=NULL && su->scene->getTask()==task))
 			{
-				CUnionM::getMe().userOffline(su); // ÓÃÓÚ´¦Àí°ï»á³ÉÔ±ÏÂÏß
+				CUnionM::getMe().userOffline(su); // ç”¨äºå¤„ç†å¸®ä¼šæˆå‘˜ä¸‹çº¿
 				CSchoolM::getMe().userOffline(su);
 				CSeptM::getMe().userOffline(su);
 				CQuizM::getMe().userOffline(su);
@@ -401,13 +401,13 @@ void UserSessionManager::removeAllUserByTask(SessionTask *task)
 
 	if(task->getType()==GATEWAYSERVER || task->getType()==SCENESSERVER)
 	{
-		Zebra::logger->debug(" ÇåÀí´Ë·şÎñÆ÷(%ld,%ld)µÄËùÓĞÓÃ»§ĞÅÏ¢",task->getID(),task->getType());
+		Zebra::logger->debug(" æ¸…ç†æ­¤æœåŠ¡å™¨(%ld,%ld)çš„æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯",task->getID(),task->getType());
 		rust.task=task;
 		offline.task=task;
 	}
 	else
 	{
-		Zebra::logger->debug(" Î´Öª·şÎñÆ÷(%ld,%ld)",task->getID(),task->getType());
+		Zebra::logger->debug(" æœªçŸ¥æœåŠ¡å™¨(%ld,%ld)",task->getID(),task->getType());
 		rust.task=NULL;
 		offline.task=NULL;
 	}
@@ -426,11 +426,11 @@ void UserSessionManager::removeAllUserByTask(SessionTask *task)
 	}
 }
 
-///³¡¾°»á»°¹ÜÀíÆ÷ÊµÀı
+///åœºæ™¯ä¼šè¯ç®¡ç†å™¨å®ä¾‹
 SceneSessionManager * SceneSessionManager::sm(NULL);
 
 /**
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  */
 SceneSessionManager::SceneSessionManager():zSceneManager()
 {
@@ -438,7 +438,7 @@ SceneSessionManager::SceneSessionManager():zSceneManager()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 SceneSessionManager::~SceneSessionManager()
 {
@@ -446,8 +446,8 @@ SceneSessionManager::~SceneSessionManager()
 }
 
 /**
- * \brief µÃµ½³¡¾°»á»°¹ÜÀíÆ÷ÊµÀı
- * \return ³¡¾°»á»°¹ÜÀíÆ÷ÊµÀıÖ¸Õë
+ * \brief å¾—åˆ°åœºæ™¯ä¼šè¯ç®¡ç†å™¨å®ä¾‹
+ * \return åœºæ™¯ä¼šè¯ç®¡ç†å™¨å®ä¾‹æŒ‡é’ˆ
  */
 SceneSessionManager *SceneSessionManager::getInstance()
 {
@@ -457,7 +457,7 @@ SceneSessionManager *SceneSessionManager::getInstance()
 }
 
 /**
- * \brief É¾³ı³¡¾°»á»°¹ÜÀíÆ÷ÊµÀı
+ * \brief åˆ é™¤åœºæ™¯ä¼šè¯ç®¡ç†å™¨å®ä¾‹
  */
 void SceneSessionManager::delInstance()
 {
@@ -465,9 +465,9 @@ void SceneSessionManager::delInstance()
 }
 
 /**
- * \brief µÃµ½Ò»¸öÎ¨Ò»id
- * \param tempid Êä³ö£¬µÃµ½µÄid
- * \return ÊÇ·ñ³É¹¦
+ * \brief å¾—åˆ°ä¸€ä¸ªå”¯ä¸€id
+ * \param tempid è¾“å‡ºï¼Œå¾—åˆ°çš„id
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneSessionManager::getUniqeID(DWORD &tempid)
 {
@@ -475,31 +475,31 @@ bool SceneSessionManager::getUniqeID(DWORD &tempid)
 }
 
 /**
- * \brief ÊÍ·ÅÒ»¸öÎ¨Ò»µÄid
- * \param tempid ÒªÊÍ·ÅµÄid
+ * \brief é‡Šæ”¾ä¸€ä¸ªå”¯ä¸€çš„id
+ * \param tempid è¦é‡Šæ”¾çš„id
  */
 void SceneSessionManager::putUniqeID(const DWORD &tempid)
 {
 }
 
 /**
- * \brief ³õÊ¼»¯³¡¾°»á»°¹ÜÀíÆ÷
- * \return ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–åœºæ™¯ä¼šè¯ç®¡ç†å™¨
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneSessionManager::init()
 {
 	if(inited)
 	{
-		Zebra::logger->warn("Scene Session¹ÜÀíÆ÷ÒÑ¾­±»³õÊ¼»¯¹ı...");
+		Zebra::logger->warn("Scene Sessionç®¡ç†å™¨å·²ç»è¢«åˆå§‹åŒ–è¿‡...");
 		return true;
 	}
 	inited=true;
-	Zebra::logger->info("³õÊ¼»¯Scene Session¹ÜÀíÆ÷³É¹¦...");
+	Zebra::logger->info("åˆå§‹åŒ–Scene Sessionç®¡ç†å™¨æˆåŠŸ...");
 	return inited;
 }
 
 /**
- * \brief ½áÊø³¡¾°¹ÜÀíÆ÷
+ * \brief ç»“æŸåœºæ™¯ç®¡ç†å™¨
  */
 void SceneSessionManager::final()
 {
@@ -510,9 +510,9 @@ void SceneSessionManager::final()
 }
 
 /**
- * \brief Ïò¹ÜÀíÆ÷ÖĞÌí¼ÓÒ»¸ö³¡¾°
- * \param scene ÒªÌí¼ÓµÄ³¡¾°
- * \return ÊÇ·ñÌí¼Ó³É¹¦
+ * \brief å‘ç®¡ç†å™¨ä¸­æ·»åŠ ä¸€ä¸ªåœºæ™¯
+ * \param scene è¦æ·»åŠ çš„åœºæ™¯
+ * \return æ˜¯å¦æ·»åŠ æˆåŠŸ
  */
 bool SceneSessionManager::addScene(SceneSession *scene)
 {
@@ -523,9 +523,9 @@ bool SceneSessionManager::addScene(SceneSession *scene)
 }
 
 /**
- * \brief ¸ù¾İÃû×ÖµÃµ½³¡¾°Ö¸Õë
- * \param name ³¡¾°Ãû×Ö
- * \return ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief æ ¹æ®åå­—å¾—åˆ°åœºæ™¯æŒ‡é’ˆ
+ * \param name åœºæ™¯åå­—
+ * \return åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneSession * SceneSessionManager::getSceneByName(const char *name)
 {
@@ -533,9 +533,9 @@ SceneSession * SceneSessionManager::getSceneByName(const char *name)
 }
 
 /**
- * \brief ¸ù¾İÁÙÊ±idµÃµ½³¡¾°Ö¸Õë
- * \param tempid ³¡¾°ÁÙÊ±id
- * \return ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief æ ¹æ®ä¸´æ—¶idå¾—åˆ°åœºæ™¯æŒ‡é’ˆ
+ * \param tempid åœºæ™¯ä¸´æ—¶id
+ * \return åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneSession * SceneSessionManager::getSceneByTempID(DWORD tempid)
 {
@@ -543,9 +543,9 @@ SceneSession * SceneSessionManager::getSceneByTempID(DWORD tempid)
 }
 
 /**
- * \brief ¸ù¾İidµÃµ½³¡¾°Ö¸Õë
- * \param id ³¡¾°id
- * \return ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief æ ¹æ®idå¾—åˆ°åœºæ™¯æŒ‡é’ˆ
+ * \param id åœºæ™¯id
+ * \return åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneSession * SceneSessionManager::getSceneByID(DWORD id)
 {
@@ -553,8 +553,8 @@ SceneSession * SceneSessionManager::getSceneByID(DWORD id)
 }
 
 /**
- * \brief ´Ó¹ÜÀíÆ÷ÒÆ³ıÒ»¸ö³¡¾°
- * \param scene ÒªÒÆ³ıµÄ³¡¾°
+ * \brief ä»ç®¡ç†å™¨ç§»é™¤ä¸€ä¸ªåœºæ™¯
+ * \param scene è¦ç§»é™¤çš„åœºæ™¯
  */
 void SceneSessionManager::removeScene(SceneSession *scene)
 {
@@ -563,8 +563,8 @@ void SceneSessionManager::removeScene(SceneSession *scene)
 	rwlock.unlock();
 }
 /**
- * \brief ³¡¾°·şÎñÆ÷¹Ø±Õ£¬ĞèÒª×¢ÏúÒ»Ğ©µØÍ¼
- * \param task ¸Ã³¡¾°·şÎñÆ÷Á¬½ÓµÄSessionTask
+ * \brief åœºæ™¯æœåŠ¡å™¨å…³é—­ï¼Œéœ€è¦æ³¨é”€ä¸€äº›åœ°å›¾
+ * \param task è¯¥åœºæ™¯æœåŠ¡å™¨è¿æ¥çš„SessionTask
  */
 void SceneSessionManager::removeAllSceneByTask(SessionTask *task)
 {
@@ -587,9 +587,9 @@ void SceneSessionManager::removeAllSceneByTask(SessionTask *task)
 }
 
 /**
- * \brief ¸ù¾İÎÄ¼şÃû×ÖµÃµ½³¡¾°Ö¸Õë
- * \param name ÎÄ¼şÃû×Ö
- * \return ÕÒµ½µÄ³¡¾°Ö¸Õë£¬Ê§°Ü·µ»Ø0
+ * \brief æ ¹æ®æ–‡ä»¶åå­—å¾—åˆ°åœºæ™¯æŒ‡é’ˆ
+ * \param name æ–‡ä»¶åå­—
+ * \return æ‰¾åˆ°çš„åœºæ™¯æŒ‡é’ˆï¼Œå¤±è´¥è¿”å›0
  */
 SceneSession * SceneSessionManager::getSceneByFile(const char *name)
 {
@@ -619,8 +619,8 @@ SceneSession * SceneSessionManager::getSceneByFile(const char *name)
 }
 
 /**
- * \brief ÉèÖÃ¹ú¼ÒµÄË°ÂÊ
- * \param byTax Ë°ÂÊ
+ * \brief è®¾ç½®å›½å®¶çš„ç¨ç‡
+ * \param byTax ç¨ç‡
  */
 void SceneSessionManager::notifyCountryTax(DWORD dwCountry,  BYTE byTax)
 {

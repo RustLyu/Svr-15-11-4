@@ -1,4 +1,4 @@
-#include "ArrayTable.h"
+ï»¿#include "ArrayTable.h"
 #include "zXMLParser.h"
 
 
@@ -15,7 +15,7 @@ bool ArrayTable::init(unsigned int type)
 	zXMLParser xml;
 	if(!xml.initFile(Zebra::global["skilltable"]))
 	{
-		Zebra::logger->debug("¼ÓÔØÖ°Òµ¼¼ÄÜÊ§°Ü!");
+		Zebra::logger->debug("åŠ è½½èŒä¸šæŠ€èƒ½å¤±è´¥!");
 		return false;
 	}
 
@@ -53,7 +53,7 @@ bool ArrayTable::init(unsigned int type)
 		}
 		else
 		{
-			Zebra::logger->debug("¼ÓÔØ¼¼ÄÜÊ§°Ü");
+			Zebra::logger->debug("åŠ è½½æŠ€èƒ½å¤±è´¥");
 		}
 		subroot = xml.getChildNode(root , "Timer");
 		if(subroot)
@@ -89,7 +89,7 @@ bool ArrayTable::init(unsigned int type)
 		}
 		else
 		{
-			Zebra::logger->debug("¼ÓÔØ²Ù×÷Ê§°Ü");
+			Zebra::logger->debug("åŠ è½½æ“ä½œå¤±è´¥");
 		}
 		subroot = xml.getChildNode(root , "Global");
 		if(subroot)

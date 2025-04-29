@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Leechdom.cpp  $
  * \author 
  * \date 
- * \brief Ò©Æ·,Ê³ÎïÀàÎïÆ·Ê¹ÓÃ
+ * \brief è¯å“,é£Ÿç‰©ç±»ç‰©å“ä½¿ç”¨
  *
- * »Ö¸´·¨ÊõÖµ,ÌåÁ¦Öµ,ÉúÃüÖµµÄÎïÆ·
+ * æ¢å¤æ³•æœ¯å€¼,ä½“åŠ›å€¼,ç”Ÿå‘½å€¼çš„ç‰©å“
  */
 
 #include "Leechdom.h"
@@ -15,11 +15,11 @@
 
 
 /**
- * \brief Ê¹ÓÃÒ©Æ·
+ * \brief ä½¿ç”¨è¯å“
  *
  *
- * \param obj: Ê¹ÓÃÎïÆ·Ö¸Õë 
- * \return Ê¹ÓÃÊÇ·ñ³É¹¦
+ * \param obj: ä½¿ç”¨ç‰©å“æŒ‡é’ˆ 
+ * \return ä½¿ç”¨æ˜¯å¦æˆåŠŸ
  */
 bool SceneUser::useLeechdom(zObject *obj)
 {
@@ -110,7 +110,7 @@ bool SceneUser::useLeechdom(zObject *obj)
 				}
 				if (0==need)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÏÖÔÚ²»ĞèÒª");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ç°åœ¨ä¸éœ€è¦");
 					return true;
 				}
 
@@ -144,7 +144,7 @@ bool SceneUser::useLeechdom(zObject *obj)
 				DWORD need = charstate.maxmp-charbase.mp;
 				if (0==need)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãÏÖÔÚ²»ĞèÒª");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ç°åœ¨ä¸éœ€è¦");
 					return true;
 				}
 
@@ -181,7 +181,7 @@ bool SceneUser::useLeechdom(zObject *obj)
 			break;
 		default:
 			{
-				Zebra::logger->debug("²»ÄÜÊ¶±ğµÄÎïÆ·ÀàĞÍ:%u" , obj->base->leechdom.id);
+				Zebra::logger->debug("ä¸èƒ½è¯†åˆ«çš„ç‰©å“ç±»å‹:%u" , obj->base->leechdom.id);
 				return false;
 			}
 			break;
@@ -190,14 +190,14 @@ bool SceneUser::useLeechdom(zObject *obj)
 	if(obj->base->leechdom.id!=Leechdom_hpmax && obj->base->leechdom.id!=Leechdom_mpmax && (int)obj->data.dwNum > 0)
 		obj->data.dwNum--;
 
-	if(obj->data.dwNum==0)//ÊıÁ¿0
+	if(obj->data.dwNum==0)//æ•°é‡0
 	{
-		zObject::logger(obj->createid,obj->data.qwThisID,obj->data.strName,obj->data.dwNum,obj->data.dwNum,0,this->id,this->name,0,NULL,"ÓÃÒ©",NULL,0,0);
+		zObject::logger(obj->createid,obj->data.qwThisID,obj->data.strName,obj->data.dwNum,obj->data.dwNum,0,this->id,this->name,0,NULL,"ç”¨è¯",NULL,0,0);
 		packs.removeObject(obj); //notify and delete
 	}
 	else
 	{
-		//zObject::logger(obj->createid,obj->data.qwThisID,obj->base->name,obj->data.dwNum,this->id,this->name,this->id,this->name,"ÓÃÒ©");
+		//zObject::logger(obj->createid,obj->data.qwThisID,obj->base->name,obj->data.dwNum,this->id,this->name,this->id,this->name,"ç”¨è¯");
 		if(old_num != obj->data.dwNum)
 		{
 			Cmd::stRefCountObjectPropertyUserCmd send;
@@ -249,17 +249,17 @@ bool SceneUser::useLeechdom(zObject *obj)
 		default:
 			break;
 	}
-#endif // _TEST_DATA_LOG²âÊÔÊı¾İ
+#endif // _TEST_DATA_LOGæµ‹è¯•æ•°æ®
 
 	return true;
 }
 /**
- * \brief Ïò¶¨Ê±Æ÷Ôö¼ÓÒ»ÖÓ³ÖĞøÀàĞÍ
+ * \brief å‘å®šæ—¶å™¨å¢åŠ ä¸€é’ŸæŒç»­ç±»å‹
  *
  *
- * \param type: Ò©Æ·ÀàĞÍ
- * \param value: ÊıÖµ
- * \param times: ³ÖĞøÊ±¼ä
+ * \param type: è¯å“ç±»å‹
+ * \param value: æ•°å€¼
+ * \param times: æŒç»­æ—¶é—´
  */
 void Leechdom::add(LeechdomType type , WORD value ,WORD times)
 {
@@ -273,7 +273,7 @@ void Leechdom::add(LeechdomType type , WORD value ,WORD times)
 }
 
 /**
- * \brief ËÀÍöÊ±ĞèÒªÇå³ıËùÓĞÒ©Æ·Ğ§¹û
+ * \brief æ­»äº¡æ—¶éœ€è¦æ¸…é™¤æ‰€æœ‰è¯å“æ•ˆæœ
  *
  */
 void Leechdom::clear()
@@ -283,7 +283,7 @@ void Leechdom::clear()
 	mlock.unlock();
 }
 /**
- * \brief ¶¨Ê±Ë¢ĞÂÀäÊ±¼ä
+ * \brief å®šæ—¶åˆ·æ–°å†·æ—¶é—´
  *
  */
 void Leechdom::checkCooling()
@@ -300,11 +300,11 @@ void Leechdom::checkCooling()
 		mpcooling --;
 }
 /**
- * \brief ¶¨Ê±Ë¢ĞÂÒ©Æ·ÊıÖµ×÷ÓÃ
+ * \brief å®šæ—¶åˆ·æ–°è¯å“æ•°å€¼ä½œç”¨
  *
  *
- * \param pUser: ÓÃ»§
- * \param update: ¸Ä±äµÄÓÃ»§ÊôĞÔÖµ(¶ş½øÖÆ±íÊ¾)
+ * \param pUser: ç”¨æˆ·
+ * \param update: æ”¹å˜çš„ç”¨æˆ·å±æ€§å€¼(äºŒè¿›åˆ¶è¡¨ç¤º)
  * \return update
  */
 DWORD Leechdom::fresh(SceneUser *pUser , DWORD &update)
@@ -381,11 +381,11 @@ DWORD Leechdom::fresh(SceneUser *pUser , DWORD &update)
 }
 
 /**
- * \brief ¼ì²éÊÇ·ñµ½ÀäÈ´ÆÚ
+ * \brief æ£€æŸ¥æ˜¯å¦åˆ°å†·å´æœŸ
  *
  *
- * \param type: ÀàĞÍ
- * \return ÊÇ·ñ¿ÉÒÔÔÙ´ÎÊ¹ÓÃ¸ÃÀàÒ©Æ·
+ * \param type: ç±»å‹
+ * \return æ˜¯å¦å¯ä»¥å†æ¬¡ä½¿ç”¨è¯¥ç±»è¯å“
  */
 bool Leechdom::isCooling(DWORD type)
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPClient.h  $
  * \author  
  * \date 
- * \brief TCP¿Í»§¶Ë·â×°
+ * \brief TCPå®¢æˆ·ç«¯å°è£…
  *
  * 
  */
@@ -18,9 +18,9 @@
 #include "zThread.h"
 
 /**
- * \brief TCP¿Í»§¶Ë
+ * \brief TCPå®¢æˆ·ç«¯
  *
- * ·â×°ÁËÒ»Ğ©TCP¿Í»§¶ËµÄÂß¼­£¬±ÈÈç½¨Á¢Á¬½ÓµÈµÈ£¬ÔÚÊµ¼ÊÓ¦ÓÃÖĞ£¬ĞèÒªÅÉÉúÕâ¸öÀà£¬²¢ÖØÔØ½âÎöÖ¸ÁîµÄº¯ÊımsgParse
+ * å°è£…äº†ä¸€äº›TCPå®¢æˆ·ç«¯çš„é€»è¾‘ï¼Œæ¯”å¦‚å»ºç«‹è¿æ¥ç­‰ç­‰ï¼Œåœ¨å®é™…åº”ç”¨ä¸­ï¼Œéœ€è¦æ´¾ç”Ÿè¿™ä¸ªç±»ï¼Œå¹¶é‡è½½è§£ææŒ‡ä»¤çš„å‡½æ•°msgParse
  *
  */
 class zTCPClient : public zThread, public zProcessor
@@ -29,13 +29,13 @@ class zTCPClient : public zThread, public zProcessor
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬´´½¨ÊµÀı¶ÔÏó£¬³õÊ¼»¯¶ÔÏó³ÉÔ±
+		 * \brief æ„é€ å‡½æ•°ï¼Œåˆ›å»ºå®ä¾‹å¯¹è±¡ï¼Œåˆå§‹åŒ–å¯¹è±¡æˆå‘˜
 		 *
 		 *
-		 * \param name Ãû³Æ
-		 * \param ip µØÖ·
-		 * \param port ¶Ë¿Ú
-		 * \param compress µ×²ãÊı¾İ´«ÊäÊÇ·ñÖ§³ÖÑ¹Ëõ
+		 * \param name åç§°
+		 * \param ip åœ°å€
+		 * \param port ç«¯å£
+		 * \param compress åº•å±‚æ•°æ®ä¼ è¾“æ˜¯å¦æ”¯æŒå‹ç¼©
 		 */
 		zTCPClient(
 				const std::string &name, 
@@ -45,7 +45,7 @@ class zTCPClient : public zThread, public zProcessor
 			: zThread(name), ip(ip), port(port), pSocket(NULL), compress(compress) {};
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬Ïú»Ù¶ÔÏó
+		 * \brief ææ„å‡½æ•°ï¼Œé”€æ¯å¯¹è±¡
 		 *
 		 */
 		~zTCPClient() 
@@ -56,12 +56,12 @@ class zTCPClient : public zThread, public zProcessor
 		bool connect();
 
 		/**
-		 * \brief ½¨Á¢Ò»¸öµ½·şÎñÆ÷µÄTCPÁ¬½Ó£¬Ö¸¶¨·şÎñÆ÷µÄIPµØÖ·ºÍ¶Ë¿Ú
+		 * \brief å»ºç«‹ä¸€ä¸ªåˆ°æœåŠ¡å™¨çš„TCPè¿æ¥ï¼ŒæŒ‡å®šæœåŠ¡å™¨çš„IPåœ°å€å’Œç«¯å£
 		 *
 		 *
-		 * \param ip ·şÎñÆ÷µÄIPµØÖ·
-		 * \param port ·şÎñÆ÷µÄ¶Ë¿Ú
-		 * \return Á¬½ÓÊÇ·ñ³É¹¦
+		 * \param ip æœåŠ¡å™¨çš„IPåœ°å€
+		 * \param port æœåŠ¡å™¨çš„ç«¯å£
+		 * \return è¿æ¥æ˜¯å¦æˆåŠŸ
 		 */
 		bool connect(const char *ip, const unsigned short port)
 		{
@@ -71,7 +71,7 @@ class zTCPClient : public zThread, public zProcessor
 		}
 
 		/**
-		 * \brief ¹Ø±Õ¿Í»§¶ËÁ¬½Ó
+		 * \brief å…³é—­å®¢æˆ·ç«¯è¿æ¥
 		 *
 		 */
 		virtual void close()
@@ -82,10 +82,10 @@ class zTCPClient : public zThread, public zProcessor
 		virtual bool sendCmd(const void *pstrCmd, const int nCmdLen);
 
 		/**
-		 * \brief ÉèÖÃ·şÎñÆ÷IPµØÖ·
+		 * \brief è®¾ç½®æœåŠ¡å™¨IPåœ°å€
 		 *
 		 *
-		 * \param ip ÉèÖÃµÄ·şÎñÆ÷IPµØÖ·
+		 * \param ip è®¾ç½®çš„æœåŠ¡å™¨IPåœ°å€
 		 */
 		void setIP(const char *ip)
 		{
@@ -93,10 +93,10 @@ class zTCPClient : public zThread, public zProcessor
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷IPµØÖ·
+		 * \brief è·å–æœåŠ¡å™¨IPåœ°å€
 		 *
 		 *
-		 * \return ·µ»ØµØÖ·
+		 * \return è¿”å›åœ°å€
 		 */
 		const char *getIP() const
 		{
@@ -104,10 +104,10 @@ class zTCPClient : public zThread, public zProcessor
 		}
 
 		/**
-		 * \brief ÉèÖÃ·şÎñÆ÷¶Ë¿Ú
+		 * \brief è®¾ç½®æœåŠ¡å™¨ç«¯å£
 		 *
 		 *
-		 * \param port ÉèÖÃµÄ·şÎñÆ÷¶Ë¿Ú
+		 * \param port è®¾ç½®çš„æœåŠ¡å™¨ç«¯å£
 		 */
 		void setPort(const unsigned short port)
 		{
@@ -115,10 +115,10 @@ class zTCPClient : public zThread, public zProcessor
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷¶Ë¿Ú
+		 * \brief è·å–æœåŠ¡å™¨ç«¯å£
 		 *
 		 *
-		 * \return ·µ»Ø¶Ë¿Ú
+		 * \return è¿”å›ç«¯å£
 		 */
 		const unsigned short getPort() const
 		{
@@ -126,16 +126,16 @@ class zTCPClient : public zThread, public zProcessor
 		}
 
 		virtual void run();
-		//Ö¸Áî·ÖÎö
+		//æŒ‡ä»¤åˆ†æ
 		static CmdAnalysis analysis;
 
 	protected:
 
-		std::string ip;									/**< ·şÎñÆ÷µØÖ· */
-		unsigned short port;							/**< ·şÎñÆ÷¶Ë¿Ú */
-		zSocket *pSocket;								/**< µ×²ãÌ×½Ó¿Ú */
+		std::string ip;									/**< æœåŠ¡å™¨åœ°å€ */
+		unsigned short port;							/**< æœåŠ¡å™¨ç«¯å£ */
+		zSocket *pSocket;								/**< åº•å±‚å¥—æ¥å£ */
 
-		const bool compress;							/**< ÊÇ·ñÖ§³ÖÑ¹Ëõ */
+		const bool compress;							/**< æ˜¯å¦æ”¯æŒå‹ç¼© */
 
 }; 
 

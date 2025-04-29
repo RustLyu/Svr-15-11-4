@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPServer.cpp  $
  * \author  
- * \date 2004Äê11ÔÂ02ÈÕ 17Ê±31·Ö02Ãë CST
- * \brief ÊµÏÖÀàzTCPServer
+ * \date 2004å¹´11æœˆ02æ—¥ 17æ—¶31åˆ†02ç§’ CST
+ * \brief å®ç°ç±»zTCPServer
  *
  * 
  */
@@ -18,8 +18,8 @@
 #include "Zebra.h"
 
 /**
- * \brief ¹¹Ôìº¯Êı£¬ÓÃÓÚ¹¹ÔìÒ»¸ö·şÎñÆ÷zTCPServer¶ÔÏó
- * \param name ·şÎñÆ÷Ãû³Æ
+ * \brief æ„é€ å‡½æ•°ï¼Œç”¨äºæ„é€ ä¸€ä¸ªæœåŠ¡å™¨zTCPServerå¯¹è±¡
+ * \param name æœåŠ¡å™¨åç§°
  */
 zTCPServer::zTCPServer(const std::string &name)
 : name(name),
@@ -33,7 +33,7 @@ zTCPServer::zTCPServer(const std::string &name)
 }
 
 /**
- * \brief Îö¹¹º¯Êı£¬ÓÃÓÚÏú»ÙÒ»¸özTCPServer¶ÔÏó
+ * \brief ææ„å‡½æ•°ï¼Œç”¨äºé”€æ¯ä¸€ä¸ªzTCPServerå¯¹è±¡
  *
  *
  */
@@ -52,10 +52,10 @@ zTCPServer::~zTCPServer()
 }
 
 /**
- * \brief °ó¶¨¼àÌı·şÎñµ½Ä³Ò»¸ö¶Ë¿Ú
- * \param name °ó¶¨¶Ë¿ÚÃû³Æ
- * \param port ¾ßÌå°ó¶¨µÄ¶Ë¿Ú
- * \return °ó¶¨ÊÇ·ñ³É¹¦
+ * \brief ç»‘å®šç›‘å¬æœåŠ¡åˆ°æŸä¸€ä¸ªç«¯å£
+ * \param name ç»‘å®šç«¯å£åç§°
+ * \param port å…·ä½“ç»‘å®šçš„ç«¯å£
+ * \return ç»‘å®šæ˜¯å¦æˆåŠŸ
  */
 bool zTCPServer::bind(const std::string &name, const unsigned short port)
 {
@@ -64,28 +64,28 @@ bool zTCPServer::bind(const std::string &name, const unsigned short port)
 
 	if (-1 != sock) 
 	{
-		Zebra::logger->error("·şÎñÆ÷¿ÉÄÜÒÑ¾­³õÊ¼»¯");;
+		Zebra::logger->error("æœåŠ¡å™¨å¯èƒ½å·²ç»åˆå§‹åŒ–");;
 		return false;
 	}
 
 	sock = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (-1 == sock) 
 	{
-		Zebra::logger->error("´´½¨Ì×½Ó¿ÚÊ§°Ü");
+		Zebra::logger->error("åˆ›å»ºå¥—æ¥å£å¤±è´¥");
 		return false;
 	}
 
-	//ÉèÖÃÌ×½Ó¿ÚÎª¿ÉÖØÓÃ×´Ì¬
+	//è®¾ç½®å¥—æ¥å£ä¸ºå¯é‡ç”¨çŠ¶æ€
 	int reuse = 1;
 	if (-1 == ::setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse))) 
 	{
-		Zebra::logger->error("²»ÄÜÉèÖÃÌ×½Ó¿ÚÎª¿ÉÖØÓÃ×´Ì¬");
+		Zebra::logger->error("ä¸èƒ½è®¾ç½®å¥—æ¥å£ä¸ºå¯é‡ç”¨çŠ¶æ€");
 		TEMP_FAILURE_RETRY(::close(sock));
 		sock = -1;
 		return false;
 	}
 
-	//ÉèÖÃÌ×½Ó¿Ú·¢ËÍ½ÓÊÕ»º³å£¬²¢ÇÒ·şÎñÆ÷µÄ±ØĞëÔÚacceptÖ®Ç°ÉèÖÃ
+	//è®¾ç½®å¥—æ¥å£å‘é€æ¥æ”¶ç¼“å†²ï¼Œå¹¶ä¸”æœåŠ¡å™¨çš„å¿…é¡»åœ¨acceptä¹‹å‰è®¾ç½®
 	socklen_t window_size = 128 * 1024;
 	if (-1 == ::setsockopt(sock, SOL_SOCKET, SO_RCVBUF, &window_size, sizeof(window_size)))
 	{
@@ -106,7 +106,7 @@ bool zTCPServer::bind(const std::string &name, const unsigned short port)
 	int retcode = ::bind(sock, (struct sockaddr *) &addr, sizeof(addr));
 	if (-1 == retcode) 
 	{
-		Zebra::logger->error("²»ÄÜ°ó¶¨·şÎñÆ÷¶Ë¿Ú");
+		Zebra::logger->error("ä¸èƒ½ç»‘å®šæœåŠ¡å™¨ç«¯å£");
 		TEMP_FAILURE_RETRY(::close(sock));
 		sock = -1;
 		return false;
@@ -115,7 +115,7 @@ bool zTCPServer::bind(const std::string &name, const unsigned short port)
 	retcode = ::listen(sock, MAX_WAITQUEUE);
 	if (-1 == retcode) 
 	{
-		Zebra::logger->error("¼àÌıÌ×½Ó¿ÚÊ§°Ü");
+		Zebra::logger->error("ç›‘å¬å¥—æ¥å£å¤±è´¥");
 		TEMP_FAILURE_RETRY(::close(sock));
 		sock = -1;
 		return false;
@@ -128,17 +128,17 @@ bool zTCPServer::bind(const std::string &name, const unsigned short port)
 	assert(0 == epoll_ctl(kdpfd, EPOLL_CTL_ADD, sock, &ev));
 #endif
 
-	Zebra::logger->info("³õÊ¼»¯ %s:%u ³É¹¦", name.c_str(), port);
+	Zebra::logger->info("åˆå§‹åŒ– %s:%u æˆåŠŸ", name.c_str(), port);
 
 	return true;
 }
 
 /**
- * \brief ½ÓÊÜ¿Í»§¶ËµÄÁ¬½Ó
+ * \brief æ¥å—å®¢æˆ·ç«¯çš„è¿æ¥
  *
  *
- * \param addr ·µ»ØµÄµØÖ·
- * \return ·µ»ØµÄ¿Í»§¶ËÌ×½Ó¿Ú
+ * \param addr è¿”å›çš„åœ°å€
+ * \return è¿”å›çš„å®¢æˆ·ç«¯å¥—æ¥å£
  */
 int zTCPServer::accept(struct sockaddr_in *addr)
 {
@@ -150,7 +150,7 @@ int zTCPServer::accept(struct sockaddr_in *addr)
 	struct epoll_event ev;
 	int rc = epoll_wait(kdpfd, &ev, 1, T_MSEC);
 	if (1 == rc && (ev.events & EPOLLIN))
-		//×¼±¸ºÃ½ÓÊÜ
+		//å‡†å¤‡å¥½æ¥å—
 		return TEMP_FAILURE_RETRY(::accept(sock, (struct sockaddr *)addr, &len));
 #else
 	struct pollfd pfd;
@@ -159,7 +159,7 @@ int zTCPServer::accept(struct sockaddr_in *addr)
 	pfd.revents = 0;
 	int rc = TEMP_FAILURE_RETRY(::poll(&pfd, 1, T_MSEC));
 	if (1 == rc && (pfd.revents & POLLIN))
-		//×¼±¸ºÃ½ÓÊÜ
+		//å‡†å¤‡å¥½æ¥å—
 		return TEMP_FAILURE_RETRY(::accept(sock, (struct sockaddr *)addr, &len));
 #endif
 

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file	RecommendManager.h
  * \version  	$Id: RecommendManager.h  $
  * \author  	
  * \date 	
- * \brief 	ÍÆ¼öÈË¹ÜÀíÆ÷¶¨Òå
+ * \brief 	æ¨èäººç®¡ç†å™¨å®šä¹‰
  *
  * 
  */
@@ -25,13 +25,13 @@ class Recommend;
 class RecommendSub
 {
 	public:
-		char name[MAX_NAMESIZE]; // ±»ÍÆ¼öÈËĞÕÃû
-		DWORD id; // ±»ÍÆ¼öÈËÓÃ»§ID
-		DWORD lastLevel; // ×îºóÒ»´ÎÌáÈ¡½±ÀøµÄµÈ¼¶
-		DWORD recommendid; // ÍÆ¼öÈËID
-		DWORD dwTotal; // ÀÛ¼ÆÒÑÁìÈ¡µÄ½ğ¶î
+		char name[MAX_NAMESIZE]; // è¢«æ¨èäººå§“å
+		DWORD id; // è¢«æ¨èäººç”¨æˆ·ID
+		DWORD lastLevel; // æœ€åä¸€æ¬¡æå–å¥–åŠ±çš„ç­‰çº§
+		DWORD recommendid; // æ¨èäººID
+		DWORD dwTotal; // ç´¯è®¡å·²é¢†å–çš„é‡‘é¢
 
-		Recommend*  myRecommend; // ÎÒµÄÍÆ¼öÈË
+		Recommend*  myRecommend; // æˆ‘çš„æ¨èäºº
 		void init(Record* rec);
 		void writeDatabase();
 		bool insertDatabase();
@@ -80,11 +80,11 @@ class Recommend
 		~Recommend();
 			
 	protected:
-		DWORD id; // ÍÆ¼öÈËID
-		char  name[MAX_NAMESIZE]; // ÍÆ¼öÈËÃû×Ö
-		DWORD dwBalance;	// ÍÆ¼öÈË¿ÉÒÔÌáÈ¡µÄ½±Àø
-		DWORD dwTotal;		// ÀÛ»ıÁìÈ¡µÄ½±Àø
-		std::vector<RecommendSub*> subs; // ±»ÍÆ¼öÈËÁĞ±í
+		DWORD id; // æ¨èäººID
+		char  name[MAX_NAMESIZE]; // æ¨èäººåå­—
+		DWORD dwBalance;	// æ¨èäººå¯ä»¥æå–çš„å¥–åŠ±
+		DWORD dwTotal;		// ç´¯ç§¯é¢†å–çš„å¥–åŠ±
+		std::vector<RecommendSub*> subs; // è¢«æ¨èäººåˆ—è¡¨
 		zRWLock rwlock;
 };
 
@@ -116,7 +116,7 @@ class RecommendM : public Singleton<RecommendM>
 		typedef std::map<DWORD, Recommend*>::value_type recommendValueType;
 		typedef std::map<DWORD, Recommend*>::iterator recommendIter;
 		std::map<DWORD, Recommend*> recommends;
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef std::map<DWORD, RecommendSub*>::value_type recommendsubIndexValueType;
 				
 		typedef std::map<DWORD, RecommendSub *>::iterator resubIter;

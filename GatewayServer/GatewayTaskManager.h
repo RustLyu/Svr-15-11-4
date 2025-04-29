@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GatewayTaskManager.h  $
  * \author  
  * \date 
- * \brief ¹ÜÀí×ÓÁ¬½ÓµÄÈİÆ÷
+ * \brief ç®¡ç†å­è¿æ¥çš„å®¹å™¨
  *
  * 
  */
@@ -20,7 +20,7 @@
 #include "zRWLock.h"
 
 /**
- * \brief ·şÎñÆ÷×ÓÁ¬½Ó¹ÜÀíÆ÷
+ * \brief æœåŠ¡å™¨å­è¿æ¥ç®¡ç†å™¨
  *
  */
 class GatewayTaskManager
@@ -29,21 +29,21 @@ class GatewayTaskManager
 	public:
 
 		/**
-		 * \brief »Øµ÷º¯Êı
+		 * \brief å›è°ƒå‡½æ•°
 		 *
 		 */
 		typedef zEntryCallback<GatewayTask> GatewayTaskCallback;
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~GatewayTaskManager();
 
 		/**
-		 * \brief »ñÈ¡×ÓÁ¬½Ó¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \brief è·å–å­è¿æ¥ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 *
-		 * \return ×ÓÁ¬½Ó¹ÜÀíÆ÷Î¨Ò»ÊµÀı
+		 * \return å­è¿æ¥ç®¡ç†å™¨å”¯ä¸€å®ä¾‹
 		 */
 		static GatewayTaskManager &getInstance()
 		{
@@ -54,7 +54,7 @@ class GatewayTaskManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -70,44 +70,44 @@ class GatewayTaskManager
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static GatewayTaskManager *instance;
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		GatewayTaskManager();
 
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<DWORD, GatewayTask *> GatewayTaskHashmap;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef GatewayTaskHashmap::iterator GatewayTaskHashmap_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷³£Á¿µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨å¸¸é‡è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef GatewayTaskHashmap::const_iterator GatewayTaskHashmap_const_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef GatewayTaskHashmap::value_type GatewayTaskHashmap_pair;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 *
 		 */
 		zRWLock rwlock;
 		/**
-		 * \brief ×ÓÁ¬½Ó¹ÜÀíÈİÆ÷ÀàĞÍ
+		 * \brief å­è¿æ¥ç®¡ç†å®¹å™¨ç±»å‹
 		 *
 		 */
 		GatewayTaskHashmap gatewayTaskSet;

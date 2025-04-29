@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestEvent.cpp  $
  * \author	
  * \date	2005-03-31
- * \brief	ÈÎÎñÏµÍ³
+ * \brief	ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
 
@@ -21,9 +21,9 @@
 #include <algorithm>
 
 /**     
- * \brief  ¹¹Ôìº¯Êı
+ * \brief  æ„é€ å‡½æ•°
  *
- * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+ * åˆå§‹åŒ–ç›¸å…³å˜é‡
  *      
  */    
 Event::Event() : _id(0)
@@ -32,7 +32,7 @@ Event::Event() : _id(0)
 }
 
 /**     
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 Event::~Event()
@@ -41,19 +41,19 @@ Event::~Event()
 }
 
 /**     
- * \brief  ½âÎöÈÎÎñ½Å±¾
+ * \brief  è§£æä»»åŠ¡è„šæœ¬
  *
- * ½âÎöÈÎÎñ½Å±¾,Éú³É¶ÔÓ¦µÄÊÂ¼ş½á¹¹
+ * è§£æä»»åŠ¡è„šæœ¬,ç”Ÿæˆå¯¹åº”çš„äº‹ä»¶ç»“æ„
  *      
- * \param file_name: ÎÄ¼şÃû
- * \return true±íÊ¾½âÎö½Å±¾³É¹¦,false±íÊ¾½âÎö½Å±¾Ê§°Ü
+ * \param file_name: æ–‡ä»¶å
+ * \return trueè¡¨ç¤ºè§£æè„šæœ¬æˆåŠŸ,falseè¡¨ç¤ºè§£æè„šæœ¬å¤±è´¥
  */  
 bool Event::parse(const std::string& file_name)
 {	
 	zXMLParser xml;
 	if (!xml.initFile(file_name))
 	{
-		Zebra::logger->error("¼ÓÔØÈÎÎñÎÄ¼ş %s Ê§°Ü", file_name.c_str());
+		Zebra::logger->error("åŠ è½½ä»»åŠ¡æ–‡ä»¶ %s å¤±è´¥", file_name.c_str());
 		return false;
 	}
 
@@ -157,12 +157,12 @@ bool Event::parse(const std::string& file_name)
 }
 
 /**     
- * \brief  ÈÎÎñ×´Ì¬
+ * \brief  ä»»åŠ¡çŠ¶æ€
  *
- * È¡µÃÓÃ»§¸ÃÈÎÎñµÄ×´Ì¬
+ * å–å¾—ç”¨æˆ·è¯¥ä»»åŠ¡çš„çŠ¶æ€
  *      
- * \param user: ÇëÇóµÄÓÃ»§
- * \return ÈÎÎñ×´Ì¬
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \return ä»»åŠ¡çŠ¶æ€
  */
 int Event::state(SceneUser& user)
 {
@@ -222,11 +222,11 @@ int Event::state(SceneUser& user)
 }
 
 /**     
- * \brief  Ö´ĞĞÈÎÎñ
+ * \brief  æ‰§è¡Œä»»åŠ¡
  *
- * Ö´ĞĞÈ«¾ÖÈÎÎñÊÂ¼ş
+ * æ‰§è¡Œå…¨å±€ä»»åŠ¡äº‹ä»¶
  *      
- * \return ´¦Àí½á¹û
+ * \return å¤„ç†ç»“æœ
  */
 int Event::execute()
 {
@@ -249,12 +249,12 @@ int Event::execute()
 }
 
 /**     
- * \brief  Ö´ĞĞÈÎÎñ
+ * \brief  æ‰§è¡Œä»»åŠ¡
  *
- * Ö´ĞĞÓÃ»§ÉíÉÏËùÓĞ±»¶¯ÈÎÎñÊÂ¼ş
+ * æ‰§è¡Œç”¨æˆ·èº«ä¸Šæ‰€æœ‰è¢«åŠ¨ä»»åŠ¡äº‹ä»¶
  *      
- * \param user: ÇëÇóµÄÓÃ»§
- * \return ´¦Àí½á¹û
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \return å¤„ç†ç»“æœ
  */
 int Event::execute(SceneUser& user)
 {
@@ -319,14 +319,14 @@ int Event::execute(SceneUser& user)
 }
 
 /**     
- * \brief  Ö´ĞĞÈÎÎñ
+ * \brief  æ‰§è¡Œä»»åŠ¡
  *
- * Ö´ĞĞÓÃ»§Ö÷¶¯ÇëÇó·ÖÖ§µÄÊÂ¼ş
+ * æ‰§è¡Œç”¨æˆ·ä¸»åŠ¨è¯·æ±‚åˆ†æ”¯çš„äº‹ä»¶
  *      
- * \param user: ÇëÇóµÄÓÃ»§
- * \param quest_id: ÈÎÎñid
- * \param offset: ÈÎÎñ·ÖÖ§ 
- * \return ´¦Àí½á¹û
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param quest_id: ä»»åŠ¡id
+ * \param offset: ä»»åŠ¡åˆ†æ”¯ 
+ * \return å¤„ç†ç»“æœ
  */
 int Event::execute(SceneUser& user, DWORD quest_id, DWORD offset)
 {
@@ -369,9 +369,9 @@ int Event::execute(SceneUser& user, DWORD quest_id, DWORD offset)
 }
 
 /**     
- * \brief  ¹¹Ôìº¯Êı
+ * \brief  æ„é€ å‡½æ•°
  *
- * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+ * åˆå§‹åŒ–ç›¸å…³å˜é‡
  *      
  */    
 Event::Embranchment::Embranchment() : _active(false)
@@ -380,7 +380,7 @@ Event::Embranchment::Embranchment() : _active(false)
 }
 
 /**     
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */
 Event::Embranchment::~Embranchment()
@@ -391,11 +391,11 @@ Event::Embranchment::~Embranchment()
 }	
 
 /**     
- * \brief  ÅĞ¶ÏÒ»¸öÈÎÎñÊÂ¼ş·ÖÖ§ÊÇ·ñÓĞĞ§
+ * \brief  åˆ¤æ–­ä¸€ä¸ªä»»åŠ¡äº‹ä»¶åˆ†æ”¯æ˜¯å¦æœ‰æ•ˆ
  *      
- * \param user: ÇëÇóµÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return ÓĞĞ§·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return æœ‰æ•ˆè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool Event::Embranchment::is_valid(SceneUser* user, const Vars* vars)
 {
@@ -409,9 +409,9 @@ bool Event::Embranchment::is_valid(SceneUser* user, const Vars* vars)
 }
 
 /**     
- * \brief  ÅĞ¶ÏÒ»¸öÈÎÎñÊÂ¼şÊÇ·ñÖ÷¶¯ÊÂ¼ş
+ * \brief  åˆ¤æ–­ä¸€ä¸ªä»»åŠ¡äº‹ä»¶æ˜¯å¦ä¸»åŠ¨äº‹ä»¶
  *      
- * \return Ö÷¶¯ÊÂ¼ş·µ»Øtrue,±»¶¯ÊÂ¼ş·µ»Øfalse
+ * \return ä¸»åŠ¨äº‹ä»¶è¿”å›true,è¢«åŠ¨äº‹ä»¶è¿”å›false
  */
 bool Event::Embranchment::active() const
 {
@@ -419,10 +419,10 @@ bool Event::Embranchment::active() const
 }
 
 /**     
- * \brief  ÉèÖÃÒ»¸öÈÎÎñÊÂ¼şÊÇ·ñÎªÖ÷¶¯ÊÂ¼ş
+ * \brief  è®¾ç½®ä¸€ä¸ªä»»åŠ¡äº‹ä»¶æ˜¯å¦ä¸ºä¸»åŠ¨äº‹ä»¶
  *      
- * \param flag: ÊÇ·ñÖ÷¶¯ÊÂ¼ş
- * \return ÎŞ
+ * \param flag: æ˜¯å¦ä¸»åŠ¨äº‹ä»¶
+ * \return æ— 
  */
 void Event::Embranchment::active(bool flag)
 {
@@ -430,11 +430,11 @@ void Event::Embranchment::active(bool flag)
 }
 
 /**     
- * \brief  Ö´ĞĞÒ»¸öÈÎÎñÊÂ¼şËùÓĞ·ÖÖ§
+ * \brief  æ‰§è¡Œä¸€ä¸ªä»»åŠ¡äº‹ä»¶æ‰€æœ‰åˆ†æ”¯
  *      
- * \param user: ÇëÇóµÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return Ö´ĞĞ½á¹û
+ * \param user: è¯·æ±‚çš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return æ‰§è¡Œç»“æœ
  */
 int Event::Embranchment::do_it(SceneUser* user, Vars* vars)
 {
@@ -448,10 +448,10 @@ int Event::Embranchment::do_it(SceneUser* user, Vars* vars)
 }
 
 /**     
- * \brief ÔÚÈÎÎñ·ÖÖ§ÖĞÌí¼ÓÒ»¸ö´¥·¢Ìõ¼ş
+ * \brief åœ¨ä»»åŠ¡åˆ†æ”¯ä¸­æ·»åŠ ä¸€ä¸ªè§¦å‘æ¡ä»¶
  *      
- * \param condition: ´¥·¢Ìõ¼ş
- * \return ÎŞ
+ * \param condition: è§¦å‘æ¡ä»¶
+ * \return æ— 
  */
 void Event::Embranchment::add(Condition* condition)
 {
@@ -459,10 +459,10 @@ void Event::Embranchment::add(Condition* condition)
 }
 
 /**     
- * \brief ÔÚÈÎÎñ·ÖÖ§ÖĞÌí¼ÓÒ»¸ö´¥·¢¶¯×÷
+ * \brief åœ¨ä»»åŠ¡åˆ†æ”¯ä¸­æ·»åŠ ä¸€ä¸ªè§¦å‘åŠ¨ä½œ
  *      
- * \param action: ´¥·¢¶¯×÷
- * \return ÎŞ
+ * \param action: è§¦å‘åŠ¨ä½œ
+ * \return æ— 
  */
 void Event::Embranchment::add(Action* action)
 {
@@ -470,26 +470,26 @@ void Event::Embranchment::add(Action* action)
 }
 
 /**     
- * \brief µÃµ½Ò»¸öÓÃ»§¿ÉÒÔ½ÓµÄÈÎÎñÁĞ±í
+ * \brief å¾—åˆ°ä¸€ä¸ªç”¨æˆ·å¯ä»¥æ¥çš„ä»»åŠ¡åˆ—è¡¨
  *      
- * \param user: ÓÃ»§
- * \return ÎŞ
+ * \param user: ç”¨æˆ·
+ * \return æ— 
  */
 template<>
 void EventManager<OnVisit>::get_valid_quest(SceneUser& user, bool showID)
 {
 	bool have = false;
 	std::stringstream menu;
-	//menu<<"function MainDialog() this:AddDialogItem(\"²é¿´ËùÓĞÈÎÎñ\", \"Dialog63\") end function ";
-	//menu<<"Dialog63() this:AddTalk(\"<p><n color=\"255,239,196,0\">ÈÎÎñNPCÁĞ±í£º</n>";
+	//menu<<"function MainDialog() this:AddDialogItem(\"æŸ¥çœ‹æ‰€æœ‰ä»»åŠ¡\", \"Dialog63\") end function ";
+	//menu<<"Dialog63() this:AddTalk(\"<p><n color=\"255,239,196,0\">ä»»åŠ¡NPCåˆ—è¡¨ï¼š</n>";
 	menu<<"function IsHasTask() return false end function TaskDialog() end ";
 	menu<<"function MainDialog() ";
-	menu<<"this:AddTalk(\"<p><n>È¥ÕÒÕâĞ©ÈË£¬ËûÃÇÓĞĞÂµÄÈÎÎñ¸øÄã:\\n\\n</n> ";
+	menu<<"this:AddTalk(\"<p><n>å»æ‰¾è¿™äº›äººï¼Œä»–ä»¬æœ‰æ–°çš„ä»»åŠ¡ç»™ä½ :\\n\\n</n> ";
 	for (__gnu_cxx::hash_map<DWORD, Event>::iterator it=_events.begin(); it!=_events.end(); it++)
 	{
 		if (it->second.state(user)==Cmd::USTATE_START_QUEST)
 		{
-			//Channel::sendSys(&user, Cmd::INFO_TYPE_GAME, "ÈÎÎñ:npc=%s id=%u", it->second.npc_name(), it->first);
+			//Channel::sendSys(&user, Cmd::INFO_TYPE_GAME, "ä»»åŠ¡:npc=%s id=%u", it->second.npc_name(), it->first);
 			if (it->second.npc_name()[0]!='-')
 			{
 				if (showID)
@@ -500,7 +500,7 @@ void EventManager<OnVisit>::get_valid_quest(SceneUser& user, bool showID)
 			}
 		}
 	}
-	menu<<"</p> \") this:AddCloseItem(\"ÖªµÀÁË\")end this:AddDialog(\"MainDialog\")";
+	menu<<"</p> \") this:AddCloseItem(\"çŸ¥é“äº†\")end this:AddDialog(\"MainDialog\")";
 
 	BYTE buf[zSocket::MAX_DATASIZE];
 	Cmd::stVisitNpcTradeUserCmd *cmd=(Cmd::stVisitNpcTradeUserCmd *)buf;
@@ -510,7 +510,7 @@ void EventManager<OnVisit>::get_valid_quest(SceneUser& user, bool showID)
 	if (have)
 		strcpy(cmd->menuTxt, menu.str().c_str());
 	else
-		strcpy(cmd->menuTxt, "ÏÖÔÚÃ»ÓĞĞÂµÄÈÎÎñ¸øÄã");
+		strcpy(cmd->menuTxt, "ç°åœ¨æ²¡æœ‰æ–°çš„ä»»åŠ¡ç»™ä½ ");
 	cmd->byReturn = 1;
 	user.sendCmdToMe(cmd, sizeof(Cmd::stVisitNpcTradeUserCmd) + strlen(cmd->menuTxt));
 #ifdef _XWL_DEBUG
@@ -529,7 +529,7 @@ void EventManager<OnVisit>::get_valid_quest_str(SceneUser &user)
 
 	menu<<"<?xml version=\"1.0\" encoding=\"GB2312\"?>";
 	menu<<"<body>";
-	menu<<"<p><n>È¥ÕÒÕâĞ©ÈË£¬ËûÃÇÓĞĞÂµÄÈÎÎñ¸øÄã:</n></p>";
+	menu<<"<p><n>å»æ‰¾è¿™äº›äººï¼Œä»–ä»¬æœ‰æ–°çš„ä»»åŠ¡ç»™ä½ :</n></p>";
 	for (__gnu_cxx::hash_map<DWORD, Event>::iterator it=_events.begin(); it!=_events.end(); it++)
 	{
 		if (it->second.state(user)==Cmd::USTATE_START_QUEST)
@@ -575,7 +575,7 @@ void EventManager<OnVisit>::get_valid_quest_str(SceneUser &user)
 	if (have)
 		strcpy(cmd->content, menu.str().c_str());
 	else
-		strcpy(cmd->content, "ÏÖÔÚÃ»ÓĞĞÂµÄÈÎÎñ¸øÄã");
+		strcpy(cmd->content, "ç°åœ¨æ²¡æœ‰æ–°çš„ä»»åŠ¡ç»™ä½ ");
 	cmd->size = strlen(cmd->content) + 1;
 	user.sendCmdToMe(cmd, sizeof(Cmd::stRetValidQuestUserCmd) + strlen(cmd->content) + 1);
 #ifdef _XWL_DEBUG

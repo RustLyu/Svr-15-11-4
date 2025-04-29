@@ -1,4 +1,4 @@
-#ifndef _ZOBJECT_H_
+ï»¿#ifndef _ZOBJECT_H_
 #define _ZOBJECT_H_
 #include <vector>
 #include <set>
@@ -72,8 +72,8 @@ struct zObject:zEntry
 		bool canMail();
 		void checkBind();
 		
-		zCountryMaterialB* canContribute(); // ÊÇ·ñÄÜ±»¾èÏ×
-		DWORD getMaterialKind(); // »ñµÃÔ­ÁÏÀà±ğ: 0,ÆÕÍ¨Îï×Ê£¬1,Ë¿Ïß,2,¿óÊ¯,3,¿ó²ú,4,Ä¾²Ä£¬5,Æ¤Ã«,6,²İÒ©
+		zCountryMaterialB* canContribute(); // æ˜¯å¦èƒ½è¢«æçŒ®
+		DWORD getMaterialKind(); // è·å¾—åŸæ–™ç±»åˆ«: 0,æ™®é€šç‰©èµ„ï¼Œ1,ä¸çº¿,2,çŸ¿çŸ³,3,çŸ¿äº§,4,æœ¨æï¼Œ5,çš®æ¯›,6,è‰è¯
 
 		const stObjectLocation &reserve() const;
 		void restore(const stObjectLocation &loc);
@@ -115,10 +115,10 @@ struct zSceneObject:public zSceneEntry
 		return ret;
 	}
 	/**
-	 * \brief ¼ì²éµØÉÏÎïÆ·ÊÇ·ñ¹ıÆÚ
-	 * ¹ıÆÚµÄµØÉÏÎïÆ·»áÏûÊ§µô
-	 * \param ct µ±Ç°Ê±¼ä
-	 * \return ÊÇ·ñ¹ıÆÚ
+	 * \brief æ£€æŸ¥åœ°ä¸Šç‰©å“æ˜¯å¦è¿‡æœŸ
+	 * è¿‡æœŸçš„åœ°ä¸Šç‰©å“ä¼šæ¶ˆå¤±æ‰
+	 * \param ct å½“å‰æ—¶é—´
+	 * \return æ˜¯å¦è¿‡æœŸ
 	 */
 	bool checkOverdue(const zRTime &ct) const
 	{
@@ -204,88 +204,88 @@ public:
 	
 	void reset()
 	{
-		RESET(maxhp)					// ×î´óÉúÃüÖµ
-		RESET(maxmp)					// ×î´ó·¨ÊõÖµ
-		RESET(maxsp)					// ×î´óÌåÁ¦Öµ
+		RESET(maxhp)					// æœ€å¤§ç”Ÿå‘½å€¼
+		RESET(maxmp)					// æœ€å¤§æ³•æœ¯å€¼
+		RESET(maxsp)					// æœ€å¤§ä½“åŠ›å€¼
 	
-		RESET(pdamage)					// ×îĞ¡¹¥»÷Á¦
-		RESET(maxpdamage)				// ×î´ó¹¥»÷Á¦
-		RESET(mdamage)					// ×îĞ¡·¨Êõ¹¥»÷Á¦
-		RESET(maxmdamage)				// ×î´ó·¨Êõ¹¥»÷Á¦
-		RESET(appendminpet)           // ³èÎïÔöÇ¿×îĞ¡Öµ
-		RESET(appendmaxpet)				// ³èÎïÔöÇ¿×î´óÖµ
+		RESET(pdamage)					// æœ€å°æ”»å‡»åŠ›
+		RESET(maxpdamage)				// æœ€å¤§æ”»å‡»åŠ›
+		RESET(mdamage)					// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+		RESET(maxmdamage)				// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
+		RESET(appendminpet)           // å® ç‰©å¢å¼ºæœ€å°å€¼
+		RESET(appendmaxpet)				// å® ç‰©å¢å¼ºæœ€å¤§å€¼
 	
-		RESET(pdefence)				// Îï·À
-		RESET(mdefence)				// Ä§·À
-		RESET(damagebonus)			// ÉËº¦¼Ó³É
-		RESET(damage)				// Ôö¼ÓÉËº¦Öµx£¥
+		RESET(pdefence)				// ç‰©é˜²
+		RESET(mdefence)				// é­”é˜²
+		RESET(damagebonus)			// ä¼¤å®³åŠ æˆ
+		RESET(damage)				// å¢åŠ ä¼¤å®³å€¼xï¼…
 		
-		RESET(akspeed)				// ¹¥»÷ËÙ¶È
-		RESET(mvspeed)				// ÒÆ¶¯ËÙ¶È
-		RESET(atrating)				// ÃüÖĞÂÊ
-		RESET(akdodge)				// ¶ã±ÜÂÊ
+		RESET(akspeed)				// æ”»å‡»é€Ÿåº¦
+		RESET(mvspeed)				// ç§»åŠ¨é€Ÿåº¦
+		RESET(atrating)				// å‘½ä¸­ç‡
+		RESET(akdodge)				// èº²é¿ç‡
 	
-		RESET(str)				  	// Á¦Á¿
-		RESET(inte)  					// ÖÇÁ¦
-		RESET(dex)  					// Ãô½İ
-		RESET(spi)  					// ¾«Éñ
-		RESET(con)  					// ÌåÖÊ
+		RESET(str)				  	// åŠ›é‡
+		RESET(inte)  					// æ™ºåŠ›
+		RESET(dex)  					// æ•æ·
+		RESET(spi)  					// ç²¾ç¥
+		RESET(con)  					// ä½“è´¨
 		
-		RESET(hpr)					// ÉúÃüÖµ»Ö¸´
-		RESET(mpr)  					// ·¨ÊõÖµ»Ö¸´
-		RESET(spr)  					// ÌåÁ¦Öµ»Ö¸´
+		RESET(hpr)					// ç”Ÿå‘½å€¼æ¢å¤
+		RESET(mpr)  					// æ³•æœ¯å€¼æ¢å¤
+		RESET(spr)  					// ä½“åŠ›å€¼æ¢å¤
 		
-		RESET(holy)						//ÉñÊ¥Ò»»÷
-		RESET(bang)						//ÖØ»÷ÂÊ
-		RESET(pdam) 					// Ôö¼ÓÎïÀí¹¥»÷Á¦
-		RESET(pdef)  					// Ôö¼ÓÎïÀí·ÀÓùÁ¦
-		RESET(mdam)  					// Ôö¼ÓÄ§·¨¹¥»÷Á¦
-		RESET(mdef)  					// Ôö¼ÓÄ§·¨·ÀÓùÁ¦
+		RESET(holy)						//ç¥åœ£ä¸€å‡»
+		RESET(bang)						//é‡å‡»ç‡
+		RESET(pdam) 					// å¢åŠ ç‰©ç†æ”»å‡»åŠ›
+		RESET(pdef)  					// å¢åŠ ç‰©ç†é˜²å¾¡åŠ›
+		RESET(mdam)  					// å¢åŠ é­”æ³•æ”»å‡»åŠ›
+		RESET(mdef)  					// å¢åŠ é­”æ³•é˜²å¾¡åŠ›
 		
-		RESET(poisondef) 				//¿¹¶¾Ôö¼Ó
-		RESET(lulldef) 				//¿¹Âé±ÔÔö¼Ó
-		RESET(reeldef) 				//¿¹Ñ£ÔÎÔö¼Ó
-		RESET(evildef) 				//¿¹ÊÉÄ§Ôö¼Ó
-		RESET(bitedef) 				//¿¹ÊÉÁ¦Ôö¼Ó
-		RESET(chaosdef) 				//¿¹»ìÂÒÔö¼Ó
-		RESET(colddef) 				//¿¹±ù¶³Ôö¼Ó
-		RESET(petrifydef) 			//¿¹Ê¯»¯Ôö¼Ó
-		RESET(blinddef) 				//¿¹Ê§Ã÷Ôö¼Ó
-		RESET(stabledef) 				//¿¹¶¨ÉíÔö¼Ó
-		RESET(slowdef)				 //¿¹¼õËÙÔö¼Ó
-		RESET(luredef) 				//¿¹ÓÕ»óÔö¼Ó
+		RESET(poisondef) 				//æŠ—æ¯’å¢åŠ 
+		RESET(lulldef) 				//æŠ—éº»ç—¹å¢åŠ 
+		RESET(reeldef) 				//æŠ—çœ©æ™•å¢åŠ 
+		RESET(evildef) 				//æŠ—å™¬é­”å¢åŠ 
+		RESET(bitedef) 				//æŠ—å™¬åŠ›å¢åŠ 
+		RESET(chaosdef) 				//æŠ—æ··ä¹±å¢åŠ 
+		RESET(colddef) 				//æŠ—å†°å†»å¢åŠ 
+		RESET(petrifydef) 			//æŠ—çŸ³åŒ–å¢åŠ 
+		RESET(blinddef) 				//æŠ—å¤±æ˜å¢åŠ 
+		RESET(stabledef) 				//æŠ—å®šèº«å¢åŠ 
+		RESET(slowdef)				 //æŠ—å‡é€Ÿå¢åŠ 
+		RESET(luredef) 				//æŠ—è¯±æƒ‘å¢åŠ 
 		
-		RESET(poison) 				//ÖĞ¶¾Ôö¼Ó
-		RESET(lull) 					//Âé±ÔÔö¼Ó
-		RESET(reel) 					//Ñ£ÔÎÔö¼Ó
-		RESET(evil) 					//ÊÉÄ§Ôö¼Ó
-		RESET(bite)					//ÊÉÁ¦Ôö¼Ó
-		RESET(chaos) 					//»ìÂÒÔö¼Ó
-		RESET(cold) 					//±ù¶³Ôö¼Ó
-		RESET(petrify) 				//Ê¯»¯Ôö¼Ó
-		RESET(blind) 					//Ê§Ã÷Ôö¼Ó
-		RESET(stable) 				//¶¨ÉíÔö¼Ó
-		RESET(slow) 					//¼õËÙÔö¼Ó
-		RESET(lure) 					//ÓÕ»óÔö¼Ó
+		RESET(poison) 				//ä¸­æ¯’å¢åŠ 
+		RESET(lull) 					//éº»ç—¹å¢åŠ 
+		RESET(reel) 					//çœ©æ™•å¢åŠ 
+		RESET(evil) 					//å™¬é­”å¢åŠ 
+		RESET(bite)					//å™¬åŠ›å¢åŠ 
+		RESET(chaos) 					//æ··ä¹±å¢åŠ 
+		RESET(cold) 					//å†°å†»å¢åŠ 
+		RESET(petrify) 				//çŸ³åŒ–å¢åŠ 
+		RESET(blind) 					//å¤±æ˜å¢åŠ 
+		RESET(stable) 				//å®šèº«å¢åŠ 
+		RESET(slow) 					//å‡é€Ÿå¢åŠ 
+		RESET(lure) 					//è¯±æƒ‘å¢åŠ 
 		RESET(hpleech.odds) 
 		RESET(hpleech.effect) 
-		RESET(mpleech.odds) 			//x%ÎüÊÕÉúÃüÖµy
-		RESET(mpleech.effect) 		//x%ÎüÊÕ·¨ÊõÖµy
+		RESET(mpleech.odds) 			//x%å¸æ”¶ç”Ÿå‘½å€¼y
+		RESET(mpleech.effect) 		//x%å¸æ”¶æ³•æœ¯å€¼y
 
-		RESET(hptomp)					//×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
-		RESET(dhpp) 					//ÎïÀíÉËº¦¼õÉÙx%	
-		RESET(dmpp)					//·¨ÊõÉËº¦Öµ¼õÉÙx%		
+		RESET(hptomp)					//è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
+		RESET(dhpp) 					//ç‰©ç†ä¼¤å®³å‡å°‘x%	
+		RESET(dmpp)					//æ³•æœ¯ä¼¤å®³å€¼å‡å°‘x%		
 	
-		RESET(incgold)				//Ôö¼Ó½ğÇ®µôÂäx%
-		RESET(doublexp)				//x%Ë«±¶¾­Ñé		
-		RESET(mf)						 //Ôö¼Óµô±¦ÂÊx%
+		RESET(incgold)				//å¢åŠ é‡‘é’±æ‰è½x%
+		RESET(doublexp)				//x%åŒå€ç»éªŒ		
+		RESET(mf)						 //å¢åŠ æ‰å®ç‡x%
 
-		//ÎåĞĞÌ××°Ïà¹ØÊôĞÔ
-		RESET(dpdam)			//ÎïÀíÉËº¦¼õÉÙ%x
-		RESET(dmdam)			//·¨ÊõÉËº¦¼õÉÙ%x
-		RESET(bdam)				//Ôö¼ÓÉËº¦x%
-		RESET(rdam)				//ÉËº¦·´Éä%x
-		RESET(ignoredef)		//%xºöÊÓÄ¿±ê·ÀÓù
+		//äº”è¡Œå¥—è£…ç›¸å…³å±æ€§
+		RESET(dpdam)			//ç‰©ç†ä¼¤å®³å‡å°‘%x
+		RESET(dmdam)			//æ³•æœ¯ä¼¤å®³å‡å°‘%x
+		RESET(bdam)				//å¢åŠ ä¼¤å®³x%
+		RESET(rdam)				//ä¼¤å®³åå°„%x
+		RESET(ignoredef)		//%xå¿½è§†ç›®æ ‡é˜²å¾¡
 		
 //		RESET(aftype)
 		aftype = FIVE_NONE;
@@ -300,121 +300,121 @@ public:
 		skills.clear();
 	}
 	
-	DECLARE( maxhp, WORD )				// ×î´óÉúÃüÖµ
-	DECLARE( maxmp, WORD )				// ×î´ó·¨ÊõÖµ
-	DECLARE( maxsp, WORD )				// ×î´óÌåÁ¦Öµ
+	DECLARE( maxhp, WORD )				// æœ€å¤§ç”Ÿå‘½å€¼
+	DECLARE( maxmp, WORD )				// æœ€å¤§æ³•æœ¯å€¼
+	DECLARE( maxsp, WORD )				// æœ€å¤§ä½“åŠ›å€¼
 
-	DECLARE( pdamage, WORD )			// ×îĞ¡¹¥»÷Á¦
-	DECLARE( maxpdamage, WORD )		// ×î´ó¹¥»÷Á¦
-	DECLARE( mdamage, WORD )			// ×îĞ¡·¨Êõ¹¥»÷Á¦
-	DECLARE( maxmdamage, WORD )		// ×î´ó·¨Êõ¹¥»÷Á¦
-	DECLARE( appendminpet, WORD )  // ×îĞ¡³èÎïÔöÇ¿
-	DECLARE( appendmaxpet, WORD )  // ×î´ó³èÎïÔöÇ¿
+	DECLARE( pdamage, WORD )			// æœ€å°æ”»å‡»åŠ›
+	DECLARE( maxpdamage, WORD )		// æœ€å¤§æ”»å‡»åŠ›
+	DECLARE( mdamage, WORD )			// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	DECLARE( maxmdamage, WORD )		// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
+	DECLARE( appendminpet, WORD )  // æœ€å°å® ç‰©å¢å¼º
+	DECLARE( appendmaxpet, WORD )  // æœ€å¤§å® ç‰©å¢å¼º
 
-	DECLARE( pdefence, WORD )			// Îï·À
-	DECLARE( mdefence, WORD )			// Ä§·À
-	DECLARE( damagebonus, BYTE )		// ÉËº¦¼Ó³É
-	DECLARE( damage, BYTE )				// Ôö¼ÓÉËº¦Öµx£¥
+	DECLARE( pdefence, WORD )			// ç‰©é˜²
+	DECLARE( mdefence, WORD )			// é­”é˜²
+	DECLARE( damagebonus, BYTE )		// ä¼¤å®³åŠ æˆ
+	DECLARE( damage, BYTE )				// å¢åŠ ä¼¤å®³å€¼xï¼…
 	
-	DECLARE( akspeed, WORD )			// ¹¥»÷ËÙ¶È
-	DECLARE( mvspeed, WORD )			// ÒÆ¶¯ËÙ¶È
-	DECLARE( atrating, WORD )			// ÃüÖĞÂÊ
-	DECLARE( akdodge, WORD )			// ¶ã±ÜÂÊ
+	DECLARE( akspeed, WORD )			// æ”»å‡»é€Ÿåº¦
+	DECLARE( mvspeed, WORD )			// ç§»åŠ¨é€Ÿåº¦
+	DECLARE( atrating, WORD )			// å‘½ä¸­ç‡
+	DECLARE( akdodge, WORD )			// èº²é¿ç‡
 
-	DECLARE( str, WORD )  				// Á¦Á¿
-	DECLARE( inte, WORD ) 				// ÖÇÁ¦
-	DECLARE( dex, WORD ) 				// Ãô½İ
-	DECLARE( spi, WORD )  				// ¾«Éñ
-	DECLARE( con, WORD )  				// ÌåÖÊ
+	DECLARE( str, WORD )  				// åŠ›é‡
+	DECLARE( inte, WORD ) 				// æ™ºåŠ›
+	DECLARE( dex, WORD ) 				// æ•æ·
+	DECLARE( spi, WORD )  				// ç²¾ç¥
+	DECLARE( con, WORD )  				// ä½“è´¨
 	
-	DECLARE( hpr, WORD )  				// ÉúÃüÖµ»Ö¸´
-	DECLARE( mpr, WORD )  				// ·¨ÊõÖµ»Ö¸´
-	DECLARE( spr, WORD )  				// ÌåÁ¦Öµ»Ö¸´
+	DECLARE( hpr, WORD )  				// ç”Ÿå‘½å€¼æ¢å¤
+	DECLARE( mpr, WORD )  				// æ³•æœ¯å€¼æ¢å¤
+	DECLARE( spr, WORD )  				// ä½“åŠ›å€¼æ¢å¤
 	
-	DECLARE( holy, WORD )				//ÉñÊ¥Ò»»÷
-	DECLARE( bang, WORD )				//ÖØ»÷ÂÊ
-	DECLARE( pdam, WORD )  				// Ôö¼ÓÎïÀí¹¥»÷Á¦
-	DECLARE( pdef, WORD )  				// Ôö¼ÓÎïÀí·ÀÓùÁ¦
-	DECLARE( mdam, WORD )  				// Ôö¼ÓÄ§·¨¹¥»÷Á¦
-	DECLARE( mdef, WORD )  				// Ôö¼ÓÄ§·¨·ÀÓùÁ¦
+	DECLARE( holy, WORD )				//ç¥åœ£ä¸€å‡»
+	DECLARE( bang, WORD )				//é‡å‡»ç‡
+	DECLARE( pdam, WORD )  				// å¢åŠ ç‰©ç†æ”»å‡»åŠ›
+	DECLARE( pdef, WORD )  				// å¢åŠ ç‰©ç†é˜²å¾¡åŠ›
+	DECLARE( mdam, WORD )  				// å¢åŠ é­”æ³•æ”»å‡»åŠ›
+	DECLARE( mdef, WORD )  				// å¢åŠ é­”æ³•é˜²å¾¡åŠ›
 	
-	DECLARE( poisondef, WORD ) 			//¿¹¶¾Ôö¼Ó
-	DECLARE( lulldef, WORD ) 			//¿¹Âé±ÔÔö¼Ó
-	DECLARE( reeldef, WORD ) 			//¿¹Ñ£ÔÎÔö¼Ó
-	DECLARE( evildef, WORD ) 			//¿¹ÊÉÄ§Ôö¼Ó
-	DECLARE( bitedef, WORD ) 			//¿¹ÊÉÁ¦Ôö¼Ó
-	DECLARE( chaosdef, WORD ) 			//¿¹»ìÂÒÔö¼Ó
-	DECLARE( colddef, WORD ) 			//¿¹±ù¶³Ôö¼Ó
-	DECLARE( petrifydef, WORD ) 		//¿¹Ê¯»¯Ôö¼Ó
-	DECLARE( blinddef, WORD ) 			//¿¹Ê§Ã÷Ôö¼Ó
-	DECLARE( stabledef, WORD ) 			//¿¹¶¨ÉíÔö¼Ó
-	DECLARE( slowdef, WORD ) 			//¿¹¼õËÙÔö¼Ó
-	DECLARE( luredef, WORD ) 			//¿¹ÓÕ»óÔö¼Ó
+	DECLARE( poisondef, WORD ) 			//æŠ—æ¯’å¢åŠ 
+	DECLARE( lulldef, WORD ) 			//æŠ—éº»ç—¹å¢åŠ 
+	DECLARE( reeldef, WORD ) 			//æŠ—çœ©æ™•å¢åŠ 
+	DECLARE( evildef, WORD ) 			//æŠ—å™¬é­”å¢åŠ 
+	DECLARE( bitedef, WORD ) 			//æŠ—å™¬åŠ›å¢åŠ 
+	DECLARE( chaosdef, WORD ) 			//æŠ—æ··ä¹±å¢åŠ 
+	DECLARE( colddef, WORD ) 			//æŠ—å†°å†»å¢åŠ 
+	DECLARE( petrifydef, WORD ) 		//æŠ—çŸ³åŒ–å¢åŠ 
+	DECLARE( blinddef, WORD ) 			//æŠ—å¤±æ˜å¢åŠ 
+	DECLARE( stabledef, WORD ) 			//æŠ—å®šèº«å¢åŠ 
+	DECLARE( slowdef, WORD ) 			//æŠ—å‡é€Ÿå¢åŠ 
+	DECLARE( luredef, WORD ) 			//æŠ—è¯±æƒ‘å¢åŠ 
 		
-	DECLARE( poison, WORD ) 			//ÖĞ¶¾Ôö¼Ó
-	DECLARE( lull, WORD ) 				//Âé±ÔÔö¼Ó
-	DECLARE( reel, WORD ) 				//Ñ£ÔÎÔö¼Ó
-	DECLARE( evil, WORD ) 				//ÊÉÄ§Ôö¼Ó
-	DECLARE( bite, WORD ) 				//ÊÉÁ¦Ôö¼Ó
-	DECLARE( chaos, WORD ) 				//»ìÂÒÔö¼Ó
-	DECLARE( cold, WORD ) 				//±ù¶³Ôö¼Ó
-	DECLARE( petrify, WORD ) 			//Ê¯»¯Ôö¼Ó
-	DECLARE( blind, WORD ) 				//Ê§Ã÷Ôö¼Ó
-	DECLARE( stable, WORD ) 			//¶¨ÉíÔö¼Ó
-	DECLARE( slow, WORD ) 				//¼õËÙÔö¼Ó
-	DECLARE( lure, WORD ) 				//ÓÕ»óÔö¼Ó
+	DECLARE( poison, WORD ) 			//ä¸­æ¯’å¢åŠ 
+	DECLARE( lull, WORD ) 				//éº»ç—¹å¢åŠ 
+	DECLARE( reel, WORD ) 				//çœ©æ™•å¢åŠ 
+	DECLARE( evil, WORD ) 				//å™¬é­”å¢åŠ 
+	DECLARE( bite, WORD ) 				//å™¬åŠ›å¢åŠ 
+	DECLARE( chaos, WORD ) 				//æ··ä¹±å¢åŠ 
+	DECLARE( cold, WORD ) 				//å†°å†»å¢åŠ 
+	DECLARE( petrify, WORD ) 			//çŸ³åŒ–å¢åŠ 
+	DECLARE( blind, WORD ) 				//å¤±æ˜å¢åŠ 
+	DECLARE( stable, WORD ) 			//å®šèº«å¢åŠ 
+	DECLARE( slow, WORD ) 				//å‡é€Ÿå¢åŠ 
+	DECLARE( lure, WORD ) 				//è¯±æƒ‘å¢åŠ 
 
-	DECLARE( hptomp, BYTE ) 			//×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
-	DECLARE( dhpp, BYTE ) 				//ÎïÀíÉËº¦¼õÉÙx%	
-	DECLARE( dmpp, BYTE ) 				//·¨ÊõÉËº¦Öµ¼õÉÙx%		
+	DECLARE( hptomp, BYTE ) 			//è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
+	DECLARE( dhpp, BYTE ) 				//ç‰©ç†ä¼¤å®³å‡å°‘x%	
+	DECLARE( dmpp, BYTE ) 				//æ³•æœ¯ä¼¤å®³å€¼å‡å°‘x%		
 
-	DECLARE( incgold, BYTE ) 			//Ôö¼Ó½ğÇ®µôÂäx%
-	DECLARE( doublexp, BYTE ) 			//x%Ë«±¶¾­Ñé		
-	DECLARE( mf, BYTE ) 				//Ôö¼Óµô±¦ÂÊx%
+	DECLARE( incgold, BYTE ) 			//å¢åŠ é‡‘é’±æ‰è½x%
+	DECLARE( doublexp, BYTE ) 			//x%åŒå€ç»éªŒ		
+	DECLARE( mf, BYTE ) 				//å¢åŠ æ‰å®ç‡x%
 
-	//ÎåĞĞÌ××°Ïà¹ØÊôĞÔ
-	DECLARE(dpdam, BYTE)			//ÎïÀíÉËº¦¼õÉÙ%x
-	DECLARE(dmdam, BYTE)			//·¨ÊõÉËº¦¼õÉÙ%x
-	DECLARE(bdam, BYTE)				//Ôö¼ÓÉËº¦x%
-	DECLARE(rdam, BYTE)				//ÉËº¦·´Éä%x
-	DECLARE(ignoredef, BYTE)		//%xºöÊÓÄ¿±ê·ÀÓù
-	DECLARE(maxhprate, BYTE)		//°´°Ù·Ö±ÈÔö¼Ó×î´óhp
-	DECLARE(maxmprate, BYTE)		//°´°Ù·Ö±ÈÔö¼Ó×î´ómp
+	//äº”è¡Œå¥—è£…ç›¸å…³å±æ€§
+	DECLARE(dpdam, BYTE)			//ç‰©ç†ä¼¤å®³å‡å°‘%x
+	DECLARE(dmdam, BYTE)			//æ³•æœ¯ä¼¤å®³å‡å°‘%x
+	DECLARE(bdam, BYTE)				//å¢åŠ ä¼¤å®³x%
+	DECLARE(rdam, BYTE)				//ä¼¤å®³åå°„%x
+	DECLARE(ignoredef, BYTE)		//%xå¿½è§†ç›®æ ‡é˜²å¾¡
+	DECLARE(maxhprate, BYTE)		//æŒ‰ç™¾åˆ†æ¯”å¢åŠ æœ€å¤§hp
+	DECLARE(maxmprate, BYTE)		//æŒ‰ç™¾åˆ†æ¯”å¢åŠ æœ€å¤§mp
 
 	BYTE get_hpleech_odds()		const	{return hpleech.odds;}
 	WORD get_hpleech_effect()	const	{return hpleech.effect;}
-	BYTE get_mpleech_odds()		const	{return mpleech.odds;} 			//x%ÎüÊÕÉúÃüÖµy
-	WORD get_mpleech_effect()	const	{return mpleech.effect;} 		//x%ÎüÊÕ·¨ÊõÖµy
+	BYTE get_mpleech_odds()		const	{return mpleech.odds;} 			//x%å¸æ”¶ç”Ÿå‘½å€¼y
+	WORD get_mpleech_effect()	const	{return mpleech.effect;} 		//x%å¸æ”¶æ³•æœ¯å€¼y
 
 	/**
-	 * \brief »ñÈ¡¹¥»÷ÎåĞĞ
-	 * \return ¹¥»÷ÎåĞĞÀàĞÍ
+	 * \brief è·å–æ”»å‡»äº”è¡Œ
+	 * \return æ”»å‡»äº”è¡Œç±»å‹
 	 */
 	DWORD getAttFive() const {return aftype;}
 
 	/**
-	 * \brief »ñÈ¡¹¥»÷ÎåĞĞµãÊı
-	 * \return ÎåĞĞµãÊı
+	 * \brief è·å–æ”»å‡»äº”è¡Œç‚¹æ•°
+	 * \return äº”è¡Œç‚¹æ•°
 	 */
 	DWORD getAttFivePoint() const {return afpoint;}
 
 	/**
-	 * \brief »ñÈ¡·ÀÓùÎåĞĞ
-	 * \return ·ÀÓùÎåĞĞÀàĞÍ
+	 * \brief è·å–é˜²å¾¡äº”è¡Œ
+	 * \return é˜²å¾¡äº”è¡Œç±»å‹
 	 */
 	DWORD getDefFive() const {return dftype;}
 
 	/**
-	 * \brief »ñÈ¡·ÀÓùÎåĞĞµãÊı
-	 * \return ÎåĞĞµãÊı
+	 * \brief è·å–é˜²å¾¡äº”è¡Œç‚¹æ•°
+	 * \return äº”è¡Œç‚¹æ•°
 	 */
 	DWORD getDefFivePoint() const {return dfpoint;}
 	
 	/**
-	 * \brief »ñÈ¡×°±¸¶Ôµ¥¸ö¼¼ÄÜµÄ¼Ó³É
+	 * \brief è·å–è£…å¤‡å¯¹å•ä¸ªæŠ€èƒ½çš„åŠ æˆ
 	 *
-	 * \param id: ¼¼ÄÜid
-	 * \return ¼Ó³ÉµÈ¼¶
+	 * \param id: æŠ€èƒ½id
+	 * \return åŠ æˆç­‰çº§
 	 */	
 	DWORD getMaxSkill(WORD id) const
 	{
@@ -427,10 +427,10 @@ public:
 	}
 	
 	/**
-	 * \brief »ñÈ¡×°±¸¶ÔÄ³Ïµ¼¼ÄÜµÄ¼Ó³É
+	 * \brief è·å–è£…å¤‡å¯¹æŸç³»æŠ€èƒ½çš„åŠ æˆ
 	 *
-	 * \param id: ¼¼ÄÜÏµ±ğ
-	 * \return ¼Ó³ÉµÈ¼¶
+	 * \param id: æŠ€èƒ½ç³»åˆ«
+	 * \return åŠ æˆç­‰çº§
 	 */	
 	DWORD getMaxSkills(WORD id) const
 	{
@@ -444,99 +444,99 @@ public:
 
 private:
 	friend class EquipPack;
-	WORD maxhp;					// ×î´óÉúÃüÖµ
-	WORD maxmp;					// ×î´ó·¨ÊõÖµ
-	WORD maxsp;					// ×î´óÌåÁ¦Öµ
+	WORD maxhp;					// æœ€å¤§ç”Ÿå‘½å€¼
+	WORD maxmp;					// æœ€å¤§æ³•æœ¯å€¼
+	WORD maxsp;					// æœ€å¤§ä½“åŠ›å€¼
 
-	WORD pdamage;				// ×îĞ¡¹¥»÷Á¦
-	WORD maxpdamage;			// ×î´ó¹¥»÷Á¦
-	WORD mdamage;				// ×îĞ¡·¨Êõ¹¥»÷Á¦
-	WORD maxmdamage;			// ×î´ó·¨Êõ¹¥»÷Á¦
-	WORD appendminpet;         // ¸ø³èÕÙ»½ÊŞÄÜÁ¦ÔöÇ¿×îĞ¡Öµ
-	WORD appendmaxpet;         // ¸ø³èÕÙ»½ÊŞÄÜÁ¦ÔöÇ¿×î´óÖµ
+	WORD pdamage;				// æœ€å°æ”»å‡»åŠ›
+	WORD maxpdamage;			// æœ€å¤§æ”»å‡»åŠ›
+	WORD mdamage;				// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	WORD maxmdamage;			// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
+	WORD appendminpet;         // ç»™å® å¬å”¤å…½èƒ½åŠ›å¢å¼ºæœ€å°å€¼
+	WORD appendmaxpet;         // ç»™å® å¬å”¤å…½èƒ½åŠ›å¢å¼ºæœ€å¤§å€¼
 
-	WORD pdefence;				// Îï·À
-	WORD mdefence;				// Ä§·À
-	BYTE damagebonus;			// ÉËº¦¼Ó³É
-	BYTE damage;				// Ôö¼ÓÉËº¦Öµx£¥
+	WORD pdefence;				// ç‰©é˜²
+	WORD mdefence;				// é­”é˜²
+	BYTE damagebonus;			// ä¼¤å®³åŠ æˆ
+	BYTE damage;				// å¢åŠ ä¼¤å®³å€¼xï¼…
 	
-	WORD akspeed;				// ¹¥»÷ËÙ¶È
-	WORD mvspeed;				// ÒÆ¶¯ËÙ¶È
-	WORD atrating;				// ÃüÖĞÂÊ
-	WORD akdodge;				// ¶ã±ÜÂÊ
+	WORD akspeed;				// æ”»å‡»é€Ÿåº¦
+	WORD mvspeed;				// ç§»åŠ¨é€Ÿåº¦
+	WORD atrating;				// å‘½ä¸­ç‡
+	WORD akdodge;				// èº²é¿ç‡
 
-	WORD str;  // Á¦Á¿
-	WORD inte;  // ÖÇÁ¦
-	WORD dex;  // Ãô½İ
-	WORD spi;  // ¾«Éñ
-	WORD con;  // ÌåÖÊ
+	WORD str;  // åŠ›é‡
+	WORD inte;  // æ™ºåŠ›
+	WORD dex;  // æ•æ·
+	WORD spi;  // ç²¾ç¥
+	WORD con;  // ä½“è´¨
 	
 	
-//			WORD fivetype;  // ÎåĞĞÊôĞÔ
-//			WORD fivepoint; // ÎåĞĞÊôĞÔ
+//			WORD fivetype;  // äº”è¡Œå±æ€§
+//			WORD fivepoint; // äº”è¡Œå±æ€§
 	
-	WORD hpr;  // ÉúÃüÖµ»Ö¸´
-	WORD mpr;  // ·¨ÊõÖµ»Ö¸´
-	WORD spr;  // ÌåÁ¦Öµ»Ö¸´
+	WORD hpr;  // ç”Ÿå‘½å€¼æ¢å¤
+	WORD mpr;  // æ³•æœ¯å€¼æ¢å¤
+	WORD spr;  // ä½“åŠ›å€¼æ¢å¤
 	
-	WORD holy;  //ÉñÊ¥Ò»»÷	
-	WORD bang;	//ÖØ»÷ÂÊ
-	WORD pdam;  // Ôö¼ÓÎïÀí¹¥»÷Á¦
-	WORD pdef;  // Ôö¼ÓÎïÀí·ÀÓùÁ¦
-	WORD mdam;  // Ôö¼ÓÄ§·¨¹¥»÷Á¦
-	WORD mdef;  // Ôö¼ÓÄ§·¨·ÀÓùÁ¦
+	WORD holy;  //ç¥åœ£ä¸€å‡»	
+	WORD bang;	//é‡å‡»ç‡
+	WORD pdam;  // å¢åŠ ç‰©ç†æ”»å‡»åŠ›
+	WORD pdef;  // å¢åŠ ç‰©ç†é˜²å¾¡åŠ›
+	WORD mdam;  // å¢åŠ é­”æ³•æ”»å‡»åŠ›
+	WORD mdef;  // å¢åŠ é­”æ³•é˜²å¾¡åŠ›
 	
-	WORD poisondef; //¿¹¶¾Ôö¼Ó
-	WORD lulldef; //¿¹Âé±ÔÔö¼Ó
-	WORD reeldef; //¿¹Ñ£ÔÎÔö¼Ó
-	WORD evildef; //¿¹ÊÉÄ§Ôö¼Ó
-	WORD bitedef; //¿¹ÊÉÁ¦Ôö¼Ó
-	WORD chaosdef; //¿¹»ìÂÒÔö¼Ó
-	WORD colddef; //¿¹±ù¶³Ôö¼Ó
-	WORD petrifydef; //¿¹Ê¯»¯Ôö¼Ó
-	WORD blinddef; //¿¹Ê§Ã÷Ôö¼Ó
-	WORD stabledef; //¿¹¶¨ÉíÔö¼Ó
-	WORD slowdef; //¿¹¼õËÙÔö¼Ó
-	WORD luredef; //¿¹ÓÕ»óÔö¼Ó
+	WORD poisondef; //æŠ—æ¯’å¢åŠ 
+	WORD lulldef; //æŠ—éº»ç—¹å¢åŠ 
+	WORD reeldef; //æŠ—çœ©æ™•å¢åŠ 
+	WORD evildef; //æŠ—å™¬é­”å¢åŠ 
+	WORD bitedef; //æŠ—å™¬åŠ›å¢åŠ 
+	WORD chaosdef; //æŠ—æ··ä¹±å¢åŠ 
+	WORD colddef; //æŠ—å†°å†»å¢åŠ 
+	WORD petrifydef; //æŠ—çŸ³åŒ–å¢åŠ 
+	WORD blinddef; //æŠ—å¤±æ˜å¢åŠ 
+	WORD stabledef; //æŠ—å®šèº«å¢åŠ 
+	WORD slowdef; //æŠ—å‡é€Ÿå¢åŠ 
+	WORD luredef; //æŠ—è¯±æƒ‘å¢åŠ 
 		
-	WORD poison; //ÖĞ¶¾Ôö¼Ó
-	WORD lull; //Âé±ÔÔö¼Ó
-	WORD reel; //Ñ£ÔÎÔö¼Ó
-	WORD evil; //ÊÉÄ§Ôö¼Ó
-	WORD bite; //ÊÉÁ¦Ôö¼Ó
-	WORD chaos; //»ìÂÒÔö¼Ó
-	WORD cold; //±ù¶³Ôö¼Ó
-	WORD petrify; //Ê¯»¯Ôö¼Ó
-	WORD blind; //Ê§Ã÷Ôö¼Ó
-	WORD stable; //¶¨ÉíÔö¼Ó
-	WORD slow; //¼õËÙÔö¼Ó
-	WORD lure; //ÓÕ»óÔö¼Ó
+	WORD poison; //ä¸­æ¯’å¢åŠ 
+	WORD lull; //éº»ç—¹å¢åŠ 
+	WORD reel; //çœ©æ™•å¢åŠ 
+	WORD evil; //å™¬é­”å¢åŠ 
+	WORD bite; //å™¬åŠ›å¢åŠ 
+	WORD chaos; //æ··ä¹±å¢åŠ 
+	WORD cold; //å†°å†»å¢åŠ 
+	WORD petrify; //çŸ³åŒ–å¢åŠ 
+	WORD blind; //å¤±æ˜å¢åŠ 
+	WORD stable; //å®šèº«å¢åŠ 
+	WORD slow; //å‡é€Ÿå¢åŠ 
+	WORD lure; //è¯±æƒ‘å¢åŠ 
 	
 	struct leech
 	{
 		BYTE odds;    //x
 		WORD effect;	//y
 	};
-	leech hpleech; //x%ÎüÊÕÉúÃüÖµy
-	leech mpleech; //x%ÎüÊÕ·¨ÊõÖµy
+	leech hpleech; //x%å¸æ”¶ç”Ÿå‘½å€¼y
+	leech mpleech; //x%å¸æ”¶æ³•æœ¯å€¼y
 	
-	BYTE hptomp; //×ª»»ÉúÃüÖµÎª·¨ÊõÖµx£¥
-	BYTE dhpp; //ÎïÀíÉËº¦¼õÉÙx%	
-	BYTE dmpp; //·¨ÊõÉËº¦Öµ¼õÉÙx%		
+	BYTE hptomp; //è½¬æ¢ç”Ÿå‘½å€¼ä¸ºæ³•æœ¯å€¼xï¼…
+	BYTE dhpp; //ç‰©ç†ä¼¤å®³å‡å°‘x%	
+	BYTE dmpp; //æ³•æœ¯ä¼¤å®³å€¼å‡å°‘x%		
 
-	BYTE incgold; //Ôö¼Ó½ğÇ®µôÂäx%
-	BYTE doublexp; //x%Ë«±¶¾­Ñé		
-	BYTE mf; //Ôö¼Óµô±¦ÂÊx%
+	BYTE incgold; //å¢åŠ é‡‘é’±æ‰è½x%
+	BYTE doublexp; //x%åŒå€ç»éªŒ		
+	BYTE mf; //å¢åŠ æ‰å®ç‡x%
 
 	union {
 		BYTE _five_props[5];
 		struct {
-			//ÎåĞĞÌ××°Ïà¹ØÊôĞÔ
-			BYTE dpdam; //ÎïÀíÉËº¦¼õÉÙ%x
-			BYTE dmdam; //·¨ÊõÉËº¦¼õÉÙ%x
-			BYTE bdam; //Ôö¼ÓÉËº¦x%
-			BYTE rdam; //ÉËº¦·´Éä%x
-			BYTE ignoredef; //%xºöÊÓÄ¿±ê·ÀÓù
+			//äº”è¡Œå¥—è£…ç›¸å…³å±æ€§
+			BYTE dpdam; //ç‰©ç†ä¼¤å®³å‡å°‘%x
+			BYTE dmdam; //æ³•æœ¯ä¼¤å®³å‡å°‘%x
+			BYTE bdam; //å¢åŠ ä¼¤å®³x%
+			BYTE rdam; //ä¼¤å®³åå°„%x
+			BYTE ignoredef; //%xå¿½è§†ç›®æ ‡é˜²å¾¡
 		};
 	};
 	
@@ -547,10 +547,10 @@ private:
 	
 	typedef std::map<WORD, WORD> SKILL;
 	typedef SKILL::const_iterator const_iterator;
-	SKILL skill;  //µ¥¸ö¼¼ÄÜ¼Ó³É
-	SKILL skills; //È«Ïµ¼¼ÄÜ¼Ó³É 
-	BYTE maxhprate;  //°´°Ù·Ö±ÈÔö¼Ó×î´óhp
-	BYTE maxmprate;  //°´°Ù·Ö±ÈÔö¼Ó×î´ómp
+	SKILL skill;  //å•ä¸ªæŠ€èƒ½åŠ æˆ
+	SKILL skills; //å…¨ç³»æŠ€èƒ½åŠ æˆ 
+	BYTE maxhprate;  //æŒ‰ç™¾åˆ†æ¯”å¢åŠ æœ€å¤§hp
+	BYTE maxmprate;  //æŒ‰ç™¾åˆ†æ¯”å¢åŠ æœ€å¤§mp
 };	
 
 
@@ -821,13 +821,13 @@ public:
 	PetPack();
 	~PetPack();
 
-	WORD size() const;//·µ»Ø×î´ó¿ÉÓÃÊı
-	void setAvailable(WORD);//ÉèÖÃ×î´ó¿ÉÓÃÊı
+	WORD size() const;//è¿”å›æœ€å¤§å¯ç”¨æ•°
+	void setAvailable(WORD);//è®¾ç½®æœ€å¤§å¯ç”¨æ•°
 
 	bool isEmpty() const;
 
 private:
-	WORD available;//¿ÉÓÃµÄ×ÜÊı
+	WORD available;//å¯ç”¨çš„æ€»æ•°
 
 	bool checkAdd(SceneUser* pUser, zObject* object, WORD x, WORD y);
 };

@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Leechdom.h $
  * \author  
  * \date 
- * \brief Ò©Æ·,Ê³ÎïÀàÎïÆ·Ê¹ÓÃ
+ * \brief è¯å“,é£Ÿç‰©ç±»ç‰©å“ä½¿ç”¨
  *
- * »Ö¸´·¨ÊõÖµ,ÌåÁ¦Öµ,ÉúÃüÖµµÄÎïÆ·
+ * æ¢å¤æ³•æœ¯å€¼,ä½“åŠ›å€¼,ç”Ÿå‘½å€¼çš„ç‰©å“
  * 
  */
 
@@ -20,23 +20,23 @@
 enum LeechdomType
 {
 	Leechdom_default,
-	Leechdom_dam,//Ôö¼ÓÉËº¦Á¦
-	Leechdom_def,//Ôö¼Ó·ÀÓùÁ¦
-	Leechdom_poison,//Ò©ÎïÊ¹ÈË³ÖĞøÖĞ¶¾
-	Leechdom_sppersist,//ÎïÆ·Ê¹ÈËÌåÁ¦Öµ±£³Öµ±Ç°Öµ²»±ä
-	Leechdom_spup,//Ò©ÎïÔö¼ÓÈËÌåÁ¦Öµ°Ù·Ö±È
-	Leechdom_spcostdown,//¼õÂıÌåÁ¦ÏûºÄËÙ¶È
-	Leechdom_spresumeup,//¼Ó¿ìÌåÁ¦»Ö¸´ËÙ¶È
-	Leechdom_hp,//Ò»´ÎĞÔ»Ö¸´ÉúÃü
-	Leechdom_hppersist,//³ÖĞø»Ö¸´ÉúÃü
-	Leechdom_mp,//Ò»´ÎĞÔ»Ö¸´·¨ÊõÖµ
-	Leechdom_mppersist,//³ÖĞø»Ö¸´·¨Êõ
-	Leechdom_sp,//Ò»´ÎĞÔ»Ö¸´ÌåÁ¦Öµ
-	Leechdom_hp5,//Ò»´ÎĞÔ»Ö¸´ÉúÃü
-	Leechdom_hppersist5,//³ÖĞø»Ö¸´ÉúÃü
-	Leechdom_hpmax,//ÏûºÄÄÍ¾ÃÒ»´Î¼ÓÂúHP
-	Leechdom_mpmax,//ÏûºÄÄÍ¾ÃÒ»´Î¼ÓÂúMP
-	Leechdom_chocolate,//ÇÉ¿ËÁ¦
+	Leechdom_dam,//å¢åŠ ä¼¤å®³åŠ›
+	Leechdom_def,//å¢åŠ é˜²å¾¡åŠ›
+	Leechdom_poison,//è¯ç‰©ä½¿äººæŒç»­ä¸­æ¯’
+	Leechdom_sppersist,//ç‰©å“ä½¿äººä½“åŠ›å€¼ä¿æŒå½“å‰å€¼ä¸å˜
+	Leechdom_spup,//è¯ç‰©å¢åŠ äººä½“åŠ›å€¼ç™¾åˆ†æ¯”
+	Leechdom_spcostdown,//å‡æ…¢ä½“åŠ›æ¶ˆè€—é€Ÿåº¦
+	Leechdom_spresumeup,//åŠ å¿«ä½“åŠ›æ¢å¤é€Ÿåº¦
+	Leechdom_hp,//ä¸€æ¬¡æ€§æ¢å¤ç”Ÿå‘½
+	Leechdom_hppersist,//æŒç»­æ¢å¤ç”Ÿå‘½
+	Leechdom_mp,//ä¸€æ¬¡æ€§æ¢å¤æ³•æœ¯å€¼
+	Leechdom_mppersist,//æŒç»­æ¢å¤æ³•æœ¯
+	Leechdom_sp,//ä¸€æ¬¡æ€§æ¢å¤ä½“åŠ›å€¼
+	Leechdom_hp5,//ä¸€æ¬¡æ€§æ¢å¤ç”Ÿå‘½
+	Leechdom_hppersist5,//æŒç»­æ¢å¤ç”Ÿå‘½
+	Leechdom_hpmax,//æ¶ˆè€—è€ä¹…ä¸€æ¬¡åŠ æ»¡HP
+	Leechdom_mpmax,//æ¶ˆè€—è€ä¹…ä¸€æ¬¡åŠ æ»¡MP
+	Leechdom_chocolate,//å·§å…‹åŠ›
 };
 #endif
 
@@ -54,7 +54,7 @@ struct LeechdomElement
 	WORD times;
 };
 /**
- * \brief Ò©Æ·Ê¹ÓÃ
+ * \brief è¯å“ä½¿ç”¨
  *
  */
 struct Leechdom
@@ -78,15 +78,15 @@ struct Leechdom
 	typedef Leechdom_vector::iterator Leechdom_iterator;
 	Leechdom_vector element;
 	zMutex mlock;
-	/// ÉËº¦ÀàÎïÆ·ÀäÈ´Ê±¼ä
+	/// ä¼¤å®³ç±»ç‰©å“å†·å´æ—¶é—´
 	WORD damcooling;
-	/// ·ÀÓùÀàÎïÆ·ÀäÈ´Ê±¼ä
+	/// é˜²å¾¡ç±»ç‰©å“å†·å´æ—¶é—´
 	WORD defcooling;
-	/// »Ö¸´hpÀàÎïÆ·ÀäÈ´Ê±¼ä
+	/// æ¢å¤hpç±»ç‰©å“å†·å´æ—¶é—´
 	WORD hpcooling;
-	/// »Ö¸´spÀàÎïÆ·ÀäÈ´Ê±¼ä
+	/// æ¢å¤spç±»ç‰©å“å†·å´æ—¶é—´
 	WORD spcooling;
-	/// »Ö¸´mpÀàÎïÆ·ÀäÈ´Ê±¼ä
+	/// æ¢å¤mpç±»ç‰©å“å†·å´æ—¶é—´
 	WORD mpcooling;
 	WORD sppersist;
 };

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareSeptNpc.cpp  $
  * \author 
  * \date 
- * \brief ¼Ò×åNPCÕù¶áÕ½
+ * \brief å®¶æ—NPCäº‰å¤ºæˆ˜
  *
  * 
  */
@@ -20,7 +20,7 @@ CDareSeptNpc::~CDareSeptNpc()
 
 void CDareSeptNpc::setReadyOverState()
 {
-	Cmd::Session::t_enterWar_SceneSession exit_war; // Í¨Öª³¡¾°£¬ÍË³ö¶ÔÕ½×´Ì¬
+	Cmd::Session::t_enterWar_SceneSession exit_war; // é€šçŸ¥åœºæ™¯ï¼Œé€€å‡ºå¯¹æˆ˜çŠ¶æ€
 
 	exit_war.dwWarType = this->type;
 	exit_war.dwStatus = 0;

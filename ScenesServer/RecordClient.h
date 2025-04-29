@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordClient.h  $
  * \author  
  * \date 
- * \brief ¶¨Òåµµ°¸·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰æ¡£æ¡ˆæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
- * ¸ºÔğÓëµµ°¸·şÎñÆ÷½»»¥£¬´æÈ¡µµ°¸
+ * è´Ÿè´£ä¸æ¡£æ¡ˆæœåŠ¡å™¨äº¤äº’ï¼Œå­˜å–æ¡£æ¡ˆ
  * 
  */
 
@@ -22,10 +22,10 @@
 #include "MessageQueue.h"
 
 /**
- * brief ¶¨Òå µµ°¸·şÎñÆ÷Á¬½Ó¿Í»§¶ËÀà
+ * brief å®šä¹‰ æ¡£æ¡ˆæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯ç±»
  *
- * ¸ºÔğ Óëµµ°¸·şÎñÆ÷½»»¥£¬´æÈ¡µµ°¸
- * TODO ÔİÊ±Ö»ÓĞÒ»¸öµµ°¸·şÎñÆ÷
+ * è´Ÿè´£ ä¸æ¡£æ¡ˆæœåŠ¡å™¨äº¤äº’ï¼Œå­˜å–æ¡£æ¡ˆ
+ * TODO æš‚æ—¶åªæœ‰ä¸€ä¸ªæ¡£æ¡ˆæœåŠ¡å™¨
  * 
  */
 class RecordClient : public zTCPBufferClient , public MessageQueue
@@ -34,11 +34,11 @@ class RecordClient : public zTCPBufferClient , public MessageQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * ÓÉÓÚµµ°¸Êı¾İÒÑ¾­ÊÇÑ¹Ëõ¹ıµÄ£¬¹ÊÔÚµ×²ã´«ÊäµÄÊ±ºò¾Í²»ĞèÒªÑ¹ËõÁË
-		 * \param name Ãû³Æ
-		 * \param ip µØÖ·
-		 * \param port ¶Ë¿Ú
+		 * \brief æ„é€ å‡½æ•°
+		 * ç”±äºæ¡£æ¡ˆæ•°æ®å·²ç»æ˜¯å‹ç¼©è¿‡çš„ï¼Œæ•…åœ¨åº•å±‚ä¼ è¾“çš„æ—¶å€™å°±ä¸éœ€è¦å‹ç¼©äº†
+		 * \param name åç§°
+		 * \param ip åœ°å€
+		 * \param port ç«¯å£
 		 */
 		RecordClient(
 				const std::string &name, 

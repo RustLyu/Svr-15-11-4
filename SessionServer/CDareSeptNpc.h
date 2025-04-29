@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CDareSeptNpc.h  $
  * \author  
  * \date 
- * \brief ¼Ò×åNPCÕù¶áÕ½
+ * \brief å®¶æ—NPCäº‰å¤ºæˆ˜
  *
  * 
  */
@@ -14,7 +14,7 @@
 #include "CDareSept.h"
 
 /**
- * \brief ¼Ò×åNPCÕù¶áÕ½ 
+ * \brief å®¶æ—NPCäº‰å¤ºæˆ˜ 
  *
  */
 class CDareSeptNpc : public CDareSept
@@ -38,21 +38,21 @@ class CDareSeptNpc : public CDareSept
 		}
 
 		/**
-  		  * \brief ¶ÔÕ½½á¹ûÍ¨Öª
+  		  * \brief å¯¹æˆ˜ç»“æœé€šçŸ¥
 		  *
-		  * \param winner_type ½á¹ûÀàĞÍ:0 ÌôÕ½ÕßÊ¤£¬ 1 Ó¦Õ½ÕßÊ¤£¬ 2 Õ½Æ½
+		  * \param winner_type ç»“æœç±»å‹:0 æŒ‘æˆ˜è€…èƒœï¼Œ 1 åº”æˆ˜è€…èƒœï¼Œ 2 æˆ˜å¹³
 		  *		  
 		  */
  		virtual void notifyWarResult(int winner_type){};
 
 		/**
-		 * \brief Õ½¶·¼Ó·Ö
+		 * \brief æˆ˜æ–—åŠ åˆ†
 		 *
-		 *  µ÷ÓÃÒ»´Î£¬¸øÏàÓ¦µÄÉç»áÍÅ¶Ó¼ÓÉÏPKÈËÊıÒ»ÈË¡£µÃ·Ö¹«Ê½ÈçÏÂ£º
+		 *  è°ƒç”¨ä¸€æ¬¡ï¼Œç»™ç›¸åº”çš„ç¤¾ä¼šå›¢é˜ŸåŠ ä¸ŠPKäººæ•°ä¸€äººã€‚å¾—åˆ†å…¬å¼å¦‚ä¸‹ï¼š
 		 *  grade = grade + user.level/10;
 		 *
-		 * \param pAtt ¹¥»÷·½
-		 * \param pDef ·ÀÊØ·½
+		 * \param pAtt æ”»å‡»æ–¹
+		 * \param pDef é˜²å®ˆæ–¹
 		 */
 		virtual void addGrade(UserSession* pAtt, UserSession* pDef){};
 		

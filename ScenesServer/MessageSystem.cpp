@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MessageSystem.cpp  $
  * \author  
  * \date 
- * \brief ÏµÍ³ÌáÊ¾ĞÅÏ¢
+ * \brief ç³»ç»Ÿæç¤ºä¿¡æ¯
  *
  * 
  */
@@ -23,10 +23,10 @@
 MessageSystem *MessageSystem::instance = NULL;
 
 /**
- * \brief ¼ÓÔØÏûÏ¢ÏµÍ³µÄÅäÖÃÎÄ¼ş
+ * \brief åŠ è½½æ¶ˆæ¯ç³»ç»Ÿçš„é…ç½®æ–‡ä»¶
  *
  *
- * \return ¼ÓÔØÊÇ·ñ³É¹¦
+ * \return åŠ è½½æ˜¯å¦æˆåŠŸ
  */
 bool MessageSystem::init()
 {
@@ -36,7 +36,7 @@ bool MessageSystem::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["messageSystemFile"]))
 	{
-		Zebra::logger->error("¼ÓÔØÏûÏ¢ÏµÍ³ÅäÖÃÎÄ¼ş %s Ê§°Ü", Zebra::global["messageSystemFile"].c_str());
+		Zebra::logger->error("åŠ è½½æ¶ˆæ¯ç³»ç»Ÿé…ç½®æ–‡ä»¶ %s å¤±è´¥", Zebra::global["messageSystemFile"].c_str());
 		return false;
 	}
 
@@ -79,10 +79,10 @@ bool MessageSystem::init()
 					}
 				}
 				mm.count=xml.getChildNodeNum(node,"message");
-				//ÊÇ·ñË³Ğò·¢ËÍ
+				//æ˜¯å¦é¡ºåºå‘é€
 				int order=0;
 				if(xml.getNodePropNum(node,"order",&order,sizeof(order)) && order)
-					mm.order=0;//´ÓÁã¿ªÊ¼,Ë³Ğò·¢ËÍ
+					mm.order=0;//ä»é›¶å¼€å§‹,é¡ºåºå‘é€
 				else
 					mm.order=mm.count;
 
@@ -107,17 +107,17 @@ bool MessageSystem::init()
 			node = xml.getNextNode(node, NULL);
 		}
 		rwlock.unlock();
-		Zebra::logger->info("³õÊ¼»¯×Ô¶¯ÏûÏ¢ÏµÍ³³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–è‡ªåŠ¨æ¶ˆæ¯ç³»ç»ŸæˆåŠŸ");
 		return true;
 	}
 	rwlock.unlock();
 
-	Zebra::logger->error("¼ÓÔØÏûÏ¢ÏµÍ³ÅäÖÃÎÄ¼ş %s Ê§°Ü", Zebra::global["messageSystemFile"].c_str());
+	Zebra::logger->error("åŠ è½½æ¶ˆæ¯ç³»ç»Ÿé…ç½®æ–‡ä»¶ %s å¤±è´¥", Zebra::global["messageSystemFile"].c_str());
 	return false;
 }
 
 /**
- * \brief Ğ¶ÔØÏûÏ¢ÏµÍ³
+ * \brief å¸è½½æ¶ˆæ¯ç³»ç»Ÿ
  *
  *
  */
@@ -132,11 +132,11 @@ void MessageSystem::final()
 }
 
 /**
- * \brief ¸øÖ¸ÁîÓÃ»§·¢ËÍÖ¸¶¨ÀàĞÍµÄÏûÏ¢
+ * \brief ç»™æŒ‡ä»¤ç”¨æˆ·å‘é€æŒ‡å®šç±»å‹çš„æ¶ˆæ¯
  *
  *
- * \param sceneUser: ÓÃ»§
- * \param init: ÊÇ·ñÊÇ¸Õ¸ÕµÇÂ½
+ * \param sceneUser: ç”¨æˆ·
+ * \param init: æ˜¯å¦æ˜¯åˆšåˆšç™»é™†
  */
 void MessageSystem::check(SceneUser *sceneUser, const bool init)
 {
@@ -149,11 +149,11 @@ void MessageSystem::check(SceneUser *sceneUser, const bool init)
 			time_t t=time(NULL);
 			while(count<(int)messages.size() && messages[count].count!=0)
 			{
-				if(messages[count].login &&//µÇÂ½·¢ËÍ
-						t>=messages[count].starttime &&//ÒÑ¿ªÊ¼
-						(messages[count].endtime==-1 || t<=messages[count].endtime))//Î´½áÊø
+				if(messages[count].login &&//ç™»é™†å‘é€
+						t>=messages[count].starttime &&//å·²å¼€å§‹
+						(messages[count].endtime==-1 || t<=messages[count].endtime))//æœªç»“æŸ
 				{
-					//Zebra::logger->debug("·¢ËÍ£º%s", messages[count].cmd.pstrChat);
+					//Zebra::logger->debug("å‘é€ï¼š%s", messages[count].cmd.pstrChat);
 					sceneUser->sendCmdToMe(&messages[count].cmd, sizeof(messages[count].cmd));
 				}
 				//Zebra::logger->debug("%s", messages[count].cmd.pstrChat);
@@ -167,15 +167,15 @@ void MessageSystem::check(SceneUser *sceneUser, const bool init)
 			time_t t=time(NULL);
 			while(count<(int)messages.size() && messages[count].count!=0)
 			{
-				if( (messages[count].interval==0 && t==messages[count].starttime) ||//Ò»´ÎĞÔ·¢ËÍ
-						(messages[count].interval!=0 && t%messages[count].interval==0 &&//¶¨Ê±·¢ËÍ
-						 t>=messages[count].starttime &&//ÒÑ¿ªÊ¼
-						 (messages[count].endtime==-1 || t<=messages[count].endtime)//Î´½áÊø
+				if( (messages[count].interval==0 && t==messages[count].starttime) ||//ä¸€æ¬¡æ€§å‘é€
+						(messages[count].interval!=0 && t%messages[count].interval==0 &&//å®šæ—¶å‘é€
+						 t>=messages[count].starttime &&//å·²å¼€å§‹
+						 (messages[count].endtime==-1 || t<=messages[count].endtime)//æœªç»“æŸ
 						))
 				{
 					int i;
 					if(messages[count].count==messages[count].order)
-						i=zMisc::randBetween(count,count+messages[count].count-1);//Ëæ»úÕÒÒ»Ìõ·¢¸øÓÃ»§
+						i=zMisc::randBetween(count,count+messages[count].count-1);//éšæœºæ‰¾ä¸€æ¡å‘ç»™ç”¨æˆ·
 					else
 					{
 						i=count+sceneUser->messageOrder;

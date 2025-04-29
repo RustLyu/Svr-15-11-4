@@ -1,10 +1,10 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillCache.cpp  $
  * \author  
  * \date 
- * \brief »º³åÇëÇó½»Ò×ÐòÁÐºÅ
- * »º³åÇëÇó½»Ò×ÐòÁÐ£¬ÒÔ±ãÈ·ÈÏÒ»¸öÍêÕûµÄ½»Ò×ÊÂÎñ
+ * \brief ç¼“å†²è¯·æ±‚äº¤æ˜“åºåˆ—å·
+ * ç¼“å†²è¯·æ±‚äº¤æ˜“åºåˆ—ï¼Œä»¥ä¾¿ç¡®è®¤ä¸€ä¸ªå®Œæ•´çš„äº¤æ˜“äº‹åŠ¡
  */
 
 
@@ -93,7 +93,7 @@ void BillCache::update(const zTime &ct)
 		if (ct.sec() > it->second->timeout
 				&& (ct.sec() - it->second->timeout) >= DEFAULT_BILL_TIMEOUT)
 		{
-			//TODO FIXME Õâ¸ö½»Ò×³¬Ê±£¬×÷·ÏÐ´ÈÕÖ¾
+			//TODO FIXME è¿™ä¸ªäº¤æ˜“è¶…æ—¶ï¼Œä½œåºŸå†™æ—¥å¿—
 			//Zebra::logger->debug("tradeSN timeout: %s", it->second->tid);
 			iter tmp = it;
 			BillData *bd = tmp->second;

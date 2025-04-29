@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestAction.h $
  * \author	
  * \date		2005-03-31
- * \brief		½Å±¾´¥·¢¶¯×÷
+ * \brief		è„šæœ¬è§¦å‘åŠ¨ä½œ
  * 
  */
 
@@ -23,9 +23,9 @@
 
 namespace Op {
 	/**
-	 * \brief Ôö¼Ó±äÁ¿Öµ
+	 * \brief å¢åŠ å˜é‡å€¼
 	 *
-	 * Ôö¼ÓÒ»¸ö±äÁ¿µÄÖµ
+	 * å¢åŠ ä¸€ä¸ªå˜é‡çš„å€¼
 	 *
 	 */
 	template <typename T>
@@ -37,11 +37,11 @@ namespace Op {
 		/**     
 		 * \brief 
 		 *
-		 * Ôö¼Ó±äÁ¿µÄÖµ         
+		 * å¢åŠ å˜é‡çš„å€¼         
 		 *      
-		 * \param value: ´ı¸Ä±äµÄ±äÁ¿
-		 * \param action: ÒªĞŞ¸ÄµÄÖµ
-		 * \return ÎŞ
+		 * \param value: å¾…æ”¹å˜çš„å˜é‡
+		 * \param action: è¦ä¿®æ”¹çš„å€¼
+		 * \return æ— 
 		 */     		
 		void operator() (T& value, T action, SceneUser *user) const
 		{
@@ -56,9 +56,9 @@ namespace Op {
 	};
 
 	/**
-	 * \brief Éè¶¨±äÁ¿Öµ
+	 * \brief è®¾å®šå˜é‡å€¼
 	 *
-	 * Éè¶¨Ò»¸ö±äÁ¿µÄÖµ
+	 * è®¾å®šä¸€ä¸ªå˜é‡çš„å€¼
 	 *
 	 */
 	template <typename T>
@@ -70,11 +70,11 @@ namespace Op {
 		/**     
 		 * \brief  
 		 *
-		 * Éè¶¨Ò»¸ö±äÁ¿µÄÖµ         
+		 * è®¾å®šä¸€ä¸ªå˜é‡çš„å€¼         
 		 *      
-		 * \param value: ´ı¸Ä±äµÄ±äÁ¿
-		 * \param action: ÒªÉè¶¨µÄÖµ
-		 * \return ÎŞ
+		 * \param value: å¾…æ”¹å˜çš„å˜é‡
+		 * \param action: è¦è®¾å®šçš„å€¼
+		 * \return æ— 
 		 */     
 		 void operator() (T& value, T action, SceneUser *user) const
 		{
@@ -90,9 +90,9 @@ namespace Op {
 	};
 
 	/**
-	 * \brief ¼õÉÙ±äÁ¿Öµ
+	 * \brief å‡å°‘å˜é‡å€¼
 	 *
-	 * ¼õÉÙÒ»¸ö±äÁ¿µÄÖµ
+	 * å‡å°‘ä¸€ä¸ªå˜é‡çš„å€¼
 	 *
 	 */	
 	template <typename T>
@@ -104,11 +104,11 @@ namespace Op {
 		/**     
 		 * \brief 
 		 *
-		 * Ôö¼Ó±äÁ¿µÄÖµ         
+		 * å¢åŠ å˜é‡çš„å€¼         
 		 *      
-		 * \param value: ´ı¸Ä±äµÄ±äÁ¿
-		 * \param action: Òª¼õÉÙµÄÖµ
-		 * \return ÎŞ
+		 * \param value: å¾…æ”¹å˜çš„å˜é‡
+		 * \param action: è¦å‡å°‘çš„å€¼
+		 * \return æ— 
 		 */     
 		void operator() (T& value, T action, SceneUser *user) const
 		{
@@ -123,9 +123,9 @@ namespace Op {
 	};
 
 	/**
-	 * \brief ³ËÒ»¸ö±äÁ¿Öµ
+	 * \brief ä¹˜ä¸€ä¸ªå˜é‡å€¼
 	 *
-	 * ³ËÒ»¸ö±äÁ¿µÄÖµ
+	 * ä¹˜ä¸€ä¸ªå˜é‡çš„å€¼
 	 *
 	 */
 	template <typename T>
@@ -137,11 +137,11 @@ namespace Op {
 		/**     
 		 * \brief  
 		 *
-		 * Éè¶¨Ò»¸ö±äÁ¿µÄÖµ         
+		 * è®¾å®šä¸€ä¸ªå˜é‡çš„å€¼         
 		 *      
-		 * \param value: ´ı¸Ä±äµÄ±äÁ¿
-		 * \param action: ÒªÉè¶¨µÄÖµ
-		 * \return ÎŞ
+		 * \param value: å¾…æ”¹å˜çš„å˜é‡
+		 * \param action: è¦è®¾å®šçš„å€¼
+		 * \return æ— 
 		 */     
 		 void operator() (T& value, T action, SceneUser *user) const
 		{
@@ -156,9 +156,9 @@ namespace Op {
 	};
 
 	/**
-	 * \brief ±äÁ¿Öµ³Ë·½
+	 * \brief å˜é‡å€¼ä¹˜æ–¹
 	 *
-	 * ±äÁ¿Öµ³Ë·½
+	 * å˜é‡å€¼ä¹˜æ–¹
 	 *
 	 */
 	template <typename T>
@@ -170,11 +170,11 @@ namespace Op {
 		/**     
 		 * \brief  
 		 *
-		 * Éè¶¨Ò»¸ö±äÁ¿µÄÖµ         
+		 * è®¾å®šä¸€ä¸ªå˜é‡çš„å€¼         
 		 *      
-		 * \param value: ´ı¸Ä±äµÄ±äÁ¿
-		 * \param action: ÒªÉè¶¨µÄÖµ
-		 * \return ÎŞ
+		 * \param value: å¾…æ”¹å˜çš„å˜é‡
+		 * \param action: è¦è®¾å®šçš„å€¼
+		 * \return æ— 
 		 */     
 		 void operator() (T& value, T action, SceneUser *user) const
 		{
@@ -189,9 +189,9 @@ namespace Op {
 	};
 
 	/**
-	 * \brief ±äÁ¿Öµ³Ë·½
+	 * \brief å˜é‡å€¼ä¹˜æ–¹
 	 *
-	 * ±äÁ¿Öµ³Ë·½
+	 * å˜é‡å€¼ä¹˜æ–¹
 	 *
 	 */
 	template <typename T>
@@ -203,11 +203,11 @@ namespace Op {
 		/**     
 		 * \brief  
 		 *
-		 * Éè¶¨Ò»¸ö±äÁ¿µÄÖµ         
+		 * è®¾å®šä¸€ä¸ªå˜é‡çš„å€¼         
 		 *      
-		 * \param value: ´ı¸Ä±äµÄ±äÁ¿
-		 * \param action: ÒªÉè¶¨µÄÖµ
-		 * \return ÎŞ
+		 * \param value: å¾…æ”¹å˜çš„å˜é‡
+		 * \param action: è¦è®¾å®šçš„å€¼
+		 * \return æ— 
 		 */     
 		 void operator() (T& value, T action, SceneUser *user) const
 		{
@@ -222,9 +222,9 @@ namespace Op {
 	};
 
 	/**
-	 * \brief ±äÁ¿Öµ³Ë·½
+	 * \brief å˜é‡å€¼ä¹˜æ–¹
 	 *
-	 * ±äÁ¿Öµ³Ë·½
+	 * å˜é‡å€¼ä¹˜æ–¹
 	 *
 	 */
 	template <typename T>
@@ -236,11 +236,11 @@ namespace Op {
 		/**     
 		 * \brief  
 		 *
-		 * Éè¶¨Ò»¸ö±äÁ¿µÄÖµ         
+		 * è®¾å®šä¸€ä¸ªå˜é‡çš„å€¼         
 		 *      
-		 * \param value: ´ı¸Ä±äµÄ±äÁ¿
-		 * \param action: ÒªÉè¶¨µÄÖµ
-		 * \return ÎŞ
+		 * \param value: å¾…æ”¹å˜çš„å˜é‡
+		 * \param action: è¦è®¾å®šçš„å€¼
+		 * \return æ— 
 		 */     
 		 void operator() (T& value, T action, SceneUser *user) const
 		{
@@ -273,9 +273,9 @@ namespace Op {
 class SceneUser;
 
 /**
- * \brief ´¥·¢¶¯×÷»ùÀà
+ * \brief è§¦å‘åŠ¨ä½œåŸºç±»
  *
- * ¸ÃÀà¶¨ÒåÁË½Å±¾´¥·¢¶¯×÷µÄ½Ó¿Ú¡£
+ * è¯¥ç±»å®šä¹‰äº†è„šæœ¬è§¦å‘åŠ¨ä½œçš„æ¥å£ã€‚
  *
  */	
 class Action
@@ -293,7 +293,7 @@ public:
 	
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~Action() { }
@@ -302,32 +302,32 @@ protected:
 	virtual bool check_args(SceneUser* user, Vars* vars) const;
 	
 	/**     
-	 * \brief  Ö´ĞĞ½Å±¾¶¨ÒåµÄ¶¯×÷
+	 * \brief  æ‰§è¡Œè„šæœ¬å®šä¹‰çš„åŠ¨ä½œ
 	 *
-	 * Ğéº¯Êı,¼Ì³ĞÀàĞèÒªÖØÔØ´Ëº¯ÊıÌá¹©¶Ô¸÷ÖÖ´¥·¢¶¯×÷µÄÖ§³Ö
+	 * è™šå‡½æ•°,ç»§æ‰¿ç±»éœ€è¦é‡è½½æ­¤å‡½æ•°æä¾›å¯¹å„ç§è§¦å‘åŠ¨ä½œçš„æ”¯æŒ
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     
 	virtual int done(SceneUser* user, Vars* vars) = 0;
 };
 
 /**
- * \brief ×é¶Ó´¥·¢¶¯×÷»ùÀà
+ * \brief ç»„é˜Ÿè§¦å‘åŠ¨ä½œåŸºç±»
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚ×é¶ÓÈÎÎñµÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºç»„é˜Ÿä»»åŠ¡çš„æ”¯æŒ
  *
  */	
 class TeamAction : public Action
 {
 public:	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	TeamAction(Parse& p)
 	{
@@ -338,13 +338,13 @@ public:
 
 protected:	
 	/**     
-	 * \brief  Ö´ĞĞ½Å±¾¶¨ÒåµÄ¶¯×÷
+	 * \brief  æ‰§è¡Œè„šæœ¬å®šä¹‰çš„åŠ¨ä½œ
 	 *
-	 * Ğéº¯Êı,¼Ì³ĞÀàĞèÒªÖØÔØ´Ëº¯ÊıÌá¹©¶Ô¸÷ÖÖ´¥·¢¶¯×÷µÄÖ§³Ö
+	 * è™šå‡½æ•°,ç»§æ‰¿ç±»éœ€è¦é‡è½½æ­¤å‡½æ•°æä¾›å¯¹å„ç§è§¦å‘åŠ¨ä½œçš„æ”¯æŒ
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     
 	int done(SceneUser* user, Vars* vars) = 0;
 
@@ -354,9 +354,9 @@ private:
 };
 
 /**
- * \brief ±äÁ¿
+ * \brief å˜é‡
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞÓĞ¹Ø±äÁ¿µÄĞŞ¸ÄµÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­æœ‰å…³å˜é‡çš„ä¿®æ”¹çš„æ”¯æŒ
  *
  */	
 template <typename Operation>
@@ -366,11 +366,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	VarAction(Parse& p) : TeamAction(p)
 	{ 
@@ -381,20 +381,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~VarAction()
 	{ }
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -419,9 +419,9 @@ private:
 };
 
 /**
- * \brief ±äÁ¿¼ä¶¯×÷
+ * \brief å˜é‡é—´åŠ¨ä½œ
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞ±äÁ¿Ö®¼äµÄ²Ù×÷µÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­å˜é‡ä¹‹é—´çš„æ“ä½œçš„æ”¯æŒ
  *
  */	
 template <typename Operation>
@@ -431,11 +431,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	VarsAction(Parse& p) : TeamAction(p)
 	{ 
@@ -447,20 +447,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~VarsAction()
 	{ }
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -510,9 +510,9 @@ private:
 };
 
 /**
- * \brief ÓÃ»§±äÁ¿
+ * \brief ç”¨æˆ·å˜é‡
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞĞèÒª±£³ÖÔÚÓÃ»§ÉíÉÏ±äÁ¿µÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­éœ€è¦ä¿æŒåœ¨ç”¨æˆ·èº«ä¸Šå˜é‡çš„æ”¯æŒ
  *
  */	
 template <typename Operation>
@@ -522,11 +522,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	UserVarAction(Parse& p) : TeamAction(p)
 	{ 
@@ -537,20 +537,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~UserVarAction()
 	{ }
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -572,9 +572,9 @@ private:
 };
 
 /**
- * \brief ÏµÍ³ĞÅÏ¢
+ * \brief ç³»ç»Ÿä¿¡æ¯
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÃ»§Ìá¹©ÏµÍ³ÁÄÌìĞÅÏ¢µÄÖ§³Ö.
+ * è¯¥ç±»æä¾›äº†å¯¹ç”¨æˆ·æä¾›ç³»ç»ŸèŠå¤©ä¿¡æ¯çš„æ”¯æŒ.
  *
  */	
 class NotifyAction : public TeamAction
@@ -582,11 +582,11 @@ class NotifyAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	NotifyAction(Parse& p) : TeamAction(p)
 	{ 
@@ -594,7 +594,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~NotifyAction() { }	
@@ -606,9 +606,9 @@ private:
 };
 
 /**
- * \brief ÈÕÖ¾ĞÅÏ¢
+ * \brief æ—¥å¿—ä¿¡æ¯
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÈÕÖ¾ĞÅÏ¢µÄÖ§³Ö.
+ * è¯¥ç±»æä¾›äº†å¯¹æ—¥å¿—ä¿¡æ¯çš„æ”¯æŒ.
  *
  */	
 class LogAction : public TeamAction
@@ -616,11 +616,11 @@ class LogAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	LogAction(Parse& p) : TeamAction(p)
 	{ 
@@ -628,7 +628,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~LogAction() { }	
@@ -644,11 +644,11 @@ class BulletinAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	BulletinAction(Parse& p) : TeamAction(p)
 	{ 
@@ -657,7 +657,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~BulletinAction() { }	
@@ -670,9 +670,9 @@ private:
 };
 
 /**
- * \brief ÏµÍ³ĞÅÏ¢
+ * \brief ç³»ç»Ÿä¿¡æ¯
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÃ»§Ìá¹©ÏµÍ³ÁÄÌìĞÅÏ¢µÄÖ§³Ö.
+ * è¯¥ç±»æä¾›äº†å¯¹ç”¨æˆ·æä¾›ç³»ç»ŸèŠå¤©ä¿¡æ¯çš„æ”¯æŒ.
  *
  */	
 class Notify1Action : public TeamAction
@@ -680,11 +680,11 @@ class Notify1Action : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	Notify1Action(Parse& p) : TeamAction(p)
 	{ 
@@ -692,7 +692,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~Notify1Action() { }	
@@ -704,9 +704,9 @@ private:
 };
 
 /**
- * \brief ²Ëµ¥
+ * \brief èœå•
  *
- * ¸ÃÀàÌá¹©ÁË¶Ô¿Í»§¶Ë¶¯Ì¬²Ëµ¥µÄÖ§³Ö.
+ * è¯¥ç±»æä¾›äº†å¯¹å®¢æˆ·ç«¯åŠ¨æ€èœå•çš„æ”¯æŒ.
  *
  */	
 class MenuAction : public Action
@@ -714,11 +714,11 @@ class MenuAction : public Action
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param menu: ²Ëµ¥ÄÚÈİ
+	 * \param menu: èœå•å†…å®¹
 	 */     	
 	MenuAction(const std::string& menu) : _menu(menu)
 	{ }
@@ -732,9 +732,9 @@ private:
 };
 
 /**
- * \brief ²Ëµ¥
+ * \brief èœå•
  *
- * ¸ÃÀàÌá¹©ÁË¶Ô¿Í»§¶Ë¶¯Ì¬²Ëµ¥µÄÖ§³Ö.
+ * è¯¥ç±»æä¾›äº†å¯¹å®¢æˆ·ç«¯åŠ¨æ€èœå•çš„æ”¯æŒ.
  *
  */	
 class SubMenuAction : public Action
@@ -742,11 +742,11 @@ class SubMenuAction : public Action
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param menu: ²Ëµ¥ÄÚÈİ
+	 * \param menu: èœå•å†…å®¹
 	 */     	
 	SubMenuAction(const std::string& menu) : _menu(menu)
 	{ }
@@ -760,9 +760,9 @@ private:
 };
 
 /**
- * \brief ²Ëµ¥
+ * \brief èœå•
  *
- * ¸ÃÀàÌá¹©ÁË¶Ô¿Í»§¶Ë¶¯Ì¬²Ëµ¥µÄÖ§³Ö.
+ * è¯¥ç±»æä¾›äº†å¯¹å®¢æˆ·ç«¯åŠ¨æ€èœå•çš„æ”¯æŒ.
  *
  */	
 class MainMenuAction : public Action
@@ -770,11 +770,11 @@ class MainMenuAction : public Action
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param menu: ²Ëµ¥ÄÚÈİ
+	 * \param menu: èœå•å†…å®¹
 	 */     	
 	MainMenuAction(const std::string& menu) : _menu(menu)
 	{ }
@@ -789,9 +789,9 @@ private:
 
 
 /**
- * \brief ±äÁ¿Ë¢ĞÂ
+ * \brief å˜é‡åˆ·æ–°
  *
- * ¸ÃÀàÊµÏÖÁË¶ÔÈÎÎñ±äÁ¿µÄ¼°Ê±Ë¢ĞÂ
+ * è¯¥ç±»å®ç°äº†å¯¹ä»»åŠ¡å˜é‡çš„åŠæ—¶åˆ·æ–°
  *
  */	
 class RefreshAction : public TeamAction
@@ -799,11 +799,11 @@ class RefreshAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	RefreshAction(Parse& p) : TeamAction(p)
 	{ 
@@ -812,7 +812,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~RefreshAction() { }	
@@ -824,9 +824,9 @@ private:
 };
 
 /**
- * \brief ¾­Ñé
+ * \brief ç»éªŒ
  *
- * ¸ÃÀàÌá¹©ÁËÔö¼ÓÌØ¶¨ÓÃ»§¾­ÑéµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†å¢åŠ ç‰¹å®šç”¨æˆ·ç»éªŒçš„æ¥å£
  *
  */
 class ExpAction : public TeamAction
@@ -834,11 +834,11 @@ class ExpAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ExpAction(Parse& p) : TeamAction(p)
 	{ 
@@ -849,7 +849,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~ExpAction() { }	
@@ -868,18 +868,18 @@ class Exp1Action : public ExpAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	Exp1Action(Parse& p) : ExpAction(p)
 	{ 
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~Exp1Action() { }	
@@ -889,9 +889,9 @@ public:
 
 
 /**
- * \brief Òø×Ó
+ * \brief é“¶å­
  *
- * ¸ÃÀàÌá¹©ÁËĞŞ¸ÄÓÃ»§ÉíÉÏÒø×ÓÊıÁ¿µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ä¿®æ”¹ç”¨æˆ·èº«ä¸Šé“¶å­æ•°é‡çš„æ¥å£
  *
  */	
 template <typename Operation>
@@ -901,11 +901,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	GoldAction(Parse& p)  : TeamAction(p)
 	{ 
@@ -914,19 +914,19 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~GoldAction() { }	
 
 	/**     
-	 * \brief  Ìí¼ÓÒø×Ó
+	 * \brief  æ·»åŠ é“¶å­
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,Ôö¼ÓÓÃ»§ÉíÉÏĞ¯´øµÄÒø×Ó
+	 * é‡è½½äº†doneå‡½æ•°,å¢åŠ ç”¨æˆ·èº«ä¸Šæºå¸¦çš„é“¶å­
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -934,13 +934,13 @@ public:
 
 		
 		if (op.name() == "Add") {
-			user->packs.addMoney(_value,"ÈÎÎñÌí¼Ó");
+			user->packs.addMoney(_value,"ä»»åŠ¡æ·»åŠ ");
 			return Action::SUCCESS;
 		}
 
 		if (op.name() == "Sub") {
-			if (!user->packs.removeMoney(_value,"ÈÎÎñ¼õÉÙ")) {
-				Zebra::logger->fatal("ÈÎÎñÒø×Ó¼ÆËã´íÎó: ÓÃ»§(%s), ÈÎÎñ(%d)", user->name, vars->quest_id());
+			if (!user->packs.removeMoney(_value,"ä»»åŠ¡å‡å°‘")) {
+				Zebra::logger->fatal("ä»»åŠ¡é“¶å­è®¡ç®—é”™è¯¯: ç”¨æˆ·(%s), ä»»åŠ¡(%d)", user->name, vars->quest_id());
 			}
 			
 			return Action::SUCCESS;
@@ -958,18 +958,18 @@ class EnterSeptGuardAction : public Action
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	EnterSeptGuardAction()
 	{ 
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~EnterSeptGuardAction() { }	
@@ -983,18 +983,18 @@ class FinishSeptGuardAction : public Action
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	FinishSeptGuardAction()
 	{ 
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~FinishSeptGuardAction() { }	
@@ -1003,9 +1003,9 @@ public:
 };
 
 /**
- * \brief ÆÀ¼Û
+ * \brief è¯„ä»·
  *
- * ¸ÃÀàÌá¹©ÁËÔö¼ÓÌØ¶¨ÓÃ»§ÆÀ¼ÛµÄ½Ó¿Ú,ÉĞÎ´ÊµÏÖ
+ * è¯¥ç±»æä¾›äº†å¢åŠ ç‰¹å®šç”¨æˆ·è¯„ä»·çš„æ¥å£,å°šæœªå®ç°
  *
  */
 template <typename Operation>
@@ -1016,11 +1016,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ScoreAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1028,7 +1028,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~ScoreAction() { }	
@@ -1043,9 +1043,9 @@ private:
 };
 
 /**
- * \brief ¼¼ÄÜ
+ * \brief æŠ€èƒ½
  *
- * ¸ÃÀàÌá¹©ÁËÔö¼ÓÌØ¶¨ÓÃ»§¼¼ÄÜµÈ¼¶µÄ½Ó¿Ú.
+ * è¯¥ç±»æä¾›äº†å¢åŠ ç‰¹å®šç”¨æˆ·æŠ€èƒ½ç­‰çº§çš„æ¥å£.
  *
  */
 class SkillAction : public TeamAction
@@ -1054,11 +1054,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	SkillAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1066,7 +1066,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~SkillAction() { }	
@@ -1078,9 +1078,9 @@ private:
 };
 
 /**
- * \brief ½ûÖ¹
+ * \brief ç¦æ­¢
  *
- * ¸ÃÀàÌá¹©ÁË½ûÖ¹ÓÃ»§Ö´ĞĞÄ³Ïî¶¯×÷µÄ·½·¨,µ±Ç°Ö§³ÖµÄÀàĞÍÓĞÊ¹ÓÃÎïÆ·,Ê°È¡ÎïÆ·¼°ÉÏÏÂÂí.
+ * è¯¥ç±»æä¾›äº†ç¦æ­¢ç”¨æˆ·æ‰§è¡ŒæŸé¡¹åŠ¨ä½œçš„æ–¹æ³•,å½“å‰æ”¯æŒçš„ç±»å‹æœ‰ä½¿ç”¨ç‰©å“,æ‹¾å–ç‰©å“åŠä¸Šä¸‹é©¬.
  *
  */
 class DisableAction : public TeamAction
@@ -1089,11 +1089,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	DisableAction(Parse& p)	: TeamAction(p)
 	{ 
@@ -1101,7 +1101,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~DisableAction() { }
@@ -1113,9 +1113,9 @@ private:
 };
 
 /**
- * \brief µØÍ¼Ìø×ª
+ * \brief åœ°å›¾è·³è½¬
  *
- * ¸ÃÀàÌá¹©ÁËÓÃ»§ÔÚµØÍ¼ÉÏÌø×ªµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ç”¨æˆ·åœ¨åœ°å›¾ä¸Šè·³è½¬çš„æ¥å£
  *
  */
 class GotoAction : public TeamAction
@@ -1124,11 +1124,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	GotoAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1143,7 +1143,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~GotoAction() { }
@@ -1162,9 +1162,9 @@ private:
 };
 
 /**
- * \brief ÏÂÂí
+ * \brief ä¸‹é©¬
  *
- * ¸ÃÀàÌá¹©ÁËÊ¹ÓÃ»§ÏÂÂíµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ä½¿ç”¨æˆ·ä¸‹é©¬çš„æ¥å£
  *
  */
 class RideDownAction : public TeamAction
@@ -1173,17 +1173,17 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	RideDownAction(Parse& p) : TeamAction(p)
 	{ }
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~RideDownAction() { }
@@ -1195,9 +1195,9 @@ private:
 };
 
 /**
- * \brief Ìí¼ÓÎïÆ·
+ * \brief æ·»åŠ ç‰©å“
  *
- * ¸ÃÀàÌá¹©ÁË¸øÓÃ»§Ìí¼ÓÄ³¸öÎïÆ·µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ç»™ç”¨æˆ·æ·»åŠ æŸä¸ªç‰©å“çš„æ¥å£
  *
  */
 class AddItemAction : public TeamAction
@@ -1206,11 +1206,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	AddItemAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1220,7 +1220,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~AddItemAction() { }
@@ -1234,9 +1234,9 @@ private:
 };
 
 /**
- * \brief Ìí¼Ó°ó¶¨ÎïÆ·
+ * \brief æ·»åŠ ç»‘å®šç‰©å“
  *
- * ¸ÃÀàÌá¹©ÁË¸øÓÃ»§Ìí¼ÓÄ³¸öÎïÆ·µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ç»™ç”¨æˆ·æ·»åŠ æŸä¸ªç‰©å“çš„æ¥å£
  *
  */
 class AddBindItemAction : public TeamAction
@@ -1245,11 +1245,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	AddBindItemAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1259,7 +1259,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~AddBindItemAction() { }
@@ -1273,9 +1273,9 @@ private:
 };
 
 /**
- * \brief Ìí¼ÓÂÌÉ«°ó¶¨ÎïÆ·
+ * \brief æ·»åŠ ç»¿è‰²ç»‘å®šç‰©å“
  *
- * ¸ÃÀàÌá¹©ÁË¸øÓÃ»§Ìí¼ÓÄ³¸öÎïÆ·µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ç»™ç”¨æˆ·æ·»åŠ æŸä¸ªç‰©å“çš„æ¥å£
  *
  */
 class AddGreenBindItemAction : public TeamAction
@@ -1284,11 +1284,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	AddGreenBindItemAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1298,7 +1298,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~AddGreenBindItemAction() { }
@@ -1312,9 +1312,9 @@ private:
 };
 
 /**
- * \brief É¾³ıÎïÆ·
+ * \brief åˆ é™¤ç‰©å“
  *
- * ¸ÃÀàÌá¹©ÁËÉ¾³ıÓÃ»§ÉíÉÏÄ³¸öÎïÆ·µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åˆ é™¤ç”¨æˆ·èº«ä¸ŠæŸä¸ªç‰©å“çš„æ¥å£
  *
  */
 class RemoveItemAction : public TeamAction
@@ -1323,11 +1323,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	RemoveItemAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1336,7 +1336,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~RemoveItemAction() { }
@@ -1349,9 +1349,9 @@ private:
 };
 
 /**
- * \brief ¶ªÆúÎïÆ·
+ * \brief ä¸¢å¼ƒç‰©å“
  *
- * ¸ÃÀàÌá¹©ÁË¶ªÆúÓÃ»§ÉíÉÏÄ³¸öÎïÆ·µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ä¸¢å¼ƒç”¨æˆ·èº«ä¸ŠæŸä¸ªç‰©å“çš„æ¥å£
  *
  */
 class DropItemAction : public TeamAction
@@ -1360,11 +1360,11 @@ public:
 	typedef int value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	DropItemAction(Parse& p) : TeamAction(p)
 	{ 
@@ -1373,7 +1373,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~DropItemAction() { }
@@ -1386,7 +1386,7 @@ private:
 };
 
 /**
- * \brief Î´ÊµÏÖ
+ * \brief æœªå®ç°
  *
  * 
  *
@@ -1396,11 +1396,11 @@ class DropAction : public Action
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	DropAction(Parse& p)
 	{
@@ -1411,7 +1411,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~DropAction() { }	
@@ -1426,9 +1426,9 @@ private:
 };
 
 /**
- * \brief ¶¨Ê±Æ÷
+ * \brief å®šæ—¶å™¨
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔĞèÒªÊ±¼äÏŞÖÆµÄÈÎÎñµÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹éœ€è¦æ—¶é—´é™åˆ¶çš„ä»»åŠ¡çš„æ”¯æŒ
  *
  */
 class TimeoutsAction : public Action
@@ -1436,11 +1436,11 @@ class TimeoutsAction : public Action
 public:
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	TimeoutsAction(Parse& p)
 	{
@@ -1449,7 +1449,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~TimeoutsAction() { }	
@@ -1462,9 +1462,9 @@ private:
 };
 
 /**
- * \brief ÉèÖÃ×´Ì¬
+ * \brief è®¾ç½®çŠ¶æ€
  *
- * ¸ÃÀàÌá¹©ÁËÉèÖÃÓÃ»§ÉíÉÏÄ³¸ö×´Ì¬µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†è®¾ç½®ç”¨æˆ·èº«ä¸ŠæŸä¸ªçŠ¶æ€çš„æ¥å£
  *
  */
 class SetStateAction : public TeamAction
@@ -1472,11 +1472,11 @@ class SetStateAction : public TeamAction
 public:
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	SetStateAction(Parse& p) : TeamAction(p)
 	{
@@ -1484,7 +1484,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~SetStateAction() { }	
@@ -1496,9 +1496,9 @@ private:
 };
 
 /**
- * \brief Çå³ı×´Ì¬
+ * \brief æ¸…é™¤çŠ¶æ€
  *
- * ¸ÃÀàÌá¹©ÁËÇå³ıÓÃ»§ÉíÉÏÄ³¸ö×´Ì¬µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†æ¸…é™¤ç”¨æˆ·èº«ä¸ŠæŸä¸ªçŠ¶æ€çš„æ¥å£
  *
  */
 class ClearStateAction : public TeamAction
@@ -1506,11 +1506,11 @@ class ClearStateAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ClearStateAction(Parse& p) : TeamAction(p)
 	{
@@ -1518,7 +1518,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~ClearStateAction() { }	
@@ -1530,9 +1530,9 @@ private:
 };
 
 /**
- * \brief ÂíÆ¥
+ * \brief é©¬åŒ¹
  *
- * ¸ÃÀàÌá¹©ÁË¸øÓèÓÃ»§ÂíÆ¥µÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†ç»™äºˆç”¨æˆ·é©¬åŒ¹çš„æ¥å£
  *
  */
 class HorseAction : public TeamAction
@@ -1540,11 +1540,11 @@ class HorseAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	HorseAction(Parse& p) : TeamAction(p)
 	{
@@ -1552,7 +1552,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~HorseAction() { }	
@@ -1565,9 +1565,9 @@ private:
 
 
 /**
- * \brief È«¾Ö±äÁ¿
+ * \brief å…¨å±€å˜é‡
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞĞèÒª¶ÔËùÓĞÓÃ»§¿É¼û±äÁ¿µÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­éœ€è¦å¯¹æ‰€æœ‰ç”¨æˆ·å¯è§å˜é‡çš„æ”¯æŒ
  *
  */	
 template <typename Operation>
@@ -1577,11 +1577,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	GlobalAction(Parse& p) : _id(0)
 	{ 
@@ -1592,7 +1592,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~GlobalAction()
@@ -1606,13 +1606,13 @@ public:
 	}
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -1675,7 +1675,7 @@ public:
 	FamilyLevelAction(Parse& p) : TongVarAction<Operation>(p),_level(0)
 	{ 
 		p.value("value" ,_level);
-		Zebra::logger->debug("³õÊ¼»¯_level%d", _level);
+		Zebra::logger->debug("åˆå§‹åŒ–_level%d", _level);
 	}
 
 	virtual ~FamilyLevelAction()
@@ -1686,7 +1686,7 @@ public:
 		Cmd::Session::t_OpLevel_SceneSession uplevel;
 		uplevel.dwSeptID=user->charbase.septid;
 		uplevel.dwLevel=_level;
-		Zebra::logger->debug("·¢ËÍ_level%d", _level);
+		Zebra::logger->debug("å‘é€_level%d", _level);
 		sessionClient->sendCmd(&uplevel,sizeof(uplevel));
 		return Action::SUCCESS;
 	}
@@ -1750,7 +1750,7 @@ public:
 /**
  * \brief  NPC
  *
- * ¸ÃÀàÌá¹©ÁË¶Ô³¡¾°ÉÏNPC·ÃÎÊµÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹åœºæ™¯ä¸ŠNPCè®¿é—®çš„æ”¯æŒ
  *
  */
 class NpcAction : public Action
@@ -1758,11 +1758,11 @@ class NpcAction : public Action
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	NpcAction(Parse& p)
 	{ 
@@ -1771,7 +1771,7 @@ public:
 		p.value("map", map);
 		_s = SceneManager::getInstance().getSceneByName(map.c_str());
 		if (!_s) {
-			Zebra::logger->debug("NpcActionÊ±ÇëÇóµÄ³¡¾°(%s)²»´æÔÚ", map.c_str());
+			Zebra::logger->debug("NpcActionæ—¶è¯·æ±‚çš„åœºæ™¯(%s)ä¸å­˜åœ¨", map.c_str());
 		}
 		
 		std::string pos;		
@@ -1800,7 +1800,7 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~NpcAction()
@@ -1821,9 +1821,9 @@ protected:
 };
 
 /**
- * \brief Ôö¼ÓNPC
+ * \brief å¢åŠ NPC
  *
- * ¸ÃÀàÌá¹©ÁËÔÚµØÍ¼ÉÏÔö¼ÓÒ»¸öNPCµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åœ¨åœ°å›¾ä¸Šå¢åŠ ä¸€ä¸ªNPCçš„æ¥å£
  *
  */
 class AddNpcAction : public NpcAction
@@ -1831,17 +1831,17 @@ class AddNpcAction : public NpcAction
 public:
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	AddNpcAction(Parse& p) : NpcAction(p)
 	{ }
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	~AddNpcAction()
@@ -1852,9 +1852,9 @@ public:
 };
 
 /**
- * \brief Ôö¼ÓïÚ³µ
+ * \brief å¢åŠ é•–è½¦
  *
- * ¸ÃÀàÌá¹©ÁË¶Ô»¤ïÚÈÎÎñµÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹æŠ¤é•–ä»»åŠ¡çš„æ”¯æŒ
  *
  */
 class AddGuardAction : public NpcAction
@@ -1862,11 +1862,11 @@ class AddGuardAction : public NpcAction
 public:
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	AddGuardAction(Parse& p) : NpcAction(p)
 	{ 
@@ -1896,12 +1896,12 @@ public:
 			//Zebra::logger->debug("AddGuardAction::AddGuardAction(): _dest=%u,%u", _dest.x, _dest.y);
 		}
 		else
-			Zebra::logger->trace("AddGuardAction::AddGuardAction(): _destÆ¥ÅäÊ§°Ü %s", pos.c_str());
+			Zebra::logger->trace("AddGuardAction::AddGuardAction(): _deståŒ¹é…å¤±è´¥ %s", pos.c_str());
 		
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	~AddGuardAction()
@@ -1928,9 +1928,9 @@ public:
 };
 
 /**
- * \brief É¾³ıNPC
+ * \brief åˆ é™¤NPC
  *
- * ¸ÃÀàÌá¹©ÁËÔÚµØÍ¼ÉÏÉ¾³ıÒ»¸öNPCµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†åœ¨åœ°å›¾ä¸Šåˆ é™¤ä¸€ä¸ªNPCçš„æ¥å£
  *
  */
 class RemoveNpcAction : public NpcAction
@@ -1938,17 +1938,17 @@ class RemoveNpcAction : public NpcAction
 public:
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	RemoveNpcAction(Parse& p) : NpcAction(p), _remove(_s, _id, _ltpos, _rbpos)
 	{ }
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	~RemoveNpcAction()
@@ -1987,9 +1987,9 @@ private:
 };
 
 /**
- * \brief ±äÁ¿
+ * \brief å˜é‡
  *
- * ¸ÃÀàÌá¹©ÁË¶ÔÓÚÈÎÎñ½Å±¾ÖĞÓĞ¹ØÎåĞĞµãÊıµÄĞŞ¸ÄµÄÖ§³Ö
+ * è¯¥ç±»æä¾›äº†å¯¹äºä»»åŠ¡è„šæœ¬ä¸­æœ‰å…³äº”è¡Œç‚¹æ•°çš„ä¿®æ”¹çš„æ”¯æŒ
  *
  */	
 template <typename Operation>
@@ -1999,11 +1999,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	FiveLevelAction(Parse& p) : TeamAction(p)
 	{ 
@@ -2011,20 +2011,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~FiveLevelAction()
 	{ }
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -2043,9 +2043,9 @@ private:
 };
 
 /**
- * \brief ÉèÖÃÎåĞĞÀàĞÍ
+ * \brief è®¾ç½®äº”è¡Œç±»å‹
  *
- * ¸ÃÀàÌá¹©ÁËÉèÖÃÎåĞĞÀàĞÍµÄ½Ó¿Ú
+ * è¯¥ç±»æä¾›äº†è®¾ç½®äº”è¡Œç±»å‹çš„æ¥å£
  *
  */
 class FiveTypeAction : public TeamAction
@@ -2053,11 +2053,11 @@ class FiveTypeAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	FiveTypeAction(Parse& p) : TeamAction(p)
 	{
@@ -2065,7 +2065,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~FiveTypeAction() { }	
@@ -2083,11 +2083,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	HonorAction(Parse& p) : TeamAction(p)
 	{ 
@@ -2095,20 +2095,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~HonorAction()
 	{ }
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -2133,11 +2133,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	MaxHonorAction(Parse& p) : TeamAction(p)
 	{ 
@@ -2145,20 +2145,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~MaxHonorAction()
 	{ }
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -2184,11 +2184,11 @@ public:
 	typedef typename Operation::value_type value_type;
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	ActionPointAction(Parse& p) : TeamAction(p)
 	{ 
@@ -2196,20 +2196,20 @@ public:
 	}
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~ActionPointAction()
 	{ }
 
 	/**     
-	 * \brief  Ö´ĞĞ±äÁ¿ĞŞ¸Ä
+	 * \brief  æ‰§è¡Œå˜é‡ä¿®æ”¹
 	 *
-	 * ÖØÔØÁËdoneº¯Êı,ÊµÏÖ¶ÔÏà¹Ø±äÁ¿µÄĞŞ¸Ä
+	 * é‡è½½äº†doneå‡½æ•°,å®ç°å¯¹ç›¸å…³å˜é‡çš„ä¿®æ”¹
 	 *      
-	 * \param user: ´¥·¢¶¯×÷µÄÓÃ»§
-	 * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
-	 * \return SUCCESS±íÊ¾³É¹¦£¬FAILED±íÊ¾Ê§°Ü£¬DISABLE±íÊ¾½ûÓÃÄ³Ïî¹¦ÄÜ
+	 * \param user: è§¦å‘åŠ¨ä½œçš„ç”¨æˆ·
+	 * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+	 * \return SUCCESSè¡¨ç¤ºæˆåŠŸï¼ŒFAILEDè¡¨ç¤ºå¤±è´¥ï¼ŒDISABLEè¡¨ç¤ºç¦ç”¨æŸé¡¹åŠŸèƒ½
 	 */     	
 	int done (SceneUser* user, Vars* vars)
 	{
@@ -2230,11 +2230,11 @@ class UseSkillAction : public TeamAction
 public:
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param p: ¹Ø¼ü´ÊÁĞ±í
+	 * \param p: å…³é”®è¯åˆ—è¡¨
 	 */     	
 	UseSkillAction(Parse& p) : TeamAction(p)
 	{
@@ -2243,7 +2243,7 @@ public:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */     
 	virtual ~UseSkillAction() { }	

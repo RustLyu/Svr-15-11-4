@@ -1,4 +1,4 @@
-/**
+﻿/**
  * \file
  * \version  $Id: datetime.cpp  $
  * \author  

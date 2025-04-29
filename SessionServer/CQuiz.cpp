@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CQuiz.cpp $
  * \author  
  * \date 
- * \brief ÊµÏÖ¾ºÈü¹ÜÀíÀà
+ * \brief å®ç°ç«èµ›ç®¡ç†ç±»
  *
  */
 
@@ -32,7 +32,7 @@ class PrintSet
 
 		void operator() (int subid)
 		{
-			Zebra::logger->debug("ÌâÄ¿¸ú×Ù[È«¹ú¾ºÈü]:±¾ÂÖÒÑ´ğ¹ıµÄÌâÄ¿:%d", subid);
+			Zebra::logger->debug("é¢˜ç›®è·Ÿè¸ª[å…¨å›½ç«èµ›]:æœ¬è½®å·²ç­”è¿‡çš„é¢˜ç›®:%d", subid);
 		}
 };
 
@@ -86,9 +86,9 @@ void CQuiz::timer()
 
 
 /**
- * \brief ½øÈë´ğÌâ×¼±¸×´Ì¬
+ * \brief è¿›å…¥ç­”é¢˜å‡†å¤‡çŠ¶æ€
  *
- *      È«ÇøÖÇÁ¦¾ºÈüºÍ¸öÈËÎÊ´ğ£¬½Ô¿É¹²ÓÃ´Ë´¦Àí£¬¸Ã´¦Àí´ÓÊı¾İ¿âÖĞËæ»ú³éÈ¡Ò»×éÌâÄ¿¡£
+ *      å…¨åŒºæ™ºåŠ›ç«èµ›å’Œä¸ªäººé—®ç­”ï¼Œçš†å¯å…±ç”¨æ­¤å¤„ç†ï¼Œè¯¥å¤„ç†ä»æ•°æ®åº“ä¸­éšæœºæŠ½å–ä¸€ç»„é¢˜ç›®ã€‚
  *
  * \param 
  * \return 
@@ -114,7 +114,7 @@ void CQuiz::setReadyState()
 	
 	if (db_answer_count<=0)
 	{
-		Zebra::logger->error("Ìâ¿â¼ÇÂ¼ÎªÁã£¬ÎŞ·¨½øĞĞ´ğÌâ");
+		Zebra::logger->error("é¢˜åº“è®°å½•ä¸ºé›¶ï¼Œæ— æ³•è¿›è¡Œç­”é¢˜");
 		this->setReadyOverState();
 		return;
 	}
@@ -157,7 +157,7 @@ void CQuiz::setReadyState()
 		}
 
 #ifdef _ALL_SUPER_GM		
-//		Zebra::logger->debug("[Ìâ¿â¸ú×Ù[Ñ¡Ìâ]]:(%d,%d),title:%s", i, 
+//		Zebra::logger->debug("[é¢˜åº“è·Ÿè¸ª[é€‰é¢˜]]:(%d,%d),title:%s", i, 
 //		subject_id, CSubjectM::getMe().gsubjects[subject_id].title );
 #endif		
 	}
@@ -271,7 +271,7 @@ void CQuiz::setEndQuestionState()
 
 void CQuiz::printState()
 {
-	//Zebra::logger->trace("¾ºÈü¸ú×Ù:%d(%s)", this->tempid, str_state[this->state]);
+	//Zebra::logger->trace("ç«èµ›è·Ÿè¸ª:%d(%s)", this->tempid, str_state[this->state]);
 }
 
 
@@ -316,7 +316,7 @@ void CQuizWorld::setSendQuestionState()
 	send->dwID = cur_subject + 1;
 	send->bySpareTime = 25;
 #ifdef _ALL_SUPER_GM
-	Zebra::logger->debug("----Ìâ¿â¸ú×Ù[·¢Ìâ]:subject:%d title:%s answer:%d(È«¹ú)", cur_subject+1, 
+	Zebra::logger->debug("----é¢˜åº“è·Ÿè¸ª[å‘é¢˜]:subject:%d title:%s answer:%d(å…¨å›½)", cur_subject+1, 
 			temp_subject.title, temp_subject.answer);
 #endif	
 		
@@ -410,11 +410,11 @@ bool CQuizWorld::addPothunters(UserSession* pUser)
 }
 
 /**
- * \brief »Ø´ğÎÊÌâ
+ * \brief å›ç­”é—®é¢˜
  *
  *
- * \param pCmd »Ø´ğÃüÁî
- * \return -1£º³Ùµ½µÄ»Ø´ğ£¬0:»Ø´ğÕıÈ·, 1:»Ø´ğ´íÎó
+ * \param pCmd å›ç­”å‘½ä»¤
+ * \return -1ï¼šè¿Ÿåˆ°çš„å›ç­”ï¼Œ0:å›ç­”æ­£ç¡®, 1:å›ç­”é”™è¯¯
  */
 int CQuizWorld::answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID)
 {
@@ -437,7 +437,7 @@ int CQuizWorld::answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID)
 	
 	rwlock.wrlock();
 #ifdef	_ALL_SUPER_GM
-	/*Zebra::logger->debug("----ÌâÄ¿¸ú×Ù[´ğÌâ]:(%d)subject:%d title:%s answer:%d user_answer:%d(È«¹ú)", 
+	/*Zebra::logger->debug("----é¢˜ç›®è·Ÿè¸ª[ç­”é¢˜]:(%d)subject:%d title:%s answer:%d user_answer:%d(å…¨å›½)", 
 			dwUserID,
 			cur_subject+1, 
 			CSubjectM::getMe().gsubjects[subjects[this->cur_subject]].title, 
@@ -454,7 +454,7 @@ int CQuizWorld::answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID)
 			int cur_score = abs(pCmd->dwScore)>15?15:abs(pCmd->dwScore);
 
 			if (pCmd->byLuck==1 && pothunters[hunterpos].dwLuck<3)
-			{// Ê¹ÓÃĞÒÔËĞÇ
+			{// ä½¿ç”¨å¹¸è¿æ˜Ÿ
 				cur_score = cur_score * 2;
 				pothunters[hunterpos].dwLuck++;
 			}
@@ -467,7 +467,7 @@ int CQuizWorld::answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID)
 			}
 			else
 			{
-				// ²ß»®ÎÄµµ2006.2.4°æ£¬´ğ´í²»¿Û·Ö
+				// ç­–åˆ’æ–‡æ¡£2006.2.4ç‰ˆï¼Œç­”é”™ä¸æ‰£åˆ†
 				/*if (pothunters[hunterpos].dwScore>cur_score)
 				{
 					pothunters[hunterpos].dwScore = pothunters[hunterpos].dwScore - cur_score;
@@ -494,7 +494,7 @@ int CQuizWorld::answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID)
 	}
 	else
 	{
-		Zebra::logger->debug("ÌâÄ¿¸ú×Ù[È«¹ú¾ºÈü]:(%d,%d) curid:%d answerid:%d title:%s answer:%d user_answer:%d", 
+		Zebra::logger->debug("é¢˜ç›®è·Ÿè¸ª[å…¨å›½ç«èµ›]:(%d,%d) curid:%d answerid:%d title:%s answer:%d user_answer:%d", 
 			dwUserID,
 			question_count,
 			cur_subject+1, 
@@ -625,7 +625,7 @@ void CQuizWorld::setReadyOverState()
 				}
 
 				sendScene.dwGrace = pothunters[i].dwGrace;
-				pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// Í¨Öª³¡¾°·şÎñÆ÷
+				pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 			}
 		}
 	}
@@ -710,7 +710,7 @@ void CQuizWorld::exitQuiz(DWORD dwUserID)
 					sendScene.dwExp = 0;
 					sendScene.dwGrace = 0;
 					sendScene.dwMoney = 0;
-					pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// Í¨Öª³¡¾°·şÎñÆ÷
+					pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 				}
 			}
 
@@ -760,11 +760,11 @@ CQuizPersonal::~CQuizPersonal()
 }
 
 /**
- * \brief »Ø´ğÎÊÌâ
+ * \brief å›ç­”é—®é¢˜
  *
  *
- * \param pCmd »Ø´ğÃüÁî
- * \return -1£º³Ùµ½µÄ»Ø´ğ£¬0:»Ø´ğÕıÈ·, 1:»Ø´ğ´íÎó
+ * \param pCmd å›ç­”å‘½ä»¤
+ * \return -1ï¼šè¿Ÿåˆ°çš„å›ç­”ï¼Œ0:å›ç­”æ­£ç¡®, 1:å›ç­”é”™è¯¯
  */
 int CQuizPersonal::answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID)
 {
@@ -772,7 +772,7 @@ int CQuizPersonal::answer(Cmd::stAnswerQuiz* pCmd, DWORD dwUserID)
 	rwlock.wrlock();
 
 #ifdef _ALL_SUPER_GM
-/*	Zebra::logger->debug("----ÌâÄ¿¸ú×Ù[´ğÌâ](%d):subject:%d title:%s answer:%d user_answer:%d(¸öÈË)", 
+/*	Zebra::logger->debug("----é¢˜ç›®è·Ÿè¸ª[ç­”é¢˜](%d):subject:%d title:%s answer:%d user_answer:%d(ä¸ªäºº)", 
 			dwUserID, cur_subject+1, 
 			CSubjectM::getMe().gsubjects[subjects[this->cur_subject]].title, 
 			CSubjectM::getMe().gsubjects[subjects[this->cur_subject]].answer,
@@ -841,7 +841,7 @@ void CQuizPersonal::setSendQuestionState()
 //	CSubject temp_subject = CSubjectM::getMe().gsubjects[subjects[cur_subject]];
 	
 #ifdef _ALL_SUPER_GM
-	Zebra::logger->debug("----Ìâ¿â¸ú×Ù[·¢Ìâ]:(%d)subject:%d title:%s answer:%d(¸öÈË)", pothunter.dwUserID, 
+	Zebra::logger->debug("----é¢˜åº“è·Ÿè¸ª[å‘é¢˜]:(%d)subject:%d title:%s answer:%d(ä¸ªäºº)", pothunter.dwUserID, 
 			cur_subject+1, temp_subject.title, temp_subject.answer);
 #endif	
 
@@ -907,7 +907,7 @@ void CQuizPersonal::setEndQuestionState()
 {
 	CQuiz::setEndQuestionState();
 	rwlock.wrlock();
-	// ·¢ËÍ±¾´Î´ğÌâºó£¬ÈËÎïµÄµÃ·ÖºÍÎÄ²É
+	// å‘é€æœ¬æ¬¡ç­”é¢˜åï¼Œäººç‰©çš„å¾—åˆ†å’Œæ–‡é‡‡
 	Cmd::stQuizCurScore send;
 	send.dwScore = pothunter.dwScore;
 	send.dwGrace = pothunter.dwGrace;
@@ -945,34 +945,34 @@ void CQuizPersonal::setReadyOverState()
 	if (pUser)
 	{
 
-		Zebra::logger->trace("[¸öÈË´ğÌâ]:%s ½áÊø¸öÈË´ğÌâ", pUser->name);
+		Zebra::logger->trace("[ä¸ªäººç­”é¢˜]:%s ç»“æŸä¸ªäººç­”é¢˜", pUser->name);
 		rwlock.wrlock();
 		pUser->sendCmdToMe(&send, sizeof(send));
 		if (pUser->scene)
 		{
 			sendScene.dwUserID = pothunter.dwUserID;
-			//int(0.14*´ğÌâ·ÖÊı*½ÇÉ«µÈ¼¶^2*(0.75+0.25*N)+200)
+			//int(0.14*ç­”é¢˜åˆ†æ•°*è§’è‰²ç­‰çº§^2*(0.75+0.25*N)+200)
 	//		sendScene.dwExp = (DWORD)((0.14*pothunter.dwScore*((int)pow(pUser->level, 2))));
 
-			//int(0.2*´ğÌâ·ÖÊı*½ÇÉ«µÈ¼¶^2*(0.8+0.2*N)+200)
+			//int(0.2*ç­”é¢˜åˆ†æ•°*è§’è‰²ç­‰çº§^2*(0.8+0.2*N)+200)
 	//		sendScene.dwExp = (DWORD)((0.2*pothunter.dwScore*((int)pow(pUser->level, 2))));
 
 
-//Ç°4´Î´ğÌâËù¸ø¾­Ñé=int(£¨0.12+0.05*n£©*´ğÌâ·ÖÊı*½ÇÉ«µÈ¼¶^2 +200)
-//  µÚÎå´Î´ğÌâËù¸ø¾­Ñé=int(1*´ğÌâ·ÖÊı*½ÇÉ«µÈ¼¶^2 +200)
-			sendScene.dwExp = (DWORD)((pothunter.dwScore*((int)pow(pUser->level, 2))));//·ÖÊı*½ÇÉ«µÈ¼¶^2
+//å‰4æ¬¡ç­”é¢˜æ‰€ç»™ç»éªŒ=int(ï¼ˆ0.12+0.05*nï¼‰*ç­”é¢˜åˆ†æ•°*è§’è‰²ç­‰çº§^2 +200)
+//  ç¬¬äº”æ¬¡ç­”é¢˜æ‰€ç»™ç»éªŒ=int(1*ç­”é¢˜åˆ†æ•°*è§’è‰²ç­‰çº§^2 +200)
+			sendScene.dwExp = (DWORD)((pothunter.dwScore*((int)pow(pUser->level, 2))));//åˆ†æ•°*è§’è‰²ç­‰çº§^2
 			sendScene.dwGrace = pothunter.dwGrace;
 			sendScene.dwMoney = 0;
 			sendScene.byType = 1;
 
-			pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 		}
 
 		rwlock.unlock();
 		CQuiz::setOverState();
 	}
 	else
-	{//½øÈë´ı½±Àø×´Ì¬,ÓÃ»§ÉÏÏßºó£¬¸ø³ö½±Àø
+	{//è¿›å…¥å¾…å¥–åŠ±çŠ¶æ€,ç”¨æˆ·ä¸Šçº¿åï¼Œç»™å‡ºå¥–åŠ±
 		this->setReturnGoldState();	
 	}
 }
@@ -1002,12 +1002,12 @@ bool CQuizPersonal::award()
 			sendScene.dwExp = (DWORD)(((70*pUser->level*1.5+200) * pothunter.dwScore)/300);
 			sendScene.dwGrace = pothunter.dwGrace;
 			sendScene.dwMoney = 0;
-			// £¨70*ÈËÎïµ±Ç°µÈ¼¶^1.5+200£©*»ñµÃ·ÖÊı / 300
+			// ï¼ˆ70*äººç‰©å½“å‰ç­‰çº§^1.5+200ï¼‰*è·å¾—åˆ†æ•° / 300
 
-			pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "µÃµ½¾­ÑéÖµ %d", 
+			pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "å¾—åˆ°ç»éªŒå€¼ %d", 
 					sendScene.dwMoney, sendScene.dwExp);
 
-			pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// Í¨Öª³¡¾°·şÎñÆ÷
+			pUser->scene->sendCmd(&sendScene,sizeof(sendScene)); /// é€šçŸ¥åœºæ™¯æœåŠ¡å™¨
 		}
 
 		return true;
@@ -1140,12 +1140,12 @@ bool CQuizM::addNewQuiz_sceneSession(Cmd::Session::t_createQuiz_SceneSession* pC
 				if (pCmd->active_time<60)
 				{
 					pQuiz->total_subject = abs((int)pCmd->active_time - 1);
-					Zebra::logger->debug("---±¾ÂÖ×ÜÌâÄ¿Êı:%d, Ô­Ê¼Éè¶¨:%d", pQuiz->total_subject, 
+					Zebra::logger->debug("---æœ¬è½®æ€»é¢˜ç›®æ•°:%d, åŸå§‹è®¾å®š:%d", pQuiz->total_subject, 
 							pCmd->active_time);
 				}
 				else
 				{
-					pQuiz->total_subject = 60 - 1;//±£´æ×ÜÌâÊı
+					pQuiz->total_subject = 60 - 1;//ä¿å­˜æ€»é¢˜æ•°
 				}
 				
 				pQuiz->setReadyState();
@@ -1167,16 +1167,16 @@ bool CQuizM::addNewQuiz_sceneSession(Cmd::Session::t_createQuiz_SceneSession* pC
 				{
 					rwlock.wrlock();
 					addEntry(pQuiz);
-					Zebra::logger->trace("[¸öÈË´ğÌâ]:%s ¿ªÊ¼¸öÈË´ğÌâ", pUser->name);
+					Zebra::logger->trace("[ä¸ªäººç­”é¢˜]:%s å¼€å§‹ä¸ªäººç­”é¢˜", pUser->name);
 
-					pQuiz->total_subject = abs((int)pCmd->dwSubjects-1);//±£´æ×ÜÌâÊı
+					pQuiz->total_subject = abs((int)pCmd->dwSubjects-1);//ä¿å­˜æ€»é¢˜æ•°
 					pQuiz->addPothunters(pUser);
 					pQuiz->setReadyState();
 
 					Cmd::stQuizParam send;
 					send.byType = Cmd::QUIZ_PERSONAL;
 					send.byStartTime = 0;
-					send.bySubjectNumber = pCmd->dwSubjects;//pQuiz->active_time/30;//ÒÔºó£¬°´¹ºÂòµÄÒøÁ½½øĞĞ¼ÆËã
+					send.bySubjectNumber = pCmd->dwSubjects;//pQuiz->active_time/30;//ä»¥åï¼ŒæŒ‰è´­ä¹°çš„é“¶ä¸¤è¿›è¡Œè®¡ç®—
 					pUser->sendCmdToMe(&send, sizeof(send));
 
 					rwlock.unlock();
@@ -1247,7 +1247,7 @@ bool CQuizM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 							if (pUser->level>20)
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-									"³¬¹ı20¼¶²»ÄÜ²Î¼Ó¸ÃÀà¾ºÈü");
+									"è¶…è¿‡20çº§ä¸èƒ½å‚åŠ è¯¥ç±»ç«èµ›");
 								return true;
 							}
 						}
@@ -1279,7 +1279,7 @@ bool CQuizM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 						}
 						else
 						{
-							pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Äú²»ÄÜÖØ¸´²Î¼ÓÖÇÁ¦¾ºÈü!");
+							pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ‚¨ä¸èƒ½é‡å¤å‚åŠ æ™ºåŠ›ç«èµ›!");
 						}
 					}
 
@@ -1345,7 +1345,7 @@ bool CQuizM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptN
 
 void CQuizM::printSize()
 {
-//	Zebra::logger->trace("´ğÌâÄ¿Ç°¶ÔÏóÊı:%d", this->size());
+//	Zebra::logger->trace("ç­”é¢˜ç›®å‰å¯¹è±¡æ•°:%d", this->size());
 }
 
 void  CQuizM::timer()
@@ -1376,32 +1376,32 @@ void  CQuizM::timer()
 			if (pQuiz && pQuiz->getType()==QuizDef::WORLD_QUIZ)
 			{
 				if (!pQuiz->isReadyPeriod() && pQuiz->getState()==CQuiz::QUIZ_READY)
-				{// ÒÑ¹ı×¼±¸ÆÚ£¬½øÈë·¢ËÍÑ¯ÎÊ×´Ì¬
+				{// å·²è¿‡å‡†å¤‡æœŸï¼Œè¿›å…¥å‘é€è¯¢é—®çŠ¶æ€
 					pQuiz->setReadyQuestionState();
 				}
 				else if (!pQuiz->isReadyQuestionPeriod() && pQuiz->getState()==CQuiz::QUIZ_READY_QUESTION)
-				{// ÒÑ¹ı·¢ËÍÑ¯ÎÊÆÚ, ½øÈë·¢Ìâ×´Ì¬
-					pQuiz->setSendQuestionState(); // ¸Ã×´Ì¬½áÊøºó£¬»á×Ô¶¯×ªÈë´ğÌâ×´Ì¬
+				{// å·²è¿‡å‘é€è¯¢é—®æœŸ, è¿›å…¥å‘é¢˜çŠ¶æ€
+					pQuiz->setSendQuestionState(); // è¯¥çŠ¶æ€ç»“æŸåï¼Œä¼šè‡ªåŠ¨è½¬å…¥ç­”é¢˜çŠ¶æ€
 				}
 				else if (pQuiz->isActivePeriod())
 				{
 					if (!pQuiz->isActiveQuestionPeriod() 
 					&& pQuiz->getState() == CQuiz::QUIZ_ACTIVE_QUESTION)
-					{// ÒÑ¹ı´ğÌâÆÚ£¬½øÈë½á¹û¼ÆËãÆÚ
+					{// å·²è¿‡ç­”é¢˜æœŸï¼Œè¿›å…¥ç»“æœè®¡ç®—æœŸ
 						pQuiz->setEndQuestionState();
 					}
 					else if(!pQuiz->isEndQuestionPeriod() 
 					&& pQuiz->getState() == CQuiz::QUIZ_END_QUESTION)
-					{// ÒÑ¹ı½á¹û¼ÆËãÆÚ£¬½øÈëĞÂÒ»ÂÖ·¢Ìâ×´Ì¬
+					{// å·²è¿‡ç»“æœè®¡ç®—æœŸï¼Œè¿›å…¥æ–°ä¸€è½®å‘é¢˜çŠ¶æ€
 						pQuiz->setSendQuestionState();
 					}
 				}
 				else if (pQuiz->getState()!=CQuiz::QUIZ_READ_SORT)
-				{//½øÈë²é¿´ÅÅÃûÆÚ
+				{//è¿›å…¥æŸ¥çœ‹æ’åæœŸ
 					pQuiz->setReadSortState();
 				}
 				else if (pQuiz->getState()==CQuiz::QUIZ_READ_SORT && !pQuiz->isReadSortPeriod())
-				{//ÒÑ¹ı²é¿´ÅÅÃûÆÚ
+				{//å·²è¿‡æŸ¥çœ‹æ’åæœŸ
 					pQuiz->setReadyOverState();
 				}
 								
@@ -1415,7 +1415,7 @@ void  CQuizM::timer()
 				CQuizPersonal* pQuizPersonal = (CQuizPersonal*)pQuiz;
 
 				if (!pQuizPersonal->isReadyPeriod() && pQuizPersonal->getState()==CQuiz::QUIZ_READY)
-				{// ÒÑ¹ı×¼±¸ÆÚ£¬½øÈë·¢ËÍÌâÄ¿×´Ì¬
+				{// å·²è¿‡å‡†å¤‡æœŸï¼Œè¿›å…¥å‘é€é¢˜ç›®çŠ¶æ€
 					pQuizPersonal->setSendQuestionState();
 				}
 				else if (pQuizPersonal->isActivePeriod())
@@ -1424,12 +1424,12 @@ void  CQuizM::timer()
 					pQuizPersonal->getState() == CQuiz::QUIZ_ACTIVE_QUESTION)
 					|| (pQuizPersonal->pothunter.dwAnswerStatus != -1)
 					)
-					{// ÒÑ¹ı´ğÌâÆÚ»òÒÑ½øĞĞÁË´ğÌâ£¬½øÈë½á¹û¼ÆËãÆÚ
+					{// å·²è¿‡ç­”é¢˜æœŸæˆ–å·²è¿›è¡Œäº†ç­”é¢˜ï¼Œè¿›å…¥ç»“æœè®¡ç®—æœŸ
 						pQuizPersonal->setEndQuestionState();
 					}
 					else if(!pQuizPersonal->isEndQuestionPeriod() && 
 						pQuizPersonal->getState() == CQuiz::QUIZ_END_QUESTION)
-					{// ÒÑ¹ı½á¹û¼ÆËãÆÚ£¬½øÈëĞÂÒ»ÂÖ·¢Ìâ×´Ì¬
+					{// å·²è¿‡ç»“æœè®¡ç®—æœŸï¼Œè¿›å…¥æ–°ä¸€è½®å‘é¢˜çŠ¶æ€
 						pQuizPersonal->setSendQuestionState();
 					}
 				}
@@ -1484,12 +1484,12 @@ CQuiz* CQuizM::findWorldQuiz()
 
 
 /**
- * \brief ÓÃ»§ÉÏÏß´¦Àí
+ * \brief ç”¨æˆ·ä¸Šçº¿å¤„ç†
  *
- * ÓÃ»§ÉÏÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí,¸öÈËÎÊ´ğÉÏÏß²»Ğè´¦Àí¡£
- * ÊÀ½ç¾ºÈüÊ±£¬ĞèÒªÅĞ¶ÏÆäÊÇ·ñÒÑ¾­²Î¼ÓÁË¾ºÈü,Èç¹ûÃ»ÓĞ²Î¼Ó£¬Ôò·¢³öÑ¯ÎÊ£¬Èç¹ûÒÑ¾­²Î¼Ó£¬Ôò²»ÔÙ´¦Àí
+ * ç”¨æˆ·ä¸Šçº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†,ä¸ªäººé—®ç­”ä¸Šçº¿ä¸éœ€å¤„ç†ã€‚
+ * ä¸–ç•Œç«èµ›æ—¶ï¼Œéœ€è¦åˆ¤æ–­å…¶æ˜¯å¦å·²ç»å‚åŠ äº†ç«èµ›,å¦‚æœæ²¡æœ‰å‚åŠ ï¼Œåˆ™å‘å‡ºè¯¢é—®ï¼Œå¦‚æœå·²ç»å‚åŠ ï¼Œåˆ™ä¸å†å¤„ç†
  *
- * \param pUser ÉÏÏßÓÃ»§
+ * \param pUser ä¸Šçº¿ç”¨æˆ·
  *
  */
 void CQuizM::userOnline(UserSession* pUser)
@@ -1505,11 +1505,11 @@ void CQuizM::userOnline(UserSession* pUser)
 }
 	
 /**
- * \brief ÓÃ»§ÏÂÏß´¦Àí
+ * \brief ç”¨æˆ·ä¸‹çº¿å¤„ç†
  *
- * ÓÃ»§ÏÂÏßÊ±£¬Í¬Ê±ÅĞ¶Ï¸ÃÓÃ»§µÄ¾ºÈü×´Ì¬£¬²¢×öÏàÓ¦´¦Àí, ¸öÈËÎÊ´ğÏÂÏßÊ±£¬½øÈësetReadyOver×´Ì¬£¬È«¹ú¾ºÈüÊ±²»×ö´¦Àí
+ * ç”¨æˆ·ä¸‹çº¿æ—¶ï¼ŒåŒæ—¶åˆ¤æ–­è¯¥ç”¨æˆ·çš„ç«èµ›çŠ¶æ€ï¼Œå¹¶åšç›¸åº”å¤„ç†, ä¸ªäººé—®ç­”ä¸‹çº¿æ—¶ï¼Œè¿›å…¥setReadyOverçŠ¶æ€ï¼Œå…¨å›½ç«èµ›æ—¶ä¸åšå¤„ç†
  *
- * \param pUser ÏÂÏßÓÃ»§
+ * \param pUser ä¸‹çº¿ç”¨æˆ·
  *
  */  
 void CQuizM::userOffline(UserSession* pUser)
@@ -1658,7 +1658,7 @@ bool CSubjectM::init()
 		}
 	}
 #ifdef _ALL_SUPER_GM
-	Zebra::logger->debug("--´ğÌâ¸ú×Ù:Ìâ¿âÌâÄ¿×ÜÊı£ºg:%d, p:%d l:%d", gsubjects.size(), personals.size(), levels.size());
+	Zebra::logger->debug("--ç­”é¢˜è·Ÿè¸ª:é¢˜åº“é¢˜ç›®æ€»æ•°ï¼šg:%d, p:%d l:%d", gsubjects.size(), personals.size(), levels.size());
 #endif	
 	return true;
 }

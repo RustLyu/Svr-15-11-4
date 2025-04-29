@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file	zStateMachine.h
  * \version  	$Id$
  * \author  	
  * \date 	
- * \brief 	FSM»ùÀà
+ * \brief 	FSMåŸºç±»
  *
  * 
  */
@@ -36,10 +36,10 @@ class StateMachine
 		}
 
 		/**
-		 * \brief ·ÖÅÉÊÂ¼ş
+		 * \brief åˆ†æ´¾äº‹ä»¶
 		 *
 		 *
-		 * \param ev ÊÂ¼şÖ¸Õë 
+		 * \param ev äº‹ä»¶æŒ‡é’ˆ 
 		 */
 		virtual void dispatch_event(Event* ev)
 		{
@@ -51,9 +51,9 @@ class StateMachine
 		}
 		
 		/**
-		 * \brief Í¨¹ıstate_machine.xml³õÊ¼»¯×´Ì¬»ú,×ÓÀà,±ØĞëÊµÏÖµÄ·½·¨
+		 * \brief é€šè¿‡state_machine.xmlåˆå§‹åŒ–çŠ¶æ€æœº,å­ç±»,å¿…é¡»å®ç°çš„æ–¹æ³•
 		 *
-		 * \param name ×´Ì¬»úÃû³Æ, ÓÃÓÚÔÚstate_machine.xml²éÕÒ¶ÔÓ¦µÄÅäÖÃ
+		 * \param name çŠ¶æ€æœºåç§°, ç”¨äºåœ¨state_machine.xmlæŸ¥æ‰¾å¯¹åº”çš„é…ç½®
 		 */
 		virtual void init(const std::string& name)
 		{
@@ -62,26 +62,26 @@ class StateMachine
 		}
 		
 		/**
-		 * \brief ÖØÔØ[],Í¨¹ı×´Ì¬Ãû,»ñÈ¡Ò»¸ö×´Ì¬
+		 * \brief é‡è½½[],é€šè¿‡çŠ¶æ€å,è·å–ä¸€ä¸ªçŠ¶æ€
 		 *
 		 *
-		 * \param name ×´Ì¬Ãû 
-		 * \return Ö¸¶¨×´Ì¬µÄÖ¸Õë, Èç¹ûÖ¸¶¨×´Ì¬²»´æÔÚ,·µ»ØNULL
+		 * \param name çŠ¶æ€å 
+		 * \return æŒ‡å®šçŠ¶æ€çš„æŒ‡é’ˆ, å¦‚æœæŒ‡å®šçŠ¶æ€ä¸å­˜åœ¨,è¿”å›NULL
 		 */
 		virtual State<T>* operator[](std::string name)
 		{
 			StateIter st;
 			st = states.find(name);
 			if ( st == states.end() )
-				return 0; // Î´ÕÒµ½,·µ»ØNULL 
-			return st->second; // ÕÒµ½,·µ»Ø¶ÔÓ¦µÄ×´Ì¬Ö¸Õë
+				return 0; // æœªæ‰¾åˆ°,è¿”å›NULL 
+			return st->second; // æ‰¾åˆ°,è¿”å›å¯¹åº”çš„çŠ¶æ€æŒ‡é’ˆ
 		}
 
 		/**
-		 * \brief ÉèÖÃµ±Ç°µÄ»îÔ¾×´Ì¬ 
+		 * \brief è®¾ç½®å½“å‰çš„æ´»è·ƒçŠ¶æ€ 
 		 *
-		 * \param ×´Ì¬Ãû
-		 * \return ÉèÖÃ³É¹¦,·µ»ØTRUE,·ñÔò,·µ»ØFALSE
+		 * \param çŠ¶æ€å
+		 * \return è®¾ç½®æˆåŠŸ,è¿”å›TRUE,å¦åˆ™,è¿”å›FALSE
 		 */
 		bool set_act(std::string statename = "default")
 		{
@@ -94,9 +94,9 @@ class StateMachine
 		}
 		
 		/**
-		 * \brief µÃµ½µ±Ç°µÄ»îÔ¾×´Ì¬ 
+		 * \brief å¾—åˆ°å½“å‰çš„æ´»è·ƒçŠ¶æ€ 
 		 *
-		 * \return ·µ»Øµ±Ç°×´Ì¬
+		 * \return è¿”å›å½“å‰çŠ¶æ€
 		 */
 		State<T>* get_act()
 		{
@@ -111,20 +111,20 @@ class StateMachine
 
 	protected:
 		
-		State<T>* act_state;//µ±Ç°×´Ì¬ 
+		State<T>* act_state;//å½“å‰çŠ¶æ€ 
 	
 		typedef std::map<std::string, State<T>* > StateMap;
 		typedef typename StateMap::iterator StateIter;
 			
-		/// ×´Ì¬±í
+		/// çŠ¶æ€è¡¨
 		StateMap states;
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸öĞÂ×´Ì¬ 
+		 * \brief æ·»åŠ ä¸€ä¸ªæ–°çŠ¶æ€ 
 		 *
 		 *
-		 * \param name ×´Ì¬Ãû
-		 * \param new_state ĞÂµÄ×´Ì¬
+		 * \param name çŠ¶æ€å
+		 * \param new_state æ–°çš„çŠ¶æ€
 		 * \return 
 		 */
 		void add_state(const std::string& name, State<T>* new_state)

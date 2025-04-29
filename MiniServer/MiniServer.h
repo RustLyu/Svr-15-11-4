@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MiniServer.h  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿¼Æ·Ñ·şÎñÆ÷
+ * \brief zebraé¡¹ç›®è®¡è´¹æœåŠ¡å™¨
  *
  */
 
@@ -18,9 +18,9 @@ class zDBConnPool;
 class MetaData;
 
 /**
- * \brief ¶¨Òå¼Æ·Ñ·şÎñÀà
+ * \brief å®šä¹‰è®¡è´¹æœåŠ¡ç±»
  *
- * Õâ¸öÀàÊ¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+ * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
  *
  */
 class MiniService : public zSubNetService
@@ -31,14 +31,14 @@ class MiniService : public zSubNetService
 		bool msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		~MiniService()
 		{
 			instance = NULL;
 
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -59,9 +59,9 @@ class MiniService : public zSubNetService
 		}
 
 		/**
-		 * \brief ·µ»ØÎ¨Ò»µÄÀàÊµÀı
+		 * \brief è¿”å›å”¯ä¸€çš„ç±»å®ä¾‹
 		 *
-		 * \return Î¨Ò»µÄÀàÊµÀı
+		 * \return å”¯ä¸€çš„ç±»å®ä¾‹
 		 */
 		static MiniService &getInstance()
 		{
@@ -72,7 +72,7 @@ class MiniService : public zSubNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -83,19 +83,19 @@ class MiniService : public zSubNetService
 		void reloadConfig();
 
 		/**
-		 * \brief Ö¸ÏòÊı¾İ¿âÁ¬½Ó³ØÊµÀıµÄÖ¸Õë
+		 * \brief æŒ‡å‘æ•°æ®åº“è¿æ¥æ± å®ä¾‹çš„æŒ‡é’ˆ
 		 *
 		 */
 		static zDBConnPool *dbConnPool;
 
 		/**
-		 * \brief Ö¸ÏòÊı¾İ¿â±í¹ÜÀíÆ÷µÄÖ¸Õë
+		 * \brief æŒ‡å‘æ•°æ®åº“è¡¨ç®¡ç†å™¨çš„æŒ‡é’ˆ
 		 *
 		 */
                 static MetaData* metaData;		
 
 		/**
-		 * \brief Ö¸Ïò½»Ò×ÈÕÖ¾µÄÖ¸Õë
+		 * \brief æŒ‡å‘äº¤æ˜“æ—¥å¿—çš„æŒ‡é’ˆ
 		 *
 				static zLogger* miniLogger;		
 		 */
@@ -105,18 +105,18 @@ class MiniService : public zSubNetService
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static MiniService *instance;
 
-		zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		MiniService() : zSubNetService("Ğ¡ÓÎÏ··şÎñÆ÷", MINISERVER)
+		MiniService() : zSubNetService("å°æ¸¸æˆæœåŠ¡å™¨", MINISERVER)
 		{
 			taskPool = NULL;
 		}

@@ -1,4 +1,4 @@
-#ifndef _ZDBCONNPOOL_H_
+ï»¿#ifndef _ZDBCONNPOOL_H_
 #define _ZDBCONNPOOL_H_
 
 #include "zType.h"
@@ -12,13 +12,13 @@
 
 /**
  *
- * \brief Êı¾İ¿â×Ö¶ÎÃèÊö½á¹¹ÀàĞÍ¶¨Òå
+ * \brief æ•°æ®åº“å­—æ®µæè¿°ç»“æ„ç±»å‹å®šä¹‰
  * 
- * ±¾½á¹¹ÃèÊöÁËÒª²Ù×÷µÄÊı¾İµÄÊı¾İ¿âÀàĞÍ×Ö¶Î,ÃèÊöµÄÊı×é±ØĞëÒÔ{NULL,0£¬0}×÷ÎªÃèÊö½áÊø±ê¼Ç¡£
+ * æœ¬ç»“æ„æè¿°äº†è¦æ“ä½œçš„æ•°æ®çš„æ•°æ®åº“ç±»å‹å­—æ®µ,æè¿°çš„æ•°ç»„å¿…é¡»ä»¥{NULL,0ï¼Œ0}ä½œä¸ºæè¿°ç»“æŸæ ‡è®°ã€‚
  *
- * ×¢Òâ£ºÈç¹ûtypeÊÇDB_BIN2»òÕßDB_ZIP2£¬ÄÇÃ´´óĞ¡±ØĞëÊÇ»º³åµÄ×î´ó´óĞ¡¡£
+ * æ³¨æ„ï¼šå¦‚æœtypeæ˜¯DB_BIN2æˆ–è€…DB_ZIP2ï¼Œé‚£ä¹ˆå¤§å°å¿…é¡»æ˜¯ç¼“å†²çš„æœ€å¤§å¤§å°ã€‚
  * 
- * Àı×Ó£º
+ * ä¾‹å­ï¼š
  *
  *	dbCol mycountCol_define[]=
  *
@@ -32,172 +32,172 @@
  */
 typedef struct
 {
-	const char *name;	/**< ×Ö¶ÎÃû×Ö */
-	int type;			/**< ZEBRAÊı¾İÀàĞÍ */
-	unsigned int size;	/**< Êı¾İ´óĞ¡ */
+	const char *name;	/**< å­—æ®µåå­— */
+	int type;			/**< ZEBRAæ•°æ®ç±»å‹ */
+	unsigned int size;	/**< æ•°æ®å¤§å° */
 } dbCol;
 
 class Record;
 class FieldSet;
 class RecordSet;
 /**
- * \brief ¹şÏ£´úÂëº¯ÊıÀàĞÍ¶¨Òå
+ * \brief å“ˆå¸Œä»£ç å‡½æ•°ç±»å‹å®šä¹‰
  * 
- * ÓÃ»§¿ÉÒÔ¸ù¾İ×Ô¼ºµÄĞèÒªĞ´×Ô¼ºµÄ¹şÏ£º¯Êı£¬ÒÔ±ã¶ÔÏà¶ÔÓ¦ÓÃ»§¶¨ÒåµÄÊı¾İ¿â½øĞĞ²Ù×÷¡£
+ * ç”¨æˆ·å¯ä»¥æ ¹æ®è‡ªå·±çš„éœ€è¦å†™è‡ªå·±çš„å“ˆå¸Œå‡½æ•°ï¼Œä»¥ä¾¿å¯¹ç›¸å¯¹åº”ç”¨æˆ·å®šä¹‰çš„æ•°æ®åº“è¿›è¡Œæ“ä½œã€‚
  */
 typedef unsigned int(* hashCodeFunc)(const void *data);
 
 /**
- * \brief Á¬½Ó¾ä±ú,ÓÃ»§µ÷ÓÃÊ¹ÓÃ,Ö»ÄÜ´ÓÁ´½Ó³ØÖĞµÃµ½
+ * \brief è¿æ¥å¥æŸ„,ç”¨æˆ·è°ƒç”¨ä½¿ç”¨,åªèƒ½ä»é“¾æ¥æ± ä¸­å¾—åˆ°
  */
 typedef unsigned int connHandleID;
 
 /**
- * \brief Êı¾İÁ´½Ó³Ø½Ó¿Ú¶¨Òå
+ * \brief æ•°æ®é“¾æ¥æ± æ¥å£å®šä¹‰
  *
- * ±¾ÀàÌá¹©ÁË¶ÔÊı¾İ¿âµÄ¼òµ¥µÄ»ù±¾·ÃÎÊ,±ÈÈçUPDATE,INSERT,SELECT,DELETE,Ö´ĞĞSQLÓï¾äµÈ.
+ * æœ¬ç±»æä¾›äº†å¯¹æ•°æ®åº“çš„ç®€å•çš„åŸºæœ¬è®¿é—®,æ¯”å¦‚UPDATE,INSERT,SELECT,DELETE,æ‰§è¡ŒSQLè¯­å¥ç­‰.
  *
- *  ÓÃ»§Ö»ĞèÒª¶¨ÒåÒª²Ù×÷µÄÊı¾İ¿âÊı¾İ£¬¼´¿É·ÃÎÊ¡£
+ *  ç”¨æˆ·åªéœ€è¦å®šä¹‰è¦æ“ä½œçš„æ•°æ®åº“æ•°æ®ï¼Œå³å¯è®¿é—®ã€‚
  *
- * Èç¹ûÑ¡ÓÃ²»Í¬Êı¾İ¿â,±ØĞëÊµÏÖÕâ¸ö½Ó¿Ú,Ä¿Ç°Ìá¹©ÁËMysqlµÄÊµÏÖ.
+ * å¦‚æœé€‰ç”¨ä¸åŒæ•°æ®åº“,å¿…é¡»å®ç°è¿™ä¸ªæ¥å£,ç›®å‰æä¾›äº†Mysqlçš„å®ç°.
  */
 class zDBConnPool
 {
 	public:
 		/**
-		 * \brief Êı¾İ¿âÖ§³ÖµÄÊı¾İÀàĞÍ
+		 * \brief æ•°æ®åº“æ”¯æŒçš„æ•°æ®ç±»å‹
 		 */
 		enum
 		{
-			DB_BYTE,		/**< BYTEÀàĞÍ 1×Ö½Ú³¤¶È */
-			DB_CHAR,		/**< CHARÀàĞÍ 1×Ö½Ú³¤¶È */
-			DB_WORD,		/**< WORDÀàĞÍ 2×Ö½Ú³¤¶È */
-			DB_DWORD,		/**< DWORDÀàĞÍ 4×Ö½Ú³¤¶È */
-			DB_QWORD,		/**< QWORDÀàĞÍ 8×Ö½Ú³¤¶È */
-			DB_STR,			/**< ×Ö·û´®ÀàĞÍ */
-			DB_BIN,			/**< ¶ş½øÖÆÊı¾İÀàĞÍ */
-			DB_ZIP,			/**< zipÑ¹ËõÊı¾İÀàĞÍ */
-			DB_BIN2,		/**< À©Õ¹¶ş½øÖÆÊı¾İÀàĞÍ */
-			DB_ZIP2			/**< À©Õ¹zipÑ¹ËõÊı¾İÀàĞÍ */
+			DB_BYTE,		/**< BYTEç±»å‹ 1å­—èŠ‚é•¿åº¦ */
+			DB_CHAR,		/**< CHARç±»å‹ 1å­—èŠ‚é•¿åº¦ */
+			DB_WORD,		/**< WORDç±»å‹ 2å­—èŠ‚é•¿åº¦ */
+			DB_DWORD,		/**< DWORDç±»å‹ 4å­—èŠ‚é•¿åº¦ */
+			DB_QWORD,		/**< QWORDç±»å‹ 8å­—èŠ‚é•¿åº¦ */
+			DB_STR,			/**< å­—ç¬¦ä¸²ç±»å‹ */
+			DB_BIN,			/**< äºŒè¿›åˆ¶æ•°æ®ç±»å‹ */
+			DB_ZIP,			/**< zipå‹ç¼©æ•°æ®ç±»å‹ */
+			DB_BIN2,		/**< æ‰©å±•äºŒè¿›åˆ¶æ•°æ®ç±»å‹ */
+			DB_ZIP2			/**< æ‰©å±•zipå‹ç¼©æ•°æ®ç±»å‹ */
 		};
 
 		/**
-		 * \brief ĞÂ½¨Á¢Ò»¸öÁ´½Ó³ØµÄÊµÀı
+		 * \brief æ–°å»ºç«‹ä¸€ä¸ªé“¾æ¥æ± çš„å®ä¾‹
 		 *
-		 * ±¾½Ó¿ÚÃ»ÓĞÄ¬ÈÏµÄ¹¹Ôìº¯Êı£¬ÎªÁËÊ¹ÓÃÕßÎŞĞè¹ØĞÄµ×²ãÊı¾İ¿âµÄ²îÒì¡£Ìá¹©´Ë½Ó¿Ú¡£
-		 * \param hashfunc ¹şÏ£º¯ÊıÖ¸Õë£¬Èç¹ûÎªNULL£¬½Ó¿ÚÊµÏÖÕßÓ¦¸ÃÌá¹©Ä¬ÈÏº¯Êı¡£
-		 * \return ·µ»ØÕâ¸ö½Ó¿ÚµÄÒ»¸öÊµÀı£¬´íÎó·µ»ØNULL¡£
+		 * æœ¬æ¥å£æ²¡æœ‰é»˜è®¤çš„æ„é€ å‡½æ•°ï¼Œä¸ºäº†ä½¿ç”¨è€…æ— éœ€å…³å¿ƒåº•å±‚æ•°æ®åº“çš„å·®å¼‚ã€‚æä¾›æ­¤æ¥å£ã€‚
+		 * \param hashfunc å“ˆå¸Œå‡½æ•°æŒ‡é’ˆï¼Œå¦‚æœä¸ºNULLï¼Œæ¥å£å®ç°è€…åº”è¯¥æä¾›é»˜è®¤å‡½æ•°ã€‚
+		 * \return è¿”å›è¿™ä¸ªæ¥å£çš„ä¸€ä¸ªå®ä¾‹ï¼Œé”™è¯¯è¿”å›NULLã€‚
 		 */
 		static zDBConnPool *newInstance(hashCodeFunc hashfunc);
 
 		/**
-		 * \brief »ØÊÕÒ»¸öÁ´½Ó³ØµÄÊµÀı
+		 * \brief å›æ”¶ä¸€ä¸ªé“¾æ¥æ± çš„å®ä¾‹
 		 *
-		 * ±¾½Ó¿ÚÃ»ÓĞÄ¬ÈÏµÄÎö¹¹º¯Êı£¬ÎªÁËÊ¹ÓÃÕßÎŞĞè¹ØĞÄµ×²ãÊı¾İ¿âµÄ²îÒì¡£Ìá¹©´Ë½Ó¿Ú¡£
-		 * \param delThisClass Òª»ØÊÕµÄÁ´½Ó³ØÊµÀı¡£
+		 * æœ¬æ¥å£æ²¡æœ‰é»˜è®¤çš„ææ„å‡½æ•°ï¼Œä¸ºäº†ä½¿ç”¨è€…æ— éœ€å…³å¿ƒåº•å±‚æ•°æ®åº“çš„å·®å¼‚ã€‚æä¾›æ­¤æ¥å£ã€‚
+		 * \param delThisClass è¦å›æ”¶çš„é“¾æ¥æ± å®ä¾‹ã€‚
 		 */
 		static void delInstance(zDBConnPool **delThisClass);
 
 		/**
-		 * \brief ¸ù¾İÊı¾İ×Ö¶ÎÃèÊö¼ÆËãÊı¾İ×Ö¶ÎµÄ´óĞ¡
+		 * \brief æ ¹æ®æ•°æ®å­—æ®µæè¿°è®¡ç®—æ•°æ®å­—æ®µçš„å¤§å°
 		 *
-		 * \param column Êı¾İ×Ö¶ÎÃèÊöÖ¸Õë¡£
-		 * \return Êı¾İ×Ö¶Î´óĞ¡¡£
+		 * \param column æ•°æ®å­—æ®µæè¿°æŒ‡é’ˆã€‚
+		 * \return æ•°æ®å­—æ®µå¤§å°ã€‚
 		 */
 		static unsigned int getColSize(dbCol* column);
 
 		/**
-		 * \brief µÃµ½Êı¾İ×Ö¶ÎµÄÀàĞÍ×Ö·û´® 
-		 * \param type ÀàĞÍ
-		 * \return ÀàĞÍ×Ö·û´®
+		 * \brief å¾—åˆ°æ•°æ®å­—æ®µçš„ç±»å‹å­—ç¬¦ä¸² 
+		 * \param type ç±»å‹
+		 * \return ç±»å‹å­—ç¬¦ä¸²
 		 */
 		static const char *getTypeString(int type);
 
 		/**
-		 * \brief ´òÓ¡³öÊı¾İÀàĞÍ¶¨ÒåÃèÊö  
-		 * \param column Êı¾İ¶¨ÒåÖ¸Õë
+		 * \brief æ‰“å°å‡ºæ•°æ®ç±»å‹å®šä¹‰æè¿°  
+		 * \param column æ•°æ®å®šä¹‰æŒ‡é’ˆ
 		 */
 		static void dumpCol(const dbCol *column);
 
 		/**
-		 * \brief ½Ó¿ÚÎö¹¹Ğéº¯Êı
+		 * \brief æ¥å£ææ„è™šå‡½æ•°
 		 */
 		virtual ~zDBConnPool(){};
 
 		/**
-		 * \brief ÏòÁ¬½Ó³ØÖĞÌí¼ÓÊı¾İ¿âÁ¬½ÓURL£¬²¢ÉèÖÃ´ËÁ¬½ÓÊÇ·ñÖ§³ÖÊÂÎñ
+		 * \brief å‘è¿æ¥æ± ä¸­æ·»åŠ æ•°æ®åº“è¿æ¥URLï¼Œå¹¶è®¾ç½®æ­¤è¿æ¥æ˜¯å¦æ”¯æŒäº‹åŠ¡
 		 *
-		 * \param hashcode ´ËÁ¬½ÓËù¶ÔÓ¦µÄ¹şÏ£´úÂë£¬Ê¹ÓÃÕßĞèÒªÖ¸¶¨¡£
-		 * \param url Êı¾İ¿âÁª½ÓµÄurl
-		 * \param supportTransactions ´ËÁ¬½ÓÊÇ·ñÖ»ÊÇÊÂÎñ
-		 * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+		 * \param hashcode æ­¤è¿æ¥æ‰€å¯¹åº”çš„å“ˆå¸Œä»£ç ï¼Œä½¿ç”¨è€…éœ€è¦æŒ‡å®šã€‚
+		 * \param url æ•°æ®åº“è”æ¥çš„url
+		 * \param supportTransactions æ­¤è¿æ¥æ˜¯å¦åªæ˜¯äº‹åŠ¡
+		 * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 		 */
 		virtual bool putURL(unsigned int hashcode,const char *url,bool supportTransactions) =0;
 
 		/**
-		 * \brief ¸ù¾İhashDataµÃµ½Á¬½ÓHandle
+		 * \brief æ ¹æ®hashDataå¾—åˆ°è¿æ¥Handle
 		 * 
-		 * \param hashData Á´½Ó³ØÓÃ´Ë²ÎÊı×÷Îªµ÷ÓÃhashCodeFuncµÄ²ÎÊı£¬¼ÆËãhashcode£¬ÓÃÀ´µÃµ½ÏàÓ¦µÄÊı¾İ¿âÁª½Ó¡£
-		 * \return Êı¾İ¿âÁª½Ó¾ä±ú,-1±íÊ¾ÎŞĞ§¾ä±ú
+		 * \param hashData é“¾æ¥æ± ç”¨æ­¤å‚æ•°ä½œä¸ºè°ƒç”¨hashCodeFuncçš„å‚æ•°ï¼Œè®¡ç®—hashcodeï¼Œç”¨æ¥å¾—åˆ°ç›¸åº”çš„æ•°æ®åº“è”æ¥ã€‚
+		 * \return æ•°æ®åº“è”æ¥å¥æŸ„,-1è¡¨ç¤ºæ— æ•ˆå¥æŸ„
 		 */
 		virtual connHandleID getHandle(const void *hashData=NULL) =0;
 
 		/**
-		 * \brief ¸ù¾İµ±Ç°HandleµÃµ½ÏÂÒ»¸öHandleÓÃÀ´±éÀúËùÓĞ²»Í¬URLµÄdbÁ¬½Ó
+		 * \brief æ ¹æ®å½“å‰Handleå¾—åˆ°ä¸‹ä¸€ä¸ªHandleç”¨æ¥éå†æ‰€æœ‰ä¸åŒURLçš„dbè¿æ¥
 		 *
-		 * \param handleID µ±Ç°µÄÁ´½Ó¾ä±ú
-		 * \return ÏÂÒ»¸öÁ´½Ó¾ä±ú£¬-1±íÊ¾Ã»ÓĞ²»Í¬Á¬½Ó¾ä±úÁË
+		 * \param handleID å½“å‰çš„é“¾æ¥å¥æŸ„
+		 * \return ä¸‹ä¸€ä¸ªé“¾æ¥å¥æŸ„ï¼Œ-1è¡¨ç¤ºæ²¡æœ‰ä¸åŒè¿æ¥å¥æŸ„äº†
 		 */
 		virtual connHandleID getNextHandle(connHandleID handleID) =0;
 
 		/**
-		 * \brief ½«Handle·Å»ØÁ¬½Ó³Ø
+		 * \brief å°†Handleæ”¾å›è¿æ¥æ± 
 		 *
-		 * ÓÃ»§ÔÚÊ¹ÓÃÍêÊı¾İ¿âÁª½Ó¾ä±úºó£¬Ó¦¸Ã½«Æä·Å»ØÁ´½Ó³Ø£¬ÒÑ±¸ÏÂ´ÎÊ¹ÓÃ¡£
-		 * \param handleID ·Å»ØÁ´½Ó³ØµÄÁ´½Ó¾ä±ú
+		 * ç”¨æˆ·åœ¨ä½¿ç”¨å®Œæ•°æ®åº“è”æ¥å¥æŸ„åï¼Œåº”è¯¥å°†å…¶æ”¾å›é“¾æ¥æ± ï¼Œå·²å¤‡ä¸‹æ¬¡ä½¿ç”¨ã€‚
+		 * \param handleID æ”¾å›é“¾æ¥æ± çš„é“¾æ¥å¥æŸ„
 		 */
 		virtual void putHandle(connHandleID handleID) =0;
 
 		/**
-		 * \brief Ö´ĞĞSqlÓï¾ä,·µ»Ødb_real_queryµÄ·µ»Ø½á¹û
+		 * \brief æ‰§è¡ŒSqlè¯­å¥,è¿”å›db_real_queryçš„è¿”å›ç»“æœ
 		 *
-		 * ÎªÁËÌá¹©¸üÁé»îµÄÊı¾İ¿â²Ù×÷£¬Ìá¹©ÁË±¾º¯Êı
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param sql ÒªÖ´ĞĞµÄSQLÓï¾ä
-		 * \param sqllen SQLÓï¾äµÄ³¤¶È
-		 * \return ·µ»ØÖ´ĞĞÊı¾İÓï¾äºóµÄ´úÂë£¬¸ù¾ßÌåµÄÊı¾İ¿âµÄ·µ»ØÖµÓĞ¹Ø
+		 * ä¸ºäº†æä¾›æ›´çµæ´»çš„æ•°æ®åº“æ“ä½œï¼Œæä¾›äº†æœ¬å‡½æ•°
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param sql è¦æ‰§è¡Œçš„SQLè¯­å¥
+		 * \param sqllen SQLè¯­å¥çš„é•¿åº¦
+		 * \return è¿”å›æ‰§è¡Œæ•°æ®è¯­å¥åçš„ä»£ç ï¼Œæ ¹å…·ä½“çš„æ•°æ®åº“çš„è¿”å›å€¼æœ‰å…³
 		 */
 		virtual int execSql(connHandleID handleID, const char *sql,unsigned int sqllen) =0;
 
 		/**
-		 * \brief Ö´ĞĞSELECT SQL
+		 * \brief æ‰§è¡ŒSELECT SQL
 		 *
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param tableName Òª²Ù×÷µÄ±íÃû
-		 * \param column Òª²Ù×÷µÄÊı¾İ×Ö¶ÎÃèÊö£¬ÒÔ{NULL,0,0}Îª½áÎ²±ê¼Ç
-		 * \param where SQLµÄwhere±í´ïÊ½,Ã»ÓĞÊ±ÓÃNULL
-		 * \param order SQLµÄorder±í´ïÊ½,Ã»ÓĞÊ±ÓÃNULL
-		 * \param data SELECTºóµÄ½á¹ûÊı¾İ´æ´¢µÄÎ»ÖÃ£¬Èç¹û·µ»ØÖµ´óÓÚ0£¬µ÷ÓÃÕßÓ¦¸ÃÊÍ·Å*dataÄÚ´æ¿Õ¼ä
-		 * \return ·µ»ØÖµÎª½á¹ûµÄ¸öÊı£¬Èç¹û´íÎó·µ»Ø-1
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param tableName è¦æ“ä½œçš„è¡¨å
+		 * \param column è¦æ“ä½œçš„æ•°æ®å­—æ®µæè¿°ï¼Œä»¥{NULL,0,0}ä¸ºç»“å°¾æ ‡è®°
+		 * \param where SQLçš„whereè¡¨è¾¾å¼,æ²¡æœ‰æ—¶ç”¨NULL
+		 * \param order SQLçš„orderè¡¨è¾¾å¼,æ²¡æœ‰æ—¶ç”¨NULL
+		 * \param data SELECTåçš„ç»“æœæ•°æ®å­˜å‚¨çš„ä½ç½®ï¼Œå¦‚æœè¿”å›å€¼å¤§äº0ï¼Œè°ƒç”¨è€…åº”è¯¥é‡Šæ”¾*dataå†…å­˜ç©ºé—´
+		 * \return è¿”å›å€¼ä¸ºç»“æœçš„ä¸ªæ•°ï¼Œå¦‚æœé”™è¯¯è¿”å›-1
 		 */
 		virtual unsigned int exeSelect(connHandleID handleID, const char* tableName,
 				const dbCol *column, const char *where,const char *order ,unsigned char **data) =0;
 		
 		/**
-		 * \brief Ö´ĞĞSELECT SQL
+		 * \brief æ‰§è¡ŒSELECT SQL
 		 *
-		 *  Ê¹ÓÃ·½·¨¿É²Î¼ûtest/NewMySQLTestÖĞµÄÊ¹ÓÃ´úÂëÀı³Ì 
+		 *  ä½¿ç”¨æ–¹æ³•å¯å‚è§test/NewMySQLTestä¸­çš„ä½¿ç”¨ä»£ç ä¾‹ç¨‹ 
 		 *
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param table Òª²Ù×÷µÄ±í½á¹¹¶ÔÏó£¬Í¨¹ıMetaData.getFieldsÈ¡µÃ
-		 * \param column Òª²Ù×÷µÄÊı¾İ×Ö¶ÎÃèÊö£¬²»Ö¸¶¨Ê±Îª·µ»ØËùÓĞ×Ö¶Î"*" 
-		 * \param where SQLµÄwhereÃèÊö,Ã»ÓĞÊ±ÓÃNULL
-		 * \param order SQLµÄorderÃèÊö,Ã»ÓĞÊ±ÓÃNULL£¬¿É²»ÌîĞ´
-		 * \param limit ·µ»Ø½á¹ûµÄ×î´óÏŞÖÆ£¬Îª0Ê±£¬Îª²»ÏŞÖÆ£¬»ò¿É²»ÌîĞ´
-		 * \param groupby SQLÖĞµÄGROUPBY×Ó¾äÃèÊö£¬Î´ÓĞÊ±£¬¿É²»ÌîĞ´¡£Ò²¿ÉÌîÎªNULL
-		 * \param having SQLÖĞµÄHAVING×Ó¾äÃèÊö£¬Î´ÓĞÊ±£¬¿É²»ÌîĞ´£¬Ò²¿ÉÌîÎªNULL
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param table è¦æ“ä½œçš„è¡¨ç»“æ„å¯¹è±¡ï¼Œé€šè¿‡MetaData.getFieldså–å¾—
+		 * \param column è¦æ“ä½œçš„æ•°æ®å­—æ®µæè¿°ï¼Œä¸æŒ‡å®šæ—¶ä¸ºè¿”å›æ‰€æœ‰å­—æ®µ"*" 
+		 * \param where SQLçš„whereæè¿°,æ²¡æœ‰æ—¶ç”¨NULL
+		 * \param order SQLçš„orderæè¿°,æ²¡æœ‰æ—¶ç”¨NULLï¼Œå¯ä¸å¡«å†™
+		 * \param limit è¿”å›ç»“æœçš„æœ€å¤§é™åˆ¶ï¼Œä¸º0æ—¶ï¼Œä¸ºä¸é™åˆ¶ï¼Œæˆ–å¯ä¸å¡«å†™
+		 * \param groupby SQLä¸­çš„GROUPBYå­å¥æè¿°ï¼Œæœªæœ‰æ—¶ï¼Œå¯ä¸å¡«å†™ã€‚ä¹Ÿå¯å¡«ä¸ºNULL
+		 * \param having SQLä¸­çš„HAVINGå­å¥æè¿°ï¼Œæœªæœ‰æ—¶ï¼Œå¯ä¸å¡«å†™ï¼Œä¹Ÿå¯å¡«ä¸ºNULL
 		 *
-		 * \return ·µ»Ø½á¹û¼¯
+		 * \return è¿”å›ç»“æœé›†
 		 *
 		 * \author zjw
 		 */
@@ -215,168 +215,168 @@ class zDBConnPool
 
 		
 		/**
-		 * \brief Ö´ĞĞSELECT SQL,²¢ÏŞÖÆ·µ»Ø½á¹ûµÄ¸öÊı
+		 * \brief æ‰§è¡ŒSELECT SQL,å¹¶é™åˆ¶è¿”å›ç»“æœçš„ä¸ªæ•°
 		 * 
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param tableName Òª²Ù×÷µÄ±íÃû
-		 * \param column Òª²Ù×÷µÄÊı¾İ×Ö¶ÎÃèÊö£¬ÒÔ{NULL,0,0}Îª½áÎ²±ê¼Ç
-		 * \param where SQLµÄwhere±í´ïÊ½,Ã»ÓĞÊ±ÓÃNULL
-		 * \param order SQLµÄorder±í´ïÊ½,Ã»ÓĞÊ±ÓÃNULL
-		 * \param limit ·µ»Ø½á¹ûµÄ×î´óÏŞÖÆ
-		 * \param data SELECTºóµÄ½á¹ûÊı¾İ´æ´¢µÄÎ»ÖÃ,dataÓ¦¸ÃÓĞ×ã¹»µÄ¿Õ¼ä´æ´¢·µ»ØµÄ½á¹û
-		 * \return ·µ»ØÖµÎª½á¹ûµÄ¸öÊı£¬Èç¹û´íÎó·µ»Ø-1
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param tableName è¦æ“ä½œçš„è¡¨å
+		 * \param column è¦æ“ä½œçš„æ•°æ®å­—æ®µæè¿°ï¼Œä»¥{NULL,0,0}ä¸ºç»“å°¾æ ‡è®°
+		 * \param where SQLçš„whereè¡¨è¾¾å¼,æ²¡æœ‰æ—¶ç”¨NULL
+		 * \param order SQLçš„orderè¡¨è¾¾å¼,æ²¡æœ‰æ—¶ç”¨NULL
+		 * \param limit è¿”å›ç»“æœçš„æœ€å¤§é™åˆ¶
+		 * \param data SELECTåçš„ç»“æœæ•°æ®å­˜å‚¨çš„ä½ç½®,dataåº”è¯¥æœ‰è¶³å¤Ÿçš„ç©ºé—´å­˜å‚¨è¿”å›çš„ç»“æœ
+		 * \return è¿”å›å€¼ä¸ºç»“æœçš„ä¸ªæ•°ï¼Œå¦‚æœé”™è¯¯è¿”å›-1
 		 */
 		virtual unsigned int exeSelectLimit(connHandleID handleID, const char* tableName,
 				const dbCol *column, const char *where,const char *order ,unsigned int limit,unsigned char *data ,unsigned int limit_from = 0) =0;
 
 		/**
-		 * \brief Ö´ĞĞSELECT SQL,²¢ÏŞÖÆ·µ»Ø½á¹ûµÄ¸öÊı
+		 * \brief æ‰§è¡ŒSELECT SQL,å¹¶é™åˆ¶è¿”å›ç»“æœçš„ä¸ªæ•°
 		 * 
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param sql ±ê×¼²éÑ¯sqlÓï¾ä
-		 * \param sqlen sql³¤¶È
-		 * \param cloumn ĞèÒ¢·µ»ØµÄÁĞ½á¹¹
-		 * \param limit ·µ»Ø½á¹ûµÄ×î´óÏŞÖÆ
-		 * \param data SELECTºóµÄ½á¹ûÊı¾İ´æ´¢µÄÎ»ÖÃ,dataÓ¦¸ÃÓĞ×ã¹»µÄ¿Õ¼ä´æ´¢·µ»ØµÄ½á¹û
-		 * \return ·µ»ØÖµÎª½á¹ûµÄ¸öÊı£¬Èç¹û´íÎó·µ»Ø-1
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param sql æ ‡å‡†æŸ¥è¯¢sqlè¯­å¥
+		 * \param sqlen sqlé•¿åº¦
+		 * \param cloumn éœ€å°§è¿”å›çš„åˆ—ç»“æ„
+		 * \param limit è¿”å›ç»“æœçš„æœ€å¤§é™åˆ¶
+		 * \param data SELECTåçš„ç»“æœæ•°æ®å­˜å‚¨çš„ä½ç½®,dataåº”è¯¥æœ‰è¶³å¤Ÿçš„ç©ºé—´å­˜å‚¨è¿”å›çš„ç»“æœ
+		 * \return è¿”å›å€¼ä¸ºç»“æœçš„ä¸ªæ•°ï¼Œå¦‚æœé”™è¯¯è¿”å›-1
 		 */
 		virtual unsigned int execSelectSql(connHandleID handleID, const char *sql,
 				unsigned int sqllen ,const dbCol *column,unsigned int limit,unsigned char *data)=0;
 		/**
-		 * \brief ½«dataÌí¼Ó½øÊı¾İ¿â
+		 * \brief å°†dataæ·»åŠ è¿›æ•°æ®åº“
 		 *
-		 * ±¾º¯Êı±£Ö¤ÊÇÔ­×Ó²Ù×÷
+		 * æœ¬å‡½æ•°ä¿è¯æ˜¯åŸå­æ“ä½œ
 		 *
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param tableName Òª²Ù×÷µÄ±íÃû
-		 * \param column Òª²Ù×÷µÄÊı¾İ×Ö¶ÎÃèÊö£¬ÒÔ{NULL,0,0}Îª½áÎ²±ê¼Ç
-		 * \param data Òª²Ù×÷µÄÊı¾İ×Ö¶Î
-		 * \return ²åÈëÊı¾İµÄÃèÊö·µ»ØÖµÎª²åÈëÓï¾äÖ´ĞĞºó£¬ÎªAUTO_INCREMENT columnËù²úÉúµÄID,Èç¹ûÎª-1±íÊ¾º¯Êı´íÎó
-		 * ÏÔÈ»Èç¹û±¾´Î²åÈëÃ»ÓĞAUTO_INCREMENT column,·µ»ØÖµ´óÓÚµÈÓÚ0ÊÇÃ»ÓĞÒâÒåµÄ
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param tableName è¦æ“ä½œçš„è¡¨å
+		 * \param column è¦æ“ä½œçš„æ•°æ®å­—æ®µæè¿°ï¼Œä»¥{NULL,0,0}ä¸ºç»“å°¾æ ‡è®°
+		 * \param data è¦æ“ä½œçš„æ•°æ®å­—æ®µ
+		 * \return æ’å…¥æ•°æ®çš„æè¿°è¿”å›å€¼ä¸ºæ’å…¥è¯­å¥æ‰§è¡Œåï¼Œä¸ºAUTO_INCREMENT columnæ‰€äº§ç”Ÿçš„ID,å¦‚æœä¸º-1è¡¨ç¤ºå‡½æ•°é”™è¯¯
+		 * æ˜¾ç„¶å¦‚æœæœ¬æ¬¡æ’å…¥æ²¡æœ‰AUTO_INCREMENT column,è¿”å›å€¼å¤§äºç­‰äº0æ˜¯æ²¡æœ‰æ„ä¹‰çš„
 		 */
 		virtual unsigned int exeInsert(connHandleID handleID, const char *tableName,const dbCol *column,const unsigned char *data) =0;
 
 		/**
-		 * \brief ²åÈëÒ»Ìõ¼ÇÂ¼
+		 * \brief æ’å…¥ä¸€æ¡è®°å½•
 		 *
-		 * ±¾º¯Êı±£Ö¤ÊÇÔ­×Ó²Ù×÷
+		 * æœ¬å‡½æ•°ä¿è¯æ˜¯åŸå­æ“ä½œ
 		 *
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param table Òª²Ù×÷µÄ±í½á¹¹£¬Í¨¹ıMetaData::getFields»ñµÃ
-		 * \param rec Òª²Ù×÷µÄÊı¾İ×Ö¶Î
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param table è¦æ“ä½œçš„è¡¨ç»“æ„ï¼Œé€šè¿‡MetaData::getFieldsè·å¾—
+		 * \param rec è¦æ“ä½œçš„æ•°æ®å­—æ®µ
 		 *
-		 * \return ²åÈëÊı¾İµÄÃèÊö·µ»ØÖµÎª²åÈëÓï¾äÖ´ĞĞºó£¬ÎªAUTO_INCREMENT columnËù²úÉúµÄID,Èç¹ûÎª-1±íÊ¾º¯Êı´íÎó
-		 * ÏÔÈ»Èç¹û±¾´Î²åÈëÃ»ÓĞAUTO_INCREMENT column,·µ»ØÖµ´óÓÚµÈÓÚ0ÊÇÃ»ÓĞÒâÒåµÄ
+		 * \return æ’å…¥æ•°æ®çš„æè¿°è¿”å›å€¼ä¸ºæ’å…¥è¯­å¥æ‰§è¡Œåï¼Œä¸ºAUTO_INCREMENT columnæ‰€äº§ç”Ÿçš„ID,å¦‚æœä¸º-1è¡¨ç¤ºå‡½æ•°é”™è¯¯
+		 * æ˜¾ç„¶å¦‚æœæœ¬æ¬¡æ’å…¥æ²¡æœ‰AUTO_INCREMENT column,è¿”å›å€¼å¤§äºç­‰äº0æ˜¯æ²¡æœ‰æ„ä¹‰çš„
 		 */
 		virtual unsigned int exeInsert(connHandleID handleID, FieldSet* table, Record* rec) = 0;
 		
 		/**
-		 * \brief Ö´ĞĞÉ¾³ı²Ù×÷
+		 * \brief æ‰§è¡Œåˆ é™¤æ“ä½œ
 		 *
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param tableName Òª²Ù×÷µÄ±íÃû
-		 * \param where É¾³ıµÄÌõ¼ş
-		 * \return ·µ»ØÊÜÓ°ÏìµÄ¼ÇÂ¼Êı,·µ»Ø-1±íÊ¾ÓĞ´íÎó·¢Éú
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param tableName è¦æ“ä½œçš„è¡¨å
+		 * \param where åˆ é™¤çš„æ¡ä»¶
+		 * \return è¿”å›å—å½±å“çš„è®°å½•æ•°,è¿”å›-1è¡¨ç¤ºæœ‰é”™è¯¯å‘ç”Ÿ
 		 */
 		virtual unsigned int exeDelete(connHandleID handleID, const char *tableName, const char *where) =0;
 		
 		/**
-		 * \brief Ö´ĞĞÉ¾³ı²Ù×÷
+		 * \brief æ‰§è¡Œåˆ é™¤æ“ä½œ
 		 *
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param table Òª²Ù×÷µÄ±í½á¹¹£¬Í¨¹ıMetaData::getFields»ñµÃ
-		 * \param where É¾³ıµÄÌõ¼ş
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param table è¦æ“ä½œçš„è¡¨ç»“æ„ï¼Œé€šè¿‡MetaData::getFieldsè·å¾—
+		 * \param where åˆ é™¤çš„æ¡ä»¶
 		 *
-		 * \return ·µ»ØÊÜÓ°ÏìµÄ¼ÇÂ¼Êı,·µ»Ø-1±íÊ¾ÓĞ´íÎó·¢Éú
+		 * \return è¿”å›å—å½±å“çš„è®°å½•æ•°,è¿”å›-1è¡¨ç¤ºæœ‰é”™è¯¯å‘ç”Ÿ
 		 */
 		virtual unsigned int exeDelete(connHandleID handleID, FieldSet* table, Record* where) = 0;
 
 		/**
-		 * \brief ¸üĞÂÊı¾İ
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param tableName Òª²Ù×÷µÄ±íÃû
-		 * \param column Òª²Ù×÷µÄÊı¾İ×Ö¶ÎÃèÊö£¬ÒÔ{NULL,0,0}Îª½áÎ²±ê¼Ç
-		 * \param data Òª²Ù×÷µÄÊı¾İ×Ö¶Î
-		 * \param where ¸üĞÂÌõ¼ş
-		 * \return ·µ»ØÊÜÓ°ÏìµÄ¼ÇÂ¼Êı,·µ»Ø-1±íÊ¾ÓĞ´íÎó·¢Éú
+		 * \brief æ›´æ–°æ•°æ®
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param tableName è¦æ“ä½œçš„è¡¨å
+		 * \param column è¦æ“ä½œçš„æ•°æ®å­—æ®µæè¿°ï¼Œä»¥{NULL,0,0}ä¸ºç»“å°¾æ ‡è®°
+		 * \param data è¦æ“ä½œçš„æ•°æ®å­—æ®µ
+		 * \param where æ›´æ–°æ¡ä»¶
+		 * \return è¿”å›å—å½±å“çš„è®°å½•æ•°,è¿”å›-1è¡¨ç¤ºæœ‰é”™è¯¯å‘ç”Ÿ
 		 */
 		virtual unsigned int exeUpdate(connHandleID handleID, const char *tableName,const dbCol *column,const unsigned char *data, const char *where) =0;
 		
 		/**
-		 * \brief ¸üĞÂÊı¾İ
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param table Òª²Ù×÷µÄ±í½á¹¹£¬Í¨¹ıMetaData::getFields»ñµÃ
-		 * \param data  Òª¸üĞÂµÄ×Ö¶Î¼°Öµ
-		 * \param where ¸üĞÂÌõ¼şÃèÊö
+		 * \brief æ›´æ–°æ•°æ®
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param table è¦æ“ä½œçš„è¡¨ç»“æ„ï¼Œé€šè¿‡MetaData::getFieldsè·å¾—
+		 * \param data  è¦æ›´æ–°çš„å­—æ®µåŠå€¼
+		 * \param where æ›´æ–°æ¡ä»¶æè¿°
 		 *
-		 * \return ·µ»ØÊÜÓ°ÏìµÄ¼ÇÂ¼Êı,·µ»Ø-1±íÊ¾ÓĞ´íÎó·¢Éú
+		 * \return è¿”å›å—å½±å“çš„è®°å½•æ•°,è¿”å›-1è¡¨ç¤ºæœ‰é”™è¯¯å‘ç”Ÿ
 		 */
 		virtual unsigned int exeUpdate(connHandleID handleID, FieldSet* table, Record* data, Record* where) = 0;
 
 		/**
-		 * \brief ×ª»¯×Ö·û´®ÎªÓĞĞ§µÄdb×Ö·û´®
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param src ²Ù×÷Ô´Êı¾İ
-		 * \param dest ×ª»»ºó×Ö·û´®Ëù´æ·ÅµÄ¿Õ¼ä,ÎªÁË³ÌĞòµÄ°²È«ÄãÓ¦¸ÃÎªdest·ÖÅä(size==0?strlen(src):size)*2+1µÄ¿Õ¼ä
-		 * \param size Èç¹ûsize>0,±íÊ¾×ª»¯Ö¸¶¨³¤¶ÈµÄ×Ö·û´®£¬ÓÃÓÚ¶ş½øÖÆÊı¾İµÄ×ª»¯£¬Èç¹ûÎª0±íÊ¾Ò»°ã×Ö·û´®µÄ×ª»§
-		 * \return Ê§°Ü·µ»ØNULL,³É¹¦·µ»Ødest
+		 * \brief è½¬åŒ–å­—ç¬¦ä¸²ä¸ºæœ‰æ•ˆçš„dbå­—ç¬¦ä¸²
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param src æ“ä½œæºæ•°æ®
+		 * \param dest è½¬æ¢åå­—ç¬¦ä¸²æ‰€å­˜æ”¾çš„ç©ºé—´,ä¸ºäº†ç¨‹åºçš„å®‰å…¨ä½ åº”è¯¥ä¸ºdeståˆ†é…(size==0?strlen(src):size)*2+1çš„ç©ºé—´
+		 * \param size å¦‚æœsize>0,è¡¨ç¤ºè½¬åŒ–æŒ‡å®šé•¿åº¦çš„å­—ç¬¦ä¸²ï¼Œç”¨äºäºŒè¿›åˆ¶æ•°æ®çš„è½¬åŒ–ï¼Œå¦‚æœä¸º0è¡¨ç¤ºä¸€èˆ¬å­—ç¬¦ä¸²çš„è½¬æˆ·
+		 * \return å¤±è´¥è¿”å›NULL,æˆåŠŸè¿”å›dest
 		 */
 		virtual char * escapeString(connHandleID handleID, const char *src,char *dest,unsigned int size) =0;
 
 		/**
-		 * \brief ×ª»¯×Ö·û´®ÎªÓĞĞ§µÄdb×Ö·û´®
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param src ²Ù×÷Ô´Êı¾İ
-		 * \param dest ×ª»»ºó×Ö·û´®Ëù´æ·ÅµÄ¿Õ¼ä,ÎªÁË³ÌĞòµÄ°²È«ÄãÓ¦¸ÃÎªdest·ÖÅä(size==0?strlen(src):size)*2+1µÄ¿Õ¼ä
-		 * \param size Èç¹ûsize>0,±íÊ¾×ª»¯Ö¸¶¨³¤¶ÈµÄ×Ö·û´®£¬ÓÃÓÚ¶ş½øÖÆÊı¾İµÄ×ª»¯£¬Èç¹ûÎª0±íÊ¾Ò»°ã×Ö·û´®µÄ×ª»§
-		 * \return Ê§°Ü·µ»ØNULL,³É¹¦·µ»Ødest
+		 * \brief è½¬åŒ–å­—ç¬¦ä¸²ä¸ºæœ‰æ•ˆçš„dbå­—ç¬¦ä¸²
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param src æ“ä½œæºæ•°æ®
+		 * \param dest è½¬æ¢åå­—ç¬¦ä¸²æ‰€å­˜æ”¾çš„ç©ºé—´,ä¸ºäº†ç¨‹åºçš„å®‰å…¨ä½ åº”è¯¥ä¸ºdeståˆ†é…(size==0?strlen(src):size)*2+1çš„ç©ºé—´
+		 * \param size å¦‚æœsize>0,è¡¨ç¤ºè½¬åŒ–æŒ‡å®šé•¿åº¦çš„å­—ç¬¦ä¸²ï¼Œç”¨äºäºŒè¿›åˆ¶æ•°æ®çš„è½¬åŒ–ï¼Œå¦‚æœä¸º0è¡¨ç¤ºä¸€èˆ¬å­—ç¬¦ä¸²çš„è½¬æˆ·
+		 * \return å¤±è´¥è¿”å›NULL,æˆåŠŸè¿”å›dest
 		 */
 		virtual std::string& escapeString(connHandleID handleID, const std::string &src, std::string &dest) =0;
 
 		/**
-		 * \brief »ñÈ¡±íÖĞ¼ÇÂ¼¸öÊı
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param tableName Òª²Ù×÷µÄ±íÃû
-		 * \param where ¼ÆÊıÌõ¼ş
-		 * \return ·µ»Ø¼ÆÊı½á¹û
+		 * \brief è·å–è¡¨ä¸­è®°å½•ä¸ªæ•°
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param tableName è¦æ“ä½œçš„è¡¨å
+		 * \param where è®¡æ•°æ¡ä»¶
+		 * \return è¿”å›è®¡æ•°ç»“æœ
 		 */
 		virtual unsigned int getCount(connHandleID handleID, const char* tableName, const char *where) =0;
 
 		/**
-		 * \brief °Ñ±íÖĞÄ³¸öÊ±¼ä×Ö¶Î¸üĞÂµ½×îĞÂÊ±¼ä
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param tableName Òª²Ù×÷µÄ±íÃû
-		 * \param colName Òª²Ù×÷µÄ×Ö¶ÎÃû
+		 * \brief æŠŠè¡¨ä¸­æŸä¸ªæ—¶é—´å­—æ®µæ›´æ–°åˆ°æœ€æ–°æ—¶é—´
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param tableName è¦æ“ä½œçš„è¡¨å
+		 * \param colName è¦æ“ä½œçš„å­—æ®µå
 		 */
 		virtual void updateDatatimeCol(connHandleID handleID, const char* tableName, const char *colName) =0;
 
 		/**
-		 * \brief ÊÂÎñÌá½»
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse
+		 * \brief äº‹åŠ¡æäº¤
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›false
 		 */
 		virtual bool commit(connHandleID handleID) =0;
 
 
 		/**
-		 * \brief ÊÂÎñ»Ø¹ö
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse
+		 * \brief äº‹åŠ¡å›æ»š
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›false
 		 */
 		virtual bool rollback(connHandleID handleID) =0;
 
 		/**
-		 * \brief ÉèÖÃ´ËÁ´½ÓÊÇ·ñÖ§³ÖÊÂÎñ
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \param supportTransactions  ÊÇ·ñÖ§³ÖÊÂÎñ
-		 * \return ³É¹¦·µ»Øtrue£¬Ê§°Ü·µ»Øfalse
+		 * \brief è®¾ç½®æ­¤é“¾æ¥æ˜¯å¦æ”¯æŒäº‹åŠ¡
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \param supportTransactions  æ˜¯å¦æ”¯æŒäº‹åŠ¡
+		 * \return æˆåŠŸè¿”å›trueï¼Œå¤±è´¥è¿”å›false
 		 */
 		virtual bool setTransactions(connHandleID handleID, bool supportTransactions) =0;
 
 		/**
-		 * \brief ¼ì²é´ËÁ´½ÓÊÇ·ñÖ§³ÖÊÂÎñ
-		 * \param handleID ²Ù×÷µÄÁ´½Ó¾ä±ú
-		 * \return Ö§³Ö·µ»Øtrue£¬·ñÔò·µ»Øfalse
+		 * \brief æ£€æŸ¥æ­¤é“¾æ¥æ˜¯å¦æ”¯æŒäº‹åŠ¡
+		 * \param handleID æ“ä½œçš„é“¾æ¥å¥æŸ„
+		 * \return æ”¯æŒè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 		 */
 		virtual bool supportTransactions(connHandleID handleID) =0;
 };

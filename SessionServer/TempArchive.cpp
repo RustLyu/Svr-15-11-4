@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TempArchive.cpp $
  * \author  
  * \date 
- * \brief ÁÙÊ±µµ°¸´æ´¢
+ * \brief ä¸´æ—¶æ¡£æ¡ˆå­˜å‚¨
  *
  * 
  */
@@ -20,7 +20,7 @@ GlobalTempArchiveIndex::~GlobalTempArchiveIndex()
 {
 }
 /**
- * \brief µÃµ½Î¨Ò»ÊµÀı
+ * \brief å¾—åˆ°å”¯ä¸€å®ä¾‹
  *
  *
  * \return 
@@ -34,7 +34,7 @@ GlobalTempArchiveIndex *GlobalTempArchiveIndex::getInstance()
 	return _instance;
 }
 /**
- * \brief É¾³ıÎ¨Ò»ÊµÀı
+ * \brief åˆ é™¤å”¯ä¸€å®ä¾‹
  *
  *
  * \return 
@@ -44,13 +44,13 @@ void GlobalTempArchiveIndex::delInstance()
 	SAFE_DELETE(_instance);
 }
 /**
- * \brief ¶ÁÈ¡Ò»¸öÓÃ»§µÄÁÙÊ±µµ°¸
+ * \brief è¯»å–ä¸€ä¸ªç”¨æˆ·çš„ä¸´æ—¶æ¡£æ¡ˆ
  *
  *
- * \param id: ÓÃ»§id
- * \param out: Êä³öbuf
- * \param outSize: Êä³öÊı¾İ´óĞ¡
- * \return ¶ÁÈ¡ÊÇ·ñ³É¹¦
+ * \param id: ç”¨æˆ·id
+ * \param out: è¾“å‡ºbuf
+ * \param outSize: è¾“å‡ºæ•°æ®å¤§å°
+ * \return è¯»å–æ˜¯å¦æˆåŠŸ
  */
 bool GlobalTempArchiveIndex::readTempArchive(DWORD id , char *out , DWORD &outSize)
 {
@@ -70,14 +70,14 @@ bool GlobalTempArchiveIndex::readTempArchive(DWORD id , char *out , DWORD &outSi
 		return false;
 	}
 	outSize = iter->second->dwSize;
-	//Zebra::logger->debug("ÁÙÊ±¶ÁµµÊı¾İÄÚÈİ´óĞ¡%u" , outSize);
+	//Zebra::logger->debug("ä¸´æ—¶è¯»æ¡£æ•°æ®å†…å®¹å¤§å°%u" , outSize);
 	bcopy(iter->second->data , out , outSize);
 	remove(iter);
 	mlock.unlock();
 	return true;
 }
 /**
- * \brief ¼ì²éÊÇ·ñÓĞ¹ıÆÚµÄµµ°¸
+ * \brief æ£€æŸ¥æ˜¯å¦æœ‰è¿‡æœŸçš„æ¡£æ¡ˆ
  *
  *
  * \return 
@@ -89,10 +89,10 @@ void GlobalTempArchiveIndex::checkOverdue()
 	mlock.lock();
 	for(TempArchive_iterator iter = tempArchive.begin() ; iter != tempArchive.end() ;)
 	{
-		//Zebra::logger->debug("ÁÙÊ±´æµµÊı¾İÀëÊ§Ğ§Ê±¼ä»¹Ê£%uÃë",ctv.sec() - iter->second->createtime.sec());
+		//Zebra::logger->debug("ä¸´æ—¶å­˜æ¡£æ•°æ®ç¦»å¤±æ•ˆæ—¶é—´è¿˜å‰©%uç§’",ctv.sec() - iter->second->createtime.sec());
 		if(ctv.sec() - iter->second->createtime.sec() > 120)
 		{
-			//Zebra::logger->trace("ÁÙÊ±´æµµÊı¾İ¹ıÆÚÊ§Ğ§%u" , iter->second->id);
+			//Zebra::logger->trace("ä¸´æ—¶å­˜æ¡£æ•°æ®è¿‡æœŸå¤±æ•ˆ%u" , iter->second->id);
 			del_iter = iter;
 			iter ++;
 			remove(del_iter);
@@ -103,17 +103,17 @@ void GlobalTempArchiveIndex::checkOverdue()
 	mlock.unlock();
 }
 /**
- * \brief ±£´æÒ»¸öÓÃ»§µÄÁÙÊ±µµ°¸
+ * \brief ä¿å­˜ä¸€ä¸ªç”¨æˆ·çš„ä¸´æ—¶æ¡£æ¡ˆ
  *
  *
- * \param id: ÓÃ»§id
- * \param data: Êä³öbuf
- * \param dwSize: Êä³öÊı¾İ´óĞ¡
- * \return ¶ÁÈ¡ÊÇ·ñ³É¹¦
+ * \param id: ç”¨æˆ·id
+ * \param data: è¾“å‡ºbuf
+ * \param dwSize: è¾“å‡ºæ•°æ®å¤§å°
+ * \return è¯»å–æ˜¯å¦æˆåŠŸ
  */
 bool GlobalTempArchiveIndex::writeTempArchive(DWORD id , char *data , DWORD  dwSize)
 {
-	//Zebra::logger->debug("ÁÙÊ±´æµµÊı¾İÄÚÈİ´óĞ¡%u" , dwSize);
+	//Zebra::logger->debug("ä¸´æ—¶å­˜æ¡£æ•°æ®å†…å®¹å¤§å°%u" , dwSize);
 	checkOverdue();
 	
 	mlock.lock();
@@ -144,10 +144,10 @@ bool GlobalTempArchiveIndex::writeTempArchive(DWORD id , char *data , DWORD  dwS
 	return inserted;
 }
 /**
- * \brief É¾³ıÒ»¸öÓÃ»§µµ°¸ËùÕ¼ÓÃµÄ¿Õ¼ä
+ * \brief åˆ é™¤ä¸€ä¸ªç”¨æˆ·æ¡£æ¡ˆæ‰€å ç”¨çš„ç©ºé—´
  *
  *
- * \param del_iter: ĞèÒªÉ¾³ıµÄµü´ú
+ * \param del_iter: éœ€è¦åˆ é™¤çš„è¿­ä»£
  * \return 
  */
 void GlobalTempArchiveIndex::remove(TempArchive_iterator del_iter)

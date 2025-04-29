@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordClient.cpp  $
  * \author  
  * \date 
- * \brief ¶¨Òåµµ°¸·şÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰æ¡£æ¡ˆæœåŠ¡å™¨è¿æ¥å®¢æˆ·ç«¯
  *
- * ¸ºÔğÓëµµ°¸·şÎñÆ÷½»»¥£¬´æÈ¡µµ°¸
+ * è´Ÿè´£ä¸æ¡£æ¡ˆæœåŠ¡å™¨äº¤äº’ï¼Œå­˜å–æ¡£æ¡ˆ
  * 
  */
 
@@ -27,7 +27,7 @@ bool RecordClient::connectToRecordServer()
 {
 	if (!connect())
 	{
-		Zebra::logger->error("Á¬½Óµµ°¸·şÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿æ¥æ¡£æ¡ˆæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 
@@ -43,7 +43,7 @@ void RecordClient::run()
 {
 	zTCPClient::run();
 
-	//Óëµµ°¸·şÎñÆ÷µÄÁ¬½Ó¶Ï¿ª£¬¹Ø±Õ·şÎñÆ÷
+	//ä¸æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿æ¥æ–­å¼€ï¼Œå…³é—­æœåŠ¡å™¨
 	SessionService::getInstance().Terminate();
 	while(!SessionService::getInstance().isSequeueTerminate())
 	{

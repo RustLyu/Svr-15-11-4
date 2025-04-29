@@ -1,4 +1,4 @@
-#ifndef _USE_CMD_NAMESPACE
+ï»¿#ifndef _USE_CMD_NAMESPACE
 #define _USE_CMD_NAMESPACE
 #endif
 
@@ -37,8 +37,8 @@ class RecordEditor{
 	    strcpy(QueryString,querystring);
 	}
 	int MysqlInit();
-	int Query();                              //¶ÔALLBINARYÒÔÍâµÄÊı¾İ½øĞĞ²Ù×÷
-        void Index();                             //±éÀúËùÓĞALLBINARY
+	int Query();                              //å¯¹ALLBINARYä»¥å¤–çš„æ•°æ®è¿›è¡Œæ“ä½œ
+        void Index();                             //éå†æ‰€æœ‰ALLBINARY
         //void Modify(){}
 	~RecordEditor(){
 	    mysql_close(&Mysql);
@@ -46,20 +46,20 @@ class RecordEditor{
     
     private:
 	MYSQL  Mysql;
-	char  QueryString[MAX_SIZE];                                    //Query()ÖĞÔËĞĞµÄSQLÓï¾ä
-        unsigned char uzBuf[MAX_UZLIB_CHAR];                            //´æ·Å½âÑ¹µÄALLBINARY
+	char  QueryString[MAX_SIZE];                                    //Query()ä¸­è¿è¡Œçš„SQLè¯­å¥
+        unsigned char uzBuf[MAX_UZLIB_CHAR];                            //å­˜æ”¾è§£å‹çš„ALLBINARY
 	ZlibObject *zo;                            
-	SaveObject *object;                                             //Ö¸ÏòµÚÒ»¸öSaveObject
+	SaveObject *object;                                             //æŒ‡å‘ç¬¬ä¸€ä¸ªSaveObject
 	ZlibSkill *zs;
-	SaveSkill * skill;                                              //Ö¸ÏòµÚÒ»¸öSaveSkill
+	SaveSkill * skill;                                              //æŒ‡å‘ç¬¬ä¸€ä¸ªSaveSkill
         ZlibSkill *zls;
-	LiveSkill* live_skill;                                          //Ö¸ÏòµÚÒ»¸öLiveSkill
+	LiveSkill* live_skill;                                          //æŒ‡å‘ç¬¬ä¸€ä¸ªLiveSkill
         int Uncompress(const unsigned char * data ,const DWORD dataSize);
-        void Modify();                                                  //¶ÔALLBINARYÖĞ´æ·ÅµÄÊı¾İ½øĞĞĞŞ¸Ä
-        void AddObject(SaveObject * Obj);                               //Ìí¼ÓÒ»¸öSaveObject(ÔÚModify()ÖĞÊ¹ÓÃ)
-        void DelObject(SaveObject * Obj);                               //É¾³ıÒ»¸öSaveObject(ÔÚModify()ÖĞÊ¹ÓÃ)
-        void AddSkill(SaveSkill * Skl);                                 //Ìí¼ÓÒ»¸öSaveSkill(ÔÚModify()ÖĞÊ¹ÓÃ)
-        void DelSkill(SaveSkill * Skill);                               //É¾³ıÒ»¸öSaveSkill(ÔÚModify()ÖĞÊ¹ÓÃ)
-        void AddLiveSkill(LiveSkill * Live_Skill);                      //Ìí¼ÓÒ»¸öLiveSkill(ÔÚModify()ÖĞÊ¹ÓÃ)
-        void DelLiveSkill(LiveSkill * Live_Skill);                      //É¾³ıÒ»¸öLiveSkill(ÔÚModify()ÖĞÊ¹ÓÃ)
+        void Modify();                                                  //å¯¹ALLBINARYä¸­å­˜æ”¾çš„æ•°æ®è¿›è¡Œä¿®æ”¹
+        void AddObject(SaveObject * Obj);                               //æ·»åŠ ä¸€ä¸ªSaveObject(åœ¨Modify()ä¸­ä½¿ç”¨)
+        void DelObject(SaveObject * Obj);                               //åˆ é™¤ä¸€ä¸ªSaveObject(åœ¨Modify()ä¸­ä½¿ç”¨)
+        void AddSkill(SaveSkill * Skl);                                 //æ·»åŠ ä¸€ä¸ªSaveSkill(åœ¨Modify()ä¸­ä½¿ç”¨)
+        void DelSkill(SaveSkill * Skill);                               //åˆ é™¤ä¸€ä¸ªSaveSkill(åœ¨Modify()ä¸­ä½¿ç”¨)
+        void AddLiveSkill(LiveSkill * Live_Skill);                      //æ·»åŠ ä¸€ä¸ªLiveSkill(åœ¨Modify()ä¸­ä½¿ç”¨)
+        void DelLiveSkill(LiveSkill * Live_Skill);                      //åˆ é™¤ä¸€ä¸ªLiveSkill(åœ¨Modify()ä¸­ä½¿ç”¨)
 };

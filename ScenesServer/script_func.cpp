@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: script_func.cpp $
  * \author	
  * \date	
- * \brief	½Å±¾¸¨Öúº¯Êı
+ * \brief	è„šæœ¬è¾…åŠ©å‡½æ•°
  * 
  */
 
@@ -14,9 +14,9 @@ SceneUser* current_user = NULL;
 
 
 /**     
- * \brief È¡µÃµ±Ç°ÓÃ»§
+ * \brief å–å¾—å½“å‰ç”¨æˆ·
  *
- * \return: µ±Ç°ÓÃ»§
+ * \return: å½“å‰ç”¨æˆ·
  */  
 SceneUser* me()
 {
@@ -24,9 +24,9 @@ SceneUser* me()
 }
 
 /**     
- * \brief Éè¶¨µ±Ç°ÓÃ»§
+ * \brief è®¾å®šå½“å‰ç”¨æˆ·
  *
- * \param user: Ä¿±êÓÃ»§
+ * \param user: ç›®æ ‡ç”¨æˆ·
  */  
 void set_me(SceneUser* user)
 {
@@ -37,12 +37,12 @@ void set_me(SceneUser* user)
 
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬´«ËÍĞÅÏ¢µ½ÓÃ»§´°¿Ú
+ * \brief è„šæœ¬æ¥å£ï¼Œä¼ é€ä¿¡æ¯åˆ°ç”¨æˆ·çª—å£
  *
- * \param target : Ä¿±êÓÃ»§
- * \param type : Ñ¶Ï¢ÀàĞÍ£¬see enumSysInfoType from Command.h for details
- * \param msg: ĞÅÏ¢ÄÚÈİ
- * \return: ´«ËÍ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \param target : ç›®æ ‡ç”¨æˆ·
+ * \param type : è®¯æ¯ç±»å‹ï¼Œsee enumSysInfoType from Command.h for details
+ * \param msg: ä¿¡æ¯å†…å®¹
+ * \return: ä¼ é€æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */  
 bool sys(SceneUser* target, int type, const char* msg)
 {
@@ -54,10 +54,10 @@ bool sys(SceneUser* target, int type, const char* msg)
 #include "NpcTrade.h"
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬µ¯³ö¶Ô»°¿ò
+ * \brief è„šæœ¬æ¥å£ï¼Œå¼¹å‡ºå¯¹è¯æ¡†
  *
- * \param npc : ¶Ô»°µÄnpc
- * \param menu : ¶Ô»°¿òÄÚÈİ
+ * \param npc : å¯¹è¯çš„npc
+ * \param menu : å¯¹è¯æ¡†å†…å®¹
  */  
 void show_dialog(SceneNpc* npc, const char* menu)
 {
@@ -81,11 +81,11 @@ void show_dialog(SceneNpc* npc, const char* menu)
 #include "QuestAction.h"
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬Éè¶¨Ò»¸ö±äÁ¿Öµ
+ * \brief è„šæœ¬æ¥å£ï¼Œè®¾å®šä¸€ä¸ªå˜é‡å€¼
  *
- * \param vars : Ä¿±ê±äÁ¿
- * \param name : ±äÁ¿Ãû³Æ
- * \param value: ±äÁ¿Öµ
+ * \param vars : ç›®æ ‡å˜é‡
+ * \param name : å˜é‡åç§°
+ * \param value: å˜é‡å€¼
  */ 
 void set_var(Vars* vars, const char* name, int value)
 {
@@ -95,11 +95,11 @@ void set_var(Vars* vars, const char* name, int value)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬Éè¶¨Ò»¸ö±äÁ¿Öµ
+ * \brief è„šæœ¬æ¥å£ï¼Œè®¾å®šä¸€ä¸ªå˜é‡å€¼
  *
- * \param vars : Ä¿±ê±äÁ¿
- * \param name : ±äÁ¿Ãû³Æ
- * \param value: ±äÁ¿Öµ
+ * \param vars : ç›®æ ‡å˜é‡
+ * \param name : å˜é‡åç§°
+ * \param value: å˜é‡å€¼
  */ 
 void set_varS(Vars* vars, const char* name, const char * value)
 {
@@ -109,11 +109,11 @@ void set_varS(Vars* vars, const char* name, const char * value)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÒ»¸ö±äÁ¿Öµ
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—ä¸€ä¸ªå˜é‡å€¼
  *
- * \param vars : Ä¿±ê±äÁ¿
- * \param name : ±äÁ¿Ãû³Æ
- * \return: È¡µÃµÄ±äÁ¿Öµ£¬Èô±äÁ¿²»´æÔÚ·µ»Ø0
+ * \param vars : ç›®æ ‡å˜é‡
+ * \param name : å˜é‡åç§°
+ * \return: å–å¾—çš„å˜é‡å€¼ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨è¿”å›0
  */ 
 int get_var(Vars* vars, const char* name)
 {
@@ -124,11 +124,11 @@ int get_var(Vars* vars, const char* name)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÒ»¸ö±äÁ¿Öµ
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—ä¸€ä¸ªå˜é‡å€¼
  *
- * \param vars : Ä¿±ê±äÁ¿
- * \param name : ±äÁ¿Ãû³Æ
- * \return: È¡µÃµÄ±äÁ¿Öµ£¬Èô±äÁ¿²»´æÔÚ·µ»Ø0
+ * \param vars : ç›®æ ‡å˜é‡
+ * \param name : å˜é‡åç§°
+ * \return: å–å¾—çš„å˜é‡å€¼ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨è¿”å›0
  */ 
 const char *  get_varS(Vars* vars, const char* name)
 {
@@ -139,9 +139,9 @@ const char *  get_varS(Vars* vars, const char* name)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬Ë¢ĞÂnpc×´Ì¬
+ * \brief è„šæœ¬æ¥å£ï¼Œåˆ·æ–°npcçŠ¶æ€
  *
- * \param npc : Ä¿±ênpc
+ * \param npc : ç›®æ ‡npc
  */ 
 void refresh_status(SceneNpc* npc)
 {
@@ -153,9 +153,9 @@ void refresh_status(SceneNpc* npc)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬Ë¢ĞÂnpc×´Ì¬
+ * \brief è„šæœ¬æ¥å£ï¼Œåˆ·æ–°npcçŠ¶æ€
  *
- * \param npc : Ä¿±ênpcµÄtempid
+ * \param npc : ç›®æ ‡npcçš„tempid
  */ 
 void refresh_npc(int id)
 {
@@ -165,10 +165,10 @@ void refresh_npc(int id)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÄ³npcµÄtempid
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—æŸnpcçš„tempid
  *
- * \param npc : Ä¿±ênpc
- *\return : ¸ÃnpcµÄtempid
+ * \param npc : ç›®æ ‡npc
+ *\return : è¯¥npcçš„tempid
  */ 
 int npc_tempid(SceneNpc* npc)
 {
@@ -176,10 +176,10 @@ int npc_tempid(SceneNpc* npc)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÄ³npcµÄid
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—æŸnpcçš„id
  *
- * \param npc : Ä¿±ênpc
- *\return : ¸ÃnpcµÄid
+ * \param npc : ç›®æ ‡npc
+ *\return : è¯¥npcçš„id
  */ 
 int npc_id(SceneNpc* npc)
 {
@@ -187,9 +187,9 @@ int npc_id(SceneNpc* npc)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬Ë¢ĞÂÈÎÎñĞÅÏ¢
+ * \brief è„šæœ¬æ¥å£ï¼Œåˆ·æ–°ä»»åŠ¡ä¿¡æ¯
  *
- * \param npc : Ä¿±êÈÎÎñid
+ * \param npc : ç›®æ ‡ä»»åŠ¡id
  */ 
 void refresh_quest(int id)
 {
@@ -201,9 +201,9 @@ void refresh_quest(int id)
 #define U_ID 98765
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÈ«¾Ö±äÁ¿£¬Èô±äÁ¿²»´æÔÚ£¬ÔòĞÂ½¨
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—å…¨å±€å˜é‡ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
  *
- *\return : µÃµ½µÄÈ«¾Ö±äÁ¿
+ *\return : å¾—åˆ°çš„å…¨å±€å˜é‡
  */ 
 Vars* GlobalVars::add_g()
 {
@@ -211,9 +211,9 @@ Vars* GlobalVars::add_g()
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃ°ï»á±äÁ¿£¬Èô±äÁ¿²»´æÔÚ£¬ÔòĞÂ½¨
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—å¸®ä¼šå˜é‡ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
  *
- *\return : µÃµ½µÄ°ï»á±äÁ¿
+ *\return : å¾—åˆ°çš„å¸®ä¼šå˜é‡
  */ 
 Vars* GlobalVars::add_t()
 {
@@ -221,9 +221,9 @@ Vars* GlobalVars::add_t()
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃ¼Ò×å±äÁ¿£¬Èô±äÁ¿²»´æÔÚ£¬ÔòĞÂ½¨
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—å®¶æ—å˜é‡ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
  *
- *\return : µÃµ½µÄ¼Ò×å±äÁ¿
+ *\return : å¾—åˆ°çš„å®¶æ—å˜é‡
  */ 
 Vars* GlobalVars::add_f()
 {
@@ -231,11 +231,11 @@ Vars* GlobalVars::add_f()
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬ÅĞ¶ÏÓÃ»§ÉíÉÏ´øÓĞµÄ½ğÇ®ÊÇ·ñÂú×ãÒªÇó
+ * \brief è„šæœ¬æ¥å£ï¼Œåˆ¤æ–­ç”¨æˆ·èº«ä¸Šå¸¦æœ‰çš„é‡‘é’±æ˜¯å¦æ»¡è¶³è¦æ±‚
  *
- * \param user: Ä¿±êÓÃ»§
- * \param money: ĞèÒªµÄ½ğÇ®
- * \return : Âú×ãÌõ¼ş·µ»Øture£¬·ñÔò·µ»Øfalse
+ * \param user: ç›®æ ‡ç”¨æˆ·
+ * \param money: éœ€è¦çš„é‡‘é’±
+ * \return : æ»¡è¶³æ¡ä»¶è¿”å›tureï¼Œå¦åˆ™è¿”å›false
  */ 
 bool check_money(SceneUser* user, int money)
 {
@@ -243,36 +243,36 @@ bool check_money(SceneUser* user, int money)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬½ÏÉÙÓÃ»§ÉíÉÏ´øÓĞµÄ½ğÇ®ÊıÁ¿
+ * \brief è„šæœ¬æ¥å£ï¼Œè¾ƒå°‘ç”¨æˆ·èº«ä¸Šå¸¦æœ‰çš„é‡‘é’±æ•°é‡
  *
- * \param user: Ä¿±êÓÃ»§
- * \param money: ĞèÒªµÄ½ğÇ®
- * \return : ½ÏÉÙ³É¹¦·µ»Øture£¬·ñÔò·µ»Øfalse
+ * \param user: ç›®æ ‡ç”¨æˆ·
+ * \param money: éœ€è¦çš„é‡‘é’±
+ * \return : è¾ƒå°‘æˆåŠŸè¿”å›tureï¼Œå¦åˆ™è¿”å›false
  */ 
 bool remove_money(SceneUser* user, int money)
 {
-	return user->packs.removeMoney(money, "ÈÎÎñ");
+	return user->packs.removeMoney(money, "ä»»åŠ¡");
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬Ôö¼ÓÓÃ»§ÉíÉÏ´øÓĞµÄ½ğÇ®ÊıÁ¿
+ * \brief è„šæœ¬æ¥å£ï¼Œå¢åŠ ç”¨æˆ·èº«ä¸Šå¸¦æœ‰çš„é‡‘é’±æ•°é‡
  *
- * \param user: Ä¿±êÓÃ»§
- * \param money: Ôö¼ÓµÄ½ğÇ®
+ * \param user: ç›®æ ‡ç”¨æˆ·
+ * \param money: å¢åŠ çš„é‡‘é’±
  */ 
 void add_money(SceneUser* user, int money)
 {
-	user->packs.addMoney(money, "ÈÎÎñ");
+	user->packs.addMoney(money, "ä»»åŠ¡");
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬ÅĞ¶ÏÓÃ»§ÉíÉÏÊÇ·ñ´øÓĞÄ³ÎïÆ·
+ * \brief è„šæœ¬æ¥å£ï¼Œåˆ¤æ–­ç”¨æˆ·èº«ä¸Šæ˜¯å¦å¸¦æœ‰æŸç‰©å“
  *
- * \param user: Ä¿±êÓÃ»§
- * \param id: ÎïÆ·µÄobjectid
- * \param number: ÒªÇóµÄÊıÁ¿
- * \param level: ÎïÆ·µÈ¼¶»òÀàĞÍ
- * \return °ü¹üÖĞÎïÆ·ÊıÁ¿´óÓÚµÈÓÚ¸ø¶¨µÄÊıÁ¿·µ»Øtrue£¬·ñÔò·µ»Øfalse
+ * \param user: ç›®æ ‡ç”¨æˆ·
+ * \param id: ç‰©å“çš„objectid
+ * \param number: è¦æ±‚çš„æ•°é‡
+ * \param level: ç‰©å“ç­‰çº§æˆ–ç±»å‹
+ * \return åŒ…è£¹ä¸­ç‰©å“æ•°é‡å¤§äºç­‰äºç»™å®šçš„æ•°é‡è¿”å›trueï¼Œå¦åˆ™è¿”å›false
  */ 
 bool have_ob(SceneUser* user, int id, int num, int level ,int type)
 {
@@ -280,12 +280,12 @@ bool have_ob(SceneUser* user, int id, int num, int level ,int type)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬ÅĞ¶ÏÓÃ»§ÉíÉÏÊÇ·ñ´øÓĞÄ³ÎïÆ·
+ * \brief è„šæœ¬æ¥å£ï¼Œåˆ¤æ–­ç”¨æˆ·èº«ä¸Šæ˜¯å¦å¸¦æœ‰æŸç‰©å“
  *
- * \param user: Ä¿±êÓÃ»§
- * \param id: ÎïÆ·µÄobjectid
- * \param level: ÎïÆ·ÀàĞÍ
- * \return °ü¹üÖĞÓĞÎïÆ··µ»ØÎïÆ·thisid£¬·ñÔò·µ»Ø0
+ * \param user: ç›®æ ‡ç”¨æˆ·
+ * \param id: ç‰©å“çš„objectid
+ * \param level: ç‰©å“ç±»å‹
+ * \return åŒ…è£¹ä¸­æœ‰ç‰©å“è¿”å›ç‰©å“thisidï¼Œå¦åˆ™è¿”å›0
  */ 
 unsigned int get_ob(SceneUser* user, int id, int level )
 {
@@ -293,11 +293,11 @@ unsigned int get_ob(SceneUser* user, int id, int level )
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬É¾³ıÎïÆ·
+ * \brief è„šæœ¬æ¥å£ï¼Œåˆ é™¤ç‰©å“
  *
- * \param user: Ä¿±êÓÃ»§
- * \param id: ÎïÆ·µÄthisid
- * \return É¾³ıÊÇ·ñ³É¹¦
+ * \param user: ç›®æ ‡ç”¨æˆ·
+ * \param id: ç‰©å“çš„thisid
+ * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
  */ 
 bool del_ob(SceneUser* user, unsigned int id)
 {
@@ -306,10 +306,10 @@ bool del_ob(SceneUser* user, unsigned int id)
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÓÃ»§°ü¹üÖĞµÄÊ£Óà¿Õ¼ä
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—ç”¨æˆ·åŒ…è£¹ä¸­çš„å‰©ä½™ç©ºé—´
  *
- * \param user: Ä¿±êÓÃ»§
- * \return ÓÃ»§°ü¹üËùÓµÓĞµÄÊ£Óà¿Õ¼ä
+ * \param user: ç›®æ ‡ç”¨æˆ·
+ * \return ç”¨æˆ·åŒ…è£¹æ‰€æ‹¥æœ‰çš„å‰©ä½™ç©ºé—´
  */ 
 int  space(SceneUser* user)
 {
@@ -317,9 +317,9 @@ int  space(SceneUser* user)
 }
 
 /**
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÖ¸¶¨ÓÃ»§¼Ò×å±äÁ¿£¬Èô±äÁ¿²»´æÔÚ£¬ÔòĞÂ½¨
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—æŒ‡å®šç”¨æˆ·å®¶æ—å˜é‡ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
  *
- *\return : µÃµ½µÄÓÃ»§¼Ò×å±äÁ¿
+ *\return : å¾—åˆ°çš„ç”¨æˆ·å®¶æ—å˜é‡
  */
 Vars * get_familyvar(SceneUser* user, int dummy)
 {
@@ -327,9 +327,9 @@ Vars * get_familyvar(SceneUser* user, int dummy)
 }
 
 /**
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÖ¸¶¨ÓÃ»§±äÁ¿£¬Èô±äÁ¿²»´æÔÚ£¬ÔòĞÂ½¨
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—æŒ‡å®šç”¨æˆ·å˜é‡ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
  *
- *\return : µÃµ½µÄÓÃ»§±äÁ¿
+ *\return : å¾—åˆ°çš„ç”¨æˆ·å˜é‡
  */
 Vars * get_uservar(SceneUser* user, int dummy)
 {
@@ -337,9 +337,9 @@ Vars * get_uservar(SceneUser* user, int dummy)
 }
 
 /**
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÖ¸¶¨ÓÃ»§ĞĞ»á±äÁ¿£¬Èô±äÁ¿²»´æÔÚ£¬ÔòĞÂ½¨
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—æŒ‡å®šç”¨æˆ·è¡Œä¼šå˜é‡ï¼Œè‹¥å˜é‡ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
  *
- *\return : µÃµ½µÄÓÃ»§ĞĞ»á±äÁ¿
+ *\return : å¾—åˆ°çš„ç”¨æˆ·è¡Œä¼šå˜é‡
  */
 Vars * get_tongvar(SceneUser* user, int dummy)
 {
@@ -351,14 +351,14 @@ void add_exp(SceneUser* user,DWORD num, bool addPet, DWORD dwTempID, BYTE byType
 	if(user)
 	{
 		user->addExp(num,addPet,dwTempID,byType,addCartoon);
-		Zebra::logger->debug("[µÃµ½»·Ê½ÈÎÎñ¾­Ñé][%s(%u)][%ld]", user->charbase.name, user->id, num);
+		Zebra::logger->debug("[å¾—åˆ°ç¯å¼ä»»åŠ¡ç»éªŒ][%s(%u)][%ld]", user->charbase.name, user->id, num);
 	}
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÏµÍ³µ±Ç°Ê±¼ä
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—ç³»ç»Ÿå½“å‰æ—¶é—´
  *
- * \return ÏµÍ³µ±Ç°Ê±¼ä
+ * \return ç³»ç»Ÿå½“å‰æ—¶é—´
  */ 
 int get_time()
 {
@@ -367,11 +367,11 @@ int get_time()
 }
 
 /**     
- * \brief ½Å±¾½Ó¿Ú£¬È¡µÃÁ½¸öÊ±¼äµÄ²î
+ * \brief è„šæœ¬æ¥å£ï¼Œå–å¾—ä¸¤ä¸ªæ—¶é—´çš„å·®
  *
- * \param t1 : ´ı±È½ÏÊ±¼ä1
- * \param t2 : ´ı±È½ÏÊ±¼ä2
- * \return Á½¸öÊ±¼äµÄ²î
+ * \param t1 : å¾…æ¯”è¾ƒæ—¶é—´1
+ * \param t2 : å¾…æ¯”è¾ƒæ—¶é—´2
+ * \return ä¸¤ä¸ªæ—¶é—´çš„å·®
  */ 
 double diff_time(int t1, int t2)
 {

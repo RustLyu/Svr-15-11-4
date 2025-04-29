@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zIncludeXML.cpp  $
  * \author  
  * \date 2
- * \brief IncludeXMLÊµÏÖ
+ * \brief IncludeXMLå®ç°
  */
 
 #include "zType.h"
@@ -14,11 +14,11 @@ zXMLParser zIncludeXML::parser;
 zXMLParser zIncludeXML::childparser;
 
 /**
- * \brief À©Õ¹XMLÎÄ¼ş 
+ * \brief æ‰©å±•XMLæ–‡ä»¶ 
  *
- * \param xmlFileName ÒªÀ©Õ¹µÄxmlÎÄ¼ş
- * \param xmlStr À©Õ¹ºóµÄXMLÄÚÈİ
- * \return ·µ»ØxmlStr
+ * \param xmlFileName è¦æ‰©å±•çš„xmlæ–‡ä»¶
+ * \param xmlStr æ‰©å±•åçš„XMLå†…å®¹
+ * \return è¿”å›xmlStr
  */
 std::string &zIncludeXML::expand(const std::string &xmlFileName,std::string &xmlStr)
 {
@@ -32,10 +32,10 @@ std::string &zIncludeXML::expand(const std::string &xmlFileName,std::string &xml
 }
 
 /**
- * \brief À©Õ¹XMLÄÚÈİ 
+ * \brief æ‰©å±•XMLå†…å®¹ 
  *
- * \param xmlStr ÒªXMLÄÚÈİ£¬À©Õ¹ºóµÄÄÚÈİÒ²·ÅÔÚ´Ë´¦
- * \return ·µ»ØxmlStr
+ * \param xmlStr è¦XMLå†…å®¹ï¼Œæ‰©å±•åçš„å†…å®¹ä¹Ÿæ”¾åœ¨æ­¤å¤„
+ * \return è¿”å›xmlStr
  */
 std::string &zIncludeXML::expand(std::string &xmlStr)
 {
@@ -55,11 +55,11 @@ std::string &zIncludeXML::expand(std::string &xmlStr)
 }
 
 /**
- * \brief À©Õ¹
+ * \brief æ‰©å±•
  *
- * \param parser ÒªÀ©Õ¹µÄXML½âÎöÆ÷
- * \param parent ÒªÀ©Õ¹µÄ½Úµã
- * \return ³É¹¦·µ»Øtrue ,·ñÔò·µ»Øfalse
+ * \param parser è¦æ‰©å±•çš„XMLè§£æå™¨
+ * \param parent è¦æ‰©å±•çš„èŠ‚ç‚¹
+ * \return æˆåŠŸè¿”å›true ,å¦åˆ™è¿”å›false
  */
 bool zIncludeXML::expand(zXMLParser *parser,xmlNodePtr parent)
 {

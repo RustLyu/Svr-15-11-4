@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillSessionManager.cpp  $
  * \author  
  * \date 
- * \brief ÈİÆ÷£¬ÓÃÓÚ±£´æ½ğ±Ò¶Ò»»ÏûÏ¢
+ * \brief å®¹å™¨ï¼Œç”¨äºä¿å­˜é‡‘å¸å…‘æ¢æ¶ˆæ¯
  *
  * 
  */
@@ -16,12 +16,12 @@
 BillSessionManager *BillSessionManager::instance = NULL;
 
 /**
- * \brief Ìí¼Ó½»Ò×¼ÇÂ¼£¬²¢ÇÒÑéÖ¤ÊÇ·ñ´æÔÚÖØ¸´¼ÇÂ¼
+ * \brief æ·»åŠ äº¤æ˜“è®°å½•ï¼Œå¹¶ä¸”éªŒè¯æ˜¯å¦å­˜åœ¨é‡å¤è®°å½•
  *
- * \param tid µãÊı»»½ğ±Ò½»Ò×Á÷Ë®ºÅ
- * \param cmd µãÊı»»½ğ±ÒÃüÁî
- * \param task ´¦Àí¸Ã½»Ò×µÄTASK
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \param tid ç‚¹æ•°æ¢é‡‘å¸äº¤æ˜“æµæ°´å·
+ * \param cmd ç‚¹æ•°æ¢é‡‘å¸å‘½ä»¤
+ * \param task å¤„ç†è¯¥äº¤æ˜“çš„TASK
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool BillSessionManager::add(BillSession &bs)
 {
@@ -33,7 +33,7 @@ bool BillSessionManager::add(BillSession &bs)
 
 	if (it == sessionMap.end())
 	{
-		//Ã»ÓĞÕÒµ½£¬ĞèÒª²åÈëĞÂµÄ¼ÇÂ¼
+		//æ²¡æœ‰æ‰¾åˆ°ï¼Œéœ€è¦æ’å…¥æ–°çš„è®°å½•
 		sessionMap.insert(BillSessionHashmap_pair(bs.tid, bs));
 		retval = true;
 	}
@@ -43,11 +43,11 @@ bool BillSessionManager::add(BillSession &bs)
 }
 
 /**
- * \brief ½»Ò×´¦ÀíÍê³Éºó£¬´Ó»á»°¹ÜÀíÆ÷ÖĞÉ¾³ı¶ÔÓ¦¼ÇÂ¼
+ * \brief äº¤æ˜“å¤„ç†å®Œæˆåï¼Œä»ä¼šè¯ç®¡ç†å™¨ä¸­åˆ é™¤å¯¹åº”è®°å½•
  *
- * \param tid ½»Ò×ĞòÁĞºÅ
+ * \param tid äº¤æ˜“åºåˆ—å·
  *
- * \return ÒÆ³ıÊÇ·ñ³É¹¦
+ * \return ç§»é™¤æ˜¯å¦æˆåŠŸ
  */
 bool BillSessionManager::remove(const std::string& tid)
 {
@@ -58,7 +58,7 @@ bool BillSessionManager::remove(const std::string& tid)
 	
 	if (it != sessionMap.end())
 	{
-		//ÕÒµ½ÁË
+		//æ‰¾åˆ°äº†
 		retval = true;
 		sessionMap.erase(it);
 	}
@@ -68,11 +68,11 @@ bool BillSessionManager::remove(const std::string& tid)
 }
 
 /**
- * \brief ²éÕÒTID¶ÔÓ¦µÄ½»Ò×¼ÇÂ¼
+ * \brief æŸ¥æ‰¾TIDå¯¹åº”çš„äº¤æ˜“è®°å½•
  *
- * \param tid ½»Ò×ĞòÁĞºÅ
+ * \param tid äº¤æ˜“åºåˆ—å·
  *
- * \return ²éÕÒÊ§°Ü£¬·µ»ØµÄ¶ÔÏóÖĞTID=0,·ñÔò·µ»Ø¶ÔÓ¦µÄ¶ÔÏó
+ * \return æŸ¥æ‰¾å¤±è´¥ï¼Œè¿”å›çš„å¯¹è±¡ä¸­TID=0,å¦åˆ™è¿”å›å¯¹åº”çš„å¯¹è±¡
  */
 
 BillSession BillSessionManager::get(const std::string& tid)
@@ -84,7 +84,7 @@ BillSession BillSessionManager::get(const std::string& tid)
 	
 	if (it != sessionMap.end())
 	{
-		//ÕÒµ½ÁË
+		//æ‰¾åˆ°äº†
 		ret = it->second;
 		sessionMap.erase(it);
 	}

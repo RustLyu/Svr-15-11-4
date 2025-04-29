@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: Quest.h $
  * \author	
  * \date		
- * \brief		ÈÎÎñÏµÍ³
+ * \brief		ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
  
@@ -21,9 +21,9 @@
 class SceneUser;
 
 /**
- * \brief ÈÎÎñ
+ * \brief ä»»åŠ¡
  *
- * ¸ÃÀà·â×°ÁË¶ÔÈÎÎñµÄ³éÏó
+ * è¯¥ç±»å°è£…äº†å¯¹ä»»åŠ¡çš„æŠ½è±¡
  *
  */
 class Quest
@@ -47,9 +47,9 @@ public:
 	static int abandon(SceneUser& user, DWORD id);
 
 	/**     
-	 * \brief  ·µ»ØÈÎÎñÃû³Æ
+	 * \brief  è¿”å›ä»»åŠ¡åç§°
 	 *
-	 * \return ÈÎÎñÃû³Æ
+	 * \return ä»»åŠ¡åç§°
 	 */	
 	const std::string& title() const
 	{
@@ -57,9 +57,9 @@ public:
 	}
 	
 	/**     
-	 * \brief  ·µ»ØÈÎÎñÃèÊö
+	 * \brief  è¿”å›ä»»åŠ¡æè¿°
 	 *
-	 * \return ÈÎÎñÃèÊö
+	 * \return ä»»åŠ¡æè¿°
 	 */	
 	const std::string& description() const	
 	{
@@ -80,9 +80,9 @@ private:
 #include <sstream>
 
 /**
- * \brief ÈÎÎñ±äÁ¿
+ * \brief ä»»åŠ¡å˜é‡
  *
- * ¸ÃÀà·â×°ÁË¶ÔÈÎÎñ±äÁ¿µÄ³éÏó
+ * è¯¥ç±»å°è£…äº†å¯¹ä»»åŠ¡å˜é‡çš„æŠ½è±¡
  *
  */
 class Vars
@@ -91,17 +91,17 @@ public:
 	typedef 	void (*callback_func) ();
 
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
-	 * \param quest_id: ÈÎÎñid
+	 * \param quest_id: ä»»åŠ¡id
 	 */    	
 	Vars(DWORD quest_id = 0) : _quest_id(quest_id), _timeout(0), _start_time(0), _update(0)
 	{ }
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	~Vars()
@@ -125,15 +125,15 @@ public:
 		return false;
 	}
 	/**     
-	 * \brief  ÉèÖÃ±äÁ¿
+	 * \brief  è®¾ç½®å˜é‡
 	 *
-	 * ¸ù¾İOperationÀàĞÍÉèÖÃ±äÁ¿Öµ
+	 * æ ¹æ®Operationç±»å‹è®¾ç½®å˜é‡å€¼
 	 *      
-	 * \param op: ²Ù×÷ÀàĞÍ
-	 * \param name: ±äÁ¿Ãû³Æ
-	 * \param action: Òª¸Ä±äµÄ±äÁ¿Öµ
-	 * \param tmp: ±äÁ¿ÊÇ·ñĞèÒª´æ´¢
-	 * \return µ±Ç°×ÜÊÇ·µ»Ø0
+	 * \param op: æ“ä½œç±»å‹
+	 * \param name: å˜é‡åç§°
+	 * \param action: è¦æ”¹å˜çš„å˜é‡å€¼
+	 * \param tmp: å˜é‡æ˜¯å¦éœ€è¦å­˜å‚¨
+	 * \return å½“å‰æ€»æ˜¯è¿”å›0
 	 */	
 	template <typename Operation>
 	int set_value(Operation op, const std::string& name, typename Operation::value_type const & action, int tmp=0, SceneUser *user=NULL)
@@ -168,14 +168,14 @@ public:
 	}
 
 	/**     
-	 * \brief  ÅĞ¶Ï±äÁ¿ÊÇ·ñÓĞĞ§
+	 * \brief  åˆ¤æ–­å˜é‡æ˜¯å¦æœ‰æ•ˆ
 	 *
-	 * ¸ù¾İOperationÀàĞÍÅĞ¶Ï±äÁ¿ÖµÊÇ·ñÂú×ãÌõ¼şÒªÇó
+	 * æ ¹æ®Operationç±»å‹åˆ¤æ–­å˜é‡å€¼æ˜¯å¦æ»¡è¶³æ¡ä»¶è¦æ±‚
 	 *      
-	 * \param op: ²Ù×÷ÀàĞÍ
-	 * \param name: ±äÁ¿Ãû³Æ
-	 * \param condition: ²âÊÔÖµ
-	 * \return ÓĞĞ§·µ»Øtrue,·ñÔò·µ»Øfalse
+	 * \param op: æ“ä½œç±»å‹
+	 * \param name: å˜é‡åç§°
+	 * \param condition: æµ‹è¯•å€¼
+	 * \return æœ‰æ•ˆè¿”å›true,å¦åˆ™è¿”å›false
 	 */		
 	template <typename Operation>
 	bool is_valid(Operation op, const std::string& name, typename Operation::value_type const & condition) const
@@ -195,9 +195,9 @@ public:
 	}
 	
 	/**     
-	 * \brief  ·µ»ØÈÎÎñid
+	 * \brief  è¿”å›ä»»åŠ¡id
 	 *
-	 * \return ÈÎÎñid
+	 * \return ä»»åŠ¡id
 	 */	
 	DWORD quest_id() const
 	{
@@ -282,9 +282,9 @@ private:
 #include "Zebra.h"
 
 /**
- * \brief È«¾Ö±äÁ¿
+ * \brief å…¨å±€å˜é‡
  *
- * ¸ÃÀà·â×°ÁË¶ÔÈ«¾ÖÈÎÎñ±äÁ¿µÄ³éÏó
+ * è¯¥ç±»å°è£…äº†å¯¹å…¨å±€ä»»åŠ¡å˜é‡çš„æŠ½è±¡
  *
  */
 
@@ -366,7 +366,7 @@ public:
 			len += it->second->save((unsigned char*)buf+len);
 			if (len >= (MAX_BUF_SIZE*30 - 1024))
 			{
-				Zebra::logger->fatal("´æ´¢È«¾Ö±äÁ¿Ê±£¬»º³åÇø¹ı¶ÌÔ½½ç£¨%u, %u£©", MAX_BUF_SIZE, len);
+				Zebra::logger->fatal("å­˜å‚¨å…¨å±€å˜é‡æ—¶ï¼Œç¼“å†²åŒºè¿‡çŸ­è¶Šç•Œï¼ˆ%u, %uï¼‰", MAX_BUF_SIZE, len);
 				of.write(buf, len);
 				bzero(buf, sizeof(buf));
 				len = 0;
@@ -386,7 +386,7 @@ public:
 		bool ret = false;
 		std::ifstream inf(_file.c_str(), std::ios::binary);
 
-		//»ñµÃÎÄ¼ş´óĞ¡
+		//è·å¾—æ–‡ä»¶å¤§å°
 		inf.seekg(0, std::ios::end);
 		int length = inf.tellg();
 		inf.seekg(0, std::ios::beg);
@@ -413,7 +413,7 @@ public:
 				ret = true;
 			}
 			else
-				Zebra::logger->fatal("¼ÓÔØÈÎÎñ±äÁ¿ÎÄ¼ş·ÖÅäÄÚ´æÊ§°Ü£º%u", length);
+				Zebra::logger->fatal("åŠ è½½ä»»åŠ¡å˜é‡æ–‡ä»¶åˆ†é…å†…å­˜å¤±è´¥ï¼š%u", length);
 		}
 
 		inf.close();
@@ -439,7 +439,7 @@ public:
 	{
 		std::ostringstream os;
 		for (const_vars_iterator it=_vars.begin(); it!=_vars.end(); ++it) {
-			os << "±äÁ¿(" << it->first << ")" << "\n";
+			os << "å˜é‡(" << it->first << ")" << "\n";
 			os << it->second->info() << "\n";
 		}
 		return os.str();
@@ -476,9 +476,9 @@ private:
 	}
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
 	 */ 
 	GlobalVarImpl()
@@ -496,7 +496,7 @@ private:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	~GlobalVarImpl()
@@ -548,9 +548,9 @@ NOTE: This macro used initial the filename, according by server id,
 
 
 /**
- * \brief ÓÃ»§±äÁ¿
+ * \brief ç”¨æˆ·å˜é‡
  *
- * ¸ÃÀà·â×°ÁË¶ÔÓÃ»§ÈÎÎñ±äÁ¿µÄ³éÏó
+ * è¯¥ç±»å°è£…äº†å¯¹ç”¨æˆ·ä»»åŠ¡å˜é‡çš„æŠ½è±¡
  *
  */
 class UserVar
@@ -599,7 +599,7 @@ public:
 	{
 		std::ostringstream os;
 		for (const_vars_iterator it=_vars.begin(); it!=_vars.end(); ++it) {
-			os << "±äÁ¿(" << it->first << ")" << "\n";
+			os << "å˜é‡(" << it->first << ")" << "\n";
 			//os << it->second->info() << "\n";
 		}
 		return os.str();
@@ -616,9 +616,9 @@ public:
 	}
 private:	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
 	 */ 
 	UserVar()
@@ -632,7 +632,7 @@ private:
 	}
 	
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	~UserVar()
@@ -662,22 +662,22 @@ private:
 		}
 		
 		/**     
-		 * \brief ´æ´¢±äÁ¿
+		 * \brief å­˜å‚¨å˜é‡
 		 *
-		 *´æ´¢ÈÎÎñ±äÁ¿
+		 *å­˜å‚¨ä»»åŠ¡å˜é‡
 		 *      
-		 * \param dest: ÈÎÎñµµ°¸
-		 * \return ´æ´¢µÄ¶ş½øÖÆµµ°¸³¤¶È
+		 * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+		 * \return å­˜å‚¨çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
 		 */
 		int save(unsigned char* dest) const;
 
 		/**     
-		 * \brief ¶ÁÈ¡±äÁ¿
+		 * \brief è¯»å–å˜é‡
 		 *
-		 *¶ÁÈ¡ÈÎÎñ±äÁ¿
+		 *è¯»å–ä»»åŠ¡å˜é‡
 		 *      
-		 * \param dest: ÈÎÎñµµ°¸
-		 * \return ¶ÁÈ¡µÄ¶ş½øÖÆµµ°¸³¤¶È
+		 * \param dest: ä»»åŠ¡æ¡£æ¡ˆ
+		 * \return è¯»å–çš„äºŒè¿›åˆ¶æ¡£æ¡ˆé•¿åº¦
 		 */
 		int load(unsigned char* dest);
 	private:
@@ -697,9 +697,9 @@ private:
 };
 
 /**
- * \brief ÈÎÎñÁĞ±í
+ * \brief ä»»åŠ¡åˆ—è¡¨
  *
- * ¸ÃÀà·â×°ÁË¶ÔÓÃ»§ÉíÉÏµÄÈÎÎñÁĞ±íµÄ²Ù×÷
+ * è¯¥ç±»å°è£…äº†å¯¹ç”¨æˆ·èº«ä¸Šçš„ä»»åŠ¡åˆ—è¡¨çš„æ“ä½œ
  *
  */
 class QuestList
@@ -710,16 +710,16 @@ public:
 	};
 	
 	/**     
-	 * \brief  ¹¹Ôìº¯Êı
+	 * \brief  æ„é€ å‡½æ•°
 	 *
-	 * ³õÊ¼»¯Ïà¹Ø±äÁ¿
+	 * åˆå§‹åŒ–ç›¸å…³å˜é‡
 	 *      
 	 */ 
 	QuestList() : _menu("")
 	{ }
 
 	/**     
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 *
 	 */    
 	~QuestList()
@@ -745,7 +745,7 @@ public:
 	
 	int abandon(SceneUser& user, DWORD id, bool force = false, bool destroy = true);
 
-	// Çå³ıËùÓĞÈÎÎñ
+	// æ¸…é™¤æ‰€æœ‰ä»»åŠ¡
 	void clear(SceneUser* pUser);
 
 	int update(SceneUser& user, bool refresh);

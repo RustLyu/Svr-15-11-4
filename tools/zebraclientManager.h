@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zebraclientManager.h  $
  * \author   
  * \date 
- * \brief »úÆ÷ÈË¹ÜÀíÆ÷
+ * \brief æœºå™¨äººç®¡ç†å™¨
  *
  * 
  */
@@ -53,6 +53,6 @@ class ZebraClientManager
 		typedef ClientContainer::iterator ClientContainerIter;
 		ClientContainer client; 
 		zRWLock rwlock;
-		zTCPClientTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPClientTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 };
 #endif

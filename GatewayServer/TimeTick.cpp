@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.cpp $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  *
  * 
  */
@@ -32,7 +32,7 @@ struct GatewayTaskCheckTime : public GatewayTaskManager::GatewayTaskCallback
 };
 
 /**
- * \brief Ïß³ÌÖ÷º¯Êı
+ * \brief çº¿ç¨‹ä¸»å‡½æ•°
  *
  */
 void GatewayTimeTick::run()
@@ -41,7 +41,7 @@ void GatewayTimeTick::run()
 	{
 		zThread::sleep(1);
 
-		//»ñÈ¡µ±Ç°Ê±¼ä
+		//è·å–å½“å‰æ—¶é—´
 		currentTime.now();
 
 		if (one_second(currentTime) ) {

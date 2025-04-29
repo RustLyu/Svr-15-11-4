@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneDefine.h  $
  * \author  
  * \date
- * \brief ¶¨ÒåÒ»Ğ©Êı¾İ½á¹¹
+ * \brief å®šä¹‰ä¸€äº›æ•°æ®ç»“æ„
  *
  * 
  */
@@ -21,25 +21,25 @@
 typedef std::vector<zPos> zPosIndex;
 
 /**
- * \brief ÇøÓòµÄ¶¨Òå
- * °üÀ¨¿ªÍ·¡¢ÖĞĞÄ¡¢½áÊøµãµÄ×ø±êºÍÇøÓòÄÚ·Ç×èµ²µãË÷Òı
+ * \brief åŒºåŸŸçš„å®šä¹‰
+ * åŒ…æ‹¬å¼€å¤´ã€ä¸­å¿ƒã€ç»“æŸç‚¹çš„åæ ‡å’ŒåŒºåŸŸå†…éé˜»æŒ¡ç‚¹ç´¢å¼•
  *
  */
 struct zRegion
 {
-	zPos s;				/// ×óÉÏµã
-	zPos c;				/// ÖĞĞÄµã
-	zPos e;				/// ÓÒÏÂµã
-	zPosIndex index;	/// ·Ç×èµ²µãË÷Òı
+	zPos s;				/// å·¦ä¸Šç‚¹
+	zPos c;				/// ä¸­å¿ƒç‚¹
+	zPos e;				/// å³ä¸‹ç‚¹
+	zPosIndex index;	/// éé˜»æŒ¡ç‚¹ç´¢å¼•
 	/**
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 */
 	zRegion()
 	{
 	}
 	/**
-	 * \brief ¿½±´¹¹Ôìº¯Êı
+	 * \brief æ‹·è´æ„é€ å‡½æ•°
 	 *
 	 */
 	zRegion(const zRegion &reg)
@@ -50,7 +50,7 @@ struct zRegion
 		index = reg.index;
 	}
 	/**
-	 * \brief ¸³Öµ²Ù×÷·ûºÅ
+	 * \brief èµ‹å€¼æ“ä½œç¬¦å·
 	 *
 	 */
 	zRegion & operator= (const zRegion &reg)
@@ -63,7 +63,7 @@ struct zRegion
 	}
 
 	/**
-	 * \brief ÅĞ¶Ï×ø±êÊÇ·ñÔÚÇøÓò·¶Î§Ö®ÄÚ
+	 * \brief åˆ¤æ–­åæ ‡æ˜¯å¦åœ¨åŒºåŸŸèŒƒå›´ä¹‹å†…
 	 *
 	 */
 	const bool isIn(const zPos &pos) const
@@ -73,45 +73,45 @@ struct zRegion
 
 };
 
-//ÅäÖÃÎÄ¼şÖĞ¹ØÓÚÇøÓòÀàĞÍ¶¨Òå
+//é…ç½®æ–‡ä»¶ä¸­å…³äºåŒºåŸŸç±»å‹å®šä¹‰
 /**
- * \brief ÇøÓòÀàĞÍµÄ¶¨Òå
- * °üÀ¨ÀàĞÍ¡¢´óĞ¡µÈ
+ * \brief åŒºåŸŸç±»å‹çš„å®šä¹‰
+ * åŒ…æ‹¬ç±»å‹ã€å¤§å°ç­‰
  *
  */
 struct ZoneTypeDef
 {
 	enum
 	{
-		ZONE_NONE				=	0,	//Ò»°ãÇø
-		ZONE_PK_SAFE			=	1,		// pk°²È«Çø
-		ZONE_ABSOLUTE_SAFE		=	2,		// ¾ø¶Ô°²È«Çø
-		ZONE_RELIVE				=	4,		// ËÀÍöÖØÉúÇø
-		ZONE_NEWBIE				=	8,		// ĞÂÊÖ³öÉúÇø
-		ZONE_SPORTS				=	16,		// ¾º¼¼Çø
-		ZONE_FOREIGN_RELIVE		=	32,		// ¹úÍâËÀÍöÖØÉúÇø
-		ZONE_PRIVATE_STORE 		= 	128,       // °ÚÌ¯Çø
-		ZONE_PRIVATE_DARE 		= 	256,       // ¹úÕ½Ìø×ªÇø
-		ZONE_PRIVATE_RELIVE		=	512,	   // ¹úÕ½¸´»îÇø
-		ZONE_PRIVATE_UNION		= 	1024,      // °ï»áËùÊôµØÌø×ªÇø
-		ZONE_COUNTRY_WAR		= 	2048,	   // ±ß¾³µÄ¹úÕ½Ìø×ªÇø
-		ZONE_PRIVATE_DARE_UNION		=	4096,	   // °ï»áÕ½ÌôÕ½·½Ìø×ªÇø
-		ZONE_DARE_SAFE			= 	8192,	   // ¹úÕ½Ê±Îª¾ø¶Ô°²È«Çø£¬Æ½Ê±Îª·Ç°²È«Çø
-		ZONE_PRIVATE_THIRD_UNION        =       16384,     // °ï»áËùÊôµØµÚÈı·½Ìø×ªÇø
-		ZONE_EMPEROR_DEF_RELIVE		= 	32768,	   // »Ê³ÇÕ½ÊØ·½¸´»îÇø
-		ZONE_EMPEROR_ATT_RELIVE		=	65536,	   // »Ê³ÇÕ½¹¥·½¸´»îÇø	
+		ZONE_NONE				=	0,	//ä¸€èˆ¬åŒº
+		ZONE_PK_SAFE			=	1,		// pkå®‰å…¨åŒº
+		ZONE_ABSOLUTE_SAFE		=	2,		// ç»å¯¹å®‰å…¨åŒº
+		ZONE_RELIVE				=	4,		// æ­»äº¡é‡ç”ŸåŒº
+		ZONE_NEWBIE				=	8,		// æ–°æ‰‹å‡ºç”ŸåŒº
+		ZONE_SPORTS				=	16,		// ç«æŠ€åŒº
+		ZONE_FOREIGN_RELIVE		=	32,		// å›½å¤–æ­»äº¡é‡ç”ŸåŒº
+		ZONE_PRIVATE_STORE 		= 	128,       // æ‘†æ‘ŠåŒº
+		ZONE_PRIVATE_DARE 		= 	256,       // å›½æˆ˜è·³è½¬åŒº
+		ZONE_PRIVATE_RELIVE		=	512,	   // å›½æˆ˜å¤æ´»åŒº
+		ZONE_PRIVATE_UNION		= 	1024,      // å¸®ä¼šæ‰€å±åœ°è·³è½¬åŒº
+		ZONE_COUNTRY_WAR		= 	2048,	   // è¾¹å¢ƒçš„å›½æˆ˜è·³è½¬åŒº
+		ZONE_PRIVATE_DARE_UNION		=	4096,	   // å¸®ä¼šæˆ˜æŒ‘æˆ˜æ–¹è·³è½¬åŒº
+		ZONE_DARE_SAFE			= 	8192,	   // å›½æˆ˜æ—¶ä¸ºç»å¯¹å®‰å…¨åŒºï¼Œå¹³æ—¶ä¸ºéå®‰å…¨åŒº
+		ZONE_PRIVATE_THIRD_UNION        =       16384,     // å¸®ä¼šæ‰€å±åœ°ç¬¬ä¸‰æ–¹è·³è½¬åŒº
+		ZONE_EMPEROR_DEF_RELIVE		= 	32768,	   // çš‡åŸæˆ˜å®ˆæ–¹å¤æ´»åŒº
+		ZONE_EMPEROR_ATT_RELIVE		=	65536,	   // çš‡åŸæˆ˜æ”»æ–¹å¤æ´»åŒº	
 	};
 
-	zPos  pos;								//×ø±ê
-	WORD  width;							//¾ØĞÎ¿í
-	WORD  height;							//¾ØĞÎ³¤
-	DWORD type;								//¾ØĞÎÇøÓòµÄÀàĞÍ
-	zSceneEntry::SceneEntryState initstate;	//³õÊ¼×´Ì¬,Òş²Ø»òÕß·ÇÒş²Ø
-	zSceneEntry::SceneEntryState state;		//µ±Ç°×´Ì¬,Òş²Ø»òÕß·ÇÒş²Ø
-	zRegion region;							//·¶Î§Êı¾İ£¬°üÀ¨·¶Î§ÄÚµÄ¿ÉĞĞ×ßµãÊı¾İË÷Òı
+	zPos  pos;								//åæ ‡
+	WORD  width;							//çŸ©å½¢å®½
+	WORD  height;							//çŸ©å½¢é•¿
+	DWORD type;								//çŸ©å½¢åŒºåŸŸçš„ç±»å‹
+	zSceneEntry::SceneEntryState initstate;	//åˆå§‹çŠ¶æ€,éšè—æˆ–è€…ééšè—
+	zSceneEntry::SceneEntryState state;		//å½“å‰çŠ¶æ€,éšè—æˆ–è€…ééšè—
+	zRegion region;							//èŒƒå›´æ•°æ®ï¼ŒåŒ…æ‹¬èŒƒå›´å†…çš„å¯è¡Œèµ°ç‚¹æ•°æ®ç´¢å¼•
 
 	/**
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 */
 	ZoneTypeDef() : pos(), region()
@@ -123,7 +123,7 @@ struct ZoneTypeDef
 		state = zSceneEntry::SceneEntry_Normal;
 	}
 	/**
-	 * \brief ¿½±´¹¹Ôìº¯Êı
+	 * \brief æ‹·è´æ„é€ å‡½æ•°
 	 *
 	 */
 	ZoneTypeDef(const ZoneTypeDef &zone)
@@ -137,7 +137,7 @@ struct ZoneTypeDef
 		region = zone.region;
 	}
 	/**
-	 * \brief ¸³Öµ²Ù×÷·ûºÅ
+	 * \brief èµ‹å€¼æ“ä½œç¬¦å·
 	 *
 	 */
 	ZoneTypeDef & operator= (const ZoneTypeDef &zone)
@@ -155,33 +155,33 @@ struct ZoneTypeDef
 
 typedef std::vector<ZoneTypeDef> ZoneTypeDefVector;
 
-//ÅäÖÃÎÄ¼şÖĞ¹ØÓÚNPCµÄ¶¨Òå
+//é…ç½®æ–‡ä»¶ä¸­å…³äºNPCçš„å®šä¹‰
 /**
- * \brief npc¶¨Òå½á¹¹
- * °üÀ¨±àºÅ£¬³öÉúÎ»ÖÃ¡¢·¶Î§¡¢¼ä¸ôµÈĞÅÏ¢ 
+ * \brief npcå®šä¹‰ç»“æ„
+ * åŒ…æ‹¬ç¼–å·ï¼Œå‡ºç”Ÿä½ç½®ã€èŒƒå›´ã€é—´éš”ç­‰ä¿¡æ¯ 
  *
  */
 struct t_NpcDefine
 {
-	DWORD id;								//±àºÅ
-	char  name[MAX_NAMESIZE+1];				//Ãû³Æ
-	zPos  pos;								//×ø±ê
-	WORD  width;							//¾ØĞÎ¿í
-	WORD  height;							//¾ØĞÎ³¤
-	DWORD num;								//ÊıÁ¿
-	DWORD interval;							//Ë¢ĞÂÊ±¼ä
-	zSceneEntry::SceneEntryState initstate;	//³õÊ¼×´Ì¬,Òş²Ø»òÕß·ÇÒş²Ø
-	zRegion region;							//·¶Î§Êı¾İ£¬°üÀ¨·¶Î§ÄÚµÄ¿ÉĞĞ×ßµãÊı¾İË÷Òı
-	//std::vector<zPos> path;//¹Ì¶¨ÒÆ¶¯µÄÂ·Ïß
+	DWORD id;								//ç¼–å·
+	char  name[MAX_NAMESIZE+1];				//åç§°
+	zPos  pos;								//åæ ‡
+	WORD  width;							//çŸ©å½¢å®½
+	WORD  height;							//çŸ©å½¢é•¿
+	DWORD num;								//æ•°é‡
+	DWORD interval;							//åˆ·æ–°æ—¶é—´
+	zSceneEntry::SceneEntryState initstate;	//åˆå§‹çŠ¶æ€,éšè—æˆ–è€…ééšè—
+	zRegion region;							//èŒƒå›´æ•°æ®ï¼ŒåŒ…æ‹¬èŒƒå›´å†…çš„å¯è¡Œèµ°ç‚¹æ•°æ®ç´¢å¼•
+	//std::vector<zPos> path;//å›ºå®šç§»åŠ¨çš„è·¯çº¿
 	
-	DWORD rushID;//´¥·¢¹¥³ÇID
-	BYTE rushRate;//´¥·¢¹¥³ÇµÄ¼¸ÂÊ
-	DWORD rushDelay;//´¥·¢¹¥³ÇµÄÑÓÊ±
+	DWORD rushID;//è§¦å‘æ”»åŸID
+	BYTE rushRate;//è§¦å‘æ”»åŸçš„å‡ ç‡
+	DWORD rushDelay;//è§¦å‘æ”»åŸçš„å»¶æ—¶
 
-	int scriptID;//ÖÇÄÜ½Å±¾µÄid
+	int scriptID;//æ™ºèƒ½è„šæœ¬çš„id
 	/*
-	DWORD summonID;///ÕÙ»½µÄnpcµÄID
-	DWORD summonNum;///ÕÙ»½npcµÄÊıÁ¿
+	DWORD summonID;///å¬å”¤çš„npcçš„ID
+	DWORD summonNum;///å¬å”¤npcçš„æ•°é‡
 	DWORD petList[10];
 	DWORD deathSummonList[10][2];
 	*/
@@ -190,7 +190,7 @@ struct t_NpcDefine
 	std::map<DWORD, std::pair<DWORD, DWORD> > deathSummonList;
 	std::list< std::pair<DWORD,zPos> > dieList;
 	/**
-	 * \brief ¹¹Ôìº¯Êı
+	 * \brief æ„é€ å‡½æ•°
 	 *
 	 */
 	t_NpcDefine() : pos(), region()
@@ -212,7 +212,7 @@ struct t_NpcDefine
 		//bzero(deathSummonList, sizeof(deathSummonList));
 	}
 	/**
-	 * \brief ¿½±´¹¹Ôìº¯Êı
+	 * \brief æ‹·è´æ„é€ å‡½æ•°
 	 *
 	 */
 	t_NpcDefine(const t_NpcDefine &reg)
@@ -242,7 +242,7 @@ struct t_NpcDefine
 		//bcopy(reg.deathSummonList, deathSummonList, sizeof(deathSummonList));
 	}
 	/**
-	 * \brief ¸³Öµ²Ù×÷·ûºÅ
+	 * \brief èµ‹å€¼æ“ä½œç¬¦å·
 	 *
 	 */
 	t_NpcDefine & operator= (const t_NpcDefine &reg)

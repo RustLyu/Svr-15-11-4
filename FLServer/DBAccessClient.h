@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: DBAccessClient.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½·şÎñÆ÷¿Í»§¶Ë
+ * \brief å®šä¹‰ç™»é™†æœåŠ¡å™¨å®¢æˆ·ç«¯
  *
  * 
  */

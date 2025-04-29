@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: Sept.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå¼Ò×åµÄ»ù±¾½á¹¹
+ * \brief å®šä¹‰å®¶æ—çš„åŸºæœ¬ç»“æž„
  *
  */
 
@@ -18,41 +18,41 @@
 namespace SeptDef
 {
 
-//#define DWORD CREATE_SEPT_NEED_ITEM_ID    = 0	// ½¨Á¢¼Ò×åËùÐèÒªµÄµÀ¾ßID Îª0±íÊ¾²»ÐèÒª
-const DWORD CREATE_SEPT_NEED_PRICE_GOLD = 2000;	// ½¨Á¢¼Ò×åÐèÒª½ðÇ®20Á½
-const DWORD CREATE_SEPT_NEED_LEVEL     = 35;	// ½¨Á¢¼Ò×åÐèÒªµÄÈËÎïµÈ¼¶
-const DWORD JOIN_SEPT_NEED_LEVEL		= 20;	// ¼ÓÈë¼Ò×åÐèÒªµÄÈËÎïµÈ¼¶
-const DWORD PER_LEVEL_MAN_NUM		= 1;		// Ã¿¼¶±ðÔö¼ÓÈËÊý
-const DWORD DESTROYTIME					= 30*24*60*60; //Í¶Æ±ÓÐÐ§ÆÚ Ò»¸öÔÂµÄÃëÊý
-const DWORD CREATE_SEPT_NEED_MAN_NUM = 15;		// ½¨Á¢¼Ò×å
+//#define DWORD CREATE_SEPT_NEED_ITEM_ID    = 0	// å»ºç«‹å®¶æ—æ‰€éœ€è¦çš„é“å…·ID ä¸º0è¡¨ç¤ºä¸éœ€è¦
+const DWORD CREATE_SEPT_NEED_PRICE_GOLD = 2000;	// å»ºç«‹å®¶æ—éœ€è¦é‡‘é’±20ä¸¤
+const DWORD CREATE_SEPT_NEED_LEVEL     = 35;	// å»ºç«‹å®¶æ—éœ€è¦çš„äººç‰©ç­‰çº§
+const DWORD JOIN_SEPT_NEED_LEVEL		= 20;	// åŠ å…¥å®¶æ—éœ€è¦çš„äººç‰©ç­‰çº§
+const DWORD PER_LEVEL_MAN_NUM		= 1;		// æ¯çº§åˆ«å¢žåŠ äººæ•°
+const DWORD DESTROYTIME					= 30*24*60*60; //æŠ•ç¥¨æœ‰æ•ˆæœŸ ä¸€ä¸ªæœˆçš„ç§’æ•°
+const DWORD CREATE_SEPT_NEED_MAN_NUM = 15;		// å»ºç«‹å®¶æ—
 		
-struct stSeptInfo											// Êý¾Ý¿â¶ÁÈ¡½á¹¹£¬Çë²»ÒªËæÒâÐÞ¸Ä£¬ÐÞ¸Ä×¢Òâ¸üÐÂËùÓÐ´úÂë
+struct stSeptInfo											// æ•°æ®åº“è¯»å–ç»“æž„ï¼Œè¯·ä¸è¦éšæ„ä¿®æ”¹ï¼Œä¿®æ”¹æ³¨æ„æ›´æ–°æ‰€æœ‰ä»£ç 
 {
-	DWORD		dwSeptID;									  // ¼Ò×åµÄID
-	char		name[MAX_NAMESIZE+1];   		// ¼Ò×åÃû³Æ
-	DWORD		dwCharID;             			// »á³¤µÄ½ÇÉ«ID
-	char		masterName[MAX_NAMESIZE+1];		// »á³¤µÄÃû×Ö
-	BYTE		byVote;					// Í¶Æ±±êÖ¾Îª1±íÊ¾´¦ÓÚÍ¶Æ±ÆÚ¼ä
-	DWORD		dwCrTime;				// ¼Ò×å´´Á¢Ê±¼ä
-	DWORD 		dwRepute;				// ÉùÍû
-	DWORD 		dwCountryID;				// ¼Ò×åËùÊô¹ú¼Ò£¨ÒÔ×å³¤¹ú¼®Îª¸ù¾Ý£©
-	DWORD 		dwUnionID;				// ¼Ò×åËùÊô°ï»á
-	DWORD 		dwLevel;				// ¼Ò×åµÈ¼¶
-	DWORD 		dwSpendGold;				// ¼Ò×åÏû·Ñ½ð±Ò
-	DWORD 		dwIsExp;				// ÊÇ·ñÁìÈ¡¼Ò×å¾­Ñé
-	char		note[254+1];				// ¼Ò×å½éÉÜ
-	DWORD		calltimes;				// ÁîÅÆÊ¹ÓÃ´ÎÊý
-	DWORD		calldaytime;				// ÁîÅÆÊ¹ÓÃÌìÊý
-	DWORD		normalexptime;				// ÁîÅÆÊ¹ÓÃÌìÊý
+	DWORD		dwSeptID;									  // å®¶æ—çš„ID
+	char		name[MAX_NAMESIZE+1];   		// å®¶æ—åç§°
+	DWORD		dwCharID;             			// ä¼šé•¿çš„è§’è‰²ID
+	char		masterName[MAX_NAMESIZE+1];		// ä¼šé•¿çš„åå­—
+	BYTE		byVote;					// æŠ•ç¥¨æ ‡å¿—ä¸º1è¡¨ç¤ºå¤„äºŽæŠ•ç¥¨æœŸé—´
+	DWORD		dwCrTime;				// å®¶æ—åˆ›ç«‹æ—¶é—´
+	DWORD 		dwRepute;				// å£°æœ›
+	DWORD 		dwCountryID;				// å®¶æ—æ‰€å±žå›½å®¶ï¼ˆä»¥æ—é•¿å›½ç±ä¸ºæ ¹æ®ï¼‰
+	DWORD 		dwUnionID;				// å®¶æ—æ‰€å±žå¸®ä¼š
+	DWORD 		dwLevel;				// å®¶æ—ç­‰çº§
+	DWORD 		dwSpendGold;				// å®¶æ—æ¶ˆè´¹é‡‘å¸
+	DWORD 		dwIsExp;				// æ˜¯å¦é¢†å–å®¶æ—ç»éªŒ
+	char		note[254+1];				// å®¶æ—ä»‹ç»
+	DWORD		calltimes;				// ä»¤ç‰Œä½¿ç”¨æ¬¡æ•°
+	DWORD		calldaytime;				// ä»¤ç‰Œä½¿ç”¨å¤©æ•°
+	DWORD		normalexptime;				// ä»¤ç‰Œä½¿ç”¨å¤©æ•°
 }__attribute__ ((packed));
 
 
-struct stSeptMemberInfo                			// Êý¾Ý¿â¶ÁÈ¡½á¹¹£¬Çë²»ÒªËæÒâÐÞ¸Ä£¬ÐÞ¸Ä×¢Òâ¸üÐÂËùÓÐ´úÂë
+struct stSeptMemberInfo                			// æ•°æ®åº“è¯»å–ç»“æž„ï¼Œè¯·ä¸è¦éšæ„ä¿®æ”¹ï¼Œä¿®æ”¹æ³¨æ„æ›´æ–°æ‰€æœ‰ä»£ç 
 {
-	DWORD	dwCharID;				// »áÔ±½ÇÉ«ID
-	char	name[MAX_NAMESIZE+1];			// »áÔ±½ÇÉ«Ãû³Æ		
-	char    aliasname[MAX_NAMESIZE+1];		// ±ðÃû
-	WORD    wdOccupation;				// »áÔ±µÄÖ°Òµ
+	DWORD	dwCharID;				// ä¼šå‘˜è§’è‰²ID
+	char	name[MAX_NAMESIZE+1];			// ä¼šå‘˜è§’è‰²åç§°		
+	char    aliasname[MAX_NAMESIZE+1];		// åˆ«å
+	WORD    wdOccupation;				// ä¼šå‘˜çš„èŒä¸š
 }__attribute__ ((packed));
 
 }

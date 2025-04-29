@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: UserCommand.h  $
  * \author  
  * \date 2
- * \brief ÓÃ»§ĞÅÏ¢·şÎñÀàÃüÁî
+ * \brief ç”¨æˆ·ä¿¡æ¯æœåŠ¡ç±»å‘½ä»¤
  *
  * 
  */
@@ -20,31 +20,31 @@ namespace Cmd
 {
 	namespace UserServer
 	{
-		const int SEQ_MAX_LENGTH = 32;		//½»Ò×ĞòÁĞºÅ³¤¶È
-		const int ID_MAX_LENGTH = 64;		//ÕÊºÅ³¤¶È
-		const int REMARK_LENGTH = 200;		//±¸×¢³¤¶È
+		const int SEQ_MAX_LENGTH = 32;		//äº¤æ˜“åºåˆ—å·é•¿åº¦
+		const int ID_MAX_LENGTH = 64;		//å¸å·é•¿åº¦
+		const int REMARK_LENGTH = 200;		//å¤‡æ³¨é•¿åº¦
 		const int CARDID_LENGTH = 32;
-		const int PCARD_NO_LENGTH = 20;		//µÀ¾ß¿¨ºÅ³¤¶È
+		const int PCARD_NO_LENGTH = 20;		//é“å…·å¡å·é•¿åº¦
 
-		const BYTE CMD_USER_LOGON = 1; 		//µÇÂ½·şÎñÆ÷ÃüÁî
-		const BYTE CMD_USER_CONSUME = 2; 	//Íæ¼Ò¿Û·ÑÃüÁî
-		const BYTE CMD_USER_FILLIN = 3; 	//Íæ¼Ò³äÖµÃüÁî
-		const BYTE CMD_USER_QBALANCE = 4; 	//ÕÊºÅÓà¶î²éÑ¯
-		const BYTE CMD_USER_MCARD = 5; 		//Íæ¼Ò³åÖµÔÂ¿¨
-		const BYTE CMD_USER_PCARD = 6; 		//Íæ¼ÒµÀ¾ß¿¨
-		const BYTE CMD_USER_SCARD = 7;		//×¨Çø¿¨
+		const BYTE CMD_USER_LOGON = 1; 		//ç™»é™†æœåŠ¡å™¨å‘½ä»¤
+		const BYTE CMD_USER_CONSUME = 2; 	//ç©å®¶æ‰£è´¹å‘½ä»¤
+		const BYTE CMD_USER_FILLIN = 3; 	//ç©å®¶å……å€¼å‘½ä»¤
+		const BYTE CMD_USER_QBALANCE = 4; 	//å¸å·ä½™é¢æŸ¥è¯¢
+		const BYTE CMD_USER_MCARD = 5; 		//ç©å®¶å†²å€¼æœˆå¡
+		const BYTE CMD_USER_PCARD = 6; 		//ç©å®¶é“å…·å¡
+		const BYTE CMD_USER_SCARD = 7;		//ä¸“åŒºå¡
 		struct t_logon : public Cmd::t_NullCmd
 		{
 			t_logon() 
 				: t_NullCmd(CMD_USER_LOGON) { }
 		};
-		struct t_logon_OK : t_NullCmd//·şÎñÆ÷Í¬²½ÃüÁî
+		struct t_logon_OK : t_NullCmd//æœåŠ¡å™¨åŒæ­¥å‘½ä»¤
 		{
 			t_logon_OK()
 				: t_NullCmd(CMD_USER_LOGON) {};
-			GameZone_t 	gameZone;			//ÓÎÏ·Çø
-			char 		name[MAX_NAMESIZE];	//ÇøÃû×Ö
-			BYTE 		netType;			//ÍøÂçÀàĞÍ
+			GameZone_t 	gameZone;			//æ¸¸æˆåŒº
+			char 		name[MAX_NAMESIZE];	//åŒºåå­—
+			BYTE 		netType;			//ç½‘ç»œç±»å‹
 		};
 
 		struct t_cmd_consume : public Cmd::t_NullCmd
@@ -56,11 +56,11 @@ namespace Cmd
 				bzero(remark, REMARK_LENGTH +1);
 			}
 			unsigned int 	uid;									//UID
-			int				point;										//¿Û·ÑµãÊı	
-			int 			source;										//À´Ô´
-			char			tid[SEQ_MAX_LENGTH +1];		//½»Ò×ĞòÁĞºÅ
-			char			remark[REMARK_LENGTH +1];	//±¸×¢
-			char 			ip[MAX_IP_LENGTH +1];     //¿Í»§ÇëÇóip
+			int				point;										//æ‰£è´¹ç‚¹æ•°	
+			int 			source;										//æ¥æº
+			char			tid[SEQ_MAX_LENGTH +1];		//äº¤æ˜“åºåˆ—å·
+			char			remark[REMARK_LENGTH +1];	//å¤‡æ³¨
+			char 			ip[MAX_IP_LENGTH +1];     //å®¢æˆ·è¯·æ±‚ip
 		};
 
 		struct t_cmd_fillin : public Cmd::t_NullCmd
@@ -74,12 +74,12 @@ namespace Cmd
 				bzero(remark, REMARK_LENGTH +1);
 			}
 			unsigned int uid;											//uid
-			int				point;											//³äÖµµãÊı	
-			int 			source;											//À´Ô´
-			char			account[ID_MAX_LENGTH +1];	//Íæ¼ÒÕÊºÅ
-			char			tid[SEQ_MAX_LENGTH +1];			//½»Ò×ĞòÁĞºÅ
-			char			cardid[CARDID_LENGTH +1];		//³äÖµ¿¨ºÅ
-			char			remark[REMARK_LENGTH +1];		//±¸×¢
+			int				point;											//å……å€¼ç‚¹æ•°	
+			int 			source;											//æ¥æº
+			char			account[ID_MAX_LENGTH +1];	//ç©å®¶å¸å·
+			char			tid[SEQ_MAX_LENGTH +1];			//äº¤æ˜“åºåˆ—å·
+			char			cardid[CARDID_LENGTH +1];		//å……å€¼å¡å·
+			char			remark[REMARK_LENGTH +1];		//å¤‡æ³¨
 		};
 
 		struct t_cmd_qbalance : public Cmd::t_NullCmd
@@ -87,8 +87,8 @@ namespace Cmd
 			t_cmd_qbalance() 
 				: t_NullCmd(CMD_USER_QBALANCE) { }
 			unsigned int	uid;						//UID
-			char			account[ID_MAX_LENGTH +1];	//Íæ¼ÒÕÊºÅ
-			char			tid[SEQ_MAX_LENGTH +1];		//½»Ò×ĞòÁĞºÅ
+			char			account[ID_MAX_LENGTH +1];	//ç©å®¶å¸å·
+			char			tid[SEQ_MAX_LENGTH +1];		//äº¤æ˜“åºåˆ—å·
 		};
 
 		struct t_cmd_mcard : public Cmd::t_NullCmd
@@ -101,12 +101,12 @@ namespace Cmd
 				bzero(remark, REMARK_LENGTH +1);
 			}
 			unsigned int 	uid;										//UID
-			int				point;											//¿Û·ÑµãÊı	
-			int 			source;											//À´Ô´
-			char			account[ID_MAX_LENGTH +1];	//Íæ¼ÒÕÊºÅ
-			char			tid[SEQ_MAX_LENGTH +1];			//½»Ò×ĞòÁĞºÅ
-			char			remark[REMARK_LENGTH +1];		//±¸×¢
-			char 			ip[MAX_IP_LENGTH +1];     	//¿Í»§ÇëÇóip
+			int				point;											//æ‰£è´¹ç‚¹æ•°	
+			int 			source;											//æ¥æº
+			char			account[ID_MAX_LENGTH +1];	//ç©å®¶å¸å·
+			char			tid[SEQ_MAX_LENGTH +1];			//äº¤æ˜“åºåˆ—å·
+			char			remark[REMARK_LENGTH +1];		//å¤‡æ³¨
+			char 			ip[MAX_IP_LENGTH +1];     	//å®¢æˆ·è¯·æ±‚ip
 		};
 
 		struct t_cmd_pcard : public Cmd::t_NullCmd
@@ -118,51 +118,51 @@ namespace Cmd
 				bzero(pcardid, sizeof(pcardid));
 			}
 			unsigned int 	uid;									//UID
-			int 			source;										//À´Ô´
-			char			tid[SEQ_MAX_LENGTH +1];		//½»Ò×ĞòÁĞºÅ
-			char			pcardid[CARDID_LENGTH +1];//³äÖµ¿¨ºÅ
-			char 			ip[MAX_IP_LENGTH +1];     //¿Í»§ÇëÇóip
+			int 			source;										//æ¥æº
+			char			tid[SEQ_MAX_LENGTH +1];		//äº¤æ˜“åºåˆ—å·
+			char			pcardid[CARDID_LENGTH +1];//å……å€¼å¡å·
+			char 			ip[MAX_IP_LENGTH +1];     //å®¢æˆ·è¯·æ±‚ip
 		};
 
-		enum	//billclientÓëuserserverÍ¨ĞÅ²Ù×÷Âë·µ»ØÖµ
+		enum	//billclientä¸userserveré€šä¿¡æ“ä½œç è¿”å›å€¼
 		{
-			RET_OK = 0,										//³É¹¦
-			RET_FAIL = -1,								//Ê§°Ü
-			RET_ID_NOT_EXIST = -2,				//ÓÃ»§²»´æÔÚ
-			RET_BALANCE_NOT_ENOUGH = -3,	//Óà¶î²»×ã
-			RET_PCARD_NOT_EXIST = -4,			//µÀ¾ß¿¨²»´æÔÚ
-			RET_NOTUSE_GAMEZONE = -5,			//±¾µÀ¾ß¿¨²»ÄÜÔÚ¸ÃÇøÊ¹ÓÃ
-			RET_PCARD_NOT_REUSE = -6,			//µÀ¾ß¿¨²»ÄÜÖØ¸´Ê¹ÓÃ
-			RET_SCARD_ERR = -7,						//×¨Çø¿¨¿¨ºÅ´íÎó
-			RET_SCARD_PASSWD_ERR					//×¨Çø¿¨ÃÜÂë´íÎó
+			RET_OK = 0,										//æˆåŠŸ
+			RET_FAIL = -1,								//å¤±è´¥
+			RET_ID_NOT_EXIST = -2,				//ç”¨æˆ·ä¸å­˜åœ¨
+			RET_BALANCE_NOT_ENOUGH = -3,	//ä½™é¢ä¸è¶³
+			RET_PCARD_NOT_EXIST = -4,			//é“å…·å¡ä¸å­˜åœ¨
+			RET_NOTUSE_GAMEZONE = -5,			//æœ¬é“å…·å¡ä¸èƒ½åœ¨è¯¥åŒºä½¿ç”¨
+			RET_PCARD_NOT_REUSE = -6,			//é“å…·å¡ä¸èƒ½é‡å¤ä½¿ç”¨
+			RET_SCARD_ERR = -7,						//ä¸“åŒºå¡å¡å·é”™è¯¯
+			RET_SCARD_PASSWD_ERR					//ä¸“åŒºå¡å¯†ç é”™è¯¯
 		};
 		
-		//billclientÇëÇóÀàĞÍ
+		//billclientè¯·æ±‚ç±»å‹
 		enum
 		{
-			AT_FILLIN = 0,			//³äÖµ
-			AT_CONSUME = 1,			//¿Û·Ñ
-			AT_SCARD = 2,				//×¨Çø¿¨
-			AT_QBALANCE = 3,		//²éÑ¯
-			AT_MCARD = 4,				//ÔÂ¿¨³åÖµ
-			AT_PCARD = 5,				//µÀ¾ß¿¨
+			AT_FILLIN = 0,			//å……å€¼
+			AT_CONSUME = 1,			//æ‰£è´¹
+			AT_SCARD = 2,				//ä¸“åŒºå¡
+			AT_QBALANCE = 3,		//æŸ¥è¯¢
+			AT_MCARD = 4,				//æœˆå¡å†²å€¼
+			AT_PCARD = 5,				//é“å…·å¡
 		};
 
-		//»Ø¸´billclient×ÓÀàĞÍ
+		//å›å¤billclientå­ç±»å‹
 		enum
 		{
-			SUBAT_INVALID = -1,	//billclientÇëÇó×ÓÀàĞÍ
-			SUBAT_GOLD = 4			//×¨Çø¿¨³äÖµ·µ»Ø×ÓÀàĞÍ//µÀ¾ß¿¨µÄ×ÓÀàĞÍ²»ÄÜÓÚ¸ÃÖµÖØ¸´
+			SUBAT_INVALID = -1,	//billclientè¯·æ±‚å­ç±»å‹
+			SUBAT_GOLD = 4			//ä¸“åŒºå¡å……å€¼è¿”å›å­ç±»å‹//é“å…·å¡çš„å­ç±»å‹ä¸èƒ½äºè¯¥å€¼é‡å¤
 		};
 
 		enum
 		{
-			KEEP = 0,						//±£Áô
-			ESALES_FILLIN = 1,	//µç×ÓÉÌ³Ç³ä¿¨
-			ESALES_CONSUME = -1	//µç×ÓÉÌ³ÇÏû·Ñ
+			KEEP = 0,						//ä¿ç•™
+			ESALES_FILLIN = 1,	//ç”µå­å•†åŸå……å¡
+			ESALES_CONSUME = -1	//ç”µå­å•†åŸæ¶ˆè´¹
 		};
 
-		const BYTE CMD_USER_RET = 5; //·şÎñÆ÷¶ËµÄ·µ»ØÃüÁî
+		const BYTE CMD_USER_RET = 5; //æœåŠ¡å™¨ç«¯çš„è¿”å›å‘½ä»¤
 		struct t_cmd_ret : public Cmd::t_NullCmd
 		{
 			t_cmd_ret() 
@@ -174,12 +174,12 @@ namespace Cmd
 				ret = RET_FAIL;
 				subat = SUBAT_INVALID;
 			}
-			char		tid[SEQ_MAX_LENGTH + 1];	//½»Ò×ĞòÁĞºÅ
-			int 		balance;				//Óà¶î
-			int 		bonus;					//»ı·Ö
-			int 		hadfilled;			//Ôø¾­³äÖµµÄ±êÖ¾,1=Ôø¾­³äÖµ,0=Ã»ÓĞ
-			int 		ret;						//ÃüÁî·µ»Ø´úÂë
-			int			subat;					//×ÓÀàĞÍ
+			char		tid[SEQ_MAX_LENGTH + 1];	//äº¤æ˜“åºåˆ—å·
+			int 		balance;				//ä½™é¢
+			int 		bonus;					//ç§¯åˆ†
+			int 		hadfilled;			//æ›¾ç»å……å€¼çš„æ ‡å¿—,1=æ›¾ç»å……å€¼,0=æ²¡æœ‰
+			int 		ret;						//å‘½ä»¤è¿”å›ä»£ç 
+			int			subat;					//å­ç±»å‹
 		};
 	};
 };

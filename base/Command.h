@@ -1,4 +1,4 @@
-#ifndef _COMMAND_H
+ï»¿#ifndef _COMMAND_H
 #define _COMMAND_H
 
 
@@ -46,36 +46,36 @@ enum
 #define _PROFESSION_
 enum
 {
-	PROFESSION_NONE	= 0,	//ÎÞÒµ
-	PROFESSION_1	= 1,	//ÏÀ¿Í
-	PROFESSION_2	= 2,	//ÏÀÅ®
-	PROFESSION_3	= 3,	//¼ýÏÀ
-	PROFESSION_4	= 4,	//¼ýÁé
-	PROFESSION_5	= 5,	//ÌìÊ¦
-	PROFESSION_6	= 6,	//ÃÀÅ®
-	PROFESSION_7	= 7,	//·¨Ê¦
-	PROFESSION_8	= 8		//ÏÉÅ®
+	PROFESSION_NONE	= 0,	//æ— ä¸š
+	PROFESSION_1	= 1,	//ä¾ å®¢
+	PROFESSION_2	= 2,	//ä¾ å¥³
+	PROFESSION_3	= 3,	//ç®­ä¾ 
+	PROFESSION_4	= 4,	//ç®­çµ
+	PROFESSION_5	= 5,	//å¤©å¸ˆ
+	PROFESSION_6	= 6,	//ç¾Žå¥³
+	PROFESSION_7	= 7,	//æ³•å¸ˆ
+	PROFESSION_8	= 8		//ä»™å¥³
 };
 #endif
 #ifndef _FIVETYPE_
 #define _FIVETYPE_
 enum
 {
-	FIVE_METAL = 0,			/// ½ð
-	FIVE_WOOD = 1,			/// Ä¾
-	FIVE_SOIL = 2, 			/// ÍÁ
-	FIVE_WATER = 3,			/// Ë®
-	FIVE_FIRE = 4,			/// »ð
-	FIVE_NONE = 5			/// ÎÞ
+	FIVE_METAL = 0,			/// é‡‘
+	FIVE_WOOD = 1,			/// æœ¨
+	FIVE_SOIL = 2, 			/// åœŸ
+	FIVE_WATER = 3,			/// æ°´
+	FIVE_FIRE = 4,			/// ç«
+	FIVE_NONE = 5			/// æ— 
 };
 #endif
 
 const DWORD PUBLIC_COUNTRY = 6;
 #pragma pack(1)
 
-///µÃµ½ÁíÒ»Ö»ÊÖ
+///å¾—åˆ°å¦ä¸€åªæ‰‹
 #define otherHand(hand)	(hand)^3
-///µÃµ½ÁíÒ»Ö»ÊÖïí
+///å¾—åˆ°å¦ä¸€åªæ‰‹é•¯
 #define otherBangle(bangle) (bangle)^1
 
 
@@ -91,95 +91,95 @@ _CMD_NAMESPACE_BEGIN
 
 //BEGIN_ONE_CMD
 
-/// ¿ÕÖ¸Áî
+/// ç©ºæŒ‡ä»¤
 const BYTE NULL_USERCMD			= 0;
-/// µÇÂ½Ö¸Áî
+/// ç™»é™†æŒ‡ä»¤
 const BYTE LOGON_USERCMD		= 1;
-/// Ê±¼äÖ¸Áî
+/// æ—¶é—´æŒ‡ä»¤
 const BYTE TIME_USERCMD			= 2;
-/// Êý¾ÝÖ¸Áî
+/// æ•°æ®æŒ‡ä»¤
 const BYTE DATA_USERCMD			= 3;
-/// µÀ¾ßÖ¸Áî
+/// é“å…·æŒ‡ä»¤
 const BYTE PROPERTY_USERCMD		= 4;
-/// µØÍ¼Ö¸Áî
+/// åœ°å›¾æŒ‡ä»¤
 const BYTE MAPSCREEN_USERCMD		= 5;
-/// ÒÆ¶¯Ö¸Áî
+/// ç§»åŠ¨æŒ‡ä»¤
 const BYTE MOVE_USERCMD			= 6;
-/// ½¨ÔìÖ¸Áî
+/// å»ºé€ æŒ‡ä»¤
 const BYTE BUILD_USERCMD		= 8;
-/// ´òÔìÖ¸Áî
+/// æ‰“é€ æŒ‡ä»¤
 const BYTE MAKEOBJECT_USERCMD		= 10;
-/// ¸´»îÖ¸Áî
+/// å¤æ´»æŒ‡ä»¤
 const BYTE RELIVE_USERCMD		= 12;
-/// ÁÄÌìÖ¸Áî
+/// èŠå¤©æŒ‡ä»¤
 const BYTE CHAT_USERCMD			= 14;
-/// Àë¿ªÖ¸Áî
+/// ç¦»å¼€æŒ‡ä»¤
 const BYTE LEAVEONLINE_USERCMD		= 15;
-/// ½»Ò×Ö¸Áî
+/// äº¤æ˜“æŒ‡ä»¤
 const BYTE TRADE_USERCMD		= 17;
-/// Ä§·¨Ö¸Áî
+/// é­”æ³•æŒ‡ä»¤
 const BYTE MAGIC_USERCMD		= 18;
-/// °ï»áÖ¸Áî
+/// å¸®ä¼šæŒ‡ä»¤
 const BYTE UNION_USERCMD		= 21;
-/// ¹ú¼ÒÖ¸Áî
+/// å›½å®¶æŒ‡ä»¤
 const BYTE COUNTRY_USERCMD		= 22;
-/// ÈÎÎñÖ¸Áî
+/// ä»»åŠ¡æŒ‡ä»¤
 const BYTE TASK_USERCMD			= 23;
-/// Ñ¡ÔñÖ¸Áî
+/// é€‰æ‹©æŒ‡ä»¤
 const BYTE SELECT_USERCMD		= 24;
-//  Éç»á¹ØÏµÖ¸Áî
+//  ç¤¾ä¼šå…³ç³»æŒ‡ä»¤
 const BYTE RELATION_USERCMD    		= 25;
-//  ÃÅÅÉ¹ØÏµÖ¸Áî
+//  é—¨æ´¾å…³ç³»æŒ‡ä»¤
 const BYTE SCHOOL_USERCMD		= 26;
-//  ¼Ò×å¹ØÏµÖ¸Áî
+//  å®¶æ—å…³ç³»æŒ‡ä»¤
 const BYTE SEPT_USERCMD			= 27;
-// Õ½¶·Ö¸Áî
+// æˆ˜æ–—æŒ‡ä»¤
 const BYTE DARE_USERCMD                 = 28;
-// ³èÎïÖ¸Áî
+// å® ç‰©æŒ‡ä»¤
 const BYTE PET_USERCMD                  = 29;
-// »ñÈ¡·þÎñÆ÷ÁÐ±í
+// èŽ·å–æœåŠ¡å™¨åˆ—è¡¨
 const BYTE PING_USERCMD			= 30;
-// ½ð±ÒÖ¸Áî
+// é‡‘å¸æŒ‡ä»¤
 const BYTE GOLD_USERCMD			= 31;
-// ´ðÌâÖ¸Áî
+// ç­”é¢˜æŒ‡ä»¤
 const BYTE QUIZ_USERCMD			= 32;
-// NPCÕù¶áÕ½Ö¸Áî
+// NPCäº‰å¤ºæˆ˜æŒ‡ä»¤
 const BYTE NPCDARE_USERCMD		= 33;
-// ÓëGM¹¤¾ß½»»¥µÄÖ¸Áî
+// ä¸ŽGMå·¥å…·äº¤äº’çš„æŒ‡ä»¤
 const BYTE GMTOOL_USERCMD		= 34;
-// ÓÊ¼þÖ¸Áî
+// é‚®ä»¶æŒ‡ä»¤
 const BYTE MAIL_USERCMD			= 35;
-// ÅÄÂôÖ¸Áî
+// æ‹å–æŒ‡ä»¤
 const BYTE AUCTION_USERCMD		= 36;
-// ¿¨Í¨³èÎïÖ¸Áî
+// å¡é€šå® ç‰©æŒ‡ä»¤
 const BYTE CARTOON_USERCMD		= 37;
-// ¹ÉÆ±Ö¸Áî
+// è‚¡ç¥¨æŒ‡ä»¤
 const BYTE STOCK_SCENE_USERCMD		= 38;
 const BYTE STOCK_BILL_USERCMD		= 39;
-// Í¶Æ±Ö¸Áî
+// æŠ•ç¥¨æŒ‡ä»¤
 const BYTE VOTE_USERCMD			= 40;
-// ¾ü¶ÓÖ¸Áî
+// å†›é˜ŸæŒ‡ä»¤
 const BYTE ARMY_USERCMD			= 41;
-// »¤±¦ÈÎÎñÖ¸Áî
+// æŠ¤å®ä»»åŠ¡æŒ‡ä»¤
 const BYTE GEM_USERCMD			= 42;
-// ¼àÓüÏµÍ³Ö¸Áî
+// ç›‘ç‹±ç³»ç»ŸæŒ‡ä»¤
 const BYTE PRISON_USERCMD		= 43;
-// Àñ¹ÙÖ¸Áî
+// ç¤¼å®˜æŒ‡ä»¤
 const BYTE GIFT_USERCMD			= 44;
-// ¹ú¼ÒÍ¬ÃËÖ¸Áî
+// å›½å®¶åŒç›ŸæŒ‡ä»¤
 const BYTE ALLY_USERCMD			= 45;
-// Ð¡ÓÎÏ·Ö¸Áî
+// å°æ¸¸æˆæŒ‡ä»¤
 const BYTE MINIGAME_USERCMD		= 46;
-// ÍÆ¼öÈËÏµÍ³Ö¸Áî
+// æŽ¨èäººç³»ç»ŸæŒ‡ä»¤
 const BYTE RECOMMEND_USERCMD		= 47;
-// ²Æ²ú±£»¤ÏµÍ³Ö¸Áî
+// è´¢äº§ä¿æŠ¤ç³»ç»ŸæŒ‡ä»¤
 const BYTE SAFETY_USERCMD		= 48;
 
 
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ¿ÕÖ¸Áî¶¨Òå¿ªÊ¼
+// ç©ºæŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 const BYTE NULL_USERCMD_PARA = 0;
 struct stNullUserCmd{
@@ -201,7 +201,7 @@ struct stNullUserCmd{
 	DWORD	dwTimestamp;
 };
 //////////////////////////////////////////////////////////////
-// ¿ÕÖ¸Áî¶¨Òå½áÊø
+// ç©ºæŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 enum enumMapDataType{
@@ -213,13 +213,13 @@ enum enumMapDataType{
 };
 
 struct MapData_ItemHeader {
-	WORD size;// ÊýÁ¿
-	BYTE type;// ÀàÐÍ  enumMapDataType
+	WORD size;// æ•°é‡
+	BYTE type;// ç±»åž‹  enumMapDataType
 };
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// µÇÂ½Ö¸Áî¶¨Òå¿ªÊ¼
+// ç™»é™†æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stLogonUserCmd : public stNullUserCmd
 {
@@ -229,7 +229,7 @@ struct stLogonUserCmd : public stNullUserCmd
 	}
 };
 
-/// ¿Í»§¶ËÑéÖ¤°æ±¾
+/// å®¢æˆ·ç«¯éªŒè¯ç‰ˆæœ¬
 const BYTE USER_VERIFY_VER_PARA = 1;
 const DWORD GAME_VERSION = 1999;
 struct stUserVerifyVerCmd  : public stLogonUserCmd
@@ -243,7 +243,7 @@ struct stUserVerifyVerCmd  : public stLogonUserCmd
 	DWORD version;
 };
 
-/// ¿Í»§¶ËµÇÂ½µÇÂ½·þÎñÆ÷
+/// å®¢æˆ·ç«¯ç™»é™†ç™»é™†æœåŠ¡å™¨
 const BYTE USER_REQUEST_LOGIN_PARA = 2;
 struct stUserRequestLoginCmd : public stLogonUserCmd
 {
@@ -251,38 +251,38 @@ struct stUserRequestLoginCmd : public stLogonUserCmd
 	{
 		byParam = USER_REQUEST_LOGIN_PARA;
 	}
-	char pstrName[MAX_ACCNAMESIZE];		/**< ÕÊºÅ */
-	char pstrPassword[MAX_PASSWORD];	/**< ÓÃ»§ÃÜÂë */
-	WORD game;							/**< ÓÎÏ·ÀàÐÍ±àºÅ£¬Ä¿Ç°Ò»ÂÉÌí0 */
-	WORD zone;							/**< ÓÎÏ·Çø±àºÅ */
-	char jpegPassport[7];				/**< Í¼ÐÎÑéÖ¤Âë */
+	char pstrName[MAX_ACCNAMESIZE];		/**< å¸å· */
+	char pstrPassword[MAX_PASSWORD];	/**< ç”¨æˆ·å¯†ç  */
+	WORD game;							/**< æ¸¸æˆç±»åž‹ç¼–å·ï¼Œç›®å‰ä¸€å¾‹æ·»0 */
+	WORD zone;							/**< æ¸¸æˆåŒºç¼–å· */
+	char jpegPassport[7];				/**< å›¾å½¢éªŒè¯ç  */
 };
 
 enum{
-	LOGIN_RETURN_UNKNOWN,					/// Î´Öª´íÎó
-	LOGIN_RETURN_VERSIONERROR,				/// °æ±¾´íÎó
-	LOGIN_RETURN_UUID,						/// UUIDµÇÂ½·½Ê½Ã»ÓÐÊµÏÖ
-	LOGIN_RETURN_DB,						/// Êý¾Ý¿â³ö´í
-	LOGIN_RETURN_PASSWORDERROR,				/// ÕÊºÅÃÜÂë´íÎó
-	LOGIN_RETURN_CHANGEPASSWORD,			/// ÐÞ¸ÄÃÜÂë³É¹¦
-	LOGIN_RETURN_IDINUSE,					/// IDÕýÔÚ±»Ê¹ÓÃÖÐ
-	LOGIN_RETURN_IDINCLOSE,					/// ID±»·â
-	LOGIN_RETURN_GATEWAYNOTAVAILABLE,		/// Íø¹Ø·þÎñÆ÷Î´¿ª
-	LOGIN_RETURN_USERMAX,					/// ÓÃ»§Âú
-	LOGIN_RETURN_ACCOUNTEXIST,				/// ÕËºÅÒÑ¾­´æÔÚ
-	LOGON_RETURN_ACCOUNTSUCCESS,			/// ×¢²áÕËºÅ³É¹¦
+	LOGIN_RETURN_UNKNOWN,					/// æœªçŸ¥é”™è¯¯
+	LOGIN_RETURN_VERSIONERROR,				/// ç‰ˆæœ¬é”™è¯¯
+	LOGIN_RETURN_UUID,						/// UUIDç™»é™†æ–¹å¼æ²¡æœ‰å®žçŽ°
+	LOGIN_RETURN_DB,						/// æ•°æ®åº“å‡ºé”™
+	LOGIN_RETURN_PASSWORDERROR,				/// å¸å·å¯†ç é”™è¯¯
+	LOGIN_RETURN_CHANGEPASSWORD,			/// ä¿®æ”¹å¯†ç æˆåŠŸ
+	LOGIN_RETURN_IDINUSE,					/// IDæ­£åœ¨è¢«ä½¿ç”¨ä¸­
+	LOGIN_RETURN_IDINCLOSE,					/// IDè¢«å°
+	LOGIN_RETURN_GATEWAYNOTAVAILABLE,		/// ç½‘å…³æœåŠ¡å™¨æœªå¼€
+	LOGIN_RETURN_USERMAX,					/// ç”¨æˆ·æ»¡
+	LOGIN_RETURN_ACCOUNTEXIST,				/// è´¦å·å·²ç»å­˜åœ¨
+	LOGON_RETURN_ACCOUNTSUCCESS,			/// æ³¨å†Œè´¦å·æˆåŠŸ
 
-	LOGIN_RETURN_CHARNAMEREPEAT,			/// ½ÇÉ«Ãû³ÆÖØ¸´
-	LOGIN_RETURN_USERDATANOEXIST,			/// ÓÃ»§µµ°¸²»´æÔÚ
-	LOGIN_RETURN_USERNAMEREPEAT,			/// ÓÃ»§ÃûÖØ¸´
-	LOGIN_RETURN_TIMEOUT,					/// Á¬½Ó³¬Ê±
-	LOGIN_RETURN_PAYFAILED,					/// ¼Æ·ÑÊ§°Ü
-	LOGIN_RETURN_JPEG_PASSPORT,				/// Í¼ÐÎÑéÖ¤ÂëÊäÈë´íÎó
-	LOGIN_RETURN_LOCK,				/// ÕÊºÅ±»Ëø¶¨
-	LOGIN_RETURN_WAITACTIVE,				/// ÕÊºÅ´ý¼¤»î
-	LOGIN_RETURN_NEWUSER_OLDZONE			///ÐÂÕËºÅ²»ÔÊÐíµÇÈë¾ÉµÄÓÎÏ·Çø 
+	LOGIN_RETURN_CHARNAMEREPEAT,			/// è§’è‰²åç§°é‡å¤
+	LOGIN_RETURN_USERDATANOEXIST,			/// ç”¨æˆ·æ¡£æ¡ˆä¸å­˜åœ¨
+	LOGIN_RETURN_USERNAMEREPEAT,			/// ç”¨æˆ·åé‡å¤
+	LOGIN_RETURN_TIMEOUT,					/// è¿žæŽ¥è¶…æ—¶
+	LOGIN_RETURN_PAYFAILED,					/// è®¡è´¹å¤±è´¥
+	LOGIN_RETURN_JPEG_PASSPORT,				/// å›¾å½¢éªŒè¯ç è¾“å…¥é”™è¯¯
+	LOGIN_RETURN_LOCK,				/// å¸å·è¢«é”å®š
+	LOGIN_RETURN_WAITACTIVE,				/// å¸å·å¾…æ¿€æ´»
+	LOGIN_RETURN_NEWUSER_OLDZONE			///æ–°è´¦å·ä¸å…è®¸ç™»å…¥æ—§çš„æ¸¸æˆåŒº 
 };
-/// µÇÂ½Ê§°Üºó·µ»ØµÄÐÅÏ¢
+/// ç™»é™†å¤±è´¥åŽè¿”å›žçš„ä¿¡æ¯
 const BYTE SERVER_RETURN_LOGIN_FAILED = 3;
 struct stServerReturnLoginFailedCmd : public stLogonUserCmd
 {
@@ -290,10 +290,10 @@ struct stServerReturnLoginFailedCmd : public stLogonUserCmd
 	{
 		byParam = SERVER_RETURN_LOGIN_FAILED;
 	}
-	BYTE byReturnCode;			/**< ·µ»ØµÄ×Ó²ÎÊý */
+	BYTE byReturnCode;			/**< è¿”å›žçš„å­å‚æ•° */
 } ;
 
-/// µÇÂ½³É¹¦£¬·µ»ØÍø¹Ø·þÎñÆ÷µØÖ·¶Ë¿ÚÒÔ¼°ÃÜÔ¿µÈÐÅÏ¢
+/// ç™»é™†æˆåŠŸï¼Œè¿”å›žç½‘å…³æœåŠ¡å™¨åœ°å€ç«¯å£ä»¥åŠå¯†é’¥ç­‰ä¿¡æ¯
 const BYTE SERVER_RETURN_LOGIN_OK = 4;
 struct stServerReturnLoginSuccessCmd : public stLogonUserCmd 
 {
@@ -310,15 +310,15 @@ struct stServerReturnLoginSuccessCmd : public stLogonUserCmd
 	union{
 		struct{
 			BYTE randnum[58];
-			BYTE keyOffset;	// ÃÜ³×ÔÚ key ÖÐµÄÆ«ÒÆ
+			BYTE keyOffset;	// å¯†åŒ™åœ¨ key ä¸­çš„åç§»
 		};
-		BYTE key[256];	// ±£´æÃÜ³×£¬Õû¸öÊý×éÓÃËæ»úÊýÌî³ä
+		BYTE key[256];	// ä¿å­˜å¯†åŒ™ï¼Œæ•´ä¸ªæ•°ç»„ç”¨éšæœºæ•°å¡«å……
 	};
 
 };
 
 
-/// ¿Í»§µÇÂ½Íø¹Ø·þÎñÆ÷·¢ËÍÕËºÅºÍÃÜÂë
+/// å®¢æˆ·ç™»é™†ç½‘å…³æœåŠ¡å™¨å‘é€è´¦å·å’Œå¯†ç 
 const BYTE PASSWD_LOGON_USERCMD_PARA = 5;
 struct stPasswdLogonUserCmd : public stLogonUserCmd
 {
@@ -329,11 +329,11 @@ struct stPasswdLogonUserCmd : public stLogonUserCmd
 
 	DWORD loginTempID;
 	DWORD dwUserID;
-	char pstrName[MAX_ACCNAMESIZE];		/**< ÕÊºÅ */
+	char pstrName[MAX_ACCNAMESIZE];		/**< å¸å· */
 	char pstrPassword[MAX_PASSWORD];
 };
 
-/// ÇëÇó´´½¨ÕËºÅ
+/// è¯·æ±‚åˆ›å»ºè´¦å·
 const BYTE ACCOUNT_LOGON_USERCMD_PARA = 7;
 struct stAccountLogonUserCmd : public stLogonUserCmd 
 {
@@ -346,7 +346,7 @@ struct stAccountLogonUserCmd : public stLogonUserCmd
 	char strPassword[MAX_PASSWORD];
 };
 
-/// ÇëÇó¸ü¸ÄÃÜÂë
+/// è¯·æ±‚æ›´æ”¹å¯†ç 
 const BYTE PASSWORD_LOGON_USERCMD_PARA = 9;
 	struct stPasswordLogonUserCmd : public stLogonUserCmd {
 		stPasswordLogonUserCmd()
@@ -359,7 +359,7 @@ const BYTE PASSWORD_LOGON_USERCMD_PARA = 9;
 		char strNewPassword[MAX_PASSWORD];
 	};
 
-/// ÇëÇó·µ»ØÑ¡ÔñÈËÎï½çÃæ
+/// è¯·æ±‚è¿”å›žé€‰æ‹©äººç‰©ç•Œé¢
 const BYTE BACKSELECT_USERCMD_PARA = 10;
 struct stBackSelectUserCmd : public stLogonUserCmd
 {
@@ -369,7 +369,7 @@ struct stBackSelectUserCmd : public stLogonUserCmd
 	}
 };
 
-/// ·¢ËÍÍ¼ÐÎÑéÖ¤Âëµ½¿Í»§¶Ë
+/// å‘é€å›¾å½¢éªŒè¯ç åˆ°å®¢æˆ·ç«¯
 const BYTE JPEG_PASSPORT_USERCMD_PARA = 11;
 struct stJpegPassportUserCmd : public stLogonUserCmd
 {
@@ -382,13 +382,13 @@ struct stJpegPassportUserCmd : public stLogonUserCmd
 	BYTE data[0];
 };
 
-//·¢ËÍ¹ú¼ÒÐÅÏ¢
+//å‘é€å›½å®¶ä¿¡æ¯
 struct  Country_Info
 {
-	DWORD id;//¹ú¼Òid
-	BYTE  enableRegister; //ÔÊÐí×¢²áÎª1 ²»ÔÊÐíÎª0
-	BYTE  enableLogin;		//ÔÊÐíµÇÂ½Îª1 ²»ÔÊÐíÎª0
-	char pstrName[MAX_NAMESIZE];//¹ú¼ÒÃû³Æ
+	DWORD id;//å›½å®¶id
+	BYTE  enableRegister; //å…è®¸æ³¨å†Œä¸º1 ä¸å…è®¸ä¸º0
+	BYTE  enableLogin;		//å…è®¸ç™»é™†ä¸º1 ä¸å…è®¸ä¸º0
+	char pstrName[MAX_NAMESIZE];//å›½å®¶åç§°
 	Country_Info()
 	{
 		enableRegister = 0;
@@ -408,12 +408,12 @@ struct stCountryInfoUserCmd : public stLogonUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-// µÇÂ½Ö¸Áî¶¨Òå½áÊø
+// ç™»é™†æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// Ê±¼äÖ¸Áî¶¨Òå¿ªÊ¼
+/// æ—¶é—´æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stTimerUserCmd : public stNullUserCmd
 {
@@ -423,7 +423,7 @@ struct stTimerUserCmd : public stNullUserCmd
 	}
 };
 
-/// Íø¹ØÏòÓÃ»§·¢ËÍÓÎÏ·Ê±¼ä
+/// ç½‘å…³å‘ç”¨æˆ·å‘é€æ¸¸æˆæ—¶é—´
 const BYTE GAMETIME_TIMER_USERCMD_PARA = 1;
 struct stGameTimeTimerUserCmd : public stTimerUserCmd 
 {
@@ -432,10 +432,10 @@ struct stGameTimeTimerUserCmd : public stTimerUserCmd
 		byParam = GAMETIME_TIMER_USERCMD_PARA;
 	}
 
-	QWORD qwGameTime;			/**< ÓÎÏ·Ê±¼ä */
+	QWORD qwGameTime;			/**< æ¸¸æˆæ—¶é—´ */
 };
 
-/// Íø¹ØÏòÓÃ»§ÇëÇóÊ±¼ä
+/// ç½‘å…³å‘ç”¨æˆ·è¯·æ±‚æ—¶é—´
 const BYTE REQUESTUSERGAMETIME_TIMER_USERCMD_PARA = 2;
 struct stRequestUserGameTimeTimerUserCmd : public stTimerUserCmd
 {
@@ -446,7 +446,7 @@ struct stRequestUserGameTimeTimerUserCmd : public stTimerUserCmd
 
 };
 
-/// ÓÃ»§ÏòÍø¹Ø·¢ËÍµ±Ç°ÓÎÏ·Ê±¼ä
+/// ç”¨æˆ·å‘ç½‘å…³å‘é€å½“å‰æ¸¸æˆæ—¶é—´
 const BYTE USERGAMETIME_TIMER_USERCMD_PARA  = 3;
 struct stUserGameTimeTimerUserCmd : public stTimerUserCmd
 {
@@ -455,11 +455,11 @@ struct stUserGameTimeTimerUserCmd : public stTimerUserCmd
 		byParam = USERGAMETIME_TIMER_USERCMD_PARA;
 	}
 
-	DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
-	QWORD qwGameTime;			/**< ÓÃ»§ÓÎÏ·Ê±¼ä */
+	DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
+	QWORD qwGameTime;			/**< ç”¨æˆ·æ¸¸æˆæ—¶é—´ */
 };
 
-/// ÓÃ»§pingÃüÁî(·þÎñÆ÷Ô­Ñù·µ»Ø)
+/// ç”¨æˆ·pingå‘½ä»¤(æœåŠ¡å™¨åŽŸæ ·è¿”å›ž)
 const BYTE PING_TIMER_USERCMD_PARA = 4;
 struct stPingTimeTimerUserCmd : public stTimerUserCmd
 {
@@ -470,132 +470,132 @@ struct stPingTimeTimerUserCmd : public stTimerUserCmd
 
 };
 //////////////////////////////////////////////////////////////
-/// Ê±¼äÖ¸Áî¶¨Òå½áÊø
+/// æ—¶é—´æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// Êý¾ÝÖ¸Áî¶¨Òå¿ªÊ¼
+/// æ•°æ®æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÈËÎï×´Ì¬
+/// å®šä¹‰äººç‰©çŠ¶æ€
 enum {
-	USTATE_DEATH  	= 0,//	ËÀÍö
-	USTATE_POISON  	= 1,//	ÖÐ¶¾
-	USTATE_FREEZE  	= 2,//	±ù¶³
-	USTATE_LANDIFICATION = 3,//	¶³½á
-	USTATE_HIDE  	= 4,//	ÒþÉí
-	USTATE_TRADE  	= 5,//	½»Ò×
-	USTATE_WAR		= 6,//	½»Õ½×´Ì¬
-	USTATE_LUCK  	= 7,//	ÐÒÔË
-	USTATE_DECLINE  = 8,//	Ë¥Èõ
-	USTATE_CRAZY  	= 9,//	¿ñÈÈ
-	USTATE_LUCKY  	= 10,//	×£¸£
-	USTATE_FIRM  	= 11,//	¼á¹Ì
-	USTATE_ARMOUR  	= 12,//	Ìú¼×
-	USTATE_PRAY  	= 13,//	Æíµ»
-	USTATE_BIBLE  	= 14,//	Ê¥½àÖ®¹â
-	USTATE_BIBLEARMOUR  	= 15,//	Ê¥¶ÜÖ®¹â
-	USTATE_WEAKEN  	= 16,//	Ï÷Èõ
-	USTATE_MAGICMIRROR  	= 17,//	Ä§¾µ
-	USTATE_BLIND  	= 18,//	Ê§Ã÷
-	USTATE_ROCK		= 19,//	Ê¯»¯
-	USTATE_CONFUSION  	= 20,//	»ìÂÒ
-	USTATE_PALSY  	= 21,//	Âé±Ô
-	USTATE_BLED  	= 22,//	Á÷Ñª
-	USTATE_REVERT  	= 23,//	»Ø¸´Í¼ÌÚ
-	USTATE_RECOVERY  	= 24,//	·ÀÓùÍ¼ÌÚ
-	USTATE_LIFE  	= 25,//	ÉúÃüÍ¼ÌÚ
-	USTATE_PROCTECTED  	= 26,//	±Ó»¤Í¼ÌÚ
-	USTATE_ABILITY  	= 27,//	ÄÜÁ¦Í¼ÌÚ
-	USTATE_BLOOD  	= 28,//	ÎüÑªÍ¼ÌÚ
-	USTATE_MAGIC  	= 29,//	·¨Á¦Í¼ÌÚ
-	USTATE_SLOW  	= 30,//	»ºÂýÍ¼ÌÚ
-	USTATE_PLANTING  	= 31,//	ÖÖÖ²
-	USTATE_DIGGING   	= 32,//	ÍÚ¾ò
-	USTATE_PROSPECTING  = 33,//	Ì½¿ó
-	USTATE_CUTTING  	= 34,//	¿ªÔä
-	USTATE_GATHERING  	= 35,//	²É¼¯
-	USTATE_FISHING  	= 36,//	µöÓã
-	USTATE_HUNTING  	= 37,//	´òÁÔ
-	USTATE_GUARD 		= 38,//	»¤±¦
-	USTATE_MAGICSHELL	= 39,//	ÁéÆø¶Ü
-	USTATE_NOSTOPATK	= 40,//	Á¬Ðø¹¥»÷
-	USTATE_IRONDFE		= 41,//	¸ÖÌú·ÀÓù
-	USTATE_LOSTBLOOD	= 42,//	Ê§ÑªÖ®Ó°
-	USTATE_POWEROFLAND	= 43,//	´óµØÖ®Á¦
-	USTATE_SPEEDNESSATK	= 44,//	¼õËÙ¹¥»÷
-	USTATE_BODYWEAK		= 45,//	ÌåÄÜÏ÷Èõ
-	USTATE_ATKWEAK		= 46,//	¹¥»÷Ï÷Èõ
-	USTATE_RELIVEWEAK	= 47,//   ¸´»îÐéÈõ×´Ì¬
-	USTATE_BOMB			= 48,//	×çÖäÕ¨µ¯
-	USTATE_RELIVERING	= 49,//	¸´»î¹â»·
-	USTATE_NOTHING		= 50,//	ÐéÎÞ
-	USTATE_MOREHURT		= 51,//	ÉËº¦¼ÓÉî
-	USTATE_MIRRORHURT	= 52,//	ÉËº¦·´µ¯
-	USTATE_OLD			= 53,//	Ë¥ÀÏ
-	USTATE_MINGYUN		= 54,//	ÃüÔË
-	USTATE_MINDWEAK		= 55,//	ÖÇÄÜÏ÷Èõ
-	USTATE_MAGICWEAK	= 56,//	·¨ÊõÏ÷Èõ
-	USTATE_ROSE			= 57,//	Ãµ¹å´Ì
-	USTATE_BLANCEHURT	= 58,//	ÉËº¦Æ½·Ö
-	USTATE_FACEOFF		= 59,//	Ò×ÈÝÊõ
-	USTATE_HURTWEAK		= 60,//	ÉËº¦¼õÈõ
-	USTATE_SIGNOFSNIPER	= 61,//	¼ýÊÖ±ê¼Ç
-	USTATE_GHOSTSHELL	= 62,		///	Áé»ê»¤¶Ü
-	USTATE_ATKFAST		= 63,		///	¹¥»÷¼ÓËÙ
-	USTATE_FASTATK		= 64,		///	¸ßËÙ¹¥»÷
-	USTATE_BLOODHURT	= 65,		///	Á÷ÑªÉËº¦
-	USTATE_POWEROFWIND	= 66,		///	·çÖ®Á¦
-	USTATE_POWEROFFIRE	= 67,		///	»ðÖ®Á¦
-	USTATE_THOUCHOFFLASH	= 68,	///	À×µçÖ®´¥
-	USTATE_SHELLOFFLASH	= 69,		///	ÉÁµç»¤¶Ü
-	USTATE_THOUCHOFTHOUNDER	= 70,	///	ÉÁµçÖ®´¥
-	USTATE_SPEEDOFWIND	= 71,		///	·çÖ®ËÙ¶È
-	USTATE_WEIHE		= 72,		///	ÍþÏÅ
-	USTATE_SPDHEATH		= 73,		///	ÌåÁ¦¿ìËÙ»Ø¸´
-	USTATE_DAMBOCHONG	= 74,		///	ÉËº¦²¹³ä
-	USTATE_ATKMORE		= 75,		///	¹¥»÷¼ÓÇ¿
-	USTATE_SHANBIZUZHOU	= 76,		///	ÉÁ±Ü×çÖä
-	USTATE_START_QUEST	= 77,		///	ÈÎÎñ¿ªÊ¼
-	USTATE_DOING_QUEST	= 78,		///	ÈÎÎñ½øÐÐÖÐ
-	USTATE_FINISH_QUEST	= 79,		///	ÈÎÎñÍê³É
-	USTATE_TIZHIJIAQIANG	= 80,	///	ÌåÖÇ¼ÓÇ¿
-	USTATE_RIDE			= 81,		///	ÆïÂí
-	USTATE_POWERATK		= 82,		/// ¹¥»÷Ç¿»¯
-	USTATE_POWERDEF		= 83,		/// ·ÀÓùÇ¿»¯
-	USTATE_SMILE		= 84,		/// ³°·í
-	USTATE_WINHEART		= 85,		/// Ê¤ÐÄ¾÷
-	USTATE_THREAT		= 86,		/// ¿ÖÏÅ
-	USTATE_ACCRTSKILL	= 87,		/// ¾«×¼Ö®Êõ
-	USTATE_DEATHHURT	= 88,		/// ÖÂÃüÒ»»÷
-	USTATE_SILENT		= 89,		/// Àä¾²
-	USTATE_HUNTERSIGN	= 90,		/// ÁÔÊÖÓ¡¼Ç
-	USTATE_WONDERIDEAR	= 91,		/// Ú¤Ïë
-	USTATE_PROTECTGOODS	= 92,		/// »¤±¦
-	USTATE_MAGICVESSEL	= 93,		/// ·¨Á¦ÈÝÆ÷
-	USTATE_POWERBASE	= 94,		/// ÔªÉñÔöÇ¿
-	USTATE_BREAKBASE	= 95,		/// ÔªÉñ·ÖÁÑ
-	USTATE_CHANGEFACE	= 96,		/// Ò×ÈÝÊõ
-	USTATE_RUSHCRAZY	= 97,		/// ³å·æÔÎÑ£
-	USTATE_DIAMONDMAGIC	= 98,		/// ½ð¸Õ·¨Öä
-	USTATE_UPMAGIC		= 99,		/// Éý»ª·¨Öä
-	USTATE_GODBLESS		= 100,		/// ÉñÊ¥×£¸£
-	USTATE_REDHOT		= 101,		/// ÁÒÑ×ºì´½
-	USTATE_LOSTSPRITE	= 102,		/// ÔÎÑ£
-	USTATE_BLOODATTACK	= 103,		/// Ñª×¦¹¥»÷
-	USTATE_ARROWCONTROL = 104,		/// ¹­¼ýÕÆÎÕ
-	USTATE_SITDOWN		= 105,		/// ×øÏÂ
-	USTATE_SUMMON_STRENGTH	= 106, //ÕÙ»½ÊÞÇ¿»¯
-	USTATE_DEFENCE_HURT		= 107, //¸ßËÙÉÁ±Ü
-	USTATE_HURT_ABSTRACT	= 108, //ÉËº¦ÎüÊÕ
-	USTATE_BOMB_ATTACK		= 109, //±¬»÷
-	USTATE_MAGIC_DEFENCE	= 110, //Ä§¶ÜÊõ
-	USTATE_FIRST_AID		= 111, //ÖÎÁÆÊõ
-	USTATE_ANGRY			= 112, //·ßÅ­
-	USTATE_PK               = 113, //PK×·¼Ó×´Ì¬
-	USTATE_SAY_NOTHING		= 114, //ºúÑÔÂÒÓï
-	USTATE_WIND_ATTACK		= 115, //¿ñ·ç¾ö
-	USTATE_FIRE_ATTACK		= 116, //×ÆÉË
+	USTATE_DEATH  	= 0,//	æ­»äº¡
+	USTATE_POISON  	= 1,//	ä¸­æ¯’
+	USTATE_FREEZE  	= 2,//	å†°å†»
+	USTATE_LANDIFICATION = 3,//	å†»ç»“
+	USTATE_HIDE  	= 4,//	éšèº«
+	USTATE_TRADE  	= 5,//	äº¤æ˜“
+	USTATE_WAR		= 6,//	äº¤æˆ˜çŠ¶æ€
+	USTATE_LUCK  	= 7,//	å¹¸è¿
+	USTATE_DECLINE  = 8,//	è¡°å¼±
+	USTATE_CRAZY  	= 9,//	ç‹‚çƒ­
+	USTATE_LUCKY  	= 10,//	ç¥ç¦
+	USTATE_FIRM  	= 11,//	åšå›º
+	USTATE_ARMOUR  	= 12,//	é“ç”²
+	USTATE_PRAY  	= 13,//	ç¥ˆç¥·
+	USTATE_BIBLE  	= 14,//	åœ£æ´ä¹‹å…‰
+	USTATE_BIBLEARMOUR  	= 15,//	åœ£ç›¾ä¹‹å…‰
+	USTATE_WEAKEN  	= 16,//	å‰Šå¼±
+	USTATE_MAGICMIRROR  	= 17,//	é­”é•œ
+	USTATE_BLIND  	= 18,//	å¤±æ˜Ž
+	USTATE_ROCK		= 19,//	çŸ³åŒ–
+	USTATE_CONFUSION  	= 20,//	æ··ä¹±
+	USTATE_PALSY  	= 21,//	éº»ç—¹
+	USTATE_BLED  	= 22,//	æµè¡€
+	USTATE_REVERT  	= 23,//	å›žå¤å›¾è…¾
+	USTATE_RECOVERY  	= 24,//	é˜²å¾¡å›¾è…¾
+	USTATE_LIFE  	= 25,//	ç”Ÿå‘½å›¾è…¾
+	USTATE_PROCTECTED  	= 26,//	åº‡æŠ¤å›¾è…¾
+	USTATE_ABILITY  	= 27,//	èƒ½åŠ›å›¾è…¾
+	USTATE_BLOOD  	= 28,//	å¸è¡€å›¾è…¾
+	USTATE_MAGIC  	= 29,//	æ³•åŠ›å›¾è…¾
+	USTATE_SLOW  	= 30,//	ç¼“æ…¢å›¾è…¾
+	USTATE_PLANTING  	= 31,//	ç§æ¤
+	USTATE_DIGGING   	= 32,//	æŒ–æŽ˜
+	USTATE_PROSPECTING  = 33,//	æŽ¢çŸ¿
+	USTATE_CUTTING  	= 34,//	å¼€å‡¿
+	USTATE_GATHERING  	= 35,//	é‡‡é›†
+	USTATE_FISHING  	= 36,//	é’“é±¼
+	USTATE_HUNTING  	= 37,//	æ‰“çŒŽ
+	USTATE_GUARD 		= 38,//	æŠ¤å®
+	USTATE_MAGICSHELL	= 39,//	çµæ°”ç›¾
+	USTATE_NOSTOPATK	= 40,//	è¿žç»­æ”»å‡»
+	USTATE_IRONDFE		= 41,//	é’¢é“é˜²å¾¡
+	USTATE_LOSTBLOOD	= 42,//	å¤±è¡€ä¹‹å½±
+	USTATE_POWEROFLAND	= 43,//	å¤§åœ°ä¹‹åŠ›
+	USTATE_SPEEDNESSATK	= 44,//	å‡é€Ÿæ”»å‡»
+	USTATE_BODYWEAK		= 45,//	ä½“èƒ½å‰Šå¼±
+	USTATE_ATKWEAK		= 46,//	æ”»å‡»å‰Šå¼±
+	USTATE_RELIVEWEAK	= 47,//   å¤æ´»è™šå¼±çŠ¶æ€
+	USTATE_BOMB			= 48,//	è¯…å’’ç‚¸å¼¹
+	USTATE_RELIVERING	= 49,//	å¤æ´»å…‰çŽ¯
+	USTATE_NOTHING		= 50,//	è™šæ— 
+	USTATE_MOREHURT		= 51,//	ä¼¤å®³åŠ æ·±
+	USTATE_MIRRORHURT	= 52,//	ä¼¤å®³åå¼¹
+	USTATE_OLD			= 53,//	è¡°è€
+	USTATE_MINGYUN		= 54,//	å‘½è¿
+	USTATE_MINDWEAK		= 55,//	æ™ºèƒ½å‰Šå¼±
+	USTATE_MAGICWEAK	= 56,//	æ³•æœ¯å‰Šå¼±
+	USTATE_ROSE			= 57,//	çŽ«ç‘°åˆº
+	USTATE_BLANCEHURT	= 58,//	ä¼¤å®³å¹³åˆ†
+	USTATE_FACEOFF		= 59,//	æ˜“å®¹æœ¯
+	USTATE_HURTWEAK		= 60,//	ä¼¤å®³å‡å¼±
+	USTATE_SIGNOFSNIPER	= 61,//	ç®­æ‰‹æ ‡è®°
+	USTATE_GHOSTSHELL	= 62,		///	çµé­‚æŠ¤ç›¾
+	USTATE_ATKFAST		= 63,		///	æ”»å‡»åŠ é€Ÿ
+	USTATE_FASTATK		= 64,		///	é«˜é€Ÿæ”»å‡»
+	USTATE_BLOODHURT	= 65,		///	æµè¡€ä¼¤å®³
+	USTATE_POWEROFWIND	= 66,		///	é£Žä¹‹åŠ›
+	USTATE_POWEROFFIRE	= 67,		///	ç«ä¹‹åŠ›
+	USTATE_THOUCHOFFLASH	= 68,	///	é›·ç”µä¹‹è§¦
+	USTATE_SHELLOFFLASH	= 69,		///	é—ªç”µæŠ¤ç›¾
+	USTATE_THOUCHOFTHOUNDER	= 70,	///	é—ªç”µä¹‹è§¦
+	USTATE_SPEEDOFWIND	= 71,		///	é£Žä¹‹é€Ÿåº¦
+	USTATE_WEIHE		= 72,		///	å¨å“
+	USTATE_SPDHEATH		= 73,		///	ä½“åŠ›å¿«é€Ÿå›žå¤
+	USTATE_DAMBOCHONG	= 74,		///	ä¼¤å®³è¡¥å……
+	USTATE_ATKMORE		= 75,		///	æ”»å‡»åŠ å¼º
+	USTATE_SHANBIZUZHOU	= 76,		///	é—ªé¿è¯…å’’
+	USTATE_START_QUEST	= 77,		///	ä»»åŠ¡å¼€å§‹
+	USTATE_DOING_QUEST	= 78,		///	ä»»åŠ¡è¿›è¡Œä¸­
+	USTATE_FINISH_QUEST	= 79,		///	ä»»åŠ¡å®Œæˆ
+	USTATE_TIZHIJIAQIANG	= 80,	///	ä½“æ™ºåŠ å¼º
+	USTATE_RIDE			= 81,		///	éª‘é©¬
+	USTATE_POWERATK		= 82,		/// æ”»å‡»å¼ºåŒ–
+	USTATE_POWERDEF		= 83,		/// é˜²å¾¡å¼ºåŒ–
+	USTATE_SMILE		= 84,		/// å˜²è®½
+	USTATE_WINHEART		= 85,		/// èƒœå¿ƒè¯€
+	USTATE_THREAT		= 86,		/// æå“
+	USTATE_ACCRTSKILL	= 87,		/// ç²¾å‡†ä¹‹æœ¯
+	USTATE_DEATHHURT	= 88,		/// è‡´å‘½ä¸€å‡»
+	USTATE_SILENT		= 89,		/// å†·é™
+	USTATE_HUNTERSIGN	= 90,		/// çŒŽæ‰‹å°è®°
+	USTATE_WONDERIDEAR	= 91,		/// å†¥æƒ³
+	USTATE_PROTECTGOODS	= 92,		/// æŠ¤å®
+	USTATE_MAGICVESSEL	= 93,		/// æ³•åŠ›å®¹å™¨
+	USTATE_POWERBASE	= 94,		/// å…ƒç¥žå¢žå¼º
+	USTATE_BREAKBASE	= 95,		/// å…ƒç¥žåˆ†è£‚
+	USTATE_CHANGEFACE	= 96,		/// æ˜“å®¹æœ¯
+	USTATE_RUSHCRAZY	= 97,		/// å†²é”‹æ™•çœ©
+	USTATE_DIAMONDMAGIC	= 98,		/// é‡‘åˆšæ³•å’’
+	USTATE_UPMAGIC		= 99,		/// å‡åŽæ³•å’’
+	USTATE_GODBLESS		= 100,		/// ç¥žåœ£ç¥ç¦
+	USTATE_REDHOT		= 101,		/// çƒˆç‚Žçº¢å”‡
+	USTATE_LOSTSPRITE	= 102,		/// æ™•çœ©
+	USTATE_BLOODATTACK	= 103,		/// è¡€çˆªæ”»å‡»
+	USTATE_ARROWCONTROL = 104,		/// å¼“ç®­æŽŒæ¡
+	USTATE_SITDOWN		= 105,		/// åä¸‹
+	USTATE_SUMMON_STRENGTH	= 106, //å¬å”¤å…½å¼ºåŒ–
+	USTATE_DEFENCE_HURT		= 107, //é«˜é€Ÿé—ªé¿
+	USTATE_HURT_ABSTRACT	= 108, //ä¼¤å®³å¸æ”¶
+	USTATE_BOMB_ATTACK		= 109, //çˆ†å‡»
+	USTATE_MAGIC_DEFENCE	= 110, //é­”ç›¾æœ¯
+	USTATE_FIRST_AID		= 111, //æ²»ç–—æœ¯
+	USTATE_ANGRY			= 112, //æ„¤æ€’
+	USTATE_PK               = 113, //PKè¿½åŠ çŠ¶æ€
+	USTATE_SAY_NOTHING		= 114, //èƒ¡è¨€ä¹±è¯­
+	USTATE_WIND_ATTACK		= 115, //ç‹‚é£Žå†³
+	USTATE_FIRE_ATTACK		= 116, //ç¼ä¼¤
 	USTATE_PET_CARE			= 117,
 	USTATE_SPECIAL_DEFENCE	= 118,
 	USTATE_BREAK_DEFENCE	= 119,
@@ -647,7 +647,7 @@ enum {
 	USTATE_FAMILY_ADD_MDEF	= 165,
 	USTATE_FAMILY_ADD_MAXHP	= 166,
 	USTATE_FAMILY_ADD_MAXMP	= 167,
-	USTATE_COUNTRY_WAR	= 168, // ¹úÕ½×´Ì¬(µ±¶Ô·½Óë×Ô¼º´¦ÓÚ¹úÕ½×´Ì¬Ê±£¬·¢ËÍÕâ¸ö±êÖ¾)
+	USTATE_COUNTRY_WAR	= 168, // å›½æˆ˜çŠ¶æ€(å½“å¯¹æ–¹ä¸Žè‡ªå·±å¤„äºŽå›½æˆ˜çŠ¶æ€æ—¶ï¼Œå‘é€è¿™ä¸ªæ ‡å¿—)
 	USTATE_FIREWALL			= 169,
 	USTATE_FEED_BLOOD		= 170,
 	USTATE_SAY_ANGRY		= 171,
@@ -718,8 +718,8 @@ enum {
 	USTATE_FIRE_EAT_ALL		= 236,
 	USTATE_REJECT_LIGHT_RING	= 237,
 	USTATE_SOFT_LOVE_HEART	= 238,
-	USTATE_TOGETHER_WITH_DRAGON	= 239, // Áú¾«¸½Ìå
-	USTATE_TOGETHER_WITH_TIGER	= 240, // »¢ÆÇ¸½Ìå
+	USTATE_TOGETHER_WITH_DRAGON	= 239, // é¾™ç²¾é™„ä½“
+	USTATE_TOGETHER_WITH_TIGER	= 240, // è™Žé­„é™„ä½“
 	USTATE_IRON_BONE_SPRITE		= 241,
 	USTATE_IRON_BONE_GUARD		= 242,
 	USTATE_BEFORE_DIE_STATE		= 243,
@@ -733,10 +733,10 @@ enum {
 	USTATE_GOD_LABOR_BLESS		= 251,
 	USTATE_STRENGTH_DEFENCE_SKILL	= 252,
 	USTATE_HIDE_NOMOVE_STATE	= 253,
-	USTATE_PRIVATE_STORE		= 254, // °ÚÌ¯
-	USTATE_HANLIU			= 255,//º®Á÷
-	USTATE_XIXINGEMIA		= 256,//Ï´ÐÄ¸ïÃæ
-	USTATE_QUBAOJIUYI		= 257,//È¡±£¾ÍÒ½
+	USTATE_PRIVATE_STORE		= 254, // æ‘†æ‘Š
+	USTATE_HANLIU			= 255,//å¯’æµ
+	USTATE_XIXINGEMIA		= 256,//æ´—å¿ƒé©é¢
+	USTATE_QUBAOJIUYI		= 257,//å–ä¿å°±åŒ»
 	USTATE_BLIND_STRENGTH	= 258,
 	USTATE_MAKE_FORWORD		= 259,
 	USTATE_COME_ON_BABY		= 260,
@@ -761,99 +761,99 @@ enum {
 	USTATE_DEEP_EARTH_FIRE		= 279,
 	USTATE_BLOOD_DUTY			= 280,
 	USTATE_DANCE_AMONG_DURT_WATER	= 281,
-	USTATE_DAOJISHI				= 282,//ÔÚÊÕ·ÑµØÍ¼µÄ¼ÆÊ±
+	USTATE_DAOJISHI				= 282,//åœ¨æ”¶è´¹åœ°å›¾çš„è®¡æ—¶
 
-	MAX_STATE = 320                 /// ×î´ó×´Ì¬Êý
+	MAX_STATE = 320                 /// æœ€å¤§çŠ¶æ€æ•°
 };
 
 
 
-/// ¶¨ÒåÉÆ¶ñ¶È
+/// å®šä¹‰å–„æ¶åº¦
 #ifndef _GOOD_NESS_
 #define _GOOD_NESS_
 enum
 {
-	GOODNESS_0		= -120 & 0x0000FFFF,			//Ó¢ÐÛ
-	GOODNESS_1		= -60 & 0x0000FFFF,				//ÏÀÊ¿
-	GOODNESS_2_1	= 0,							//ÆÕÍ¨1
-	GOODNESS_2_2	= 0xFF000000,					//ÆÕÍ¨2
-	GOODNESS_3		= 60,							//´õÍ½
-	GOODNESS_4		= 120,							//¶ñÍ½
-	GOODNESS_5		= 180,							//¶ñÄ§
-	GOODNESS_6		= 300,							//Ä§Í·
-	GOODNESS_7		= 10000,						//ÅÑ¹ú
+	GOODNESS_0		= -120 & 0x0000FFFF,			//è‹±é›„
+	GOODNESS_1		= -60 & 0x0000FFFF,				//ä¾ å£«
+	GOODNESS_2_1	= 0,							//æ™®é€š1
+	GOODNESS_2_2	= 0xFF000000,					//æ™®é€š2
+	GOODNESS_3		= 60,							//æ­¹å¾’
+	GOODNESS_4		= 120,							//æ¶å¾’
+	GOODNESS_5		= 180,							//æ¶é­”
+	GOODNESS_6		= 300,							//é­”å¤´
+	GOODNESS_7		= 10000,						//å›å›½
 	
-	GOODNESS_ATT	= 0x00010000,					//Ö÷¶¯ÉËº¦±ðÈË
-	GOODNESS_DEF	= 0x00010000 << 1				//×ÔÎÀ·½
+	GOODNESS_ATT	= 0x00010000,					//ä¸»åŠ¨ä¼¤å®³åˆ«äºº
+	GOODNESS_DEF	= 0x00010000 << 1				//è‡ªå«æ–¹
 };
 #endif
-///¶¨ÒåÉÆ¶ñ¶È½áÊø
+///å®šä¹‰å–„æ¶åº¦ç»“æŸ
 
-/// ¼ì²éÄ³¸ö×´Ì¬ÊÇ·ñÉèÖÃ
+/// æ£€æŸ¥æŸä¸ªçŠ¶æ€æ˜¯å¦è®¾ç½®
 inline bool isset_state(const unsigned char *state, const int teststate)
 {
 	return 0 != (state[teststate / 8] & (0xff & (1 << (teststate % 8))));
 }
 
-/// ÉèÖÃÄ³¸ö×´Ì¬
+/// è®¾ç½®æŸä¸ªçŠ¶æ€
 inline void set_state(unsigned char *state, const int teststate)
 {
 	state[teststate / 8] |= (0xff & (1 << (teststate % 8)));
 }
 
-/// Çå³ýÄ³¸ö×´Ì¬
+/// æ¸…é™¤æŸä¸ªçŠ¶æ€
 inline void clear_state(unsigned char *state, const int teststate)
 {
 	state[teststate / 8] &= (0xff & (~(1 << (teststate % 8))));
 }
 
 struct t_MapBuildingData{
-	DWORD dwMapBuildingTempID;			/**< ½¨ÖþÎïµÄÁÙÊ±ID */
-	DWORD dwBuildingDataID;				/**< ½¨ÖþÎïµÄÊý¾ÝID */
+	DWORD dwMapBuildingTempID;			/**< å»ºç­‘ç‰©çš„ä¸´æ—¶ID */
+	DWORD dwBuildingDataID;				/**< å»ºç­‘ç‰©çš„æ•°æ®ID */
 	DWORD x;
 	DWORD y;
-	DWORD dwContract;					/**< µØÆõ±àºÅ */
-	char pstrName[MAX_NAMESIZE];		/**< ½¨ÖþÎïµÄÃû³Æ */
-	char pstrUserName[MAX_NAMESIZE];	/**< ½¨ÖþÎïµÄËùÓÐÕßÃû³Æ */
+	DWORD dwContract;					/**< åœ°å¥‘ç¼–å· */
+	char pstrName[MAX_NAMESIZE];		/**< å»ºç­‘ç‰©çš„åç§° */
+	char pstrUserName[MAX_NAMESIZE];	/**< å»ºç­‘ç‰©çš„æ‰€æœ‰è€…åç§° */
 };
 
 struct t_MapObjectData {
-	DWORD dwMapObjectTempID;				/**< ÎïÆ·µÄÁÙÊ±ID */
-	DWORD dwObjectID;                       /**< ÎïÆ·µÄÊý¾ÝID */
-	char pstrName[MAX_NAMESIZE];			/**<  ÎïÆ·Ãû */
+	DWORD dwMapObjectTempID;				/**< ç‰©å“çš„ä¸´æ—¶ID */
+	DWORD dwObjectID;                       /**< ç‰©å“çš„æ•°æ®ID */
+	char pstrName[MAX_NAMESIZE];			/**<  ç‰©å“å */
 	DWORD x;
 	DWORD y;
-	DWORD wdNumber;                         /**< ÊýÁ¿ */
-	WORD  wdLevel;                          /**< µÈ¼¶ */
+	DWORD wdNumber;                         /**< æ•°é‡ */
+	WORD  wdLevel;                          /**< ç­‰çº§ */
 	BYTE upgrade;
 	BYTE kind;
 	DWORD dwOwner;
 };
 
-//³èÎïµÄÀàÐÍ
+//å® ç‰©çš„ç±»åž‹
 enum petType
 {
-	PET_TYPE_NOTPET 	= 0,	//²»ÊÇ³èÎï
-	PET_TYPE_RIDE		= 1,	//×øÆï
-	PET_TYPE_PET		= 2,	//³èÎï
-	PET_TYPE_SUMMON		= 3,	//ÕÙ»½ÊÞ
-	PET_TYPE_TOTEM		= 4,	//Í¼ÌÚ
-	PET_TYPE_GUARDNPC	= 5,	//Òª»¤ÎÀµÄnpc
-	PET_TYPE_SEMI           = 6,    //°ë³èÎï£¬¸úÖ÷ÈËÍ¬ÉúÍ¬ËÀ£¬AIÍêÈ«Ã»¹ØÏµ
-	PET_TYPE_CARTOON        = 7     //¿¨Í¨±¦±¦
+	PET_TYPE_NOTPET 	= 0,	//ä¸æ˜¯å® ç‰©
+	PET_TYPE_RIDE		= 1,	//åéª‘
+	PET_TYPE_PET		= 2,	//å® ç‰©
+	PET_TYPE_SUMMON		= 3,	//å¬å”¤å…½
+	PET_TYPE_TOTEM		= 4,	//å›¾è…¾
+	PET_TYPE_GUARDNPC	= 5,	//è¦æŠ¤å«çš„npc
+	PET_TYPE_SEMI           = 6,    //åŠå® ç‰©ï¼Œè·Ÿä¸»äººåŒç”ŸåŒæ­»ï¼ŒAIå®Œå…¨æ²¡å…³ç³»
+	PET_TYPE_CARTOON        = 7     //å¡é€šå®å®
 };
 
 struct t_NpcData {
-	DWORD dwMapNpcDataPosition;	/**< npcµÄÊý¾ÝÎ»ÖÃ */
-	DWORD dwNpcDataID;			/**< npcµÄÊý¾ÝID */
-	WORD  movespeed;		/// ÒÆ¶¯ËÙ¶È
+	DWORD dwMapNpcDataPosition;	/**< npcçš„æ•°æ®ä½ç½® */
+	DWORD dwNpcDataID;			/**< npcçš„æ•°æ®ID */
+	WORD  movespeed;		/// ç§»åŠ¨é€Ÿåº¦
 	
-	BYTE byDirect;				/**< NpcµÄ·½Ïò */
-	BYTE level;///µÈ¼¶
+	BYTE byDirect;				/**< Npcçš„æ–¹å‘ */
+	BYTE level;///ç­‰çº§
 };
 struct t_MapNpcData :public t_NpcData
 {
-	BYTE byState[(MAX_STATE + 7) / 8];			/**< NpcµÄ×´Ì¬ */
+	BYTE byState[(MAX_STATE + 7) / 8];			/**< Npcçš„çŠ¶æ€ */
 };
 struct t_MapNpcDataState :public t_NpcData
 {
@@ -861,72 +861,72 @@ struct t_MapNpcDataState :public t_NpcData
 	{
 		num=0;
 	}
-	BYTE num; 		///´ø×´Ì¬µÄÊýÁ¿
-	WORD state[0];		///×´Ì¬ÁÐ±í
+	BYTE num; 		///å¸¦çŠ¶æ€çš„æ•°é‡
+	WORD state[0];		///çŠ¶æ€åˆ—è¡¨
 };
 
 struct t_MapPetData {
-	DWORD tempID;//npcµÄÁÙÊ±ID
+	DWORD tempID;//npcçš„ä¸´æ—¶ID
 
-	char name[MAX_NAMESIZE]; //npcµÄÃû³Æ
-	BYTE masterType;	///Ö÷ÈËµÄÀàÐÍ  0£ºÍæ¼Ò 1£ºnpc
-	DWORD masterID;	///Ö÷ÈËµÄid -1£ºÃ»ÓÐÖ÷ÈË
-	char masterName[MAX_NAMESIZE];///Ö÷ÈÎµÄÃû×Ö
-	BYTE pet_type;//³èÎïÀàÐÍ
+	char name[MAX_NAMESIZE]; //npcçš„åç§°
+	BYTE masterType;	///ä¸»äººçš„ç±»åž‹  0ï¼šçŽ©å®¶ 1ï¼šnpc
+	DWORD masterID;	///ä¸»äººçš„id -1ï¼šæ²¡æœ‰ä¸»äºº
+	char masterName[MAX_NAMESIZE];///ä¸»ä»»çš„åå­—
+	BYTE pet_type;//å® ç‰©ç±»åž‹
 };
 
 struct t_MapUserSculpt{
-	DWORD dwHorseID;					/// ÂíÅÆ±àºÅ
-	DWORD dwHairID;						/// Í··¢ÀàÐÍ
-	DWORD dwBodyID;						/// ÉíÌåÎïÆ·ID
-	DWORD dwLeftHandID;					/// ×óÊÖÎïÆ·ID
-	DWORD dwRightHandID;				/// ÓÒÊÖÎïÆ·ID
+	DWORD dwHorseID;					/// é©¬ç‰Œç¼–å·
+	DWORD dwHairID;						/// å¤´å‘ç±»åž‹
+	DWORD dwBodyID;						/// èº«ä½“ç‰©å“ID
+	DWORD dwLeftHandID;					/// å·¦æ‰‹ç‰©å“ID
+	DWORD dwRightHandID;				/// å³æ‰‹ç‰©å“ID
 };
 
-//¶ÓÎé±êÖ¾
+//é˜Ÿä¼æ ‡å¿—
 enum{
 	TEAD_STATE_NONE ,
 	TEAD_STATE_MEMBER ,
 	TEAM_STATE_LEADER,
 };
 
-/// ÓÃ»§±¾ÉíµÄÊý¾Ý£¬²»°üÀ¨×´Ì¬
+/// ç”¨æˆ·æœ¬èº«çš„æ•°æ®ï¼Œä¸åŒ…æ‹¬çŠ¶æ€
 struct t_UserData
 {
-	DWORD dwUserTempID;					//// ÓÃ»§ÁÙÊ±ID
+	DWORD dwUserTempID;					//// ç”¨æˆ·ä¸´æ—¶ID
 
-	char  name[MAX_NAMESIZE + 1];		/// ½ÇÉ«Ãû³Æ
-	WORD  type;							/// Ö°ÒµÀàÐÍ
-	//WORD  sex;							/// ÐÔ±ð
-	WORD  face;							/// Í·Ïó
-	DWORD goodness;						/// ÉÆ¶ñ¶È
+	char  name[MAX_NAMESIZE + 1];		/// è§’è‰²åç§°
+	WORD  type;							/// èŒä¸šç±»åž‹
+	//WORD  sex;							/// æ€§åˆ«
+	WORD  face;							/// å¤´è±¡
+	DWORD goodness;						/// å–„æ¶åº¦
 
 	t_MapUserSculpt sculpt;
-	DWORD dwHairRGB;					/// Í··¢ÑÕÉ«0xffrrggbb
-	DWORD dwBodyColorSystem;			/// ÒÂ·þÏµÍ³ÑÕÉ«0xffrrggbb
-	DWORD dwBodyColorCustom;			/// ÒÂ·þ¶¨ÖÆÑÕÉ«0xffrrggbb
-	DWORD dwLeftWeaponColor;			/// ×óÊÖÎäÆ÷ÑÕÉ«0xffrrggbb
-	DWORD dwRightWeaponColor;			/// ÓÒÊÖÎäÆ÷ÑÕÉ«0xffrrggbb
-	WORD  attackspeed;					/// ¹¥»÷ËÙ¶È
-	WORD  movespeed;					/// ÒÆ¶¯ËÙ¶È
-	BYTE country;						/// ¹ú¼Ò
-	DWORD dwChangeFaceID;				//Ò×ÈÝºóµÄNPCµÄÀàÐÍID
-	BYTE live_skills[6]; 				//Éú»î¼¼ÄÜµÈ¼¶
+	DWORD dwHairRGB;					/// å¤´å‘é¢œè‰²0xffrrggbb
+	DWORD dwBodyColorSystem;			/// è¡£æœç³»ç»Ÿé¢œè‰²0xffrrggbb
+	DWORD dwBodyColorCustom;			/// è¡£æœå®šåˆ¶é¢œè‰²0xffrrggbb
+	DWORD dwLeftWeaponColor;			/// å·¦æ‰‹æ­¦å™¨é¢œè‰²0xffrrggbb
+	DWORD dwRightWeaponColor;			/// å³æ‰‹æ­¦å™¨é¢œè‰²0xffrrggbb
+	WORD  attackspeed;					/// æ”»å‡»é€Ÿåº¦
+	WORD  movespeed;					/// ç§»åŠ¨é€Ÿåº¦
+	BYTE country;						/// å›½å®¶
+	DWORD dwChangeFaceID;				//æ˜“å®¹åŽçš„NPCçš„ç±»åž‹ID
+	BYTE live_skills[6]; 				//ç”Ÿæ´»æŠ€èƒ½ç­‰çº§
 	BYTE level;							//Level : 1(<10)   11(>=10)
-	DWORD exploit;				// ¹¦Ñ«Öµ
-	DWORD grace;				// ÎÄ²ÉÖµ
+	DWORD exploit;				// åŠŸå‹‹å€¼
+	DWORD grace;				// æ–‡é‡‡å€¼
 	
-	DWORD dwUnionID;			// °ï»áID
-	DWORD dwSeptID;				// ¼Ò×åID
+	DWORD dwUnionID;			// å¸®ä¼šID
+	DWORD dwSeptID;				// å®¶æ—ID
 	
-	char  caption[MAX_NAMESIZE];		// ¶¥²¿Í·ÏÎ£¨Ä³³Ç³ÇÖ÷»òÄ³¹ú¹úÍõ£©
-	DWORD dwTeamState;					// ¶ÓÎé×´Ì¬
-	DWORD dwArmyState;			//1Îª¶Ó³¤£¬2Îª½«¾ü,0ÎªÎ´¼ÓÈë¾ü¶Ó
+	char  caption[MAX_NAMESIZE];		// é¡¶éƒ¨å¤´è¡”ï¼ˆæŸåŸŽåŸŽä¸»æˆ–æŸå›½å›½çŽ‹ï¼‰
+	DWORD dwTeamState;					// é˜Ÿä¼çŠ¶æ€
+	DWORD dwArmyState;			//1ä¸ºé˜Ÿé•¿ï¼Œ2ä¸ºå°†å†›,0ä¸ºæœªåŠ å…¥å†›é˜Ÿ
 };
 
 struct t_MapUserData : public t_UserData 
 {
-	BYTE state[(MAX_STATE + 7) / 8];	/// ½ÇÉ«×´Ì¬
+	BYTE state[(MAX_STATE + 7) / 8];	/// è§’è‰²çŠ¶æ€
 };
 struct t_MapUserDataState : public t_UserData 
 {
@@ -934,75 +934,75 @@ struct t_MapUserDataState : public t_UserData
 	{
 		num=0;
 	}
-	BYTE num; 		///´ø×´Ì¬µÄÊýÁ¿
-	WORD state[0];		///×´Ì¬ÁÐ±í
+	BYTE num; 		///å¸¦çŠ¶æ€çš„æ•°é‡
+	WORD state[0];		///çŠ¶æ€åˆ—è¡¨
 };
 
 struct t_MainUserData 
 {
-	DWORD dwUserTempID;				/// ÓÃ»§ÁÙÊ±ID
-	WORD  level;					/// ½ÇÉ«µÈ¼¶
-	DWORD hp;						/// µ±Ç°ÉúÃüÖµ
-	DWORD maxhp;					/// ×î´óÉúÃüÖµ
-	DWORD resumehp;					/// ÉúÃüÖµ»Ö¸´
-	DWORD mp;						/// µ±Ç°·¨ÊõÖµ
-	DWORD maxmp;					/// ×î´ó·¨ÊõÖµ
-	DWORD resumemp;					/// ·¨ÊõÖµ»Ö¸´
-	DWORD sp;						/// µ±Ç°ÌåÁ¦Öµ
-	DWORD maxsp;					/// ×î´óÌåÁ¦Öµ
-	DWORD resumesp;					/// ÌåÁ¦Öµ»Ö¸´
-	DWORD pdamage;					/// ×îÐ¡ÎïÀí¹¥»÷Á¦
-	DWORD maxpdamage;				/// ×î´óÎïÀí¹¥»÷Á¦
-	DWORD mdamage;					/// ×îÐ¡·¨Êõ¹¥»÷Á¦
-	DWORD maxmdamage;				/// ×î´ó·¨Êõ¹¥»÷Á¦
-	DWORD pdefence;					/// ÎïÀí·ÀÓùÁ¦
-	DWORD mdefence;					/// ·¨Êõ·ÀÓùÁ¦
-	QWORD exp;						/// µ±Ç°¾­ÑéÖµ
-	QWORD nextexp;					/// Éý¼¶¾­ÑéÖµ
-	WORD  attackrating;				/// ¹¥»÷ÃüÖÐ
-	WORD  attackdodge;				/// ¹¥»÷¶ã±Ü
-	WORD  bang;						/// ÖØ»÷
-	WORD  lucky;					/// ÐÒÔËÖµ
-	WORD  charm;					/// ÷ÈÁ¦Öµ
+	DWORD dwUserTempID;				/// ç”¨æˆ·ä¸´æ—¶ID
+	WORD  level;					/// è§’è‰²ç­‰çº§
+	DWORD hp;						/// å½“å‰ç”Ÿå‘½å€¼
+	DWORD maxhp;					/// æœ€å¤§ç”Ÿå‘½å€¼
+	DWORD resumehp;					/// ç”Ÿå‘½å€¼æ¢å¤
+	DWORD mp;						/// å½“å‰æ³•æœ¯å€¼
+	DWORD maxmp;					/// æœ€å¤§æ³•æœ¯å€¼
+	DWORD resumemp;					/// æ³•æœ¯å€¼æ¢å¤
+	DWORD sp;						/// å½“å‰ä½“åŠ›å€¼
+	DWORD maxsp;					/// æœ€å¤§ä½“åŠ›å€¼
+	DWORD resumesp;					/// ä½“åŠ›å€¼æ¢å¤
+	DWORD pdamage;					/// æœ€å°ç‰©ç†æ”»å‡»åŠ›
+	DWORD maxpdamage;				/// æœ€å¤§ç‰©ç†æ”»å‡»åŠ›
+	DWORD mdamage;					/// æœ€å°æ³•æœ¯æ”»å‡»åŠ›
+	DWORD maxmdamage;				/// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
+	DWORD pdefence;					/// ç‰©ç†é˜²å¾¡åŠ›
+	DWORD mdefence;					/// æ³•æœ¯é˜²å¾¡åŠ›
+	QWORD exp;						/// å½“å‰ç»éªŒå€¼
+	QWORD nextexp;					/// å‡çº§ç»éªŒå€¼
+	WORD  attackrating;				/// æ”»å‡»å‘½ä¸­
+	WORD  attackdodge;				/// æ”»å‡»èº²é¿
+	WORD  bang;						/// é‡å‡»
+	WORD  lucky;					/// å¹¸è¿å€¼
+	WORD  charm;					/// é­…åŠ›å€¼
 	union {
 		struct {
-			WORD wdCon;	//ÌåÖÊ
-			WORD wdStr;	//ÌåÁ¦
-			WORD wdDex;	//Ãô½Ý
-			WORD wdInt;	//ÖÇÁ¦
-			WORD wdMen;	//¾«Éñ
+			WORD wdCon;	//ä½“è´¨
+			WORD wdStr;	//ä½“åŠ›
+			WORD wdDex;	//æ•æ·
+			WORD wdInt;	//æ™ºåŠ›
+			WORD wdMen;	//ç²¾ç¥ž
 		};
 		WORD wdProperty[5];
 	};
-	WORD  skillPoint;                   /// ¼¼ÄÜµãÊý
-	WORD  points;                       /// µãÊý
-	DWORD country;						/// ¹ú¼Ò
-	WORD  pkmode;                       /// pkÄ£Ê½
+	WORD  skillPoint;                   /// æŠ€èƒ½ç‚¹æ•°
+	WORD  points;                       /// ç‚¹æ•°
+	DWORD country;						/// å›½å®¶
+	WORD  pkmode;                       /// pkæ¨¡å¼
 
 
-	DWORD stdpdamage;					/// ±ê×¼ÎïÀí¹¥»÷Á¦
-	DWORD stdmdamage;					/// ±ê×¼·¨Êõ¹¥»÷Á¦
-	DWORD stdpdefence;					/// ±ê×¼ÎïÀí·ÀÓùÁ¦
-	DWORD stdmdefence;					/// ±ê×¼·¨Êõ·ÀÓùÁ¦
-	WORD  stdbang;						/// ±ê×¼ÖØ»÷ÂÊ
+	DWORD stdpdamage;					/// æ ‡å‡†ç‰©ç†æ”»å‡»åŠ›
+	DWORD stdmdamage;					/// æ ‡å‡†æ³•æœ¯æ”»å‡»åŠ›
+	DWORD stdpdefence;					/// æ ‡å‡†ç‰©ç†é˜²å¾¡åŠ›
+	DWORD stdmdefence;					/// æ ‡å‡†æ³•æœ¯é˜²å¾¡åŠ›
+	WORD  stdbang;						/// æ ‡å‡†é‡å‡»çŽ‡
 	union {
 		struct {
-			WORD wdStdCon;	//ÌåÖÊ
-			WORD wdStdStr;	//ÌåÁ¦
-			WORD wdStdDex;	//Ãô½Ý
-			WORD wdStdInt;	//ÖÇÁ¦
-			WORD wdStdMen;	//¾«Éñ
+			WORD wdStdCon;	//ä½“è´¨
+			WORD wdStdStr;	//ä½“åŠ›
+			WORD wdStdDex;	//æ•æ·
+			WORD wdStdInt;	//æ™ºåŠ›
+			WORD wdStdMen;	//ç²¾ç¥ž
 		};
 		WORD wdStdProperty[5];
 	};
-	WORD wdTire; /// Æ£ÀÍ×´Ì¬ 0Îª·Ç 1ÎªÆ£ÀÍ
-	DWORD fivetype;	///ÎåÐÐÀàÐÍ
-	DWORD fivepoint;///ÎåÐÐµãÊý
-	DWORD honor;///ÈÙÓþÖµ
-	DWORD maxhonor;///×î´óÈÙÓþÖµ
-	DWORD gold;	///½ð±ÒÊý
-	DWORD ticket; //µãÈ¯Êý
-	DWORD bitmask;					/// ½ÇÉ«ÑÚÂë
+	WORD wdTire; /// ç–²åŠ³çŠ¶æ€ 0ä¸ºéž 1ä¸ºç–²åŠ³
+	DWORD fivetype;	///äº”è¡Œç±»åž‹
+	DWORD fivepoint;///äº”è¡Œç‚¹æ•°
+	DWORD honor;///è£èª‰å€¼
+	DWORD maxhonor;///æœ€å¤§è£èª‰å€¼
+	DWORD gold;	///é‡‘å¸æ•°
+	DWORD ticket; //ç‚¹åˆ¸æ•°
+	DWORD bitmask;					/// è§’è‰²æŽ©ç 
 };
 
 struct stDataUserCmd : public stNullUserCmd
@@ -1013,7 +1013,7 @@ struct stDataUserCmd : public stNullUserCmd
 	}
 };
 
-/// Ö÷ÓÃ»§Êý¾Ý
+/// ä¸»ç”¨æˆ·æ•°æ®
 const BYTE MAIN_USER_DATA_USERCMD_PARA = 1;
 	struct stMainUserDataUserCmd : public stDataUserCmd {
 		stMainUserDataUserCmd()
@@ -1025,13 +1025,13 @@ const BYTE MAIN_USER_DATA_USERCMD_PARA = 1;
 	};
 /*
 enum {
-	DECTYPE_POWER,				/// ÌåÁ¦
-	DECTYPE_STRENGTH,			/// Á¦Á¿
-	DECTYPE_INTELLECTUALITY,	/// ÖÇÁ¦
-	DECTYPE_CORPOREITY,			/// ÌåÖÊ
-	DECTYPE_DEXTERITY			/// Ãô½Ý
+	DECTYPE_POWER,				/// ä½“åŠ›
+	DECTYPE_STRENGTH,			/// åŠ›é‡
+	DECTYPE_INTELLECTUALITY,	/// æ™ºåŠ›
+	DECTYPE_CORPOREITY,			/// ä½“è´¨
+	DECTYPE_DEXTERITY			/// æ•æ·
 };
-/// ¼õÉÙÊ£ÓàµãÊý£¬Ôö¼Óµ½ÌåÁ¦µÈÖÐ
+/// å‡å°‘å‰©ä½™ç‚¹æ•°ï¼Œå¢žåŠ åˆ°ä½“åŠ›ç­‰ä¸­
 const BYTE DECREMAINDER_DATA_USERCMD_PARA = 2;
 	struct stDecRemainderDataUserCmd : public stDataUserCmd{
 		stDecRemainderDataUserCmd()
@@ -1039,12 +1039,12 @@ const BYTE DECREMAINDER_DATA_USERCMD_PARA = 2;
 			byParam = DECREMAINDER_DATA_USERCMD_PARA;
 		}
 
-		BYTE byDecType;				**< ¼ÓµãÀàÐÍ *
+		BYTE byDecType;				**< åŠ ç‚¹ç±»åž‹ *
 	};
 
 */
 
-/// ÉèÖÃÓÃ»§ÉúÃüºÍÄ§·¨
+/// è®¾ç½®ç”¨æˆ·ç”Ÿå‘½å’Œé­”æ³•
 const BYTE SETHPANDMP_DATA_USERCMD_PARA = 3;
 	struct stSetHPAndMPDataUserCmd : public stDataUserCmd{
 		stSetHPAndMPDataUserCmd()
@@ -1058,10 +1058,10 @@ const BYTE SETHPANDMP_DATA_USERCMD_PARA = 3;
 	};
 
 enum {
-	MAP_SETTING_RIDE	= 0x00000001,	/// ´óÂ½¿ÉÒÔÆïÂí
-	MAP_SETTING_WEATHER	= 0x00000002	/// ´óÂ½ÓÐÓêÑ©ÌìÆø±ä»¯
+	MAP_SETTING_RIDE	= 0x00000001,	/// å¤§é™†å¯ä»¥éª‘é©¬
+	MAP_SETTING_WEATHER	= 0x00000002	/// å¤§é™†æœ‰é›¨é›ªå¤©æ°”å˜åŒ–
 };
-/// µØÍ¼ÐÅÏ¢
+/// åœ°å›¾ä¿¡æ¯
 const BYTE MAPSCREENSIZE_DATA_USERCMD_PARA = 28;
 	struct stMapScreenSizeDataUserCmd : public stDataUserCmd{
 		stMapScreenSizeDataUserCmd()
@@ -1069,15 +1069,15 @@ const BYTE MAPSCREENSIZE_DATA_USERCMD_PARA = 28;
 			byParam = MAPSCREENSIZE_DATA_USERCMD_PARA;
 		}
 
-		DWORD width;		/**< ³¡¾°¿í */
-		DWORD height;		/**< ³¡¾°¸ß */
-		char pstrMapName[MAX_NAMESIZE];	/**< ´óÂ½Ãû³Æ */
-		char pstrFilename[MAX_NAMESIZE];	/**< ÎÄ¼þÃû³Æ */
-		DWORD setting;				/**< ´óÂ½±êÖ¾ */
-		DWORD rgb;					/**< ÑÕÉ«±êÖ¾0x00rrggbb */
-		char pstrGroupName[MAX_NAMESIZE];	/**< ·þÎñÆ÷×éÃû³Æ */
-		char pstrCountryName[MAX_NAMESIZE];	/**< ¹ú¼ÒÃû³Æ */
-		char pstrCityName[MAX_NAMESIZE];	/**< ³ÇÊÐÃû³Æ */
+		DWORD width;		/**< åœºæ™¯å®½ */
+		DWORD height;		/**< åœºæ™¯é«˜ */
+		char pstrMapName[MAX_NAMESIZE];	/**< å¤§é™†åç§° */
+		char pstrFilename[MAX_NAMESIZE];	/**< æ–‡ä»¶åç§° */
+		DWORD setting;				/**< å¤§é™†æ ‡å¿— */
+		DWORD rgb;					/**< é¢œè‰²æ ‡å¿—0x00rrggbb */
+		char pstrGroupName[MAX_NAMESIZE];	/**< æœåŠ¡å™¨ç»„åç§° */
+		char pstrCountryName[MAX_NAMESIZE];	/**< å›½å®¶åç§° */
+		char pstrCityName[MAX_NAMESIZE];	/**< åŸŽå¸‚åç§° */
 		int mainRoleX;	
 		int mainRoleY;
 		short npc_count;
@@ -1086,7 +1086,7 @@ const BYTE MAPSCREENSIZE_DATA_USERCMD_PARA = 28;
 		} npc_list[0];
 	};
 
-//¿Í»§¶Ë¼ÓÔØµØÍ¼Íê³É
+//å®¢æˆ·ç«¯åŠ è½½åœ°å›¾å®Œæˆ
 const BYTE LOADMAPOK_DATA_USERCMD_PARA = 29;
 	struct stLoadMapOKDataUserCmd : public stDataUserCmd{
 		stLoadMapOKDataUserCmd()
@@ -1095,23 +1095,23 @@ const BYTE LOADMAPOK_DATA_USERCMD_PARA = 29;
 		}
 	};
 
-/// ½ÇÉ«µÄµÈ¼¶ÅÅÃû
+/// è§’è‰²çš„ç­‰çº§æŽ’å
 const BYTE LEVELDEGREE_DATA_USERCMD_PARA = 30;
 	struct stLevelDegreeDataUserCmd : public stDataUserCmd{
 		stLevelDegreeDataUserCmd()
 		{
 			byParam = LEVELDEGREE_DATA_USERCMD_PARA;
 		}
-		WORD degree; // 1-2000Ãû
+		WORD degree; // 1-2000å
 	};
 
-/// ·¢ËÍÌØÕ÷ÂëÎÄ¼þ
+/// å‘é€ç‰¹å¾ç æ–‡ä»¶
 const BYTE STAMP_DATA_USERCMD_PARA = 51;
 struct stStampDataUserCmd : public stDataUserCmd
 {
-	bool check;//ÊÇ·ñ½øÐÐÍâ¹Ò¼ì²â
+	bool check;//æ˜¯å¦è¿›è¡Œå¤–æŒ‚æ£€æµ‹
 	DWORD size;
-	BYTE bin[0];//ÌØÕ÷ÂëÎÄ¼þ
+	BYTE bin[0];//ç‰¹å¾ç æ–‡ä»¶
 	stStampDataUserCmd()
 	{
 		byParam = STAMP_DATA_USERCMD_PARA;
@@ -1121,11 +1121,11 @@ struct stStampDataUserCmd : public stDataUserCmd
 	}
 };
 
-/// ¿Í»§¶Ë½øÐÐÍâ¹Ò¼ì²â
+/// å®¢æˆ·ç«¯è¿›è¡Œå¤–æŒ‚æ£€æµ‹
 const BYTE STAMP_CHECK_USERCMD_PARA = 52;
 struct stStampCheckUserCmd : public stDataUserCmd
 {
-	DWORD flag;//0 ¹Ø; 1 ¿ª
+	DWORD flag;//0 å…³; 1 å¼€
 	stStampCheckUserCmd()
 	{
 		byParam = STAMP_CHECK_USERCMD_PARA;
@@ -1134,7 +1134,7 @@ struct stStampCheckUserCmd : public stDataUserCmd
 	}
 };
 
-/// ·¢ËÍµ±Ç°ºÏ²¢°æ±¾ºÅ
+/// å‘é€å½“å‰åˆå¹¶ç‰ˆæœ¬å·
 const BYTE MERGE_VERSION_CHECK_USERCMD_PARA = 53;
 struct stMergeVersionCheckUserCmd : public stDataUserCmd
 {
@@ -1147,7 +1147,7 @@ struct stMergeVersionCheckUserCmd : public stDataUserCmd
 	DWORD dwMergeVersion;
 };
 
-/// ·¢ËÍ³õÊ¼»¯ÐÅÏ¢½áÊø
+/// å‘é€åˆå§‹åŒ–ä¿¡æ¯ç»“æŸ
 const BYTE ENDOFINITDATA_DATA_USERCMD_PARA = 255;
 	struct stEndOfInitDataDataUserCmd : public stDataUserCmd{
 		stEndOfInitDataDataUserCmd()
@@ -1157,12 +1157,12 @@ const BYTE ENDOFINITDATA_DATA_USERCMD_PARA = 255;
 	};
 
 //////////////////////////////////////////////////////////////
-/// Êý¾ÝÖ¸Áî¶¨ÒåÍê³É
+/// æ•°æ®æŒ‡ä»¤å®šä¹‰å®Œæˆ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// µØÍ¼Êý¾ÝÖ¸Áî¶¨Òå¿ªÊ¼
+/// åœ°å›¾æ•°æ®æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 	struct stMapScreenUserCmd : public stNullUserCmd{
 		stMapScreenUserCmd()
@@ -1172,7 +1172,7 @@ const BYTE ENDOFINITDATA_DATA_USERCMD_PARA = 255;
 	};
 
 
-/// µØÍ¼ÉÏÔö¼ÓÈËÎï
+/// åœ°å›¾ä¸Šå¢žåŠ äººç‰©
 const BYTE ADDUSER_MAPSCREEN_USERCMD_PARA = 10;
 	struct stAddUserMapScreenUserCmd : public stMapScreenUserCmd {
 		stAddUserMapScreenUserCmd()
@@ -1182,7 +1182,7 @@ const BYTE ADDUSER_MAPSCREEN_USERCMD_PARA = 10;
 		t_MapUserData data;
 	};
 
-/// µØÍ¼ÉÏÃæÉ¾³ýÈËÎï
+/// åœ°å›¾ä¸Šé¢åˆ é™¤äººç‰©
 const BYTE REMOVEUSER_MAPSCREEN_USERCMD_PARA = 11;
 	struct stRemoveUserMapScreenUserCmd : public stMapScreenUserCmd{
 		stRemoveUserMapScreenUserCmd()
@@ -1190,10 +1190,10 @@ const BYTE REMOVEUSER_MAPSCREEN_USERCMD_PARA = 11;
 			byParam = REMOVEUSER_MAPSCREEN_USERCMD_PARA;
 		}
 
-		DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
+		DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
 	};
 
-/// ÓÃ»§ÇëÇóÆäËûÓÃ»§Êý¾Ý
+/// ç”¨æˆ·è¯·æ±‚å…¶ä»–ç”¨æˆ·æ•°æ®
 const BYTE REQUESTUSERDATA_MAPSCREEN_USERCMD_PARA = 12;
 	struct stRequestUserDataMapScreenUserCmd : public stMapScreenUserCmd{
 		stRequestUserDataMapScreenUserCmd()
@@ -1202,10 +1202,10 @@ const BYTE REQUESTUSERDATA_MAPSCREEN_USERCMD_PARA = 12;
 		}
 
 		WORD size;
-		DWORD dwUserTempID[0];	//ÁÙÊ±±àºÅÁÐ±í(DWORD)
+		DWORD dwUserTempID[0];	//ä¸´æ—¶ç¼–å·åˆ—è¡¨(DWORD)
 	};
 
-/// ÓÃ»§ÆïÂí
+/// ç”¨æˆ·éª‘é©¬
 const BYTE RIDE_MAPSCREEN_USERCMD_PARA = 13;
 struct stRideMapScreenUserCmd : public stMapScreenUserCmd
 {
@@ -1214,11 +1214,11 @@ struct stRideMapScreenUserCmd : public stMapScreenUserCmd
 		byParam = RIDE_MAPSCREEN_USERCMD_PARA;
 	}
 
-	DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
-	BYTE bySwitch;				/**< ÆïÂí¿ª¹Ø£º£±ÊÇÆïÂí£¬£°ÊÇÏÂÂí */
+	DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
+	BYTE bySwitch;				/**< éª‘é©¬å¼€å…³ï¼šï¼‘æ˜¯éª‘é©¬ï¼Œï¼æ˜¯ä¸‹é©¬ */
 };
 
-/// Ë¢ÐÂ½ÇÉ«×´Ì¬
+/// åˆ·æ–°è§’è‰²çŠ¶æ€
 const BYTE REFRESHSTATE_MAPSCREEN_USERCMD_PARA = 14;
 struct stRefreshStateMapScreenUserCmd : public stMapScreenUserCmd{
 	stRefreshStateMapScreenUserCmd()
@@ -1226,17 +1226,17 @@ struct stRefreshStateMapScreenUserCmd : public stMapScreenUserCmd{
 		byParam = REFRESHSTATE_MAPSCREEN_USERCMD_PARA;
 		bzero(state , sizeof(state));
 	}
-	DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
-	BYTE state[(MAX_STATE + 7) / 8];	/// ½ÇÉ«×´Ì¬
+	DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
+	BYTE state[(MAX_STATE + 7) / 8];	/// è§’è‰²çŠ¶æ€
 	
 };
 
-/// ¶¨ÒåÎïÆ·¶¯×÷ÀàÐÍ
+/// å®šä¹‰ç‰©å“åŠ¨ä½œç±»åž‹
 enum{
-		OBJECTACTION_DROP,			/// µôÂäÎïÆ·
-			OBJECTACTION_UPDATE,		/// ¸üÐÂÎïÆ·Êý¾Ý
+		OBJECTACTION_DROP,			/// æŽ‰è½ç‰©å“
+			OBJECTACTION_UPDATE,		/// æ›´æ–°ç‰©å“æ•°æ®
 };
-/// ÔÚµØÍ¼ÉÏÔö¼ÓÎïÆ·
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ ç‰©å“
 const BYTE ADDMAPOBJECT_MAPSCREEN_USERCMD_PARA = 20;
 	struct stAddMapObjectMapScreenUserCmd  : public stMapScreenUserCmd{
 		stAddMapObjectMapScreenUserCmd()
@@ -1248,17 +1248,17 @@ const BYTE ADDMAPOBJECT_MAPSCREEN_USERCMD_PARA = 20;
 		t_MapObjectData data;
 	};
 
-/// ÔÚµØÍ¼ÉÏÉ¾³ýÎïÆ·
+/// åœ¨åœ°å›¾ä¸Šåˆ é™¤ç‰©å“
 const BYTE REMOVEMAPOBJECT_MAPSCREEN_USERCMD_PARA = 21;
 	struct stRemoveMapObjectMapScreenUserCmd  : public stMapScreenUserCmd{
 		stRemoveMapObjectMapScreenUserCmd()
 		{
 			byParam = REMOVEMAPOBJECT_MAPSCREEN_USERCMD_PARA;
 		}
-		DWORD dwMapObjectTempID;	/**< ÎïÆ·µÄÁÙÊ±ID */
+		DWORD dwMapObjectTempID;	/**< ç‰©å“çš„ä¸´æ—¶ID */
 	};
 
-/// ÔÚµØÍ¼ÉÏÔö¼Ó½¨ÖþÎï
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ å»ºç­‘ç‰©
 const BYTE ADDMAPBUILDING_MAPSCREEN_USERCMD_PARA = 30;
 	struct stAddMapBuildingMapScreenUserCmd : public stMapScreenUserCmd{
 		stAddMapBuildingMapScreenUserCmd()
@@ -1270,7 +1270,7 @@ const BYTE ADDMAPBUILDING_MAPSCREEN_USERCMD_PARA = 30;
 	};
 
 
-/// ÔÚµØÍ¼ÉÏÉ¾³ý½¨ÖþÎï
+/// åœ¨åœ°å›¾ä¸Šåˆ é™¤å»ºç­‘ç‰©
 const BYTE REMOVEMAPBUILDING_MAPSCREEN_USERCMD_PARA = 31;
 	struct stRemoveMapBuildingMapScreenUserCmd : public stMapScreenUserCmd{
 		stRemoveMapBuildingMapScreenUserCmd()
@@ -1278,10 +1278,10 @@ const BYTE REMOVEMAPBUILDING_MAPSCREEN_USERCMD_PARA = 31;
 			byParam = REMOVEMAPBUILDING_MAPSCREEN_USERCMD_PARA;
 		}
 
-		DWORD dwMapBuildingTempID;	/**< ½¨ÖþÎïµÄÁÙÊ±ID */
+		DWORD dwMapBuildingTempID;	/**< å»ºç­‘ç‰©çš„ä¸´æ—¶ID */
 	};
 
-///ÈËÎïÊ¹ÓÃÒ×ÈÝÊõ
+///äººç‰©ä½¿ç”¨æ˜“å®¹æœ¯
 const BYTE CHANGEFACE_MAPSCREEN_USERCMD_PARA = 32;
 	struct stChangeFaceMapScreenUserCmd : public stMapScreenUserCmd{
 		stChangeFaceMapScreenUserCmd()
@@ -1289,11 +1289,11 @@ const BYTE CHANGEFACE_MAPSCREEN_USERCMD_PARA = 32;
 			byParam = CHANGEFACE_MAPSCREEN_USERCMD_PARA;
 		}
 
-		DWORD	dwUserTempID;		//ÓÃ»§ÁÙÊ±ID
-        DWORD	dwChangeFaceID;		//Ò×ÈÝºóµÄNPCµÄÀàÐÍID
+		DWORD	dwUserTempID;		//ç”¨æˆ·ä¸´æ—¶ID
+        DWORD	dwChangeFaceID;		//æ˜“å®¹åŽçš„NPCçš„ç±»åž‹ID
 	};
 
-/// ÔÚµØÍ¼ÉÏÔö¼ÓNPC
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ NPC
 const BYTE ADDMAPNPC_MAPSCREEN_USERCMD_PARA = 50;
 	struct stAddMapNpcMapScreenUserCmd : public stMapScreenUserCmd{
 		stAddMapNpcMapScreenUserCmd()
@@ -1304,17 +1304,17 @@ const BYTE ADDMAPNPC_MAPSCREEN_USERCMD_PARA = 50;
 		t_MapNpcData data;
 	};
 
-/// ÔÚµØÍ¼ÉÏÉ¾³ýNPC
+/// åœ¨åœ°å›¾ä¸Šåˆ é™¤NPC
 const BYTE REMOVEMAPNPC_MAPSCREEN_USERCMD_PARA = 51;
 	struct stRemoveMapNpcMapScreenUserCmd : public stMapScreenUserCmd{
 		stRemoveMapNpcMapScreenUserCmd()
 		{
 			byParam = REMOVEMAPNPC_MAPSCREEN_USERCMD_PARA;
 		}
-		DWORD dwMapNpcDataPosition;	/**< npcµÄÊý¾ÝÎ»ÖÃ */
+		DWORD dwMapNpcDataPosition;	/**< npcçš„æ•°æ®ä½ç½® */
 	};
 
-/// ÇëÇóNpcÊý¾Ý
+/// è¯·æ±‚Npcæ•°æ®
 const BYTE REQUESTMAPNPCDATA_MAPSCREEN_USERCMD_PARA = 52;
 	struct stRequestMapNpcDataMapScreenUserCmd : public stMapScreenUserCmd{
 		stRequestMapNpcDataMapScreenUserCmd()
@@ -1323,10 +1323,10 @@ const BYTE REQUESTMAPNPCDATA_MAPSCREEN_USERCMD_PARA = 52;
 		}
 
 		WORD size;
-		DWORD dwNpcTempID[0];	//ÁÙÊ±±àºÅÁÐ±í(DWORD)
+		DWORD dwNpcTempID[0];	//ä¸´æ—¶ç¼–å·åˆ—è¡¨(DWORD)
 	};
 
-/// NpcÑª²Û
+/// Npcè¡€æ§½
 const BYTE NPCHP_MAPSCREEN_USERCMD_PARA = 53;
 	struct stNPCHPMapScreenUserCmd : public stMapScreenUserCmd{
 		stNPCHPMapScreenUserCmd()
@@ -1334,26 +1334,26 @@ const BYTE NPCHP_MAPSCREEN_USERCMD_PARA = 53;
 			byParam = NPCHP_MAPSCREEN_USERCMD_PARA;
 		}
 //BEGIN_MUTABLE_VARS
-		DWORD dwMapNpcDataPosition;	/**< npcµÄÊý¾ÝÎ»ÖÃ */
+		DWORD dwMapNpcDataPosition;	/**< npcçš„æ•°æ®ä½ç½® */
 		DWORD dwHP;					/**< HP */
 		DWORD dwMaxHP;				/**< MaxHP */
 //END_MUTABLE_VARS
 	};
 
-// NPC ÈËÎï Î»ÖÃÐÅÏ¢
+// NPC äººç‰© ä½ç½®ä¿¡æ¯
 struct stNpcPosition{
-	DWORD dwTempID;				//Ä¿±ê±àºÅ
-	WORD x;					/**< ×ø±ê*/
+	DWORD dwTempID;				//ç›®æ ‡ç¼–å·
+	WORD x;					/**< åæ ‡*/
 	WORD y;				
-	BYTE byDir;					// ·½Ïò£¨Èç¹ûÎª -1 Ôò²»È·¶¨·½Ïò£©
+	BYTE byDir;					// æ–¹å‘ï¼ˆå¦‚æžœä¸º -1 åˆ™ä¸ç¡®å®šæ–¹å‘ï¼‰
 };
 
-// NPC ÈËÎï TEMPIDÐÅÏ¢
+// NPC äººç‰© TEMPIDä¿¡æ¯
 struct stNpcTempID{
-	DWORD dwTempID;				//Ä¿±ê±àºÅ
+	DWORD dwTempID;				//ç›®æ ‡ç¼–å·
 };
 
-/// ¶Ô9ÆÁÓÃ»§ºÍNPC
+/// å¯¹9å±ç”¨æˆ·å’ŒNPC
 const BYTE ALL_MAPSCREEN_USERCMD_PARA = 54;
 	struct stAllMapScreenUserCmd : public stMapScreenUserCmd{
 		stAllMapScreenUserCmd()
@@ -1367,9 +1367,9 @@ const BYTE ALL_MAPSCREEN_USERCMD_PARA = 54;
 
 struct t_MapUserDataPos :public t_MapUserData
 {
-	WORD x;					/**< ×ø±ê*/
+	WORD x;					/**< åæ ‡*/
 	WORD y;				
-	BYTE byDir;					// ·½Ïò£¨Èç¹ûÎª -1 Ôò²»È·¶¨·½Ïò£©
+	BYTE byDir;					// æ–¹å‘ï¼ˆå¦‚æžœä¸º -1 åˆ™ä¸ç¡®å®šæ–¹å‘ï¼‰
 };
 struct t_MapUserDataPosState :public t_UserData
 {
@@ -1379,17 +1379,17 @@ struct t_MapUserDataPosState :public t_UserData
 		num=0;
 	} 
 // */
-	WORD x;					/**< ×ø±ê*/
+	WORD x;					/**< åæ ‡*/
 	WORD y;				
-	BYTE byDir;					// ·½Ïò£¨Èç¹ûÎª -1 Ôò²»È·¶¨·½Ïò£©
-	BYTE num; 		///´ø×´Ì¬µÄÊýÁ¿
-	WORD state[0];		///×´Ì¬ÁÐ±í
+	BYTE byDir;					// æ–¹å‘ï¼ˆå¦‚æžœä¸º -1 åˆ™ä¸ç¡®å®šæ–¹å‘ï¼‰
+	BYTE num; 		///å¸¦çŠ¶æ€çš„æ•°é‡
+	WORD state[0];		///çŠ¶æ€åˆ—è¡¨
 };
 struct t_MapNpcDataPos :public t_MapNpcData
 {
-	WORD x;					/**< ×ø±ê*/
+	WORD x;					/**< åæ ‡*/
 	WORD y;				
-	BYTE byDir;					// ·½Ïò£¨Èç¹ûÎª -1 Ôò²»È·¶¨·½Ïò£©
+	BYTE byDir;					// æ–¹å‘ï¼ˆå¦‚æžœä¸º -1 åˆ™ä¸ç¡®å®šæ–¹å‘ï¼‰
 };
 struct t_MapNpcDataPosState :public t_NpcData
 {
@@ -1399,20 +1399,20 @@ struct t_MapNpcDataPosState :public t_NpcData
 		num=0;
 	} 
 // */
-	WORD x;					/**< ×ø±ê*/
+	WORD x;					/**< åæ ‡*/
 	WORD y;				
-	BYTE byDir;					// ·½Ïò£¨Èç¹ûÎª -1 Ôò²»È·¶¨·½Ïò£©
-	BYTE num; 		///´ø×´Ì¬µÄÊýÁ¿
-	WORD state[0];		///×´Ì¬ÁÐ±í
+	BYTE byDir;					// æ–¹å‘ï¼ˆå¦‚æžœä¸º -1 åˆ™ä¸ç¡®å®šæ–¹å‘ï¼‰
+	BYTE num; 		///å¸¦çŠ¶æ€çš„æ•°é‡
+	WORD state[0];		///çŠ¶æ€åˆ—è¡¨
 };
 struct t_MapBuildingDataPos :public t_MapBuildingData
 {
-	WORD x;					/**< ×ø±ê*/
+	WORD x;					/**< åæ ‡*/
 	WORD y;				
-	BYTE byDir;					// ·½Ïò£¨Èç¹ûÎª -1 Ôò²»È·¶¨·½Ïò£©
+	BYTE byDir;					// æ–¹å‘ï¼ˆå¦‚æžœä¸º -1 åˆ™ä¸ç¡®å®šæ–¹å‘ï¼‰
 };
 
-// µØÍ¼Êý¾Ý´ò°ü·¢ËÍ
+// åœ°å›¾æ•°æ®æ‰“åŒ…å‘é€
 const BYTE MAPDATA_MAPSCREEN_USERCMD_PARA = 55;
 	struct stMapDataMapScreenUserCmd : public stMapScreenUserCmd{
 		stMapDataMapScreenUserCmd()
@@ -1430,7 +1430,7 @@ const BYTE MAPDATA_MAPSCREEN_USERCMD_PARA = 55;
 		};
 	};
 
-#define SELECTED_HPMP_PROPERTY_USERCMD_PARA 56//Í¨ÖªÑ¡Ôñ×Ô¼ºµÄÍæ¼ÒhpºÍmpµÄ±ä»¯
+#define SELECTED_HPMP_PROPERTY_USERCMD_PARA 56//é€šçŸ¥é€‰æ‹©è‡ªå·±çš„çŽ©å®¶hpå’Œmpçš„å˜åŒ–
 struct stRTSelectedHpMpPropertyUserCmd : public stMapScreenUserCmd
 {
 	stRTSelectedHpMpPropertyUserCmd()
@@ -1439,23 +1439,23 @@ struct stRTSelectedHpMpPropertyUserCmd : public stMapScreenUserCmd
 	}
 	BYTE byType;//enumMapDataType
 //BEGIN_MUTABLE_VARS
-	DWORD dwTempID;//ÁÙÊ±±àºÅ
-	DWORD dwHP;//µ±Ç°Ñª
-	DWORD dwMaxHp;//×î´óhp
-	DWORD dwMP;//µ±Ç°mp
-	DWORD dwMaxMp;//×î´ómp
+	DWORD dwTempID;//ä¸´æ—¶ç¼–å·
+	DWORD dwHP;//å½“å‰è¡€
+	DWORD dwMaxHp;//æœ€å¤§hp
+	DWORD dwMP;//å½“å‰mp
+	DWORD dwMaxMp;//æœ€å¤§mp
 //END_MUTABLE_VARS	
 };
-/// Çå³ýµØÍ¼ÉÏÎïÆ·±£»¤
+/// æ¸…é™¤åœ°å›¾ä¸Šç‰©å“ä¿æŠ¤
 const BYTE CLEAR_OBJECTOWNER_MAPSCREEN_USERCMD_PARA = 58;
 	struct stClearObjectOwnerMapScreenUserCmd  : public stMapScreenUserCmd{
 		stClearObjectOwnerMapScreenUserCmd()
 		{
 			byParam = CLEAR_OBJECTOWNER_MAPSCREEN_USERCMD_PARA;
 		}
-		DWORD dwMapObjectTempID;	/**< ÎïÆ·µÄÁÙÊ±ID */
+		DWORD dwMapObjectTempID;	/**< ç‰©å“çš„ä¸´æ—¶ID */
 	};
-/// ÔÚµØÍ¼ÉÏÔö¼ÓNPCºÍ×ø±ê
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ NPCå’Œåæ ‡
 const BYTE ADDMAPNPC_AND_POS_MAPSCREEN_USERCMD_PARA = 59;
 	struct stAddMapNpcAndPosMapScreenUserCmd : public stMapScreenUserCmd{
 		stAddMapNpcAndPosMapScreenUserCmd()
@@ -1466,7 +1466,7 @@ const BYTE ADDMAPNPC_AND_POS_MAPSCREEN_USERCMD_PARA = 59;
 		t_MapNpcDataPos data;
 	};
 
-/// µØÍ¼ÉÏÔö¼ÓÈËÎïºÍ×ø±ê
+/// åœ°å›¾ä¸Šå¢žåŠ äººç‰©å’Œåæ ‡
 const BYTE ADDUSER_AND_POS_MAPSCREEN_USERCMD_PARA = 60;
 	struct stAddUserAndPosMapScreenUserCmd : public stMapScreenUserCmd {
 		stAddUserAndPosMapScreenUserCmd()
@@ -1475,7 +1475,7 @@ const BYTE ADDUSER_AND_POS_MAPSCREEN_USERCMD_PARA = 60;
 		}
 		t_MapUserDataPos data;
 	};
-/// ÅúÁ¿É¾³ýNPCÖ¸Áî
+/// æ‰¹é‡åˆ é™¤NPCæŒ‡ä»¤
 const BYTE BATCHREMOVENPC_MAPSCREEN_USERCMD_PARA = 61;
 	struct stBatchRemoveNpcMapScreenUserCmd : public stMapScreenUserCmd {
 		stBatchRemoveNpcMapScreenUserCmd()
@@ -1486,7 +1486,7 @@ const BYTE BATCHREMOVENPC_MAPSCREEN_USERCMD_PARA = 61;
 		DWORD   id[0];
 	};
 
-/// ÅúÁ¿É¾³ýUSERÖ¸Áî
+/// æ‰¹é‡åˆ é™¤USERæŒ‡ä»¤
 const BYTE BATCHREMOVEUSER_MAPSCREEN_USERCMD_PARA = 62;
 	struct stBatchRemoveUserMapScreenUserCmd : public stMapScreenUserCmd {
 		stBatchRemoveUserMapScreenUserCmd()
@@ -1496,29 +1496,29 @@ const BYTE BATCHREMOVEUSER_MAPSCREEN_USERCMD_PARA = 62;
 		WORD	num;
 		DWORD   id[0];
 	};
-/// ÉèÖÃ½ÇÉ«×´Ì¬
+/// è®¾ç½®è§’è‰²çŠ¶æ€
 const BYTE SETSTATE_MAPSCREEN_USERCMD_PARA = 63;
 struct stSetStateMapScreenUserCmd : public stMapScreenUserCmd{
 	stSetStateMapScreenUserCmd()
 	{
 		byParam = SETSTATE_MAPSCREEN_USERCMD_PARA;
 	}
-	BYTE	type;		/**<ÀàÐÍ enumMapDataType*/
-	DWORD	dwTempID;			/**< ÓÃ»§ÁÙÊ±ID */
-	WORD	wdState;	/// ÐèÒªÉèÖÃµÄ×´Ì¬
+	BYTE	type;		/**<ç±»åž‹ enumMapDataType*/
+	DWORD	dwTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
+	WORD	wdState;	/// éœ€è¦è®¾ç½®çš„çŠ¶æ€
 };
-/// È¡Ïû½ÇÉ«×´Ì¬
+/// å–æ¶ˆè§’è‰²çŠ¶æ€
 const BYTE CLEARSTATE_MAPSCREEN_USERCMD_PARA = 64;
 struct stClearStateMapScreenUserCmd : public stMapScreenUserCmd{
 	stClearStateMapScreenUserCmd()
 	{
 		byParam = CLEARSTATE_MAPSCREEN_USERCMD_PARA;
 	}
-	BYTE	type;		/**<ÀàÐÍ enumMapDataType*/
-	DWORD	dwTempID;			/**< ÓÃ»§ÁÙÊ±ID */
-	WORD	wdState;	/// ÐèÒªÈ¡ÏûµÄ×´Ì¬
+	BYTE	type;		/**<ç±»åž‹ enumMapDataType*/
+	DWORD	dwTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
+	WORD	wdState;	/// éœ€è¦å–æ¶ˆçš„çŠ¶æ€
 };
-/// ÔÚµØÍ¼ÉÏÔö¼ÓNpcºÍ³èÎïÊý¾Ý
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ Npcå’Œå® ç‰©æ•°æ®
 const BYTE ADDMAPNPCPET_MAPSCREEN_USERCMD_PARA = 65;
 	struct stAddMapNpcPetMapScreenUserCmd : public stMapScreenUserCmd{
 		stAddMapNpcPetMapScreenUserCmd()
@@ -1529,7 +1529,7 @@ const BYTE ADDMAPNPCPET_MAPSCREEN_USERCMD_PARA = 65;
 		t_MapNpcDataPos data;
 		t_MapPetData pet; 
 	};
-/// ÔÚµØÍ¼ÉÏÔö¼Ó³èÎïÊý¾Ý
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ å® ç‰©æ•°æ®
 const BYTE ADDMAPPET_MAPSCREEN_USERCMD_PARA = 66;
 	struct stAddMapPetMapScreenUserCmd : public stMapScreenUserCmd{
 		stAddMapPetMapScreenUserCmd()
@@ -1539,17 +1539,17 @@ const BYTE ADDMAPPET_MAPSCREEN_USERCMD_PARA = 66;
 
 		t_MapPetData pet; 
 	};
-/// ÉèÖÃ½ÇÉ«ÉÆ¶ñÖµ
+/// è®¾ç½®è§’è‰²å–„æ¶å€¼
 const BYTE GOODNESS_MAPSCREEN_USERCMD_PARA = 67;
 struct stGoodnessStateMapScreenUserCmd : public stMapScreenUserCmd{
 	stGoodnessStateMapScreenUserCmd()
 	{
 		byParam = GOODNESS_MAPSCREEN_USERCMD_PARA;
 	}
-	DWORD	dwTempID;			/**< ÓÃ»§ÁÙÊ±ID */
-	DWORD	dwGoodness;	/// ÉÆ¶ñÖµ
+	DWORD	dwTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
+	DWORD	dwGoodness;	/// å–„æ¶å€¼
 };
-/// µØÍ¼ÉÏÔö¼ÓÈËÎï
+/// åœ°å›¾ä¸Šå¢žåŠ äººç‰©
 const BYTE ADDUSER_MAPSCREEN_STATE_USERCMD_PARA = 68;
 	struct stAddUserMapScreenStateUserCmd : public stMapScreenUserCmd {
 		stAddUserMapScreenStateUserCmd()
@@ -1562,7 +1562,7 @@ const BYTE ADDUSER_MAPSCREEN_STATE_USERCMD_PARA = 68;
 			return sizeof(*this) + data.num * sizeof(data.state[0]);
 		}
 	};
-/// ÔÚµØÍ¼ÉÏÔö¼ÓNPC
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ NPC
 const BYTE ADDMAPNPC_MAPSCREEN_STATE_USERCMD_PARA = 69;
 	struct stAddMapNpcMapScreenStateUserCmd : public stMapScreenUserCmd{
 		stAddMapNpcMapScreenStateUserCmd()
@@ -1575,7 +1575,7 @@ const BYTE ADDMAPNPC_MAPSCREEN_STATE_USERCMD_PARA = 69;
 			return sizeof(*this) + data.num * sizeof(data.state[0]);
 		}
 	};
-/// µØÍ¼ÉÏÔö¼ÓÈËÎïºÍ×ø±ê
+/// åœ°å›¾ä¸Šå¢žåŠ äººç‰©å’Œåæ ‡
 const BYTE ADDUSER_AND_POS_MAPSCREEN_STATE_USERCMD_PARA = 70;
 	struct stAddUserAndPosMapScreenStateUserCmd : public stMapScreenUserCmd {
 		stAddUserAndPosMapScreenStateUserCmd()
@@ -1588,7 +1588,7 @@ const BYTE ADDUSER_AND_POS_MAPSCREEN_STATE_USERCMD_PARA = 70;
 			return sizeof(*this) + data.num * sizeof(data.state[0]);
 		}
 	};
-/// ÔÚµØÍ¼ÉÏÔö¼ÓNPCºÍ×ø±ê
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ NPCå’Œåæ ‡
 const BYTE ADDMAPNPC_AND_POS_MAPSCREEN_STATE_USERCMD_PARA = 71;
 	struct stAddMapNpcAndPosMapScreenStateUserCmd : public stMapScreenUserCmd{
 		stAddMapNpcAndPosMapScreenStateUserCmd()
@@ -1601,7 +1601,7 @@ const BYTE ADDMAPNPC_AND_POS_MAPSCREEN_STATE_USERCMD_PARA = 71;
 			return sizeof(*this) + data.num * sizeof(data.state[0]);
 		}
 	};
-/// ÔÚµØÍ¼ÉÏÔö¼ÓNpcºÍ³èÎïÊý¾Ý
+/// åœ¨åœ°å›¾ä¸Šå¢žåŠ Npcå’Œå® ç‰©æ•°æ®
 const BYTE ADDMAPNPCPET_MAPSCREEN_STATE_USERCMD_PARA = 72;
 	struct stAddMapNpcPetMapScreenStateUserCmd : public stMapScreenUserCmd{
 		stAddMapNpcPetMapScreenStateUserCmd()
@@ -1616,7 +1616,7 @@ const BYTE ADDMAPNPCPET_MAPSCREEN_STATE_USERCMD_PARA = 72;
 			return sizeof(*this) + data.num * sizeof(data.state[0]);
 		}
 	};
-// µØÍ¼Êý¾Ý´ò°ü·¢ËÍ
+// åœ°å›¾æ•°æ®æ‰“åŒ…å‘é€
 const BYTE MAPDATA_MAPSCREEN_STATE_USERCMD_PARA = 73;
 	struct stMapDataMapScreenStateUserCmd : public stMapScreenUserCmd{
 		stMapDataMapScreenStateUserCmd()
@@ -1634,7 +1634,7 @@ const BYTE MAPDATA_MAPSCREEN_STATE_USERCMD_PARA = 73;
 		};
 	};
 /*
-/// Ë¢ÐÂ³èÎïÐÅÏ¢
+/// åˆ·æ–°å® ç‰©ä¿¡æ¯
 const BYTE ADD_PET_MAPSCREEN_USERCMD_PARA = 61;
 	struct stAddPetMapScreenUserCmd : public stMapScreenUserCmd {
 		stAddPetMapScreenUserCmd()
@@ -1646,12 +1646,12 @@ const BYTE ADD_PET_MAPSCREEN_USERCMD_PARA = 61;
 	};
 	*/
 //////////////////////////////////////////////////////////////
-/// µØÍ¼Êý¾ÝÖ¸Áî¶¨Òå½áÊø
+/// åœ°å›¾æ•°æ®æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// Ä§·¨Ö¸Áî¶¨Òå¿ªÊ¼
+/// é­”æ³•æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 	struct stMagicUserCmd : public stNullUserCmd{
 		stMagicUserCmd()
@@ -1660,14 +1660,14 @@ const BYTE ADD_PET_MAPSCREEN_USERCMD_PARA = 61;
 		}
 	};
 
-/// ¶¨Òå¹¥»÷ÀàÐÍ
+/// å®šä¹‰æ”»å‡»ç±»åž‹
 enum ATTACKTYPE{
-	ATTACKTYPE_U2U,	/// ÓÃ»§¹¥»÷ÓÃ»§
-	ATTACKTYPE_U2N,	/// ÓÃ»§¹¥»÷Npc
-	ATTACKTYPE_N2U,	/// Npc¹¥»÷ÓÃ»§
-	ATTACKTYPE_U2B,	/// ÓÃ»§¹¥»÷½¨Öþ
-	ATTACKTYPE_U2P,	/// ÓÃ»§¹¥»÷µã
-	ATTACKTYPE_N2N	/// Npc¹¥»÷Npc
+	ATTACKTYPE_U2U,	/// ç”¨æˆ·æ”»å‡»ç”¨æˆ·
+	ATTACKTYPE_U2N,	/// ç”¨æˆ·æ”»å‡»Npc
+	ATTACKTYPE_N2U,	/// Npcæ”»å‡»ç”¨æˆ·
+	ATTACKTYPE_U2B,	/// ç”¨æˆ·æ”»å‡»å»ºç­‘
+	ATTACKTYPE_U2P,	/// ç”¨æˆ·æ”»å‡»ç‚¹
+	ATTACKTYPE_N2N	/// Npcæ”»å‡»Npc
 };
 
 
@@ -1677,67 +1677,67 @@ enum AniTypeEnum
 {
 Ani_Null = 0,
 
-	Ani_Wait,Ani_Stand = Ani_Wait,	// Õ¾Á¢
-	Ani_Walk,						// ×ß
-	Ani_Run,						// ÅÜ
+	Ani_Wait,Ani_Stand = Ani_Wait,	// ç«™ç«‹
+	Ani_Walk,						// èµ°
+	Ani_Run,						// è·‘
 
-	Ani_Attack,						// ¹¥»÷
-	Ani_Attack2,					// ¹¥»÷2
-	Ani_Attack3,					// ¹¥»÷3
+	Ani_Attack,						// æ”»å‡»
+	Ani_Attack2,					// æ”»å‡»2
+	Ani_Attack3,					// æ”»å‡»3
 
-	Ani_Magic,						// Ä§·¨¹¥»÷
-	Ani_Magic2,						// Ä§·¨¹¥»÷2
-	Ani_Magic3,						// Ä§·¨¹¥»÷3
+	Ani_Magic,						// é­”æ³•æ”»å‡»
+	Ani_Magic2,						// é­”æ³•æ”»å‡»2
+	Ani_Magic3,						// é­”æ³•æ”»å‡»3
 
-	Ani_Bow,						// Éä¼ý
-	Ani_Bow2,						// Å¬¹¥»÷
+	Ani_Bow,						// å°„ç®­
+	Ani_Bow2,						// åŠªæ”»å‡»
 
-	Ani_Hurt,						// ÊÜÉË(±»»÷)
-	Ani_Die,						// ËÀÍö
+	Ani_Hurt,						// å—ä¼¤(è¢«å‡»)
+	Ani_Die,						// æ­»äº¡
 
-	Ani_Sit,						// ´ò×ø
+	Ani_Sit,						// æ‰“å
 
-	Ani_Ride_Wait,					// ÆïÂíÕ¾Á¢
-	Ani_Ride_Walk,					// ÆïÂí×ß
-	Ani_Ride_Run,					// ÆïÂíÅÜ
+	Ani_Ride_Wait,					// éª‘é©¬ç«™ç«‹
+	Ani_Ride_Walk,					// éª‘é©¬èµ°
+	Ani_Ride_Run,					// éª‘é©¬è·‘
 
-	Ani_Ride_Attack,				// ÆïÂí¹¥»÷
-	Ani_Ride_Magic,					// ÆïÂíÊ©·¨
+	Ani_Ride_Attack,				// éª‘é©¬æ”»å‡»
+	Ani_Ride_Magic,					// éª‘é©¬æ–½æ³•
 
-	Ani_Ride_Hurt,					// ÊÜÉË(±»»÷)
-	Ani_Ride_Die,					// ÆïÂíËÀÍö
+	Ani_Ride_Hurt,					// å—ä¼¤(è¢«å‡»)
+	Ani_Ride_Die,					// éª‘é©¬æ­»äº¡
 
-	Ani_Appear,						// ³öÏÖ(ÖØÉú)
+	Ani_Appear,						// å‡ºçŽ°(é‡ç”Ÿ)
 
-	Ani_Attack_Stand,				// ¹¥»÷Õ¾Á¢
-	Ani_Attack2_Stand,				// ¹¥»÷2Õ¾Á¢
-	Ani_Attack3_Stand,				// ¹¥»÷2Õ¾Á¢
+	Ani_Attack_Stand,				// æ”»å‡»ç«™ç«‹
+	Ani_Attack2_Stand,				// æ”»å‡»2ç«™ç«‹
+	Ani_Attack3_Stand,				// æ”»å‡»2ç«™ç«‹
 
-	Ani_Magic_Stand,				// Ä§·¨¹¥»÷Õ¾Á¢
-	Ani_Magic2_Stand,				// Ä§·¨2¹¥»÷Õ¾Á¢
-	Ani_Magic3_Stand,				// Ä§·¨3¹¥»÷Õ¾Á¢
+	Ani_Magic_Stand,				// é­”æ³•æ”»å‡»ç«™ç«‹
+	Ani_Magic2_Stand,				// é­”æ³•2æ”»å‡»ç«™ç«‹
+	Ani_Magic3_Stand,				// é­”æ³•3æ”»å‡»ç«™ç«‹
 
-	Ani_Bow_Stand,					// ¹­¼ý¹¥»÷Õ¾Á¢
-	Ani_Bow2_Stand,					// Å¬¹¥»÷Õ¾Á¢
+	Ani_Bow_Stand,					// å¼“ç®­æ”»å‡»ç«™ç«‹
+	Ani_Bow2_Stand,					// åŠªæ”»å‡»ç«™ç«‹
 
-	Ani_Ride_Attack_Stand,			// ÆïÂí¹¥»÷Õ¾Á¢
-	Ani_Ride_Magic_Stand,			// ÆïÂíÊ©·¨Õ¾Á¢
+	Ani_Ride_Attack_Stand,			// éª‘é©¬æ”»å‡»ç«™ç«‹
+	Ani_Ride_Magic_Stand,			// éª‘é©¬æ–½æ³•ç«™ç«‹
 
-	Ani_Back,						// ºóÍË
-	Ani_Ride_Back,					// ÆïÂíºóÍË
+	Ani_Back,						// åŽé€€
+	Ani_Ride_Back,					// éª‘é©¬åŽé€€
 
-	Ani_Ride_Bow,					// ÆïÂíÉä¼ý
-	Ani_Ride_Bow_Stand,				// ÆïÂíÉä¼ýÕ¾Á¢
+	Ani_Ride_Bow,					// éª‘é©¬å°„ç®­
+	Ani_Ride_Bow_Stand,				// éª‘é©¬å°„ç®­ç«™ç«‹
 
-	Ani_Fly_Walk,					// ·ÉÐÐÂýËÙ
-	Ani_Fly_Run,					// ·ÉÐÐ¿ìËÙ
+	Ani_Fly_Walk,					// é£žè¡Œæ…¢é€Ÿ
+	Ani_Fly_Run,					// é£žè¡Œå¿«é€Ÿ
 
-	Ani_Fly_Hurt,					// ·ÉÐÐ±»»÷
-	Ani_Fly_Die,					// ·ÉÐÐËÀÍö
+	Ani_Fly_Hurt,					// é£žè¡Œè¢«å‡»
+	Ani_Fly_Die,					// é£žè¡Œæ­»äº¡
 
-	Ani_Gather,						// ²ÉÒ©
+	Ani_Gather,						// é‡‡è¯
 
-	Ani_FirstRun,					// µÚÒ»´Î×ß
+	Ani_FirstRun,					// ç¬¬ä¸€æ¬¡èµ°
 
 	Ani_Idle0,
 	Ani_Idle1,
@@ -1750,7 +1750,7 @@ Ani_Null = 0,
 };
 #endif
 
-/// ¹¥»÷Ö¸Áî
+/// æ”»å‡»æŒ‡ä»¤
 const BYTE MAGIC_USERCMD_PARA = 5;
 struct stAttackMagicUserCmd : public stMagicUserCmd{
 
@@ -1760,39 +1760,39 @@ struct stAttackMagicUserCmd : public stMagicUserCmd{
 	}
 
 //BEGIN_MUTABLE_VARS
-	DWORD dwUserTempID;			/**< ¹¥»÷ÁÙÊ±±àºÅ */
-	DWORD dwDefenceTempID;		/**< ·ÀÓùÁÙÊ±±àºÅ */
+	DWORD dwUserTempID;			/**< æ”»å‡»ä¸´æ—¶ç¼–å· */
+	DWORD dwDefenceTempID;		/**< é˜²å¾¡ä¸´æ—¶ç¼–å· */
 
-	WORD wdMagicType;			/**< Ä§·¨ÀàÐÍ */
+	WORD wdMagicType;			/**< é­”æ³•ç±»åž‹ */
 
-	WORD xDes;					/**< Ä¿±êµã */
-	WORD yDes;					/**< Ä¿±êµã */
+	WORD xDes;					/**< ç›®æ ‡ç‚¹ */
+	WORD yDes;					/**< ç›®æ ‡ç‚¹ */
 //END_MUTABLE_VARS	
 	
-	BYTE byDirect;				/**< ¹¥»÷·½Ïò */
-	BYTE byAttackType;			/**< ¹¥»÷ÀàÐÍ£ºATTACKTYPE_U2U,ATTACKTYPE_U2N,ATTACKTYPE_N2U */
-	BYTE byAction;				// ¹¥»÷¶¯×÷  AniTypeEnum ( Ani_Null Îª²»È·¶¨µÄ£¬ÓÉ¿Í»§¶ËÈ·¶¨ )
-	DWORD dwTempIDList[0];		// ¹¥»÷Ä¿±êÁÐ±í
+	BYTE byDirect;				/**< æ”»å‡»æ–¹å‘ */
+	BYTE byAttackType;			/**< æ”»å‡»ç±»åž‹ï¼šATTACKTYPE_U2U,ATTACKTYPE_U2N,ATTACKTYPE_N2U */
+	BYTE byAction;				// æ”»å‡»åŠ¨ä½œ  AniTypeEnum ( Ani_Null ä¸ºä¸ç¡®å®šçš„ï¼Œç”±å®¢æˆ·ç«¯ç¡®å®š )
+	DWORD dwTempIDList[0];		// æ”»å‡»ç›®æ ‡åˆ—è¡¨
 };
 
 enum {
-	RTMAGIC_FAILURE,		/// ¹¥»÷Ê§°Ü
-	RTMAGIC_DUCK,			/// ·ÀÓùÉÁ±Ü
-	RTMAGIC_FREEZE,			/// ±ù¶³
-	RTMAGIC_SPEEDUP,		/// ¼ÓËÙ
-	RTMAGIC_POISON,			/// ÖÐ¶¾
-	RTMAGIC_PLAGUE,			/// ÎÁÒß
-	RTMAGIC_LANDIFICATION,	/// Ê¯»¯
-	RTMAGIC_VAMPIRE,		/// ÎüÑª
-	RTMAGIC_VAMPIREMAGIC,	/// ÎüÄ§
-	RTMAGIC_HIDE,			/// ÒþÉí
-	RTMAGIC_BLANKSCREEN,	/// ºÚÆÁ
-	RTMAGIC_SUCCESS,		/// ¹¥»÷³É¹¦
-	RTMAGIC_ATTACKED,		/// ±»»÷
-	RTMAGIC_DEFENCE			/// ¸ñµ²
+	RTMAGIC_FAILURE,		/// æ”»å‡»å¤±è´¥
+	RTMAGIC_DUCK,			/// é˜²å¾¡é—ªé¿
+	RTMAGIC_FREEZE,			/// å†°å†»
+	RTMAGIC_SPEEDUP,		/// åŠ é€Ÿ
+	RTMAGIC_POISON,			/// ä¸­æ¯’
+	RTMAGIC_PLAGUE,			/// ç˜Ÿç–«
+	RTMAGIC_LANDIFICATION,	/// çŸ³åŒ–
+	RTMAGIC_VAMPIRE,		/// å¸è¡€
+	RTMAGIC_VAMPIREMAGIC,	/// å¸é­”
+	RTMAGIC_HIDE,			/// éšèº«
+	RTMAGIC_BLANKSCREEN,	/// é»‘å±
+	RTMAGIC_SUCCESS,		/// æ”»å‡»æˆåŠŸ
+	RTMAGIC_ATTACKED,		/// è¢«å‡»
+	RTMAGIC_DEFENCE			/// æ ¼æŒ¡
 };
 
-/// ¹¥»÷·µ»Ø¸ø×Ô¼º
+/// æ”»å‡»è¿”å›žç»™è‡ªå·±
 const BYTE RTMAGIC_USERCMD_PARA = 6;
 struct stRTMagicUserCmd : public stMagicUserCmd{
 
@@ -1801,17 +1801,17 @@ struct stRTMagicUserCmd : public stMagicUserCmd{
 		byParam = RTMAGIC_USERCMD_PARA;
 	}
 
-	DWORD dwUserTempID;			/**< Ä¿±êÁÙÊ±±àºÅ */
-	BYTE byTarget;				/**< Ä¿±êÀàÐÍ£ºenumMapDataType */
-	BYTE byRetcode;				/**< ·µ»Ø´úÂë£ºRTMAGIC_SUCCESS,RTMAGIC_FAILURE... */
-	BYTE byDirect;				/**< ·½Ïò */
-	BYTE bySrc;					/**< ¹¥»÷ÕßÀàÐÍ£ºenumMapDataType */
+	DWORD dwUserTempID;			/**< ç›®æ ‡ä¸´æ—¶ç¼–å· */
+	BYTE byTarget;				/**< ç›®æ ‡ç±»åž‹ï¼šenumMapDataType */
+	BYTE byRetcode;				/**< è¿”å›žä»£ç ï¼šRTMAGIC_SUCCESS,RTMAGIC_FAILURE... */
+	BYTE byDirect;				/**< æ–¹å‘ */
+	BYTE bySrc;					/**< æ”»å‡»è€…ç±»åž‹ï¼šenumMapDataType */
 
-	DWORD dwSrcTempID;			/**< ¹¥»÷ÕßÁÙÊ±±àºÅ */
+	DWORD dwSrcTempID;			/**< æ”»å‡»è€…ä¸´æ—¶ç¼–å· */
 
-	DWORD dwHP;					// µ±Ç°Ñª
-	SDWORD sdwHP;					/**< ¿ÛÑª */
-	BYTE byLuck;				//ÐÒÔË£¬Îª1±íÊ¾ÕâÊÇÐÒÔË¹¥»÷£¬Îª0±íÊ¾ÆÕÍ¨¹¥»÷½á¹û
+	DWORD dwHP;					// å½“å‰è¡€
+	SDWORD sdwHP;					/**< æ‰£è¡€ */
+	BYTE byLuck;				//å¹¸è¿ï¼Œä¸º1è¡¨ç¤ºè¿™æ˜¯å¹¸è¿æ”»å‡»ï¼Œä¸º0è¡¨ç¤ºæ™®é€šæ”»å‡»ç»“æžœ
 };
 
 enum enumPopEffect
@@ -1821,7 +1821,7 @@ enum enumPopEffect
 	POP_NUM,
 };
 
-/// ·µ»ØÄ¿±ê×ø±êÉËÑªÍ¨Öª
+/// è¿”å›žç›®æ ‡åæ ‡ä¼¤è¡€é€šçŸ¥
 const BYTE OBJECT_HPMP_POP_PARA = 11;
 struct stObjectHpMpPopUserCmd : public stMagicUserCmd{
 
@@ -1830,14 +1830,14 @@ struct stObjectHpMpPopUserCmd : public stMagicUserCmd{
 		byParam = OBJECT_HPMP_POP_PARA;
 	}
 
-	DWORD dwUserTempID;			/**< Ä¿±êÁÙÊ±±àºÅ */
-	BYTE byTarget;				/**< Ä¿±êÀàÐÍ£ºenumMapDataType */
+	DWORD dwUserTempID;			/**< ç›®æ ‡ä¸´æ—¶ç¼–å· */
+	BYTE byTarget;				/**< ç›®æ ‡ç±»åž‹ï¼šenumMapDataType */
 
-	int vChange;				/**< >0 :¼Ó		<0 :¿Û*/
+	int vChange;				/**< >0 :åŠ 		<0 :æ‰£*/
 	enumPopEffect	type;
 };
 
-/// ·µ»ØÄ¿±ê×ø±ê
+/// è¿”å›žç›®æ ‡åæ ‡
 const BYTE RTMAGIC_POS_USERCMD_PARA	= 12;
 struct stRTMagicPosUserCmd : public stMagicUserCmd{
 
@@ -1845,11 +1845,11 @@ struct stRTMagicPosUserCmd : public stMagicUserCmd{
 	{
 		byParam = RTMAGIC_POS_USERCMD_PARA;
 	}
-	BYTE byTarget;				/**< Ä¿±êÀàÐÍ£ºenumMapDataType */
+	BYTE byTarget;				/**< ç›®æ ‡ç±»åž‹ï¼šenumMapDataType */
 	stNpcPosition pos;
 };
 
-/// ·ÀÓù·½ºóÍË
+/// é˜²å¾¡æ–¹åŽé€€
 const BYTE BACKOFF_USERCMD_PARA	= 7;
 	struct stBackOffMagicUserCmd : public stMagicUserCmd {
 		stBackOffMagicUserCmd()
@@ -1857,14 +1857,14 @@ const BYTE BACKOFF_USERCMD_PARA	= 7;
 			byParam = BACKOFF_USERCMD_PARA;
 		}
 
-		DWORD dwTempID;				/**< ·ÀÓù·½ÁÙÊ±±àºÅ */
-		BYTE byType;				/**< Ä¿±êÀàÐÍ enumMapDataType */
-		BYTE byDirect;				/**< ºóÍËµÄ·½Ïò */
+		DWORD dwTempID;				/**< é˜²å¾¡æ–¹ä¸´æ—¶ç¼–å· */
+		BYTE byType;				/**< ç›®æ ‡ç±»åž‹ enumMapDataType */
+		BYTE byDirect;				/**< åŽé€€çš„æ–¹å‘ */
 		DWORD x;
 		DWORD y;
 	};
 
-/// ¹¥»÷NpcµÃµ½¾­Ñé
+/// æ”»å‡»Npcå¾—åˆ°ç»éªŒ
 const BYTE OBTAINEXP_USERCMD_PARA = 8;
 	struct stObtainExpUserCmd : public stMagicUserCmd{
 		stObtainExpUserCmd()
@@ -1872,13 +1872,13 @@ const BYTE OBTAINEXP_USERCMD_PARA = 8;
 			byParam = OBTAINEXP_USERCMD_PARA;
 		}
 
-		DWORD dwTempID;				/**< ¾­ÑéÖµÀ´Ô´ÁÙÊ±±àºÅ */
-		BYTE byType;				/**< ¾­ÑéÖµÀ´Ô´ enumMapDataType */
-		DWORD dwExp;				/**< µÃµ½µÄ¾­Ñé */
-		QWORD dwUserExp;			/**< ÈËÎïµ±Ç°¾­ÑéÖµµÄ¾­Ñé */
+		DWORD dwTempID;				/**< ç»éªŒå€¼æ¥æºä¸´æ—¶ç¼–å· */
+		BYTE byType;				/**< ç»éªŒå€¼æ¥æº enumMapDataType */
+		DWORD dwExp;				/**< å¾—åˆ°çš„ç»éªŒ */
+		QWORD dwUserExp;			/**< äººç‰©å½“å‰ç»éªŒå€¼çš„ç»éªŒ */
 	};
 
-/// NpcËÀÍö
+/// Npcæ­»äº¡
 const BYTE NPCDEATH_USERCMD_PARA = 9;
 	struct stNpcDeathUserCmd : public stMagicUserCmd{
 		stNpcDeathUserCmd()
@@ -1886,10 +1886,10 @@ const BYTE NPCDEATH_USERCMD_PARA = 9;
 			byParam = NPCDEATH_USERCMD_PARA;
 		}
 
-		DWORD dwNpcTempID;			/**< NpcÁÙÊ±±àºÅ */
+		DWORD dwNpcTempID;			/**< Npcä¸´æ—¶ç¼–å· */
 	};
 
-/// ÈËÎïµÈ¼¶ÌáÉý
+/// äººç‰©ç­‰çº§æå‡
 const BYTE LEVELUP_USERCMD_PARA	= 10;
 	struct stLevelUpUserCmd : public stMagicUserCmd{
 		stLevelUpUserCmd()
@@ -1897,22 +1897,22 @@ const BYTE LEVELUP_USERCMD_PARA	= 10;
 			byParam = LEVELUP_USERCMD_PARA;
 		}
 
-		DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±±àºÅ */
+		DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ç¼–å· */
 	};
 
-//PKÄ£Ê½ÇÐ»»
+//PKæ¨¡å¼åˆ‡æ¢
 enum {
-	PKMODE_NORMAL,		//ºÍÆ½Ä£Ê½
-	PKMODE_ENTIRE,		//È«ÌåÄ£Ê½
-	PKMODE_TEAM,		//×é¶ÓÄ£Ê½
-	PKMODE_TONG,		//°ï»áÄ£Ê½
-	PKMODE_SEPT,		//¼Ò×åÄ£Ê½
-	//	PKMODE_SCHOOL,		//Ê¦ÃÅÄ£Ê½
-	PKMODE_COUNTRY,		//¹ú¼ÒÄ£Ê½
-	//	PKMODE_CHALLENGE,	//ÌôÕ½Ä£Ê½
-	PKMODE_GOODNESS,	//ÉÆ¶ñÄ£Ê½
-	PKMODE_ALLY,		//¹ú¼ÒÁªÃË
-	PKMODE_MAX,			//×î´óÖµ
+	PKMODE_NORMAL,		//å’Œå¹³æ¨¡å¼
+	PKMODE_ENTIRE,		//å…¨ä½“æ¨¡å¼
+	PKMODE_TEAM,		//ç»„é˜Ÿæ¨¡å¼
+	PKMODE_TONG,		//å¸®ä¼šæ¨¡å¼
+	PKMODE_SEPT,		//å®¶æ—æ¨¡å¼
+	//	PKMODE_SCHOOL,		//å¸ˆé—¨æ¨¡å¼
+	PKMODE_COUNTRY,		//å›½å®¶æ¨¡å¼
+	//	PKMODE_CHALLENGE,	//æŒ‘æˆ˜æ¨¡å¼
+	PKMODE_GOODNESS,	//å–„æ¶æ¨¡å¼
+	PKMODE_ALLY,		//å›½å®¶è”ç›Ÿ
+	PKMODE_MAX,			//æœ€å¤§å€¼
 };
 
 const BYTE PKMODE_USERCMD_PARA = 20;
@@ -1941,7 +1941,7 @@ enum enmUnStateType{
 	UN_STATE_TEAM_ATTACK_ONE_DIM = USTATE_TEAM_ATTACK_ONE_DIM,
 	UN_STATE_NUM
 };
-//½â³ýºÏÌå×´Ì¬
+//è§£é™¤åˆä½“çŠ¶æ€
 const BYTE UNCOMBIN_USERCMD_PARA = 23;
 	struct stUnCombinUserCmd : public stMagicUserCmd{
 		stUnCombinUserCmd()
@@ -1951,7 +1951,7 @@ const BYTE UNCOMBIN_USERCMD_PARA = 23;
 		enum enmUnStateType type;
 	};
 
-//È¼·ÅÑæ»ð
+//ç‡ƒæ”¾ç„°ç«
 const BYTE FIREWORK_USERCMD_PARA = 24;
 struct stFireWorkUserCmd : public stMagicUserCmd{
 	stFireWorkUserCmd()
@@ -1959,13 +1959,13 @@ struct stFireWorkUserCmd : public stMagicUserCmd{
 		byParam = FIREWORK_USERCMD_PARA;
 	}
 
-	QWORD qwObjectTempID;	//Ñæ»ðµÀ¾ßID
+	QWORD qwObjectTempID;	//ç„°ç«é“å…·ID
 	BYTE byType;		//
-	DWORD dwUserID;		//Ñæ»ðÈ¼·ÅÕßID
-	DWORD dwFireID;		//Ñæ»ðID
+	DWORD dwUserID;		//ç„°ç«ç‡ƒæ”¾è€…ID
+	DWORD dwFireID;		//ç„°ç«ID
 };
 
-//Ê±¼äÍ¬²½ÏûÏ¢
+//æ—¶é—´åŒæ­¥æ¶ˆæ¯
 const BYTE TIMESYNC_USERCMD_PARA = 25;
 struct stTimeSyncUserCmd : public stMagicUserCmd{
 	stTimeSyncUserCmd()
@@ -1973,7 +1973,7 @@ struct stTimeSyncUserCmd : public stMagicUserCmd{
 		byParam = TIMESYNC_USERCMD_PARA;
 	}
 
-	time_t serverTime;	//·þÎñÆ÷Ê±¼ä
+	time_t serverTime;	//æœåŠ¡å™¨æ—¶é—´
 };
 
 //GM command: Switch character obstacle state
@@ -1986,7 +1986,7 @@ struct stSwitchCharacterObstacleUserCmd : public stMagicUserCmd{
 
        bool bOn;               //true: Use obstacle
 };
-/// ¹¥»÷·µ»Ø¸øÆäËûÈË
+/// æ”»å‡»è¿”å›žç»™å…¶ä»–äºº
 const BYTE RT_OTHER_MAGIC_USERCMD_PARA = 27;
 struct stRTOtherMagicUserCmd : public stMagicUserCmd{
 
@@ -1995,19 +1995,19 @@ struct stRTOtherMagicUserCmd : public stMagicUserCmd{
 		byParam = RT_OTHER_MAGIC_USERCMD_PARA;
 	}
 
-	BYTE byTarget;				/**< Ä¿±êÀàÐÍ£ºenumMapDataType */
-	DWORD dwUserTempID;			/**< Ä¿±êÁÙÊ±±àºÅ */
-	BYTE bySrc;					/**< ¹¥»÷ÕßÀàÐÍ£ºenumMapDataType */
-	DWORD dwSrcTempID;			/**< ¹¥»÷ÕßÁÙÊ±±àºÅ */
+	BYTE byTarget;				/**< ç›®æ ‡ç±»åž‹ï¼šenumMapDataType */
+	DWORD dwUserTempID;			/**< ç›®æ ‡ä¸´æ—¶ç¼–å· */
+	BYTE bySrc;					/**< æ”»å‡»è€…ç±»åž‹ï¼šenumMapDataType */
+	DWORD dwSrcTempID;			/**< æ”»å‡»è€…ä¸´æ—¶ç¼–å· */
 };
 
 //////////////////////////////////////////////////////////////
-/// Ä§·¨Ö¸Áî¶¨Òå½áÊø
+/// é­”æ³•æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¸´»îÖ¸Áî¶¨Òå¿ªÊ¼
+/// å¤æ´»æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 	struct stReliveUserCmd : public stNullUserCmd{
 		stReliveUserCmd()
@@ -2016,7 +2016,7 @@ struct stRTOtherMagicUserCmd : public stMagicUserCmd{
 		}
 	};
 
-/// Ö÷ÓÃ»§ËÀÍöÖ¸Áî
+/// ä¸»ç”¨æˆ·æ­»äº¡æŒ‡ä»¤
 const BYTE MAINUSERDEATH_RELIVE_USERCMD_PARA = 1;
 	struct stMainUserDeathReliveUserCmd : public stReliveUserCmd{
 		stMainUserDeathReliveUserCmd()
@@ -2027,11 +2027,11 @@ const BYTE MAINUSERDEATH_RELIVE_USERCMD_PARA = 1;
 			deathType = 0;
 		}
 
-		DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
+		DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
 		DWORD deathType;
 	};
 
-/// Ö÷ÓÃ»§¸´»îÖ¸Áî
+/// ä¸»ç”¨æˆ·å¤æ´»æŒ‡ä»¤
 const BYTE MAINUSERRELIVE_RELIVE_USERCMD_PARA = 2;
 	struct stMainUserReliveReliveUserCmd : public stReliveUserCmd{
 		stMainUserReliveReliveUserCmd()
@@ -2039,22 +2039,22 @@ const BYTE MAINUSERRELIVE_RELIVE_USERCMD_PARA = 2;
 			byParam = MAINUSERRELIVE_RELIVE_USERCMD_PARA;
 		}
 
-		DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
+		DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
 
-		DWORD x,y;					// ×ø±ê
+		DWORD x,y;					// åæ ‡
 	};
 
-//¸´»î·½Ê½
+//å¤æ´»æ–¹å¼
 enum
 {
-	ReliveHome,//»Ø³Ç¸´»î
-	ReliveMoney,//½ðÇ®¸´»î
-	ReliveSkill,//¼¼ÄÜ¸´»î
-	Relive_1_min,//×·²¶Ð×·¸1·ÖÖÓ
-	Relive_5_min,//×·²¶Ð×·¸5·ÖÖÓ
-	Relive_10_min//×·²¶Ð×·¸10·ÖÖÓ
+	ReliveHome,//å›žåŸŽå¤æ´»
+	ReliveMoney,//é‡‘é’±å¤æ´»
+	ReliveSkill,//æŠ€èƒ½å¤æ´»
+	Relive_1_min,//è¿½æ•å‡¶çŠ¯1åˆ†é’Ÿ
+	Relive_5_min,//è¿½æ•å‡¶çŠ¯5åˆ†é’Ÿ
+	Relive_10_min//è¿½æ•å‡¶çŠ¯10åˆ†é’Ÿ
 };
-/// ËÀÍö¶¯»­²¥·ÅÍê±Ï
+/// æ­»äº¡åŠ¨ç”»æ’­æ”¾å®Œæ¯•
 const BYTE OK_RELIVE_USERCMD_PARA = 3;
 	struct stOKReliveUserCmd : public stReliveUserCmd{
 		stOKReliveUserCmd()
@@ -2062,16 +2062,16 @@ const BYTE OK_RELIVE_USERCMD_PARA = 3;
 			byParam = OK_RELIVE_USERCMD_PARA;
 		}
 
-		DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
-		BYTE  byType;				/**< ¸´»î·½Ê½ */
+		DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
+		BYTE  byType;				/**< å¤æ´»æ–¹å¼ */
 	};
 //////////////////////////////////////////////////////////////
-/// ¸´»îÖ¸Áî¶¨Òå½áÊø
+/// å¤æ´»æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ÓÃ»§ÒÆ¶¯Ö¸Áî¶¨Òå¿ªÊ¼
+/// ç”¨æˆ·ç§»åŠ¨æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 	struct stMoveUserCmd : public stNullUserCmd{
 		stMoveUserCmd()
@@ -2080,23 +2080,23 @@ const BYTE OK_RELIVE_USERCMD_PARA = 3;
 		}
 	};
 
-/// ÒÆ¶¯·½ÏòµÄ¶¨Òå
+/// ç§»åŠ¨æ–¹å‘çš„å®šä¹‰
 enum {
-	_DIR_UP			= 0,	/// ÏòÉÏ
-	_DIR_UPRIGHT	= 1,	/// ÓÒÉÏ
-	_DIR_RIGHTUP	= 1,	/// ÓÒÉÏ
-	_DIR_RIGHT		= 2,	/// ÏòÓÒ
-	_DIR_RIGHTDOWN	= 3,	/// ÓÒÏÂ
-	_DIR_DOWNRIGHT	= 3,	/// ÓÒÏÂ
-	_DIR_DOWN		= 4,	/// ÏòÏÂ
-	_DIR_DOWNLEFT	= 5,	/// ×óÏÂ
-	_DIR_LEFTDOWN	= 5,	/// ×óÏÂ
-	_DIR_LEFT		= 6,	/// Ïò×ó
-	_DIR_LEFTUP		= 7,	/// ×óÉÏ
-	_DIR_UPLEFT		= 7,	/// ×óÉÏ
-	_DIR_WRONG		= 8		/// ´íÎó·½Ïò
+	_DIR_UP			= 0,	/// å‘ä¸Š
+	_DIR_UPRIGHT	= 1,	/// å³ä¸Š
+	_DIR_RIGHTUP	= 1,	/// å³ä¸Š
+	_DIR_RIGHT		= 2,	/// å‘å³
+	_DIR_RIGHTDOWN	= 3,	/// å³ä¸‹
+	_DIR_DOWNRIGHT	= 3,	/// å³ä¸‹
+	_DIR_DOWN		= 4,	/// å‘ä¸‹
+	_DIR_DOWNLEFT	= 5,	/// å·¦ä¸‹
+	_DIR_LEFTDOWN	= 5,	/// å·¦ä¸‹
+	_DIR_LEFT		= 6,	/// å‘å·¦
+	_DIR_LEFTUP		= 7,	/// å·¦ä¸Š
+	_DIR_UPLEFT		= 7,	/// å·¦ä¸Š
+	_DIR_WRONG		= 8		/// é”™è¯¯æ–¹å‘
 };
-/// ÓÃ»§ÒÆ¶¯
+/// ç”¨æˆ·ç§»åŠ¨
 const BYTE USERMOVE_MOVE_USERCMD_PARA = 2;
 	struct stUserMoveMoveUserCmd : public stMoveUserCmd {
 		stUserMoveMoveUserCmd()
@@ -2104,15 +2104,15 @@ const BYTE USERMOVE_MOVE_USERCMD_PARA = 2;
 			byParam = USERMOVE_MOVE_USERCMD_PARA;
 		}
 
-		DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±±àºÅ */
+		DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ç¼–å· */
 
-		BYTE byDirect;				/**< ÒÆ¶¯·½Ïò */
-		BYTE bySpeed;				/**< ÒÆ¶¯ËÙ¶È */
-		WORD x;					/**< Ä¿µÄ×ø±ê */
+		BYTE byDirect;				/**< ç§»åŠ¨æ–¹å‘ */
+		BYTE bySpeed;				/**< ç§»åŠ¨é€Ÿåº¦ */
+		WORD x;					/**< ç›®çš„åæ ‡ */
 		WORD y;
 	};
 
-/// Íø¹ØÏòÖ÷ÓÃ»§·¢ËÍµÄË²ÒÆÖ¸Áî
+/// ç½‘å…³å‘ä¸»ç”¨æˆ·å‘é€çš„çž¬ç§»æŒ‡ä»¤
 const BYTE USERINSTANTJUMP_MOVE_USERCMD_PARA = 10;
 	struct stUserInstantJumpMoveUserCmd : public stMoveUserCmd{
 		stUserInstantJumpMoveUserCmd()
@@ -2120,15 +2120,15 @@ const BYTE USERINSTANTJUMP_MOVE_USERCMD_PARA = 10;
 			byParam = USERINSTANTJUMP_MOVE_USERCMD_PARA;
 		}
 
-		DWORD dwUserTempID;			/**< ÓÃ»§ÁÙÊ±ID */
+		DWORD dwUserTempID;			/**< ç”¨æˆ·ä¸´æ—¶ID */
 
-		DWORD dwNextScreenPosition;	/**< ÈËËùµ½´ïµÄÆÁÎ»ÖÃ */
-		WORD wdNextOffsetX;			/**< ÈËËùµ½´ïµÄÆÁµÄÆ«ÒÆX */
-		WORD wdNextOffsetY;			/**< ÈËËùµ½´ïµÄÆÁµÄÆ«ÒÆY */
+		DWORD dwNextScreenPosition;	/**< äººæ‰€åˆ°è¾¾çš„å±ä½ç½® */
+		WORD wdNextOffsetX;			/**< äººæ‰€åˆ°è¾¾çš„å±çš„åç§»X */
+		WORD wdNextOffsetY;			/**< äººæ‰€åˆ°è¾¾çš„å±çš„åç§»Y */
 	};
 
-/// ÓÃ»§½øÈëµØÍ¼Ö¸ÁîÃüÁî
-/// Ä¿Ç°Ö»Ó¦ÓÃÓÚ½ø³ö×ÜÌ³
+/// ç”¨æˆ·è¿›å…¥åœ°å›¾æŒ‡ä»¤å‘½ä»¤
+/// ç›®å‰åªåº”ç”¨äºŽè¿›å‡ºæ€»å›
 const BYTE USERGOTOMAP_MOVE_USERCMD_PARA = 12;
 struct stUserGotoMapMoveUserCmd : public stMoveUserCmd
 {
@@ -2141,7 +2141,7 @@ struct stUserGotoMapMoveUserCmd : public stMoveUserCmd
 	char mapName[MAX_NAMESIZE];
 };
 
-/// NpcÒÆ¶¯Ö¸Áî
+/// Npcç§»åŠ¨æŒ‡ä»¤
 const BYTE NPCMOVE_MOVE_USERCMD_PARA = 20;
 	struct stNpcMoveMoveUserCmd : public stMoveUserCmd{
 		stNpcMoveMoveUserCmd()
@@ -2149,15 +2149,15 @@ const BYTE NPCMOVE_MOVE_USERCMD_PARA = 20;
 			byParam = NPCMOVE_MOVE_USERCMD_PARA;
 		}
 
-		DWORD dwNpcTempID;			/**< NpcÁÙÊ±±àºÅ */
+		DWORD dwNpcTempID;			/**< Npcä¸´æ—¶ç¼–å· */
 
-		BYTE byDirect;				/**< ÒÆ¶¯·½Ïò */
-		BYTE bySpeed;				/**< ÒÆ¶¯µÄËÙ¶È */
-		WORD x;					/**< Ä¿µÄ×ø±ê */
+		BYTE byDirect;				/**< ç§»åŠ¨æ–¹å‘ */
+		BYTE bySpeed;				/**< ç§»åŠ¨çš„é€Ÿåº¦ */
+		WORD x;					/**< ç›®çš„åæ ‡ */
 		WORD y;
 	};
 
-/// ÇëÇó»ñÈ¡´óÂ½ÁÐ±í
+/// è¯·æ±‚èŽ·å–å¤§é™†åˆ—è¡¨
 const BYTE REQUESTLANDMASS_MOVE_USERCMD_PARA = 30;
 	struct stRequestLandMassMoveUserCmd : public stMoveUserCmd{
 		stRequestLandMassMoveUserCmd()
@@ -2167,15 +2167,15 @@ const BYTE REQUESTLANDMASS_MOVE_USERCMD_PARA = 30;
 	};
 
 struct t_LandMass {
-	BYTE groupName[MAX_NAMESIZE];   /**< ´óÂ½Ãû³Æ */
-	BYTE countryName[MAX_NAMESIZE]; /**< ¹ú¼ÒÃû³Æ */
-	BYTE cityName[MAX_NAMESIZE];    /**< ³ÇÊÐÃû³Æ */
-	WORD wdOnlineUser;          /**< ´óÂ½ÔÚÏßÈËÊý */
-	BYTE byAvailable;           /**< ´óÂ½ÊÇ·ñ¿ÉÓÃ */
-	DWORD price;				// Ìø×ª·ÑÓÃ
+	BYTE groupName[MAX_NAMESIZE];   /**< å¤§é™†åç§° */
+	BYTE countryName[MAX_NAMESIZE]; /**< å›½å®¶åç§° */
+	BYTE cityName[MAX_NAMESIZE];    /**< åŸŽå¸‚åç§° */
+	WORD wdOnlineUser;          /**< å¤§é™†åœ¨çº¿äººæ•° */
+	BYTE byAvailable;           /**< å¤§é™†æ˜¯å¦å¯ç”¨ */
+	DWORD price;				// è·³è½¬è´¹ç”¨
 };
 
-/// ·þÎñÆ÷·µ»Ø´óÂ½ÁÐ±í
+/// æœåŠ¡å™¨è¿”å›žå¤§é™†åˆ—è¡¨
 const BYTE RESPONSELANDMASS_MOVE_USERCMD_PARA = 31;
 	struct stResponseLandMassMoveUserCmd : public stMoveUserCmd{
 		stResponseLandMassMoveUserCmd()
@@ -2184,10 +2184,10 @@ const BYTE RESPONSELANDMASS_MOVE_USERCMD_PARA = 31;
 		}
 
 		int size;
-		//ÁÐ±í
+		//åˆ—è¡¨
 	};
 
-/// Ìø×ª´óÂ½
+/// è·³è½¬å¤§é™†
 const BYTE LANDMASSJUMP_MOVE_USERCMD_PARA = 32;
 	struct stLandMassJumpMoveUserCmd : public stMoveUserCmd{
 		stLandMassJumpMoveUserCmd()
@@ -2196,7 +2196,7 @@ const BYTE LANDMASSJUMP_MOVE_USERCMD_PARA = 32;
 		}
 	};
 
-/// ×øÏÂÆðÀ´Ö¸Áî£¬ÖÁÓÚÊÇ×øÏÂ»¹ÊÇÆðÀ´¸úµ±Ç°×´Ì¬ÓÐ¹Ø
+/// åä¸‹èµ·æ¥æŒ‡ä»¤ï¼Œè‡³äºŽæ˜¯åä¸‹è¿˜æ˜¯èµ·æ¥è·Ÿå½“å‰çŠ¶æ€æœ‰å…³
 const BYTE SITDOWN_MOVE_USERCMD_PARA = 33;
 	struct stSitDownMoveUserCmd : public stMoveUserCmd{
 		stSitDownMoveUserCmd()
@@ -2205,12 +2205,12 @@ const BYTE SITDOWN_MOVE_USERCMD_PARA = 33;
 		}
 	};
 //////////////////////////////////////////////////////////////
-/// ÓÃ»§ÒÆ¶¯Ö¸Áî¶¨Òå½áÊø
+/// ç”¨æˆ·ç§»åŠ¨æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// Ñ¡ÔñÖ¸Áî¶¨Òå¿ªÊ¼
+// é€‰æ‹©æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stSelectUserCmd : public stNullUserCmd
 {
@@ -2221,29 +2221,29 @@ struct stSelectUserCmd : public stNullUserCmd
 };
 
 /**
- * \brief ½ÇÉ«×´Ì¬±êÖ¾Î»
+ * \brief è§’è‰²çŠ¶æ€æ ‡å¿—ä½
  *
  */
-#define CHARBASE_OK 1		///ÒÑ¾­µÇÂ½¹ýÓÎÏ·
-#define CHARBASE_FORBID 2	///½ÇÉ«±»·â
-#define CHARBASE_VIP 4		///ÊÕ·ÑÓÃ»§(³ä¹ýÖµ)
-/// ×î´ó½ÇÉ«ÐÅÏ¢¸öÊý
+#define CHARBASE_OK 1		///å·²ç»ç™»é™†è¿‡æ¸¸æˆ
+#define CHARBASE_FORBID 2	///è§’è‰²è¢«å°
+#define CHARBASE_VIP 4		///æ”¶è´¹ç”¨æˆ·(å……è¿‡å€¼)
+/// æœ€å¤§è§’è‰²ä¿¡æ¯ä¸ªæ•°
 const WORD MAX_CHARINFO = 2;
-/// ½ÇÉ«ÐÅÏ¢
+/// è§’è‰²ä¿¡æ¯
 struct SelectUserInfo
 {
-	DWORD id;						/// ½ÇÉ«±àºÅ
-	char  name[MAX_NAMESIZE+1];		/// ½ÇÉ«Ãû³Æ
-	WORD type;						/// ½ÇÉ«ÀàÐÍ
-	WORD level;						/// ½ÇÉ«µÈ¼¶
-	DWORD mapid;					/// ½ÇÉ«ËùÔÚµØÍ¼±àºÅ
-	char  mapName[MAX_NAMESIZE+1];	/// ½ÇÉ«ËùÔÚµØÍ¼Ãû³Æ
-	WORD country;					///	¹ú¼ÒID
+	DWORD id;						/// è§’è‰²ç¼–å·
+	char  name[MAX_NAMESIZE+1];		/// è§’è‰²åç§°
+	WORD type;						/// è§’è‰²ç±»åž‹
+	WORD level;						/// è§’è‰²ç­‰çº§
+	DWORD mapid;					/// è§’è‰²æ‰€åœ¨åœ°å›¾ç¼–å·
+	char  mapName[MAX_NAMESIZE+1];	/// è§’è‰²æ‰€åœ¨åœ°å›¾åç§°
+	WORD country;					///	å›½å®¶ID
 	WORD face;
-	char  countryName[MAX_NAMESIZE+1];	/// ¹ú¼ÒÃû³Æ
-	DWORD bitmask;					/// ½ÇÉ«ÑÚÂë
-//	WORD five;						///	ÎåÐÐÖ÷ÊôÐÔ
-//	DWORD unionid;        /// °ï»áID
+	char  countryName[MAX_NAMESIZE+1];	/// å›½å®¶åç§°
+	DWORD bitmask;					/// è§’è‰²æŽ©ç 
+//	WORD five;						///	äº”è¡Œä¸»å±žæ€§
+//	DWORD unionid;        /// å¸®ä¼šID
 };
 
 const BYTE USERINFO_SELECT_USERCMD_PARA = 1;
@@ -2260,7 +2260,7 @@ struct stUserInfoUserCmd : public stSelectUserCmd
 	BYTE data[0];
 };
 
-// ÅÐ¶ÏÍ·ÏóµÄÐÔ±ð
+// åˆ¤æ–­å¤´è±¡çš„æ€§åˆ«
 inline bool IsMaleFace(int face)
 {
 	return (face & 0x1) == 1;
@@ -2277,7 +2277,7 @@ inline int getCharTypeByFace(int face)
 	return PROFESSION_2;
 }
 
-/// ÇëÇó´´½¨ÓÃ»§µµ°¸
+/// è¯·æ±‚åˆ›å»ºç”¨æˆ·æ¡£æ¡ˆ
 const BYTE CREATE_SELECT_USERCMD_PARA = 2;
 struct stCreateSelectUserCmd : public stSelectUserCmd
 {
@@ -2286,15 +2286,15 @@ struct stCreateSelectUserCmd : public stSelectUserCmd
 		byParam = CREATE_SELECT_USERCMD_PARA;
 	}
 
-	char strUserName[MAX_NAMESIZE];	/**< ÓÃ»§Ãû×Ö  */
+	char strUserName[MAX_NAMESIZE];	/**< ç”¨æˆ·åå­—  */
 	WORD charType;
-	BYTE byHairType;			/**< Í··¢ÀàÐÍ */
-	DWORD byRGB;				/**< ÑÕÉ«RGB */
-	WORD country;				/**< ¹ú¼ÒID */
-	WORD five;					/**< ÎåÐÐÖ÷ÊôÐÔ */
+	BYTE byHairType;			/**< å¤´å‘ç±»åž‹ */
+	DWORD byRGB;				/**< é¢œè‰²RGB */
+	WORD country;				/**< å›½å®¶ID */
+	WORD five;					/**< äº”è¡Œä¸»å±žæ€§ */
 };
 
-/// ÇëÇóµÇÂ½
+/// è¯·æ±‚ç™»é™†
 const BYTE LOGIN_SELECT_USERCMD_PARA = 3;
 struct stLoginSelectUserCmd : public stSelectUserCmd
 {
@@ -2304,10 +2304,10 @@ struct stLoginSelectUserCmd : public stSelectUserCmd
 	}
 
 	DWORD charNo;
-	char jpegPassport[7];				/**< Í¼ÐÎÑéÖ¤Âë */
+	char jpegPassport[7];				/**< å›¾å½¢éªŒè¯ç  */
 };
 
-/// ÇëÇóÉ¾³ýÕÊºÅ
+/// è¯·æ±‚åˆ é™¤å¸å·
 const BYTE DELETE_SELECT_USERCMD_PARA = 4;
 struct stDeleteSelectUserCmd : public stSelectUserCmd
 {
@@ -2321,7 +2321,7 @@ struct stDeleteSelectUserCmd : public stSelectUserCmd
 	char	numPassword[MAX_NUMPASSWORD];
 };
 
-/// ÇëÇó¼ì²é½ÇÉ«Ãû
+/// è¯·æ±‚æ£€æŸ¥è§’è‰²å
 const BYTE CHECKNAME_SELECT_USERCMD_PARA = 5;
 struct stCheckNameSelectUserCmd : public stSelectUserCmd
 {
@@ -2332,11 +2332,11 @@ struct stCheckNameSelectUserCmd : public stSelectUserCmd
 		err_code = 0;
 	}
 
-	char name[MAX_NAMESIZE];	/**< ÓÃ»§Ãû×Ö  */
-	BYTE err_code; //·µ»ØÊ±µÄÐÅÏ¢ 0 Ã»ÓÐ´íÎó 1 Ãû×ÖÖØ¸´ 2 Ãû×Ö°üº¬²»ºÏ·¨µÄÄÚÈÝ
+	char name[MAX_NAMESIZE];	/**< ç”¨æˆ·åå­—  */
+	BYTE err_code; //è¿”å›žæ—¶çš„ä¿¡æ¯ 0 æ²¡æœ‰é”™è¯¯ 1 åå­—é‡å¤ 2 åå­—åŒ…å«ä¸åˆæ³•çš„å†…å®¹
 };
 
-/// ·µ»ØÉ¾³ý½ÇÉ«Ê§°Ü
+/// è¿”å›žåˆ é™¤è§’è‰²å¤±è´¥
 const BYTE RETURN_DELETE_SELECT_USERCMD_PARA = 6;
 struct stReturnDeleteSelectUserCmd : public stSelectUserCmd
 {
@@ -2345,14 +2345,14 @@ struct stReturnDeleteSelectUserCmd : public stSelectUserCmd
 		byParam = RETURN_DELETE_SELECT_USERCMD_PARA;
 	}
 
-	char name[MAX_NAMESIZE];	/**< ½ÇÉ«Ãû×Ö  */
-	BYTE err_code; //·µ»ØÊ±µÄÐÅÏ¢ 1: ÄúÊÇ°ïÖ÷£¬Çë½âÉ¢°ï»áºóÔÙÉ¾³ý½ÇÉ«
-	               //             2: ÄúÊÇÊ¦×ð£¬Çë½âÉ¢Ê¦ÃÅºóÔÙÉ¾³ý½ÇÉ«
-	               //             3: ÄúÊÇ×å³¤£¬Çë½âÉ¢¼Ò×åºóÔÙÉ¾³ý½ÇÉ«
-				   //             4: ²Ù×÷Òì³££¬ÇëÖØÊÔ
+	char name[MAX_NAMESIZE];	/**< è§’è‰²åå­—  */
+	BYTE err_code; //è¿”å›žæ—¶çš„ä¿¡æ¯ 1: æ‚¨æ˜¯å¸®ä¸»ï¼Œè¯·è§£æ•£å¸®ä¼šåŽå†åˆ é™¤è§’è‰²
+	               //             2: æ‚¨æ˜¯å¸ˆå°Šï¼Œè¯·è§£æ•£å¸ˆé—¨åŽå†åˆ é™¤è§’è‰²
+	               //             3: æ‚¨æ˜¯æ—é•¿ï¼Œè¯·è§£æ•£å®¶æ—åŽå†åˆ é™¤è§’è‰²
+				   //             4: æ“ä½œå¼‚å¸¸ï¼Œè¯·é‡è¯•
 };
 
-/// ÇëÇó¹ú¼ÒÁÐ±í
+/// è¯·æ±‚å›½å®¶åˆ—è¡¨
 const BYTE REQUEST_COUNTRY_SELECT_USERCMD_PARA = 7;
 struct stRequestSelectUserCmd : public stSelectUserCmd
 {
@@ -2362,7 +2362,7 @@ struct stRequestSelectUserCmd : public stSelectUserCmd
 	}
 
 };
-/// ÇëÇóÉ¾³ýÕÊºÅÊ±Êý×ÖÃÜÂë´íÎó
+/// è¯·æ±‚åˆ é™¤å¸å·æ—¶æ•°å­—å¯†ç é”™è¯¯
 const BYTE DELETE_ERROR_SELECT_USERCMD_PARA = 8;
 struct stDeleteErrorSelectUserCmd : public stSelectUserCmd
 {
@@ -2373,12 +2373,12 @@ struct stDeleteErrorSelectUserCmd : public stSelectUserCmd
 
 };
 //////////////////////////////////////////////////////////////
-// Ñ¡ÔñÖ¸Áî¶¨Òå½áÊø
+// é€‰æ‹©æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ÓÃ»§ÊôÐÔÖ¸Áî¶¨Òå¿ªÊ¼
+// ç”¨æˆ·å±žæ€§æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 #ifndef _PROPERTY_USERCMD_DEFINITION_
 #define _PROPERTY_USERCMD_DEFINITION_
@@ -2389,156 +2389,156 @@ struct stDeleteErrorSelectUserCmd : public stSelectUserCmd
 		}
 	};
 
-/// ¶¨Òå×°±¸¸ñ×ÓÀàÐÍ
+/// å®šä¹‰è£…å¤‡æ ¼å­ç±»åž‹
 enum {
-	EQUIPCELLTYPE_NONE=0,       /// ²»ÄÜ×°±¸
-	EQUIPCELLTYPE_HELM=1,       /// Í·¿ø
-	EQUIPCELLTYPE_BODY=2,       /// ·þ×°
-	EQUIPCELLTYPE_HANDR=3,		/// ÓÒÊÖ
-	EQUIPCELLTYPE_HANDL=4,		/// ×óÊÖ
-	EQUIPCELLTYPE_NECKLACE=5,	/// ÏîÁ´
-	EQUIPCELLTYPE_GLOVES=6,		/// ÊÖÌ×,ÊÖïí
-	EQUIPCELLTYPE_RING=7,       /// ½äÖ¸
-	EQUIPCELLTYPE_BELT=8,       /// Ñü´ø
-	EQUIPCELLTYPE_SHOES=9,		/// Ð¬×Ó
-	EQUIPCELLTYPE_OTHER=10,		/// ÌØÊâÎïÆ·,±ÈÈçÂíÅÆ
-	EQUIPCELLTYPE_PACKAGE=11,		/// ×°±¸µÄ°ü¹ü
-	EQUIPCELLTYPE_MAKE=12,		 /// ºÏ³É¡¢Éý¼¶£¬ÏâÇ¶µÄ°ü¹ü
-	EQUIPCELLTYPE_ADORN=13,       /// ×°ÊÎÆ·
+	EQUIPCELLTYPE_NONE=0,       /// ä¸èƒ½è£…å¤‡
+	EQUIPCELLTYPE_HELM=1,       /// å¤´ç›”
+	EQUIPCELLTYPE_BODY=2,       /// æœè£…
+	EQUIPCELLTYPE_HANDR=3,		/// å³æ‰‹
+	EQUIPCELLTYPE_HANDL=4,		/// å·¦æ‰‹
+	EQUIPCELLTYPE_NECKLACE=5,	/// é¡¹é“¾
+	EQUIPCELLTYPE_GLOVES=6,		/// æ‰‹å¥—,æ‰‹é•¯
+	EQUIPCELLTYPE_RING=7,       /// æˆ’æŒ‡
+	EQUIPCELLTYPE_BELT=8,       /// è…°å¸¦
+	EQUIPCELLTYPE_SHOES=9,		/// éž‹å­
+	EQUIPCELLTYPE_OTHER=10,		/// ç‰¹æ®Šç‰©å“,æ¯”å¦‚é©¬ç‰Œ
+	EQUIPCELLTYPE_PACKAGE=11,		/// è£…å¤‡çš„åŒ…è£¹
+	EQUIPCELLTYPE_MAKE=12,		 /// åˆæˆã€å‡çº§ï¼Œé•¶åµŒçš„åŒ…è£¹
+	EQUIPCELLTYPE_ADORN=13,       /// è£…é¥°å“
 
 };
 
 enum{
-	EQUIPCELLTYPE_LEFT,			///×ó±ß
-	EQUIPCELLTYPE_RIGHT,		///ÓÒ±ß
+	EQUIPCELLTYPE_LEFT,			///å·¦è¾¹
+	EQUIPCELLTYPE_RIGHT,		///å³è¾¹
 };
 
-/// ¶¨Òå×°±¸¶¯×÷ÀàÐÍ
+/// å®šä¹‰è£…å¤‡åŠ¨ä½œç±»åž‹
 enum{
-	EQUIPACTION_INIT,		/// ³õÊ¼×°±¸
-	EQUIPACTION_MOVE,		/// ÒÆ¶¯×°±¸
-	EQUIPACTION_SHATTER,	/// ×°±¸Ëð»µ
-	EQUIPACTION_OBTAIN,		/// ×°±¸»ñµÃ
-	EQUIPACTION_DROP,		/// ×°±¸¶ªÆú
-	EQUIPACTION_REFRESH,	/// Ë¢ÐÂ×°±¸
+	EQUIPACTION_INIT,		/// åˆå§‹è£…å¤‡
+	EQUIPACTION_MOVE,		/// ç§»åŠ¨è£…å¤‡
+	EQUIPACTION_SHATTER,	/// è£…å¤‡æŸå
+	EQUIPACTION_OBTAIN,		/// è£…å¤‡èŽ·å¾—
+	EQUIPACTION_DROP,		/// è£…å¤‡ä¸¢å¼ƒ
+	EQUIPACTION_REFRESH,	/// åˆ·æ–°è£…å¤‡
 };
 
-/// ¶¨ÒåÎïÆ·¸ñ×ÓÀàÐÍ
+/// å®šä¹‰ç‰©å“æ ¼å­ç±»åž‹
 enum{
-	OBJECTCELLTYPE_NONE,		/// ²»ÊÇ¸ñ×Ó£¬ÓÃÓÚ¶ªÆú»ò¼ñµ½ÎïÆ·
-	OBJECTCELLTYPE_COMMON,		/// ÆÕÍ¨ÎïÆ·¸ñ×Ó
-	OBJECTCELLTYPE_EQUIP,		/// ×°±¸
-	OBJECTCELLTYPE_MOUSE,		/// Êó±ê
-	OBJECTCELLTYPE_TRADE,		/// ×Ô¼ºµÄ½»Ò×¸ñ×Ó
-	OBJECTCELLTYPE_OTHERTRADE,	/// ¶Ô·½µÄ½»Ò×¸ñ×Ó
-	OBJECTCELLTYPE_BANK,		/// ÒøÐÐ
-	OBJECTCELLTYPE_SELL,		/// Âô
-	OBJECTCELLTYPE_STORE,		/// ²Ö¿â
-	OBJECTCELLTYPE_EQUIPSHOW,	/// ·Ç×Ô¼º´©×ÅµÄ×°±¸
-	OBJECTCELLTYPE_PACKAGE,    /// °ü¹üµÄ¸ñ×Ó
-	OBJECTCELLTYPE_MAKE,       /// ºÏ³É¡¢Éý¼¶£¬ÏâÇ¶µÄ¸ñ×Ó
-	OBJECTCELLTYPE_MYSHOP,		/// ×Ô¼ºÌ¯Î»µÄ¸ñ×Ó
-	OBJECTCELLTYPE_OTHERSSHOP,	/// ±ðµÄÍæ¼ÒÌ¯Î»µÄ¸ñ×Ó
-	OBJECTCELLTYPE_MAIL,		/// ÓÊ¼þÏµÍ³µÄ¸ñ×Ó
-	OBJECTCELLTYPE_COUNTRY_SAVEBOX, /// ¹ú¼Ò‚}¿â
-	OBJECTCELLTYPE_PET,       /// ³èÎï°ü¹ü
+	OBJECTCELLTYPE_NONE,		/// ä¸æ˜¯æ ¼å­ï¼Œç”¨äºŽä¸¢å¼ƒæˆ–æ¡åˆ°ç‰©å“
+	OBJECTCELLTYPE_COMMON,		/// æ™®é€šç‰©å“æ ¼å­
+	OBJECTCELLTYPE_EQUIP,		/// è£…å¤‡
+	OBJECTCELLTYPE_MOUSE,		/// é¼ æ ‡
+	OBJECTCELLTYPE_TRADE,		/// è‡ªå·±çš„äº¤æ˜“æ ¼å­
+	OBJECTCELLTYPE_OTHERTRADE,	/// å¯¹æ–¹çš„äº¤æ˜“æ ¼å­
+	OBJECTCELLTYPE_BANK,		/// é“¶è¡Œ
+	OBJECTCELLTYPE_SELL,		/// å–
+	OBJECTCELLTYPE_STORE,		/// ä»“åº“
+	OBJECTCELLTYPE_EQUIPSHOW,	/// éžè‡ªå·±ç©¿ç€çš„è£…å¤‡
+	OBJECTCELLTYPE_PACKAGE,    /// åŒ…è£¹çš„æ ¼å­
+	OBJECTCELLTYPE_MAKE,       /// åˆæˆã€å‡çº§ï¼Œé•¶åµŒçš„æ ¼å­
+	OBJECTCELLTYPE_MYSHOP,		/// è‡ªå·±æ‘Šä½çš„æ ¼å­
+	OBJECTCELLTYPE_OTHERSSHOP,	/// åˆ«çš„çŽ©å®¶æ‘Šä½çš„æ ¼å­
+	OBJECTCELLTYPE_MAIL,		/// é‚®ä»¶ç³»ç»Ÿçš„æ ¼å­
+	OBJECTCELLTYPE_COUNTRY_SAVEBOX, /// å›½å®¶å€‰åº“
+	OBJECTCELLTYPE_PET,       /// å® ç‰©åŒ…è£¹
 };
 
-/// ¶¨ÒåÉý¼¶¸ñ×ÓÀàÐÍ
+/// å®šä¹‰å‡çº§æ ¼å­ç±»åž‹
 enum {
-	MAKECELLTYPE_EQUIP=0,         /// ±»ºÏ³É¡¢Éý¼¶£¬ÏâÇ¶µÄÎïÆ·
-	MAKECELLTYPE_MATERIAL1=1,       /// ²ÄÁÏ1
-	MAKECELLTYPE_MATERIAL2=2,       /// ²ÄÁÏ2
-	MAKECELLTYPE_MATERIAL3=3,       /// ²ÄÁÏ3
-	MAKECELLTYPE_MATERIAL4=4,       /// ²ÄÁÏ4
+	MAKECELLTYPE_EQUIP=0,         /// è¢«åˆæˆã€å‡çº§ï¼Œé•¶åµŒçš„ç‰©å“
+	MAKECELLTYPE_MATERIAL1=1,       /// ææ–™1
+	MAKECELLTYPE_MATERIAL2=2,       /// ææ–™2
+	MAKECELLTYPE_MATERIAL3=3,       /// ææ–™3
+	MAKECELLTYPE_MATERIAL4=4,       /// ææ–™4
 };
 
-/// ¶¨ÒåÉý¼¶¸ñ×ÓÀàÐÍ
+/// å®šä¹‰å‡çº§æ ¼å­ç±»åž‹
 enum {
-	UPGRADECELLTYPE_UPER=0,       /// ±»Éý¼¶µÄÎïÆ·
-	UPGRADECELLTYPE_JEWEL1=1,       /// Éý¼¶±¦Ê¯¸ñ×Ó1
-	UPGRADECELLTYPE_JEWEL2=2,       /// Éý¼¶±¦Ê¯¸ñ×Ó2
+	UPGRADECELLTYPE_UPER=0,       /// è¢«å‡çº§çš„ç‰©å“
+	UPGRADECELLTYPE_JEWEL1=1,       /// å‡çº§å®çŸ³æ ¼å­1
+	UPGRADECELLTYPE_JEWEL2=2,       /// å‡çº§å®çŸ³æ ¼å­2
 };
 
-/// ÓÃ»§µÀ¾ßÊý¾Ý
+/// ç”¨æˆ·é“å…·æ•°æ®
 #define ADDUSEROBJECT_PROPERTY_USERCMD_PARAMETER 1
 	struct stAddObjectPropertyUserCmd : public stPropertyUserCmd{
 		stAddObjectPropertyUserCmd()
 		{
 			byParam = ADDUSEROBJECT_PROPERTY_USERCMD_PARAMETER;
 		}
-		BYTE byActionType;			/**< ÎïÆ·¶¯×÷ÀàÐÍ */
-		t_Object object;			/**< ÎïÆ·Êý¾Ý */
+		BYTE byActionType;			/**< ç‰©å“åŠ¨ä½œç±»åž‹ */
+		t_Object object;			/**< ç‰©å“æ•°æ® */
 	};
 
-/// É¾³ýµÀ¾ßÊý¾Ý
+/// åˆ é™¤é“å…·æ•°æ®
 #define REMOVEUSEROBJECT_PROPERTY_USERCMD_PARAMETER 2
 	struct stRemoveObjectPropertyUserCmd : public stPropertyUserCmd {
 		stRemoveObjectPropertyUserCmd()
 		{
 			byParam = REMOVEUSEROBJECT_PROPERTY_USERCMD_PARAMETER;
 		}
-		DWORD qwThisID;				/**< ÎïÆ·Î¨Ò»ID */
+		DWORD qwThisID;				/**< ç‰©å“å”¯ä¸€ID */
 	};
 
-/// ½»»»£¨ÒÆ¶¯£©ÓÃ»§ÎïÆ·
+/// äº¤æ¢ï¼ˆç§»åŠ¨ï¼‰ç”¨æˆ·ç‰©å“
 #define SWAPUSEROBJECT_PROPERTY_USERCMD_PARAMETER 3
 	struct stSwapObjectPropertyUserCmd : public stPropertyUserCmd{
 		stSwapObjectPropertyUserCmd()
 		{
 			byParam = SWAPUSEROBJECT_PROPERTY_USERCMD_PARAMETER;
 		}
-		DWORD qwThisID;				/**< ÎïÆ·Î¨Ò»ID */
-		stObjectLocation	dst;	/**< ÎïÆ·Ä¿µÄÎ»ÖÃ Èç¹ûÄ¿µÄÎ»ÖÃÉÏÓÐÎïÆ·£¬Ôò½»»»*/
+		DWORD qwThisID;				/**< ç‰©å“å”¯ä¸€ID */
+		stObjectLocation	dst;	/**< ç‰©å“ç›®çš„ä½ç½® å¦‚æžœç›®çš„ä½ç½®ä¸Šæœ‰ç‰©å“ï¼Œåˆ™äº¤æ¢*/
 	};
 
-/// ·ÖÁÑÎïÆ·Ö¸Áî£¨¿Í»§¶Ë×Ô¶¯¼õÉÙÔ´ÎïÆ·µÄÊýÁ¿£©
+/// åˆ†è£‚ç‰©å“æŒ‡ä»¤ï¼ˆå®¢æˆ·ç«¯è‡ªåŠ¨å‡å°‘æºç‰©å“çš„æ•°é‡ï¼‰
 #define SPLITUSEROBJECT_PROPERTY_USERCMD_PARAMETER 4
 	struct stSplitObjectPropertyUserCmd : public stPropertyUserCmd{
 		stSplitObjectPropertyUserCmd()
 		{
 			byParam = SPLITUSEROBJECT_PROPERTY_USERCMD_PARAMETER;
 		}
-		DWORD qwThisID;				/**< ÎïÆ·Î¨Ò»ID */
-		DWORD qwNewThisID;			/**< ÐÂÎïÆ·µÄÎ¨Ò»ID */
-		DWORD dwNum;				/**< ·ÖÁÑµÄÊýÁ¿ */
-		stObjectLocation	dst;	/**< ÎïÆ·Ä¿µÄÎ»ÖÃ*/
+		DWORD qwThisID;				/**< ç‰©å“å”¯ä¸€ID */
+		DWORD qwNewThisID;			/**< æ–°ç‰©å“çš„å”¯ä¸€ID */
+		DWORD dwNum;				/**< åˆ†è£‚çš„æ•°é‡ */
+		stObjectLocation	dst;	/**< ç‰©å“ç›®çš„ä½ç½®*/
 	};
 
-/// ºÏ²¢ÎïÆ·
+/// åˆå¹¶ç‰©å“
 #define UNIONUSEROBJECT_PROPERTY_USERCMD_PARAMETER 5
 	struct stUnionObjectPropertyUserCmd : public stPropertyUserCmd{
 		stUnionObjectPropertyUserCmd()
 		{
 			byParam = UNIONUSEROBJECT_PROPERTY_USERCMD_PARAMETER;
 		}
-		DWORD qwSrcThisID;			/**< Ô´ÎïÆ·Î¨Ò»ID */
-		DWORD qwDstThisID;			/**< Ä¿±êÎïÆ·Î¨Ò»ID */
+		DWORD qwSrcThisID;			/**< æºç‰©å“å”¯ä¸€ID */
+		DWORD qwDstThisID;			/**< ç›®æ ‡ç‰©å“å”¯ä¸€ID */
 	};
 
-/// ÉèÖÃ¸ñ×ÓÖÐµÄÎïÆ·ÊýÁ¿£¨ÓÃÓÚºÏ²¢ÎïÆ·£©
+/// è®¾ç½®æ ¼å­ä¸­çš„ç‰©å“æ•°é‡ï¼ˆç”¨äºŽåˆå¹¶ç‰©å“ï¼‰
 #define REFCOUNTOBJECT_PROPERTY_USERCMD_PARAMETER 6
 	struct stRefCountObjectPropertyUserCmd : public stPropertyUserCmd{
 		stRefCountObjectPropertyUserCmd()
 		{
 			byParam = REFCOUNTOBJECT_PROPERTY_USERCMD_PARAMETER;
 		}
-		DWORD qwThisID;				/**< ÎïÆ·Î¨Ò»ID */
-		DWORD dwNum;				/**< ÊýÁ¿ */
+		DWORD qwThisID;				/**< ç‰©å“å”¯ä¸€ID */
+		DWORD dwNum;				/**< æ•°é‡ */
 	};
 
-/// ÓÃ»§Ê¹ÓÃÎïÆ·
+/// ç”¨æˆ·ä½¿ç”¨ç‰©å“
 #define USEUSEROBJECT_PROPERTY_USERCMD_PARAMETER 7
 	struct stUseObjectPropertyUserCmd : public  stPropertyUserCmd{
 		stUseObjectPropertyUserCmd()
 		{
 			byParam = USEUSEROBJECT_PROPERTY_USERCMD_PARAMETER;
 		}
-		DWORD qwThisID;				/**< ÎïÆ·Î¨Ò»ID */
-		DWORD dwNumber;				/**< Ê¹ÓÃµÄÊýÁ¿ */
+		DWORD qwThisID;				/**< ç‰©å“å”¯ä¸€ID */
+		DWORD dwNumber;				/**< ä½¿ç”¨çš„æ•°é‡ */
 	};
 
-/// ÓÃ»§¼ñµØÍ¼ÉÏµÄÎïÆ·
+/// ç”¨æˆ·æ¡åœ°å›¾ä¸Šçš„ç‰©å“
 #define PICKUPITEM_PROPERTY_USERCMD_PARA 8
 	struct stPickUpItemPropertyUserCmd : public stPropertyUserCmd {
 		stPickUpItemPropertyUserCmd()
@@ -2557,12 +2557,12 @@ enum {
 			byParam = FOUNDITEM_PROPERTY_USERCMD_PARA;
 		}
 
-		DWORD up_id;	//´ý´òÔìÎïÆ·ID, ÎïÆ·Î¨Ò»id
-		DWORD count; //²ÄÁÏ¸öÊý
+		DWORD up_id;	//å¾…æ‰“é€ ç‰©å“ID, ç‰©å“å”¯ä¸€id
+		DWORD count; //ææ–™ä¸ªæ•°
 		struct material{
-			DWORD gem_id; //²ÄÁÏid, Àà±ðid
-			BYTE gem_level; //²ÄÁÏµÈ¼¶
-			BYTE gem_num; //²ÄÁÏÊýÁ¿
+			DWORD gem_id; //ææ–™id, ç±»åˆ«id
+			BYTE gem_level; //ææ–™ç­‰çº§
+			BYTE gem_num; //ææ–™æ•°é‡
 		} list[0];
 	};
 
@@ -2572,7 +2572,7 @@ enum {
 		{
 			byParam = UPGRADEITEM_PROPERTY_USERCMD_PARA;
 		}
-		BYTE location; //Î»ÖÃ£¬0 ×óÊÖ 1 ÓÒÊÖ
+		BYTE location; //ä½ç½®ï¼Œ0 å·¦æ‰‹ 1 å³æ‰‹
 	};
 
 #define COMPOSEITEM_PROPERTY_USERCMD_PARA 11
@@ -2581,15 +2581,15 @@ enum {
 		{
 			byParam = COMPOSEITEM_PROPERTY_USERCMD_PARA;
 		}
-		BYTE per_num; //µ¥´ÎºÏ³ÉÊýÁ¿
-		BYTE location; //Î»ÖÃ£¬0 ×óÊÖ 1 ÓÒÊÖ
+		BYTE per_num; //å•æ¬¡åˆæˆæ•°é‡
+		BYTE location; //ä½ç½®ï¼Œ0 å·¦æ‰‹ 1 å³æ‰‹
 	};
 
 enum enumGameAccelKeyType{
 	GameAccelKeyType_None = 0,
-	GameAccelKeyType_Item,	// Ê¹ÓÃÎïÆ·
-	GameAccelKeyType_Skill,	// ¼¼ÄÜ
-	GameAccelKeyType_Face,	// ±íÇé
+	GameAccelKeyType_Item,	// ä½¿ç”¨ç‰©å“
+	GameAccelKeyType_Skill,	// æŠ€èƒ½
+	GameAccelKeyType_Face,	// è¡¨æƒ…
 	GameAccelKeyType_Num,
 };
 
@@ -2605,7 +2605,7 @@ struct stGameAccelKey {
 		mGroup = MAIN_ACCESS_KEY_GROUP;
 	}
 };
-// ¸üÐÂÓÃ»§¿ì½Ý¼ü
+// æ›´æ–°ç”¨æˆ·å¿«æ·é”®
 const BYTE ACCELKEY_PROPERTY_USERCMD_PARA = 12;
 	struct stAccekKeyPropertyUserCmd : public stPropertyUserCmd{
 		stAccekKeyPropertyUserCmd()
@@ -2616,7 +2616,7 @@ const BYTE ACCELKEY_PROPERTY_USERCMD_PARA = 12;
 		BYTE	activeGroup;
 		stGameAccelKey accelKeys[0];
 	};
-/// Ìí¼ÓÓÃ»§¼¼ÄÜÊý¾Ý
+/// æ·»åŠ ç”¨æˆ·æŠ€èƒ½æ•°æ®
 #define ADDUSERSKILL_PROPERTY_USERCMD_PARA 13
 struct stAddUserSkillPropertyUserCmd : public stPropertyUserCmd
 {
@@ -2625,14 +2625,14 @@ struct stAddUserSkillPropertyUserCmd : public stPropertyUserCmd
 		byParam = ADDUSERSKILL_PROPERTY_USERCMD_PARA;
 	}
 
-	DWORD dwSkillID;			/**< ¼¼ÄÜID */
-	WORD wdLevel;				/**< ¼¼ÄÜµÈ¼¶ */
-	WORD wdUpNum;				/**< ¼¼ÄÜµÈ¼¶ÌáÉýµãÊý */
-	DWORD dwExperience;			/**< µ±Ç°¾­Ñé */
-	DWORD dwMaxExperience;		/**< Éý¼¶¾­Ñé */
+	DWORD dwSkillID;			/**< æŠ€èƒ½ID */
+	WORD wdLevel;				/**< æŠ€èƒ½ç­‰çº§ */
+	WORD wdUpNum;				/**< æŠ€èƒ½ç­‰çº§æå‡ç‚¹æ•° */
+	DWORD dwExperience;			/**< å½“å‰ç»éªŒ */
+	DWORD dwMaxExperience;		/**< å‡çº§ç»éªŒ */
 };
 
-/// ¼¼ÄÜÉý¼¶Ö¸Áî
+/// æŠ€èƒ½å‡çº§æŒ‡ä»¤
 #define UPGRADEUSERSKILL_PROPERTY_USERCMD_PARA 14
 struct stUpgradeUserSkillPropertyUserCmd : public stPropertyUserCmd
 {
@@ -2641,11 +2641,11 @@ struct stUpgradeUserSkillPropertyUserCmd : public stPropertyUserCmd
 		byParam = UPGRADEUSERSKILL_PROPERTY_USERCMD_PARA;
 	}
 
-	DWORD dwSkillID;			/**< ¼¼ÄÜID */
-	WORD wdLevel;				/**< ¼¼ÄÜµÈ¼¶ */
+	DWORD dwSkillID;			/**< æŠ€èƒ½ID */
+	WORD wdLevel;				/**< æŠ€èƒ½ç­‰çº§ */
 };
 
-/// É¾³ýÓÃ»§¼¼ÄÜ
+/// åˆ é™¤ç”¨æˆ·æŠ€èƒ½
 #define REMOVEUSERSKILL_PROPERTY_USERCMD_PARAMETER 15
 struct stRemoveUserSkillPropertyUserCmd : public stPropertyUserCmd
 {
@@ -2654,86 +2654,86 @@ struct stRemoveUserSkillPropertyUserCmd : public stPropertyUserCmd
 		byParam = REMOVEUSERSKILL_PROPERTY_USERCMD_PARAMETER;
 	}
 
-	DWORD dwSkillID;				/**< ÓÃ»§¼¼ÄÜ±àºÅ */
+	DWORD dwSkillID;				/**< ç”¨æˆ·æŠ€èƒ½ç¼–å· */
 };
 
-/// ÏµÍ³ÉèÖÃÖ¸Áî 
+/// ç³»ç»Ÿè®¾ç½®æŒ‡ä»¤ 
 enum  enumUserSetting          
 {       
-	USER_SETTING_TEAM = 8,          // ÔÊÐí×é¶Ó±êÖ¾
-	USER_SETTING_TRADE,             // ÔÊÐí½»Ò×±êÖ¾
-	USER_SETTING_AUTOFINDPATH,      // ×Ô¶¯Ñ°Â·
-	USER_SETTING_FAMILY,            // ÔÊÐí¼ÓÈë¼Ò×å±êÖ¾
-	USER_SETTING_UNION,             // ÔÊÐí¼ÓÈë°ï»á±êÖ¾
+	USER_SETTING_TEAM = 8,          // å…è®¸ç»„é˜Ÿæ ‡å¿—
+	USER_SETTING_TRADE,             // å…è®¸äº¤æ˜“æ ‡å¿—
+	USER_SETTING_AUTOFINDPATH,      // è‡ªåŠ¨å¯»è·¯
+	USER_SETTING_FAMILY,            // å…è®¸åŠ å…¥å®¶æ—æ ‡å¿—
+	USER_SETTING_UNION,             // å…è®¸åŠ å…¥å¸®ä¼šæ ‡å¿—
 
-	USER_SETTING_SHOW_HEADPORTRAIT,	//ÏÔÊ¾Ð¡Í·Ïñ
-	USER_SETTING_SHOW_MIMIMAP,		//ÏÔÊ¾Ð¡µØÍ¼
-	USER_SETTING_AUTO_KILL_SUMMON,	//×Ô¶¯´ò¹Ö
-	USER_SETTING_SHOW_PLAYERNAME,   //ÏÔÊ¾Íæ¼ÒÃû×Ö
-	USER_SETTING_SHOW_HELPTIP,      //ÏÔÊ¾°ïÖú½Ì³Ì
-	USER_SETTING_SHOW_ALLMINIMAP,	//Ð¡µØÍ¼È«ÏÔÊ¾
-	USER_SETTING_SHOW_ITEM,			//µØÃæÏÔÊ¾ÎïÆ·
+	USER_SETTING_SHOW_HEADPORTRAIT,	//æ˜¾ç¤ºå°å¤´åƒ
+	USER_SETTING_SHOW_MIMIMAP,		//æ˜¾ç¤ºå°åœ°å›¾
+	USER_SETTING_AUTO_KILL_SUMMON,	//è‡ªåŠ¨æ‰“æ€ª
+	USER_SETTING_SHOW_PLAYERNAME,   //æ˜¾ç¤ºçŽ©å®¶åå­—
+	USER_SETTING_SHOW_HELPTIP,      //æ˜¾ç¤ºå¸®åŠ©æ•™ç¨‹
+	USER_SETTING_SHOW_ALLMINIMAP,	//å°åœ°å›¾å…¨æ˜¾ç¤º
+	USER_SETTING_SHOW_ITEM,			//åœ°é¢æ˜¾ç¤ºç‰©å“
 
-	USER_SETTING_SHOW_COUNTRYNAME,  //ÏÔÊ¾¹ú¼ÒÃû³Æ
-	USER_SETTING_SHOW_UNIONNAME,    //ÏÔÊ¾°ï»áÃû³Æ
-	USER_SETTING_SHOW_SEPTNAME,     //ÏÔÊ¾¼Ò×åÃû³Æ
-	USER_SETTING_SHOW_OFFICENAME,   //ÏÔÊ¾¹ÙÖ°
-	USER_SETTING_SHOW_GRACENAME,    //ÏÔÊ¾ÎÄ²É
+	USER_SETTING_SHOW_COUNTRYNAME,  //æ˜¾ç¤ºå›½å®¶åç§°
+	USER_SETTING_SHOW_UNIONNAME,    //æ˜¾ç¤ºå¸®ä¼šåç§°
+	USER_SETTING_SHOW_SEPTNAME,     //æ˜¾ç¤ºå®¶æ—åç§°
+	USER_SETTING_SHOW_OFFICENAME,   //æ˜¾ç¤ºå®˜èŒ
+	USER_SETTING_SHOW_GRACENAME,    //æ˜¾ç¤ºæ–‡é‡‡
 
-	USER_SETTING_CHAT_NINE,			//¹«ÁÄ
-	USER_SETTING_CHAT_COUNTRY,		//¹ú¼Ò
-	USER_SETTING_CHAT_AREA,			//ÇøÓò
-	USER_SETTING_CHAT_WHISPER,		//ÃÜÁÄ
-	USER_SETTING_CHAT_UNION,		//°ï»á
-	USER_SETTING_CHAT_TEAM,			//×é¶Ó
-	USER_SETTING_CHAT_FAMILY,		//¼Ò×å
-	USER_SETTING_CHAT_PRIVATE,		//Ë½ÁÄ
-	USER_SETTING_CHAT_FRIEND,		//ºÃÓÑ
-	USER_SETTING_CHAT_SCHOOL,		//Ê¦ÃÅ
-	USER_SETTING_CHAT_WORLD,		//ÊÀ½ç
-	//USER_SETTING_CHAT_ALL,			//È«²¿
+	USER_SETTING_CHAT_NINE,			//å…¬èŠ
+	USER_SETTING_CHAT_COUNTRY,		//å›½å®¶
+	USER_SETTING_CHAT_AREA,			//åŒºåŸŸ
+	USER_SETTING_CHAT_WHISPER,		//å¯†èŠ
+	USER_SETTING_CHAT_UNION,		//å¸®ä¼š
+	USER_SETTING_CHAT_TEAM,			//ç»„é˜Ÿ
+	USER_SETTING_CHAT_FAMILY,		//å®¶æ—
+	USER_SETTING_CHAT_PRIVATE,		//ç§èŠ
+	USER_SETTING_CHAT_FRIEND,		//å¥½å‹
+	USER_SETTING_CHAT_SCHOOL,		//å¸ˆé—¨
+	USER_SETTING_CHAT_WORLD,		//ä¸–ç•Œ
+	//USER_SETTING_CHAT_ALL,			//å…¨éƒ¨
 
-	USER_SETTING_HELP_MOVE,                     //ÒÆ¶¯
+	USER_SETTING_HELP_MOVE,                     //ç§»åŠ¨
 	USER_SETTING_HELP_NPC,                      //NPC
-	USER_SETTING_HELP_NPCDIALOG,                //NPC¶Ô»°
-	USER_SETTING_HELP_ATTACK,                   //¹¥»÷
+	USER_SETTING_HELP_NPCDIALOG,                //NPCå¯¹è¯
+	USER_SETTING_HELP_ATTACK,                   //æ”»å‡»
 	USER_SETTING_HELP_PK,                       //PK
-	USER_SETTING_HELP_CLEARREDNAME,             //Ïû³ýºìÃû
-	USER_SETTING_HELP_TASK,                     //ÈÎÎñ
-	USER_SETTING_HELP_RIGHTBTN,                 //ÓÒ¼üÑ¡Ïî
-	USER_SETTING_HELP_TRADE,                    //½»Ò×
-	USER_SETTING_HELP_TEAM,                     //×é¶Ó
-	USER_SETTING_HELP_MEMBERHEAD,               //¶ÓÔ±Í·Ïñ
-	USER_SETTING_HELP_ACCELKEY,                 //¿ì½ÝÊ¹ÓÃÎïÆ·
-	USER_SETTING_HELP_PACK,                     //°ü¹ü
-	USER_SETTING_HELP_EQUIP,                    //ÈçºÎ×°±¸ÎïÆ·
-	USER_SETTING_HELP_EXPACK,                   //¶îÍâ°ü¹ü
-	USER_SETTING_HELP_SKILL,                    //¼¼ÄÜ
-	USER_SETTING_HELP_ADDPROPPOINT,             //¼ÓµãÊôÐÔ
-	USER_SETTING_HELP_STUDY,                    //Ñ§Ï°
-	USER_SETTING_HELP_AUTO_FIND_PATH,			//×Ô¶¯Ñ°Â·
-	USER_SETTING_HELP_ITEM_LINK,				//ÎïÆ·Á´½Ó
-	USER_SETTING_HELP_PRIVATE_CHAT,				//ÇÄÇÄ»°
-	USER_SETTING_HELP_MATERIAL_COMPOSE,			//Ô­ÁÏºÏ³É
-	USER_SETTING_HELP_SOULSTONEL_COMPOSE,		//»êÆÇºÏ³É
-	USER_SETTING_HELP_SOULSTONE_MAKE,			//»êÆÇÏâÇ¶
-	USER_SETTING_HELP_ITEM_UPGRID,				//µÀ¾ßÉý¼¶
-	USER_SETTING_HELP_ATTACK_MODE_CHANGE,		//¹¥»÷Ä£Ê½ÇÐ»»
-	USER_SETTING_HELP_CHAT,						//ÁÄÌì
-	USER_SETTING_HELP_SELECT,					//Ñ¡ÔñÄ¿±ê
-	USER_SETTING_HELP_ALT_SELECT_NPC,			//altÑ¡ÖÐnpc
+	USER_SETTING_HELP_CLEARREDNAME,             //æ¶ˆé™¤çº¢å
+	USER_SETTING_HELP_TASK,                     //ä»»åŠ¡
+	USER_SETTING_HELP_RIGHTBTN,                 //å³é”®é€‰é¡¹
+	USER_SETTING_HELP_TRADE,                    //äº¤æ˜“
+	USER_SETTING_HELP_TEAM,                     //ç»„é˜Ÿ
+	USER_SETTING_HELP_MEMBERHEAD,               //é˜Ÿå‘˜å¤´åƒ
+	USER_SETTING_HELP_ACCELKEY,                 //å¿«æ·ä½¿ç”¨ç‰©å“
+	USER_SETTING_HELP_PACK,                     //åŒ…è£¹
+	USER_SETTING_HELP_EQUIP,                    //å¦‚ä½•è£…å¤‡ç‰©å“
+	USER_SETTING_HELP_EXPACK,                   //é¢å¤–åŒ…è£¹
+	USER_SETTING_HELP_SKILL,                    //æŠ€èƒ½
+	USER_SETTING_HELP_ADDPROPPOINT,             //åŠ ç‚¹å±žæ€§
+	USER_SETTING_HELP_STUDY,                    //å­¦ä¹ 
+	USER_SETTING_HELP_AUTO_FIND_PATH,			//è‡ªåŠ¨å¯»è·¯
+	USER_SETTING_HELP_ITEM_LINK,				//ç‰©å“é“¾æŽ¥
+	USER_SETTING_HELP_PRIVATE_CHAT,				//æ‚„æ‚„è¯
+	USER_SETTING_HELP_MATERIAL_COMPOSE,			//åŽŸæ–™åˆæˆ
+	USER_SETTING_HELP_SOULSTONEL_COMPOSE,		//é­‚é­„åˆæˆ
+	USER_SETTING_HELP_SOULSTONE_MAKE,			//é­‚é­„é•¶åµŒ
+	USER_SETTING_HELP_ITEM_UPGRID,				//é“å…·å‡çº§
+	USER_SETTING_HELP_ATTACK_MODE_CHANGE,		//æ”»å‡»æ¨¡å¼åˆ‡æ¢
+	USER_SETTING_HELP_CHAT,						//èŠå¤©
+	USER_SETTING_HELP_SELECT,					//é€‰æ‹©ç›®æ ‡
+	USER_SETTING_HELP_ALT_SELECT_NPC,			//alté€‰ä¸­npc
 
-	USER_SETTING_FRIEND,             // ÔÊÐí¼ÓÎªºÃÓÑ
-	USER_SETTING_SCHOOL,             // ÔÊÐí¼ÓÈëÊ¦ÃÅ±êÖ¾
+	USER_SETTING_FRIEND,             // å…è®¸åŠ ä¸ºå¥½å‹
+	USER_SETTING_SCHOOL,             // å…è®¸åŠ å…¥å¸ˆé—¨æ ‡å¿—
 
-	USER_SETTING_MINIGAME,			// ÔÊÐíÐ¡ÓÎÏ·
-	USER_SETTING_EFFECT			// ¿ª¹ØÌØÐ§
+	USER_SETTING_MINIGAME,			// å…è®¸å°æ¸¸æˆ
+	USER_SETTING_EFFECT			// å¼€å…³ç‰¹æ•ˆ
 };
 
 struct stSystemSettings
 {
-	BYTE bySettings[20];	// Ê¹ÓÃ set_state ÉèÖÃ±êÖ¾
-	DWORD dwChatColor[8];	//ÑÕÉ«ÉèÖÃ
+	BYTE bySettings[20];	// ä½¿ç”¨ set_state è®¾ç½®æ ‡å¿—
+	DWORD dwChatColor[8];	//é¢œè‰²è®¾ç½®
 };
 
 #define SYSTEMSETTINGS_PROPERTY_USERCMD_PARA 16
@@ -2747,14 +2747,14 @@ struct stSystemSettingsUserCmd : public stPropertyUserCmd
 };
 
 enum{
-	PROPERTY_CON = 0,	//ÌåÖÊ
-	PROPERTY_STR = 1,	//Á¦Á¿
-	PROPERTY_DEX = 2,	//Ãô½Ý
-	PROPERTY_INT = 3,	//ÖÇÁ¦
-	PROPERTY_MEN = 4	//¾«Éñ
+	PROPERTY_CON = 0,	//ä½“è´¨
+	PROPERTY_STR = 1,	//åŠ›é‡
+	PROPERTY_DEX = 2,	//æ•æ·
+	PROPERTY_INT = 3,	//æ™ºåŠ›
+	PROPERTY_MEN = 4	//ç²¾ç¥ž
 };
 
-/// ·ÖÅäÓÃ»§ÊôÐÔµãÊý
+/// åˆ†é…ç”¨æˆ·å±žæ€§ç‚¹æ•°
 #define DISTRIBUTEUPOINT_PROPERTY_USERCMD_PARA 17
 struct stDistributePointPropertyUserCmd : public stPropertyUserCmd
 {
@@ -2766,7 +2766,7 @@ struct stDistributePointPropertyUserCmd : public stPropertyUserCmd
 
 };
 
-// Ôö¼Ó¼¼ÄÜµãÊý
+// å¢žåŠ æŠ€èƒ½ç‚¹æ•°
 #define ADDSKILLPOINT_PROPERTY_USERCMD 18
 struct stAddSkillPointPropertyUserCmd : public stPropertyUserCmd
 {
@@ -2777,7 +2777,7 @@ struct stAddSkillPointPropertyUserCmd : public stPropertyUserCmd
 	DWORD dwSkillID;
 };
 
-/// Çå³ýÓÃ»§ÊôÐÔµãÊý
+/// æ¸…é™¤ç”¨æˆ·å±žæ€§ç‚¹æ•°
 #define CLEARPOINT_PROPERTY_USERCMD_PARA 19
 struct stClearPointPropertyUserCmd : public stPropertyUserCmd
 {
@@ -2788,7 +2788,7 @@ struct stClearPointPropertyUserCmd : public stPropertyUserCmd
 	DWORD dwItemID;
 };
 
-/// Çå³ýÓÃ»§¼¼ÄÜµãÊý
+/// æ¸…é™¤ç”¨æˆ·æŠ€èƒ½ç‚¹æ•°
 #define CLEARUSERSKILLPOINT_PROPERTY_USERCMD_PARAMETER 20
 struct stClearUserSkillPointPropertyUserCmd : public stPropertyUserCmd
 {
@@ -2819,7 +2819,7 @@ struct stMakeSelectPropertyUserCmd : public stPropertyUserCmd
 		byParam = MAKE_SELECT_PROPERTY_USERCMD_PARA;
 	}
 	
-	DWORD id; //ÎïÆ·id
+	DWORD id; //ç‰©å“id
 };
 */
 #define COMPOSE_SOUL_STONE_PROPERTY_USERCMD_PARA 21
@@ -2828,7 +2828,7 @@ struct stComposeSoulStonePropertyUserCmd : public stPropertyUserCmd {
 	{
 		byParam = COMPOSE_SOUL_STONE_PROPERTY_USERCMD_PARA;
 	}
-	BYTE location; //Î»ÖÃ£¬0 ×óÊÖ 1 ÓÒÊÖ
+	BYTE location; //ä½ç½®ï¼Œ0 å·¦æ‰‹ 1 å³æ‰‹
 
 };
 
@@ -2838,7 +2838,7 @@ struct stEnchasePropertyUserCmd : public stPropertyUserCmd {
 	{
 		byParam = ENCHASEL_PROPERTY_USERCMD_PARA;
 	}
-	BYTE location; //Î»ÖÃ£¬0 ×óÊÖ 1 ÓÒÊÖ
+	BYTE location; //ä½ç½®ï¼Œ0 å·¦æ‰‹ 1 å³æ‰‹
 };
 
 #define HOLE_PROPERTY_USERCMD_PARA 23
@@ -2847,26 +2847,26 @@ struct stHolePropertyUserCmd : public stPropertyUserCmd {
 	{
 		byParam = HOLE_PROPERTY_USERCMD_PARA;
 	}
-	DWORD up_id; //´ý´ò¿××°±¸id, ÎïÆ·Î¨Ò»id
-	DWORD gem_id; //ÌìÄ§Ê¯id£¬ÎïÆ·Àà±ðid
-	BYTE gem_level; //ÌìÄ§Ê¯µÈ¼¶
-	BYTE gem_num; //ÌìÄ§Ê¯ÊýÁ¿
+	DWORD up_id; //å¾…æ‰“å­”è£…å¤‡id, ç‰©å“å”¯ä¸€id
+	DWORD gem_id; //å¤©é­”çŸ³idï¼Œç‰©å“ç±»åˆ«id
+	BYTE gem_level; //å¤©é­”çŸ³ç­‰çº§
+	BYTE gem_num; //å¤©é­”çŸ³æ•°é‡
 };
 
 enum enumHairStyle
 {
-	HairStype_1,//´Ö¿õÐÍ
-	HairStype_2,//äìÈ÷ÐÍ
-	HairStype_3,//ºÀ·ÅÐÍ
-	HairStype_4,//ö¦ÀöÐÍ
-	HairStype_5,//ÇåÐãÐÍ
-	HairStype_6//¸ß¹óÐÍ
+	HairStype_1,//ç²—æ—·åž‹
+	HairStype_2,//æ½‡æ´’åž‹
+	HairStype_3,//è±ªæ”¾åž‹
+	HairStype_4,//é“ä¸½åž‹
+	HairStype_5,//æ¸…ç§€åž‹
+	HairStype_6//é«˜è´µåž‹
 };
 enum enumHairColor
 {
-	HairColor_black = 0x00001900,//ºÚÉ«
-	HairColor_drink = 0x00C9004C,//¾Æºì
-	HairColor_purple = 0x009300DD//½´×Ï
+	HairColor_black = 0x00001900,//é»‘è‰²
+	HairColor_drink = 0x00C9004C,//é…’çº¢
+	HairColor_purple = 0x009300DD//é…±ç´«
 };
 
 #define DECOMPOSE_PROPERTY_USERCMD_PARA 24
@@ -2875,31 +2875,31 @@ struct stDecomposePropertyUserCmd : public stPropertyUserCmd {
 	{
 		byParam = DECOMPOSE_PROPERTY_USERCMD_PARA;
 	}
-	DWORD up_id; //´ý·Ö½â×°±¸id, ÎïÆ·Î¨Ò»id
+	DWORD up_id; //å¾…åˆ†è§£è£…å¤‡id, ç‰©å“å”¯ä¸€id
 };
 
-#define BODYCOLOR_PROPERTY_USERCMD_PARA 25//ÒÂ·þ»»É«
+#define BODYCOLOR_PROPERTY_USERCMD_PARA 25//è¡£æœæ¢è‰²
 struct stBodyColorPropertyUserCmd : public stPropertyUserCmd
 {
 	stBodyColorPropertyUserCmd()
 	{
 		byParam = BODYCOLOR_PROPERTY_USERCMD_PARA;
 	}
-	DWORD dwBodyColorCustom;//»»É«µÄÑÕÉ«
+	DWORD dwBodyColorCustom;//æ¢è‰²çš„é¢œè‰²
 };
 
-#define HAIR_PROPERTY_USERCMD_PARA 26//»»·¢ÐÍ
+#define HAIR_PROPERTY_USERCMD_PARA 26//æ¢å‘åž‹
 struct stHairPropertyUserCmd : public stPropertyUserCmd
 {
 	stHairPropertyUserCmd()
 	{
 		byParam = HAIR_PROPERTY_USERCMD_PARA;
 	}
-	BYTE byHairType;//Í··¢·¢ÐÍ
-	DWORD dwHairColor;//Í··¢ÑÕÉ«Öµ
+	BYTE byHairType;//å¤´å‘å‘åž‹
+	DWORD dwHairColor;//å¤´å‘é¢œè‰²å€¼
 };
 
-#define SELECT_PROPERTY_USERCMD_PARA 27//Ñ¡ÖÐÄ³¸ö¶ÔÏó
+#define SELECT_PROPERTY_USERCMD_PARA 27//é€‰ä¸­æŸä¸ªå¯¹è±¡
 struct stSelectPropertyUserCmd : public stPropertyUserCmd
 {
 	stSelectPropertyUserCmd()
@@ -2907,12 +2907,12 @@ struct stSelectPropertyUserCmd : public stPropertyUserCmd
 		byParam = SELECT_PROPERTY_USERCMD_PARA;
 	}
 	BYTE byType;//enumMapDataType
-	DWORD dwTempID;//ÁÙÊ±±àºÅ
+	DWORD dwTempID;//ä¸´æ—¶ç¼–å·
 	BYTE byOldType;//enumMapDataType
-	DWORD dwOldTempID;//ÁÙÊ±±àºÅ
+	DWORD dwOldTempID;//ä¸´æ—¶ç¼–å·
 };
 
-#define SELECT_MAINUSER_PROPERTY_USERCMD_PARA 29//ÇëÇó¹Û²ìÑ¡ÖÐÈËµÄÊôÐÔ
+#define SELECT_MAINUSER_PROPERTY_USERCMD_PARA 29//è¯·æ±‚è§‚å¯Ÿé€‰ä¸­äººçš„å±žæ€§
 struct stSelectMainUserPropertyUserCmd : public stPropertyUserCmd
 {
 	stSelectMainUserPropertyUserCmd()
@@ -2920,7 +2920,7 @@ struct stSelectMainUserPropertyUserCmd : public stPropertyUserCmd
 		byParam = SELECT_MAINUSER_PROPERTY_USERCMD_PARA;
 	}
 	BYTE byType;//enumMapDataType
-	DWORD dwTempID;//ÁÙÊ±±àºÅ
+	DWORD dwTempID;//ä¸´æ—¶ç¼–å·
 };
 
 enum enumEquipType{
@@ -2943,37 +2943,37 @@ enum enumEquipType{
 };
 struct EquipedObject
 {
-	BYTE byWhere;//Î»ÖÃenumEquipType
-	t_Object object;//ÎïÆ·
+	BYTE byWhere;//ä½ç½®enumEquipType
+	t_Object object;//ç‰©å“
 
 };
-#define SELECT_RETURN_MAINUSER_PROPERTY_USERCMD_PARA 30//»Ø´ð¹Û²ìÑ¡ÖÐÈËµÄÊôÐÔ
+#define SELECT_RETURN_MAINUSER_PROPERTY_USERCMD_PARA 30//å›žç­”è§‚å¯Ÿé€‰ä¸­äººçš„å±žæ€§
 struct stSelectReturnMainUserPropertyUserCmd : public stPropertyUserCmd
 {
 	stSelectReturnMainUserPropertyUserCmd()
 	{
 		byParam = SELECT_RETURN_MAINUSER_PROPERTY_USERCMD_PARA;
 	}
-	DWORD dwTempID;//ÁÙÊ±±àºÅ
+	DWORD dwTempID;//ä¸´æ—¶ç¼–å·
 	t_MainUserData mainuser_data;
 	t_MapUserData mapuser_data;
-	DWORD dwSize; //ÒÑ×°±¸ÎïÆ·¸öÊý
+	DWORD dwSize; //å·²è£…å¤‡ç‰©å“ä¸ªæ•°
 	EquipedObject object_data[0];
 };
 
-//ÄÍ¾Ã¶È±ä»¯
+//è€ä¹…åº¦å˜åŒ–
 const BYTE DURABIILTY_USERCMD_PARA = 31;
 	struct stDurabilityUserCmd : public stPropertyUserCmd{
 		stDurabilityUserCmd()
 		{
 			byParam = DURABIILTY_USERCMD_PARA;
 		}
-		DWORD dwThisID;	/*×°±¸ID */
-		DWORD dwDur;	/*µ±Ç°ÄÍ¾Ã¶È*/
-		DWORD dwMaxDur;	/*×î´óÄÍ¾Ã¶È*/
+		DWORD dwThisID;	/*è£…å¤‡ID */
+		DWORD dwDur;	/*å½“å‰è€ä¹…åº¦*/
+		DWORD dwMaxDur;	/*æœ€å¤§è€ä¹…åº¦*/
 	};
 
-#define SELECT_RETURN_STATES_PROPERTY_USERCMD_PARA 32//±»Ñ¡ÖÐÈËµÄ×´Ì¬
+#define SELECT_RETURN_STATES_PROPERTY_USERCMD_PARA 32//è¢«é€‰ä¸­äººçš„çŠ¶æ€
 struct stSelectReturnStatesPropertyUserCmd : public stPropertyUserCmd
 {
 	stSelectReturnStatesPropertyUserCmd()
@@ -2981,22 +2981,22 @@ struct stSelectReturnStatesPropertyUserCmd : public stPropertyUserCmd
 		byParam = SELECT_RETURN_STATES_PROPERTY_USERCMD_PARA;
 	}
 	BYTE byType;//enumMapDataType
-	DWORD dwTempID;//ÁÙÊ±±àºÅ
-	DWORD size;//×´Ì¬¸öÊý
+	DWORD dwTempID;//ä¸´æ—¶ç¼–å·
+	DWORD size;//çŠ¶æ€ä¸ªæ•°
 	struct
 	{
 		DWORD state;
 		union{
 			struct{
-				WORD result;//ÊýÖµ
-				WORD time;//Ê±¼ä
+				WORD result;//æ•°å€¼
+				WORD time;//æ—¶é—´
 			};
 			DWORD value;
 		};
 	}states[0];
 };
 
-//Çå³ý¼¼ÄÜ
+//æ¸…é™¤æŠ€èƒ½
 const BYTE CLEARSKILL_USERCMD_PARA = 33;
 	struct stClearSkillUserCmd : public stPropertyUserCmd{
 		stClearSkillUserCmd()
@@ -3005,16 +3005,16 @@ const BYTE CLEARSKILL_USERCMD_PARA = 33;
 		}
 	};
 
-#define FACE_PROPERTY_USERCMD_PARA 34//¸ü»»Í·Ïñ
+#define FACE_PROPERTY_USERCMD_PARA 34//æ›´æ¢å¤´åƒ
 struct stFacePropertyUserCmd : public stPropertyUserCmd
 {
 	stFacePropertyUserCmd()
 	{
 		byParam = FACE_PROPERTY_USERCMD_PARA;
 	}
-	DWORD dwFace;//Ä¿±êÍ·ÏñÀàÐÍ
+	DWORD dwFace;//ç›®æ ‡å¤´åƒç±»åž‹
 };
-#define HONOR_TO_PKVALUE_PROPERTY_USERCMD_PARA 35//ÈÙÓþµãÏ´pkÖµ
+#define HONOR_TO_PKVALUE_PROPERTY_USERCMD_PARA 35//è£èª‰ç‚¹æ´—pkå€¼
 struct stHonorToPkValuePropertyUserCmd : public stPropertyUserCmd
 {
 	stHonorToPkValuePropertyUserCmd()
@@ -3022,14 +3022,14 @@ struct stHonorToPkValuePropertyUserCmd : public stPropertyUserCmd
 		byParam = HONOR_TO_PKVALUE_PROPERTY_USERCMD_PARA;
 	}
 };
-// Ê¹ÓÃÑªÈçÒâºÍÓñÈçÒâÊ±ÐèÒª·¢ËÍµØÍ¼ÐÅÏ¢ÏÂÈ¥
+// ä½¿ç”¨è¡€å¦‚æ„å’ŒçŽ‰å¦‚æ„æ—¶éœ€è¦å‘é€åœ°å›¾ä¿¡æ¯ä¸‹åŽ»
 const BYTE SCROLL_MAP_PROPERTY_USERCMD_PARA = 36;
 	struct stScrollMapPropertyUserCmd : public stPropertyUserCmd{
 		stScrollMapPropertyUserCmd()
 		{
 			byParam = SCROLL_MAP_PROPERTY_USERCMD_PARA;
 		}
-		DWORD qwThisID;				/**< ÎïÆ·Î¨Ò»ID */
+		DWORD qwThisID;				/**< ç‰©å“å”¯ä¸€ID */
 		DWORD	size;
 		struct
 		{
@@ -3038,7 +3038,7 @@ const BYTE SCROLL_MAP_PROPERTY_USERCMD_PARA = 36;
 		
 	};
 
-/// Çå³ýÓÃ»§ÊôÐÔµãÊýÖ»ÏÞ5µã
+/// æ¸…é™¤ç”¨æˆ·å±žæ€§ç‚¹æ•°åªé™5ç‚¹
 #define CLEARPOINT_LIMIT_PROPERTY_USERCMD_PARA 37
 struct stClearPointLimitPropertyUserCmd : public stPropertyUserCmd
 {
@@ -3050,7 +3050,7 @@ struct stClearPointLimitPropertyUserCmd : public stPropertyUserCmd
 	BYTE  byProperty;
 };
 
-// ÇëÇóÔöÖµµØÍ¼ÁÐ±í
+// è¯·æ±‚å¢žå€¼åœ°å›¾åˆ—è¡¨
 const BYTE REQUEST_INC_MAP_PROPERTY_USERCMD_PARA = 38;
 	struct stRequestIncMapPropertyUserCmd : public stPropertyUserCmd{
 		stRequestIncMapPropertyUserCmd()
@@ -3061,54 +3061,54 @@ const BYTE REQUEST_INC_MAP_PROPERTY_USERCMD_PARA = 38;
 
 enum horseState
 {
-	HORSE_STATE_PUTUP,	//ÊÕÆð
-	HORSE_STATE_FOLLOW,	//¸úËæ
-	HORSE_STATE_RIDE	//Æï³Ë
+	HORSE_STATE_PUTUP,	//æ”¶èµ·
+	HORSE_STATE_FOLLOW,	//è·Ÿéš
+	HORSE_STATE_RIDE	//éª‘ä¹˜
 };
 
 enum horseSkill
 {
-	HORSE_SKILL_DEF_UP = 1,	//Ìá¸ßÎï·ÀÄ§·À
-	HORSE_SKILL_PATK_UP,	//Ìá¸ßÎï¹¥
-	HORSE_SKILL_MATK_UP,	//Ìá¸ßÄ§¹¥
-	HORSE_SKILL_HP_UP,	//Ìá¸ßÉúÃüÉÏÏÞ
-	HORSE_SKILL_MP_UP,	//Ìá¸ßÄ§·¨ÉÏÏÞ
-	HORSE_SKILL_DMG_UP,	//¸½¼ÓÉËº¦
-	HORSE_SKILL_DMG_DOWN,	//¼õÉÙ×ÔÉíÉËº¦
+	HORSE_SKILL_DEF_UP = 1,	//æé«˜ç‰©é˜²é­”é˜²
+	HORSE_SKILL_PATK_UP,	//æé«˜ç‰©æ”»
+	HORSE_SKILL_MATK_UP,	//æé«˜é­”æ”»
+	HORSE_SKILL_HP_UP,	//æé«˜ç”Ÿå‘½ä¸Šé™
+	HORSE_SKILL_MP_UP,	//æé«˜é­”æ³•ä¸Šé™
+	HORSE_SKILL_DMG_UP,	//é™„åŠ ä¼¤å®³
+	HORSE_SKILL_DMG_DOWN,	//å‡å°‘è‡ªèº«ä¼¤å®³
 };
 
-//ÂíµÄÊý¾Ý
+//é©¬çš„æ•°æ®
 struct t_HorseData
 {
 	DWORD id;		//npcid
-	char name[MAX_NAMESIZE];//Ãû×Ö
-	DWORD lv;		//µÈ¼¶
-	WORD str;		//Á¦Á¿
-	WORD intel;		//ÖÇÁ¦
-	WORD dex;		//Ãô½Ý
-	WORD men;		//¾«Éñ
-	WORD con;		//ÌåÖÊ
-	WORD speed;		//ËÙ¶È
-	BYTE pdam;		//Ôö¼ÓÎïÀí¹¥»÷Á¦%
-	BYTE pdef;		//Ôö¼ÓÎïÀí·ÀÓùÁ¦%
-	BYTE mdam;		//Ôö¼ÓÄ§·¨¹¥»÷Á¦%
-	BYTE mdef;		//Ôö¼ÓÄ§·¨·ÀÓùÁ¦%
-	WORD maxhp;		//×î´óHP
-	WORD maxmp;		//×î´óMP
-	DWORD callTime;		//ÕÙ»½¼ä¸ô
-	horseState state;	//ÂíµÄ×´Ì¬
-	WORD poisonRes;		//¿¹¶¾
-	WORD lullRes;		//¿¹Âé±Ô
-	WORD faintRes;		//¿¹ÔÎÑ£
-	WORD chaosRes;		//¿¹»ìÂÒ
-	WORD freezeRes;		//¿¹±ù¶³
-	WORD petrifyRes;	//¿¹Ê¯»¯
-	WORD blindRes;		//¿¹Ê§Ã÷
-	WORD slowRes;		//¿¹¼õËÙ
-	DWORD horseid;		//ÂíµÄid£¨µÀ¾ßid£©
+	char name[MAX_NAMESIZE];//åå­—
+	DWORD lv;		//ç­‰çº§
+	WORD str;		//åŠ›é‡
+	WORD intel;		//æ™ºåŠ›
+	WORD dex;		//æ•æ·
+	WORD men;		//ç²¾ç¥ž
+	WORD con;		//ä½“è´¨
+	WORD speed;		//é€Ÿåº¦
+	BYTE pdam;		//å¢žåŠ ç‰©ç†æ”»å‡»åŠ›%
+	BYTE pdef;		//å¢žåŠ ç‰©ç†é˜²å¾¡åŠ›%
+	BYTE mdam;		//å¢žåŠ é­”æ³•æ”»å‡»åŠ›%
+	BYTE mdef;		//å¢žåŠ é­”æ³•é˜²å¾¡åŠ›%
+	WORD maxhp;		//æœ€å¤§HP
+	WORD maxmp;		//æœ€å¤§MP
+	DWORD callTime;		//å¬å”¤é—´éš”
+	horseState state;	//é©¬çš„çŠ¶æ€
+	WORD poisonRes;		//æŠ—æ¯’
+	WORD lullRes;		//æŠ—éº»ç—¹
+	WORD faintRes;		//æŠ—æ™•çœ©
+	WORD chaosRes;		//æŠ—æ··ä¹±
+	WORD freezeRes;		//æŠ—å†°å†»
+	WORD petrifyRes;	//æŠ—çŸ³åŒ–
+	WORD blindRes;		//æŠ—å¤±æ˜Ž
+	WORD slowRes;		//æŠ—å‡é€Ÿ
+	DWORD horseid;		//é©¬çš„idï¼ˆé“å…·idï¼‰
 };
 
-#define SELECT_RETURN_HORSE_PROPERTY_USERCMD_PARA 39//»Ø´ð¹Û²ìÑ¡ÖÐÈËµÄÊôÐÔ
+#define SELECT_RETURN_HORSE_PROPERTY_USERCMD_PARA 39//å›žç­”è§‚å¯Ÿé€‰ä¸­äººçš„å±žæ€§
 struct stSelectReturnHorsePropertyUserCmd : public stPropertyUserCmd
 {
 	stSelectReturnHorsePropertyUserCmd()
@@ -3118,17 +3118,17 @@ struct stSelectReturnHorsePropertyUserCmd : public stPropertyUserCmd
 	t_HorseData data;
 };
 
-#define GO_TRAIN_PROPERTY_USERCMD_PARA 40//ÇëÇó½øÈëÁ·¼¶µØÍ¼
+#define GO_TRAIN_PROPERTY_USERCMD_PARA 40//è¯·æ±‚è¿›å…¥ç»ƒçº§åœ°å›¾
 struct stGoTrainPropertyUserCmd : public stPropertyUserCmd
 {
 	stGoTrainPropertyUserCmd()
 	{
 		byParam = GO_TRAIN_PROPERTY_USERCMD_PARA;
 	}
-	DWORD level;//È¥µÚ¼¸²ã
+	DWORD level;//åŽ»ç¬¬å‡ å±‚
 };
 
-/// ÅúÁ¿Ìí¼ÓÓÃ»§µÀ¾ßÊý¾Ý
+/// æ‰¹é‡æ·»åŠ ç”¨æˆ·é“å…·æ•°æ®
 #define ADDUSEROBJECT_LIST_PROPERTY_USERCMD_PARAMETER 41
 	struct stAddObjectListPropertyUserCmd : public stPropertyUserCmd{
 		stAddObjectListPropertyUserCmd()
@@ -3139,8 +3139,8 @@ struct stGoTrainPropertyUserCmd : public stPropertyUserCmd
 		WORD num;
 		struct
 		{
-			BYTE byActionType;			/**< ÎïÆ·¶¯×÷ÀàÐÍ */
-			t_Object object;			/**< ÎïÆ·Êý¾Ý */
+			BYTE byActionType;			/**< ç‰©å“åŠ¨ä½œç±»åž‹ */
+			t_Object object;			/**< ç‰©å“æ•°æ® */
 		}list[0];
 	};
 /*can not be processed by make cmd */#define RESPONSE_PROPERTY_USERCMD_PARA 0x81
@@ -3151,19 +3151,19 @@ struct stResponsePropertyUserCmd : public stPropertyUserCmd
 		byParam = RESPONSE_PROPERTY_USERCMD_PARA;
 	}
 	
-	BYTE kind; //Àà±ð£¬1:ºÏ³É 2:´òÔì 3:Éý¼¶
-	BYTE status; //½á¹û 0 ³É¹¦ ·Ç0 Ê§°Ü
+	BYTE kind; //ç±»åˆ«ï¼Œ1:åˆæˆ 2:æ‰“é€  3:å‡çº§
+	BYTE status; //ç»“æžœ 0 æˆåŠŸ éž0 å¤±è´¥
 };
 
 #endif
 
 //////////////////////////////////////////////////////////////
-// ÓÃ»§ÊôÐÔÖ¸Áî¶¨Òå½áÊø
+// ç”¨æˆ·å±žæ€§æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ÓÃ»§ÁÄÌìÖ¸Áî¶¨Òå¿ªÊ¼
+// ç”¨æˆ·èŠå¤©æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 #ifndef _CHAT_USERCMD_DEFINITION_
 #define _CHAT_USERCMD_DEFINITION_
@@ -3177,62 +3177,62 @@ struct stChatUserCmd : public stNullUserCmd
 };
 
 enum enumChatType{
-	CHAT_TYPE_PRIVATE  = 1,		/// Ë½ÁÄÆµµÀ
-	CHAT_TYPE_NINE,			/// ÇáÁÄÆµµÀ
-	CHAT_TYPE_TEAM,                 /// ¶ÓÎéÆµµÀ
-	CHAT_TYPE_FRIEND,               /// ºÃÓÑÆµµÀ
-	CHAT_TYPE_GM,                   /// GMÁÄÆµµÀ
-	CHAT_TYPE_SYSTEM,               /// ÏµÍ³ÆµµÀ
-	CHAT_TYPE_UNION,                /// °ï»áÆµµÀ
-	CHAT_TYPE_POP,                  /// µ¯³öÊ½ÏµÍ³ÌáÊ¾
-	CHAT_TYPE_PERSON,               /// ¸öÈËÆµµÀ
-	CHAT_TYPE_WHISPER,              ///ÇÄÇÄ»°
-	CHAT_TYPE_WHISPERTOME,		///ÇÄÇÄ»°
-	CHAT_TYPE_COUNTRY,              /// ¹ú¼ÒÆµµÀ
-	CHAT_TYPE_AREA,			///ÇøÓòÆµµÀ
-	CHAT_TYPE_FAMILY,               /// ¼Ò×åÆµµÀ
+	CHAT_TYPE_PRIVATE  = 1,		/// ç§èŠé¢‘é“
+	CHAT_TYPE_NINE,			/// è½»èŠé¢‘é“
+	CHAT_TYPE_TEAM,                 /// é˜Ÿä¼é¢‘é“
+	CHAT_TYPE_FRIEND,               /// å¥½å‹é¢‘é“
+	CHAT_TYPE_GM,                   /// GMèŠé¢‘é“
+	CHAT_TYPE_SYSTEM,               /// ç³»ç»Ÿé¢‘é“
+	CHAT_TYPE_UNION,                /// å¸®ä¼šé¢‘é“
+	CHAT_TYPE_POP,                  /// å¼¹å‡ºå¼ç³»ç»Ÿæç¤º
+	CHAT_TYPE_PERSON,               /// ä¸ªäººé¢‘é“
+	CHAT_TYPE_WHISPER,              ///æ‚„æ‚„è¯
+	CHAT_TYPE_WHISPERTOME,		///æ‚„æ‚„è¯
+	CHAT_TYPE_COUNTRY,              /// å›½å®¶é¢‘é“
+	CHAT_TYPE_AREA,			///åŒºåŸŸé¢‘é“
+	CHAT_TYPE_FAMILY,               /// å®¶æ—é¢‘é“
 
-	CHAT_TYPE_FRIEND_AFFICHE,       /// ºÃÓÑ¹«¸æ
-	CHAT_TYPE_UNION_AFFICHE,        /// °ï»á¹«¸æ
-	CHAT_TYPE_OVERMAN_AFFICHE,      /// Ê¦ÃÅ¹«¸æ
-	CHAT_TYPE_FAMILY_AFFICHE,       /// ¼Ò×å¹«¸æ
+	CHAT_TYPE_FRIEND_AFFICHE,       /// å¥½å‹å…¬å‘Š
+	CHAT_TYPE_UNION_AFFICHE,        /// å¸®ä¼šå…¬å‘Š
+	CHAT_TYPE_OVERMAN_AFFICHE,      /// å¸ˆé—¨å…¬å‘Š
+	CHAT_TYPE_FAMILY_AFFICHE,       /// å®¶æ—å…¬å‘Š
 
-	CHAT_TYPE_FRIEND_PRIVATE,       /// ºÃÓÑË½ÁÄ
-	CHAT_TYPE_UNION_PRIVATE,        /// °ï»áË½ÁÄ
-	CHAT_TYPE_OVERMAN_PRIVATE,      /// Ê¦ÃÅË½ÁÄ
-	CHAT_TYPE_FAMILY_PRIVATE,	/// ¼Ò×åË½ÁÄ
+	CHAT_TYPE_FRIEND_PRIVATE,       /// å¥½å‹ç§èŠ
+	CHAT_TYPE_UNION_PRIVATE,        /// å¸®ä¼šç§èŠ
+	CHAT_TYPE_OVERMAN_PRIVATE,      /// å¸ˆé—¨ç§èŠ
+	CHAT_TYPE_FAMILY_PRIVATE,	/// å®¶æ—ç§èŠ
 
-	CHAT_TYPE_NPC,			///npcËµ»°
+	CHAT_TYPE_NPC,			///npcè¯´è¯
 
-	CHAT_TYPE_EMOTION,		///±íÇé
-	CHAT_TYPE_SHOPADV,		///°ÚÌ¯¹ã¸æ
-	CHAT_TYPE_WORLD,		///ÊÀ½çÆµµÀ
-	CHAT_TYPE_OVERMAN,		/// Ê¦ÃÅÆµµÀ
-	CHAT_TYPE_AUTO,			/// ×Ô¶¯»Ø¸´
-	CHAT_TYPE_COUNTRY_PK,	/// Íâ¹úÈËÈëÇÖPKÏûÏ¢
-	CHAT_TYPE_BLESS_MSG,	/// ¸öÈË×£¸£ÏûÏ¢
-	CHAT_TYPE_COUNTRY_MARRY, /// ½á»éÏûÏ¢¹ã²¥
-	CHAT_TYPE_ERROR_GM,	///·¢ËÍµ½GM¹¤¾ßµÄ¾¯¸æÐÅÏ¢
-	CHAT_TYPE_MINIGAME	/// ÍæÐ¡ÓÎÏ·ÁÄÌì
+	CHAT_TYPE_EMOTION,		///è¡¨æƒ…
+	CHAT_TYPE_SHOPADV,		///æ‘†æ‘Šå¹¿å‘Š
+	CHAT_TYPE_WORLD,		///ä¸–ç•Œé¢‘é“
+	CHAT_TYPE_OVERMAN,		/// å¸ˆé—¨é¢‘é“
+	CHAT_TYPE_AUTO,			/// è‡ªåŠ¨å›žå¤
+	CHAT_TYPE_COUNTRY_PK,	/// å¤–å›½äººå…¥ä¾µPKæ¶ˆæ¯
+	CHAT_TYPE_BLESS_MSG,	/// ä¸ªäººç¥ç¦æ¶ˆæ¯
+	CHAT_TYPE_COUNTRY_MARRY, /// ç»“å©šæ¶ˆæ¯å¹¿æ’­
+	CHAT_TYPE_ERROR_GM,	///å‘é€åˆ°GMå·¥å…·çš„è­¦å‘Šä¿¡æ¯
+	CHAT_TYPE_MINIGAME	/// çŽ©å°æ¸¸æˆèŠå¤©
 };
 
 
 enum enumSysInfoType{
-	INFO_TYPE_SYS   =       1,      /// ÏµÍ³ÐÅÏ¢¡¢GMÐÅÏ¢£¬ÔÚÁÄÌì´°¿Ú
-	INFO_TYPE_GAME,         /// ÓÎÏ·ÐÅÏ¢£¬ÆÁÄ»×óÉÏ
-	INFO_TYPE_STATE,                /// ×´Ì¬×ª»»£¬ÆÁÄ»×óÉÏ
-	INFO_TYPE_FAIL,                 /// Ê§°ÜÐÅÏ¢£¬ÆÁÄ»×óÉÏ
-	INFO_TYPE_EXP,          /// ÌØÊâÐÅÏ¢,»ñµÃ¾­Ñé¡¢ÎïÆ·£¬ÔÚÈËÎïÍ·ÉÏ
-	INFO_TYPE_MSG,          /// µ¯³öÓÃ»§È·ÈÏ¿òµÄÏµÍ³ÏûÏ¢
-	INFO_TYPE_KING,         /// ¹úÍõ·¢³öµÄÁÄÌìÏûÏ¢
-	INFO_TYPE_CASTELLAN,    /// ³ÇÖ÷·¢³öµÄÁÄÌìÏûÏ¢
-	INFO_TYPE_EMPEROR,	/// »ÊµÛ·¢³öµÄÁÄÌìÏûÏ¢
-	INFO_TYPE_SCROLL,       /// ÆÁÄ»ÉÏ·½¹ö¶¯µÄÏµÍ³ÐÅÏ¢
-	INFO_TYPE_ADDFRIEND,    /// ¼ÓºÃÓÑÈÎÎñÏÔÊ¾ºÍ¶¯»­²¥·Å
-	INFO_TYPE_BREAKFRIEND,  /// ¸îÅÛ¶ÏÒåÈÎÎñÏÔÊ¾ºÍ¶¯»­²¥·Å
-	INFO_TYPE_SKYROCKET1,	/// Ñæ»ðÀàÐÍ1
-	INFO_TYPE_SKYROCKET2,	/// Ñæ»ðÀàÐÍ2
-	INFO_TYPE_ATT_FLAG,	/// Æì×Ó±»¹¥»÷
+	INFO_TYPE_SYS   =       1,      /// ç³»ç»Ÿä¿¡æ¯ã€GMä¿¡æ¯ï¼Œåœ¨èŠå¤©çª—å£
+	INFO_TYPE_GAME,         /// æ¸¸æˆä¿¡æ¯ï¼Œå±å¹•å·¦ä¸Š
+	INFO_TYPE_STATE,                /// çŠ¶æ€è½¬æ¢ï¼Œå±å¹•å·¦ä¸Š
+	INFO_TYPE_FAIL,                 /// å¤±è´¥ä¿¡æ¯ï¼Œå±å¹•å·¦ä¸Š
+	INFO_TYPE_EXP,          /// ç‰¹æ®Šä¿¡æ¯,èŽ·å¾—ç»éªŒã€ç‰©å“ï¼Œåœ¨äººç‰©å¤´ä¸Š
+	INFO_TYPE_MSG,          /// å¼¹å‡ºç”¨æˆ·ç¡®è®¤æ¡†çš„ç³»ç»Ÿæ¶ˆæ¯
+	INFO_TYPE_KING,         /// å›½çŽ‹å‘å‡ºçš„èŠå¤©æ¶ˆæ¯
+	INFO_TYPE_CASTELLAN,    /// åŸŽä¸»å‘å‡ºçš„èŠå¤©æ¶ˆæ¯
+	INFO_TYPE_EMPEROR,	/// çš‡å¸å‘å‡ºçš„èŠå¤©æ¶ˆæ¯
+	INFO_TYPE_SCROLL,       /// å±å¹•ä¸Šæ–¹æ»šåŠ¨çš„ç³»ç»Ÿä¿¡æ¯
+	INFO_TYPE_ADDFRIEND,    /// åŠ å¥½å‹ä»»åŠ¡æ˜¾ç¤ºå’ŒåŠ¨ç”»æ’­æ”¾
+	INFO_TYPE_BREAKFRIEND,  /// å‰²è¢æ–­ä¹‰ä»»åŠ¡æ˜¾ç¤ºå’ŒåŠ¨ç”»æ’­æ”¾
+	INFO_TYPE_SKYROCKET1,	/// ç„°ç«ç±»åž‹1
+	INFO_TYPE_SKYROCKET2,	/// ç„°ç«ç±»åž‹2
+	INFO_TYPE_ATT_FLAG,	/// æ——å­è¢«æ”»å‡»
 };
 
 #define ALL_CHAT_USERCMD_PARAMETER 1
@@ -3241,23 +3241,23 @@ struct stTradeObject
 	DWORD dwObjectID;
 	DWORD dwObjectTempID;
 	char strName[MAX_NAMESIZE];
-	BYTE upgrade;                         // µÈ¼¶
-	BYTE kind;      //ÎïÆ·ÀàÐÍ, 0ÆÕÍ¨, 1À¶É«, 2½ðÉ«, 4ÉñÊ¥, 8Ì××°
+	BYTE upgrade;                         // ç­‰çº§
+	BYTE kind;      //ç‰©å“ç±»åž‹, 0æ™®é€š, 1è“è‰², 2é‡‘è‰², 4ç¥žåœ£, 8å¥—è£…
 };
 
-///¿Í»§¶Ë·¢ËÍµ½·þÎñÆ÷µÄÏûÏ¢
+///å®¢æˆ·ç«¯å‘é€åˆ°æœåŠ¡å™¨çš„æ¶ˆæ¯
 struct  stChannelChatUserCmd: public stChatUserCmd
 {
-	DWORD dwType;			/**< ÏûÏ¢ÀàÐÍ */
-	DWORD dwSysInfoType;		/**< ÏµÍ³ÏûÏ¢µÄÀàÐÍ */ //±íÇéÀàÐÍ
-	DWORD dwCharType;		/**< ½ÇÉ«ÀàÐÍ */
+	DWORD dwType;			/**< æ¶ˆæ¯ç±»åž‹ */
+	DWORD dwSysInfoType;		/**< ç³»ç»Ÿæ¶ˆæ¯çš„ç±»åž‹ */ //è¡¨æƒ…ç±»åž‹
+	DWORD dwCharType;		/**< è§’è‰²ç±»åž‹ */
 	DWORD dwChannelID;
-	DWORD dwFromID;			///·¢ËÍÕßµÄID,ÊÇÁÙÊ±id
-	DWORD dwChatTime;			// Ì¸»°Ê±¼ä
-	BYTE size;				// ÎïÆ·ÊýÁ¿
-	char pstrName[MAX_NAMESIZE];	/**< Ãû×Ö */ 
-	char pstrChat[MAX_CHATINFO];	/**< ¶Ô»° */
-	stTradeObject tobject_array[0]; // ½»Ò×ÎïÆ·ÁÐ±í
+	DWORD dwFromID;			///å‘é€è€…çš„ID,æ˜¯ä¸´æ—¶id
+	DWORD dwChatTime;			// è°ˆè¯æ—¶é—´
+	BYTE size;				// ç‰©å“æ•°é‡
+	char pstrName[MAX_NAMESIZE];	/**< åå­— */ 
+	char pstrChat[MAX_CHATINFO];	/**< å¯¹è¯ */
+	stTradeObject tobject_array[0]; // äº¤æ˜“ç‰©å“åˆ—è¡¨
 	stChannelChatUserCmd()
 	{
 		bzero(pstrChat,sizeof(pstrChat));
@@ -3271,13 +3271,13 @@ struct  stChannelChatUserCmd: public stChatUserCmd
 };
 struct  stServerChannelChatUserCmd: public stChatUserCmd
 {
-	DWORD dwType;			/**< ÏûÏ¢ÀàÐÍ */
-	DWORD dwSysInfoType;		/**< ÏµÍ³ÏûÏ¢µÄÀàÐÍ */ //±íÇéÀàÐÍ
-	DWORD dwCharType;		/**< ½ÇÉ«ÀàÐÍ */
+	DWORD dwType;			/**< æ¶ˆæ¯ç±»åž‹ */
+	DWORD dwSysInfoType;		/**< ç³»ç»Ÿæ¶ˆæ¯çš„ç±»åž‹ */ //è¡¨æƒ…ç±»åž‹
+	DWORD dwCharType;		/**< è§’è‰²ç±»åž‹ */
 	DWORD dwChannelID;
-	DWORD dwFromID;			///·¢ËÍÕßµÄID,ÊÇÁÙÊ±id
-	DWORD dwChatTime;			// Ì¸»°Ê±¼ä
-	BYTE size;				// ÎïÆ·ÊýÁ¿
+	DWORD dwFromID;			///å‘é€è€…çš„ID,æ˜¯ä¸´æ—¶id
+	DWORD dwChatTime;			// è°ˆè¯æ—¶é—´
+	BYTE size;				// ç‰©å“æ•°é‡
 	char info[0];
 	stServerChannelChatUserCmd()
 	{
@@ -3289,7 +3289,7 @@ struct  stServerChannelChatUserCmd: public stChatUserCmd
 	}
 };
 
-// ½âÉ¢¶ÓÎé
+// è§£æ•£é˜Ÿä¼
 #define REMOVE_TEAM_USERCMD_PARA 2
 struct stRemoveTeamUserCmd : public stChatUserCmd
 {
@@ -3299,18 +3299,18 @@ struct stRemoveTeamUserCmd : public stChatUserCmd
 	}
 };
 
-// Ìí¼Ó¶ÓÔ±£¬Ë¢ÐÂ¶ÓÔ±Êý¾Ý Ö¸Áî
+// æ·»åŠ é˜Ÿå‘˜ï¼Œåˆ·æ–°é˜Ÿå‘˜æ•°æ® æŒ‡ä»¤
 #define ADD_TEAMMEMBER_USERCMD_PARA 3
 struct stTeamMemberData
 {
-	char pstrName[MAX_NAMESIZE];	// ¶ÓÔ±Ãû×Ö
-	BYTE byHead;					// ÊÇ·ñÊÇ¶Ó³¤
-	DWORD dwTempID;					//³ÉÔ±tempid
+	char pstrName[MAX_NAMESIZE];	// é˜Ÿå‘˜åå­—
+	BYTE byHead;					// æ˜¯å¦æ˜¯é˜Ÿé•¿
+	DWORD dwTempID;					//æˆå‘˜tempid
 	DWORD dwMaxHealth;				// HP
 	DWORD dwHealth;
 	DWORD dwMaxMp;					//MP
 	DWORD dwMp;
-	WORD wdFace;					//Ð¤Ïñ
+	WORD wdFace;					//è‚–åƒ
 };
 struct stAddTeamMemberUserCmd: public stChatUserCmd
 {
@@ -3318,11 +3318,11 @@ struct stAddTeamMemberUserCmd: public stChatUserCmd
 	{
 		byParam = ADD_TEAMMEMBER_USERCMD_PARA;
 	}
-	DWORD dwTeamID;					// ¶ÓÎéID
+	DWORD dwTeamID;					// é˜Ÿä¼ID
 	stTeamMemberData data;
 };
 
-// É¾³ý¶ÓÔ±Ö¸Áî
+// åˆ é™¤é˜Ÿå‘˜æŒ‡ä»¤
 #define REMOVE_TEAMMEMBER_USERCMD_PARA 4
 struct stRemoveTeamMemberUserCmd: public stChatUserCmd
 {
@@ -3330,21 +3330,21 @@ struct stRemoveTeamMemberUserCmd: public stChatUserCmd
 	{
 		byParam = REMOVE_TEAMMEMBER_USERCMD_PARA;
 	}
-	DWORD dwTeamID;					// ¶ÓÎéID
-	//char pstrName[MAX_NAMESIZE];	// ¶ÓÔ±Ãû×Ö
-	DWORD dwTempID;					//¶ÓÔ±tempid
+	DWORD dwTeamID;					// é˜Ÿä¼ID
+	//char pstrName[MAX_NAMESIZE];	// é˜Ÿå‘˜åå­—
+	DWORD dwTempID;					//é˜Ÿå‘˜tempid
 };
 
 /**
- * ¶ÓÎéÄ£Ê½
+ * é˜Ÿä¼æ¨¡å¼
  */
 enum
 {
-	TEAM_NORMAL,//ÆÕÍ¨Ä£Ê½
-	TEAM_HONOR,//ÈÙÓþÄ£Ê½
-	TEAM_MAX,//ÎÞÐ§Ä£Ê½
+	TEAM_NORMAL,//æ™®é€šæ¨¡å¼
+	TEAM_HONOR,//è£èª‰æ¨¡å¼
+	TEAM_MAX,//æ— æ•ˆæ¨¡å¼
 };
-// ÇëÇó×é¶ÓÖ¸Áî, ¸ÃÖ¸ÁîÐèÒª·¢¸ø±»ÇëÇóÕß
+// è¯·æ±‚ç»„é˜ŸæŒ‡ä»¤, è¯¥æŒ‡ä»¤éœ€è¦å‘ç»™è¢«è¯·æ±‚è€…
  #define REQUEST_TEAM_USERCMD_PARA 5
  struct stRequestTeamUserCmd: public stChatUserCmd
 {
@@ -3352,11 +3352,11 @@ enum
 	{
 		byParam = REQUEST_TEAM_USERCMD_PARA;
 	}
-	DWORD dwAnswerUserID;		// »Ø´ðÕßID,·µ»Ø¸ø¿Í»§¶ËÊÇÇëÇóÕßID
-	DWORD dwTeamMode;			// ¶ÓÎéÄ£Ê½
+	DWORD dwAnswerUserID;		// å›žç­”è€…ID,è¿”å›žç»™å®¢æˆ·ç«¯æ˜¯è¯·æ±‚è€…ID
+	DWORD dwTeamMode;			// é˜Ÿä¼æ¨¡å¼
 };
 
-// »Ø´ð×é¶ÓÖ¸Áî
+// å›žç­”ç»„é˜ŸæŒ‡ä»¤
 #define ANSWER_TEAM_USERCMD_PARA 6
 struct stAnswerTeamUserCmd: public stChatUserCmd
 {
@@ -3364,10 +3364,10 @@ struct stAnswerTeamUserCmd: public stChatUserCmd
 	{
 		byParam = ANSWER_TEAM_USERCMD_PARA;
 	}
-	DWORD dwRequestUserID;		// ÇëÇóÕßID
-	DWORD dwAnswerUserID;		// »Ø´ðÕßID
-	BYTE  byAgree;				// ÊÇ·ñÍ¬Òâ
-	DWORD dwTeamMode;			// ¶ÓÎéÄ£Ê½
+	DWORD dwRequestUserID;		// è¯·æ±‚è€…ID
+	DWORD dwAnswerUserID;		// å›žç­”è€…ID
+	BYTE  byAgree;				// æ˜¯å¦åŒæ„
+	DWORD dwTeamMode;			// é˜Ÿä¼æ¨¡å¼
 };
 
 #define CREATE_CHANNEL_USERCMD_PARAMETER 7
@@ -3423,7 +3423,7 @@ struct  stLeave_ChannelUserCmd: public stChatUserCmd
 
 #define REQUEST_TEAMMEMBER_POSITION_USERCMD_PARA 11
 
-// ÇëÇó¶ÓÔ±Î»ÖÃ
+// è¯·æ±‚é˜Ÿå‘˜ä½ç½®
 struct stRequestTeamMemberPosition : public stChatUserCmd
 {
 	stRequestTeamMemberPosition()
@@ -3431,7 +3431,7 @@ struct stRequestTeamMemberPosition : public stChatUserCmd
 		byParam = REQUEST_TEAMMEMBER_POSITION_USERCMD_PARA;
 	}
 };
-// ·þÎñÆ÷·µ»Ø¶ÓÔ±Î»ÖÃ
+// æœåŠ¡å™¨è¿”å›žé˜Ÿå‘˜ä½ç½®
 #define RETURN_TEAMMEMBER_POSITION_USERCMD_PARA 11
 struct stTeamMemberPosition
 {
@@ -3457,8 +3457,8 @@ struct stQuestionObject : public stChatUserCmd
 		byParam = QUESTION_OBJECT_USERCMD_PARA;
 	}
 	
-	char name[MAX_NAMESIZE];	/**< ÎïÆ·ÓµÓÐÕßµÄÃû×Ö */
-	DWORD dwObjectTempID;          /// ÎïÆ·ÁÙÊ±ID
+	char name[MAX_NAMESIZE];	/**< ç‰©å“æ‹¥æœ‰è€…çš„åå­— */
+	DWORD dwObjectTempID;          /// ç‰©å“ä¸´æ—¶ID
 };
 
 #define RETURN_QUESTION_OBJECT_USERCMD_PARA 13
@@ -3469,11 +3469,11 @@ struct stReturnQuestionObject : public stChatUserCmd
 		byParam = RETURN_QUESTION_OBJECT_USERCMD_PARA; 
 	}
 	
-	char name[MAX_NAMESIZE];	/**< ÎïÆ·ÓµÓÐÕßµÄÃû×Ö */
-	t_Object object;               /// ÎïÆ·×ÊÁÏ
+	char name[MAX_NAMESIZE];	/**< ç‰©å“æ‹¥æœ‰è€…çš„åå­— */
+	t_Object object;               /// ç‰©å“èµ„æ–™
 };
 
-// ¶ÓÔ±ÀëÏßÏûÏ¢                
+// é˜Ÿå‘˜ç¦»çº¿æ¶ˆæ¯                
 #define TEAMMEMBER_OFFLINE_USERCMD_PARA 14
 struct stTeamMemberOfflineUserCmd : public stChatUserCmd
 {                                       
@@ -3481,10 +3481,10 @@ struct stTeamMemberOfflineUserCmd : public stChatUserCmd
         {               
                 byParam = TEAMMEMBER_OFFLINE_USERCMD_PARA; 
         }       
-        DWORD dwTempID;                                 //¶ÓÔ±tempid
+        DWORD dwTempID;                                 //é˜Ÿå‘˜tempid
 };
 
-// ÉèÖÃ×Ô¶¯ÏûÏ¢                
+// è®¾ç½®è‡ªåŠ¨æ¶ˆæ¯                
 #define AUTO_REPLY_USERCMD_PARA 15
 struct stAutoReplyUserCmd : public stChatUserCmd
 {                                       
@@ -3497,16 +3497,16 @@ struct stAutoReplyUserCmd : public stChatUserCmd
 
 enum
 {
-	TEAM_EXP_MODE_NORMAL,//ÆÕÍ¨·ÖÅä¾­ÑéÄ£Ê½
-	TEAM_EXP_MODE_SPECIAL,//ÌØÊâ·ÖÅä¾­ÑéÄ£Ê½
+	TEAM_EXP_MODE_NORMAL,//æ™®é€šåˆ†é…ç»éªŒæ¨¡å¼
+	TEAM_EXP_MODE_SPECIAL,//ç‰¹æ®Šåˆ†é…ç»éªŒæ¨¡å¼
 };
 enum
 {
-	TEAM_OBJ_MODE_NORMAL,//ÆÕÍ¨ÎïÆ··ÖÅäÄ£Ê½
-	TEAM_OBJ_MODE_SPECIAL,//ÂÖÁ÷ÎïÆ··ÖÅäÄ£Ê½
+	TEAM_OBJ_MODE_NORMAL,//æ™®é€šç‰©å“åˆ†é…æ¨¡å¼
+	TEAM_OBJ_MODE_SPECIAL,//è½®æµç‰©å“åˆ†é…æ¨¡å¼
 };
 
-// ÇëÇó(ÉèÖÃ)¶ÓÎé¾­Ñé·ÖÅäÄ£Ê½
+// è¯·æ±‚(è®¾ç½®)é˜Ÿä¼ç»éªŒåˆ†é…æ¨¡å¼
 #define EXPMODE_TEAMMEMBER_USERCMD_PARA 16
 struct stExpModeTeamMemberUserCmd: public stChatUserCmd
 {
@@ -3516,7 +3516,7 @@ struct stExpModeTeamMemberUserCmd: public stChatUserCmd
 	}
 	BYTE byType;
 };
-// ÇëÇó(ÉèÖÃ)¶ÓÎéÎïÆ··ÖÅäÄ£Ê½
+// è¯·æ±‚(è®¾ç½®)é˜Ÿä¼ç‰©å“åˆ†é…æ¨¡å¼
 #define OBJMODE_TEAMMEMBER_USERCMD_PARA 17
 struct stObjModeTeamMemberUserCmd: public stChatUserCmd
 {
@@ -3526,7 +3526,7 @@ struct stObjModeTeamMemberUserCmd: public stChatUserCmd
 	}
 	BYTE byType;
 };
-// ÉèÖÃ×é¶ÓÄ£Ê½
+// è®¾ç½®ç»„é˜Ÿæ¨¡å¼
 #define TEAM_MODE_USERCMD_PARA 18
 struct stTeamModeUserCmd: public stChatUserCmd
 {
@@ -3536,7 +3536,7 @@ struct stTeamModeUserCmd: public stChatUserCmd
 	}
 	BYTE byType;
 };
-// Ë¢ÐÂ¶ÓÔ±HP,MP Ö¸Áî
+// åˆ·æ–°é˜Ÿå‘˜HP,MP æŒ‡ä»¤
 #define FRESH_TEAMMEMBER_USERCMD_PARA 19
 struct stFreshTeamMemberUserCmd: public stChatUserCmd
 {
@@ -3544,22 +3544,22 @@ struct stFreshTeamMemberUserCmd: public stChatUserCmd
 	{
 		byParam = FRESH_TEAMMEMBER_USERCMD_PARA;
 	}
-	DWORD dwTempID;					//³ÉÔ±tempid
+	DWORD dwTempID;					//æˆå‘˜tempid
 	DWORD dwMaxHealth;				// HP
 	DWORD dwHealth;
 	/*
-	 * ÕâÀïÎªÁË·ÀÖ¹8×Ô¼º¶ÔÆë,½«DWORD¸Ä³ÉWORD,Èç¹û²»¹»,¿ÉÒÔ½«Êý¾Ý¸Ä³É3×Ö½ÚµÄÒ²¿ÉÒÔ,²»»áÔö¼ÓÁ÷Á¿
+	 * è¿™é‡Œä¸ºäº†é˜²æ­¢8è‡ªå·±å¯¹é½,å°†DWORDæ”¹æˆWORD,å¦‚æžœä¸å¤Ÿ,å¯ä»¥å°†æ•°æ®æ”¹æˆ3å­—èŠ‚çš„ä¹Ÿå¯ä»¥,ä¸ä¼šå¢žåŠ æµé‡
 	 */
 	WORD dwMaxMp;					//MP
 	WORD dwMp;
 };
 #endif
 
-// ¼ì²âµ½·Ç·¨ÓÃ»§
+// æ£€æµ‹åˆ°éžæ³•ç”¨æˆ·
 #define DIRTY_USER_USERCMD_PARA 20
 enum DIRTYUSER_TYPE{
-		DIRTYUSER_DLL_CALL = 1,	// Íâ²¿DLLµ÷ÓÃ±¾½ø³Ìº¯Êý£¬Ò»°ãÍâ¹ÒÓÃ»§
-		DIRTYUSER_DEBUGGER = 2,	// ÆôÓÃµ÷ÊÔÆ÷µ÷ÊÔ±¾½ø³Ì£¬¿ÉÄÜÊÇÍâ¹ÒÖÆ×÷Õß
+		DIRTYUSER_DLL_CALL = 1,	// å¤–éƒ¨DLLè°ƒç”¨æœ¬è¿›ç¨‹å‡½æ•°ï¼Œä¸€èˆ¬å¤–æŒ‚ç”¨æˆ·
+		DIRTYUSER_DEBUGGER = 2,	// å¯ç”¨è°ƒè¯•å™¨è°ƒè¯•æœ¬è¿›ç¨‹ï¼Œå¯èƒ½æ˜¯å¤–æŒ‚åˆ¶ä½œè€…
 };
 struct stDirtyUserUserCmd : public stChatUserCmd
 {
@@ -3569,7 +3569,7 @@ struct stDirtyUserUserCmd : public stChatUserCmd
 		}
 		BYTE type;
 };
-// »Ø´ð×é¶ÓÖ¸Áî
+// å›žç­”ç»„é˜ŸæŒ‡ä»¤
 #define ANSWER_NAME_TEAM_USERCMD_PARA 21
 struct stAnswerNameTeamUserCmd: public stChatUserCmd
 {
@@ -3577,12 +3577,12 @@ struct stAnswerNameTeamUserCmd: public stChatUserCmd
 	{
 		byParam = ANSWER_NAME_TEAM_USERCMD_PARA;
 	}
-	char byRequestUserName[MAX_NAMESIZE];		// ÇëÇóÕßÃû×Ö
-	char byAnswerUserName[MAX_NAMESIZE];		// »Ø´ðÕßÃû×Ö
-	BYTE  byAgree;				// ÊÇ·ñÍ¬Òâ
-	DWORD dwTeamMode;			// ¶ÓÎéÄ£Ê½
+	char byRequestUserName[MAX_NAMESIZE];		// è¯·æ±‚è€…åå­—
+	char byAnswerUserName[MAX_NAMESIZE];		// å›žç­”è€…åå­—
+	BYTE  byAgree;				// æ˜¯å¦åŒæ„
+	DWORD dwTeamMode;			// é˜Ÿä¼æ¨¡å¼
 };
-// ÇëÇó×é¶ÓÖ¸Áî, ¸ÃÖ¸ÁîÐèÒª·¢¸ø±»ÇëÇóÕß
+// è¯·æ±‚ç»„é˜ŸæŒ‡ä»¤, è¯¥æŒ‡ä»¤éœ€è¦å‘ç»™è¢«è¯·æ±‚è€…
  #define REQUEST_NAME_TEAM_USERCMD_PARA 22
  struct stRequestNameTeamUserCmd: public stChatUserCmd
 {
@@ -3590,8 +3590,8 @@ struct stAnswerNameTeamUserCmd: public stChatUserCmd
 	{
 		byParam = REQUEST_NAME_TEAM_USERCMD_PARA;
 	}
-	char byAnswerUserName[MAX_NAMESIZE];		// »Ø´ðÕßÃû×Ö,·µ»Ø¸ø¿Í»§¶ËÊÇÇëÇóÕßÃû×Ö
-	DWORD dwTeamMode;			// ¶ÓÎéÄ£Ê½
+	char byAnswerUserName[MAX_NAMESIZE];		// å›žç­”è€…åå­—,è¿”å›žç»™å®¢æˆ·ç«¯æ˜¯è¯·æ±‚è€…åå­—
+	DWORD dwTeamMode;			// é˜Ÿä¼æ¨¡å¼
 };
  #define REQUEST_COUNTRY_HELP_USERCMD_PARA 23
  struct stRequestCountryHelpUserCmd: public stChatUserCmd
@@ -3600,7 +3600,7 @@ struct stAnswerNameTeamUserCmd: public stChatUserCmd
 	{
 		byParam = REQUEST_COUNTRY_HELP_USERCMD_PARA;
 	}
-	char mapName[MAX_NAMESIZE];		//ÇëÇóÖ§Ô®µÄµØÍ¼Ãû³Æ
+	char mapName[MAX_NAMESIZE];		//è¯·æ±‚æ”¯æ´çš„åœ°å›¾åç§°
 	WORD x;
 	WORD y;
 };
@@ -3611,11 +3611,11 @@ struct stAnswerNameTeamUserCmd: public stChatUserCmd
 	{
 		byParam = KILL_FOREIGNER_USERCMD_PARA;
 	}
-	char heroName[MAX_NAMESIZE];	//Ó¢ÐÛÈËÎï
-	char mapName[MAX_NAMESIZE];		//Á¢¹¦µØÍ¼
+	char heroName[MAX_NAMESIZE];	//è‹±é›„äººç‰©
+	char mapName[MAX_NAMESIZE];		//ç«‹åŠŸåœ°å›¾
 };
 
- // BOSSË¢ÐÂÌáÊ¾ÏûÏ¢
+ // BOSSåˆ·æ–°æç¤ºæ¶ˆæ¯
 #define REFRESH_BOSS_USERCMD_PARA 25
  struct stRefreshBossUserCmd: public stChatUserCmd
 {
@@ -3624,14 +3624,14 @@ struct stAnswerNameTeamUserCmd: public stChatUserCmd
 		byParam = REFRESH_BOSS_USERCMD_PARA;
 	}
 	DWORD npcid;
-	BYTE country; //¹ú¼Ò
-	char mapName[MAX_NAMESIZE];		//BOSSË¢ÐÂµÄµØÍ¼Ãû³Æ
-	BYTE time;     // Ê£ÓàµÄË¢ÐÂÊ±¼ä£¬Èç¹ûÎª0±íÊ¾Ë¢³ö
+	BYTE country; //å›½å®¶
+	char mapName[MAX_NAMESIZE];		//BOSSåˆ·æ–°çš„åœ°å›¾åç§°
+	BYTE time;     // å‰©ä½™çš„åˆ·æ–°æ—¶é—´ï¼Œå¦‚æžœä¸º0è¡¨ç¤ºåˆ·å‡º
 	//WORD x;
 	//WORD y;
 };
 
- // BOSS±»É±ÌáÊ¾ÏûÏ¢
+ // BOSSè¢«æ€æç¤ºæ¶ˆæ¯
 #define KILL_BOSS_USERCMD_PARA 26
  struct stKillBossUserCmd: public stChatUserCmd
 {
@@ -3640,20 +3640,20 @@ struct stAnswerNameTeamUserCmd: public stChatUserCmd
 		byParam = KILL_BOSS_USERCMD_PARA;
 	}
 	DWORD npcid;
-	char name[MAX_NAMESIZE];		//Íæ¼ÒÃû³Æ
-	char mapName[MAX_NAMESIZE];		//BOSSË¢ÐÂµÄµØÍ¼Ãû³Æ
+	char name[MAX_NAMESIZE];		//çŽ©å®¶åç§°
+	char mapName[MAX_NAMESIZE];		//BOSSåˆ·æ–°çš„åœ°å›¾åç§°
 	WORD x;
 	WORD y;
 };
 
 
 //////////////////////////////////////////////////////////////
-// ÓÃ»§ÁÄÌìÖ¸Áî¶¨Òå½áÊø
+// ç”¨æˆ·èŠå¤©æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ½»Ò×Ö¸Áî¶¨Òå¿ªÊ¼
+// äº¤æ˜“æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 #ifndef _TRADE_USERCMD_DEFINITION_
 #define _TRADE_USERCMD_DEFINITION_
@@ -3672,11 +3672,11 @@ struct stRequestTradeUserCmd :public stTradeUserCmd
 	{
 		byParam = REQUEST_TRADE_USERCMD_PARAMETER;
 	}
-	DWORD dwAskerTempID;	/**< ÇëÇóÕß */
-	DWORD dwAnswerTempID;	/**< »Ø´ðÕß */
+	DWORD dwAskerTempID;	/**< è¯·æ±‚è€… */
+	DWORD dwAnswerTempID;	/**< å›žç­”è€… */
 };
 
-/// »ØÓ¦½»Ò×ÇëÇó
+/// å›žåº”äº¤æ˜“è¯·æ±‚
 #define ANSWER_TRADE_USERCMD_PARAMETER 1
 struct stAnswerTradeUserCmd:public stTradeUserCmd
 {
@@ -3685,12 +3685,12 @@ struct stAnswerTradeUserCmd:public stTradeUserCmd
 		byParam = ANSWER_TRADE_USERCMD_PARAMETER;
 	}
 
-	BYTE byAgree;				/**< ÊÇ·ñÍ¬Òâ½»Ò× */
-	DWORD dwAskerTempID;	/**< ÇëÇóÕß */
-	DWORD dwAnswerTempID;	/**< »Ø´ðÕß */
+	BYTE byAgree;				/**< æ˜¯å¦åŒæ„äº¤æ˜“ */
+	DWORD dwAskerTempID;	/**< è¯·æ±‚è€… */
+	DWORD dwAnswerTempID;	/**< å›žç­”è€… */
 };
 
-/// ¿ªÊ¼½»Ò×
+/// å¼€å§‹äº¤æ˜“
 #define BEGIN_TRADE_USERCMD_PARAMETER 2
 struct stBeginTradeUserCmd:public stTradeUserCmd
 {
@@ -3698,11 +3698,11 @@ struct stBeginTradeUserCmd:public stTradeUserCmd
 	{
 		byParam = BEGIN_TRADE_USERCMD_PARAMETER;
 	}
-	DWORD dwAskerTempID;	/**< ÇëÇóÕß */
-	DWORD dwAnswerTempID;	/**< »Ø´ðÕß */
+	DWORD dwAskerTempID;	/**< è¯·æ±‚è€… */
+	DWORD dwAnswerTempID;	/**< å›žç­”è€… */
 };
 
-/// È·¶¨½»Ò×
+/// ç¡®å®šäº¤æ˜“
 #define COMMIT_TRADE_USERCMD_PARAMETER 5
 struct stCommitTradeUserCmd:public stTradeUserCmd
 {
@@ -3713,7 +3713,7 @@ struct stCommitTradeUserCmd:public stTradeUserCmd
 	DWORD dwUserTempID;
 };
 
-/// È¡Ïû½»Ò×
+/// å–æ¶ˆäº¤æ˜“
 #define CANCEL_TRADE_USERCMD_PARAMETER 6
 struct stCancelTradeUserCmd:public stTradeUserCmd
 {
@@ -3724,7 +3724,7 @@ struct stCancelTradeUserCmd:public stTradeUserCmd
 	DWORD dwUserTempID;
 };
 
-/// ½»Ò×Íê³É
+/// äº¤æ˜“å®Œæˆ
 #define FINISH_TRADE_USERCMD_PARAMETER 7
 struct stFinishTradeUserCmd:public stTradeUserCmd
 {
@@ -3734,7 +3734,7 @@ struct stFinishTradeUserCmd:public stTradeUserCmd
 	}
 };
 
-/// Ìí¼Ó½»Ò×ÎïÆ·
+/// æ·»åŠ äº¤æ˜“ç‰©å“
 #define ADD_OBJECT_TRADE_USERCMD_PARAMETER 8
 struct stAddObjectTradeUserCmd:public stTradeUserCmd
 {
@@ -3742,14 +3742,14 @@ struct stAddObjectTradeUserCmd:public stTradeUserCmd
 	{
 		byParam = ADD_OBJECT_TRADE_USERCMD_PARAMETER;
 	}
-	DWORD user_id; //ÓÃ»§ÁÙÊ±id
-//	DWORD object_id; //ÎïÆ·Î¨Ò»id
-	t_Object object; //ÎïÆ·Êý¾Ý
-	BYTE x;  //ÎïÆ··ÅÖÃÎ»ÖÃx×ø±ê
-	BYTE y; //ÎïÆ··ÅÖÃÎ»ÖÃy×ø±ê
+	DWORD user_id; //ç”¨æˆ·ä¸´æ—¶id
+//	DWORD object_id; //ç‰©å“å”¯ä¸€id
+	t_Object object; //ç‰©å“æ•°æ®
+	BYTE x;  //ç‰©å“æ”¾ç½®ä½ç½®xåæ ‡
+	BYTE y; //ç‰©å“æ”¾ç½®ä½ç½®yåæ ‡
 };
 
-/// É¾³ý½»Ò×ÎïÆ·
+/// åˆ é™¤äº¤æ˜“ç‰©å“
 #define REMOVE_OBJECT_TRADE_USERCMD_PARAMETER 9
 struct stRemoveObjectTradeUserCmd:public stTradeUserCmd
 {
@@ -3757,11 +3757,11 @@ struct stRemoveObjectTradeUserCmd:public stTradeUserCmd
 	{
 		byParam = REMOVE_OBJECT_TRADE_USERCMD_PARAMETER;
 	}
-	DWORD user_id; //ÓÃ»§ÁÙÊ±id
-	DWORD object_id; //ÎïÆ·Î¨Ò»id
+	DWORD user_id; //ç”¨æˆ·ä¸´æ—¶id
+	DWORD object_id; //ç‰©å“å”¯ä¸€id
 };
 
-/// ·ÃÎÊNpc
+/// è®¿é—®Npc
 #define VISITNPC_TRADE_USERCMD_PARAMETER 10
 struct stVisitNpcTradeUserCmd:public stTradeUserCmd
 {
@@ -3776,7 +3776,7 @@ struct stVisitNpcTradeUserCmd:public stTradeUserCmd
 	char menuTxt[1];
 };
 
-/// ÂòÎïÆ·
+/// ä¹°ç‰©å“
 #define BUYOBJECT_NPCTRADE_USERCMD_PARAMETER 11
 struct stBuyObjectNpcTradeUserCmd:public stTradeUserCmd
 {
@@ -3793,7 +3793,7 @@ struct stBuyObjectNpcTradeUserCmd:public stTradeUserCmd
 	BYTE itemLevel;
 };
 
-/// ÂôÎïÆ·
+/// å–ç‰©å“
 #define SELLOBJECT_NPCTRADE_USERCMD_PARAMETER 12
 struct stSellObjectNpcTradeUserCmd:public stTradeUserCmd
 {
@@ -3801,10 +3801,10 @@ struct stSellObjectNpcTradeUserCmd:public stTradeUserCmd
 	{
 		byParam = SELLOBJECT_NPCTRADE_USERCMD_PARAMETER;
 	}
-	DWORD qwThisID;				/**< ÎïÆ·Î¨Ò»ID */
+	DWORD qwThisID;				/**< ç‰©å“å”¯ä¸€ID */
 };
 
-/// ÐÞÀíÎïÆ·
+/// ä¿®ç†ç‰©å“
 #define REPAIROBJECT_NPCTRADE_USERCMD_PARAMETER 13
 struct stRepairObjectNpcTradeUserCmd:public stTradeUserCmd
 {
@@ -3812,11 +3812,11 @@ struct stRepairObjectNpcTradeUserCmd:public stTradeUserCmd
 	{
 		byParam = REPAIROBJECT_NPCTRADE_USERCMD_PARAMETER;
 	}
-	DWORD id;  //ÐÞÀíÎïÆ·id£¬È«²¿ÐÞÀíÊ±Îª0
-	DWORD gem_id;  //ÐÞ¸´±¦Ê¯µÄÎ¨Ò»id£¬ÆÕÍ¨ÐÞÀíÌî0
+	DWORD id;  //ä¿®ç†ç‰©å“idï¼Œå…¨éƒ¨ä¿®ç†æ—¶ä¸º0
+	DWORD gem_id;  //ä¿®å¤å®çŸ³çš„å”¯ä¸€idï¼Œæ™®é€šä¿®ç†å¡«0
 };
 
-/// ÂôÂí
+/// å–é©¬
 #define SELLHORSE_NPCTRADE_USERCMD_PARAMETER 14
 struct stSellHorseNpcTradeUserCmd:public stTradeUserCmd
 {
@@ -3825,10 +3825,10 @@ struct stSellHorseNpcTradeUserCmd:public stTradeUserCmd
 		byParam = SELLHORSE_NPCTRADE_USERCMD_PARAMETER;
 	}
 
-	BYTE action; //action 0:Âô, action 1: ·ÅÖð
+	BYTE action; //action 0:å–, action 1: æ”¾é€
 };
 
-/// ²Ö¿âÐÅÏ¢
+/// ä»“åº“ä¿¡æ¯
 #define STORE_INFO_NPCTRADE_USERCMD_PARAMETER 15
 struct stStoreInfoNpcTradeUserCmd:public stTradeUserCmd
 {
@@ -3837,11 +3837,11 @@ struct stStoreInfoNpcTradeUserCmd:public stTradeUserCmd
 		byParam = STORE_INFO_NPCTRADE_USERCMD_PARAMETER;
 	}
 	
-	BYTE page; //Ò³Êý
-	BYTE day[0];	//ÌìÊý
+	BYTE page; //é¡µæ•°
+	BYTE day[0];	//å¤©æ•°
 };
 
-/// ¿ªÊ¼°ÚÌ¯
+/// å¼€å§‹æ‘†æ‘Š
 #define START_SELL_USERCMD_PARAMETER 16
 struct stSellTradeUserCmd:public stTradeUserCmd
 {
@@ -3851,7 +3851,7 @@ struct stSellTradeUserCmd:public stTradeUserCmd
 	}
 };
 
-/// Íê³É°ÚÌ¯
+/// å®Œæˆæ‘†æ‘Š
 #define FINISH_SELL_USERCMD_PARAMETER 17
 struct stFinishSellUserCmd:public stTradeUserCmd
 {
@@ -3861,7 +3861,7 @@ struct stFinishSellUserCmd:public stTradeUserCmd
 	}
 };
 
-/// Ìí¼ÓÎïÆ·
+/// æ·»åŠ ç‰©å“
 #define ADD_OBJECT_SELL_USERCMD_PARAMETER 18
 struct stAddObjectSellUserCmd:public stTradeUserCmd
 {
@@ -3869,13 +3869,13 @@ struct stAddObjectSellUserCmd:public stTradeUserCmd
 	{
 		byParam = ADD_OBJECT_SELL_USERCMD_PARAMETER;
 	}
-	t_Object object; //ÎïÆ·Êý¾Ý
-	DWORD price; //ÎïÆ·¼ÛÇ®
-	BYTE x;  //ÎïÆ··ÅÖÃÎ»ÖÃx×ø±ê
-	BYTE y; //ÎïÆ··ÅÖÃÎ»ÖÃy×ø±ê
+	t_Object object; //ç‰©å“æ•°æ®
+	DWORD price; //ç‰©å“ä»·é’±
+	BYTE x;  //ç‰©å“æ”¾ç½®ä½ç½®xåæ ‡
+	BYTE y; //ç‰©å“æ”¾ç½®ä½ç½®yåæ ‡
 };
 
-/// É¾³ýÎïÆ·
+/// åˆ é™¤ç‰©å“
 #define REMOVE_OBJECT_SELL_USERCMD_PARAMETER 19
 struct stRemoveObjectSellUserCmd:public stTradeUserCmd
 {
@@ -3883,10 +3883,10 @@ struct stRemoveObjectSellUserCmd:public stTradeUserCmd
 	{
 		byParam = REMOVE_OBJECT_SELL_USERCMD_PARAMETER;
 	}
-	DWORD object_id; //ÎïÆ·Î¨Ò»id
+	DWORD object_id; //ç‰©å“å”¯ä¸€id
 };
 
-/// ÇëÇóÄ³ÈËµÄ°ÚÌ¯ÐÅÏ¢
+/// è¯·æ±‚æŸäººçš„æ‘†æ‘Šä¿¡æ¯
 #define REQUEST_SELL_INFO_USERCMD_PARAMETER 20
 struct stRequestSellInfoUserCmd:public stTradeUserCmd
 {
@@ -3894,10 +3894,10 @@ struct stRequestSellInfoUserCmd:public stTradeUserCmd
 	{
 		byParam = REQUEST_SELL_INFO_USERCMD_PARAMETER;
 	}
-	DWORD temp_id; //ÓÃ»§ÁÙÊ±ID
+	DWORD temp_id; //ç”¨æˆ·ä¸´æ—¶ID
 };
 
-/// ÇëÇó¹ºÂòÎïÆ·
+/// è¯·æ±‚è´­ä¹°ç‰©å“
 #define REQUEST_SELL_BUY_USERCMD_PARAMETER 21
 struct stRequestSellBuyUserCmd:public stTradeUserCmd
 {
@@ -3905,11 +3905,11 @@ struct stRequestSellBuyUserCmd:public stTradeUserCmd
 	{
 		byParam = REQUEST_SELL_BUY_USERCMD_PARAMETER;
 	}
-	DWORD temp_id; //ÓÃ»§ÁÙÊ±ID
-	DWORD object_id; //ÎïÆ·Î¨Ò»ID
+	DWORD temp_id; //ç”¨æˆ·ä¸´æ—¶ID
+	DWORD object_id; //ç‰©å“å”¯ä¸€ID
 };
 
-/// ÐÞ¸Ä²Ö¿âÃÜÂë
+/// ä¿®æ”¹ä»“åº“å¯†ç 
 #define UPDATE_STORE_PASS_USERCMD_PARAMETER 22
 struct stUpdateStorePassUserCmd:public stTradeUserCmd
 {
@@ -3917,11 +3917,11 @@ struct stUpdateStorePassUserCmd:public stTradeUserCmd
 	{
 		byParam = UPDATE_STORE_PASS_USERCMD_PARAMETER;
 	}
-	char oldpass[8]; //¾ÉÃÜÂë
-	char newpass[8]; //ÐÂÃÜÂë
+	char oldpass[8]; //æ—§å¯†ç 
+	char newpass[8]; //æ–°å¯†ç 
 };
 
-/// ÄÜ·ñ°ÚÌ¯
+/// èƒ½å¦æ‘†æ‘Š
 #define CAN_SELL_USERCMD_PARAMETER 23
 struct stCanSellTradeUserCmd:public stTradeUserCmd
 {
@@ -3934,14 +3934,14 @@ struct stCanSellTradeUserCmd:public stTradeUserCmd
 
 enum
 {
-	STORN = 1,//Éý¼¶±¦Ê¯
-	SIVER =2,//Òø
-	SILK  =3,//Ë¿³ñ
-	CRYSTAL =4,//Ë®¾§
-	EBONY  =5,//ÎÚÄ¾
-	YINGPI =6,//Ó²Æ¤
+	STORN = 1,//å‡çº§å®çŸ³
+	SIVER =2,//é“¶
+	SILK  =3,//ä¸ç»¸
+	CRYSTAL =4,//æ°´æ™¶
+	EBONY  =5,//ä¹Œæœ¨
+	YINGPI =6,//ç¡¬çš®
 };
-/// ÁìÔùÆ·Æ·¾«ÖÂÉý¼¶±¦Ê¯
+/// é¢†èµ å“å“ç²¾è‡´å‡çº§å®çŸ³
 #define GOLD_GIVE_USERCMD_PARAMETER 24
 struct stGoldGiveTradeUserCmd:public stTradeUserCmd
 {
@@ -3951,7 +3951,7 @@ struct stGoldGiveTradeUserCmd:public stTradeUserCmd
 	}
 	BYTE type;
 };
-/// ½ð±ÒÐÞÀíÎïÆ·
+/// é‡‘å¸ä¿®ç†ç‰©å“
 #define REPAIROBJECT_GOLD_NPCTRADE_USERCMD_PARAMETER 25
 struct stRepairObjectGoldNpcTradeUserCmd:public stTradeUserCmd
 {
@@ -3959,9 +3959,9 @@ struct stRepairObjectGoldNpcTradeUserCmd:public stTradeUserCmd
 	{
 		byParam = REPAIROBJECT_GOLD_NPCTRADE_USERCMD_PARAMETER;
 	}
-	DWORD id;  //ÐÞÀíÎïÆ·id£¬È«²¿ÐÞÀíÊ±Îª0
+	DWORD id;  //ä¿®ç†ç‰©å“idï¼Œå…¨éƒ¨ä¿®ç†æ—¶ä¸º0
 };
-/// ÇëÇó¾«ÖÂÉý¼¶±¦Ê¯¸öÊý
+/// è¯·æ±‚ç²¾è‡´å‡çº§å®çŸ³ä¸ªæ•°
 #define REQUEST_GOLD_GIVE_USERCMD_PARAMETER 26
 struct stRequestGoldGiveTradeUserCmd:public stTradeUserCmd
 {
@@ -3970,7 +3970,7 @@ struct stRequestGoldGiveTradeUserCmd:public stTradeUserCmd
 		byParam = REQUEST_GOLD_GIVE_USERCMD_PARAMETER;
 	}
 };
-/// ·µ»Ø¾«ÖÂÉý¼¶±¦Ê¯¸öÊý
+/// è¿”å›žç²¾è‡´å‡çº§å®çŸ³ä¸ªæ•°
 #define RETURN_GOLD_GIVE_USERCMD_PARAMETER 27
 struct stReturnGoldGiveTradeUserCmd:public stTradeUserCmd
 {
@@ -3978,11 +3978,11 @@ struct stReturnGoldGiveTradeUserCmd:public stTradeUserCmd
 	{
 		byParam = RETURN_GOLD_GIVE_USERCMD_PARAMETER;
 	}
-	DWORD Storn_num;//±¦Ê¯¸öÊý
-	DWORD Matarial_num; //²ÄÁÏ×éÊý
-	DWORD Card_num;    //µÀ¾ß¿¨ÕÅÊý
+	DWORD Storn_num;//å®çŸ³ä¸ªæ•°
+	DWORD Matarial_num; //ææ–™ç»„æ•°
+	DWORD Card_num;    //é“å…·å¡å¼ æ•°
 };
-/// ÅúÁ¿Ìí¼ÓÎïÆ·
+/// æ‰¹é‡æ·»åŠ ç‰©å“
 #define ADD_OBJECT_SELL_LIST_USERCMD_PARAMETER 28
 struct stAddObjectSellListUserCmd:public stTradeUserCmd
 {
@@ -3994,13 +3994,13 @@ struct stAddObjectSellListUserCmd:public stTradeUserCmd
 	WORD num;
 	struct
 	{
-		t_Object object; //ÎïÆ·Êý¾Ý
-		DWORD price; //ÎïÆ·¼ÛÇ®
-		BYTE x;  //ÎïÆ··ÅÖÃÎ»ÖÃx×ø±ê
-		BYTE y; //ÎïÆ··ÅÖÃÎ»ÖÃy×ø±ê
+		t_Object object; //ç‰©å“æ•°æ®
+		DWORD price; //ç‰©å“ä»·é’±
+		BYTE x;  //ç‰©å“æ”¾ç½®ä½ç½®xåæ ‡
+		BYTE y; //ç‰©å“æ”¾ç½®ä½ç½®yåæ ‡
 	}list[0];
 };
-/// ÓÃ»§ÇëÇóÌí¼ÓÎïÆ·idÁÐ±í
+/// ç”¨æˆ·è¯·æ±‚æ·»åŠ ç‰©å“idåˆ—è¡¨
 #define REQUEST_ADD_OBJECT_SELL_USERCMD_PARAMETER 29
 struct stRequestAddObjectSellUserCmd:public stTradeUserCmd
 {
@@ -4012,15 +4012,15 @@ struct stRequestAddObjectSellUserCmd:public stTradeUserCmd
 	WORD num;
 	struct
 	{
-		DWORD qwThisID; //ÎïÆ·id
-		DWORD price; //ÎïÆ·¼ÛÇ®
-		BYTE x;  //ÎïÆ··ÅÖÃÎ»ÖÃx×ø±ê
-		BYTE y; //ÎïÆ··ÅÖÃÎ»ÖÃy×ø±ê
+		DWORD qwThisID; //ç‰©å“id
+		DWORD price; //ç‰©å“ä»·é’±
+		BYTE x;  //ç‰©å“æ”¾ç½®ä½ç½®xåæ ‡
+		BYTE y; //ç‰©å“æ”¾ç½®ä½ç½®yåæ ‡
 	}list[0];
 };
 
 /*
-/// ÁìÔùÆ·²ÄÁÏ
+/// é¢†èµ å“ææ–™
 #define MATARIAL_GIVE_USERCMD_PARAMETER 30
 struct stMatarialgiveTradeUserCmd:public stTradeUserCmd
 {
@@ -4046,18 +4046,18 @@ struct stReturnMatarialGiveTradeUserCmd:public stTradeUserCmd
         {
                 byParam = RETURN_GOLD_GIVE_USERCMD_PARAMETER;
         }
-        DWORD num;//¸öÊý
+        DWORD num;//ä¸ªæ•°
 };
 */
 #endif
 
 //////////////////////////////////////////////////////////////
-// ½»Ò×Ö¸Áî¶¨Òå½áÊø
+// äº¤æ˜“æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// °ï»áÖ¸Áî¶¨Òå¿ªÊ¼
+// å¸®ä¼šæŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stUnionUserCmd : public stNullUserCmd
@@ -4068,7 +4068,7 @@ struct stUnionUserCmd : public stNullUserCmd
 	}
 };
 
-/// °ï»á´´½¨Ç°µÄÓÃ»§×´Ì¬¼ì²éÏûÏ¢
+/// å¸®ä¼šåˆ›å»ºå‰çš„ç”¨æˆ·çŠ¶æ€æ£€æŸ¥æ¶ˆæ¯
 const BYTE UNION_STATUS_CHECK_PARA = 1;
 struct stUnionStatusCheckCmd  : public stUnionUserCmd
 {
@@ -4078,7 +4078,7 @@ struct stUnionStatusCheckCmd  : public stUnionUserCmd
 	}
 };
 
-// °ï»á´´½¨ÃüÁî
+// å¸®ä¼šåˆ›å»ºå‘½ä»¤
 const BYTE CREATE_UNION_PARA = 2;
 struct stCreateUnionCmd: public stUnionUserCmd
 {
@@ -4086,10 +4086,10 @@ struct stCreateUnionCmd: public stUnionUserCmd
 	{
 		byParam = CREATE_UNION_PARA;
 	}
-	char UnionName[MAX_NAMESIZE];  // °ï»áÃû³Æ
+	char UnionName[MAX_NAMESIZE];  // å¸®ä¼šåç§°
 };
 
-// °ï»á´´½¨³É¹¦Í¨ÖªÖ¸Áî
+// å¸®ä¼šåˆ›å»ºæˆåŠŸé€šçŸ¥æŒ‡ä»¤
 const BYTE SERVER_RETURN_UNION_CREATE_FAILED = 3;
 struct stServerReturnUnionCheckCmd : public stUnionUserCmd
 {
@@ -4100,17 +4100,17 @@ struct stServerReturnUnionCheckCmd : public stUnionUserCmd
 };
 
 struct stUnionRember{
-	char  memberName[MAX_NAMESIZE];			// °ï»á³ÉÔ±Ãû³Æ
-	char  aliasname[MAX_NAMESIZE];			// ³ÉÔ±±ðÃû[Ö°ÎñÃû³Æ]
-	WORD  level;					// ³ÉÔ±µÈ¼¶
-	BYTE  byOnline;                      		// ³ÉÔ±ÔÚÏß±êÖ¾ 0 Îª²»ÔÚÏß ·Ç0ÎªÔÚÏß
-	WORD  occupation;				// Ö°ÒµÀàÐÍ
-	DWORD exploit;					// ¹¦Ñ«Öµ
-	char  septName[MAX_NAMESIZE];			// ËùÊô¼Ò×å
-	BYTE  bySeptMaster;				// 0²»ÊÇ×å³¤£¬1ÊÇ×å³¤
+	char  memberName[MAX_NAMESIZE];			// å¸®ä¼šæˆå‘˜åç§°
+	char  aliasname[MAX_NAMESIZE];			// æˆå‘˜åˆ«å[èŒåŠ¡åç§°]
+	WORD  level;					// æˆå‘˜ç­‰çº§
+	BYTE  byOnline;                      		// æˆå‘˜åœ¨çº¿æ ‡å¿— 0 ä¸ºä¸åœ¨çº¿ éž0ä¸ºåœ¨çº¿
+	WORD  occupation;				// èŒä¸šç±»åž‹
+	DWORD exploit;					// åŠŸå‹‹å€¼
+	char  septName[MAX_NAMESIZE];			// æ‰€å±žå®¶æ—
+	BYTE  bySeptMaster;				// 0ä¸æ˜¯æ—é•¿ï¼Œ1æ˜¯æ—é•¿
 };
 
-// ·þÎñÆ÷·µ»Ø°ï»á³ÉÔ±ÁÐ±í£¬¼°ÇëÇóÕßµÄ¸öÈË°ï»áÐÅÏ¢
+// æœåŠ¡å™¨è¿”å›žå¸®ä¼šæˆå‘˜åˆ—è¡¨ï¼ŒåŠè¯·æ±‚è€…çš„ä¸ªäººå¸®ä¼šä¿¡æ¯
 const BYTE ALL_UNION_MEMBER_PARA = 5;
 struct stAllUnionMemberCmd : public stUnionUserCmd
 {
@@ -4118,25 +4118,25 @@ struct stAllUnionMemberCmd : public stUnionUserCmd
 	{
 		byParam = ALL_UNION_MEMBER_PARA;
 	}
-	WORD size;                     // ÊýÁ¿
-	stUnionRember memberList[0];   // ³ÉÔ±ÁÐ±í
+	WORD size;                     // æ•°é‡
+	stUnionRember memberList[0];   // æˆå‘˜åˆ—è¡¨
 };
 
 
-// °ï»áµÄÈ¨ÏÞ¶¨Òå
+// å¸®ä¼šçš„æƒé™å®šä¹‰
 enum UNIONPOWER {
-	CHANGE_ALIAS,              // ¸Ä±ä³ÆºÅ
-	ADD_MEMBER,                // ÕÐÊÕ³ÉÔ±
-	FIRE_MEMBER,               // ¿ª³ý³ÉÔ±
-	GENERAL,                   // ÆÕÍ¨»áÔ±
-	MASTER,			   // °ïÖ÷È¨ÏÞ
-	SECOND,			   // ¸±°ïÖ÷È¨ÏÞ
-        DARE,			   // ·¢Æð»ò½ÓÊÜ°ï»áÕ½
-	NOTIFY,			   // ·¢¹«¸æ
+	CHANGE_ALIAS,              // æ”¹å˜ç§°å·
+	ADD_MEMBER,                // æ‹›æ”¶æˆå‘˜
+	FIRE_MEMBER,               // å¼€é™¤æˆå‘˜
+	GENERAL,                   // æ™®é€šä¼šå‘˜
+	MASTER,			   // å¸®ä¸»æƒé™
+	SECOND,			   // å‰¯å¸®ä¸»æƒé™
+        DARE,			   // å‘èµ·æˆ–æŽ¥å—å¸®ä¼šæˆ˜
+	NOTIFY,			   // å‘å…¬å‘Š
 };
 
 
-// ·µ»Ø°ï»á³ÉÔ±µÄ¸öÈËÐÅÏ¢
+// è¿”å›žå¸®ä¼šæˆå‘˜çš„ä¸ªäººä¿¡æ¯
 const BYTE RETURN_UNION_MEMBER_INFO_PARA = 6;
 struct stReturnUnionMemberInfoCmd : public stUnionUserCmd
 {
@@ -4145,31 +4145,31 @@ struct stReturnUnionMemberInfoCmd : public stUnionUserCmd
 		byParam = RETURN_UNION_MEMBER_INFO_PARA;
 	}
 
-	char alias[MAX_NAMESIZE];      // ÏûÏ¢½ÓÊÕÕßµÄ±ðÃû
-	BYTE byPower[2];                    // ÏûÏ¢½ÓÊÕÕßµÄÈ¨ÏÞÐÅÏ¢
+	char alias[MAX_NAMESIZE];      // æ¶ˆæ¯æŽ¥æ”¶è€…çš„åˆ«å
+	BYTE byPower[2];                    // æ¶ˆæ¯æŽ¥æ”¶è€…çš„æƒé™ä¿¡æ¯
 };
 
 enum UNION_ADD_MEMBER{
-			QUESTION,          // ·¢³öÑûÇëÄ³ÈËµÄÑ¯ÎÊ
-			ANSWER_YES,        // È·ÈÏÑûÇë
-			ANSWER_NO          // ·ñ¶¨ÑûÇë
+			QUESTION,          // å‘å‡ºé‚€è¯·æŸäººçš„è¯¢é—®
+			ANSWER_YES,        // ç¡®è®¤é‚€è¯·
+			ANSWER_NO          // å¦å®šé‚€è¯·
 };
 
-// ÑûÇëËûÈË¼ÓÈë°ï»á
-const BYTE ADD_MEMBER_TO_UNION_PARA = 7;  // Õâ¸öÏûÏ¢ÓÉ¿Í»§¶Ë·¢µ½·þÎñ¶ËÊÇÑûÇëÄ³ÈË£¬ÓÉ·þÎñ¶Ë·¢µ½¿Í»§¶ËÊÇÑ¯ÎÊÄ³ÈËÊÇ·ñ½ÓÊÜÑûÇë
+// é‚€è¯·ä»–äººåŠ å…¥å¸®ä¼š
+const BYTE ADD_MEMBER_TO_UNION_PARA = 7;  // è¿™ä¸ªæ¶ˆæ¯ç”±å®¢æˆ·ç«¯å‘åˆ°æœåŠ¡ç«¯æ˜¯é‚€è¯·æŸäººï¼Œç”±æœåŠ¡ç«¯å‘åˆ°å®¢æˆ·ç«¯æ˜¯è¯¢é—®æŸäººæ˜¯å¦æŽ¥å—é‚€è¯·
 struct stAddMemberToUnionCmd : public stUnionUserCmd
 {
 	stAddMemberToUnionCmd()
 	{
 		byParam = ADD_MEMBER_TO_UNION_PARA;
 	}
-	char 	memberName[MAX_NAMESIZE];   // ±»ÑûÇëµÄÈË
-	DWORD memberID;                   // ±»ÑûÇëÈËID
-	char 	unionName[MAX_NAMESIZE];    // ¹¤»áÃû³Æ
-	BYTE 	byState;                    // ²Î¼û enum UNION_ADD_MEMBER
+	char 	memberName[MAX_NAMESIZE];   // è¢«é‚€è¯·çš„äºº
+	DWORD memberID;                   // è¢«é‚€è¯·äººID
+	char 	unionName[MAX_NAMESIZE];    // å·¥ä¼šåç§°
+	BYTE 	byState;                    // å‚è§ enum UNION_ADD_MEMBER
 };
 
-// ¿ª³ý°ï»á³ÉÔ±
+// å¼€é™¤å¸®ä¼šæˆå‘˜
 const BYTE FIRE_MEMBER_FROM_UNION_PARA = 8;
 struct stFireMemberFromUnionCmd : public stUnionUserCmd
 {
@@ -4181,14 +4181,14 @@ struct stFireMemberFromUnionCmd : public stUnionUserCmd
 };
 
 enum{
-	UNION_MEMBER_STATUS_ONLINE,			// °ï»á³ÉÔ±ÉÏÏß
-	UNION_MEMBER_STATUS_OFFLINE,			// °ï»á³ÉÔ±ÏÂÏß
-	UNION_MEMBER_STATUS_FIRE,				// °ï»á³ÉÔ±±»¿ª³ý
-	UNION_MEMBER_STATUS_NEWMEMBER,			// ÐÂÔö¼Ó°ï»á³ÉÔ±
-	UNION_MEMBER_STATUS_ALIASCHANGE		// ³ÉÔ±±ðÃû¸Ä±ä
+	UNION_MEMBER_STATUS_ONLINE,			// å¸®ä¼šæˆå‘˜ä¸Šçº¿
+	UNION_MEMBER_STATUS_OFFLINE,			// å¸®ä¼šæˆå‘˜ä¸‹çº¿
+	UNION_MEMBER_STATUS_FIRE,				// å¸®ä¼šæˆå‘˜è¢«å¼€é™¤
+	UNION_MEMBER_STATUS_NEWMEMBER,			// æ–°å¢žåŠ å¸®ä¼šæˆå‘˜
+	UNION_MEMBER_STATUS_ALIASCHANGE		// æˆå‘˜åˆ«åæ”¹å˜
 };
 
-// ·þÎñ¶Ë¸üÐÂ°ï»á³ÉÔ±×´Ì¬¼°ÐÅÏ¢Í¨ÖªÏûÏ¢ ×´Ì¬¼ûÉÏ±í
+// æœåŠ¡ç«¯æ›´æ–°å¸®ä¼šæˆå‘˜çŠ¶æ€åŠä¿¡æ¯é€šçŸ¥æ¶ˆæ¯ çŠ¶æ€è§ä¸Šè¡¨
 const BYTE BROADCAST_MEMBER_INFO_PARA = 10;
 struct stBroadcastMemberInfo : public stUnionUserCmd
 {
@@ -4200,17 +4200,17 @@ struct stBroadcastMemberInfo : public stUnionUserCmd
 		bzero(septName, MAX_NAMESIZE);
 		bySeptMaster = 0;
 	}
-	BYTE byStatus;					// ³ÉÔ±×´Ì¬
-	char name[MAX_NAMESIZE];			// ³ÉÔ±Ãû³Æ
-	char aliasname[MAX_NAMESIZE];			// ³ÉÔ±±ðÃû
-	WORD wdOccupation;				// ³ÉÔ±Ö°Òµ
-	WORD level;					// ³ÉÔ±µÈ¼¶
-	DWORD exploit;					// ¹¦Ñ«Öµ
-	char  septName[MAX_NAMESIZE];			// ËùÊô¼Ò×å
-	BYTE bySeptMaster;				// 0,²»ÊÇ×å³¤£¬1Îª×å³¤
+	BYTE byStatus;					// æˆå‘˜çŠ¶æ€
+	char name[MAX_NAMESIZE];			// æˆå‘˜åç§°
+	char aliasname[MAX_NAMESIZE];			// æˆå‘˜åˆ«å
+	WORD wdOccupation;				// æˆå‘˜èŒä¸š
+	WORD level;					// æˆå‘˜ç­‰çº§
+	DWORD exploit;					// åŠŸå‹‹å€¼
+	char  septName[MAX_NAMESIZE];			// æ‰€å±žå®¶æ—
+	BYTE bySeptMaster;				// 0,ä¸æ˜¯æ—é•¿ï¼Œ1ä¸ºæ—é•¿
 };
 
-// ·þÎñÆ÷¶Ë·¢ËÍ°ï»áÐÅÏ¢
+// æœåŠ¡å™¨ç«¯å‘é€å¸®ä¼šä¿¡æ¯
 const BYTE UNION_BASE_INFO_PARA = 11;
 struct stUnionBaseInfoCmd : public stUnionUserCmd
 {
@@ -4218,16 +4218,16 @@ struct stUnionBaseInfoCmd : public stUnionUserCmd
 	{
 		byParam = UNION_BASE_INFO_PARA;
 	}
-	char  unionName[MAX_NAMESIZE];         // °ï»áÃû³Æ
-	char  master[MAX_NAMESIZE];				// °ï»á»á³¤
-	WORD  wdLevel;                       // °ï»á¼¶±ð
-	QWORD qwExp;                         // °ï»á¾­Ñé
-	char  note[255];						// °ï»á½éÉÜ
-	DWORD dwMana;				// °ï»áÍþÍû
-	DWORD dwAction;				// ÐÐ¶¯Á¦
+	char  unionName[MAX_NAMESIZE];         // å¸®ä¼šåç§°
+	char  master[MAX_NAMESIZE];				// å¸®ä¼šä¼šé•¿
+	WORD  wdLevel;                       // å¸®ä¼šçº§åˆ«
+	QWORD qwExp;                         // å¸®ä¼šç»éªŒ
+	char  note[255];						// å¸®ä¼šä»‹ç»
+	DWORD dwMana;				// å¸®ä¼šå¨æœ›
+	DWORD dwAction;				// è¡ŒåŠ¨åŠ›
 };
 
-// °ï»á³ÉÔ±ÉêÇëÍË»á
+// å¸®ä¼šæˆå‘˜ç”³è¯·é€€ä¼š
 const BYTE UNIONMEMBER_LEAVE_UNION_PARA = 12;
 struct stUnionMemberLeaveUnionCmd : public stUnionUserCmd
 {
@@ -4244,7 +4244,7 @@ struct stUnionVoteRecord{
 	char note[255];
 };
 
-// °ï»áÍ¶Æ±ÁÐ±í
+// å¸®ä¼šæŠ•ç¥¨åˆ—è¡¨
 const BYTE VOTELIST_UNION_PARA = 13;
 struct stVoteListUnionCmd : public stUnionUserCmd
 {
@@ -4254,11 +4254,11 @@ struct stVoteListUnionCmd : public stUnionUserCmd
 	}
 	char unionName[MAX_NAMESIZE];
 	DWORD dwSize;
-	BYTE flag; // 0ÎªÏûÏ¢Í·1ÎªºóÐøÏûÏ¢
+	BYTE flag; // 0ä¸ºæ¶ˆæ¯å¤´1ä¸ºåŽç»­æ¶ˆæ¯
 	stUnionVoteRecord data[0];
 };
 
-// °ï»áÍ¶Æ±ÏûÏ¢
+// å¸®ä¼šæŠ•ç¥¨æ¶ˆæ¯
 const BYTE VOTE_UNION_PARA = 14;
 struct stVoteUnionCmd : public stUnionUserCmd
 {
@@ -4267,10 +4267,10 @@ struct stVoteUnionCmd : public stUnionUserCmd
 		byParam = VOTE_UNION_PARA;
 	}
 	char unionName[MAX_NAMESIZE];
-	BYTE bySuccess;   // Îª1Îª³É¹¦ Îª0ÎªÊ§°Ü
+	BYTE bySuccess;   // ä¸º1ä¸ºæˆåŠŸ ä¸º0ä¸ºå¤±è´¥
 };
 
-// °ï»áÉèÖÃ°ï»áËµÃ÷
+// å¸®ä¼šè®¾ç½®å¸®ä¼šè¯´æ˜Ž
 const BYTE NOTE_UNION_PARA = 15;
 struct stNoteUnionCmd : public stUnionUserCmd
 {
@@ -4281,7 +4281,7 @@ struct stNoteUnionCmd : public stUnionUserCmd
 	char noteBuf[255];
 };
 
-// °ï»á³ÉÔ±±ðÃûÉèÖÃ
+// å¸®ä¼šæˆå‘˜åˆ«åè®¾ç½®
 const BYTE CHANGE_UNION_MEMBER_ALIASNAME_PARA = 16;
 struct stChangeUnionMemberAliasName : public stUnionUserCmd
 {
@@ -4290,11 +4290,11 @@ struct stChangeUnionMemberAliasName : public stUnionUserCmd
 		byParam = CHANGE_UNION_MEMBER_ALIASNAME_PARA;
 	}
 
-	char name[MAX_NAMESIZE];             // °ïÖÚÐÕÃû
-	char aliasname[MAX_NAMESIZE];        // °ïÖÚ±ðÃû
+	char name[MAX_NAMESIZE];             // å¸®ä¼—å§“å
+	char aliasname[MAX_NAMESIZE];        // å¸®ä¼—åˆ«å
 };
 
-// ½øÈë³ÇÖ÷µÄ°ï»áÁìµØ
+// è¿›å…¥åŸŽä¸»çš„å¸®ä¼šé¢†åœ°
 const BYTE ENTER_UNION_CITY_AREA_PARA = 17;
 struct stEnterUnionCityArea : public stUnionUserCmd
 {
@@ -4306,12 +4306,12 @@ struct stEnterUnionCityArea : public stUnionUserCmd
 
 enum
 {
-	QUESTION_UNION_MEMBER_POWER, // ÇëÇó·¢ËÍÈ¨ÏÞ
-	RESPOND_UNION_MEMBER_POWER, //  ·µ»ØÄ³°ïÖÚÈ¨ÏÞ
-	SET_UNION_MEMBER_POWER,	    //  ÉèÖÃÄ³°ïÖÚÈ¨ÏÞ
+	QUESTION_UNION_MEMBER_POWER, // è¯·æ±‚å‘é€æƒé™
+	RESPOND_UNION_MEMBER_POWER, //  è¿”å›žæŸå¸®ä¼—æƒé™
+	SET_UNION_MEMBER_POWER,	    //  è®¾ç½®æŸå¸®ä¼—æƒé™
 };
 
-// ÇëÇó(ÉèÖÃ)°ïÖÚÈ¨ÏÞ
+// è¯·æ±‚(è®¾ç½®)å¸®ä¼—æƒé™
 const BYTE UNION_MEMBER_POWER_PARA = 18;
 struct stUnionMemberPower : public stUnionUserCmd
 {
@@ -4320,18 +4320,18 @@ struct stUnionMemberPower : public stUnionUserCmd
 		byParam = UNION_MEMBER_POWER_PARA;
 	}
 	
-	char name[MAX_NAMESIZE]; // °ïÖÚÐÕÃû
-	BYTE byPower[2]; // È¨ÏÞ
-	BYTE byType; // ÏûÏ¢ÀàÐÍ
+	char name[MAX_NAMESIZE]; // å¸®ä¼—å§“å
+	BYTE byPower[2]; // æƒé™
+	BYTE byType; // æ¶ˆæ¯ç±»åž‹
 };
 
 enum
 {
-	QUESTION_CITY_HOLD, // ²éÑ¯³ÇÊÐËùÊô
-	QUESTION_CITY_DARE, // µ±Ìì³ÇÊÐÕù¶áÕ½
+	QUESTION_CITY_HOLD, // æŸ¥è¯¢åŸŽå¸‚æ‰€å±ž
+	QUESTION_CITY_DARE, // å½“å¤©åŸŽå¸‚äº‰å¤ºæˆ˜
 };
 
-// ²éÑ¯ÎÊ³ÇÊÐ°ï»áÐÅÏ¢
+// æŸ¥è¯¢é—®åŸŽå¸‚å¸®ä¼šä¿¡æ¯
 const BYTE QUESTION_UNION_CITY_INFO_PARA = 19;
 struct stQuestionUnionCityInfo : public stUnionUserCmd
 {
@@ -4345,11 +4345,11 @@ struct stQuestionUnionCityInfo : public stUnionUserCmd
 
 enum
 {
-	COUNTRY_UNION_SORT, 	// ±¾¹ú°ï»áÅÅÐÐ°ñ
-	WORLD_UNION_SORT,	// ÊÀ½ç°ï»áÅÅÐÐ°ñ
+	COUNTRY_UNION_SORT, 	// æœ¬å›½å¸®ä¼šæŽ’è¡Œæ¦œ
+	WORLD_UNION_SORT,	// ä¸–ç•Œå¸®ä¼šæŽ’è¡Œæ¦œ
 };
 
-// ²éÑ¯¼Ò×åÅÅÐÐ°ñ£¨¸ù¾ÝÉùÍû£©
+// æŸ¥è¯¢å®¶æ—æŽ’è¡Œæ¦œï¼ˆæ ¹æ®å£°æœ›ï¼‰
 const BYTE REQ_UNION_SORT_PARA = 20;
 struct stReqUnionSort : public stUnionUserCmd
 {
@@ -4364,13 +4364,13 @@ struct stReqUnionSort : public stUnionUserCmd
 
 struct stUnionSortInfo
 {
-	char  unionName[MAX_NAMESIZE];         // °ï»áÃû³Æ
-	DWORD dwMana;				// °ï»áÍþÍû
-	DWORD dwOrder;				// °ï»áÅÅÃû
-	DWORD dwCountryID;			// ¹ú¼ÒID
+	char  unionName[MAX_NAMESIZE];         // å¸®ä¼šåç§°
+	DWORD dwMana;				// å¸®ä¼šå¨æœ›
+	DWORD dwOrder;				// å¸®ä¼šæŽ’å
+	DWORD dwCountryID;			// å›½å®¶ID
 };
 
-// ·µ»Ø°ï»áÅÅÐÐ°ñ£¨¸ù¾ÝÍþÍû£©
+// è¿”å›žå¸®ä¼šæŽ’è¡Œæ¦œï¼ˆæ ¹æ®å¨æœ›ï¼‰
 const BYTE RTN_UNION_SORT_PARA = 21;
 struct stRtnUnionSort : public stUnionUserCmd
 {
@@ -4385,7 +4385,7 @@ struct stRtnUnionSort : public stUnionUserCmd
 	stUnionSortInfo data[0];
 };
 
-// °ï»á×Ê½ð¾èÏ×
+// å¸®ä¼šèµ„é‡‘æçŒ®
 const BYTE CONTRIBUTE_UNION_PARA = 22;
 struct stContributeUnion : public stUnionUserCmd
 {
@@ -4397,7 +4397,7 @@ struct stContributeUnion : public stUnionUserCmd
 	DWORD dwMoney;
 };
 
-// °ï»á×Ê½ð²éÑ¯
+// å¸®ä¼šèµ„é‡‘æŸ¥è¯¢
 const BYTE REQ_UNION_MONEY_PARA = 23;
 struct stReqUnionMoney : public stUnionUserCmd
 {
@@ -4413,7 +4413,7 @@ struct stUnionRecord{
 	char note[255];
 };
 
-// °ï»áÍ¶Æ±ÁÐ±í
+// å¸®ä¼šæŠ•ç¥¨åˆ—è¡¨
 const BYTE LIST_UNION_PARA = 24;
 struct stListUnionCmd : public stUnionUserCmd
 {
@@ -4422,11 +4422,11 @@ struct stListUnionCmd : public stUnionUserCmd
 		byParam = LIST_UNION_PARA;
 	}
 	DWORD dwSize;
-	BYTE flag; // 0ÎªÏûÏ¢Í·1ÎªºóÐøÏûÏ¢
+	BYTE flag; // 0ä¸ºæ¶ˆæ¯å¤´1ä¸ºåŽç»­æ¶ˆæ¯
 	stUnionRecord data[0];
 };
 
-// ÇëÇó¼ÓÈë°ï»áÏûÏ¢
+// è¯·æ±‚åŠ å…¥å¸®ä¼šæ¶ˆæ¯
 const BYTE REQUEST_JOIN_UNION_PARA = 25;
 struct stRequestJoinUnionCmd : public stUnionUserCmd
 {
@@ -4434,11 +4434,11 @@ struct stRequestJoinUnionCmd : public stUnionUserCmd
 	{
 		byParam = REQUEST_JOIN_UNION_PARA;
 	}
-	char name[MAX_NAMESIZE]; //·¢¸ø·þÎñÆ÷µÄÊ±ºòÌî¶Ô·½»á³¤µÄÃû×Ö£¬·þÎñÆ÷·¢³öÀ´µÄÊ±ºòÌîµÄÊÇÇëÇóÈËµÄÃû×Ö
+	char name[MAX_NAMESIZE]; //å‘ç»™æœåŠ¡å™¨çš„æ—¶å€™å¡«å¯¹æ–¹ä¼šé•¿çš„åå­—ï¼ŒæœåŠ¡å™¨å‘å‡ºæ¥çš„æ—¶å€™å¡«çš„æ˜¯è¯·æ±‚äººçš„åå­—
 	BYTE status;
 };
 
-// ·ÅÆúÕ¼Áì³ÇÊÐ
+// æ”¾å¼ƒå é¢†åŸŽå¸‚
 const BYTE REQUEST_ABJURATION_CITY_PARA = 26;
 struct stRequestAbjurationCitynCmd : public stUnionUserCmd
 {
@@ -4448,7 +4448,7 @@ struct stRequestAbjurationCitynCmd : public stUnionUserCmd
 	}
 };
 
-// ÇëÇó°ï»áÃû³Æ
+// è¯·æ±‚å¸®ä¼šåç§°
 const BYTE REQ_UNION_NAME_PARA = 27;
 struct stReqUnionNameCmd : public stUnionUserCmd
 {
@@ -4461,7 +4461,7 @@ struct stReqUnionNameCmd : public stUnionUserCmd
 	DWORD dwUnionID;
 };
 
-// ·µ»Ø°ï»áÃû³Æ
+// è¿”å›žå¸®ä¼šåç§°
 const BYTE RTN_UNION_NAME_PARA = 28;
 struct stRtnUnionNameCmd : public stUnionUserCmd
 {
@@ -4476,7 +4476,7 @@ struct stRtnUnionNameCmd : public stUnionUserCmd
 	char name[MAX_NAMESIZE];
 };
 
-// ÇëÇó°ï»áÃû³ÆÁÐ±í
+// è¯·æ±‚å¸®ä¼šåç§°åˆ—è¡¨
 const BYTE REQ_UNION_NAME_LIST_PARA = 29;
 struct stReqUnionNameLlistCmd : public stUnionUserCmd
 {
@@ -4489,7 +4489,7 @@ struct stReqUnionNameLlistCmd : public stUnionUserCmd
 	DWORD dwUnionID[0];
 };
 
-// ·µ»Ø°ï»áÃû³ÆÁÐ±í
+// è¿”å›žå¸®ä¼šåç§°åˆ—è¡¨
 const BYTE RTN_UNION_NAME_LIST_PARA = 30;
 struct stRtnUnionNameListCmd : public stUnionUserCmd
 {
@@ -4506,7 +4506,7 @@ struct stRtnUnionNameListCmd : public stUnionUserCmd
 	} list[0];
 };
 
-// ³ÇÖ÷ÈÎÃü²¶Í·
+// åŸŽä¸»ä»»å‘½æ•å¤´
 #define APPOINT_CITY_CATCHER_PARA  31
 struct stAppointCityCatcherCmd : public stUnionUserCmd
 {
@@ -4519,7 +4519,7 @@ struct stAppointCityCatcherCmd : public stUnionUserCmd
 	char name[MAX_NAMESIZE];
 };
 
-// ³·Ïû²¶Í·
+// æ’¤æ¶ˆæ•å¤´
 #define CANCEL_CITY_CATCHER_PARA  32
 struct stCancelCityCatcherCmd : public stUnionUserCmd 
 {
@@ -4530,12 +4530,12 @@ struct stCancelCityCatcherCmd : public stUnionUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-// °ï»áÖ¸Áî¶¨Òå½áÊø
+// å¸®ä¼šæŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ¹ú¼ÒÖ¸Áî¶¨Òå¿ªÊ¼
+// å›½å®¶æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stCountryUserCmd : public stNullUserCmd
@@ -4546,7 +4546,7 @@ struct stCountryUserCmd : public stNullUserCmd
 	}
 };
 
-// ±ä¸ü¹ú¼®
+// å˜æ›´å›½ç±
 const BYTE CHANGE_COUNTRY_PARA = 1;
 struct stChangeCountryCmd : public stCountryUserCmd
 {
@@ -4555,16 +4555,16 @@ struct stChangeCountryCmd : public stCountryUserCmd
 	    byParam = CHANGE_COUNTRY_PARA;
     }
 
-    DWORD dwToCountryID; // ±ä¸üµ½¹ú¼ÒµÄID
+    DWORD dwToCountryID; // å˜æ›´åˆ°å›½å®¶çš„ID
 };
 
 enum 
 {
-	REQUEST_BATTLEFIELD_COUNTRY_LIST, // ÇëÇóÕ½³¡ÁÐ±í
-	REQUEST_DARE_COUNTRY_LIST,	// ÇëÇóÕ½³¡ÁÐ±í
+	REQUEST_BATTLEFIELD_COUNTRY_LIST, // è¯·æ±‚æˆ˜åœºåˆ—è¡¨
+	REQUEST_DARE_COUNTRY_LIST,	// è¯·æ±‚æˆ˜åœºåˆ—è¡¨
 };
 
-// ÇëÇóÕ½³¡ÁÐ±í
+// è¯·æ±‚æˆ˜åœºåˆ—è¡¨
 const BYTE REQUEST_DARE_COUNTRY_PARA =2;
 struct stRequestDareCountryCmd : public stCountryUserCmd
 {
@@ -4573,16 +4573,16 @@ struct stRequestDareCountryCmd : public stCountryUserCmd
 		byParam = REQUEST_DARE_COUNTRY_PARA;
 	}
 
-	BYTE byType; // 0,ÇëÇóÕ½³¡ÁÐ±í£¬1£¬ÇëÇóÌôÕ½ÁÐ±í
+	BYTE byType; // 0,è¯·æ±‚æˆ˜åœºåˆ—è¡¨ï¼Œ1ï¼Œè¯·æ±‚æŒ‘æˆ˜åˆ—è¡¨
 };
 
 struct stCountryInfo
 {
-	DWORD dwID; 	// ¹ú¼ÒID
-	BYTE  byType;	// 0,²ÎÕ½¹ú£¬1£¬µÚÈý·½¹ú
+	DWORD dwID; 	// å›½å®¶ID
+	BYTE  byType;	// 0,å‚æˆ˜å›½ï¼Œ1ï¼Œç¬¬ä¸‰æ–¹å›½
 };
 
-// ·µ»ØÕ½³¡ÁÐ±í
+// è¿”å›žæˆ˜åœºåˆ—è¡¨
 const BYTE RETURN_DARE_COUNTRY_PARA = 3;
 struct stReturnDareCountryCmd : public stCountryUserCmd
 {
@@ -4592,13 +4592,13 @@ struct stReturnDareCountryCmd : public stCountryUserCmd
 		dwSize = 0;
 	}
 	
-	DWORD dwSize; // Õ½³¡¸öÊý
-	BYTE  byType; // 0,Õ½³¡ÁÐ±í£¬ÌôÕ½ÁÐ±í
+	DWORD dwSize; // æˆ˜åœºä¸ªæ•°
+	BYTE  byType; // 0,æˆ˜åœºåˆ—è¡¨ï¼ŒæŒ‘æˆ˜åˆ—è¡¨
 	
-	stCountryInfo country_list[0]; //Õ½³¡¹ú¼ÒIDÊý×é
+	stCountryInfo country_list[0]; //æˆ˜åœºå›½å®¶IDæ•°ç»„
 };
 
-// ÇëÇó´«ËÍµ½Ö¸¶¨Õ½³¡
+// è¯·æ±‚ä¼ é€åˆ°æŒ‡å®šæˆ˜åœº
 const BYTE TRANS_DARE_COUNTRY_PARA = 4;
 struct stTransDareCountryCmd : public stCountryUserCmd
 {
@@ -4611,7 +4611,7 @@ struct stTransDareCountryCmd : public stCountryUserCmd
 	DWORD dwCountryID;
 };
 
-// ÇëÇó¹úÕ½ÌôÕ½
+// è¯·æ±‚å›½æˆ˜æŒ‘æˆ˜
 const BYTE DARE_COUNTRY_FORMAL_PARA = 5;
 struct stDareCountryFormalCmd : public stCountryUserCmd
 {
@@ -4620,17 +4620,17 @@ struct stDareCountryFormalCmd : public stCountryUserCmd
 		byParam = DARE_COUNTRY_FORMAL_PARA;
 	}
 
-	DWORD dwCountryID; // ÒªÌôÕ½µÄ¹ú¼Ò
+	DWORD dwCountryID; // è¦æŒ‘æˆ˜çš„å›½å®¶
 };
 
 enum
 {
-	DARE_RECORD_RESULT,	// ¶ÔÕ½½á¹û¼ÇÂ¼
-	DARE_RECORD_STAT,	// ¶ÔÕ½½á¹ûÍ³¼Æ
-	DARE_RECORD_PLAN,	// µ±Ìì¶ÔÕ½°²ÅÅ
+	DARE_RECORD_RESULT,	// å¯¹æˆ˜ç»“æžœè®°å½•
+	DARE_RECORD_STAT,	// å¯¹æˆ˜ç»“æžœç»Ÿè®¡
+	DARE_RECORD_PLAN,	// å½“å¤©å¯¹æˆ˜å®‰æŽ’
 };
 
-// ÇëÇó¼ÇÂ¼
+// è¯·æ±‚è®°å½•
 const BYTE REQUEST_DARE_RECORD_PARA = 6;
 struct stRequestDareRecordCmd : public stCountryUserCmd
 {
@@ -4639,20 +4639,20 @@ struct stRequestDareRecordCmd : public stCountryUserCmd
 		byParam = REQUEST_DARE_RECORD_PARA;
 	}
 
-	BYTE byType;	// ²éÑ¯ÀàÐÍ
+	BYTE byType;	// æŸ¥è¯¢ç±»åž‹
 };
 
 struct stDareResult
 {
-	DWORD  dareTime;      // ¶ÔÕ½Ê±¼ä
-	DWORD  attCountry;    // ÌôÕ½¹úID
-	DWORD  defCountry;    // ·ÀÓù¹úID
-	BYTE   byResult;      // 0,ÌôÕ½¹úÊ¤(¹¥ÏÝ¶Ô·½»Ê³Ç)£¬1,ÌôÕ½¹ú°Ü(Ê±¼äµ½ÁË£¬È´Î´¹¥ÏÝ)£¬2,·ÀÓù¹ú·´¹¥³É¹¦(¹¥ÏÝÌôÕ½¹ú»Ê³Ç)
+	DWORD  dareTime;      // å¯¹æˆ˜æ—¶é—´
+	DWORD  attCountry;    // æŒ‘æˆ˜å›½ID
+	DWORD  defCountry;    // é˜²å¾¡å›½ID
+	BYTE   byResult;      // 0,æŒ‘æˆ˜å›½èƒœ(æ”»é™·å¯¹æ–¹çš‡åŸŽ)ï¼Œ1,æŒ‘æˆ˜å›½è´¥(æ—¶é—´åˆ°äº†ï¼Œå´æœªæ”»é™·)ï¼Œ2,é˜²å¾¡å›½åæ”»æˆåŠŸ(æ”»é™·æŒ‘æˆ˜å›½çš‡åŸŽ)
 	char   attKingName[MAX_NAMESIZE];
 	char   defKingName[MAX_NAMESIZE];
 };
 
-// ¶ÔÕ½½á¹û
+// å¯¹æˆ˜ç»“æžœ
 const BYTE RETURN_DARE_RECORD_RESULT_PARA = 7;
 struct stReturnDareRecordResultCmd : public stCountryUserCmd
 {
@@ -4668,13 +4668,13 @@ struct stReturnDareRecordResultCmd : public stCountryUserCmd
 
 struct stDareStat
 {
-	DWORD dwCountry;	// ¹ú¼ÒID
-	DWORD dwFormalWin;	// ÕýÊ½¹úÕ½Ê¤Àû´ÎÊý
-	DWORD dwFormalFail;	// ÕýÊ½¹úÕ½Ê§°Ü´ÎÊý
-	DWORD dwAnnoyWin;	// É§ÈÅ¹úÕ½Ê¤Àû´ÎÊý
-	DWORD dwAnnoyFail;	// É§ÈÅ¹úÕ½Ê§°Ü´ÎÊý
+	DWORD dwCountry;	// å›½å®¶ID
+	DWORD dwFormalWin;	// æ­£å¼å›½æˆ˜èƒœåˆ©æ¬¡æ•°
+	DWORD dwFormalFail;	// æ­£å¼å›½æˆ˜å¤±è´¥æ¬¡æ•°
+	DWORD dwAnnoyWin;	// éªšæ‰°å›½æˆ˜èƒœåˆ©æ¬¡æ•°
+	DWORD dwAnnoyFail;	// éªšæ‰°å›½æˆ˜å¤±è´¥æ¬¡æ•°
 };
-// ¶ÔÕ½Í³¼Æ
+// å¯¹æˆ˜ç»Ÿè®¡
 const BYTE RETURN_DARE_RECORD_STAT_PARA =8;
 struct stReturnDareRecordStatCmd : public stCountryUserCmd
 {
@@ -4691,11 +4691,11 @@ struct stReturnDareRecordStatCmd : public stCountryUserCmd
 struct stDarePlan
 {
 	DWORD planTime;
-	DWORD attCountry;	// ÌôÕ½¹ú
-	DWORD defCountry;	// ·ÀÓù¹ú
+	DWORD attCountry;	// æŒ‘æˆ˜å›½
+	DWORD defCountry;	// é˜²å¾¡å›½
 };
 
-// ¶ÔÕ½¼Æ»®
+// å¯¹æˆ˜è®¡åˆ’
 const BYTE RETURN_DARE_RECORD_PLAN_PARA =9;
 struct stReturnDareRecordPlanCmd : public stCountryUserCmd
 {
@@ -4709,7 +4709,7 @@ struct stReturnDareRecordPlanCmd : public stCountryUserCmd
 	stDarePlan dare_plan[0];
 };
 
-// ÅÑ¹ú£¨±äÎªÎÞ¹ú¼®£©
+// å›å›½ï¼ˆå˜ä¸ºæ— å›½ç±ï¼‰
 const BYTE CANCEL_COUNTRY_PARA = 10;
 struct stCancelCountryCmd : public stCountryUserCmd
 {
@@ -4719,7 +4719,7 @@ struct stCancelCountryCmd : public stCountryUserCmd
     }
 };
 
-// ÉêÇë¼ÓÈë¹ú¼®
+// ç”³è¯·åŠ å…¥å›½ç±
 const BYTE APPLY_COUNTRY_PARA = 11;
 struct stApplyCountryCmd : public stCountryUserCmd
 {
@@ -4728,10 +4728,10 @@ struct stApplyCountryCmd : public stCountryUserCmd
 	    byParam = APPLY_COUNTRY_PARA;
     }
 
-    DWORD dwToCountryID; // ÉêÇë¼ÓÈëµÄ¹ú¼®
+    DWORD dwToCountryID; // ç”³è¯·åŠ å…¥çš„å›½ç±
 };
 
-/// Ë°ÂÊ²éÑ¯
+/// ç¨ŽçŽ‡æŸ¥è¯¢
 const BYTE TAX_COUNTRY_PARA = 12;
 struct stTaxCountryUserCmd:public stCountryUserCmd
 {
@@ -4743,7 +4743,7 @@ struct stTaxCountryUserCmd:public stCountryUserCmd
 	BYTE byTax; 
 };
 
-/// ¹ú¿â²éÑ¯
+/// å›½åº“æŸ¥è¯¢
 const BYTE FISK_COUNTRY_PARA = 13;
 struct stFiskCountryUserCmd:public stCountryUserCmd
 {
@@ -4757,11 +4757,11 @@ struct stFiskCountryUserCmd:public stCountryUserCmd
 	
 	DWORD dwCountry;
 	QWORD qwGold; 
-	QWORD qwMaterial; // Îï×Ê
-	QWORD qwStock;	  // Ô­ÁÏ
+	QWORD qwMaterial; // ç‰©èµ„
+	QWORD qwStock;	  // åŽŸæ–™
 };
 
-/// Ë°ÂÊÉèÖÃ
+/// ç¨ŽçŽ‡è®¾ç½®
 const BYTE SETTAX_COUNTRY_PARA = 14;
 struct stSetTaxCountryUserCmd:public stCountryUserCmd
 {
@@ -4779,7 +4779,7 @@ struct stCountryStar
 	DWORD dwStar;
 };
 
-/// ÉèÖÃ¹ú¼ÒÐÇºÅ
+/// è®¾ç½®å›½å®¶æ˜Ÿå·
 const BYTE UPDATE_COUNTRY_STAR = 15;
 struct stUpdateCountryStarCmd : public stCountryUserCmd
 {
@@ -4793,7 +4793,7 @@ struct stUpdateCountryStarCmd : public stCountryUserCmd
 };
 
 
-/// ¹ú¼Ò¾èÏ×
+/// å›½å®¶æçŒ®
 const BYTE CONTRIBUTE_COUNTRY_MATERIAL = 16;
 struct stContributeCountryMaterialCmd : public stCountryUserCmd
 {
@@ -4805,7 +4805,7 @@ struct stContributeCountryMaterialCmd : public stCountryUserCmd
 	DWORD itemID;
 };
 
-/// ¹úÕ½×´Ì¬ÉèÖÃ
+/// å›½æˆ˜çŠ¶æ€è®¾ç½®
 const BYTE SETCOUNTRY_DARE_PARA = 17;
 struct stSetCountryDareUserCmd:public stCountryUserCmd
 {       
@@ -4818,12 +4818,12 @@ struct stSetCountryDareUserCmd:public stCountryUserCmd
 	}
 
 	
-	DWORD dwCountry; // µÐ¶Ô¹ú¼ÒID
-	BYTE  byStatus; // 1Îª½øÈë¹úÕ½£¬0ÎªÍË³ö¹úÕ½
-	BYTE  byResult; // ¶ÔÕ½½á¹û£¬1ÎªÊ¤·½£¬0ÎªÊ§°Ü·½,µ±byStatusÎª0Ê±£¬¸Ã×Ö¶ÎÓÐÒâÒå
+	DWORD dwCountry; // æ•Œå¯¹å›½å®¶ID
+	BYTE  byStatus; // 1ä¸ºè¿›å…¥å›½æˆ˜ï¼Œ0ä¸ºé€€å‡ºå›½æˆ˜
+	BYTE  byResult; // å¯¹æˆ˜ç»“æžœï¼Œ1ä¸ºèƒœæ–¹ï¼Œ0ä¸ºå¤±è´¥æ–¹,å½“byStatusä¸º0æ—¶ï¼Œè¯¥å­—æ®µæœ‰æ„ä¹‰
 };      
 
-/// ¸üÐÂ¹úÍõÐÅÏ¢
+/// æ›´æ–°å›½çŽ‹ä¿¡æ¯
 const BYTE UPDATE_COUNTRY_KING = 18;
 struct stUpdateCountryKingUserCmd : public stCountryUserCmd
 {
@@ -4834,7 +4834,7 @@ struct stUpdateCountryKingUserCmd : public stCountryUserCmd
 		isEmperor = 0;
 	}
 	char   kingName[MAX_NAMESIZE];
-	BYTE   isEmperor; // 0²»ÊÇ»ÊµÛËùÔÚ¹ú,1ÊÇ»ÊµÛËùÔÚ¹ú
+	BYTE   isEmperor; // 0ä¸æ˜¯çš‡å¸æ‰€åœ¨å›½,1æ˜¯çš‡å¸æ‰€åœ¨å›½
 };
 
 enum
@@ -4843,7 +4843,7 @@ enum
 	ANSWER_COUNTRY_DARE_NO,
 	ANSWER_COUNTRY_DARE_YES
 };
-/// ¹úÕ½Ó¦´ð
+/// å›½æˆ˜åº”ç­”
 const BYTE ANSWER_COUNTRY_DARE_PARA= 19;
 struct stAnswerCountryDareUserCmd : public stCountryUserCmd
 {
@@ -4856,7 +4856,7 @@ struct stAnswerCountryDareUserCmd : public stCountryUserCmd
 	BYTE byStatus;
 };
 
-/// Ñ¡ÔñÒªÔÚ¹úÕ½Ê±´«ËÍµ½±ß¾³µÄÍæ¼ÒµÈ¼¶
+/// é€‰æ‹©è¦åœ¨å›½æˆ˜æ—¶ä¼ é€åˆ°è¾¹å¢ƒçš„çŽ©å®¶ç­‰çº§
 const BYTE SELECT_TRANS_LEVEL= 20;
 struct stSelectTransLevelUserCmd : public stCountryUserCmd
 {
@@ -4866,10 +4866,10 @@ struct stSelectTransLevelUserCmd : public stCountryUserCmd
 		dwLevel = 0;
 	}
 
-	DWORD dwLevel;//´óÓÚµÈÓÚ¸ÃµÈ¼¶
+	DWORD dwLevel;//å¤§äºŽç­‰äºŽè¯¥ç­‰çº§
 };
 
-//¹úÍõ½ûÑÔÒ»¸öÍæ¼Ò
+//å›½çŽ‹ç¦è¨€ä¸€ä¸ªçŽ©å®¶
 #define FORBID_TALK_COUNTRY_PARA 21
 struct stForbidTalkCountryUserCmd : public stCountryUserCmd
 {
@@ -4883,12 +4883,12 @@ struct stForbidTalkCountryUserCmd : public stCountryUserCmd
 
 enum
 {
-	WAIT_TECH_TYPE = 1,      // Í¶Æ±Ñ¡³öµÄ¿Æ¼¼£¬µÈ´ý¹úÍõÑ¡Ôñ¹ÙÔ±
-	ACTIVE_TECH_TYPE = 2,    // ÕýÔÚ½øÐÐÉý¼¶
-	FINISH_TECH = 3,    // ÒÑ¾­Íê³ÉÉý¼¶£¬¿ÉÒÔ´òÔìÏàÓ¦×°±¸(°üÀ¨µÈ¼¶´óÓÚ0µÄËùÓÐ×´Ì¬µÄ¿Æ¼¼)
+	WAIT_TECH_TYPE = 1,      // æŠ•ç¥¨é€‰å‡ºçš„ç§‘æŠ€ï¼Œç­‰å¾…å›½çŽ‹é€‰æ‹©å®˜å‘˜
+	ACTIVE_TECH_TYPE = 2,    // æ­£åœ¨è¿›è¡Œå‡çº§
+	FINISH_TECH = 3,    // å·²ç»å®Œæˆå‡çº§ï¼Œå¯ä»¥æ‰“é€ ç›¸åº”è£…å¤‡(åŒ…æ‹¬ç­‰çº§å¤§äºŽ0çš„æ‰€æœ‰çŠ¶æ€çš„ç§‘æŠ€)
 };
 
-// »ñÈ¡Ö¸¶¨ÀàÐÍ¿Æ¼¼ÁÐ±í
+// èŽ·å–æŒ‡å®šç±»åž‹ç§‘æŠ€åˆ—è¡¨
 #define REQ_TECH_PARA 22
 struct stReqTechUserCmd : public stCountryUserCmd
 {
@@ -4898,7 +4898,7 @@ struct stReqTechUserCmd : public stCountryUserCmd
 		dwType = 0;
 	}
 	
-	DWORD dwType; // 1ÎªµÈÑÐ¾¿µÄ¿Æ¼¼£¬2£¬ÕýÔÚÉý¼¶µÄ¿Æ¼¼,3£¬ÒÑÍê³ÉµÄ¿Æ¼¼
+	DWORD dwType; // 1ä¸ºç­‰ç ”ç©¶çš„ç§‘æŠ€ï¼Œ2ï¼Œæ­£åœ¨å‡çº§çš„ç§‘æŠ€,3ï¼Œå·²å®Œæˆçš„ç§‘æŠ€
 };
 
 struct stTechItem
@@ -4910,7 +4910,7 @@ struct stTechItem
 	DWORD dwProgress;
 };
 
-// ·µ»ØÖ¸¶¨ÀàÐÍ¿Æ¼¼ÁÐ±í
+// è¿”å›žæŒ‡å®šç±»åž‹ç§‘æŠ€åˆ—è¡¨
 #define RTN_TECH_PARA 23
 struct stRtnTechUserCmd : public stCountryUserCmd
 {
@@ -4926,7 +4926,7 @@ struct stRtnTechUserCmd : public stCountryUserCmd
 	stTechItem data[0];
 };
 
-// »ñÈ¡´ýÑ¡¹ÙÔ±ÁÐ±í
+// èŽ·å–å¾…é€‰å®˜å‘˜åˆ—è¡¨
 #define REQ_WAIT_OFFICIAL_PARA 24
 struct stReqWaitOfficialUserCmd : public stCountryUserCmd
 {
@@ -4942,7 +4942,7 @@ struct stWaitOfficialItem
 	char  szName[MAX_NAMESIZE];
 };
 
-// ·µ»Ø´ýÑ¡¹ÙÔ±ÁÐ±í
+// è¿”å›žå¾…é€‰å®˜å‘˜åˆ—è¡¨
 #define RTN_WAIT_OFFICIAL_PARA 25
 struct stRtnWaitOfficialUserCmd : public stCountryUserCmd
 {
@@ -4956,7 +4956,7 @@ struct stRtnWaitOfficialUserCmd : public stCountryUserCmd
 	stWaitOfficialItem data[0];
 };
 
-// ÉèÖÃ¿Æ¼¼ÑÐ¾¿Ô±
+// è®¾ç½®ç§‘æŠ€ç ”ç©¶å‘˜
 #define SET_TECH_SEARCH_PARA 26
 struct stSetTechSearchUserCmd : public stCountryUserCmd
 {
@@ -4971,7 +4971,7 @@ struct stSetTechSearchUserCmd : public stCountryUserCmd
 	DWORD dwCharID;
 };
 
-// ÌáÉý¿Æ¼¼Íê³É¶È
+// æå‡ç§‘æŠ€å®Œæˆåº¦
 #define UP_TECH_DEGREE_PARA 27
 struct stUpTechDegreeUserCmd : public stCountryUserCmd
 {
@@ -4986,12 +4986,12 @@ struct stUpTechDegreeUserCmd : public stCountryUserCmd
 
 enum
 {
-	QUESTION_CONFIRM_SEARCHER, // Ñ¯ÎÊÊÇ·ñÍ¬Òâ³ÉÎªÑÐ¾¿Ô±
-	YES_CONFIRM_SEARCHER,  // Í¬Òâ³ÉÎªÑÐ¾¿Ô±
-	NO_CONFIRM_SEARCHER // ²»Í¬Òâ³ÉÎªÑÐ¾¿Ô±
+	QUESTION_CONFIRM_SEARCHER, // è¯¢é—®æ˜¯å¦åŒæ„æˆä¸ºç ”ç©¶å‘˜
+	YES_CONFIRM_SEARCHER,  // åŒæ„æˆä¸ºç ”ç©¶å‘˜
+	NO_CONFIRM_SEARCHER // ä¸åŒæ„æˆä¸ºç ”ç©¶å‘˜
 };
 
-// Ñ¯ÎÊÊÇ·ñÍ¬Òâ³ÉÎªÑÐ¾¿Ô±
+// è¯¢é—®æ˜¯å¦åŒæ„æˆä¸ºç ”ç©¶å‘˜
 #define CONFIRM_SEARCHER_PARA 28
 struct stConfirmSearcherUserCmd : public stCountryUserCmd
 {
@@ -5002,11 +5002,11 @@ struct stConfirmSearcherUserCmd : public stCountryUserCmd
 		dwOption = 0;
 	}
 			
-	DWORD dwOption;	// ¿Æ¼¼ID	
+	DWORD dwOption;	// ç§‘æŠ€ID	
 	BYTE byStatus;
 };
 
-// ¸Ã¹úÈË²»ÄÜµÇÂ½
+// è¯¥å›½äººä¸èƒ½ç™»é™†
 #define  DISENABLEL_OGIN_COUNTRY_PARA  29 
 enum  FALSE_COUNTRY_STATUS
 {
@@ -5022,7 +5022,7 @@ struct stDisableLoginCountryCmd : public stCountryUserCmd
 	FALSE_COUNTRY_STATUS status;
 };
 
-// È¡Ïû¿Æ¼¼ÑÐ¾¿Ô±
+// å–æ¶ˆç§‘æŠ€ç ”ç©¶å‘˜
 #define CANCEL_TECH_SEARCH_PARA 30
 struct stCancelTechSearchUserCmd : public stCountryUserCmd
 {
@@ -5035,7 +5035,7 @@ struct stCancelTechSearchUserCmd : public stCountryUserCmd
 	DWORD dwOption;
 };
 
-// ÉêÇë¹úÕ½·´¹¥
+// ç”³è¯·å›½æˆ˜åæ”»
 #define ANTI_DARE_COUNTRY_FORMAL_PARA  31
 struct stAntiDareCountryFormalCmd : public stCountryUserCmd
 {
@@ -5044,10 +5044,10 @@ struct stAntiDareCountryFormalCmd : public stCountryUserCmd
 		byParam = ANTI_DARE_COUNTRY_FORMAL_PARA;
 	}
 
-	DWORD dwCountryID; // ÒªÌôÕ½µÄ¹ú¼Ò
+	DWORD dwCountryID; // è¦æŒ‘æˆ˜çš„å›½å®¶
 };
 
-// ·¢²¼¹ú¼Ò¹«¸æ
+// å‘å¸ƒå›½å®¶å…¬å‘Š
 #define COUNTRY_NOTE_PARA  32
 struct stCountryNoteCmd : public stCountryUserCmd
 {
@@ -5059,7 +5059,7 @@ struct stCountryNoteCmd : public stCountryUserCmd
 	char note[255];
 };
 
-// ÇëÇó¹ú¼Ò¹«¸æ
+// è¯·æ±‚å›½å®¶å…¬å‘Š
 #define REQ_COUNTRY_NOTE_PARA  33
 struct stReqCountryNoteCmd : public stCountryUserCmd
 {
@@ -5069,7 +5069,7 @@ struct stReqCountryNoteCmd : public stCountryUserCmd
 	}
 };
 
-// ¹úÍõ´¦·£Íæ¼Ò
+// å›½çŽ‹å¤„ç½šçŽ©å®¶
 #define KING_PUNISH_COUNTRY_PARA  34
 struct stKingPunishCountryCmd : public stCountryUserCmd
 {
@@ -5077,11 +5077,11 @@ struct stKingPunishCountryCmd : public stCountryUserCmd
 	{
 		byParam = KING_PUNISH_COUNTRY_PARA;
 	}
-	char name[MAX_NAMESIZE];//Ö¸¶¨Íæ¼ÒÃû×Ö
-	DWORD method;//´¦·£·½Ê½ 1:½ûÑÔ 2:¹Ø¼àÓü
+	char name[MAX_NAMESIZE];//æŒ‡å®šçŽ©å®¶åå­—
+	DWORD method;//å¤„ç½šæ–¹å¼ 1:ç¦è¨€ 2:å…³ç›‘ç‹±
 };
 
-// »ÊµÛ´¦·£Íæ¼Ò
+// çš‡å¸å¤„ç½šçŽ©å®¶
 #define EMPEROR_PUNISH_COUNTRY_PARA  35
 struct stEmperorPunishCountryCmd : public stCountryUserCmd
 {
@@ -5089,11 +5089,11 @@ struct stEmperorPunishCountryCmd : public stCountryUserCmd
 	{
 		byParam = EMPEROR_PUNISH_COUNTRY_PARA;
 	}
-	char name[MAX_NAMESIZE];//Ö¸¶¨Íæ¼ÒÃû×Ö
-	DWORD method;//´¦·£·½Ê½ 1:½ûÑÔ 2:¹Ø¼àÓü
+	char name[MAX_NAMESIZE];//æŒ‡å®šçŽ©å®¶åå­—
+	DWORD method;//å¤„ç½šæ–¹å¼ 1:ç¦è¨€ 2:å…³ç›‘ç‹±
 };
 
-// ÇëÇó´ó½«¾üµÄÐÅÏ¢
+// è¯·æ±‚å¤§å°†å†›çš„ä¿¡æ¯
 #define REQ_GEN_COUNTRY_PARA  36
 struct stReqGenCountryCmd : public stCountryUserCmd
 {
@@ -5103,7 +5103,7 @@ struct stReqGenCountryCmd : public stCountryUserCmd
 	}
 };
 
-// ·µ»Ø´ó½«¾üµÄÐÅÏ¢
+// è¿”å›žå¤§å°†å†›çš„ä¿¡æ¯
 #define RET_GEN_COUNTRY_PARA  37
 struct stRetGenCountryCmd : public stCountryUserCmd
 {
@@ -5116,7 +5116,7 @@ struct stRetGenCountryCmd : public stCountryUserCmd
 	DWORD maxExp;
 };
 
-// ÈÎÃü²¶Í·
+// ä»»å‘½æ•å¤´
 #define APPOINT_CATCHER_PARA  38
 struct stAppointCatcherCmd : public stCountryUserCmd
 {
@@ -5129,7 +5129,7 @@ struct stAppointCatcherCmd : public stCountryUserCmd
 	char name[MAX_NAMESIZE];
 };
 
-// ³·Ïû²¶Í·
+// æ’¤æ¶ˆæ•å¤´
 #define CANCEL_CATCHER_PARA  39
 struct stCancelCatcherCmd : public stCountryUserCmd
 {
@@ -5139,7 +5139,7 @@ struct stCancelCatcherCmd : public stCountryUserCmd
 	}
 };
 
-// ÈÎÃüÍâ½»¹Ù
+// ä»»å‘½å¤–äº¤å®˜
 #define APPOINT_DIPLOMAT_PARA  40
 struct stAppointDiplomatCmd : public stCountryUserCmd
 {
@@ -5152,7 +5152,7 @@ struct stAppointDiplomatCmd : public stCountryUserCmd
 	char name[MAX_NAMESIZE];
 };
 
-// ³·ÏûÍâ½»¹Ù
+// æ’¤æ¶ˆå¤–äº¤å®˜
 #define CANCEL_DIPLOMAT_PARA  41
 struct stCancelDiplomatCmd : public stCountryUserCmd
 {
@@ -5162,7 +5162,7 @@ struct stCancelDiplomatCmd : public stCountryUserCmd
 	}
 };
 
-// ²éÑ¯¹ú¼ÒÇ¿Èõ
+// æŸ¥è¯¢å›½å®¶å¼ºå¼±
 #define REQUEST_COUNTRY_POWER_PARA  42
 struct stRequestCountryPowerCmd : public stCountryUserCmd
 {
@@ -5172,7 +5172,7 @@ struct stRequestCountryPowerCmd : public stCountryUserCmd
 	}
 };
 
-// ·µ»Ø¹ú¼ÒÇ¿Èõ
+// è¿”å›žå›½å®¶å¼ºå¼±
 #define RETURN_COUNTRY_POWER_PARA  43
 struct stReturnCountryPowerCmd : public stCountryUserCmd
 {
@@ -5183,7 +5183,7 @@ struct stReturnCountryPowerCmd : public stCountryUserCmd
 	BYTE country[2];
 };
 
-// ÁìÈ¡Ã¿ÈÕ»ÊµÛµÄ½±Àø
+// é¢†å–æ¯æ—¥çš‡å¸çš„å¥–åŠ±
 #define REQ_DAILY_EMPEROR_MONEY 44
 struct stReqDailyEmperorMoneyCmd : public stCountryUserCmd
 {
@@ -5193,7 +5193,7 @@ struct stReqDailyEmperorMoneyCmd : public stCountryUserCmd
 	}
 };
 
-// ÇëÇó¹úÍõÅÅÐÐ°ñ
+// è¯·æ±‚å›½çŽ‹æŽ’è¡Œæ¦œ
 #define REQ_KING_LIST_PARA  45
 struct stReqKingListCmd : public stCountryUserCmd
 {
@@ -5205,12 +5205,12 @@ struct stReqKingListCmd : public stCountryUserCmd
 
 struct _KingListItem
 {
-	char  king_name[MAX_NAMESIZE]; // ¹úÍõÃû³Æ
-	WORD  online_time; //ÔÚÏßÊ±¼ä µ¥Î»ÎªÐ¡Ê±
-	DWORD country_id; // ¹ú¼ÒID
+	char  king_name[MAX_NAMESIZE]; // å›½çŽ‹åç§°
+	WORD  online_time; //åœ¨çº¿æ—¶é—´ å•ä½ä¸ºå°æ—¶
+	DWORD country_id; // å›½å®¶ID
 };
 
-// ·µ»Ø¹úÍõÅÅÐÐ°ñ
+// è¿”å›žå›½çŽ‹æŽ’è¡Œæ¦œ
 #define RTN_KING_LIST_PARA  46
 struct stRtnKingListCmd : public stCountryUserCmd
 {
@@ -5223,7 +5223,7 @@ struct stRtnKingListCmd : public stCountryUserCmd
 	_KingListItem data[0];
 };
  
-// ÇëÇó³ÇÊÐÕ¼ÁìÕß
+// è¯·æ±‚åŸŽå¸‚å é¢†è€…
 #define REQ_CITY_OWNER_LIST_PARA  47
 struct stReqCityOwnerListCmd : public stCountryUserCmd
 {
@@ -5233,7 +5233,7 @@ struct stReqCityOwnerListCmd : public stCountryUserCmd
 	}
 };
 
-// ·µ»Ø³ÇÊÐÕ¼ÁìÕßÁÐ±í
+// è¿”å›žåŸŽå¸‚å é¢†è€…åˆ—è¡¨
 #define RTN_CITY_OWNER_LIST_PARA  48
 struct stRtnCityOwnerListCmd : public stCountryUserCmd
 {
@@ -5250,7 +5250,7 @@ struct stRtnCityOwnerListCmd : public stCountryUserCmd
 	}list[0];
 };
  
-// ÇëÇó³ÇÊÐÕ¼ÁìÕß
+// è¯·æ±‚åŸŽå¸‚å é¢†è€…
 #define REQ_NPC_OWNER_LIST_PARA  49
 struct stReqNpcOwnerListCmd : public stCountryUserCmd
 {
@@ -5259,7 +5259,7 @@ struct stReqNpcOwnerListCmd : public stCountryUserCmd
 		byParam = REQ_NPC_OWNER_LIST_PARA;
 	}
 };
-// ·µ»Ø³ÇÊÐÕ¼ÁìÕß
+// è¿”å›žåŸŽå¸‚å é¢†è€…
 #define RTN_NPC_OWNER_LIST_PARA  50
 struct stRtnNpcOwnerListCmd : public stCountryUserCmd
 {
@@ -5271,23 +5271,23 @@ struct stRtnNpcOwnerListCmd : public stCountryUserCmd
 	WORD size;
 	struct
 	{
-		DWORD npcID;//npcµÄÊý¾Ýid
-		char mapName[MAX_NAMESIZE];//µØÍ¼Ãû³Æ
-		WORD x;		//ËùÔÚÎ»ÖÃ
-		WORD y;		//ËùÔÚÎ»ÖÃ
-		char septName[MAX_NAMESIZE];//Õ¼ÁìµÄ¼Ò×åÃû³Æ
+		DWORD npcID;//npcçš„æ•°æ®id
+		char mapName[MAX_NAMESIZE];//åœ°å›¾åç§°
+		WORD x;		//æ‰€åœ¨ä½ç½®
+		WORD y;		//æ‰€åœ¨ä½ç½®
+		char septName[MAX_NAMESIZE];//å é¢†çš„å®¶æ—åç§°
 	}list[0];
 };
 //////////////////////////////////////////////////////////////
-// ¹ú¼ÒÖ¸Áî¶¨Òå½áÊø
+// å›½å®¶æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////
-// Í¶Æ±Ö¸Áî¶¨Òå¿ªÊ¼
+// æŠ•ç¥¨æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 enum
 {
-	TECH_VOTE // ¿Æ¼¼Í¶Æ±
+	TECH_VOTE // ç§‘æŠ€æŠ•ç¥¨
 };
 
 struct stVoteUserCmd : public stNullUserCmd
@@ -5298,7 +5298,7 @@ struct stVoteUserCmd : public stNullUserCmd
     }
 };
 
-// ÇëÇóÍ¶Æ±ÁÐ±í
+// è¯·æ±‚æŠ•ç¥¨åˆ—è¡¨
 #define REQUEST_VOTE_LIST_PARA 1
 struct stRequestVoteListUserCmd : public stVoteUserCmd
 {
@@ -5308,17 +5308,17 @@ struct stRequestVoteListUserCmd : public stVoteUserCmd
 		byType = TECH_VOTE;
 	}
 
-	BYTE byType; // Í¶Æ±ÀàÐÍ
+	BYTE byType; // æŠ•ç¥¨ç±»åž‹
 };
 
 struct stVoteItem
 {
-	DWORD dwOption; // Ñ¡Ïî±àºÅ
-	DWORD dwBallot; // Ñ¡Ïîµ±Ç°Í¶Æ±Êý
+	DWORD dwOption; // é€‰é¡¹ç¼–å·
+	DWORD dwBallot; // é€‰é¡¹å½“å‰æŠ•ç¥¨æ•°
 	char  szOptionDesc[MAX_NAMESIZE];
 };
 
-// ·µ»ØÍ¶Æ±ÁÐ±í
+// è¿”å›žæŠ•ç¥¨åˆ—è¡¨
 #define RETURN_VOTE_LIST_PARA 2
 struct stReturnVoteListUserCmd : public stVoteUserCmd
 {
@@ -5336,7 +5336,7 @@ struct stReturnVoteListUserCmd : public stVoteUserCmd
 	stVoteItem data[0];
 };
 
-// Ìá½»Í¶Æ±
+// æäº¤æŠ•ç¥¨
 #define COMMIT_VOTE_PARA 3
 struct stCommitVoteUserCmd : public stVoteUserCmd
 {
@@ -5347,15 +5347,15 @@ struct stCommitVoteUserCmd : public stVoteUserCmd
 		dwOption = 0;
 	}
 
-	DWORD dwVoteID; // ¸Ã´ÎÍ¶Æ±µÄID
-	DWORD dwOption; // ¸Ã´ÎÌá½»µÄÑ¡Ïî
+	DWORD dwVoteID; // è¯¥æ¬¡æŠ•ç¥¨çš„ID
+	DWORD dwOption; // è¯¥æ¬¡æäº¤çš„é€‰é¡¹
 };
 //////////////////////////////////////////////////////////////
-// Í¶Æ±Ö¸Áî¶¨Òå½áÊø
+// æŠ•ç¥¨æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////
-// ¾ü¶ÓÖ¸Áî¶¨Òå¿ªÊ¼
+// å†›é˜ŸæŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stArmyUserCmd : public stNullUserCmd
 {
@@ -5365,7 +5365,7 @@ struct stArmyUserCmd : public stNullUserCmd
     }
 };
 
-// ´´½¨¾ü¶Ó
+// åˆ›å»ºå†›é˜Ÿ
 #define CREATE_ARMY_PARA 1
 struct stCreateArmyUserCmd : public stArmyUserCmd
 {
@@ -5376,11 +5376,11 @@ struct stCreateArmyUserCmd : public stArmyUserCmd
 		bzero(genName, sizeof(genName));
 	}
 
-	char armyName[8+1]; // ¾ü¶ÓÃû³ÆÏÞ¶¨Îª4¸öºº×Ö
+	char armyName[8+1]; // å†›é˜Ÿåç§°é™å®šä¸º4ä¸ªæ±‰å­—
 	char genName[MAX_NAMESIZE];
 };
 
-// ÇëÇó´ýÑ¡½«¾üÁÐ±í
+// è¯·æ±‚å¾…é€‰å°†å†›åˆ—è¡¨
 #define REQ_WAIT_GEN_PARA 2
 struct stReqWaitGenUserCmd : public stArmyUserCmd
 {
@@ -5396,7 +5396,7 @@ struct stWaitGenItem
 	char  szName[MAX_NAMESIZE];
 };
 
-// ·µ»ØºòÑ¡½«¾üÁÐ±í
+// è¿”å›žå€™é€‰å°†å†›åˆ—è¡¨
 #define RTN_WAIT_GEN_PARA 3
 struct stRtnWaitGenUserCmd : public stArmyUserCmd
 {
@@ -5412,12 +5412,12 @@ struct stRtnWaitGenUserCmd : public stArmyUserCmd
 
 enum
 {
-	QUESTION_ARMY_GEN, // Ñ¯ÎÊÊÇ·ñÔ¸Òâ³ÉÎª½«¾ü
-	YES_ARMY_GEN, // Í¬Òâ³ÉÎª½«¾ü
-	NO_ARMY_GEN, // ¾Ü¾ø³ÉÎª½«¾ü
+	QUESTION_ARMY_GEN, // è¯¢é—®æ˜¯å¦æ„¿æ„æˆä¸ºå°†å†›
+	YES_ARMY_GEN, // åŒæ„æˆä¸ºå°†å†›
+	NO_ARMY_GEN, // æ‹’ç»æˆä¸ºå°†å†›
 };
 
-// Ñ¯ÎÊÊÇ·ñÍ¬Òâ³ÉÎª½«¾ü
+// è¯¢é—®æ˜¯å¦åŒæ„æˆä¸ºå°†å†›
 #define REQ_ARMY_GEN_PARA 4
 struct stReqArmyGenUserCmd : public stArmyUserCmd
 {
@@ -5433,10 +5433,10 @@ struct stReqArmyGenUserCmd : public stArmyUserCmd
 
 enum
 {
-	COUNTRY_ARMY_LIST, // ÓÃÓÚ¹ú¼Ò¶Ô»°¿ò£¬ÏÔÊ¾È«¹ú¾ü¶ÓÁÐ±í
-	CITY_ARMY_LIST,  // ÓÃÓÚNPC¶Ô»°£¬ÏÔÊ¾±¾³Ç¾ü¶ÓÁÐ±í
+	COUNTRY_ARMY_LIST, // ç”¨äºŽå›½å®¶å¯¹è¯æ¡†ï¼Œæ˜¾ç¤ºå…¨å›½å†›é˜Ÿåˆ—è¡¨
+	CITY_ARMY_LIST,  // ç”¨äºŽNPCå¯¹è¯ï¼Œæ˜¾ç¤ºæœ¬åŸŽå†›é˜Ÿåˆ—è¡¨
 };
-// ÇëÇó¾ü¶ÓÁÐ±í
+// è¯·æ±‚å†›é˜Ÿåˆ—è¡¨
 #define REQ_ARMY_LIST_PARA 5
 struct stReqArmyListUserCmd : public stArmyUserCmd
 {
@@ -5452,13 +5452,13 @@ struct stReqArmyListUserCmd : public stArmyUserCmd
 struct stArmyBaseInfo
 {
 	DWORD dwArmyID;
-	char  name[MAX_NAMESIZE]; // ¾ü¶ÓÃû³Æ
-	char  cityname[MAX_NAMESIZE]; // ËùÊô³ÇÊÐ
-	char  genname[MAX_NAMESIZE]; // ½«¾üÐÕÃû
-	DWORD dwCapNum; // ¶Ó³¤ÈËÊý
+	char  name[MAX_NAMESIZE]; // å†›é˜Ÿåç§°
+	char  cityname[MAX_NAMESIZE]; // æ‰€å±žåŸŽå¸‚
+	char  genname[MAX_NAMESIZE]; // å°†å†›å§“å
+	DWORD dwCapNum; // é˜Ÿé•¿äººæ•°
 };
 
-// ·µ»Ø¾ü¶ÓÁÐ±í
+// è¿”å›žå†›é˜Ÿåˆ—è¡¨
 #define RTN_ARMY_LIST_PARA 6
 struct stRtnArmyListUserCmd : public stArmyUserCmd
 {
@@ -5473,7 +5473,7 @@ struct stRtnArmyListUserCmd : public stArmyUserCmd
 	stArmyBaseInfo data[0];
 };
 
-// ÇëÇó¾ü¶ÓÏêÏ¸ÐÅÏ¢
+// è¯·æ±‚å†›é˜Ÿè¯¦ç»†ä¿¡æ¯
 #define REQ_ARMY_SPEC_PARA 7
 struct stReqArmySpecUserCmd : public stArmyUserCmd
 {
@@ -5491,7 +5491,7 @@ struct stCaptainBase
 	char name[MAX_NAMESIZE];
 	DWORD dwCharID;
 };
-// ·µ»Ø¾ü¶ÓÏêÏ¸ÐÅÏ¢
+// è¿”å›žå†›é˜Ÿè¯¦ç»†ä¿¡æ¯
 #define RTN_ARMY_SPEC_PARA 8
 struct stRtnArmySpecUserCmd : public stArmyUserCmd
 {
@@ -5504,14 +5504,14 @@ struct stRtnArmySpecUserCmd : public stArmyUserCmd
 		bzero(genname, MAX_NAMESIZE);
 	}
 
-	char name[MAX_NAMESIZE]; // ¾ü¶ÓÃû
-	char cityname[MAX_NAMESIZE]; // ³ÇÊÐÃû
-	char genname[MAX_NAMESIZE]; // ½«¾üÃû
+	char name[MAX_NAMESIZE]; // å†›é˜Ÿå
+	char cityname[MAX_NAMESIZE]; // åŸŽå¸‚å
+	char genname[MAX_NAMESIZE]; // å°†å†›å
 	DWORD dwSize;
 	stCaptainBase data[0];
 };
 
-// Àë¿ª¾ü¶Ó
+// ç¦»å¼€å†›é˜Ÿ
 #define EXIT_ARMY_PARA 9
 struct stExitArmyUserCmd : public stArmyUserCmd
 {
@@ -5521,7 +5521,7 @@ struct stExitArmyUserCmd : public stArmyUserCmd
 	}
 };	
 
-// ½âÉ¢¾ü¶Ó
+// è§£æ•£å†›é˜Ÿ
 #define REMOVE_ARMY_PARA 10
 struct stRemoveArmyUserCmd : public stArmyUserCmd
 {
@@ -5534,7 +5534,7 @@ struct stRemoveArmyUserCmd : public stArmyUserCmd
 	DWORD dwArmyID;
 };
 
-// ¸ü¸Ä¾ü¶ÓÃû³Æ
+// æ›´æ”¹å†›é˜Ÿåç§°
 #define CHANGE_ARMY_NAME_PARA 11
 struct stChangeArmyNameUserCmd : public stArmyUserCmd
 {
@@ -5550,11 +5550,11 @@ struct stChangeArmyNameUserCmd : public stArmyUserCmd
 };
 
 enum ADD_ARMY_CAPTAIN{
-	QUESTION_CAPTAIN, // ·¢³öÑ¯ÎÊ
-	ANSWER_CAPTAIN_YES, // È·ÈÏÑûÇë
-	ANSWER_CAPTAIN_NO, // ¾Ü¾øÑûÇë
+	QUESTION_CAPTAIN, // å‘å‡ºè¯¢é—®
+	ANSWER_CAPTAIN_YES, // ç¡®è®¤é‚€è¯·
+	ANSWER_CAPTAIN_NO, // æ‹’ç»é‚€è¯·
 };
-// ÕÐÊÕ¶Ó³¤
+// æ‹›æ”¶é˜Ÿé•¿
 #define ADD_ARMY_CAPTAIN_PARA 12
 struct stAddArmyCaptainUserCmd : public stArmyUserCmd
 {
@@ -5568,14 +5568,14 @@ struct stAddArmyCaptainUserCmd : public stArmyUserCmd
 		byState = QUESTION_CAPTAIN;
 	}
 
-	char capName[MAX_NAMESIZE]; // ±»ÑûÇëµÄÈË
-	char armyName[MAX_NAMESIZE]; // ÑûÇëµÄ¾ü¶ÓÃû³Æ
-	DWORD armyID; // ¾ü¶ÓID
-	DWORD capID; // ±»ÑûÇëÈËID
-	BYTE byState; // ²Î¼û enum ADD_ARMY_CAPTAIN
+	char capName[MAX_NAMESIZE]; // è¢«é‚€è¯·çš„äºº
+	char armyName[MAX_NAMESIZE]; // é‚€è¯·çš„å†›é˜Ÿåç§°
+	DWORD armyID; // å†›é˜ŸID
+	DWORD capID; // è¢«é‚€è¯·äººID
+	BYTE byState; // å‚è§ enum ADD_ARMY_CAPTAIN
 };
 
-// ¿ª³ý¶Ó³¤
+// å¼€é™¤é˜Ÿé•¿
 #define FIRE_ARMY_CAPTAIN_PARA 13
 struct stFireArmyCaptainUserCmd : public stArmyUserCmd
 {
@@ -5585,10 +5585,10 @@ struct stFireArmyCaptainUserCmd : public stArmyUserCmd
 		dwUserID = 0;
 	}
 
-	DWORD dwUserID; // ´ý¿ª³ýµÄ¶Ó³¤ID,Í¨¹ý¾ü¶ÓÏêÏ¸ÐÅÏ¢»ñµÃ
+	DWORD dwUserID; // å¾…å¼€é™¤çš„é˜Ÿé•¿ID,é€šè¿‡å†›é˜Ÿè¯¦ç»†ä¿¡æ¯èŽ·å¾—
 };
 
-/*// ¸ü¸Ä¾ü¶Ó½«¾ü
+/*// æ›´æ”¹å†›é˜Ÿå°†å†›
 #define CHANGE_ARMY_GEN_PARA 12
 struct stChangeArmyGenUserCmd : public stArmyUserCmd
 {
@@ -5604,11 +5604,11 @@ struct stChangeArmyGenUserCmd : public stArmyUserCmd
 };
 */
 //////////////////////////////////////////////////////////////
-// ¾ü¶ÓÖ¸Áî¶¨Òå½áÊø
+// å†›é˜ŸæŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////
-// »¤±¦Ö¸Áî¶¨Òå¿ªÊ¼
+// æŠ¤å®æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stGemUserCmd : public stNullUserCmd
 {
@@ -5618,7 +5618,7 @@ struct stGemUserCmd : public stNullUserCmd
     }
 };
 
-// ÁìÈ¡Áú¾«
+// é¢†å–é¾™ç²¾
 #define REQUEST_DRAGON_PARA 1
 struct stReqDragonUserCmd : public stGemUserCmd
 {
@@ -5628,7 +5628,7 @@ struct stReqDragonUserCmd : public stGemUserCmd
 	}
 };
 
-// ÁìÈ¡»¢ÆÇ
+// é¢†å–è™Žé­„
 #define REQUEST_TIGER_PARA 2
 struct stReqTigerUserCmd : public stGemUserCmd
 {
@@ -5639,25 +5639,25 @@ struct stReqTigerUserCmd : public stGemUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-// »¤±¦Ö¸Áî¶¨Òå½áÊø
+// æŠ¤å®æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// Õ½¶·Ö¸Áî¶¨Òå¿ªÊ¼
+// æˆ˜æ–—æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 
-// ¶ÔÕ½ÀàÐÍ¶¨Òå
+// å¯¹æˆ˜ç±»åž‹å®šä¹‰
 enum
 {
-	UNION_DARE	= 0,    // °ï»á¶ÔÕ½ 
-	SCHOOL_DARE	= 1,    // Ê¦ÃÅ¶ÔÕ½
-	SEPT_DARE	= 2,    // ¼Ò×å¶ÔÕ½
-	SEPT_NPC_DARE   = 3,    // ¼Ò×åNPCÕù¶áÕ½
-	UNION_CITY_DARE	= 4,	// °ï»á¶á³ÇÕ½
-	COUNTRY_FORMAL_DARE = 5, // ÕýÊ½¹úÕ½
-	COUNTRY_FORMAL_ANTI_DARE = 6, // ÕýÊ½¹úÕ½·´¹¥
-	EMPEROR_DARE	= 7,	// »Ê³ÇÕù¶áÕ½
+	UNION_DARE	= 0,    // å¸®ä¼šå¯¹æˆ˜ 
+	SCHOOL_DARE	= 1,    // å¸ˆé—¨å¯¹æˆ˜
+	SEPT_DARE	= 2,    // å®¶æ—å¯¹æˆ˜
+	SEPT_NPC_DARE   = 3,    // å®¶æ—NPCäº‰å¤ºæˆ˜
+	UNION_CITY_DARE	= 4,	// å¸®ä¼šå¤ºåŸŽæˆ˜
+	COUNTRY_FORMAL_DARE = 5, // æ­£å¼å›½æˆ˜
+	COUNTRY_FORMAL_ANTI_DARE = 6, // æ­£å¼å›½æˆ˜åæ”»
+	EMPEROR_DARE	= 7,	// çš‡åŸŽäº‰å¤ºæˆ˜
 };
 
 struct stDareUserCmd : public stNullUserCmd
@@ -5670,9 +5670,9 @@ struct stDareUserCmd : public stNullUserCmd
 
 enum 
 {
-	DARE_QUESTION,  // ·¢Æð»òÑ¯ÎÊÌôÕ½
-	DARE_YES,       // ½ÓÊÜÌôÕ½
-	DARE_NO         // ¾Ü¾øÌôÕ½
+	DARE_QUESTION,  // å‘èµ·æˆ–è¯¢é—®æŒ‘æˆ˜
+	DARE_YES,       // æŽ¥å—æŒ‘æˆ˜
+	DARE_NO         // æ‹’ç»æŒ‘æˆ˜
 };
 
 enum
@@ -5683,7 +5683,7 @@ enum
 	DARE_REPUTE_FOUR = 4,
 };
 
-// ·¢ÆðÌôÕ½
+// å‘èµ·æŒ‘æˆ˜
 const BYTE ACTIVE_DARE_PARA = 1;
 struct stActiveDareCmd : public stDareUserCmd
 {
@@ -5695,23 +5695,23 @@ struct stActiveDareCmd : public stDareUserCmd
 	    byDareRepute = 0;
     }
     
-    char name[MAX_NAMESIZE]; // ÌôÕ½ÕßÐÕÃû
-    char fromRelationName[MAX_NAMESIZE]; // ÌôÕ½Õß°ï»á»òÊ¦ÃÅ»ò¼Ò×åÃû³Æ
-    char toRelationName[MAX_NAMESIZE];  //±»ÌôÕ½Õß°ï»á»òÊ¦ÃÅ»ò¼Ò×åÃû³Æ
-    DWORD dwWarID;    // ½»Õ½ID
-    DWORD dwDareType; // ÌôÕ½ÀàÐÍ: °ï»á¡¢Ê¦ÃÅ¡¢¼Ò×å
-    DWORD dwMsgType;  // ÌôÕ½Õß·¢ÆðÌôÕ½ÕßÎÞÒâÒå¡£·þÎñÆ÷ÊÕµ½¸ÃÃüÁîºó£¬ÖÃÎªDARE_QUESTION£¬×ª·¢¸øÓÐÈ¨ÏÞµÄÏàÓ¦Íæ¼Ò¡£
-                      // ¿Í»§¶Ë¶ÔÍæ¼ÒÌáÎÊºó£¬·µ»ØDARE_YES»òDARE_NO.½á¹¹ÆäËüÐÅÏ¢±£Áô¡£
-    BYTE byDareRepute; // ¼Ò×åËæÒâÕ½Ê±£¬ÏÂ¶àÉÙÉùÍû×öÎª¶Ä×ÊÀàÐÍ£¬ÀàÐÍÓÐËÄÖÖ:1,2,3,4 ·Ö±ð¶ÔÓ¦1¡¢5¡¢10¡¢20ÉùÍû
+    char name[MAX_NAMESIZE]; // æŒ‘æˆ˜è€…å§“å
+    char fromRelationName[MAX_NAMESIZE]; // æŒ‘æˆ˜è€…å¸®ä¼šæˆ–å¸ˆé—¨æˆ–å®¶æ—åç§°
+    char toRelationName[MAX_NAMESIZE];  //è¢«æŒ‘æˆ˜è€…å¸®ä¼šæˆ–å¸ˆé—¨æˆ–å®¶æ—åç§°
+    DWORD dwWarID;    // äº¤æˆ˜ID
+    DWORD dwDareType; // æŒ‘æˆ˜ç±»åž‹: å¸®ä¼šã€å¸ˆé—¨ã€å®¶æ—
+    DWORD dwMsgType;  // æŒ‘æˆ˜è€…å‘èµ·æŒ‘æˆ˜è€…æ— æ„ä¹‰ã€‚æœåŠ¡å™¨æ”¶åˆ°è¯¥å‘½ä»¤åŽï¼Œç½®ä¸ºDARE_QUESTIONï¼Œè½¬å‘ç»™æœ‰æƒé™çš„ç›¸åº”çŽ©å®¶ã€‚
+                      // å®¢æˆ·ç«¯å¯¹çŽ©å®¶æé—®åŽï¼Œè¿”å›žDARE_YESæˆ–DARE_NO.ç»“æž„å…¶å®ƒä¿¡æ¯ä¿ç•™ã€‚
+    BYTE byDareRepute; // å®¶æ—éšæ„æˆ˜æ—¶ï¼Œä¸‹å¤šå°‘å£°æœ›åšä¸ºèµŒèµ„ç±»åž‹ï¼Œç±»åž‹æœ‰å››ç§:1,2,3,4 åˆ†åˆ«å¯¹åº”1ã€5ã€10ã€20å£°æœ›
 };
 
 
 enum
 {
-    NOTIFY_NO_EXIST, // °ï»á»òÊ¦ÃÅ»ò¼Ò×åÃû²»´æÔÚ
+    NOTIFY_NO_EXIST, // å¸®ä¼šæˆ–å¸ˆé—¨æˆ–å®¶æ—åä¸å­˜åœ¨
 };
 
-// Í¨ÖªÏûÏ¢
+// é€šçŸ¥æ¶ˆæ¯
 const BYTE NOTIFY_DARE_PARA = 2;
 struct stNotifyDare : public stDareUserCmd
 {
@@ -5720,11 +5720,11 @@ struct stNotifyDare : public stDareUserCmd
 	    byParam = NOTIFY_DARE_PARA;
     }
 
-    DWORD dwType;       // Õ½¶·ÀàÐÍ
-    DWORD dwNotify;     // Í¨ÖªÀàÐÍ
+    DWORD dwType;       // æˆ˜æ–—ç±»åž‹
+    DWORD dwNotify;     // é€šçŸ¥ç±»åž‹
 };
 
-// Í¨Öª¹úÕ½Ê¤Àû´ÎÊýµÄ¸Ä±ä
+// é€šçŸ¥å›½æˆ˜èƒœåˆ©æ¬¡æ•°çš„æ”¹å˜
 const BYTE CHANGE_COUNTRY_STAR_PARA = 3;
 struct stChangeCountryStar : public stDareUserCmd
 {
@@ -5733,10 +5733,10 @@ struct stChangeCountryStar : public stDareUserCmd
 		byParam = CHANGE_COUNTRY_STAR_PARA;
 	}
 	
-	DWORD dwStar; // µ±Ç°Ê¤Àû´ÎÊý
+	DWORD dwStar; // å½“å‰èƒœåˆ©æ¬¡æ•°
 };
 
-// ÇëÇóÌôÕ½ÁÐ±í
+// è¯·æ±‚æŒ‘æˆ˜åˆ—è¡¨
 const BYTE QUERY_DARE_LIST_PARA = 4;
 struct stQueryDareList : public stDareUserCmd
 {
@@ -5753,7 +5753,7 @@ struct stDareList
 	char name[MAX_NAMESIZE];
 };
 
-// Í¨Öª¿ÉÒÔÌôÕ½µÄÉç»á¹ØÏµÁÐ±í
+// é€šçŸ¥å¯ä»¥æŒ‘æˆ˜çš„ç¤¾ä¼šå…³ç³»åˆ—è¡¨
 const BYTE SEND_DARE_LIST_PARA = 5;
 struct stSendDareList : public stDareUserCmd
 {
@@ -5767,7 +5767,7 @@ struct stSendDareList : public stDareUserCmd
 	struct stDareList dare_list[0];
 };
 
-// ·¢Æð°ï»á¶á³ÇÌôÕ½
+// å‘èµ·å¸®ä¼šå¤ºåŸŽæŒ‘æˆ˜
 const BYTE ACTIVE_UNION_CITY_DARE_PARA = 6;
 struct stActiveUnionCityDare : public stDareUserCmd
 {
@@ -5780,7 +5780,7 @@ struct stActiveUnionCityDare : public stDareUserCmd
 	DWORD toCountryID;
 };
 
-// ÁìÈ¡µ±ÌìË°ÊÕ
+// é¢†å–å½“å¤©ç¨Žæ”¶
 const BYTE GET_UNION_CITY_TAX_PARA = 7;
 struct stGetUnionCityTax : public stDareUserCmd
 {
@@ -5790,7 +5790,7 @@ struct stGetUnionCityTax : public stDareUserCmd
 	}
 };
 
-// Í¨Öª¿Í»§¶Ë½øÈë»Ê³ÇÕù¶áÕ½ÇøÓò
+// é€šçŸ¥å®¢æˆ·ç«¯è¿›å…¥çš‡åŸŽäº‰å¤ºæˆ˜åŒºåŸŸ
 const BYTE ENTER_EMPEROR_DARE_ZONE = 8;
 struct stEnterEmperorDareZone : public stDareUserCmd
 {
@@ -5801,11 +5801,11 @@ struct stEnterEmperorDareZone : public stDareUserCmd
 		state = 0;
 	}
 
-	DWORD dwDefCountryID; // ÊØ·½¹ú¼ÒID
-	BYTE state; // 0,ÎªÍË³ö,1,Îª½øÈë
+	DWORD dwDefCountryID; // å®ˆæ–¹å›½å®¶ID
+	BYTE state; // 0,ä¸ºé€€å‡º,1,ä¸ºè¿›å…¥
 };
 
-// ÓÃ»§ÉÏÏß,Í¨Öª¿Í»§¶Ë,ÕýÔÚ½øÐÐ»Ê³ÇÕù¶áÕ½
+// ç”¨æˆ·ä¸Šçº¿,é€šçŸ¥å®¢æˆ·ç«¯,æ­£åœ¨è¿›è¡Œçš‡åŸŽäº‰å¤ºæˆ˜
 const BYTE ENTER_EMPEROR_DARE_ACTIVE = 9;
 struct stEnterEmperorDareActive : public stDareUserCmd
 {
@@ -5817,20 +5817,20 @@ struct stEnterEmperorDareActive : public stDareUserCmd
 
 enum enmCallDutyType
 {
-	CALL_DUTY_KING,		//¹úÍõ
-	CALL_DUTY_UNION,	//°ïÖ÷
-	CALL_DUTY_SEPT,		//×å³¤
+	CALL_DUTY_KING,		//å›½çŽ‹
+	CALL_DUTY_UNION,	//å¸®ä¸»
+	CALL_DUTY_SEPT,		//æ—é•¿
 	CALL_DUTY_NUM
 };
 enum enmCallDutyPipeline
 {
-	PIPELINE_CALL = 0,	  //ÕÙ»½
-	PIPELINE_REFUSE,	  //¾Ü¾ø
-	PIPELINE_AGREE,		  //Í¬Òâ
+	PIPELINE_CALL = 0,	  //å¬å”¤
+	PIPELINE_REFUSE,	  //æ‹’ç»
+	PIPELINE_AGREE,		  //åŒæ„
 	PIPELINE_NUM
 };
 
-//¹úÍõ¡¢°ïÖ÷¡¢×å³¤À­ÈË
+//å›½çŽ‹ã€å¸®ä¸»ã€æ—é•¿æ‹‰äºº
 const BYTE DARE_CALL_DUTY = 10;
 struct stDareCallDuty : public stDareUserCmd
 {
@@ -5841,22 +5841,22 @@ struct stDareCallDuty : public stDareUserCmd
 		byCallerType = CALL_DUTY_NUM;
 		byPipeline = PIPELINE_NUM;
 	}
-	DWORD	leaderTempID;			//Áìµ¼tempid
+	DWORD	leaderTempID;			//é¢†å¯¼tempid
 	BYTE	byCallerType;			//enmCallDutyType
 	BYTE	byPipeline;				//enmCallDutyPipeline
-	char	mapName[MAX_NAMESIZE];	//Ä¿±êµØÍ¼Ãû³Æ
-	WORD	x;						//×ø±êx
-	WORD	y;						//×ø±êy
+	char	mapName[MAX_NAMESIZE];	//ç›®æ ‡åœ°å›¾åç§°
+	WORD	x;						//åæ ‡x
+	WORD	y;						//åæ ‡y
 };
 
 ///////////////////////////////////////////////////////////////
-// Õ½¶·Ö¸Áî¶¨Òå½áÊø
+// æˆ˜æ–—æŒ‡ä»¤å®šä¹‰ç»“æŸ
 ///////////////////////////////////////////////////////////////
 
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// Éç»á¹ØÏµÖ¸Áî¶¨Òå¿ªÊ¼
+// ç¤¾ä¼šå…³ç³»æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stRelationUserCmd : public stNullUserCmd
 {
@@ -5867,27 +5867,27 @@ struct stRelationUserCmd : public stNullUserCmd
 };
 
 enum {
-	RELATION_TYPE_LOVE,			// ·òÆÞ¹ØÏµ
-	RELATION_TYPE_TEACHER,		// Ê¦Í½¹ØÏµ
-	RELATION_TYPE_FRIEND,		// ºÃÓÑ¹ØÏµ
-	RELATION_TYPE_BAD,			// ºÚÃûµ¥
-	RELATION_TYPE_OVER,			// ¹ØÏµÒÑ¾­¶Ï¾ø£¬Ö÷ÒªÊÇÓÃÔÚÊý¾Ý¿âÖÐ´«´ïÀëÏßÍ¨Öª£¬µ±ÈËÎïÉÏÏßºó»á¸ù¾Ý×´Ì¬Ïò¿Í»§¶Ë·¢ÏûÏ¢¡£
-	RELATION_TYPE_ENEMY			// ³ðÈË¹ØÏµ
+	RELATION_TYPE_LOVE,			// å¤«å¦»å…³ç³»
+	RELATION_TYPE_TEACHER,		// å¸ˆå¾’å…³ç³»
+	RELATION_TYPE_FRIEND,		// å¥½å‹å…³ç³»
+	RELATION_TYPE_BAD,			// é»‘åå•
+	RELATION_TYPE_OVER,			// å…³ç³»å·²ç»æ–­ç»ï¼Œä¸»è¦æ˜¯ç”¨åœ¨æ•°æ®åº“ä¸­ä¼ è¾¾ç¦»çº¿é€šçŸ¥ï¼Œå½“äººç‰©ä¸Šçº¿åŽä¼šæ ¹æ®çŠ¶æ€å‘å®¢æˆ·ç«¯å‘æ¶ˆæ¯ã€‚
+	RELATION_TYPE_ENEMY			// ä»‡äººå…³ç³»
 };
 struct stRelation
 {
-	char  name[MAX_NAMESIZE];	//	¹ØÏµÈËÃû×Ö
-	BYTE  type;					//	¹ØÏµÀàÐÍ 
-	WORD  level;				//  ¹ØÏµ¼¶±ð
-	WORD  user_level;              // ¹ØÏµÈËµÈ¼¶
-	BYTE  online;             //  ÔÚÏß×´Ì¬ 0Îª²»ÔÚÏß£¬1ÎªÔÚÏß
-	WORD  occupation;			// Ö°ÒµÀàÐÍ
-	DWORD exploit;		// ¹¦Ñ«Öµ
-	DWORD country;		// ¹ú¼®
-	char  unionName[MAX_NAMESIZE];	// ËùÊô°ï»á
+	char  name[MAX_NAMESIZE];	//	å…³ç³»äººåå­—
+	BYTE  type;					//	å…³ç³»ç±»åž‹ 
+	WORD  level;				//  å…³ç³»çº§åˆ«
+	WORD  user_level;              // å…³ç³»äººç­‰çº§
+	BYTE  online;             //  åœ¨çº¿çŠ¶æ€ 0ä¸ºä¸åœ¨çº¿ï¼Œ1ä¸ºåœ¨çº¿
+	WORD  occupation;			// èŒä¸šç±»åž‹
+	DWORD exploit;		// åŠŸå‹‹å€¼
+	DWORD country;		// å›½ç±
+	char  unionName[MAX_NAMESIZE];	// æ‰€å±žå¸®ä¼š
 };
 
-// ·¢ËÍÉç»á¹ØÏµÁÐ±í
+// å‘é€ç¤¾ä¼šå…³ç³»åˆ—è¡¨
 const BYTE RELATION_SEND_RELATIONLIST_PARA = 1;
 struct stSendRelationListCmd : public stRelationUserCmd
 {
@@ -5900,17 +5900,17 @@ struct stSendRelationListCmd : public stRelationUserCmd
 };
 
 enum RELATION{
-	RELATION_ADD,				// Ìí¼Ó×´Ì¬
-	RELATION_QUESTION,         // ·¢³öÑûÇëÄ³ÈËµÄÑ¯ÎÊ
-	RELATION_ANSWER_YES,       // È·ÈÏÑûÇë
-	RELATION_ANSWER_NO,        // ·ñ¶¨ÑûÇë
-	RELATION_ONLINE,			// ÔÚÏß×´Ì¬
-	RELATION_OFFLINE,			// ÀëÏß×´Ì¬
-	RELATION_TYPECHANGE,		// ÀàÐÍ¸Ä±ä
-	RELATION_REMOVE				// É¾³ý×´Ì¬
+	RELATION_ADD,				// æ·»åŠ çŠ¶æ€
+	RELATION_QUESTION,         // å‘å‡ºé‚€è¯·æŸäººçš„è¯¢é—®
+	RELATION_ANSWER_YES,       // ç¡®è®¤é‚€è¯·
+	RELATION_ANSWER_NO,        // å¦å®šé‚€è¯·
+	RELATION_ONLINE,			// åœ¨çº¿çŠ¶æ€
+	RELATION_OFFLINE,			// ç¦»çº¿çŠ¶æ€
+	RELATION_TYPECHANGE,		// ç±»åž‹æ”¹å˜
+	RELATION_REMOVE				// åˆ é™¤çŠ¶æ€
 };
 
-// ¹ØÏµ×´Ì¬±ä¸ü£¬ÒÔ¼°ÑûÇë½»»¥
+// å…³ç³»çŠ¶æ€å˜æ›´ï¼Œä»¥åŠé‚€è¯·äº¤äº’
 const BYTE RELATION_STATUS_PARA =3;
 struct stRelationStatusCmd : public stRelationUserCmd
 {
@@ -5924,11 +5924,11 @@ struct stRelationStatusCmd : public stRelationUserCmd
 		DWORD userid;
 	};
 
-	BYTE	byState;			//	²Î¼û enum RELATION
-	DWORD   exploit;			// ¹¦Ñ«Öµ
+	BYTE	byState;			//	å‚è§ enum RELATION
+	DWORD   exploit;			// åŠŸå‹‹å€¼
 	DWORD   country;
 		
-	char  unionName[MAX_NAMESIZE];	// ËùÊô°ï»á
+	char  unionName[MAX_NAMESIZE];	// æ‰€å±žå¸®ä¼š
 	
 	stRelationStatusCmd()
 	{
@@ -5955,7 +5955,7 @@ enum{
 	MARRY_NO_MONEY
 };
 
-/// ½á»éÇ°µÄÓÃ»§×´Ì¬¼ì²éÏûÏ¢
+/// ç»“å©šå‰çš„ç”¨æˆ·çŠ¶æ€æ£€æŸ¥æ¶ˆæ¯
 const BYTE MARRY_STATUS_CHECK_PARA = 4;
 struct stMarryStatusCheckCmd  : public stRelationUserCmd
 {
@@ -5967,7 +5967,7 @@ struct stMarryStatusCheckCmd  : public stRelationUserCmd
 	BYTE byStep;
 };
 
-/// Àë»éÏûÏ¢
+/// ç¦»å©šæ¶ˆæ¯
 #define UNMARRY_PARA 5
 struct stUnmarryCmd  : public stRelationUserCmd
 {
@@ -5979,12 +5979,12 @@ struct stUnmarryCmd  : public stRelationUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-// Éç»á¹ØÏµÖ¸Áî¶¨Òå½áÊø
+// ç¤¾ä¼šå…³ç³»æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// Ê¦Í½ÃÅÅÉ¹ØÏµÖ¸Áî¶¨Òå¿ªÊ¼
+// å¸ˆå¾’é—¨æ´¾å…³ç³»æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stSchoolUserCmd : public stNullUserCmd
 {
@@ -5995,13 +5995,13 @@ struct stSchoolUserCmd : public stNullUserCmd
 };
 
 enum SCHOOL_ADD_MEMBER{
-			TEACHER_QUESTION,         // ·¢³öÑûÇëÄ³ÈË¼ÓÈëÊ¦ÃÅµÄÑ¯ÎÊ
-			TEACHER_ANSWER_YES,       // È·ÈÏÑûÇë¼ÓÈëÊ¦ÃÅ
-			TEACHER_ANSWER_NO         // ·ñ¶¨ÑûÇë¼ÓÈëÊ¦ÃÅ
+			TEACHER_QUESTION,         // å‘å‡ºé‚€è¯·æŸäººåŠ å…¥å¸ˆé—¨çš„è¯¢é—®
+			TEACHER_ANSWER_YES,       // ç¡®è®¤é‚€è¯·åŠ å…¥å¸ˆé—¨
+			TEACHER_ANSWER_NO         // å¦å®šé‚€è¯·åŠ å…¥å¸ˆé—¨
 };
 
-// ÑûÇëËûÈË¼ÓÈëÃÅÅÉ£¬¼æÈÎÐÂÈË¼ÓÈëÍ¨ÖªÏûÏ¢
-const BYTE ADD_MEMBER_TO_SCHOOL_PARA = 1;  // Õâ¸öÏûÏ¢ÓÉ¿Í»§¶Ë·¢µ½·þÎñ¶ËÊÇÑûÇëÄ³ÈË£¬ÓÉ·þÎñ¶Ë·¢µ½¿Í»§¶ËÊÇÑ¯ÎÊÄ³ÈËÊÇ·ñ½ÓÊÜÑûÇë
+// é‚€è¯·ä»–äººåŠ å…¥é—¨æ´¾ï¼Œå…¼ä»»æ–°äººåŠ å…¥é€šçŸ¥æ¶ˆæ¯
+const BYTE ADD_MEMBER_TO_SCHOOL_PARA = 1;  // è¿™ä¸ªæ¶ˆæ¯ç”±å®¢æˆ·ç«¯å‘åˆ°æœåŠ¡ç«¯æ˜¯é‚€è¯·æŸäººï¼Œç”±æœåŠ¡ç«¯å‘åˆ°å®¢æˆ·ç«¯æ˜¯è¯¢é—®æŸäººæ˜¯å¦æŽ¥å—é‚€è¯·
 struct stAddMemberToSchoolCmd : public stSchoolUserCmd
 {
 	stAddMemberToSchoolCmd()
@@ -6009,21 +6009,21 @@ struct stAddMemberToSchoolCmd : public stSchoolUserCmd
 		byParam = ADD_MEMBER_TO_SCHOOL_PARA;
 		level = 0;
 	}
-	char 	memberName[MAX_NAMESIZE];			// ±»ÑûÇëµÄÈË
+	char 	memberName[MAX_NAMESIZE];			// è¢«é‚€è¯·çš„äºº
 	union {
-			DWORD	memberID;					// ±»ÑûÇëÈËID
-			DWORD	degree;						// Ïò¿Í»§¶Ë·¢ËÍµÄÊ±ºò¸æËß¿Í»§¶ËÐÂ³ÉÔ±´¦ÓÚÄÇÒ»¸ö²ã¼¶Ö®ÖÐ
+			DWORD	memberID;					// è¢«é‚€è¯·äººID
+			DWORD	degree;						// å‘å®¢æˆ·ç«¯å‘é€çš„æ—¶å€™å‘Šè¯‰å®¢æˆ·ç«¯æ–°æˆå‘˜å¤„äºŽé‚£ä¸€ä¸ªå±‚çº§ä¹‹ä¸­
 	};
 	union {
-			char 	schoolName[MAX_NAMESIZE];	// ÃÅÅÉÃû³Æ£¬Èç¹ûÃ»ÓÐÃÅÅÉÎª¿Õ
-			char    prename[MAX_NAMESIZE];		// ËûµÄÊ¦ÐÖ
+			char 	schoolName[MAX_NAMESIZE];	// é—¨æ´¾åç§°ï¼Œå¦‚æžœæ²¡æœ‰é—¨æ´¾ä¸ºç©º
+			char    prename[MAX_NAMESIZE];		// ä»–çš„å¸ˆå…„
 	};
-	BYTE 	byState;							// ²Î¼û enum SCHOOL_ADD_MEMBER
-	WORD	wdOccupation;						// ÐÂ³ÉÔ±Ö°Òµ
-	WORD    level;					// ¼ÓÈë³ÉÔ±µÄµÈ¼¶
+	BYTE 	byState;							// å‚è§ enum SCHOOL_ADD_MEMBER
+	WORD	wdOccupation;						// æ–°æˆå‘˜èŒä¸š
+	WORD    level;					// åŠ å…¥æˆå‘˜çš„ç­‰çº§
 };
 
-// ½«Ö¸¶¨µÄÈË¿ª³ý³öÊ¦ÃÅ»òÕßÃÅÅÉ
+// å°†æŒ‡å®šçš„äººå¼€é™¤å‡ºå¸ˆé—¨æˆ–è€…é—¨æ´¾
 const BYTE FIRE_MEMBER_FROM_SCHOOL_PARA = 2;
 struct stFireMemberFromSchoolCmd : public stSchoolUserCmd
 {
@@ -6034,7 +6034,7 @@ struct stFireMemberFromSchoolCmd : public stSchoolUserCmd
 	char memberName[MAX_NAMESIZE];
 };
 
-/// ÃÅÅÉ´´½¨Ç°µÄÓÃ»§×´Ì¬¼ì²éÏûÏ¢
+/// é—¨æ´¾åˆ›å»ºå‰çš„ç”¨æˆ·çŠ¶æ€æ£€æŸ¥æ¶ˆæ¯
 const BYTE SCHOOL_STATUS_CHECK_PARA = 3;
 struct stSchoolStatusCheckCmd  : public stSchoolUserCmd
 {
@@ -6044,7 +6044,7 @@ struct stSchoolStatusCheckCmd  : public stSchoolUserCmd
 	}
 };
 
-// ÃÅÅÉ´´½¨ÃüÁî
+// é—¨æ´¾åˆ›å»ºå‘½ä»¤
 const BYTE CREATE_SCHOOL_PARA = 4;
 struct stCreateSchoolCmd: public stSchoolUserCmd
 {
@@ -6055,7 +6055,7 @@ struct stCreateSchoolCmd: public stSchoolUserCmd
 	char SchoolName[MAX_NAMESIZE];
 };
 
-// ÃÅÅÉ»òÊ¦ÃÅ³ÉÔ±ÉêÇëÍÑÀë¹ØÏµ
+// é—¨æ´¾æˆ–å¸ˆé—¨æˆå‘˜ç”³è¯·è„±ç¦»å…³ç³»
 const BYTE SCHOOLMEMBER_LEAVE_SCHOOL_PARA = 5;
 struct stSchoolMemberLeaveSchoolCmd : public stSchoolUserCmd
 {
@@ -6066,23 +6066,23 @@ struct stSchoolMemberLeaveSchoolCmd : public stSchoolUserCmd
 };
 
 enum SCHOOL_PACKAGE_TAG{
-	SCHOOL_PACKAGE_BODY=0,	// ÏûÏ¢°üÌå
-	SCHOOL_PACKAGE_HEAD=1,	// ÏûÏ¢°üÍ·
-	SCHOOL_PACKAGE_TAIL=2	// ÏûÏ¢°üÎ²
+	SCHOOL_PACKAGE_BODY=0,	// æ¶ˆæ¯åŒ…ä½“
+	SCHOOL_PACKAGE_HEAD=1,	// æ¶ˆæ¯åŒ…å¤´
+	SCHOOL_PACKAGE_TAIL=2	// æ¶ˆæ¯åŒ…å°¾
 };
 
 enum SCHOOL_LAYER {
-	SCHOOL_NEWLAYER,		// »»Ò»ÐÂ²ã
-	SCHOOL_NEWLINE,        // »»Ò»ÐÂÐÐ
-	SCHOOL_NONE				// ÎÞ¶¯×÷
+	SCHOOL_NEWLAYER,		// æ¢ä¸€æ–°å±‚
+	SCHOOL_NEWLINE,        // æ¢ä¸€æ–°è¡Œ
+	SCHOOL_NONE				// æ— åŠ¨ä½œ
 };
 
 struct stSchoolMember{
 	char name[MAX_NAMESIZE];
 	BYTE tag;		// enum SCHOOL_LAYER
-	WORD level;             // ³ÉÔ±µÈ¼¶
-	BYTE online;	// 0 ÎªÔÙ²»ÔÚÏß
-	WORD occupation;// Ö°ÒµÀàÐÍ
+	WORD level;             // æˆå‘˜ç­‰çº§
+	BYTE online;	// 0 ä¸ºå†ä¸åœ¨çº¿
+	WORD occupation;// èŒä¸šç±»åž‹
 };
 
 struct stTeacherMember{
@@ -6091,17 +6091,17 @@ struct stTeacherMember{
 		level = 0;
 	}
 	char name[MAX_NAMESIZE];
-	WORD degree;   // ÓÑºÃ¶È
+	WORD degree;   // å‹å¥½åº¦
 	BYTE tag;	// enum SCHOOL_MEMBER_TAG
-	WORD level;     // ³ÉÔ±µÈ¼¶
-	BYTE online;	// 0 ÎªÔÙ²»ÔÚÏß
-	WORD occupation;// Ö°ÒµÀàÐÍ
-	DWORD country;          // ¹ú¼®
-	char  unionName[MAX_NAMESIZE];  // ËùÊô°ï»á
-	char  septName[MAX_NAMESIZE];  // ËùÊô¼Ò×å
+	WORD level;     // æˆå‘˜ç­‰çº§
+	BYTE online;	// 0 ä¸ºå†ä¸åœ¨çº¿
+	WORD occupation;// èŒä¸šç±»åž‹
+	DWORD country;          // å›½ç±
+	char  unionName[MAX_NAMESIZE];  // æ‰€å±žå¸®ä¼š
+	char  septName[MAX_NAMESIZE];  // æ‰€å±žå®¶æ—
 };
 
-// ÃÅÅÉÐÅÏ¢ÁÐ±í
+// é—¨æ´¾ä¿¡æ¯åˆ—è¡¨
 const BYTE SENDLIST_SCHOOL_PARA = 6;
 struct stSendListSchoolCmd : public stSchoolUserCmd
 {
@@ -6116,14 +6116,14 @@ struct stSendListSchoolCmd : public stSchoolUserCmd
 };
 
 enum SCHOOL_MEMBER_TAG{
-	TEACHER,				// Ê¦¸µ
-	BIGBROTHER,				// Ê¦ÐÖ
-	LITTLEBROTHER,			// Ê¦µÜ
-	PRENTICE				// Í½µÜ
+	TEACHER,				// å¸ˆå‚…
+	BIGBROTHER,				// å¸ˆå…„
+	LITTLEBROTHER,			// å¸ˆå¼Ÿ
+	PRENTICE				// å¾’å¼Ÿ
 	
 };
 
-// Ê¦ÃÅÐÅÏ¢ÁÐ±í
+// å¸ˆé—¨ä¿¡æ¯åˆ—è¡¨
 const BYTE SENDMEMBERINFO_SCHOOL_PARA = 7;
 struct stSendMemberInfoCmd : public stSchoolUserCmd
 {
@@ -6131,8 +6131,8 @@ struct stSendMemberInfoCmd : public stSchoolUserCmd
 	{
 		byParam = SENDMEMBERINFO_SCHOOL_PARA;
 	}
-	WORD size; //´óÐ¡
-	stTeacherMember list[0]; // listÀï³ÉÔ±µÄtagÊ¹ÓÃ enum SCHOOL_MEMBER_TAG
+	WORD size; //å¤§å°
+	stTeacherMember list[0]; // listé‡Œæˆå‘˜çš„tagä½¿ç”¨ enum SCHOOL_MEMBER_TAG
 };
 
 enum {
@@ -6141,7 +6141,7 @@ enum {
 	SCHOOL_STATUS_SCHOOL
 };
 
-// ³õÊ¼»¯Í¨Öª
+// åˆå§‹åŒ–é€šçŸ¥
 const BYTE MEMBER_STATUS_SCHOOL_PARA = 8;
 struct stMemberStatusSchool : public stSchoolUserCmd
 {
@@ -6149,24 +6149,24 @@ struct stMemberStatusSchool : public stSchoolUserCmd
 	{
 		byParam = MEMBER_STATUS_SCHOOL_PARA;
 	}
-	char schoolName[MAX_NAMESIZE]; // ÃÅÅÉÃû×Ö
+	char schoolName[MAX_NAMESIZE]; // é—¨æ´¾åå­—
 	BYTE byStatus; //	SCHOOL_STATUS_NONE,	SCHOOL_STATUS_TEACHER,	SCHOOL_STATUS_SCHOOL
 };
 
 enum {
-	SCHOOL_MEMBER_OFFLINE=0,		// ÀëÏß×´Ì¬
-	SCHOOL_MEMBER_ONLINE=1			// ÔÚÏß×´Ì¬
+	SCHOOL_MEMBER_OFFLINE=0,		// ç¦»çº¿çŠ¶æ€
+	SCHOOL_MEMBER_ONLINE=1			// åœ¨çº¿çŠ¶æ€
 };
 
 const BYTE SCHOOL_MEMBER_STATUS_PARA =9;
 struct stSchoolMemberStatusCmd : public stSchoolUserCmd
 {
 	char	name[MAX_NAMESIZE];
-	BYTE	byState;						//	²Î¼û SCHOOL_MEMBER_ONLINE SCHOOL_MEMBER_OFFLINE
-	WORD    level;							//  ³ÉÔ±µÈ¼¶
-	DWORD	country;						//  ¹ú¼®
-	char	unionName[MAX_NAMESIZE];		//  ËùÊô°ï»á
-	char	septName[MAX_NAMESIZE];			//  ËùÊô¼Ò×å
+	BYTE	byState;						//	å‚è§ SCHOOL_MEMBER_ONLINE SCHOOL_MEMBER_OFFLINE
+	WORD    level;							//  æˆå‘˜ç­‰çº§
+	DWORD	country;						//  å›½ç±
+	char	unionName[MAX_NAMESIZE];		//  æ‰€å±žå¸®ä¼š
+	char	septName[MAX_NAMESIZE];			//  æ‰€å±žå®¶æ—
 	stSchoolMemberStatusCmd()
 	{
 		byParam = SCHOOL_MEMBER_STATUS_PARA;
@@ -6176,16 +6176,16 @@ struct stSchoolMemberStatusCmd : public stSchoolUserCmd
 #define BULLETIN_MAX_SIZE 1000
 
 enum {
-	SCHOOL_BULLETIN_SET,		// ÉèÖÃ¹«¸æ
-	SCHOOL_BULLETIN_GET,		// ÇëÇó¹«¸æÄÚÈÝ
-	SCHOOL_BULLETIN_EDIT		// ±à¼­ÇëÇó
+	SCHOOL_BULLETIN_SET,		// è®¾ç½®å…¬å‘Š
+	SCHOOL_BULLETIN_GET,		// è¯·æ±‚å…¬å‘Šå†…å®¹
+	SCHOOL_BULLETIN_EDIT		// ç¼–è¾‘è¯·æ±‚
 };
 
 const BYTE SCHOOL_BULLETIN__PARA =10;
 struct stSchoolBulletinCmd : public stSchoolUserCmd
 {
 	BYTE byState; // SCHOOL_BULLETIN_SET SCHOOL_BULLETIN_GET
-	WORD wdSize;  // ÎÞÄÚÈÝÉè0
+	WORD wdSize;  // æ— å†…å®¹è®¾0
 	char data[0];
 	stSchoolBulletinCmd()
 	{
@@ -6193,7 +6193,7 @@ struct stSchoolBulletinCmd : public stSchoolUserCmd
 	}
 };
 
-// ÃÅÅÉ½âÉ¢Ö¸Áî
+// é—¨æ´¾è§£æ•£æŒ‡ä»¤
 const BYTE DESTROY_SCHOOL_PARA = 11;
 struct stDestroySchoolCmd: public stSchoolUserCmd
 {
@@ -6214,12 +6214,12 @@ struct stSchoolBulletinNotifyCmd : public stSchoolUserCmd
 
 enum
 {
-	QUERY_SCHOOL_BOUNTY, // ²éÑ¯
-	GET_SCHOOL_BOUNTY,   // ÌáÈ¡
-	PUT_SCHOOL_BOUNTY,	// ½ø¹±
+	QUERY_SCHOOL_BOUNTY, // æŸ¥è¯¢
+	GET_SCHOOL_BOUNTY,   // æå–
+	PUT_SCHOOL_BOUNTY,	// è¿›è´¡
 };
 
-// ×öÎªÊ¦¸µ²éÑ¯»òÁìÈ¡½ø¹±
+// åšä¸ºå¸ˆå‚…æŸ¥è¯¢æˆ–é¢†å–è¿›è´¡
 #define REQ_MASTER_BOUNTY_PARA 13
 struct stReqMasterBountyUserCmd : public stSchoolUserCmd
 {
@@ -6231,7 +6231,7 @@ struct stReqMasterBountyUserCmd : public stSchoolUserCmd
 	BYTE byState;
 };
 
-// ×öÎªÍ½µÜ²éÑ¯ºÍ½øÐÐ½ø¹±
+// åšä¸ºå¾’å¼ŸæŸ¥è¯¢å’Œè¿›è¡Œè¿›è´¡
 #define REQ_PRENTICE_BOUNTY_PARA 14
 struct stReqPrenticeBountyUserCmd : public stSchoolUserCmd
 {
@@ -6243,7 +6243,7 @@ struct stReqPrenticeBountyUserCmd : public stSchoolUserCmd
 	BYTE byState;
 };
 
-// ·µ»ØÊ¦¸µ²éÑ¯
+// è¿”å›žå¸ˆå‚…æŸ¥è¯¢
 #define RTN_MASTER_BOUNTY_PARA 15
 struct stRtnMasterBountyUserCmd : public stSchoolUserCmd
 {
@@ -6254,11 +6254,11 @@ struct stRtnMasterBountyUserCmd : public stSchoolUserCmd
 		dwTotal = 0;
 	}
 
-	DWORD dwBalance; // ¿ÉÁìÈ¡µÄ½ð¶î
-	DWORD dwTotal;	// ÀÛ¼ÆÒÑÁìÈ¡µÄ½ð¶î
+	DWORD dwBalance; // å¯é¢†å–çš„é‡‘é¢
+	DWORD dwTotal;	// ç´¯è®¡å·²é¢†å–çš„é‡‘é¢
 };
 
-// ·µ»ØÍ½µÜ²éÑ¯
+// è¿”å›žå¾’å¼ŸæŸ¥è¯¢
 #define RTN_PRENTICE_BOUNTY_PARA 16
 struct stRtnPrenticeBountyUserCmd : public stSchoolUserCmd
 {
@@ -6271,19 +6271,19 @@ struct stRtnPrenticeBountyUserCmd : public stSchoolUserCmd
 		bzero(name, sizeof(name));
 	}
 	
-	DWORD dwBalance; // ¿É½ø¹±µÄ½ð¶î
-	DWORD dwTotal;   // ÀÛ¼ÆÒÑÁìÈ¡µÄ½ð¶î
-	DWORD dwLastLevel; // ÉÏ´ÎÁìÈ¡Ê±µÄµÈ¼¶
-	char name[MAX_NAMESIZE]; // Ê¦¸µµÄÐÕÃû
+	DWORD dwBalance; // å¯è¿›è´¡çš„é‡‘é¢
+	DWORD dwTotal;   // ç´¯è®¡å·²é¢†å–çš„é‡‘é¢
+	DWORD dwLastLevel; // ä¸Šæ¬¡é¢†å–æ—¶çš„ç­‰çº§
+	char name[MAX_NAMESIZE]; // å¸ˆå‚…çš„å§“å
 };
 
 //////////////////////////////////////////////////////////////
-// Ê¦Í½ÃÅÅÉ¹ØÏµÖ¸Áî¶¨Òå½áÊø
+// å¸ˆå¾’é—¨æ´¾å…³ç³»æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 /************************************************************
-************************ÈÎÎñÖ¸Áî¶¨Òå¿ªÊ¼*********************
+************************ä»»åŠ¡æŒ‡ä»¤å®šä¹‰å¼€å§‹*********************
 *************************************************************/
 struct stQuestUserCmd : public stNullUserCmd
 {
@@ -6291,7 +6291,7 @@ struct stQuestUserCmd : public stNullUserCmd
 	{
 		byCmd = TASK_USERCMD;	
 	}
-	DWORD id; //ÈÎÎñid
+	DWORD id; //ä»»åŠ¡id
 };
 
 static const BYTE QUEST_INFO_PARA = 1;
@@ -6319,11 +6319,11 @@ struct stQuestVarsUserCmd : public stQuestUserCmd
 	{
 		byParam = QUEST_VARS_PARA;	
 	}
-	BYTE count; //±äÁ¿ÊýÁ¿
+	BYTE count; //å˜é‡æ•°é‡
 	struct Var {
 		BYTE name[MAX_NSIZE];
 		BYTE value[MAX_VSIZE];	
-	} vars_list[0]; //±äÁ¿ÁÐ±í
+	} vars_list[0]; //å˜é‡åˆ—è¡¨
 };
 
 static const BYTE REQUEST_QUEST_PARA = 3;
@@ -6334,7 +6334,7 @@ struct stRequestQuestUserCmd : public stQuestUserCmd
 		byParam = REQUEST_QUEST_PARA;
 	}
 	char target[16];
-	BYTE offset; //ÈÎÎñ·ÖÖ§
+	BYTE offset; //ä»»åŠ¡åˆ†æ”¯
 };
 
 static const BYTE ABANDON_QUEST_PARA = 4;
@@ -6346,7 +6346,7 @@ struct stAbandonQuestUserCmd : public stQuestUserCmd
 	}
 };
 
-static const BYTE CART_CONTROL_QUEST_PARA = 5;//¿ØÖÆïÚ³µ×ßºÍÍ£
+static const BYTE CART_CONTROL_QUEST_PARA = 5;//æŽ§åˆ¶é•–è½¦èµ°å’Œåœ
 struct stCartControlQuestUserCmd : public stQuestUserCmd
 {
 	stCartControlQuestUserCmd()
@@ -6355,7 +6355,7 @@ struct stCartControlQuestUserCmd : public stQuestUserCmd
 	}
 };
 
-static const BYTE CHECK_VALID_QUEST_PARA = 6;//¼ì²é¿ÉÒÔ½ÓµÄÈÎÎñÁÐ±í
+static const BYTE CHECK_VALID_QUEST_PARA = 6;//æ£€æŸ¥å¯ä»¥æŽ¥çš„ä»»åŠ¡åˆ—è¡¨
 struct stCheckValidQuestUserCmd : public stQuestUserCmd
 {
 	stCheckValidQuestUserCmd()
@@ -6364,7 +6364,7 @@ struct stCheckValidQuestUserCmd : public stQuestUserCmd
 	}
 };
 
-static const BYTE REQ_VALID_QUEST_PARA = 7;//¼ì²é¿ÉÒÔ½ÓµÄÈÎÎñÁÐ±í
+static const BYTE REQ_VALID_QUEST_PARA = 7;//æ£€æŸ¥å¯ä»¥æŽ¥çš„ä»»åŠ¡åˆ—è¡¨
 struct stReqValidQuestUserCmd : public stQuestUserCmd
 {
 	stReqValidQuestUserCmd()
@@ -6373,7 +6373,7 @@ struct stReqValidQuestUserCmd : public stQuestUserCmd
 	}
 };
 
-static const BYTE RET_VALID_QUEST_PARA = 8;//·µ»Ø¿ÉÒÔ½ÓµÄÈÎÎñÁÐ±í
+static const BYTE RET_VALID_QUEST_PARA = 8;//è¿”å›žå¯ä»¥æŽ¥çš„ä»»åŠ¡åˆ—è¡¨
 struct stRetValidQuestUserCmd : public stQuestUserCmd
 {
 	stRetValidQuestUserCmd()
@@ -6386,12 +6386,12 @@ struct stRetValidQuestUserCmd : public stQuestUserCmd
 };
 
 /************************************************************
-************************ÈÎÎñÖ¸Áî¶¨Òå½áÊø*********************
+************************ä»»åŠ¡æŒ‡ä»¤å®šä¹‰ç»“æŸ*********************
 *************************************************************/
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ¼Ò×åÖ¸Áî¶¨Òå¿ªÊ¼
+// å®¶æ—æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stSeptUserCmd : public stNullUserCmd
 {
@@ -6401,7 +6401,7 @@ struct stSeptUserCmd : public stNullUserCmd
 	}
 };
 
-/// ¼Ò×å´´½¨Ç°µÄÓÃ»§×´Ì¬¼ì²éÏûÏ¢
+/// å®¶æ—åˆ›å»ºå‰çš„ç”¨æˆ·çŠ¶æ€æ£€æŸ¥æ¶ˆæ¯
 const BYTE SEPT_STATUS_CHECK_PARA = 1;
 struct stSeptStatusCheckCmd  : public stSeptUserCmd
 {
@@ -6412,7 +6412,7 @@ struct stSeptStatusCheckCmd  : public stSeptUserCmd
 	}
 };
 
-// ¼Ò×å´´½¨ÃüÁî
+// å®¶æ—åˆ›å»ºå‘½ä»¤
 const BYTE CREATE_SEPT_PARA = 2;
 struct stCreateSeptCmd: public stSeptUserCmd
 {
@@ -6420,10 +6420,10 @@ struct stCreateSeptCmd: public stSeptUserCmd
 	{
 		byParam = CREATE_SEPT_PARA;
 	}
-	char SeptName[MAX_NAMESIZE];  // ¼Ò×åÃû³Æ
+	char SeptName[MAX_NAMESIZE];  // å®¶æ—åç§°
 };
 
-// ¼Ò×å´´½¨³É¹¦Í¨ÖªÖ¸Áî
+// å®¶æ—åˆ›å»ºæˆåŠŸé€šçŸ¥æŒ‡ä»¤
 const BYTE SERVER_RETURN_SEPT_CREATE_FAILED = 3;
 struct stServerReturnSeptCheckCmd : public stSeptUserCmd
 {
@@ -6434,16 +6434,16 @@ struct stServerReturnSeptCheckCmd : public stSeptUserCmd
 };
 
 struct stSeptRember{
-	char  memberName[MAX_NAMESIZE];				// ¼Ò×å³ÉÔ±Ãû³Æ
-	WORD  level;						// ³ÉÔ±µÈ¼¶
-	BYTE  byOnline;						// ³ÉÔ±ÔÚÏß±êÖ¾ 0 Îª²»ÔÚÏß ·Ç0ÎªÔÚÏß
-	WORD  occupation;					// Ö°ÒµÀàÐÍ
-	DWORD exploit;						// ¹¦Ñ«Öµ
-	DWORD grace;						// ÎÄ²ÉÖµ
-	char memberAliasName[MAX_NAMESIZE];			// ×åÔ±±ðÃû
+	char  memberName[MAX_NAMESIZE];				// å®¶æ—æˆå‘˜åç§°
+	WORD  level;						// æˆå‘˜ç­‰çº§
+	BYTE  byOnline;						// æˆå‘˜åœ¨çº¿æ ‡å¿— 0 ä¸ºä¸åœ¨çº¿ éž0ä¸ºåœ¨çº¿
+	WORD  occupation;					// èŒä¸šç±»åž‹
+	DWORD exploit;						// åŠŸå‹‹å€¼
+	DWORD grace;						// æ–‡é‡‡å€¼
+	char memberAliasName[MAX_NAMESIZE];			// æ—å‘˜åˆ«å
 };
 
-// ·þÎñÆ÷·µ»Ø¼Ò×å³ÉÔ±ÁÐ±í£¬¼°ÇëÇóÕßµÄ¸öÈË¼Ò×åÐÅÏ¢
+// æœåŠ¡å™¨è¿”å›žå®¶æ—æˆå‘˜åˆ—è¡¨ï¼ŒåŠè¯·æ±‚è€…çš„ä¸ªäººå®¶æ—ä¿¡æ¯
 const BYTE ALL_SEPT_MEMBER_PARA = 5;
 struct stAllSeptMemberCmd : public stSeptUserCmd
 {
@@ -6451,32 +6451,32 @@ struct stAllSeptMemberCmd : public stSeptUserCmd
 	{
 		byParam = ALL_SEPT_MEMBER_PARA;
 	}
-	WORD size;                     // ÊýÁ¿
-	stSeptRember memberList[0];   // ³ÉÔ±ÁÐ±í
+	WORD size;                     // æ•°é‡
+	stSeptRember memberList[0];   // æˆå‘˜åˆ—è¡¨
 };
 
 
 enum SEPT_ADD_MEMBER{
-			SEPT_QUESTION,          // ·¢³öÑûÇëÄ³ÈËµÄÑ¯ÎÊ
-			SEPT_ANSWER_YES,        // È·ÈÏÑûÇë
-			SEPT_ANSWER_NO          // ·ñ¶¨ÑûÇë
+			SEPT_QUESTION,          // å‘å‡ºé‚€è¯·æŸäººçš„è¯¢é—®
+			SEPT_ANSWER_YES,        // ç¡®è®¤é‚€è¯·
+			SEPT_ANSWER_NO          // å¦å®šé‚€è¯·
 };
 
-// ÑûÇëËûÈË¼ÓÈë¼Ò×å
-const BYTE ADD_MEMBER_TO_SEPT_PARA = 7;  // Õâ¸öÏûÏ¢ÓÉ¿Í»§¶Ë·¢µ½·þÎñ¶ËÊÇÑûÇëÄ³ÈË£¬ÓÉ·þÎñ¶Ë·¢µ½¿Í»§¶ËÊÇÑ¯ÎÊÄ³ÈËÊÇ·ñ½ÓÊÜÑûÇë
+// é‚€è¯·ä»–äººåŠ å…¥å®¶æ—
+const BYTE ADD_MEMBER_TO_SEPT_PARA = 7;  // è¿™ä¸ªæ¶ˆæ¯ç”±å®¢æˆ·ç«¯å‘åˆ°æœåŠ¡ç«¯æ˜¯é‚€è¯·æŸäººï¼Œç”±æœåŠ¡ç«¯å‘åˆ°å®¢æˆ·ç«¯æ˜¯è¯¢é—®æŸäººæ˜¯å¦æŽ¥å—é‚€è¯·
 struct stAddMemberToSeptCmd : public stSeptUserCmd
 {
 	stAddMemberToSeptCmd()
 	{
 		byParam = ADD_MEMBER_TO_SEPT_PARA;
 	}
-	char 	memberName[MAX_NAMESIZE];   // ±»ÑûÇëµÄÈË
-	DWORD memberID;                   // ±»ÑûÇëÈËID
-	char 	septName[MAX_NAMESIZE];    // ¼Ò×åÃû³Æ
-	BYTE 	byState;                    // ²Î¼û enum SEPT_ADD_MEMBER
+	char 	memberName[MAX_NAMESIZE];   // è¢«é‚€è¯·çš„äºº
+	DWORD memberID;                   // è¢«é‚€è¯·äººID
+	char 	septName[MAX_NAMESIZE];    // å®¶æ—åç§°
+	BYTE 	byState;                    // å‚è§ enum SEPT_ADD_MEMBER
 };
 
-// ¿ª³ý¼Ò×å³ÉÔ±
+// å¼€é™¤å®¶æ—æˆå‘˜
 const BYTE FIRE_MEMBER_FROM_SEPT_PARA = 8;
 struct stFireMemberFromSeptCmd : public stSeptUserCmd
 {
@@ -6488,14 +6488,14 @@ struct stFireMemberFromSeptCmd : public stSeptUserCmd
 };
 
 enum{
-		 SEPT_MEMBER_STATUS_ONLINE,          // ¼Ò×å³ÉÔ±ÉÏÏß
-		 SEPT_MEMBER_STATUS_OFFLINE,         // ¼Ò×å³ÉÔ±ÏÂÏß
-		 SEPT_MEMBER_STATUS_FIRE,            // ¼Ò×å³ÉÔ±±»¿ª³ý
-		 SEPT_MEMBER_STATUS_NEWMEMBER,       // ÐÂÔö¼Ó¼Ò×å³ÉÔ±
-		 SEPT_MEMBER_STATUS_ALIASCHANGE,     // ¸ü¸Ä±ðÃû
+		 SEPT_MEMBER_STATUS_ONLINE,          // å®¶æ—æˆå‘˜ä¸Šçº¿
+		 SEPT_MEMBER_STATUS_OFFLINE,         // å®¶æ—æˆå‘˜ä¸‹çº¿
+		 SEPT_MEMBER_STATUS_FIRE,            // å®¶æ—æˆå‘˜è¢«å¼€é™¤
+		 SEPT_MEMBER_STATUS_NEWMEMBER,       // æ–°å¢žåŠ å®¶æ—æˆå‘˜
+		 SEPT_MEMBER_STATUS_ALIASCHANGE,     // æ›´æ”¹åˆ«å
 };
 
-// ·þÎñ¶Ë¸üÐÂ¼Ò×å³ÉÔ±×´Ì¬¼°ÐÅÏ¢Í¨ÖªÏûÏ¢ ×´Ì¬¼ûÉÏ±í
+// æœåŠ¡ç«¯æ›´æ–°å®¶æ—æˆå‘˜çŠ¶æ€åŠä¿¡æ¯é€šçŸ¥æ¶ˆæ¯ çŠ¶æ€è§ä¸Šè¡¨
 const BYTE BROADCAST_SEPT_MEMBER_INFO_PARA = 10;
 struct stBroadcastSeptMemberInfo : public stSeptUserCmd
 {
@@ -6508,16 +6508,16 @@ struct stBroadcastSeptMemberInfo : public stSeptUserCmd
 		exploit = 0;
 		grace = 0;
 	}
-	BYTE byStatus;                       // ³ÉÔ±×´Ì¬
-	WORD wdOccupation;	 	     // ³ÉÔ±Ö°Òµ
-	WORD level;			     // ³ÉÔ±µÈ¼¶
-	char name[MAX_NAMESIZE];             // ³ÉÔ±Ãû³Æ
-	char aliasName[MAX_NAMESIZE];	     // ³ÉÔ±±ðÃû
-	DWORD exploit;			     // ¹¦Ñ«Öµ
-	DWORD grace;			     // ÎÄ²ÉÖµ
+	BYTE byStatus;                       // æˆå‘˜çŠ¶æ€
+	WORD wdOccupation;	 	     // æˆå‘˜èŒä¸š
+	WORD level;			     // æˆå‘˜ç­‰çº§
+	char name[MAX_NAMESIZE];             // æˆå‘˜åç§°
+	char aliasName[MAX_NAMESIZE];	     // æˆå‘˜åˆ«å
+	DWORD exploit;			     // åŠŸå‹‹å€¼
+	DWORD grace;			     // æ–‡é‡‡å€¼
 };
 
-// ·þÎñÆ÷¶Ë·¢ËÍ¼Ò×åÐÅÏ¢
+// æœåŠ¡å™¨ç«¯å‘é€å®¶æ—ä¿¡æ¯
 const BYTE SEPT_BASE_INFO_PARA = 11;
 struct stSeptBaseInfoCmd : public stSeptUserCmd
 {
@@ -6527,14 +6527,14 @@ struct stSeptBaseInfoCmd : public stSeptUserCmd
 		dwLevel = 0;
 	}
 	DWORD dwMasterTempID;
-	char  septName[MAX_NAMESIZE];         // ¼Ò×åÃû³Æ
-	char  master[MAX_NAMESIZE];            // ¼Ò×å×å³¤
+	char  septName[MAX_NAMESIZE];         // å®¶æ—åç§°
+	char  master[MAX_NAMESIZE];            // å®¶æ—æ—é•¿
 	char  note[255];
-	DWORD dwRepute;			// ¼Ò×åÉùÍû
-	DWORD dwLevel;			// ¼Ò×åµÈ¼¶
+	DWORD dwRepute;			// å®¶æ—å£°æœ›
+	DWORD dwLevel;			// å®¶æ—ç­‰çº§
 };
 
-// ¼Ò×å³ÉÔ±ÉêÇëÍË×å
+// å®¶æ—æˆå‘˜ç”³è¯·é€€æ—
 const BYTE SEPTMEMBER_LEAVE_SEPT_PARA = 12;
 struct stSeptMemberLeaveSeptCmd : public stSeptUserCmd
 {
@@ -6551,7 +6551,7 @@ struct stSeptVoteRecord{
 	char note[255];
 };
 
-// ¼Ò×åÍ¶Æ±ÁÐ±í
+// å®¶æ—æŠ•ç¥¨åˆ—è¡¨
 const BYTE VOTELIST_SEPT_PARA = 13;
 struct stVoteListSeptCmd : public stSeptUserCmd
 {
@@ -6561,11 +6561,11 @@ struct stVoteListSeptCmd : public stSeptUserCmd
 	}
 	char septName[MAX_NAMESIZE];
 	DWORD dwSize;
-	BYTE flag; // 0ÎªÏûÏ¢Í· 1ÎªºóÐøÏûÏ¢
+	BYTE flag; // 0ä¸ºæ¶ˆæ¯å¤´ 1ä¸ºåŽç»­æ¶ˆæ¯
 	stSeptVoteRecord data[0];
 };
 
-// ¼Ò×åÍ¶Æ±ÏûÏ¢
+// å®¶æ—æŠ•ç¥¨æ¶ˆæ¯
 const BYTE VOTE_SEPT_PARA = 14;
 struct stVoteSeptCmd : public stSeptUserCmd
 {
@@ -6574,10 +6574,10 @@ struct stVoteSeptCmd : public stSeptUserCmd
 		byParam = VOTE_SEPT_PARA;
 	}
 	char septName[MAX_NAMESIZE];
-	BYTE bySuccess;   // Îª1Îª³É¹¦ Îª0ÎªÊ§°Ü
+	BYTE bySuccess;   // ä¸º1ä¸ºæˆåŠŸ ä¸º0ä¸ºå¤±è´¥
 };
 
-// ¼Ò×åÉèÖÃ°ï»áËµÃ÷
+// å®¶æ—è®¾ç½®å¸®ä¼šè¯´æ˜Ž
 const BYTE NOTE_SEPT_PARA = 15;
 struct stNoteSeptCmd : public stSeptUserCmd
 {
@@ -6588,7 +6588,7 @@ struct stNoteSeptCmd : public stSeptUserCmd
 	char noteBuf[255];
 };
 
-// ¼Ò×å³ÉÔ±±ðÃûÉèÖÃ
+// å®¶æ—æˆå‘˜åˆ«åè®¾ç½®
 const BYTE CHANGE_SEPT_MEMBER_ALIASNAME_PARA = 16;
 struct stChangeSeptMemberAliasName : public stSeptUserCmd
 {
@@ -6597,11 +6597,11 @@ struct stChangeSeptMemberAliasName : public stSeptUserCmd
 		byParam = CHANGE_SEPT_MEMBER_ALIASNAME_PARA;
 	}
 
-	char name[MAX_NAMESIZE];             // ×åÔ±ÐÕÃû
-	char aliasname[MAX_NAMESIZE];        // ×åÔ±±ðÃû
+	char name[MAX_NAMESIZE];             // æ—å‘˜å§“å
+	char aliasname[MAX_NAMESIZE];        // æ—å‘˜åˆ«å
 };
 
-// ¼Ò×å³ÉÔ±¾èÏ×ÈÙÓþµã
+// å®¶æ—æˆå‘˜æçŒ®è£èª‰ç‚¹
 const BYTE DONATE_HONOR_PARA = 17;
 struct stDonateHonor : public stSeptUserCmd
 {
@@ -6616,11 +6616,11 @@ struct stDonateHonor : public stSeptUserCmd
 
 enum
 {
-	COUNTRY_SEPT_SORT, 	// ±¾¹ú¼Ò×åÅÅÐÐ°ñ
-	WORLD_SEPT_SORT,	// ÊÀ½ç¼Ò×åÅÅÐÐ°ñ
+	COUNTRY_SEPT_SORT, 	// æœ¬å›½å®¶æ—æŽ’è¡Œæ¦œ
+	WORLD_SEPT_SORT,	// ä¸–ç•Œå®¶æ—æŽ’è¡Œæ¦œ
 };
 
-// ²éÑ¯¼Ò×åÅÅÐÐ°ñ£¨¸ù¾ÝÉùÍû£©
+// æŸ¥è¯¢å®¶æ—æŽ’è¡Œæ¦œï¼ˆæ ¹æ®å£°æœ›ï¼‰
 const BYTE REQ_SEPT_SORT_PARA = 18;
 struct stReqSeptSort : public stSeptUserCmd
 {
@@ -6635,13 +6635,13 @@ struct stReqSeptSort : public stSeptUserCmd
 
 struct stSeptSortInfo
 {
-	char  septName[MAX_NAMESIZE];         	// ¼Ò×åÃû³Æ
-	DWORD dwRepute;				// ¼Ò×åÉùÍû
-	DWORD dwOrder;				// ¼Ò×åÅÅÃû
-	DWORD dwCountryID;			// ¹ú¼ÒID
+	char  septName[MAX_NAMESIZE];         	// å®¶æ—åç§°
+	DWORD dwRepute;				// å®¶æ—å£°æœ›
+	DWORD dwOrder;				// å®¶æ—æŽ’å
+	DWORD dwCountryID;			// å›½å®¶ID
 };
 
-// ·µ»Ø¼Ò×åÅÅÐÐ°ñ£¨¸ù¾ÝÉùÍû£©
+// è¿”å›žå®¶æ—æŽ’è¡Œæ¦œï¼ˆæ ¹æ®å£°æœ›ï¼‰
 const BYTE RTN_SEPT_SORT_PARA = 19;
 struct stRtnSeptSort : public stSeptUserCmd
 {
@@ -6662,7 +6662,7 @@ struct stSeptRecord{
 	char note[255];
 };
 
-// ¼Ò×åÍ¶Æ±ÁÐ±í
+// å®¶æ—æŠ•ç¥¨åˆ—è¡¨
 const BYTE LIST_SEPT_PARA = 20;
 struct stListSeptCmd : public stSeptUserCmd
 {
@@ -6671,7 +6671,7 @@ struct stListSeptCmd : public stSeptUserCmd
 		byParam = LIST_SEPT_PARA;
 	}
 	DWORD dwSize;
-	BYTE flag; // 0ÎªÏûÏ¢Í· 1ÎªºóÐøÏûÏ¢
+	BYTE flag; // 0ä¸ºæ¶ˆæ¯å¤´ 1ä¸ºåŽç»­æ¶ˆæ¯
 	stSeptRecord data[0];
 };
 
@@ -6681,7 +6681,7 @@ enum {
 	REQUEST_JOIN_TIMEOUT
 };
 
-// ÇëÇó¼ÓÈë¼Ò×åÏûÏ¢
+// è¯·æ±‚åŠ å…¥å®¶æ—æ¶ˆæ¯
 const BYTE REQUEST_JOIN_SEPT_PARA = 21;
 struct stRequestJoinSeptCmd : public stSeptUserCmd
 {
@@ -6689,11 +6689,11 @@ struct stRequestJoinSeptCmd : public stSeptUserCmd
 	{
 		byParam = REQUEST_JOIN_SEPT_PARA;
 	}
-	char name[MAX_NAMESIZE]; //·¢¸ø·þÎñÆ÷µÄÊ±ºòÌî¶Ô·½×å³¤µÄÃû×Ö£¬·þÎñÆ÷·¢³öÀ´µÄÊ±ºòÌîµÄÊÇÇëÇóÈËµÄÃû×Ö
+	char name[MAX_NAMESIZE]; //å‘ç»™æœåŠ¡å™¨çš„æ—¶å€™å¡«å¯¹æ–¹æ—é•¿çš„åå­—ï¼ŒæœåŠ¡å™¨å‘å‡ºæ¥çš„æ—¶å€™å¡«çš„æ˜¯è¯·æ±‚äººçš„åå­—
 	BYTE status;
 };
 
-// ÇëÇó¼Ò×åÕ¼ÁìNPCÐÅÏ¢
+// è¯·æ±‚å®¶æ—å é¢†NPCä¿¡æ¯
 const BYTE REQUEST_NPCINFO_SEPT_PARA = 22;
 struct stRequestNpcInfoSeptCmd : public stSeptUserCmd
 {
@@ -6703,7 +6703,7 @@ struct stRequestNpcInfoSeptCmd : public stSeptUserCmd
 	}
 };
 
-// ÇëÇóÁìÈ¡¼Ò×å¾­Ñé
+// è¯·æ±‚é¢†å–å®¶æ—ç»éªŒ
 const BYTE REQUEST_SEPT_EXP_PARA = 23;
 struct stRequestSeptExpCmd : public stSeptUserCmd
 {
@@ -6713,7 +6713,7 @@ struct stRequestSeptExpCmd : public stSeptUserCmd
 	}
 };
 
-// ÇëÇó·ÅÆúÕ¼Áì¸ÃNPC
+// è¯·æ±‚æ”¾å¼ƒå é¢†è¯¥NPC
 const BYTE REQUEST_ABJURATION_SEPTNPC_PARA = 24;
 struct stRequestAbjurationSeptNpcSeptCmd : public stSeptUserCmd
 {
@@ -6723,7 +6723,7 @@ struct stRequestAbjurationSeptNpcSeptCmd : public stSeptUserCmd
 	}
 };
 
-// ÇëÇó¼Ò×åÃû³Æ
+// è¯·æ±‚å®¶æ—åç§°
 const BYTE REQ_SEPT_NAME_PARA = 25;
 struct stReqSeptNameCmd : public stSeptUserCmd
 {
@@ -6736,7 +6736,7 @@ struct stReqSeptNameCmd : public stSeptUserCmd
 	DWORD dwSeptID;
 };
 
-// ÇëÇó¼Ò×åÃû³Æ
+// è¯·æ±‚å®¶æ—åç§°
 const BYTE RTN_SEPT_NAME_PARA = 26;
 struct stRtnSeptNameCmd : public stSeptUserCmd
 {
@@ -6750,7 +6750,7 @@ struct stRtnSeptNameCmd : public stSeptUserCmd
 	DWORD dwSeptID;
 	char name[MAX_NAMESIZE];
 };
-// ÇëÇó¼Ò×åÃû³ÆÁÐ±í
+// è¯·æ±‚å®¶æ—åç§°åˆ—è¡¨
 const BYTE REQ_SEPT_NAME_LIST_PARA = 27;
 struct stReqSeptNameListCmd : public stSeptUserCmd
 {
@@ -6763,7 +6763,7 @@ struct stReqSeptNameListCmd : public stSeptUserCmd
 	DWORD dwSeptID[0];
 };
 
-// ÇëÇó¼Ò×åÃû³ÆÁÐ±í
+// è¯·æ±‚å®¶æ—åç§°åˆ—è¡¨
 const BYTE RTN_SEPT_NAME_LIST_PARA = 28;
 struct stRtnSeptNameListCmd : public stSeptUserCmd
 {
@@ -6780,7 +6780,7 @@ struct stRtnSeptNameListCmd : public stSeptUserCmd
 	} list[0];
 };
 
-// ÇëÇóÁìÈ¡¼Ò×å¾­Ñé
+// è¯·æ±‚é¢†å–å®¶æ—ç»éªŒ
 const BYTE REQUEST_SEPT_NORMAL_EXP_PARA = 29;
 struct stRequestSeptNormalExpCmd : public stSeptUserCmd
 {
@@ -6791,12 +6791,12 @@ struct stRequestSeptNormalExpCmd : public stSeptUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-// ¼Ò×åÖ¸Áî¶¨Òå½áÊø
+// å®¶æ—æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ³èÎïÖ¸Áî¶¨Òå¿ªÊ¼
+// å® ç‰©æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stPetUserCmd : public stNullUserCmd
 {
@@ -6806,16 +6806,16 @@ struct stPetUserCmd : public stNullUserCmd
 	}
 };
 
-//³èÎïAIÄ£Ê½
+//å® ç‰©AIæ¨¡å¼
 enum petAIMode
 {
-	PETAI_MOVE_FOLLOW	= 0x0001,	//¸úËæ
-	PETAI_MOVE_STAND	= 0x0002,	//Õ¾Á¢²»¶¯
-	PETAI_ATK_ACTIVE	= 0x0100,	//¹¥»÷ËùÓÐµÐÈË
-	PETAI_ATK_PASSIVE	= 0x0200,	//¹¥»÷ÕýÔÚ¹¥»÷Ö÷ÈËµÄµÐÈË
-	PETAI_ATK_NOATK		= 0x0400	//²»Õ½¶·
+	PETAI_MOVE_FOLLOW	= 0x0001,	//è·Ÿéš
+	PETAI_MOVE_STAND	= 0x0002,	//ç«™ç«‹ä¸åŠ¨
+	PETAI_ATK_ACTIVE	= 0x0100,	//æ”»å‡»æ‰€æœ‰æ•Œäºº
+	PETAI_ATK_PASSIVE	= 0x0200,	//æ”»å‡»æ­£åœ¨æ”»å‡»ä¸»äººçš„æ•Œäºº
+	PETAI_ATK_NOATK		= 0x0400	//ä¸æˆ˜æ–—
 };
-// ÉèÖÃ³èÎïµÄAIÄ£Ê½
+// è®¾ç½®å® ç‰©çš„AIæ¨¡å¼
 const BYTE SETAI_PET_PARA = 1;
 struct stSetAIPetCmd : public stPetUserCmd
 {
@@ -6827,52 +6827,52 @@ struct stSetAIPetCmd : public stPetUserCmd
 	petAIMode mode;
 };
 
-//³èÎï×´Ì¬
+//å® ç‰©çŠ¶æ€
 enum petState
 {
-	PET_STATE_NOPET		= 0,	//Ã»ÓÐ³èÎï
-	PET_STATE_NORMAL	= 1,	//ÆÕÍ¨
-	PET_STATE_PUTUP		= 2,	//ÊÕÆð
-	PET_STATE_DEAD		= 3,	//ËÀÍö
-	PET_STATE_CONSIGN	= 4		//¼Ä´æ
+	PET_STATE_NOPET		= 0,	//æ²¡æœ‰å® ç‰©
+	PET_STATE_NORMAL	= 1,	//æ™®é€š
+	PET_STATE_PUTUP		= 2,	//æ”¶èµ·
+	PET_STATE_DEAD		= 3,	//æ­»äº¡
+	PET_STATE_CONSIGN	= 4		//å¯„å­˜
 };
 
-//³èÎïµÄÊý¾Ý
+//å® ç‰©çš„æ•°æ®
 struct t_PetData
 {
 	DWORD id;		//npcid
-	char name[MAX_NAMESIZE];//Ãû×Ö
-	BYTE lv;		//µÈ¼¶
-	DWORD hp;		//ÉúÃü
-	DWORD maxhp;		//×î´óÉúÃü
-	WORD str;		//Á¦Á¿
-	WORD intel;		//ÖÇÁ¦
-	WORD agi;		//Ãô½Ý
-	WORD men;		//¾«Éñ
-	WORD vit;		//ÌåÖÊ
-	DWORD exp;		//¾­Ñé
-	DWORD maxexp;		//×î´ó¾­Ñé
-	DWORD atk;		//¹¥»÷Á¦
-	DWORD maxatk;		//×î´ó¹¥»÷Á¦
-	DWORD matk;		//Ä§¹¥
-	DWORD maxmatk;		//×î´óÄ§¹¥
-	DWORD def;		//Îï·À
-	DWORD mdef;		//Ä§·À
-	WORD cri;		//±¬»÷
-	DWORD skills[4];	//¼¼ÄÜ
+	char name[MAX_NAMESIZE];//åå­—
+	BYTE lv;		//ç­‰çº§
+	DWORD hp;		//ç”Ÿå‘½
+	DWORD maxhp;		//æœ€å¤§ç”Ÿå‘½
+	WORD str;		//åŠ›é‡
+	WORD intel;		//æ™ºåŠ›
+	WORD agi;		//æ•æ·
+	WORD men;		//ç²¾ç¥ž
+	WORD vit;		//ä½“è´¨
+	DWORD exp;		//ç»éªŒ
+	DWORD maxexp;		//æœ€å¤§ç»éªŒ
+	DWORD atk;		//æ”»å‡»åŠ›
+	DWORD maxatk;		//æœ€å¤§æ”»å‡»åŠ›
+	DWORD matk;		//é­”æ”»
+	DWORD maxmatk;		//æœ€å¤§é­”æ”»
+	DWORD def;		//ç‰©é˜²
+	DWORD mdef;		//é­”é˜²
+	WORD cri;		//çˆ†å‡»
+	DWORD skills[4];	//æŠ€èƒ½
 	WORD ai;		//AI
-	DWORD maxhp_plus;	//¸½¼Ó×î´óÉúÃü
-	WORD atk_plus;		//¸½¼ÓÎïÀí¹¥»÷Á¦
-	WORD maxatk_plus;	//¸½¼Ó×î´óÎïÀí¹¥»÷Á¦
-	WORD matk_plus;		//¸½¼ÓÄ§·¨¹¥»÷Á¦
-	WORD maxmatk_plus;	//¸½¼Ó×î´óÄ§·¨¹¥»÷Á¦
-	WORD pdef_plus;		//¸½¼ÓÎï·À
-	WORD mdef_plus;		//¸½¼ÓÄ§·À
-	petType type;		//ÀàÐÍ
-	petState state;		//×´Ì¬
+	DWORD maxhp_plus;	//é™„åŠ æœ€å¤§ç”Ÿå‘½
+	WORD atk_plus;		//é™„åŠ ç‰©ç†æ”»å‡»åŠ›
+	WORD maxatk_plus;	//é™„åŠ æœ€å¤§ç‰©ç†æ”»å‡»åŠ›
+	WORD matk_plus;		//é™„åŠ é­”æ³•æ”»å‡»åŠ›
+	WORD maxmatk_plus;	//é™„åŠ æœ€å¤§é­”æ³•æ”»å‡»åŠ›
+	WORD pdef_plus;		//é™„åŠ ç‰©é˜²
+	WORD mdef_plus;		//é™„åŠ é­”é˜²
+	petType type;		//ç±»åž‹
+	petState state;		//çŠ¶æ€
 };
 
-// ÇëÇó³èÎïµÄÊý¾Ý
+// è¯·æ±‚å® ç‰©çš„æ•°æ®
 const BYTE REQUESTDATA_PET_PARA = 2;
 struct stRequestDataPetCmd : public stPetUserCmd
 {
@@ -6883,7 +6883,7 @@ struct stRequestDataPetCmd : public stPetUserCmd
 	petType type;
 };
 
-//·µ»Ø³èÎïµÄÊý¾Ý
+//è¿”å›žå® ç‰©çš„æ•°æ®
 const BYTE REFRESHDATA_PET_PARA = 3;
 struct stRefreshDataPetCmd : public stPetUserCmd
 {
@@ -6898,7 +6898,7 @@ struct stRefreshDataPetCmd : public stPetUserCmd
 	t_PetData data;
 };
 
-//¸Ä³èÎïÃû×Ö
+//æ”¹å® ç‰©åå­—
 const BYTE CHANGENAME_PET_PARA = 4;
 struct stChangeNamePetCmd : public stPetUserCmd
 {
@@ -6910,7 +6910,7 @@ struct stChangeNamePetCmd : public stPetUserCmd
 	char name[MAX_NAMESIZE];
 };
 
-//Ôö¼Ó³èÎï
+//å¢žåŠ å® ç‰©
 const BYTE ADDPET_PET_PARA = 5;
 struct stAddPetPetCmd : public stPetUserCmd
 {
@@ -6922,7 +6922,7 @@ struct stAddPetPetCmd : public stPetUserCmd
 	DWORD id;
 };
 
-//É¾³ý³èÎï
+//åˆ é™¤å® ç‰©
 const BYTE DELPET_PET_PARA = 6;
 struct stDelPetPetCmd : public stPetUserCmd
 {
@@ -6934,7 +6934,7 @@ struct stDelPetPetCmd : public stPetUserCmd
 	DWORD id;
 };
 
-//É¾³ý¼¼ÄÜ
+//åˆ é™¤æŠ€èƒ½
 const BYTE DELSKILL_PET_PARA = 7;
 struct stDelSkillPetCmd : public stPetUserCmd
 {
@@ -6942,11 +6942,11 @@ struct stDelSkillPetCmd : public stPetUserCmd
 	{
 		byParam = DELSKILL_PET_PARA;
 	}
-	petType type;///³èÎïÀàÐÍ
-	DWORD id;///¼¼ÄÜid
+	petType type;///å® ç‰©ç±»åž‹
+	DWORD id;///æŠ€èƒ½id
 };
 
-//ÕÙ»½Âí³öÀ´¸úËæ
+//å¬å”¤é©¬å‡ºæ¥è·Ÿéš
 const BYTE CALLHORSE_PET_PARA = 8;
 struct stCallHorsePetCmd : public stPetUserCmd
 {
@@ -6956,7 +6956,7 @@ struct stCallHorsePetCmd : public stPetUserCmd
 	}
 };
 
-//ÊÕÆðÂíÆ¥
+//æ”¶èµ·é©¬åŒ¹
 const BYTE PUTHORSE_PET_PARA = 9;
 struct stPutHorsePetCmd : public stPetUserCmd
 {
@@ -6966,7 +6966,7 @@ struct stPutHorsePetCmd : public stPetUserCmd
 	}
 };
 
-//Ë¢ÐÂÂíµÄÊý¾Ý
+//åˆ·æ–°é©¬çš„æ•°æ®
 const BYTE HORSEDATA_PET_PARA = 10;
 struct stHorseDataPetCmd : public stPetUserCmd
 {
@@ -6980,7 +6980,7 @@ struct stHorseDataPetCmd : public stPetUserCmd
 	t_HorseData data;
 };
 
-//Ç¿ÖÆ³èÎï¹¥»÷Ä¿±ê
+//å¼ºåˆ¶å® ç‰©æ”»å‡»ç›®æ ‡
 const BYTE SETTARGET_PET_PARA = 11;
 struct stSetTargetPetCmd : public stPetUserCmd
 {
@@ -6988,12 +6988,12 @@ struct stSetTargetPetCmd : public stPetUserCmd
 	{
 		byParam = SETTARGET_PET_PARA;
 	}
-	petType type;///³èÎïÀàÐÍ
-	DWORD targetType;///Ä¿±êÀàÐÍ 0:Íæ¼Ò 1:NPC
-	DWORD id;///Ä¿±êµÄÁÙÊ±ID
+	petType type;///å® ç‰©ç±»åž‹
+	DWORD targetType;///ç›®æ ‡ç±»åž‹ 0:çŽ©å®¶ 1:NPC
+	DWORD id;///ç›®æ ‡çš„ä¸´æ—¶ID
 };
 
-//Í¬²½³èÎïµÄÑªºÍ¾­Ñé
+//åŒæ­¥å® ç‰©çš„è¡€å’Œç»éªŒ
 const BYTE HP_EXP_PET_PARA = 12;
 struct stHpExpPetCmd : public stPetUserCmd
 {
@@ -7008,7 +7008,7 @@ struct stHpExpPetCmd : public stPetUserCmd
 };
 
 /*
-//»»Âí
+//æ¢é©¬
 const BYTE CHANGEHORSE_PET_PARA = 11;
 struct stChangeHorsePetCmd : public stPetUserCmd
 {
@@ -7021,11 +7021,11 @@ struct stChangeHorsePetCmd : public stPetUserCmd
 */
 
 //////////////////////////////////////////////////////////////
-// ³èÎïÖ¸Áî¶¨Òå½áÊø
+// å® ç‰©æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÓë¿Í»§¶ËPING¹¤¾ßµÄÃüÁî
+/// å®šä¹‰ä¸Žå®¢æˆ·ç«¯PINGå·¥å…·çš„å‘½ä»¤
 //////////////////////////////////////////////////////////////
 struct stPingUserCmd : public stNullUserCmd
 {
@@ -7039,11 +7039,11 @@ struct ping_element
 {
 	BYTE gateway_ip[15+1];
 	/**
-	  * EMPTY = 0,	    ÈËÊý0-399,
-	  * VERYIDLE = 1,   ÈËÊý400-799,
-	  * IDLE = 2,       ÈËÊý800-1199,
-	  * BUSY = 3,       ÈËÊý1200-1599
-	  * VERYBUSY= 4     ÈËÊý1600-1999
+	  * EMPTY = 0,	    äººæ•°0-399,
+	  * VERYIDLE = 1,   äººæ•°400-799,
+	  * IDLE = 2,       äººæ•°800-1199,
+	  * BUSY = 3,       äººæ•°1200-1599
+	  * VERYBUSY= 4     äººæ•°1600-1999
 	  */
 	BYTE state;
 	ping_element()
@@ -7067,7 +7067,7 @@ struct stPingList : public stPingUserCmd
 const BYTE REQUEST_PING_LIST_PARA = 2;
 struct stRequestPingList : public stPingUserCmd
 {
-	DWORD id;  //ÓÎÏ·ÇøºÅ
+	DWORD id;  //æ¸¸æˆåŒºå·
 
 	stRequestPingList() 
 	{
@@ -7086,12 +7086,12 @@ struct stLoginPing : public stPingUserCmd
 
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÓë¿Í»§¶ËPING¹¤¾ßµÄÃüÁî
+/// å®šä¹‰ä¸Žå®¢æˆ·ç«¯PINGå·¥å…·çš„å‘½ä»¤
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå½ð±ÒÃüÁî¿ªÊ¼
+/// å®šä¹‰é‡‘å¸å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 #ifndef _BUGTYPE_
 #define _BUGTYPE_
@@ -7120,14 +7120,14 @@ struct stQueryGold : public stGoldUserCmd
 
 enum
 {
-	REDEEM_SUCCESS,    // ¶Ò»»³É¹¦ 
-	REDEEM_BUSY,       // ·þÎñÆ÷Ã¦
-	REDEEM_STOP,      // ¶Ò»»ÏµÍ³Í£Ö¹·þÎñ
-	REDEEM_FAIL,       // Ê§°Ü
+	REDEEM_SUCCESS,    // å…‘æ¢æˆåŠŸ 
+	REDEEM_BUSY,       // æœåŠ¡å™¨å¿™
+	REDEEM_STOP,      // å…‘æ¢ç³»ç»Ÿåœæ­¢æœåŠ¡
+	REDEEM_FAIL,       // å¤±è´¥
 };
-#define REDEEM_RATE_GOLD 1 //¶Ò»»½ð±Ò±ÈÂÊ1:1
-#define	REDEEM_RATE_MONTH_CARD 18//¶Ò»»ÔÂ¿¨±ÈÂÊ1:18
-//ÇëÇó¶Ò»»½ð±Ò
+#define REDEEM_RATE_GOLD 1 //å…‘æ¢é‡‘å¸æ¯”çŽ‡1:1
+#define	REDEEM_RATE_MONTH_CARD 18//å…‘æ¢æœˆå¡æ¯”çŽ‡1:18
+//è¯·æ±‚å…‘æ¢é‡‘å¸
 const BYTE REQUEST_REDEEM_GOLD_PARA = 2;
 struct stRequestRedeemGold : public stGoldUserCmd
 {
@@ -7135,9 +7135,9 @@ struct stRequestRedeemGold : public stGoldUserCmd
 	{
 		byParam = REQUEST_REDEEM_GOLD_PARA;
 	}
-	DWORD dwNum;	//ÐèÒª¶Ò»»µÄµãÊý
+	DWORD dwNum;	//éœ€è¦å…‘æ¢çš„ç‚¹æ•°
 };
-//¶Ò»»½ð±Ò·µ»Ø
+//å…‘æ¢é‡‘å¸è¿”å›ž
 const BYTE REDEEM_GOLD_PARA = 3;
 struct stRedeemGold : public stGoldUserCmd
 {
@@ -7145,12 +7145,12 @@ struct stRedeemGold : public stGoldUserCmd
 	{
 		byParam = REDEEM_GOLD_PARA;
 	}
-	DWORD dwNum;	//·µ»Øµ±Ç°½ð±ÒÊý
-	DWORD dwBalance;			/// µã¿¨Óà¶î
-	BYTE byReturn;	//·µ»ØÀàÐÍ
+	DWORD dwNum;	//è¿”å›žå½“å‰é‡‘å¸æ•°
+	DWORD dwBalance;			/// ç‚¹å¡ä½™é¢
+	BYTE byReturn;	//è¿”å›žç±»åž‹
 };
  
-//ÇëÇó¶Ò»»ÔÂ¿¨
+//è¯·æ±‚å…‘æ¢æœˆå¡
 const BYTE REQUEST_REDEEM_MONTH_CARD_PARA = 4;
 struct stRequestRedeemMonthCard : public stGoldUserCmd
 {
@@ -7160,7 +7160,7 @@ struct stRequestRedeemMonthCard : public stGoldUserCmd
 	}
 };
 
-//¶Ò»»ÔÂ¿¨·µ»Ø
+//å…‘æ¢æœˆå¡è¿”å›ž
 const BYTE REDEEM_MONTH_CARD_PARA = 5;
 struct stRedeemMonthCard : public stGoldUserCmd
 {
@@ -7168,12 +7168,12 @@ struct stRedeemMonthCard : public stGoldUserCmd
 	{
 		byParam = REDEEM_MONTH_CARD_PARA;
 	}
-	DWORD dwNum;	//µ½ÆÚÊ±¼ä(time_t,4×Ö½Ú½á¹¹)
-	DWORD dwBalance;			/// µã¿¨Óà¶î
-	BYTE byReturn;	//·µ»ØÀàÐÍ
+	DWORD dwNum;	//åˆ°æœŸæ—¶é—´(time_t,4å­—èŠ‚ç»“æž„)
+	DWORD dwBalance;			/// ç‚¹å¡ä½™é¢
+	BYTE byReturn;	//è¿”å›žç±»åž‹
 };
 
-//²éÑ¯ÔÂ¿¨ºÍ½ð±Ò
+//æŸ¥è¯¢æœˆå¡å’Œé‡‘å¸
 const BYTE REQUEST_CARD_AND_GOLD_PARA = 6;
 struct stRequestCardAndGold :  public stGoldUserCmd
 {
@@ -7183,7 +7183,7 @@ struct stRequestCardAndGold :  public stGoldUserCmd
 	}
 };
 
-//²éÑ¯·µ»Ø
+//æŸ¥è¯¢è¿”å›ž
 const BYTE RETURN_CARD_AND_GOLD_PARA = 7;
 struct stReturnCardAndGold :  public stGoldUserCmd
 {
@@ -7191,11 +7191,11 @@ struct stReturnCardAndGold :  public stGoldUserCmd
 	{
 		byParam = RETURN_CARD_AND_GOLD_PARA;
 	}
-	DWORD dwMonthCard;//ÔÂ¿¨
-	DWORD dwGold;//½ð±Ò
-	BYTE byReturn;//·µ»ØÀàÐÍ
+	DWORD dwMonthCard;//æœˆå¡
+	DWORD dwGold;//é‡‘å¸
+	BYTE byReturn;//è¿”å›žç±»åž‹
 };
-//²éÑ¯µã¿¨
+//æŸ¥è¯¢ç‚¹å¡
 const BYTE REQUEST_POINT_PARA = 8;
 struct stRequestPoint :  public stGoldUserCmd
 {
@@ -7204,7 +7204,7 @@ struct stRequestPoint :  public stGoldUserCmd
 		byParam = REQUEST_POINT_PARA;
 	}
 };
-//²éÑ¯µã¿¨·µ»Ø
+//æŸ¥è¯¢ç‚¹å¡è¿”å›ž
 const BYTE RETURN_REQUEST_POINT_PARA = 9;
 struct stReturnRequestPoint :  public stGoldUserCmd
 {
@@ -7212,10 +7212,10 @@ struct stReturnRequestPoint :  public stGoldUserCmd
 	{
 		byParam = RETURN_REQUEST_POINT_PARA;
 	}
-	DWORD dwPoint;//Ê£ÓàµãÊý
-	BYTE byReturn;//²éÑ¯·µ»ØÀàÐÍ
+	DWORD dwPoint;//å‰©ä½™ç‚¹æ•°
+	BYTE byReturn;//æŸ¥è¯¢è¿”å›žç±»åž‹
 };
-//½ð±ÒÏµÍ£Ö¹·þÎñ
+//é‡‘å¸ç³»åœæ­¢æœåŠ¡
 const BYTE STOP_SERVICE_GOLD_PARA = 10;
 struct stStopServiceGold :  public stGoldUserCmd
 {
@@ -7225,13 +7225,13 @@ struct stStopServiceGold :  public stGoldUserCmd
 	}
 };
 #define CARDID_LENGTH_PARA 32
-///Ïû·Ñ¿¨µÄÇøÀàÐÍ
+///æ¶ˆè´¹å¡çš„åŒºç±»åž‹
 enum
 {
-	ZONE_CARD_OBJECT=1, ///µÀ¾ß¿¨ 
-	ZONE_CARD_PROFRESSION=2,///×¨Çø¿¨
+	ZONE_CARD_OBJECT=1, ///é“å…·å¡ 
+	ZONE_CARD_PROFRESSION=2,///ä¸“åŒºå¡
 };
-//Ïû·Ñ¿¨Ïû·Ñ
+//æ¶ˆè´¹å¡æ¶ˆè´¹
 const BYTE CONSUME_CARD_PARA = 11;
 struct stConSumeCardCard : public stGoldUserCmd
 {
@@ -7243,15 +7243,15 @@ struct stConSumeCardCard : public stGoldUserCmd
 	DWORD type;
 	char cardid[CARDID_LENGTH_PARA];
 };
-/// Ïû·Ñ×ÓÀàÐÍ
+/// æ¶ˆè´¹å­ç±»åž‹
 enum
 {
-	OBJ_GOLD_STONE = 1,//ËÍ¾«ÖÂÉý¼¶±¦Ê¯
-	OBJ_GOLD_OBJECT = 2,//ËÍ½ðÉ«×°±¸
-	OBJ_GREEN_OBJECT = 3,//ËÍÉñÊ¥×°±¸
-	SUBAT_GOLD = 4,	//×¨Çø¿¨³äÖµ·µ»Ø×ÓÀàÐÍ//µÀ¾ß¿¨µÄ×ÓÀàÐÍ²»ÄÜÓÚ¸ÃÖµÖØ¸´
+	OBJ_GOLD_STONE = 1,//é€ç²¾è‡´å‡çº§å®çŸ³
+	OBJ_GOLD_OBJECT = 2,//é€é‡‘è‰²è£…å¤‡
+	OBJ_GREEN_OBJECT = 3,//é€ç¥žåœ£è£…å¤‡
+	SUBAT_GOLD = 4,	//ä¸“åŒºå¡å……å€¼è¿”å›žå­ç±»åž‹//é“å…·å¡çš„å­ç±»åž‹ä¸èƒ½äºŽè¯¥å€¼é‡å¤
 };
-//Ïû·Ñ¿¨Ïû·Ñ·µ»Ø
+//æ¶ˆè´¹å¡æ¶ˆè´¹è¿”å›ž
 const BYTE RETURN_CONSUME_CARD_PARA = 12;
 struct stReturnConSumeCardCard : public stGoldUserCmd
 {
@@ -7259,31 +7259,31 @@ struct stReturnConSumeCardCard : public stGoldUserCmd
 	{
 		byParam = RETURN_CONSUME_CARD_PARA;
 	}
-	BYTE byType;	//Ïû·ÑÀàÐÍ
-	BYTE byReturn;	//·µ»ØÀàÐÍ
-	DWORD balance;	//×¨Çø¿¨Ëù´øµãÊý
+	BYTE byType;	//æ¶ˆè´¹ç±»åž‹
+	BYTE byReturn;	//è¿”å›žç±»åž‹
+	DWORD balance;	//ä¸“åŒºå¡æ‰€å¸¦ç‚¹æ•°
 };
 /*
 enum
 {
-	QUERY_SUCCESS,    // ²éÑ¯³É¹¦
-	QUERY_BUSY,       // ·þÎñÆ÷Ã¦
-	QUERY_FAIL,       // ²éÑ¯Ê§°Ü
-	QUERY_EMPTY,      // ¸ÃÕÊºÅ£¬Ã»ÓÐ¼ÇÂ¼
+	QUERY_SUCCESS,    // æŸ¥è¯¢æˆåŠŸ
+	QUERY_BUSY,       // æœåŠ¡å™¨å¿™
+	QUERY_FAIL,       // æŸ¥è¯¢å¤±è´¥
+	QUERY_EMPTY,      // è¯¥å¸å·ï¼Œæ²¡æœ‰è®°å½•
 };
 
 enum
 {
-	TYPE_QUERY,     // ²éÑ¯µÄ·µ»Ø
-	TYPE_CHANGE    // µãÊý»»½ð±ÒµÄ·µ»Ø
+	TYPE_QUERY,     // æŸ¥è¯¢çš„è¿”å›ž
+	TYPE_CHANGE    // ç‚¹æ•°æ¢é‡‘å¸çš„è¿”å›ž
 };
 
 const BYTE RETURN_QUERY_GOLD_PARA = 2;
 struct stReturnQueryGold : public stGoldUserCmd
 {
-	double gold;				/// ÕÊ»§Óà¶î
-	BYTE   state;                           /// ²éÑ¯×´Ì¬
-	BYTE   type;                            /// ·µ»ØÀàÐÍ
+	double gold;				/// å¸æˆ·ä½™é¢
+	BYTE   state;                           /// æŸ¥è¯¢çŠ¶æ€
+	BYTE   type;                            /// è¿”å›žç±»åž‹
 
 	stReturnQueryGold()
 	{
@@ -7296,7 +7296,7 @@ struct stReturnQueryGold : public stGoldUserCmd
 const BYTE CHANGE_POINTTOGOLD_PARA = 3;
 struct stChangePointGold : public stGoldUserCmd
 {
-	DWORD point;				/// Òª¶Ò»»µÄµãÊý
+	DWORD point;				/// è¦å…‘æ¢çš„ç‚¹æ•°
 
 	stChangePointGold()
 	{
@@ -7307,11 +7307,11 @@ struct stChangePointGold : public stGoldUserCmd
 // */
 
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå½ð±ÒÃüÁî½áÊø
+/// å®šä¹‰é‡‘å¸å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå¹ÉÆ±ÃüÁî¿ªÊ¼
+/// å®šä¹‰è‚¡ç¥¨å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 //STOCK_USERCMD
 struct stStockSceneUserCmd : public stNullUserCmd
@@ -7328,7 +7328,7 @@ struct stStockBillUserCmd : public stNullUserCmd
 		byCmd = STOCK_BILL_USERCMD;
 	}
 };
-/// ¹ÉÆ±ÃÜÂë
+/// è‚¡ç¥¨å¯†ç 
 #define PASSWORD_STOCKPARA 1
 struct stPassowrdStockUserCmd : public stStockBillUserCmd
 {
@@ -7339,26 +7339,26 @@ struct stPassowrdStockUserCmd : public stStockBillUserCmd
 		bzero(byNew1,sizeof(byNew1));
 		bzero(byNew2,sizeof(byNew2));
 	}
-	char byPawword[MAX_PASSWORD];	/// µ±Ç°ÃÜÂë
-	char byNew1[MAX_PASSWORD];		/// ÐÂÃÜÂë
-	char byNew2[MAX_PASSWORD];		/// È·ÈÏÃÜÂë
+	char byPawword[MAX_PASSWORD];	/// å½“å‰å¯†ç 
+	char byNew1[MAX_PASSWORD];		/// æ–°å¯†ç 
+	char byNew2[MAX_PASSWORD];		/// ç¡®è®¤å¯†ç 
 };
 
-/// ÉèÖÃ¹ÉÆ±ÃÜÂë·µ»Ø
+/// è®¾ç½®è‚¡ç¥¨å¯†ç è¿”å›ž
 enum
 {
-	STOCK_LOGIN_OK,	/// µÇÂ½ok
-	STOCK_LOGIN_NOTLOGIN,	/// Î´µÇÂ½(ÌáÊ¾ÇëÏÈµÇÂ½)
-	STOCK_OPEN_OK,	/// ÆôÓÃÕÊºÅok
-	STOCK_CHANGE_OK,	/// ÐÞ¸ÄÃÜÂë
-	STOCK_ERROR,/// ÃÜÂë²»¶Ô
-	STOCK_DIFF, /// Á½´ÎÊäÈëÃÜÂë²»Ò»ÖÂ
-	STOCK_NONE, /// ÃÜÂë²»ÄÜÎª¿Õ
-	STOCK_SHORT,/// ÃÜÂëÌ«¶Ì
-	STOCK_EXIST,/// ÕÊºÅÒÑ¾­´æÔÚ
-	STOCK_SERVER_WRONG,/// ·þÎñÆ÷´íÎó
-	STOCK_GOLDLIST_MAX,/// ¹ÉÆ±Âôµ¥Âú
-	STOCK_MONEYLIST_MAX,/// ¹ÉÆ±Âôµ¥Âú
+	STOCK_LOGIN_OK,	/// ç™»é™†ok
+	STOCK_LOGIN_NOTLOGIN,	/// æœªç™»é™†(æç¤ºè¯·å…ˆç™»é™†)
+	STOCK_OPEN_OK,	/// å¯ç”¨å¸å·ok
+	STOCK_CHANGE_OK,	/// ä¿®æ”¹å¯†ç 
+	STOCK_ERROR,/// å¯†ç ä¸å¯¹
+	STOCK_DIFF, /// ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ä¸€è‡´
+	STOCK_NONE, /// å¯†ç ä¸èƒ½ä¸ºç©º
+	STOCK_SHORT,/// å¯†ç å¤ªçŸ­
+	STOCK_EXIST,/// å¸å·å·²ç»å­˜åœ¨
+	STOCK_SERVER_WRONG,/// æœåŠ¡å™¨é”™è¯¯
+	STOCK_GOLDLIST_MAX,/// è‚¡ç¥¨å–å•æ»¡
+	STOCK_MONEYLIST_MAX,/// è‚¡ç¥¨å–å•æ»¡
 };
 #define RETUEN_PASSWORD_STOCKPARA 2
 struct stReturnPasswordStockIserCmd : public stStockBillUserCmd
@@ -7367,9 +7367,9 @@ struct stReturnPasswordStockIserCmd : public stStockBillUserCmd
 	{
 		byParam = RETUEN_PASSWORD_STOCKPARA;
 	}
-	BYTE byReturn;	///ÃÜÂëÉèÖÃ·µ»ØÀàÐÍ
+	BYTE byReturn;	///å¯†ç è®¾ç½®è¿”å›žç±»åž‹
 };
-/// ÇëÇó¹ÉÆ±ÕÊºÅÓà¶î
+/// è¯·æ±‚è‚¡ç¥¨å¸å·ä½™é¢
 #define QUERY_FUND_STOCKPARA 3
 struct stQueryFundStockUserCmd : public stStockBillUserCmd
 {
@@ -7380,7 +7380,7 @@ struct stQueryFundStockUserCmd : public stStockBillUserCmd
 	
 };
 
-/// ·µ»Øµ±Ç°¹ÉÆ±ÕÊºÅÓà¶î
+/// è¿”å›žå½“å‰è‚¡ç¥¨å¸å·ä½™é¢
 #define RETURN_FUND_STOCKPARA 4 
 struct stReturnFundStockUserCmd : public stStockBillUserCmd
 {
@@ -7388,11 +7388,11 @@ struct stReturnFundStockUserCmd : public stStockBillUserCmd
 	{
 		byParam = RETURN_FUND_STOCKPARA;
 	}
-	DWORD dwGold;/// µ±Ç°ÕÊºÅ½ð±Ò
-	DWORD dwMoney;/// µ±Ç°ÕÊºÅÒø±Ò
+	DWORD dwGold;/// å½“å‰å¸å·é‡‘å¸
+	DWORD dwMoney;/// å½“å‰å¸å·é“¶å¸
 };
  
-/// Ïò¹ÉÆ±ÕÊºÅ×¢Èë×Ê½ð
+/// å‘è‚¡ç¥¨å¸å·æ³¨å…¥èµ„é‡‘
 #define TRANSFER_FUND_SAVE_STOCKPARA 5
 struct stTransferFundStockSaveUserCmd : public stStockSceneUserCmd
 {
@@ -7400,11 +7400,11 @@ struct stTransferFundStockSaveUserCmd : public stStockSceneUserCmd
 	{
 		byParam = TRANSFER_FUND_SAVE_STOCKPARA;
 	}
-	DWORD dwGold;/// ²Ù×÷½ð±ÒÊýÁ¿
-	DWORD dwMoney;/// ²Ù×÷Òø±ÒÊýÁ¿
+	DWORD dwGold;/// æ“ä½œé‡‘å¸æ•°é‡
+	DWORD dwMoney;/// æ“ä½œé“¶å¸æ•°é‡
 };
 
-/// ´Ó¹ÉÆ±ÕÊºÅÌáÈ¡×Ê½ð
+/// ä»Žè‚¡ç¥¨å¸å·æå–èµ„é‡‘
 #define TRANSFER_FUND_FETCH_STOCKPARA 6 
 struct stTransferFundStockFetchUserCmd : public stStockBillUserCmd
 {
@@ -7412,11 +7412,11 @@ struct stTransferFundStockFetchUserCmd : public stStockBillUserCmd
 	{
 		byParam = TRANSFER_FUND_FETCH_STOCKPARA;
 	}
-	DWORD dwGold;/// ²Ù×÷½ð±ÒÊýÁ¿
-	DWORD dwMoney;/// ²Ù×÷Òø±ÒÊýÁ¿
+	DWORD dwGold;/// æ“ä½œé‡‘å¸æ•°é‡
+	DWORD dwMoney;/// æ“ä½œé“¶å¸æ•°é‡
 };
  
-/// Î¯ÍÐÂôµ¥
+/// å§”æ‰˜å–å•
 #define CONSIGN_GOLD_STOCKPARA 7 
 struct stConsignGoldStockUserCmd : public stStockBillUserCmd
 {
@@ -7424,10 +7424,10 @@ struct stConsignGoldStockUserCmd : public stStockBillUserCmd
 	{
 		byParam = CONSIGN_GOLD_STOCKPARA;
 	}
-	DWORD dwNum;/// ½ð±ÒÊýÁ¿
+	DWORD dwNum;/// é‡‘å¸æ•°é‡
 };
  
-/// Î¯ÍÐÂòµ¥
+/// å§”æ‰˜ä¹°å•
 #define CONSIGN_MONEY_STOCKPARA 8
 struct stConsignMoneyStockUserCmd : public stStockBillUserCmd
 {
@@ -7435,9 +7435,9 @@ struct stConsignMoneyStockUserCmd : public stStockBillUserCmd
 	{
 		byParam = CONSIGN_MONEY_STOCKPARA;
 	}
-	DWORD dwNum;/// Òø±ÒÊýÁ¿
+	DWORD dwNum;/// é“¶å¸æ•°é‡
 };
-/// ³·ÏúÂôµ¥
+/// æ’¤é”€å–å•
 #define CONSIGN_CANCEL_GOLD_STOCKPARA 9
 struct stConsignCancelGoldStockUserCmd : public stStockBillUserCmd
 {
@@ -7445,10 +7445,10 @@ struct stConsignCancelGoldStockUserCmd : public stStockBillUserCmd
 	{
 		byParam = CONSIGN_CANCEL_GOLD_STOCKPARA;
 	}
-	DWORD dwNum;/// Âôµ¥Á÷Ë®ºÅ
+	DWORD dwNum;/// å–å•æµæ°´å·
 };
 
-/// ³·ÏúÂòµ¥
+/// æ’¤é”€ä¹°å•
 #define CONSIGN_CANCEL_MONEY_STOCKPARA 10
 struct stConsignCancelMoneyStockUserCmd : public stStockBillUserCmd
 {
@@ -7456,7 +7456,7 @@ struct stConsignCancelMoneyStockUserCmd : public stStockBillUserCmd
 	{
 		byParam = CONSIGN_CANCEL_MONEY_STOCKPARA;
 	}
-	DWORD dwNum;/// Âôµ¥Á÷Ë®ºÅ
+	DWORD dwNum;/// å–å•æµæ°´å·
 };
 enum StockType
 {
@@ -7465,12 +7465,12 @@ enum StockType
 };
 struct StockList
 {
-	DWORD id;			/// Á÷Ë®ºÅ
-	DWORD dwNum;		/// ÊýÁ¿
-	DWORD dwPrice;	/// Î¯ÍÐ¼Û¸ñ
-	DWORD dwTime;/// Î¯ÍÐÊ±¼ä
+	DWORD id;			/// æµæ°´å·
+	DWORD dwNum;		/// æ•°é‡
+	DWORD dwPrice;	/// å§”æ‰˜ä»·æ ¼
+	DWORD dwTime;/// å§”æ‰˜æ—¶é—´
 };
-/// ÇëÇóÎ´³É½»Î¯ÍÐµ¥
+/// è¯·æ±‚æœªæˆäº¤å§”æ‰˜å•
 #define REQUEST_CONSIGN_LIST_STOCKPARA 11
 struct stRequestConsignListStockUserCmd : public stStockBillUserCmd
 {
@@ -7480,7 +7480,7 @@ struct stRequestConsignListStockUserCmd : public stStockBillUserCmd
 	}
 };
 
-/// Î´³É½»µÄ½ð±ÒÎ¯ÍÐµ¥
+/// æœªæˆäº¤çš„é‡‘å¸å§”æ‰˜å•
 #define CONSIGN_GOLD_LIST_STOCKPARA 12
 struct stConsignGoldListStockUserCmd : public stStockBillUserCmd
 {
@@ -7491,7 +7491,7 @@ struct stConsignGoldListStockUserCmd : public stStockBillUserCmd
 	DWORD size;
 	StockList list[0];
 };
-/// Î´³É½»µÄÒø±ÒÎ¯ÍÐµ¥
+/// æœªæˆäº¤çš„é“¶å¸å§”æ‰˜å•
 #define CONSIGN_MONEY_LIST_STOCKPARA 13
 struct stConsignMoneyListStockUserCmd : public stStockBillUserCmd
 {
@@ -7502,7 +7502,7 @@ struct stConsignMoneyListStockUserCmd : public stStockBillUserCmd
 	DWORD size;
 	StockList list[0];
 };
-/// ÇëÇó³·µ¥
+/// è¯·æ±‚æ’¤å•
 #define REQUEST_CANCEL_LIST_STOCKPARA 14
 struct stRequestCancelListStockUserCmd : public stStockBillUserCmd
 {
@@ -7518,7 +7518,7 @@ enum
 	STOCK_CANCEL_ERROR,
 	STOCK_CANCEL_OK,
 };
-/// Ó¦´ð³·µ¥
+/// åº”ç­”æ’¤å•
 #define RETURN_CANCEL_LIST_STOCKPARA 15
 struct stReturnCancelListStockUserCmd : public stStockBillUserCmd
 {
@@ -7528,9 +7528,9 @@ struct stReturnCancelListStockUserCmd : public stStockBillUserCmd
 	}
 	DWORD id;
 	BYTE byType;
-	BYTE byReturn;/*0±íÊ¾Ê§°Ü,1±íÊ¾³É¹¦*/
+	BYTE byReturn;/*0è¡¨ç¤ºå¤±è´¥,1è¡¨ç¤ºæˆåŠŸ*/
 };
-/// ÇëÇóÅÅÐÐÇ°10Î»µÄµ¥×Ó
+/// è¯·æ±‚æŽ’è¡Œå‰10ä½çš„å•å­
 #define REQUEST_FIRSTTEN_LIST_STOCKPARA 16
 struct stRequestFirstTenListStockUserCmd : public stStockBillUserCmd
 {
@@ -7545,7 +7545,7 @@ struct FirstTen
 	DWORD dwNum;
 	DWORD dwPrice;
 };
-/// ÅÅÐÐÇ°5Î»µÄ¼Û¸ñºÍÊýÁ¿
+/// æŽ’è¡Œå‰5ä½çš„ä»·æ ¼å’Œæ•°é‡
 #define FIRSTFIVE_LIST_STOCKPARA 17
 struct stFirstFiveListStockUserCmd : public stStockBillUserCmd
 {
@@ -7553,12 +7553,12 @@ struct stFirstFiveListStockUserCmd : public stStockBillUserCmd
 	{
 		byParam = FIRSTFIVE_LIST_STOCKPARA;
 	}
-	BYTE byType;//Âò»òÂô
+	BYTE byType;//ä¹°æˆ–å–
 	DWORD size;
 	FirstTen list[0];
 };
 
-/// Ìá½»Î¯ÍÐµ¥
+/// æäº¤å§”æ‰˜å•
 #define PUT_LIST_STOCKPARA 18
 struct stPutListStockUserCmd : public stStockBillUserCmd
 {
@@ -7566,11 +7566,11 @@ struct stPutListStockUserCmd : public stStockBillUserCmd
 	{
 		byParam = PUT_LIST_STOCKPARA;
 	}
-	DWORD dwNum;	//½ð±Ò»òÕßÒø±ÒÊýÁ¿
-	DWORD dwPrice;  //µ¥¼Û(Òø±Ò/½ð±Ò)
-	BYTE  byType;	//µ¥×ÓÀàÐÍ,½ð±Ò»òÒø±Ò
+	DWORD dwNum;	//é‡‘å¸æˆ–è€…é“¶å¸æ•°é‡
+	DWORD dwPrice;  //å•ä»·(é“¶å¸/é‡‘å¸)
+	BYTE  byType;	//å•å­ç±»åž‹,é‡‘å¸æˆ–é“¶å¸
 };
-/// ·µ»ØÌá½»µÄÎ¯ÍÐµ¥
+/// è¿”å›žæäº¤çš„å§”æ‰˜å•
 #define RETURN_PUT_LIST_STOCKPARA 19
 struct stReturnPutListStockUserCmd : public stStockBillUserCmd
 {
@@ -7580,7 +7580,7 @@ struct stReturnPutListStockUserCmd : public stStockBillUserCmd
 	}
 	StockList list;
 };
-//¹ÉÆ±ÀúÊ·Êý¾Ý½á¹¹
+//è‚¡ç¥¨åŽ†å²æ•°æ®ç»“æž„
 struct ConsignHistoryType
 {
 	ConsignHistoryType()
@@ -7593,7 +7593,7 @@ struct ConsignHistoryType
 	WORD dwPrice;
 	WORD dwTotal;
 };
-/// Íæ¼ÒÇëÇó´óÅÌÀúÊ·½»Ò×Êý¾Ý
+/// çŽ©å®¶è¯·æ±‚å¤§ç›˜åŽ†å²äº¤æ˜“æ•°æ®
 #define REQUEST_HISTORY_STOCKPARA 20
 struct stRequstHistoryStockUserCmd : public stStockBillUserCmd
 {
@@ -7606,7 +7606,7 @@ struct stRequstHistoryStockUserCmd : public stStockBillUserCmd
 	DWORD begintime;
 	DWORD num;
 };
-/// ·µ»Ø×îÐÂ´óÅÌÀúÊ·Êý¾Ý(µ±Ç°Ò»·ÖÖÓµÄÍ³¼ÆÊý¾Ý)
+/// è¿”å›žæœ€æ–°å¤§ç›˜åŽ†å²æ•°æ®(å½“å‰ä¸€åˆ†é’Ÿçš„ç»Ÿè®¡æ•°æ®)
 #define NEW_HISTORY_STOCKPARA 21
 struct stNewHistoryStockUserCmd : public stStockBillUserCmd
 {
@@ -7617,7 +7617,7 @@ struct stNewHistoryStockUserCmd : public stStockBillUserCmd
 	ConsignHistoryType gold;
 	ConsignHistoryType money;
 };
-/// ·µ»Ø´óÅÌÀúÊ·½ð±ÒÊý¾Ý(²»¶¨³¤)
+/// è¿”å›žå¤§ç›˜åŽ†å²é‡‘å¸æ•°æ®(ä¸å®šé•¿)
 #define HISTORY_GOLD_STOCKPARA 22
 struct stHistoryGoldStockUserCmd : public stStockBillUserCmd
 {
@@ -7628,7 +7628,7 @@ struct stHistoryGoldStockUserCmd : public stStockBillUserCmd
 	DWORD size;
 	ConsignHistoryType list[0];
 };
-/// ·µ»Ø´óÅÌÀúÊ·Òø±ÒÊý¾Ý(²»¶¨³¤)
+/// è¿”å›žå¤§ç›˜åŽ†å²é“¶å¸æ•°æ®(ä¸å®šé•¿)
 #define HISTORY_MONEY_STOCKPARA 23
 struct stHistoryMoneyStockUserCmd : public stStockBillUserCmd
 {
@@ -7639,7 +7639,7 @@ struct stHistoryMoneyStockUserCmd : public stStockBillUserCmd
 	DWORD size;
 	ConsignHistoryType list[0];
 };
-/// Íæ¼ÒÇëÇó×Ô¼ºÀúÊ·½»Ò×Êý¾Ý
+/// çŽ©å®¶è¯·æ±‚è‡ªå·±åŽ†å²äº¤æ˜“æ•°æ®
 #define REQUEST_SELF_HISTORY_STOCKPARA 24
 struct stRequstSelfHistoryStockUserCmd : public stStockBillUserCmd
 {
@@ -7652,7 +7652,7 @@ struct stRequstSelfHistoryStockUserCmd : public stStockBillUserCmd
 	DWORD begintime;
 	DWORD num;
 };
-//¸öÈËÎ¯ÍÐµ¥ÀúÊ·Êý¾Ý
+//ä¸ªäººå§”æ‰˜å•åŽ†å²æ•°æ®
 struct ConsignSelfHistoryType
 {
 	ConsignSelfHistoryType()
@@ -7665,7 +7665,7 @@ struct ConsignSelfHistoryType
 	DWORD dwCommitTime;
 	DWORD dwOkTime;
 };
-/// ·µ»Ø×Ô¼ºÀúÊ·½ð±ÒÊý¾Ý(²»¶¨³¤)
+/// è¿”å›žè‡ªå·±åŽ†å²é‡‘å¸æ•°æ®(ä¸å®šé•¿)
 #define SELF_HISTORY_GOLD_STOCKPARA 25
 struct stSelfHistoryGoldStockUserCmd : public stStockBillUserCmd
 {
@@ -7676,7 +7676,7 @@ struct stSelfHistoryGoldStockUserCmd : public stStockBillUserCmd
 	DWORD size;
 	ConsignSelfHistoryType list[0];
 };
-/// ·µ»Ø×Ô¼ºÀúÊ·Òø±ÒÊý¾Ý(²»¶¨³¤)
+/// è¿”å›žè‡ªå·±åŽ†å²é“¶å¸æ•°æ®(ä¸å®šé•¿)
 #define SELF_HISTORY_MONEY_STOCKPARA 26
 struct stSelfHistoryMoneyStockUserCmd : public stStockBillUserCmd
 {
@@ -7687,7 +7687,7 @@ struct stSelfHistoryMoneyStockUserCmd : public stStockBillUserCmd
 	DWORD size;
 	ConsignSelfHistoryType list[0];
 };
-/// ¹ÉÆ±ÏµÍ³Í£Ö¹·þÎñ
+/// è‚¡ç¥¨ç³»ç»Ÿåœæ­¢æœåŠ¡
 #define STOP_SERVICE_STOCKPARA 27
 struct stStopServiceStockUserCmd : public stStockBillUserCmd
 {
@@ -7697,7 +7697,7 @@ struct stStopServiceStockUserCmd : public stStockBillUserCmd
 	}
 };
  
-/// Çå³ýÎ´³É½»Î¯ÍÐµ¥
+/// æ¸…é™¤æœªæˆäº¤å§”æ‰˜å•
 #define CONSIGN_CLEAN_LIST_STOCKPARA 28
 struct stConsignCleanListStockUserCmd : public stStockBillUserCmd
 {
@@ -7707,7 +7707,7 @@ struct stConsignCleanListStockUserCmd : public stStockBillUserCmd
 	}
 };
 
-/// ÇëÇóµÃµ½µ±Ç°ÓÃ»§µÄ¼¤»îºÍµÇÂ½×´Ì¬
+/// è¯·æ±‚å¾—åˆ°å½“å‰ç”¨æˆ·çš„æ¿€æ´»å’Œç™»é™†çŠ¶æ€
 #define REQUEST_STATE_STOCKPARA 29
 struct stRequestStateStockUserCmd : public stStockBillUserCmd
 {
@@ -7718,7 +7718,7 @@ struct stRequestStateStockUserCmd : public stStockBillUserCmd
 	bool  active;
 	bool  login;
 };
-//¹ÉÆ±ÏµÍ³¿ØÖÆÖ¸Áî
+//è‚¡ç¥¨ç³»ç»ŸæŽ§åˆ¶æŒ‡ä»¤
 #define PARA_CANCELLISTALL_STOCKPARA  30
 struct t_CancelListAllStock_GateScene : public stStockBillUserCmd
 {
@@ -7728,13 +7728,13 @@ struct t_CancelListAllStock_GateScene : public stStockBillUserCmd
 		}
 };
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå¹ÉÆ±ÃüÁî½áÊø
+/// å®šä¹‰è‚¡ç¥¨å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå´ðÌâÃüÁî¿ªÊ¼
+/// å®šä¹‰ç­”é¢˜å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stQuizUserCmd : public stNullUserCmd
 {
@@ -7752,9 +7752,9 @@ enum
 
 enum 
 {
-	QUIZ_QUESTION,  // Ñ¯ÎÊÊÇ·ñ½ÓÊÜÎÊ´ð¾ºÈü
-	QUIZ_YES,       // ²ÎÓë¾ºÈü
-	QUIZ_NO         // ¾Ü¾ø¾ºÈü
+	QUIZ_QUESTION,  // è¯¢é—®æ˜¯å¦æŽ¥å—é—®ç­”ç«žèµ›
+	QUIZ_YES,       // å‚ä¸Žç«žèµ›
+	QUIZ_NO         // æ‹’ç»ç«žèµ›
 };
 
 const BYTE QUERY_QUIZ_PARA = 1;
@@ -7768,14 +7768,14 @@ struct stQueryQuiz : public stQuizUserCmd
 	}
 	
 	BYTE byMsgType;
-	BYTE byQuizType; // 1ÊÇÆÕÍ¨È«¹ú£¬2ÊÇ»î¶¯
+	BYTE byQuizType; // 1æ˜¯æ™®é€šå…¨å›½ï¼Œ2æ˜¯æ´»åŠ¨
 };
 
 enum
 {
-	CREATE_QUESTION, // ÇëÇó½øÐÐÖÇÁ¦ÎÊ´ð
-	CREATE_YES,	 // ÇëÇó³É¹¦
-	CREATE_FAIL	 // ½ðÇ®²»×ã£¬Ê§°Ü
+	CREATE_QUESTION, // è¯·æ±‚è¿›è¡Œæ™ºåŠ›é—®ç­”
+	CREATE_YES,	 // è¯·æ±‚æˆåŠŸ
+	CREATE_FAIL	 // é‡‘é’±ä¸è¶³ï¼Œå¤±è´¥
 };
 
 const BYTE CREATE_QUIZ_PARA = 2;
@@ -7788,7 +7788,7 @@ struct stCreateQuiz : public stQuizUserCmd
 		dwMoney = 100;
 	}
 
-	DWORD dwMoney;	// ¸öÈËÎÊ´ðÊ±£¬ËùÐèÒøÁ½
+	DWORD dwMoney;	// ä¸ªäººé—®ç­”æ—¶ï¼Œæ‰€éœ€é“¶ä¸¤
 	BYTE byType;
 };
 
@@ -7802,13 +7802,13 @@ struct stQuestionQuiz : public stQuizUserCmd
 		dwTotal = 0;
 	}
 
-	DWORD dwID;  // ÌâÄ¿ÐòºÅ
-	BYTE  bySpareTime; // Ê£ÓàÊ±¼ä
+	DWORD dwID;  // é¢˜ç›®åºå·
+	BYTE  bySpareTime; // å‰©ä½™æ—¶é—´
 	BYTE  byNextStartTime;
-	BYTE  dwSize; // ÌâÄ¿ÌõÊý
-	DWORD dwTotal;	// ×ÜÈËÊý
+	BYTE  dwSize; // é¢˜ç›®æ¡æ•°
+	DWORD dwTotal;	// æ€»äººæ•°
 	
-	char subject[0]; // ÌâÄ¿ ´ð°¸Ò» ´ð°¸¶þ ´ð°¸Èý....£¬ÖÐ¼äÒÔ0×öÎª·Ö¸ô
+	char subject[0]; // é¢˜ç›® ç­”æ¡ˆä¸€ ç­”æ¡ˆäºŒ ç­”æ¡ˆä¸‰....ï¼Œä¸­é—´ä»¥0åšä¸ºåˆ†éš”
 };
 
 const BYTE ANSWER_QUIZ_PARA = 4;
@@ -7820,12 +7820,12 @@ struct stAnswerQuiz : public stQuizUserCmd
 		byLuck = 0;
 	}
 
-	DWORD dwID;	 // ÌâÄ¿ÐòºÅ
-	BYTE byType;	 // ¾ºÈüÀàÐÍ
-	BYTE  byLuck;	// ÊÇ·ñÊ¹ÓÃÐÒÔËÐÇ,1Ê¹ÓÃ£¬ÆäËüÖµÊÇ²»Ê¹ÓÃ
-	DWORD dwScore;	// µÃ·Ö
+	DWORD dwID;	 // é¢˜ç›®åºå·
+	BYTE byType;	 // ç«žèµ›ç±»åž‹
+	BYTE  byLuck;	// æ˜¯å¦ä½¿ç”¨å¹¸è¿æ˜Ÿ,1ä½¿ç”¨ï¼Œå…¶å®ƒå€¼æ˜¯ä¸ä½¿ç”¨
+	DWORD dwScore;	// å¾—åˆ†
 
-	DWORD answerID; // ´ð°¸
+	DWORD answerID; // ç­”æ¡ˆ
 };
 
 const BYTE ANSWER_RETURN_QUIZ_PARA = 5;
@@ -7837,16 +7837,16 @@ struct stAnswerReturnQuiz : public stQuizUserCmd
 		byAnswerStatus = -1;
 	}
 
-	int byAnswerStatus; // -1:·ÅÆú£¬0:»Ø´ðÕýÈ·, 1:»Ø´ð´íÎó
+	int byAnswerStatus; // -1:æ”¾å¼ƒï¼Œ0:å›žç­”æ­£ç¡®, 1:å›žç­”é”™è¯¯
 };
 
 struct rank_elem
 {
-	char name[MAX_NAMESIZE];   // Íæ¼ÒÐÕÃû
-	char countryName[MAX_NAMESIZE]; // ¹ú¼ÒÃû³Æ
-	int  score;	// µÃ·Ö
+	char name[MAX_NAMESIZE];   // çŽ©å®¶å§“å
+	char countryName[MAX_NAMESIZE]; // å›½å®¶åç§°
+	int  score;	// å¾—åˆ†
 	int  grace;
-	int  rank; // Íæ¼ÒÅÅÃû
+	int  rank; // çŽ©å®¶æŽ’å
 };
 
 const BYTE QUIZ_POS_LIST_PARA = 6;
@@ -7873,8 +7873,8 @@ struct stQuizCurScore : public stQuizUserCmd
 		dwGrace = 0;
 	}
 
-	DWORD dwScore; // ±¾´Î´ðÌâÀÛ»ý·ÖÊý
-	DWORD dwGrace; // ±¾´Î´ðÌâÀÛ»ýÎÄ²É
+	DWORD dwScore; // æœ¬æ¬¡ç­”é¢˜ç´¯ç§¯åˆ†æ•°
+	DWORD dwGrace; // æœ¬æ¬¡ç­”é¢˜ç´¯ç§¯æ–‡é‡‡
 };
 
 const BYTE QUIZ_EXIT_PARA = 8;
@@ -7898,19 +7898,19 @@ struct stQuizParam : public stQuizUserCmd
 		bySubjectNumber = 90;
 	}
 
-	BYTE byReadQuestionTime;	// ¶ÁÌâÊ±¼ä
-	BYTE byAnswerQuestionTime;	// ´ðÌâÊ±¼ä
-	BYTE byCalcTime;		// ¼ÆËã´ð°¸Ê±¼ä
-	BYTE bySubjectNumber;		// ×ÜÌâÊý
-	BYTE byType;			// ¾ºÈüÀàÐÍ
-	BYTE byStartTime;		// ¾ºÈü¿ªÊ¼Ê£ÓàÊ±¼ä
+	BYTE byReadQuestionTime;	// è¯»é¢˜æ—¶é—´
+	BYTE byAnswerQuestionTime;	// ç­”é¢˜æ—¶é—´
+	BYTE byCalcTime;		// è®¡ç®—ç­”æ¡ˆæ—¶é—´
+	BYTE bySubjectNumber;		// æ€»é¢˜æ•°
+	BYTE byType;			// ç«žèµ›ç±»åž‹
+	BYTE byStartTime;		// ç«žèµ›å¼€å§‹å‰©ä½™æ—¶é—´
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå´ðÌâÃüÁî½áÊø
+/// å®šä¹‰ç­”é¢˜å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåNPCÕù¶áÃüÁî¿ªÊ¼
+/// å®šä¹‰NPCäº‰å¤ºå‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stNpcDareUserCmd : public stNullUserCmd
 {
@@ -7942,11 +7942,11 @@ struct stDareNpcGetGold : public stNpcDareUserCmd
 
 enum
 {
-	QUESTION_NPCDARE_HOLD, // ²éÑ¯³ÇÊÐËùÊô
-	QUESTION_NPCDARE_DARE, // µ±Ìì³ÇÊÐÕù¶áÕ½
+	QUESTION_NPCDARE_HOLD, // æŸ¥è¯¢åŸŽå¸‚æ‰€å±ž
+	QUESTION_NPCDARE_DARE, // å½“å¤©åŸŽå¸‚äº‰å¤ºæˆ˜
 };
 
-// ²éÑ¯ÎÊNPCÕù¶áÕ½ÐÅÏ¢
+// æŸ¥è¯¢é—®NPCäº‰å¤ºæˆ˜ä¿¡æ¯
 const BYTE QUESTION_NPCDARE_INFO_PARA = 3;
 struct stQuestionNpcDareInfo : public stNpcDareUserCmd
 {
@@ -7958,12 +7958,12 @@ struct stQuestionNpcDareInfo : public stNpcDareUserCmd
 	DWORD dwNpcID;
 };
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåNPCÕù¶áÃüÁî½áÊø
+/// å®šä¹‰NPCäº‰å¤ºå‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÓëGM¹¤¾ß½»»¥µÄÃüÁî¿ªÊ¼
+/// å®šä¹‰ä¸ŽGMå·¥å…·äº¤äº’çš„å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stGmToolUserCmd : public stNullUserCmd
 {
@@ -7991,17 +7991,17 @@ struct stChatGmTool : public stGmToolUserCmd
 const BYTE MSG_GMTOOL_PARA = 2;
 struct stMsgGmTool : public stGmToolUserCmd
 {
-	BYTE type;//¶¨µ¥ÀàÐÍ
-	char content[512];//Ö÷ÒªÄÚÈÝ
-	BYTE contact;//ÁªÏµ·½Ê½
-	char tele[64];//µØÖ·¡¢µç»°
-	char hisName[MAX_NAMESIZE];//±»¾Ù±¨Õß
-	char bugCountry[8];//bug·¢Éú¹ú¼Ò
-	char bugMap[16];//bug·¢ÉúµØÍ¼
-	char bugPos[8];//bug·¢ÉúÎ»ÖÃ
-	char bugTime[64];//·¢ÉúÊ±¼ä
-	char progName[64];//ÒÉËÆÍâ¹ÒÃû³Æ
-	BYTE behavior;//²»Á¼ÓÎÏ·ÏÖÏó
+	BYTE type;//å®šå•ç±»åž‹
+	char content[512];//ä¸»è¦å†…å®¹
+	BYTE contact;//è”ç³»æ–¹å¼
+	char tele[64];//åœ°å€ã€ç”µè¯
+	char hisName[MAX_NAMESIZE];//è¢«ä¸¾æŠ¥è€…
+	char bugCountry[8];//bugå‘ç”Ÿå›½å®¶
+	char bugMap[16];//bugå‘ç”Ÿåœ°å›¾
+	char bugPos[8];//bugå‘ç”Ÿä½ç½®
+	char bugTime[64];//å‘ç”Ÿæ—¶é—´
+	char progName[64];//ç–‘ä¼¼å¤–æŒ‚åç§°
+	BYTE behavior;//ä¸è‰¯æ¸¸æˆçŽ°è±¡
 	stMsgGmTool()
 	{
 
@@ -8020,42 +8020,42 @@ struct stMsgGmTool : public stGmToolUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÓëGM¹¤¾ß½»»¥µÄÃüÁî½áÊø
+/// å®šä¹‰ä¸ŽGMå·¥å…·äº¤äº’çš„å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-// ¿¨Í¨³èÎïÖ¸Áî¶¨Òå¿ªÊ¼
+// å¡é€šå® ç‰©æŒ‡ä»¤å®šä¹‰å¼€å§‹
 //////////////////////////////////////////////////////////////
 
-//±¦±¦µÄ×´Ì¬
+//å®å®çš„çŠ¶æ€
 enum cartoonState
 {
-	CARTOON_STATE_PUTAWAY,	//ÊÕÆð
-	CARTOON_STATE_FOLLOW,	//¸úËæÖ÷ÈË
-	CARTOON_STATE_WAITING,	//µÈ´ýÁìÑø
-	CARTOON_STATE_ADOPTED	//±»ÁìÑø
+	CARTOON_STATE_PUTAWAY,	//æ”¶èµ·
+	CARTOON_STATE_FOLLOW,	//è·Ÿéšä¸»äºº
+	CARTOON_STATE_WAITING,	//ç­‰å¾…é¢†å…»
+	CARTOON_STATE_ADOPTED	//è¢«é¢†å…»
 };
 
-//±¦±¦µÄÊý¾Ý
+//å®å®çš„æ•°æ®
 struct t_CartoonData
 {
-	//DWORD cartoonID;		//±¦±¦id
-	char name[MAX_NAMESIZE];	//Ãû×Ö
+	//DWORD cartoonID;		//å®å®id
+	char name[MAX_NAMESIZE];	//åå­—
 	DWORD npcID;			//npcid
-	DWORD masterID;			//Ö÷ÈËid
-	char masterName[MAX_NAMESIZE];	//Ö÷ÈËÃû×Ö
-	BYTE lv;			//µÈ¼¶
-	DWORD exp;			//¾­Ñé
-	DWORD maxExp;			//Éý¼¶¾­Ñé
-	DWORD addExp;			//¸øÖ÷ÈËÔö¼ÓµÄ¾­Ñé
-	BYTE state;		//×´Ì¬
-	char adopter[MAX_NAMESIZE];	//ÁìÑøÈË
-	DWORD time;			//¹Ò»úÊ£ÓàÊ±¼ä(Ãë)
-	DWORD sp;			//¾«ÆøÖµ
-	DWORD maxSp;			//×î´ó¾«ÆøÖµ
-	DWORD masterLevel;		//Ö÷ÈËµÈ¼¶
-	BYTE repair;			//×Ô¶¯ÐÞÀíÖ÷ÈË×°±¸
+	DWORD masterID;			//ä¸»äººid
+	char masterName[MAX_NAMESIZE];	//ä¸»äººåå­—
+	BYTE lv;			//ç­‰çº§
+	DWORD exp;			//ç»éªŒ
+	DWORD maxExp;			//å‡çº§ç»éªŒ
+	DWORD addExp;			//ç»™ä¸»äººå¢žåŠ çš„ç»éªŒ
+	BYTE state;		//çŠ¶æ€
+	char adopter[MAX_NAMESIZE];	//é¢†å…»äºº
+	DWORD time;			//æŒ‚æœºå‰©ä½™æ—¶é—´(ç§’)
+	DWORD sp;			//ç²¾æ°”å€¼
+	DWORD maxSp;			//æœ€å¤§ç²¾æ°”å€¼
+	DWORD masterLevel;		//ä¸»äººç­‰çº§
+	BYTE repair;			//è‡ªåŠ¨ä¿®ç†ä¸»äººè£…å¤‡
 
 	t_CartoonData & operator = (const t_CartoonData& reg)
 	{
@@ -8088,7 +8088,7 @@ struct stCartoonUserCmd : public stNullUserCmd
 	}
 };
 
-#define BUY_CARTOON_PARA 1	//¹ºÂò
+#define BUY_CARTOON_PARA 1	//è´­ä¹°
 struct stBuyCartoonCmd : public stCartoonUserCmd
 {
 	stBuyCartoonCmd()
@@ -8098,7 +8098,7 @@ struct stBuyCartoonCmd : public stCartoonUserCmd
 	DWORD npcID;
 };
 
-#define ADD_CARTOON_PARA 2	//Ìí¼ÓÁÐ±í
+#define ADD_CARTOON_PARA 2	//æ·»åŠ åˆ—è¡¨
 struct stAddCartoonCmd : public stCartoonUserCmd
 {
 	stAddCartoonCmd()
@@ -8110,7 +8110,7 @@ struct stAddCartoonCmd : public stCartoonUserCmd
 	t_CartoonData data;
 };
 
-#define REMOVE_CARTOON_PARA 3	//ÒÆ³ýÁÐ±í
+#define REMOVE_CARTOON_PARA 3	//ç§»é™¤åˆ—è¡¨
 struct stRemoveCartoonCmd : public stCartoonUserCmd
 {
 	stRemoveCartoonCmd()
@@ -8120,17 +8120,17 @@ struct stRemoveCartoonCmd : public stCartoonUserCmd
 	DWORD cartoonID;
 };
 
-#define FOLLOW_CARTOON_PARA 4	//¸úËæ/È¡Ïû¸úËæ
+#define FOLLOW_CARTOON_PARA 4	//è·Ÿéš/å–æ¶ˆè·Ÿéš
 struct stFollowCartoonCmd : public stCartoonUserCmd
 {
 	stFollowCartoonCmd()
 	{
 		byParam = FOLLOW_CARTOON_PARA;
 	}
-	DWORD cartoonID;//È¡Ïû¸úËæÌî0
+	DWORD cartoonID;//å–æ¶ˆè·Ÿéšå¡«0
 };
 
-#define LETOUT_CARTOON_PARA 5	//·Å³ö£¬Ê¹±ðÈË¿ÉÒÔÁìÑø
+#define LETOUT_CARTOON_PARA 5	//æ”¾å‡ºï¼Œä½¿åˆ«äººå¯ä»¥é¢†å…»
 struct stLetOutCartoonCmd : public stCartoonUserCmd
 {
 	stLetOutCartoonCmd()
@@ -8140,7 +8140,7 @@ struct stLetOutCartoonCmd : public stCartoonUserCmd
 	DWORD cartoonID;
 };
 
-#define ADOPT_CARTOON_PARA 6	//ÁìÑø³èÎï
+#define ADOPT_CARTOON_PARA 6	//é¢†å…»å® ç‰©
 struct stAdoptCartoonCmd : public stCartoonUserCmd
 {
 	stAdoptCartoonCmd()
@@ -8150,7 +8150,7 @@ struct stAdoptCartoonCmd : public stCartoonUserCmd
 	DWORD cartoonID;
 };
 
-#define RETURN_CARTOON_PARA 7	//¹é»¹³èÎï
+#define RETURN_CARTOON_PARA 7	//å½’è¿˜å® ç‰©
 struct stReturnCartoonCmd : public stCartoonUserCmd
 {
 	stReturnCartoonCmd()
@@ -8160,7 +8160,7 @@ struct stReturnCartoonCmd : public stCartoonUserCmd
 	DWORD cartoonID;
 };
 
-#define GETBACK_CARTOON_PARA 8	//ÊÕ»Ø³èÎï
+#define GETBACK_CARTOON_PARA 8	//æ”¶å›žå® ç‰©
 struct stGetBackCartoonCmd : public stCartoonUserCmd
 {
 	stGetBackCartoonCmd()
@@ -8169,7 +8169,7 @@ struct stGetBackCartoonCmd : public stCartoonUserCmd
 	}
 };
 
-#define DRAWEXP_CARTOON_PARA 9	//ÌáÈ¡¾­Ñé
+#define DRAWEXP_CARTOON_PARA 9	//æå–ç»éªŒ
 struct stDrawExpCartoonCmd : public stCartoonUserCmd
 {
 	stDrawExpCartoonCmd()
@@ -8179,7 +8179,7 @@ struct stDrawExpCartoonCmd : public stCartoonUserCmd
 	DWORD cartoonID;
 };
 
-#define CHANGENAME_CARTOON_PARA 10	//¸ÄÃû×Ö
+#define CHANGENAME_CARTOON_PARA 10	//æ”¹åå­—
 struct stChangeNameCartoonCmd : public stCartoonUserCmd
 {
 	stChangeNameCartoonCmd()
@@ -8190,19 +8190,19 @@ struct stChangeNameCartoonCmd : public stCartoonUserCmd
 	char name[MAX_NAMESIZE];
 };
 
-#define ADD_WAITING_CARTOON_PARA 11	//Ìí¼ÓµÈ´ýÁÐ±í
+#define ADD_WAITING_CARTOON_PARA 11	//æ·»åŠ ç­‰å¾…åˆ—è¡¨
 struct stAddWaitingCartoonCmd : public stCartoonUserCmd
 {
 	stAddWaitingCartoonCmd()
 	{
 		byParam = ADD_WAITING_CARTOON_PARA;
 	}
-	DWORD cartoonID;		//±¦±¦id
+	DWORD cartoonID;		//å®å®id
 	DWORD npcID;		//NPC ID
-	char name[MAX_NAMESIZE];	//Ãû×Ö
-	char masterName[MAX_NAMESIZE];	//Ö÷ÈËÃû×Ö
-	BYTE state;		//×´Ì¬
-	DWORD time;			//¹Ò»úÊ£ÓàÊ±¼ä(Ãë)
+	char name[MAX_NAMESIZE];	//åå­—
+	char masterName[MAX_NAMESIZE];	//ä¸»äººåå­—
+	BYTE state;		//çŠ¶æ€
+	DWORD time;			//æŒ‚æœºå‰©ä½™æ—¶é—´(ç§’)
 
 	void operator = (const t_CartoonData& reg)
 	{
@@ -8214,7 +8214,7 @@ struct stAddWaitingCartoonCmd : public stCartoonUserCmd
 	}
 };
 
-#define REMOVE_WAITING_CARTOON_PARA 12	//ÒÆ³ýµÈ´ýÁÐ±í
+#define REMOVE_WAITING_CARTOON_PARA 12	//ç§»é™¤ç­‰å¾…åˆ—è¡¨
 struct stRemoveWaitingCartoonCmd : public stCartoonUserCmd
 {
 	stRemoveWaitingCartoonCmd()
@@ -8224,7 +8224,7 @@ struct stRemoveWaitingCartoonCmd : public stCartoonUserCmd
 	DWORD cartoonID;
 };
 
-#define REQUEST_LIST_CARTOON_PARA 13	//ÇëÇóµÈ´ýÁÐ±í
+#define REQUEST_LIST_CARTOON_PARA 13	//è¯·æ±‚ç­‰å¾…åˆ—è¡¨
 struct stRequestListCartoonCmd : public stCartoonUserCmd
 {
 	stRequestListCartoonCmd()
@@ -8233,7 +8233,7 @@ struct stRequestListCartoonCmd : public stCartoonUserCmd
 	}
 };
 
-#define SALE_CARTOON_PARA 14	//Âô³ö³èÎï
+#define SALE_CARTOON_PARA 14	//å–å‡ºå® ç‰©
 struct stSaleCartoonCmd : public stCartoonUserCmd
 {
 	DWORD cartoonID;
@@ -8245,7 +8245,7 @@ struct stSaleCartoonCmd : public stCartoonUserCmd
 	}
 };
 
-#define CHARGE_CARTOON_PARA 15	//³äÖµ
+#define CHARGE_CARTOON_PARA 15	//å……å€¼
 struct stChargeCartoonCmd : public stCartoonUserCmd
 {
 	stChargeCartoonCmd()
@@ -8253,10 +8253,10 @@ struct stChargeCartoonCmd : public stCartoonUserCmd
 		byParam = CHARGE_CARTOON_PARA;
 	}
 	DWORD cartoonID;
-	DWORD time;//³ä¶à³¤Ê±¼ä(Ãë)
+	DWORD time;//å……å¤šé•¿æ—¶é—´(ç§’)
 };
 
-#define HP_EXP_CARTOON_PARA 16	//Í¬²½spºÍ¾­Ñé
+#define HP_EXP_CARTOON_PARA 16	//åŒæ­¥spå’Œç»éªŒ
 struct stHpExpCartoonCmd : public stCartoonUserCmd
 {
 	stHpExpCartoonCmd()
@@ -8268,7 +8268,7 @@ struct stHpExpCartoonCmd : public stCartoonUserCmd
 	DWORD exp;
 };
 
-#define SELL_ALL_CARTOON_PARA 17	//Âô°ü¹üÀïËùÓÐÎïÆ·
+#define SELL_ALL_CARTOON_PARA 17	//å–åŒ…è£¹é‡Œæ‰€æœ‰ç‰©å“
 struct stSellAllCartoonCmd : public stCartoonUserCmd
 {
 	stSellAllCartoonCmd()
@@ -8277,7 +8277,7 @@ struct stSellAllCartoonCmd : public stCartoonUserCmd
 	}
 };
 
-#define CONSIGN_CARTOON_PARA 18	//Î¯ÍÐÁìÑø
+#define CONSIGN_CARTOON_PARA 18	//å§”æ‰˜é¢†å…»
 struct stConsignCartoonCmd : public stCartoonUserCmd
 {
 	stConsignCartoonCmd()
@@ -8285,10 +8285,10 @@ struct stConsignCartoonCmd : public stCartoonUserCmd
 		byParam = CONSIGN_CARTOON_PARA;
 	}
 	DWORD cartoonID;
-	char name[MAX_NAMESIZE];//ÇëÇóÊ±ÊÇ±»Î¯ÍÐÈË£¬±»ÇëÇóÊ±ÊÇÎ¯ÍÐÈË
+	char name[MAX_NAMESIZE];//è¯·æ±‚æ—¶æ˜¯è¢«å§”æ‰˜äººï¼Œè¢«è¯·æ±‚æ—¶æ˜¯å§”æ‰˜äºº
 };
 
-#define CONSIGN_RET_CARTOON_PARA 19	//È·ÈÏÎ¯ÍÐÁìÑø
+#define CONSIGN_RET_CARTOON_PARA 19	//ç¡®è®¤å§”æ‰˜é¢†å…»
 struct stConsignRetCartoonCmd : public stCartoonUserCmd
 {
 	stConsignRetCartoonCmd()
@@ -8296,10 +8296,10 @@ struct stConsignRetCartoonCmd : public stCartoonUserCmd
 		byParam = CONSIGN_RET_CARTOON_PARA;
 	}
 	DWORD cartoonID;
-	BYTE ret;//0£º¾Ü¾ø 1£ºÍ¬Òâ
+	BYTE ret;//0ï¼šæ‹’ç» 1ï¼šåŒæ„
 };
 
-#define REPAIR_CARTOON_PARA 20	//ÉèÖÃ×Ô¶¯ÐÞÀí
+#define REPAIR_CARTOON_PARA 20	//è®¾ç½®è‡ªåŠ¨ä¿®ç†
 struct stRepairCartoonCmd : public stCartoonUserCmd
 {
 	stRepairCartoonCmd()
@@ -8307,18 +8307,18 @@ struct stRepairCartoonCmd : public stCartoonUserCmd
 		byParam = REPAIR_CARTOON_PARA;
 	}
 	DWORD cartoonID;
-	BYTE repair;//0£º¹Ø±Õ 1£º´ò¿ª
+	BYTE repair;//0ï¼šå…³é—­ 1ï¼šæ‰“å¼€
 };
 
 //////////////////////////////////////////////////////////////
-// ¿¨Í¨³èÎïÖ¸Áî¶¨Òå½áÊø
+// å¡é€šå® ç‰©æŒ‡ä»¤å®šä¹‰ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÓÊ¼þÃüÁî¿ªÊ¼
+/// å®šä¹‰é‚®ä»¶å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
-const unsigned int mail_postage = 50;	///ÓÊ×Ê50ÎÄ
+const unsigned int mail_postage = 50;	///é‚®èµ„50æ–‡
 
 struct stMailUserCmd : public stNullUserCmd
 {
@@ -8355,7 +8355,7 @@ struct stCheckReturnMail : public stMailUserCmd
 };
 */
 
-//·¢ËÍÓÊ¼þ
+//å‘é€é‚®ä»¶
 const BYTE SEND_MAIL_PARA = 3;
 struct stSendMail : public stMailUserCmd
 {
@@ -8395,7 +8395,7 @@ struct stSendReturnMail : public stMailUserCmd
 };
 */
 
-//ÇëÇóÓÊ¼þÁÐ±í
+//è¯·æ±‚é‚®ä»¶åˆ—è¡¨
 const BYTE GET_LIST_MAIL_PARA = 5;
 struct stGetListMail : public stMailUserCmd
 {
@@ -8405,7 +8405,7 @@ struct stGetListMail : public stMailUserCmd
 	}
 };
 
-//Ìí¼ÓÓÊ¼þÁÐ±í
+//æ·»åŠ é‚®ä»¶åˆ—è¡¨
 const BYTE ADD_LIST_MAIL_PARA = 6;
 struct stAddListMail : public stMailUserCmd
 {
@@ -8414,7 +8414,7 @@ struct stAddListMail : public stMailUserCmd
 	char fromName[MAX_NAMESIZE];
 	bool accessory;
 	DWORD endTime;
-	BYTE type;	//0:ÆÕÍ¨ 1£ºÏµÍ³
+	BYTE type;	//0:æ™®é€š 1ï¼šç³»ç»Ÿ
 	stAddListMail()
 	{
 		byParam = ADD_LIST_MAIL_PARA;
@@ -8427,7 +8427,7 @@ struct stAddListMail : public stMailUserCmd
 	}
 };
 
-//ÇëÇóÓÊ¼þÄÚÈÝ
+//è¯·æ±‚é‚®ä»¶å†…å®¹
 const BYTE OPEN_MAIL_PARA = 7;
 struct stOpenMail : public stMailUserCmd
 {
@@ -8438,7 +8438,7 @@ struct stOpenMail : public stMailUserCmd
 	}
 };
 
-//ÓÊ¼þÄÚÈÝ
+//é‚®ä»¶å†…å®¹
 const BYTE CONTENT_MAIL_PARA = 8;
 struct stContentMail : public stMailUserCmd
 {
@@ -8465,7 +8465,7 @@ struct stContentMail : public stMailUserCmd
 	}
 };
 
-//È¡µÃÓÊ¼þ¸½¼þ
+//å–å¾—é‚®ä»¶é™„ä»¶
 const BYTE GET_ITEM_MAIL_PARA = 9;
 struct stGetItemMail : public stMailUserCmd
 {
@@ -8476,7 +8476,7 @@ struct stGetItemMail : public stMailUserCmd
 	}
 };
 
-//É¾³ýÓÊ¼þ¸½¼þ
+//åˆ é™¤é‚®ä»¶é™„ä»¶
 const BYTE REMOVE_ITEM_MAIL_PARA = 10;
 struct stRemoveItemMail : public stMailUserCmd
 {
@@ -8487,7 +8487,7 @@ struct stRemoveItemMail : public stMailUserCmd
 	}
 };
 
-//É¾³ýÓÊ¼þ
+//åˆ é™¤é‚®ä»¶
 const BYTE DEL_MAIL_PARA = 11;
 struct stDelMail : public stMailUserCmd
 {
@@ -8498,7 +8498,7 @@ struct stDelMail : public stMailUserCmd
 	}
 };
 
-//ÐÂÓÊ¼þÌáÊ¾
+//æ–°é‚®ä»¶æç¤º
 const BYTE NOTIFY_NEW_MAIL_PARA = 12;
 struct stNotifyNewMail : public stMailUserCmd
 {
@@ -8508,7 +8508,7 @@ struct stNotifyNewMail : public stMailUserCmd
 	}
 };
 
-//ÍË»ØÓÊ¼þ
+//é€€å›žé‚®ä»¶
 const BYTE TURN_BACK_MAIL_PARA = 13;
 struct stTurnBackMail : public stMailUserCmd
 {
@@ -8522,14 +8522,14 @@ struct stTurnBackMail : public stMailUserCmd
 /*
 */
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÓÊ¼þÃüÁî½áÊø
+/// å®šä¹‰é‚®ä»¶å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÅÄÂôÃüÁî¿ªÊ¼
+/// å®šä¹‰æ‹å–å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
-//const unsigned int mail_postage = 50;	///ÓÊ×Ê50ÎÄ
+//const unsigned int mail_postage = 50;	///é‚®èµ„50æ–‡
 
 struct stAuctionUserCmd : public stNullUserCmd
 {
@@ -8571,7 +8571,7 @@ enum
 const BYTE AUCTION_BID_TYPE_MONEY = 0;
 const BYTE AUCTION_BID_TYPE_GOLD = 1;
 
-//ÅÄÂôÒ»¼þÎïÆ·
+//æ‹å–ä¸€ä»¶ç‰©å“
 const BYTE SALE_AUCTION_PARA = 1;
 struct stSaleAuction : public stAuctionUserCmd
 {
@@ -8593,7 +8593,7 @@ struct stSaleAuction : public stAuctionUserCmd
 	}
 };
 
-//¾º¼Û
+//ç«žä»·
 const BYTE BID_AUCTION_PARA = 2;
 struct stBidAuction : public stAuctionUserCmd
 {
@@ -8609,11 +8609,11 @@ struct stBidAuction : public stAuctionUserCmd
 	}
 };
 
-//Ìí¼ÓÁÐ±í
+//æ·»åŠ åˆ—è¡¨
 const BYTE ADD_LIST_AUCTION_PARA = 3;
 struct stAddListAuction : public stAuctionUserCmd
 {
-	BYTE list;//1:²é¿´ÁÐ±í 2:¾º±êÁÐ±í 3:ÅÄÂôÁÐ±í 4:ËùÓÐÁÐ±í
+	BYTE list;//1:æŸ¥çœ‹åˆ—è¡¨ 2:ç«žæ ‡åˆ—è¡¨ 3:æ‹å–åˆ—è¡¨ 4:æ‰€æœ‰åˆ—è¡¨
 	DWORD auctionID;
 	DWORD minMoney;
 	DWORD maxMoney;
@@ -8621,9 +8621,9 @@ struct stAddListAuction : public stAuctionUserCmd
 	DWORD maxGold;
 	DWORD endTime;
 	t_Object item;
-	bool mine;//ÊÇ·ñÎÒµÄ¼Û¸ñ×î¸ß
-	char owner[MAX_NAMESIZE];//ÅÄÂôÕß
-	DWORD max;//×Ü¹²¶àÉÙ¸ö
+	bool mine;//æ˜¯å¦æˆ‘çš„ä»·æ ¼æœ€é«˜
+	char owner[MAX_NAMESIZE];//æ‹å–è€…
+	DWORD max;//æ€»å…±å¤šå°‘ä¸ª
 	BYTE bidType;
 	stAddListAuction()
 	{
@@ -8643,11 +8643,11 @@ struct stAddListAuction : public stAuctionUserCmd
 	}
 };
 
-//ÒÆ³ýÁÐ±í
+//ç§»é™¤åˆ—è¡¨
 const BYTE REMOVE_LIST_AUCTION_PARA = 4;
 struct stRemoveListAuction : public stAuctionUserCmd
 {
-	BYTE list;//1:²é¿´ÁÐ±í 2:¾º±êÁÐ±í 3:ÅÄÂôÁÐ±í 4:ËùÓÐÁÐ±í
+	BYTE list;//1:æŸ¥çœ‹åˆ—è¡¨ 2:ç«žæ ‡åˆ—è¡¨ 3:æ‹å–åˆ—è¡¨ 4:æ‰€æœ‰åˆ—è¡¨
 	DWORD auctionID;
 	stRemoveListAuction()
 	{
@@ -8658,13 +8658,13 @@ struct stRemoveListAuction : public stAuctionUserCmd
 	}
 };
 
-//ËÑË÷
+//æœç´¢
 const BYTE QUERY_AUCTION_PARA = 5;
 struct stQueryAuction : public stAuctionUserCmd
 {
 	BYTE type;
 	char name[MAX_NAMESIZE];
-	BYTE quality;//1ÆÕÍ¨, 2À¶É«, 3½ðÉ«, 5ÉñÊ¥
+	BYTE quality;//1æ™®é€š, 2è“è‰², 3é‡‘è‰², 5ç¥žåœ£
 	WORD level;
 	WORD page;
 	stQueryAuction()
@@ -8679,7 +8679,7 @@ struct stQueryAuction : public stAuctionUserCmd
 	}
 };
 
-//È¡ÏûÅÄÂô
+//å–æ¶ˆæ‹å–
 const BYTE CANCEL_SALE_AUCTION_PARA = 6;
 struct stCancelSaleAuction : public stAuctionUserCmd
 {
@@ -8692,11 +8692,11 @@ struct stCancelSaleAuction : public stAuctionUserCmd
 	}
 };
 
-//ÇëÇóÁÐ±í
+//è¯·æ±‚åˆ—è¡¨
 const BYTE GET_LIST_AUCTION_PARA = 7;
 struct stGetListAuction : public stAuctionUserCmd
 {
-	BYTE list;//2:¾º±êÁÐ±í 3:ÅÄÂôÁÐ±í 
+	BYTE list;//2:ç«žæ ‡åˆ—è¡¨ 3:æ‹å–åˆ—è¡¨ 
 	stGetListAuction()
 	{
 		byParam = GET_LIST_AUCTION_PARA;
@@ -8706,12 +8706,12 @@ struct stGetListAuction : public stAuctionUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÅÄÂôÃüÁî½áÊø
+/// å®šä¹‰æ‹å–å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå¼àÓüÃüÁî¿ªÊ¼
+/// å®šä¹‰ç›‘ç‹±å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stPrisonUserCmd : public stNullUserCmd
@@ -8722,7 +8722,7 @@ struct stPrisonUserCmd : public stNullUserCmd
 	}
 };
 
-//ÇëÇó³öÓü
+//è¯·æ±‚å‡ºç‹±
 const BYTE OUT_PRISON_PARA = 1;
 struct stOutPrison : public stPrisonUserCmd
 {
@@ -8732,7 +8732,7 @@ struct stOutPrison : public stPrisonUserCmd
 	}
 };
 
-//»ßÂ¸
+//è´¿èµ‚
 const BYTE BRIBE_PRISON_PARA = 2;
 struct stBribePrison : public stPrisonUserCmd
 {
@@ -8745,7 +8745,7 @@ struct stBribePrison : public stPrisonUserCmd
 	}
 };
 
-//È¡±£¾ÍÒ½(°ï±ðÈËÏ´PKÖµ)
+//å–ä¿å°±åŒ»(å¸®åˆ«äººæ´—PKå€¼)
 const BYTE BAIL_PRISON_PARA = 3;
 struct stBailPrison : public stPrisonUserCmd
 {
@@ -8760,7 +8760,7 @@ struct stBailPrison : public stPrisonUserCmd
 	}
 };
 
-//ÇëÇó³öÀÎÓü
+//è¯·æ±‚å‡ºç‰¢ç‹±
 const BYTE LEAVE_PRISON_PARA = 4;
 struct stLeavePrison : public stPrisonUserCmd
 {
@@ -8771,12 +8771,12 @@ struct stLeavePrison : public stPrisonUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå¼àÓüÃüÁî½áÊø
+/// å®šä¹‰ç›‘ç‹±å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÀñ¹ÙÃüÁî¿ªÊ¼
+/// å®šä¹‰ç¤¼å®˜å‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stGiftUserCmd : public stNullUserCmd
@@ -8787,7 +8787,7 @@ struct stGiftUserCmd : public stNullUserCmd
 	}
 };
 
-//ÇëÇó»î¶¯ÁÐ±í
+//è¯·æ±‚æ´»åŠ¨åˆ—è¡¨
 const BYTE GET_LIST_GIFT_PARA = 1;
 struct stGetListGift : public stGiftUserCmd
 {
@@ -8804,7 +8804,7 @@ struct actTitle
 	BYTE state;
 };
 
-//·¢ËÍ»î¶¯ÁÐ±í
+//å‘é€æ´»åŠ¨åˆ—è¡¨
 const BYTE LIST_GIFT_PARA = 2;
 struct stListGift : public stGiftUserCmd
 {
@@ -8817,7 +8817,7 @@ struct stListGift : public stGiftUserCmd
 	}
 };
 
-//ÇëÇó»î¶¯ÄÚÈÝ
+//è¯·æ±‚æ´»åŠ¨å†…å®¹
 const BYTE GET_DETAIL_GIFT_PARA = 3;
 struct stGetDetailGift : public stGiftUserCmd
 {
@@ -8829,11 +8829,11 @@ struct stGetDetailGift : public stGiftUserCmd
 	}
 };
 
-//·¢ËÍ»î¶¯ÄÚÈÝ
+//å‘é€æ´»åŠ¨å†…å®¹
 const BYTE DETAIL_GIFT_PARA = 4;
 struct stDetailGift : public stGiftUserCmd
 {
-	DWORD id;//»î¶¯ID
+	DWORD id;//æ´»åŠ¨ID
 	char text[MAX_CHATINFO];
 	stDetailGift()
 	{
@@ -8843,7 +8843,7 @@ struct stDetailGift : public stGiftUserCmd
 	}
 };
 
-//ÁìÈ¡½±Æ·
+//é¢†å–å¥–å“
 const BYTE GET_ITEM_GIFT_PARA = 5;
 struct stGetItemGift : public stGiftUserCmd
 {
@@ -8855,11 +8855,11 @@ struct stGetItemGift : public stGiftUserCmd
 	}
 };
 
-//ÇëÇó»ñ½±Ãûµ¥
+//è¯·æ±‚èŽ·å¥–åå•
 const BYTE GET_WINNER_GIFT_PARA = 6;
 struct stGetWinnerGift : public stGiftUserCmd
 {
-	DWORD id;//»î¶¯ID
+	DWORD id;//æ´»åŠ¨ID
 	stGetWinnerGift()
 	{
 		byParam = GET_WINNER_GIFT_PARA;
@@ -8867,7 +8867,7 @@ struct stGetWinnerGift : public stGiftUserCmd
 	}
 };
 
-//·¢ËÍ»ñ½±Ãûµ¥
+//å‘é€èŽ·å¥–åå•
 const BYTE WINNER_GIFT_PARA = 7;
 struct stWinnerGift : public stGiftUserCmd
 {
@@ -8881,12 +8881,12 @@ struct stWinnerGift : public stGiftUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÀñ¹ÙÃüÁî½áÊø
+/// å®šä¹‰ç¤¼å®˜å‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå¹ú¼ÒÁªÃËÃüÁî¿ªÊ¼
+/// å®šä¹‰å›½å®¶è”ç›Ÿå‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stAllyUserCmd : public stNullUserCmd
@@ -8899,12 +8899,12 @@ struct stAllyUserCmd : public stNullUserCmd
 
 enum
 {
-	QUESTION_COUNTRY_ALLY, // ·¢ÆðÇëÇó
-	YES_COUNTRY_ALLY, // Í¬ÒâÇëÇó
-	NO_COUNTRY_ALLY, // ¾Ü¾øÇëÇó
+	QUESTION_COUNTRY_ALLY, // å‘èµ·è¯·æ±‚
+	YES_COUNTRY_ALLY, // åŒæ„è¯·æ±‚
+	NO_COUNTRY_ALLY, // æ‹’ç»è¯·æ±‚
 };
 
-//ÇëÇó½áÃË
+//è¯·æ±‚ç»“ç›Ÿ
 #define REQ_COUNTRY_ALLY_PARA  1
 struct stReqCountryAlly : public stAllyUserCmd
 {
@@ -8916,12 +8916,12 @@ struct stReqCountryAlly : public stAllyUserCmd
 		byStatus = QUESTION_COUNTRY_ALLY;
 	}
 	
-	DWORD dwCountryID; // ·¢ÆðÇëÇóµÄ¹ú¼Ò,·¢ÆðÊ±²»ÓÃÌîÐ´
-	DWORD dwAllyCountryID; // ±»ÑûÇëµÄ¹ú¼Ò
+	DWORD dwCountryID; // å‘èµ·è¯·æ±‚çš„å›½å®¶,å‘èµ·æ—¶ä¸ç”¨å¡«å†™
+	DWORD dwAllyCountryID; // è¢«é‚€è¯·çš„å›½å®¶
 	BYTE  byStatus;
 };
 
-// ÉèÖÃÃË¹úÐÅÏ¢
+// è®¾ç½®ç›Ÿå›½ä¿¡æ¯
 #define UPDATE_COUNTRY_ALLY_PARA 2
 struct stUpdateCountryAlly : public stAllyUserCmd
 {
@@ -8934,7 +8934,7 @@ struct stUpdateCountryAlly : public stAllyUserCmd
 	DWORD dwAllyCountryID;
 };
 
-// È¡µÞÃËÔ¼
+// å–ç¼”ç›Ÿçº¦
 #define CANCEL_COUNTRY_ALLY_PARA 3
 struct stCancelCountryAlly : public stAllyUserCmd
 {
@@ -8947,7 +8947,7 @@ struct stCancelCountryAlly : public stAllyUserCmd
 	DWORD dwAllyCountryID;
 };
 
-// ÇëÇó¹ú¼ÒÁªÃËÐÅÏ¢
+// è¯·æ±‚å›½å®¶è”ç›Ÿä¿¡æ¯
 #define REQ_COUNTRY_ALLY_INFO_PARA 4
 struct stReqCountryAllyInfo : public stAllyUserCmd
 {
@@ -8957,7 +8957,7 @@ struct stReqCountryAllyInfo : public stAllyUserCmd
 	}
 };
 
-// ·µ»Ø¹ú¼ÒÁªÃËÐÅÏ¢
+// è¿”å›žå›½å®¶è”ç›Ÿä¿¡æ¯
 #define RTN_COUNTRY_ALLY_INFO_PARA 5
 struct stRtnCountryAllyInfo : public stAllyUserCmd
 {
@@ -8973,13 +8973,13 @@ struct stRtnCountryAllyInfo : public stAllyUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå¹ú¼ÒÁªÃËÃüÁî½áÊø
+/// å®šä¹‰å›½å®¶è”ç›Ÿå‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 /*
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÐ¡ÓÎÏ·ÃüÁî¿ªÊ¼
+/// å®šä¹‰å°æ¸¸æˆå‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stMiniGameUserCmd : public stNullUserCmd
@@ -8990,7 +8990,7 @@ struct stMiniGameUserCmd : public stNullUserCmd
 	}
 };
 
-// ÑûÇë
+// é‚€è¯·
 #define INVITE_MINI_PARA 1
 struct stInviteMiniGame : public stMiniGameUserCmd
 {
@@ -8998,11 +8998,11 @@ struct stInviteMiniGame : public stMiniGameUserCmd
 	{
 		byParam = INVITE_MINI_PARA;
 	}
-	DWORD tempid;//ÑûÇëÕß/±»ÑûÇëÕßµÄÁÙÊ±ID
-	DWORD money;//¶Ä×¢
+	DWORD tempid;//é‚€è¯·è€…/è¢«é‚€è¯·è€…çš„ä¸´æ—¶ID
+	DWORD money;//èµŒæ³¨
 };
 
-// ÑûÇë»Ø¸´
+// é‚€è¯·å›žå¤
 #define INVITE_RET_MINI_PARA 2
 struct stInviteRetMiniGame : public stMiniGameUserCmd
 {
@@ -9010,12 +9010,12 @@ struct stInviteRetMiniGame : public stMiniGameUserCmd
 	{
 		byParam = INVITE_RET_MINI_PARA;
 	}
-	DWORD tempid;//ÑûÇëÕßµÄÁÙÊ±ID
-	DWORD money;//¶Ä×¢
-	DWORD ret;//1:Í¬Òâ 0:²»Í¬Òâ
+	DWORD tempid;//é‚€è¯·è€…çš„ä¸´æ—¶ID
+	DWORD money;//èµŒæ³¨
+	DWORD ret;//1:åŒæ„ 0:ä¸åŒæ„
 };
 
-// ¿ªÊ¼ÓÎÏ·
+// å¼€å§‹æ¸¸æˆ
 #define START_MINI_PARA 3
 struct stStartMiniGame : public stMiniGameUserCmd
 {
@@ -9023,11 +9023,11 @@ struct stStartMiniGame : public stMiniGameUserCmd
 	{
 		byParam = START_MINI_PARA;
 	}
-	DWORD tempid;//¶Ô·½µÄÁÙÊ±ID
-	DWORD money;//¶Ä×¢
+	DWORD tempid;//å¯¹æ–¹çš„ä¸´æ—¶ID
+	DWORD money;//èµŒæ³¨
 };
 
-// Í£Ö¹É«×Ó
+// åœæ­¢è‰²å­
 #define STOP_DICE_MINI_PARA 4
 struct stStopDiceMiniGame : public stMiniGameUserCmd
 {
@@ -9037,7 +9037,7 @@ struct stStopDiceMiniGame : public stMiniGameUserCmd
 	}
 };
 
-// É«×ÓÊý×Ö
+// è‰²å­æ•°å­—
 #define DICE_NUM_MINI_PARA 5
 struct stDiceNumMiniGame : public stMiniGameUserCmd
 {
@@ -9045,11 +9045,11 @@ struct stDiceNumMiniGame : public stMiniGameUserCmd
 	{
 		byParam = DICE_NUM_MINI_PARA;
 	}
-	DWORD tempid;//ÖÀÉ«×ÓÈËµÄÁÙÊ±ID
+	DWORD tempid;//æŽ·è‰²å­äººçš„ä¸´æ—¶ID
 	DWORD num;
 };
 
-// ½á¹û
+// ç»“æžœ
 #define RESULT_MINI_PARA 6
 struct stResultMiniGame : public stMiniGameUserCmd
 {
@@ -9057,10 +9057,10 @@ struct stResultMiniGame : public stMiniGameUserCmd
 	{
 		byParam = RESULT_MINI_PARA;
 	}
-	DWORD res;//0:Êä 1:Ó® 2:Æ½
+	DWORD res;//0:è¾“ 1:èµ¢ 2:å¹³
 };
 
-// ÓÎÏ·½áÊø //Ö÷¶¯Àë¿ªÓÎÏ·
+// æ¸¸æˆç»“æŸ //ä¸»åŠ¨ç¦»å¼€æ¸¸æˆ
 #define END_MINI_PARA 7
 struct stEndMiniGame : public stMiniGameUserCmd
 {
@@ -9070,10 +9070,10 @@ struct stEndMiniGame : public stMiniGameUserCmd
 
 		reason = 0;
 	}
-	DWORD reason;//½áÊøÔ­Òò 0:Õý³£½áÊø 1:¶Ô·½Àë¿ª
+	DWORD reason;//ç»“æŸåŽŸå›  0:æ­£å¸¸ç»“æŸ 1:å¯¹æ–¹ç¦»å¼€
 };
 
-// ¼ÌÐøÓÎÏ·
+// ç»§ç»­æ¸¸æˆ
 #define CONTINUE_MINI_PARA 8
 struct stContinueMiniGame : public stMiniGameUserCmd
 {
@@ -9081,10 +9081,10 @@ struct stContinueMiniGame : public stMiniGameUserCmd
 	{
 		byParam = CONTINUE_MINI_PARA;
 	}
-	DWORD ret;//0:²»¼ÌÐø 1:¼ÌÐø
+	DWORD ret;//0:ä¸ç»§ç»­ 1:ç»§ç»­
 };
 
-// Í¨Öª¿Í»§¶Ë½øÈëÓÎÏ·
+// é€šçŸ¥å®¢æˆ·ç«¯è¿›å…¥æ¸¸æˆ
 #define ENTER_MINI_PARA 9
 struct stEnterMiniGame : public stMiniGameUserCmd
 {
@@ -9095,13 +9095,13 @@ struct stEnterMiniGame : public stMiniGameUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÐ¡ÓÎÏ·ÃüÁî½áÊø
+/// å®šä¹‰å°æ¸¸æˆå‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 */
 
 //BEGIN_ONE_CMD
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÍÆ¼öÈËÏµÍ³ÃüÁî¿ªÊ¼
+/// å®šä¹‰æŽ¨èäººç³»ç»Ÿå‘½ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 
 struct stRecommendUserCmd : public stNullUserCmd
@@ -9112,7 +9112,7 @@ struct stRecommendUserCmd : public stNullUserCmd
 	}
 };
 
-// ÌîÐ´×Ô¼ºµÄÍÆ¼öÈË,  <=15¼¶µÄÍæ¼Ò²ÅÄÜÌîÐ´
+// å¡«å†™è‡ªå·±çš„æŽ¨èäºº,  <=15çº§çš„çŽ©å®¶æ‰èƒ½å¡«å†™
 #define SET_RECOMMEND_PARA 1
 struct stSetRecommendUserCmd : public stRecommendUserCmd
 {
@@ -9127,11 +9127,11 @@ struct stSetRecommendUserCmd : public stRecommendUserCmd
 
 enum
 {
-	QUERY_BOUNTY, // ²éÑ¯µ±Ç°½±Àø½ð
-	GET_BOUNTY,   // ÌáÈ¡µ±Ç°½±Àø½ð
+	QUERY_BOUNTY, // æŸ¥è¯¢å½“å‰å¥–åŠ±é‡‘
+	GET_BOUNTY,   // æå–å½“å‰å¥–åŠ±é‡‘
 };
 
-// ÍÆ¼öÈË²éÑ¯»òÁìÈ¡½±Àø
+// æŽ¨èäººæŸ¥è¯¢æˆ–é¢†å–å¥–åŠ±
 #define REQ_RECOMMEND_BOUNTY_PARA 2
 struct stReqRecommendBountyUserCmd : public stRecommendUserCmd
 {
@@ -9143,7 +9143,7 @@ struct stReqRecommendBountyUserCmd : public stRecommendUserCmd
 	BYTE byState;
 };
 
-// ±»ÍÆ¼öÈË²éÑ¯»òÁìÈ¡½±Àø
+// è¢«æŽ¨èäººæŸ¥è¯¢æˆ–é¢†å–å¥–åŠ±
 #define REQ_RECOMMENDED_BOUNTY_PARA 3
 struct stReqRecommendedBountyUserCmd : public stRecommendUserCmd
 {
@@ -9157,12 +9157,12 @@ struct stReqRecommendedBountyUserCmd : public stRecommendUserCmd
 
 struct stRecommendItem
 {
-	char name[MAX_NAMESIZE]; // ±»ÍÆ¼öÈËÐÕÃû
-	DWORD dwLevel;	// ×îºóÒ»´ÎÌáÈ¡Ê±µÄµÈ¼¶
-	DWORD dwTotal;  // ÀÛ¼Æ¹±Ï×¶àÉÙ½ð¶î
+	char name[MAX_NAMESIZE]; // è¢«æŽ¨èäººå§“å
+	DWORD dwLevel;	// æœ€åŽä¸€æ¬¡æå–æ—¶çš„ç­‰çº§
+	DWORD dwTotal;  // ç´¯è®¡è´¡çŒ®å¤šå°‘é‡‘é¢
 };
 
-// ·µ»ØÍÆ¼öÈË½±Àø
+// è¿”å›žæŽ¨èäººå¥–åŠ±
 #define RTN_RECOMMEND_BOUNTY_PARA 4
 struct stRtnRecommendBountyUserCmd : public stRecommendUserCmd
 {
@@ -9174,13 +9174,13 @@ struct stRtnRecommendBountyUserCmd : public stRecommendUserCmd
 		dwSize = 0;
 	}
 
-	DWORD dwBalance; // ¿ÉÁìÈ¡µÄ½ð¶î
-	DWORD dwTotal;	// ÀÛ¼ÆÒÑÁìÈ¡µÄ½ð¶î
-	DWORD dwSize;	// ±»ÍÆ¼öÈËÊýÄ¿, ÓÐ¿ÉÄÜÓÐºÜ¶à,Èç¹û³¬¹ý´°¿Ú´óÐ¡,ÄÜ²»ÄÜ×ö³É¿ÉÒÔÀ­¶¯
+	DWORD dwBalance; // å¯é¢†å–çš„é‡‘é¢
+	DWORD dwTotal;	// ç´¯è®¡å·²é¢†å–çš„é‡‘é¢
+	DWORD dwSize;	// è¢«æŽ¨èäººæ•°ç›®, æœ‰å¯èƒ½æœ‰å¾ˆå¤š,å¦‚æžœè¶…è¿‡çª—å£å¤§å°,èƒ½ä¸èƒ½åšæˆå¯ä»¥æ‹‰åŠ¨
 	stRecommendItem data[0];
 };
 
-// ·µ»Ø±»ÍÆ¼öÈË½±Àø
+// è¿”å›žè¢«æŽ¨èäººå¥–åŠ±
 #define RTN_RECOMMENDED_BOUNTY_PARA 5
 struct stRtnRecommendedBountyUserCmd : public stRecommendUserCmd
 {
@@ -9193,18 +9193,18 @@ struct stRtnRecommendedBountyUserCmd : public stRecommendUserCmd
 		bzero(name, sizeof(name));
 	}
 	
-	DWORD dwBalance; // ¿ÉÁìÈ¡µÄÓà¶î
-	DWORD dwTotal;   // ÀÛ¼ÆÒÑÁìÈ¡µÄ½ð¶î
-	DWORD dwLastLevel; // ÉÏ´ÎÁìÈ¡Ê±µÄµÈ¼¶
-	char name[MAX_NAMESIZE]; // ÍÆ¼öÈËÐÕÃû
+	DWORD dwBalance; // å¯é¢†å–çš„ä½™é¢
+	DWORD dwTotal;   // ç´¯è®¡å·²é¢†å–çš„é‡‘é¢
+	DWORD dwLastLevel; // ä¸Šæ¬¡é¢†å–æ—¶çš„ç­‰çº§
+	char name[MAX_NAMESIZE]; // æŽ¨èäººå§“å
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨ÒåÍÆ¼öÈËÏµÍ³ÃüÁî½áÊø
+/// å®šä¹‰æŽ¨èäººç³»ç»Ÿå‘½ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå²Æ²ú±£»¤ÏµÍ³Ö¸Áî¿ªÊ¼
+/// å®šä¹‰è´¢äº§ä¿æŠ¤ç³»ç»ŸæŒ‡ä»¤å¼€å§‹
 //////////////////////////////////////////////////////////////
 struct stSafetyUserCmd : public stNullUserCmd
 {
@@ -9214,7 +9214,7 @@ struct stSafetyUserCmd : public stNullUserCmd
 	}
 };
 
-// Íæ¼ÒÉèÖÃ±£»¤×´Ì¬
+// çŽ©å®¶è®¾ç½®ä¿æŠ¤çŠ¶æ€
 #define SET_SAFETY_PARA 1
 struct stSetSafetyUserCmd : public stSafetyUserCmd
 {
@@ -9225,17 +9225,17 @@ struct stSetSafetyUserCmd : public stSafetyUserCmd
 		state = 0;
 	}
 
-	DWORD pwd; // Êý×ÖÃÜÂë
-	BYTE  state; // ±£»¤×´Ì¬,0Îª¹Ø±Õ,1Îª¿ªÆô,Á½¸ö²Ù×÷¶¼ÐèÒªÊäÈëÊý×ÖÃÜÂë
+	DWORD pwd; // æ•°å­—å¯†ç 
+	BYTE  state; // ä¿æŠ¤çŠ¶æ€,0ä¸ºå…³é—­,1ä¸ºå¼€å¯,ä¸¤ä¸ªæ“ä½œéƒ½éœ€è¦è¾“å…¥æ•°å­—å¯†ç 
 };
 
 enum
 {
-	SAFETY_OPEN, // ±£»¤×´Ì¬,¸Ã×´Ì¬ÏÂ,²»ÄÜ½øÐÐ²ð×°±¸²Ù×÷
-	SAFETY_TEMP_CLOSE, // ±¾´ÎµÇÂ¼,ÔÝÊ±¹Ø±Õ×´Ì¬,¿ÉÒÔ½øÐÐÈÎºÎ²Ù×÷
+	SAFETY_OPEN, // ä¿æŠ¤çŠ¶æ€,è¯¥çŠ¶æ€ä¸‹,ä¸èƒ½è¿›è¡Œæ‹†è£…å¤‡æ“ä½œ
+	SAFETY_TEMP_CLOSE, // æœ¬æ¬¡ç™»å½•,æš‚æ—¶å…³é—­çŠ¶æ€,å¯ä»¥è¿›è¡Œä»»ä½•æ“ä½œ
 };
 
-// Íæ¼ÒÉÏÏßÊ±,·þÎñÆ÷Í¨Öª¿Í»§¶Ë,Íæ¼ÒÊÇ·ñÔÚ±£»¤×´Ì¬
+// çŽ©å®¶ä¸Šçº¿æ—¶,æœåŠ¡å™¨é€šçŸ¥å®¢æˆ·ç«¯,çŽ©å®¶æ˜¯å¦åœ¨ä¿æŠ¤çŠ¶æ€
 #define NOTIFY_SAFETY_PARA 2
 struct stNotifySafetyUserCmd : public stSafetyUserCmd
 {
@@ -9250,7 +9250,7 @@ struct stNotifySafetyUserCmd : public stSafetyUserCmd
 	BYTE safe_setup; 
 };
 
-// Íæ¼Ò½øÈëÁÙÊ±Î´±£»¤×´Ì¬,Ö»ÔÚÒ»´ÎµÇÂ¼ÖÐÓÐÐ§,Ð¡ÍËºÍ¹Ø¿Í»§¶Ëºó,ÎÞÐ§
+// çŽ©å®¶è¿›å…¥ä¸´æ—¶æœªä¿æŠ¤çŠ¶æ€,åªåœ¨ä¸€æ¬¡ç™»å½•ä¸­æœ‰æ•ˆ,å°é€€å’Œå…³å®¢æˆ·ç«¯åŽ,æ— æ•ˆ
 #define SET_TEMP_UNSAFETY_PARA 3
 struct stSetTempUnSafetyUserCmd : public stSafetyUserCmd
 {
@@ -9265,12 +9265,12 @@ struct stSetTempUnSafetyUserCmd : public stSafetyUserCmd
 
 enum
 {
-	SAFE_SPLIT_OBJECT, // ²ð×°±¸Ê±,ÐèÒªÑéÖ¤
-	SAFE_THIRD_PACK,   // ´ÓµÚ¶þ,Èý¸ö°ü¹üÖÐÄÃ³öÎïÆ·,ÐèÒªÑéÖ¤
-	SAFE_GOLD_STOCK,   // ½ð±Ò¹ºÂò¹ÉÆ±
+	SAFE_SPLIT_OBJECT, // æ‹†è£…å¤‡æ—¶,éœ€è¦éªŒè¯
+	SAFE_THIRD_PACK,   // ä»Žç¬¬äºŒ,ä¸‰ä¸ªåŒ…è£¹ä¸­æ‹¿å‡ºç‰©å“,éœ€è¦éªŒè¯
+	SAFE_GOLD_STOCK,   // é‡‘å¸è´­ä¹°è‚¡ç¥¨
 };
-// ÉèÖÃÐèÒª±£»¤µÄ¹¦ÄÜ
-// ÓÃ,set_state,clear_state,À´²Ù×÷
+// è®¾ç½®éœ€è¦ä¿æŠ¤çš„åŠŸèƒ½
+// ç”¨,set_state,clear_state,æ¥æ“ä½œ
 #define SET_SAFETY_DETAIL_PARA 4
 struct stSetSafetyDetailUserCmd : public stSafetyUserCmd
 {
@@ -9286,7 +9286,7 @@ struct stSetSafetyDetailUserCmd : public stSafetyUserCmd
 };
 
 //////////////////////////////////////////////////////////////
-/// ¶¨Òå²Æ²ú±£»¤ÏµÍ³Ö¸Áî½áÊø
+/// å®šä¹‰è´¢äº§ä¿æŠ¤ç³»ç»ŸæŒ‡ä»¤ç»“æŸ
 //////////////////////////////////////////////////////////////
 
 _CMD_NAMESPACE_END

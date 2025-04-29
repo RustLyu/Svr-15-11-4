@@ -1,4 +1,4 @@
-#ifndef _SKILL_TEST_CLIENT_
+ï»¿#ifndef _SKILL_TEST_CLIENT_
 #define _SKILL_TEST_CLIENT_
 
 
@@ -159,7 +159,7 @@ class zebraClient : public zTCPClientTask , zAStar<>, public zAStar<2>
 		bool pk_mode_ok;
 		bool locked;
 		bool firstRun();
-		//µØÍ¼ĞÅÏ¢
+		//åœ°å›¾ä¿¡æ¯
 		static zTiles allTiles;
 		static zPos sceneWH;
 
@@ -200,7 +200,7 @@ class zebraClient : public zTCPClientTask , zAStar<>, public zAStar<2>
 		}
 		bool moveable(const zPos &tempPos, const zPos &destPos, const int radius)
 		{
-			return ((!checkBlock(tempPos) //Ä¿±êµã¿É´ï£¬»òÕßÊÇ×îÖÕÄ¿±êµã
+			return ((!checkBlock(tempPos) //ç›®æ ‡ç‚¹å¯è¾¾ï¼Œæˆ–è€…æ˜¯æœ€ç»ˆç›®æ ‡ç‚¹
 						|| tempPos == destPos));
 		}
 		bool move(const int direct, const int step);
@@ -223,7 +223,7 @@ class zebraClient : public zTCPClientTask , zAStar<>, public zAStar<2>
 		DWORD dir;
 		DWORD skillid;
 
-		//¹¥»÷Ä¿±êµÄid
+		//æ”»å‡»ç›®æ ‡çš„id
 		DWORD targetid;
 		DWORD targettype;
 
@@ -242,7 +242,7 @@ class zebraClient : public zTCPClientTask , zAStar<>, public zAStar<2>
 		bool death;
 		zRTime lastReliveTime;
 
-		//9ÆÁÓÃ»§ºÍnpc
+		//9å±ç”¨æˆ·å’Œnpc
 		typedef std::map<DWORD , Cmd::stNpcPosition> MapEntry;
 		typedef MapEntry::iterator MapEntry_interator;
 		typedef MapEntry::value_type MapEntry_value_type;

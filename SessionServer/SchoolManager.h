@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SchoolManager.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÊ¦ÃÅÃÅÅÉ¹ÜÀíÆ÷
+ * \brief å®šä¹‰å¸ˆé—¨é—¨æ´¾ç®¡ç†å™¨
  *
  */
 
@@ -30,46 +30,46 @@ class CSchool;
 class CSchoolMember;
 
 /**
- * \brief ²Ù×÷³ÉÔ±ÁĞ±íµÄÀà
+ * \brief æ“ä½œæˆå‘˜åˆ—è¡¨çš„ç±»
  *
  */
 class CSchoolMemberListCallback
 {
 private:
 	/**
-	 * \brief ÊÜÓ°ÏìµÄ³ÉÔ±ÁĞ±í
+	 * \brief å—å½±å“çš„æˆå‘˜åˆ—è¡¨
 	 */
 	std::list<CSchoolMember * > memberList;
 public:
 
 	/**
-	 * \brief Çå³ıÎŞĞ§½Úµã¹ØÏµ
+	 * \brief æ¸…é™¤æ— æ•ˆèŠ‚ç‚¹å…³ç³»
 	 * \author fqnewman
 	 */
 	void clearInValidNodeRelation();
 
 	/**
-	 * \brief ±éÀú
-	 * \param member µ±Ç°½Úµã
+	 * \brief éå†
+	 * \param member å½“å‰èŠ‚ç‚¹
 	 * \author fqnewman
 	 */
 	void exec(CSchoolMember *member);
 
 	/**
-	 * \brief ·¢ËÍÍ¨Öª¸øÊÜÓ°ÏìµÄ³ÉÔ±
+	 * \brief å‘é€é€šçŸ¥ç»™å—å½±å“çš„æˆå‘˜
 	 * \author fqnewman
 	 */
 	void sendNotifyToMember();
 };
 
 /**
- * \brief Ïò³ÉÔ±·¢ËÍÆäËû³ÉÔ±ĞÅÏ¢µÄ»Øµ÷
+ * \brief å‘æˆå‘˜å‘é€å…¶ä»–æˆå‘˜ä¿¡æ¯çš„å›è°ƒ
  *
  */
 class CSendSchoolCallback
 {
 private:
-	///³ÉÔ±ÁĞ±í
+	///æˆå‘˜åˆ—è¡¨
 	std::list<struct Cmd::stSchoolMember> memberList;
 public:
 	void exec(CSchoolMember *member, const BYTE tag);
@@ -77,36 +77,36 @@ public:
 };
 
 /**
- * \brief ÃÅÅÉ¹ÜÀíÆ÷
+ * \brief é—¨æ´¾ç®¡ç†å™¨
  *
  */
 class CSchoolM : public zEntryManager<zEntryID,zEntryName>
 {
 private:
-		/// ³ÉÔ±Ë÷Òı±í
+		/// æˆå‘˜ç´¢å¼•è¡¨
 		std::map<std::string, CSchoolMember*> memberIndex;
 
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef std::map<std::string, CSchoolMember*>::value_type memberIndexValueType;
 
-		/// Î¨Ò»ÊµÀı
+		/// å”¯ä¸€å®ä¾‹
 		static CSchoolM * sm;
-		///¶ÁĞ´Ëø
+		///è¯»å†™é”
 		zRWLock rwlock;
 		inline std::map<std::string, CSchoolMember *>::iterator  findMemberIndex(const char *pName);
 
 public:
 		
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 * \author fqnewman 
 		 */
 		~CSchoolM();
 		
 		/**
-		 * \brief ³õÊ¼»¯Ê¦ÃÅÃÅÅÉ¹ÜÀíÆ÷ÈİÆ÷
+		 * \brief åˆå§‹åŒ–å¸ˆé—¨é—¨æ´¾ç®¡ç†å™¨å®¹å™¨
 		 * \author fqnewman 
-		 * \return true Îª³É¹¦£¬falseÎªÊ§°Ü
+		 * \return true ä¸ºæˆåŠŸï¼Œfalseä¸ºå¤±è´¥
 		 */
 		bool init();
 
@@ -120,228 +120,228 @@ public:
 		}
 
 		/**
-		 * \brief »ñÈ¡Î¨Ò»¶ÔÏóÊµÀı
+		 * \brief è·å–å”¯ä¸€å¯¹è±¡å®ä¾‹
 		 * \author fqnewman
-		 * \return Î¨Ò»¶ÔÏóÊµÀı
+		 * \return å”¯ä¸€å¯¹è±¡å®ä¾‹
 		 */
 		static CSchoolM &getMe();
 
 		/**
-		 * \brief ´İ»ÙÊ¦ÃÅÃÅÅÉ¹ÜÀíÆ÷ÈİÆ÷£¬×öÉÆºó¹¤×÷
+		 * \brief æ‘§æ¯å¸ˆé—¨é—¨æ´¾ç®¡ç†å™¨å®¹å™¨ï¼Œåšå–„åå·¥ä½œ
 		 * \author fqnewman
 		 */
 		static void destroyMe();
 
 		/**
-		 * \brief ½ÇÉ«ÉÏÏßÍ¨Öª£¬¹ÜÀíÆ÷ÖĞ¶ÔÓ¦µÄ½Úµã½øĞĞÉÏÏß´¦Àí¹ØÁªUserSession²¢ÇÒ¶Ô×óÁÚÓÒÉá½øĞĞÍ¨Öª
-		 * \param pUser ÉÏÏß½ÇÉ«µÄ»á»°¶ÔÏó
+		 * \brief è§’è‰²ä¸Šçº¿é€šçŸ¥ï¼Œç®¡ç†å™¨ä¸­å¯¹åº”çš„èŠ‚ç‚¹è¿›è¡Œä¸Šçº¿å¤„ç†å…³è”UserSessionå¹¶ä¸”å¯¹å·¦é‚»å³èˆè¿›è¡Œé€šçŸ¥
+		 * \param pUser ä¸Šçº¿è§’è‰²çš„ä¼šè¯å¯¹è±¡
 		 * \author fqnewman
 		 */
 		void userOnline(UserSession *pUser);
 
 		/**
-		 * \brief ½ÇÉ«ÏÂÏßÍ¨Öª£¬¹ÜÀíÆ÷ÖĞ¶ÔÓ¦µÄ½Úµã½øĞĞÏÂÏß´¦Àí£¬²¢ÇÒ¶Ô×óÁÚÓÒÉá½øĞĞÍ¨Öª
-		 * \param pUser ÏÂÏßµÄ½ÇÉ«
+		 * \brief è§’è‰²ä¸‹çº¿é€šçŸ¥ï¼Œç®¡ç†å™¨ä¸­å¯¹åº”çš„èŠ‚ç‚¹è¿›è¡Œä¸‹çº¿å¤„ç†ï¼Œå¹¶ä¸”å¯¹å·¦é‚»å³èˆè¿›è¡Œé€šçŸ¥
+		 * \param pUser ä¸‹çº¿çš„è§’è‰²
 		 * \author fqnewman
 		 */
 		void userOffline(UserSession * pUser);
 
 		/**
-		 * \brief ÔÚË÷Òı±íÖĞÌî¼ÓÖ¸¶¨½ÇÉ«µÄË÷Òı
-		 * \param name Ö¸¶¨½ÇÉ«µÄÃû³Æ
-		 * \param member ½ÇÉ«µÄ½Úµã¶ÔÏó
+		 * \brief åœ¨ç´¢å¼•è¡¨ä¸­å¡«åŠ æŒ‡å®šè§’è‰²çš„ç´¢å¼•
+		 * \param name æŒ‡å®šè§’è‰²çš„åç§°
+		 * \param member è§’è‰²çš„èŠ‚ç‚¹å¯¹è±¡
 		 * \author fqnewman
-		 * \return Ê§°Ü·µ»Øfalse,³É¹¦·µ»Øtrue
+		 * \return å¤±è´¥è¿”å›false,æˆåŠŸè¿”å›true
 		 */
 		bool addMemberIndex(const char *name, CSchoolMember *member);
 
 		/**
-		 * \brief ÔÚË÷Òı±íÖĞÉ¾³ıÖ¸¶¨µÄ½ÇÉ«µÄË÷Òı
-		 * \param name Ö¸¶¨½ÇÉ«µÄÃû³Æ
+		 * \brief åœ¨ç´¢å¼•è¡¨ä¸­åˆ é™¤æŒ‡å®šçš„è§’è‰²çš„ç´¢å¼•
+		 * \param name æŒ‡å®šè§’è‰²çš„åç§°
 		 * \author fqnewman
-		 * \return Ê§°Ü·µ»Øfalse,³É¹¦·µ»Øtrue
+		 * \return å¤±è´¥è¿”å›false,æˆåŠŸè¿”å›true
 		 */
 		bool removeMemberIndex(const char *name);
 
 		/**
-		 * \brief ´¦Àí¿Í»§¶ËËÍ¹ıÀ´µÄÏûÏ¢£¨Ò²ÓĞ¿ÉÄÜÊÇÆäËû·şÎñÆ÷×ª·¢¹ıÀ´µÄ¿Í»§¶ËÏûÏ¢£©
-		 * \param pUser ·¢ËÍÏûÏ¢µÄ½ÇÉ«
-		 * \param ptNullCmd ÏûÏ¢½á¹¹
-		 * \param cmdLen ÏûÏ¢³¤¶È
+		 * \brief å¤„ç†å®¢æˆ·ç«¯é€è¿‡æ¥çš„æ¶ˆæ¯ï¼ˆä¹Ÿæœ‰å¯èƒ½æ˜¯å…¶ä»–æœåŠ¡å™¨è½¬å‘è¿‡æ¥çš„å®¢æˆ·ç«¯æ¶ˆæ¯ï¼‰
+		 * \param pUser å‘é€æ¶ˆæ¯çš„è§’è‰²
+		 * \param ptNullCmd æ¶ˆæ¯ç»“æ„
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
 		 * \author fqnewman
-		 * \return Ê§°Ü·µ»Ø-1, Ã»ÓĞÎïÆ·±»´´½¨·µ»Ø0, °ü¹üÂú·µ»Ø1, ³É¹¦Ìí¼ÓËùÓĞ´´½¨µÄÎïÆ··µ»Ø2
+		 * \return å¤±è´¥è¿”å›-1, æ²¡æœ‰ç‰©å“è¢«åˆ›å»ºè¿”å›0, åŒ…è£¹æ»¡è¿”å›1, æˆåŠŸæ·»åŠ æ‰€æœ‰åˆ›å»ºçš„ç‰©å“è¿”å›2
 		 */
 		bool processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ´¦Àí³¡¾°·şÎñÆ÷ËÍ¹ıÀ´µÄÏûÏ¢
-		 * \param ptNullCmd ÏûÏ¢½á¹¹
-		 * \param cmdLen ÏûÏ¢³¤¶È
+		 * \brief å¤„ç†åœºæ™¯æœåŠ¡å™¨é€è¿‡æ¥çš„æ¶ˆæ¯
+		 * \param ptNullCmd æ¶ˆæ¯ç»“æ„
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
 		 * \author fqnewman
-		 * \return Ê§°Ü·µ»Ø-1, Ã»ÓĞÎïÆ·±»´´½¨·µ»Ø0, °ü¹üÂú·µ»Ø1, ³É¹¦Ìí¼ÓËùÓĞ´´½¨µÄÎïÆ··µ»Ø2
+		 * \return å¤±è´¥è¿”å›-1, æ²¡æœ‰ç‰©å“è¢«åˆ›å»ºè¿”å›0, åŒ…è£¹æ»¡è¿”å›1, æˆåŠŸæ·»åŠ æ‰€æœ‰åˆ›å»ºçš„ç‰©å“è¿”å›2
 		 */
 		bool processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ´¦Àí¼Ò×åÃÅÅÉÁÄÌìÏûÏ¢×ª·¢
-		 * \param pUser ÁÄÌìÏûÏ¢·¢ËÍÕß
-		 * \param rev ÏûÏ¢½á¹¹Ìå
-		 * \param cmdLen ÏûÏ¢³¤¶È
+		 * \brief å¤„ç†å®¶æ—é—¨æ´¾èŠå¤©æ¶ˆæ¯è½¬å‘
+		 * \param pUser èŠå¤©æ¶ˆæ¯å‘é€è€…
+		 * \param rev æ¶ˆæ¯ç»“æ„ä½“
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
 		 * \author fqnewman
 		 */
 		void sendSchoolChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *rev, const unsigned int cmdLen);
 
 		/**
-		 * \brief ´¦Àí¼Ò×åÃÅÅÉÁÄÌìÏûÏ¢×ª·¢
-		 * \param pUser ÁÄÌìÏûÏ¢·¢ËÍÕß
-		 * \param rev ÏûÏ¢½á¹¹Ìå
-		 * \param cmdLen ÏûÏ¢³¤¶È
+		 * \brief å¤„ç†å®¶æ—é—¨æ´¾èŠå¤©æ¶ˆæ¯è½¬å‘
+		 * \param pUser èŠå¤©æ¶ˆæ¯å‘é€è€…
+		 * \param rev æ¶ˆæ¯ç»“æ„ä½“
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
 		 * \author fqnewman
 		 */
 		void sendSchoolPrivateChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *rev, const unsigned int cmdLen);
 
 		/**
-		 * \brief ÅĞ¶ÏÓÃ»§µÄÍ½µÜÊÇ·ñÂú£¬
-		 * \param master ±»¼ì²éµÄ½ÇÉ«Ãû³Æ
-		 * \param schoolName ÃÅÅÉÃû³Æ£¬Èç¹û´ËÈËµÄÍ½µÜÎ´ÂúÇÒ´ËÈËÊÇÓĞÃÅÅÉµÄÄÇÃ´ÃÅÅÉÃû³ÆÍ¨¹ıÕâÀï·µ»Ø
+		 * \brief åˆ¤æ–­ç”¨æˆ·çš„å¾’å¼Ÿæ˜¯å¦æ»¡ï¼Œ
+		 * \param master è¢«æ£€æŸ¥çš„è§’è‰²åç§°
+		 * \param schoolName é—¨æ´¾åç§°ï¼Œå¦‚æœæ­¤äººçš„å¾’å¼Ÿæœªæ»¡ä¸”æ­¤äººæ˜¯æœ‰é—¨æ´¾çš„é‚£ä¹ˆé—¨æ´¾åç§°é€šè¿‡è¿™é‡Œè¿”å›
 		 * \author fqnewman
-		 * \return ·µ»Øtrue±íÊ¾masterµÄÍ½µÜÃ»ÊÕÂú£¬ ·µ»Øfalse±íÊ¾masterµÄÍ½µÜÒÑ¾­ÕĞÊÕÂúÁË
+		 * \return è¿”å›trueè¡¨ç¤ºmasterçš„å¾’å¼Ÿæ²¡æ”¶æ»¡ï¼Œ è¿”å›falseè¡¨ç¤ºmasterçš„å¾’å¼Ÿå·²ç»æ‹›æ”¶æ»¡äº†
 		 */
 		bool getUserPrenticeInfo(const char *master, char *schoolName);
 
 		/**
-		 * \brief ÅĞ¶ÏÄ³¸öÈËÊÇ·ñÎª¸É¾»µÄ£¬ÒâË¼ÊÇËûÃ»ÓĞÊ¦¸µºÍÍ½µÜµÄ¹ØÏµ£¬¼´Ëû²»ÔÚ´Ë¹ÜÀíÆ÷ÖĞ
-		 * \param name ±»¼ì²éµÄ½ÇÉ«µÄÃû³Æ
+		 * \brief åˆ¤æ–­æŸä¸ªäººæ˜¯å¦ä¸ºå¹²å‡€çš„ï¼Œæ„æ€æ˜¯ä»–æ²¡æœ‰å¸ˆå‚…å’Œå¾’å¼Ÿçš„å…³ç³»ï¼Œå³ä»–ä¸åœ¨æ­¤ç®¡ç†å™¨ä¸­
+		 * \param name è¢«æ£€æŸ¥çš„è§’è‰²çš„åç§°
 		 * \author fqnewman
-		 * \return trueÎª¸É¾»µÄ£¬false ÎªÒÑ¾­ÓĞÊ¦»òÍ½µÜ¹ØÏµ
+		 * \return trueä¸ºå¹²å‡€çš„ï¼Œfalse ä¸ºå·²ç»æœ‰å¸ˆæˆ–å¾’å¼Ÿå…³ç³»
 		 */
 		bool isClean(const char *name);
 
 		/**
-		 * \brief Îª master Ôö¼ÓÒ»¸öÍ½µÜ prentice£¬
+		 * \brief ä¸º master å¢åŠ ä¸€ä¸ªå¾’å¼Ÿ prenticeï¼Œ
 		 *
-		 * ÔÚº¯ÊıÖĞ»á¸ù¾İÁ½ÈËµÄÇé¿ö½øĞĞ¾ßÌåµÄ²Ù×÷£¬Èç¹û²»³É¹¦»á¸ø¶ÔÓ¦½ÇÉ«·¢ËÍÏûÏ¢
+		 * åœ¨å‡½æ•°ä¸­ä¼šæ ¹æ®ä¸¤äººçš„æƒ…å†µè¿›è¡Œå…·ä½“çš„æ“ä½œï¼Œå¦‚æœä¸æˆåŠŸä¼šç»™å¯¹åº”è§’è‰²å‘é€æ¶ˆæ¯
 		 *
-		 * \param master Ê¦¸µ
-		 * \param prentice Í½µÜ
+		 * \param master å¸ˆå‚…
+		 * \param prentice å¾’å¼Ÿ
 		 * \author fqnewman
 		 */
 		void addMember(UserSession *master, UserSession *prentice);
 
 		/**
-		 * \brief master ¿ª³ıÒ»¸öÍ½µÜ prentice£¬
+		 * \brief master å¼€é™¤ä¸€ä¸ªå¾’å¼Ÿ prenticeï¼Œ
 		 *
-		 * ÔÚº¯ÊıÖĞ»á¸ù¾İÁ½ÈËµÄÇé¿ö½øĞĞ¾ßÌåµÄ²Ù×÷£¬Èç¹û²»³É¹¦»á¸ø¶ÔÓ¦½ÇÉ«·¢ËÍÏûÏ¢
+		 * åœ¨å‡½æ•°ä¸­ä¼šæ ¹æ®ä¸¤äººçš„æƒ…å†µè¿›è¡Œå…·ä½“çš„æ“ä½œï¼Œå¦‚æœä¸æˆåŠŸä¼šç»™å¯¹åº”è§’è‰²å‘é€æ¶ˆæ¯
 		 *
-		 * \param master Ê¦¸µ
-		 * \param prentice Í½µÜ
+		 * \param master å¸ˆå‚…
+		 * \param prentice å¾’å¼Ÿ
 		 * \author fqnewman
 		 */
 		void frieMember(UserSession *master, const char *prentice);
 
 		/**
-		 * \brief ´ÓÊ¦ÃÅ´Ó¿ª³ıÒ»¸ö½ÇÉ«
+		 * \brief ä»å¸ˆé—¨ä»å¼€é™¤ä¸€ä¸ªè§’è‰²
 		 *
-		 * \param roleName ½ÇÉ«Ãû³Æ
-		 * \param find ÊÇ·ñÖ»ÊÇ½øĞĞÅĞ¶Ï
+		 * \param roleName è§’è‰²åç§°
+		 * \param find æ˜¯å¦åªæ˜¯è¿›è¡Œåˆ¤æ–­
 		 *
-		 * \return Èç¹û¸Ã½ÇÉ«²»ÔÚÈÎºÎÊ¦ÃÅÖĞ£¬Ôò·µ»Ø2
-		 *         Èç¹û¸Ã½ÇÉ«ÊÇ×å³¤£¬Ôò·µ»Ø0
-		 *         Èç¹û¸Ã½ÇÉ«ÊÇ×åÔ±£¬²¢É¾³ı³É¹¦£¬Ôò·µ»Ø1
+		 * \return å¦‚æœè¯¥è§’è‰²ä¸åœ¨ä»»ä½•å¸ˆé—¨ä¸­ï¼Œåˆ™è¿”å›2
+		 *         å¦‚æœè¯¥è§’è‰²æ˜¯æ—é•¿ï¼Œåˆ™è¿”å›0
+		 *         å¦‚æœè¯¥è§’è‰²æ˜¯æ—å‘˜ï¼Œå¹¶åˆ é™¤æˆåŠŸï¼Œåˆ™è¿”å›1
 		 *
 		 * \author zhongjunwei
 		 */
 		int fireSchoolMember(const char* roleName, bool find);
 
 		/**
-		 * \brief ³õÊ¼»¯µÄÊ±ºò¸ù¾İÊı¾İ¿âÖĞloadµÄ¼ÇÂ¼´´½¨Ò»¸öÃÅÅÉ¹ÜÀíÆ÷
-		 * \param info ÃÅÅÉµÄĞÅÏ¢½á¹¹
+		 * \brief åˆå§‹åŒ–çš„æ—¶å€™æ ¹æ®æ•°æ®åº“ä¸­loadçš„è®°å½•åˆ›å»ºä¸€ä¸ªé—¨æ´¾ç®¡ç†å™¨
+		 * \param info é—¨æ´¾çš„ä¿¡æ¯ç»“æ„
 		 * \author fqnewman
-		 * \return ³É¹¦·µ»Øtrue,Ê§°Ü·µ»Øfalse
+		 * \return æˆåŠŸè¿”å›true,å¤±è´¥è¿”å›false
 		 */
 		bool createSchoolFromDB(const stSchoolInfo &info);
 
 		/**
-		 * \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÃÅÅÉµÄĞÅÏ¢½¨Á¢ÃÅÅÉ¹ÜÀíÆ÷
+		 * \brief ä»æ•°æ®åº“ä¸­åŠ è½½é—¨æ´¾çš„ä¿¡æ¯å»ºç«‹é—¨æ´¾ç®¡ç†å™¨
 		 * \author fqnewman
-		 * \return trueÎª³É¹¦£¬ falseÎªÊ§°Ü
+		 * \return trueä¸ºæˆåŠŸï¼Œ falseä¸ºå¤±è´¥
 		 */
 		bool loadSchoolFromDB();
 
 		/**
-		 * \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØËùÓĞÃÅÅÉµÄ³ÉÔ±
+		 * \brief ä»æ•°æ®åº“ä¸­åŠ è½½æ‰€æœ‰é—¨æ´¾çš„æˆå‘˜
 		 * \author fqnewman
-		 * \return trueÎª³É¹¦£¬falseÎªÊ§°Ü
+		 * \return trueä¸ºæˆåŠŸï¼Œfalseä¸ºå¤±è´¥
 		 */
 		bool loadSchoolMemberFromDB();
 
 		/**
-		 * \brief ¼ì²éÖ¸¶¨µÄ½ÇÉ«ÊÇ·ñ¾ß±¸´´½¨ÃÅÅÉµÄÌõ¼ş
-		 * \param pUser ±»¼ì²éµÄ½ÇÉ«
+		 * \brief æ£€æŸ¥æŒ‡å®šçš„è§’è‰²æ˜¯å¦å…·å¤‡åˆ›å»ºé—¨æ´¾çš„æ¡ä»¶
+		 * \param pUser è¢«æ£€æŸ¥çš„è§’è‰²
 		 * \author fqnewman
-		 * \return trueÎª¾ß±¸£¬falseÎª²»¾ß±¸
+		 * \return trueä¸ºå…·å¤‡ï¼Œfalseä¸ºä¸å…·å¤‡
 		 */
 		bool checkSchoolCreateCondition(const UserSession *pUser);
 
 		/**
-		 * \brief ´´½¨Ò»¸öĞÂµÄÃÅÅÉ
-		 * \param userName Ê¦×ğµÄÃû×Ö
-		 * \param schoolName ÃÅÅÉµÄÃû³Æ
+		 * \brief åˆ›å»ºä¸€ä¸ªæ–°çš„é—¨æ´¾
+		 * \param userName å¸ˆå°Šçš„åå­—
+		 * \param schoolName é—¨æ´¾çš„åç§°
 		 * \author fqnewman
-		 * \return true Îª´´½¨³É¹¦£¬ false Îª´´½¨Ê§°Ü
+		 * \return true ä¸ºåˆ›å»ºæˆåŠŸï¼Œ false ä¸ºåˆ›å»ºå¤±è´¥
 		 */
 		bool createNewSchool(const char *userName, const char *schoolName);
 
 		/**
-		 * \brief ÏìÓ¦¹«¸æ¹¦ÄÜÉèÖÃ¹«¸æ»òÕß¶ÁÈ¡¹«¸æ
-		 * \param pUser ¹«¸æÕß
-		 * \param rev ¹«¸æÏûÏ¢
+		 * \brief å“åº”å…¬å‘ŠåŠŸèƒ½è®¾ç½®å…¬å‘Šæˆ–è€…è¯»å–å…¬å‘Š
+		 * \param pUser å…¬å‘Šè€…
+		 * \param rev å…¬å‘Šæ¶ˆæ¯
 		 * \author fqnewman
 		 */
 		void processBulletin(const UserSession *pUser, const Cmd::stSchoolBulletinCmd *rev);
 
 		/**
-		 * \brief »ñÈ¡Ãû³ÆËùÖ¸¶¨µÄ½Úµã¶ÔÏó
-		 * \param pName Ãû³Æ
+		 * \brief è·å–åç§°æ‰€æŒ‡å®šçš„èŠ‚ç‚¹å¯¹è±¡
+		 * \param pName åç§°
 		 * \author fqnewman
-		 * \return »ñÈ¡Ö¸¶¨µÄ½Úµã¶ÔÏó£¬Èç¹û²»´æÔÚ¸ÃÃû³ÆµÄ¶ÔÏóÔò·µ»ØNULL
+		 * \return è·å–æŒ‡å®šçš„èŠ‚ç‚¹å¯¹è±¡ï¼Œå¦‚æœä¸å­˜åœ¨è¯¥åç§°çš„å¯¹è±¡åˆ™è¿”å›NULL
 		 */
 		CSchoolMember *getMember(const char *pName);
 
 		/**
-		 * \brief ´¦Àí³ÉÔ±ÍË³öÃÅÅÉ»òÕßÊ¦ÃÅ
-		 * \param pUser ÍË³öÕßµÄUserSession¶ÔÏó
+		 * \brief å¤„ç†æˆå‘˜é€€å‡ºé—¨æ´¾æˆ–è€…å¸ˆé—¨
+		 * \param pUser é€€å‡ºè€…çš„UserSessionå¯¹è±¡
 		 * \author fqnewman
 		 */
 		void processLeaveGroup(UserSession *pUser);
 
 		/**
-		 * \brief ´¦Àí³ÉÔ±ÍË³öÃÅÅÉ»òÕßÊ¦ÃÅ
-		 * \param roleName ½ÇÉ«Ãû³Æ
+		 * \brief å¤„ç†æˆå‘˜é€€å‡ºé—¨æ´¾æˆ–è€…å¸ˆé—¨
+		 * \param roleName è§’è‰²åç§°
 		 * \author zhongjunwei
 		 */
 		void processLeaveGroupDirect(const char* roleName);
 
 		/**
-		 * \brief ½âÉ¢ÃÅÅÉ£¬Èç¹ûÌõ¼ş·ûºÏpNameËùÁìµ¼µÄÃÅÅÉ½«±»½âÉ¢£¬ËùÓĞµÄÈËÔ±¹ØÏµ»Ø¸´µ½Ô­Ê¼µÄÊ¦ÃÅ¹ØÏµ
-		 * \param pName ½âÉ¢ÃÅÅÉÕßµÄÃû×Ö
+		 * \brief è§£æ•£é—¨æ´¾ï¼Œå¦‚æœæ¡ä»¶ç¬¦åˆpNameæ‰€é¢†å¯¼çš„é—¨æ´¾å°†è¢«è§£æ•£ï¼Œæ‰€æœ‰çš„äººå‘˜å…³ç³»å›å¤åˆ°åŸå§‹çš„å¸ˆé—¨å…³ç³»
+		 * \param pName è§£æ•£é—¨æ´¾è€…çš„åå­—
 		 * \author fqnewman
-		 * \return true ½âÉ¢³É¹¦ false ½âÉ¢Ê§°Ü
+		 * \return true è§£æ•£æˆåŠŸ false è§£æ•£å¤±è´¥
 		 */
 		bool destroySchool(const char *pName);
 
 		/**
-		 * \brief ¸ù¾İID»ñµÃ¶ÔÓ¦µÄ¹ÜÀíÆ÷
-		 * \param id ¹ÜÀíÆ÷ID
+		 * \brief æ ¹æ®IDè·å¾—å¯¹åº”çš„ç®¡ç†å™¨
+		 * \param id ç®¡ç†å™¨ID
 		 * \author fqnewman
-		 * \return Èç¹û³É¹¦·µ»Ø¹ÜÀíÆ÷¶ÔÏó£¬Ê§°Ü·µ»ØNULL
+		 * \return å¦‚æœæˆåŠŸè¿”å›ç®¡ç†å™¨å¯¹è±¡ï¼Œå¤±è´¥è¿”å›NULL
 		 */
 		CSchool *getSchool(DWORD id);
 
 		/**
-		 * \brief ÉèÖÃÖ¸¶¨ÓÃ»§µÄ¼¶±ğ
-		 * \param pName ÓÃ»§Ãû³Æ
-		 * \param level ĞÂ¼¶±ğ
+		 * \brief è®¾ç½®æŒ‡å®šç”¨æˆ·çš„çº§åˆ«
+		 * \param pName ç”¨æˆ·åç§°
+		 * \param level æ–°çº§åˆ«
 		 * \author fqnewman
 		 */
 		void setUserLevel(const char *pName, const WORD &level);
@@ -354,25 +354,25 @@ class CSchool : public zEntryManager<zEntryID, zEntryName>, public zEntry
 {
 private:
 		/**
-		 * \Ê¦×ğµÄID
+		 * \å¸ˆå°Šçš„ID
 		 * \author fqnewman
 		 */
 		DWORD dwMasterSerialID;
 
 		/**
-		 * \¹«¸æ
+		 * \å…¬å‘Š
 		 * \author fqnewman
 		 */
 		std::string bulletin;
 
 		/**
-		 * \brief ¶ÔÏóÓĞĞ§±êÖ¾£¬Ò»°ãÅĞ¶ÏÒÀ¾İÊÇÊÇ·ñ»¹´æÔÚÊı¾İ¿âÖĞ
+		 * \brief å¯¹è±¡æœ‰æ•ˆæ ‡å¿—ï¼Œä¸€èˆ¬åˆ¤æ–­ä¾æ®æ˜¯æ˜¯å¦è¿˜å­˜åœ¨æ•°æ®åº“ä¸­
 		 * \author fqnewman
 		 */
 		bool destroy;
 
 		/**
-		 * \brief ¹ÜÀíÆ÷¶ÁĞ´Ëø
+		 * \brief ç®¡ç†å™¨è¯»å†™é”
 		 * \author fqnewman
 		 */
 		zRWLock rwlock;
@@ -384,7 +384,7 @@ public:
 */
 
 		/**
-		 * \brief ±éÀúÄ£°å¶¨Òå
+		 * \brief éå†æ¨¡æ¿å®šä¹‰
 		 * \author fqnewman
 		 */
 		template <class YourEntry>
@@ -406,13 +406,13 @@ public:
 
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 * \author fqnewman
 		 */
 		CSchool();
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 * \author fqnewman
 		 */
 		~CSchool();
@@ -420,191 +420,191 @@ public:
 
 
 		/**
-		 * \brief »ñÈ¡ÃÅÅÉÃû³Æ
+		 * \brief è·å–é—¨æ´¾åç§°
 		 * \author fqnewman
-		 * \return ÃÅÅÉÃû³Æ
+		 * \return é—¨æ´¾åç§°
 		 */
 		char *getSchoolName();
 
 		/**
-		 * \brief ÉèÖÃÃÅÅÉÃû³ÆÎ´¼ÓËø
-		 * \param pName ÃÅÅÉÃû³Æ
+		 * \brief è®¾ç½®é—¨æ´¾åç§°æœªåŠ é”
+		 * \param pName é—¨æ´¾åç§°
 		 * \author fqnewman
 		 */
 		void setSchoolName(const char *pName);
 
 		/**
-		 * \brief ÉèÖÃÊ¦×ğµÄ½ÚµãID
-		 * \param id Ê¦×ğµÄ½ÚµãID
+		 * \brief è®¾ç½®å¸ˆå°Šçš„èŠ‚ç‚¹ID
+		 * \param id å¸ˆå°Šçš„èŠ‚ç‚¹ID
 		 * \author fqnewman
 		 */
 		void setMasterSerialID(const DWORD &id);
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸öÊ¦ÃÅµÄ¸ù½Úµã
-		 * \param master ½ÇÉ«¶ÔÏó
+		 * \brief æ·»åŠ ä¸€ä¸ªå¸ˆé—¨çš„æ ¹èŠ‚ç‚¹
+		 * \param master è§’è‰²å¯¹è±¡
 		 * \author fqnewman
-		 * \return ĞÂ¼ÓµÄ½Úµã¶ÔÏó£¬Ê§°Ü·µ»ØNULL
+		 * \return æ–°åŠ çš„èŠ‚ç‚¹å¯¹è±¡ï¼Œå¤±è´¥è¿”å›NULL
 		 */
 		CSchoolMember *  addTeacher(UserSession *master);
 
 		/**
-		 * \brief Ïò´Ó¹ÜÀíÆ÷ÖĞÔö¼ÓÖ¸¶¨µÄ½Úµã£¬²¢½«Æä¼ÓÈëË÷Òı±í
-		 * \param member Ö¸¶¨µÄ½Úµã
+		 * \brief å‘ä»ç®¡ç†å™¨ä¸­å¢åŠ æŒ‡å®šçš„èŠ‚ç‚¹ï¼Œå¹¶å°†å…¶åŠ å…¥ç´¢å¼•è¡¨
+		 * \param member æŒ‡å®šçš„èŠ‚ç‚¹
 		 * \author fqnewman
 		 */
 		bool addMember(CSchoolMember *member);
 
 		/**
-		 * \brief ´Ó¹ÜÀíÆ÷ÖĞÉ¾³ıÖ¸¶¨µÄ½Úµã£¬²¢½«Æä´ÓË÷Òı±íÖĞÈ¥³ı
-		 * \param member Ö¸¶¨µÄ½Úµã
+		 * \brief ä»ç®¡ç†å™¨ä¸­åˆ é™¤æŒ‡å®šçš„èŠ‚ç‚¹ï¼Œå¹¶å°†å…¶ä»ç´¢å¼•è¡¨ä¸­å»é™¤
+		 * \param member æŒ‡å®šçš„èŠ‚ç‚¹
 		 * \author fqnewman
 		 */
 		void removeMember(CSchoolMember *member);
 	
 		/**
-		 * \brief ½«¹ÜÀíÆ÷³õÊ¼»¯³ÉÊ¦ÃÅ¹ØÏµ¹ÜÀíÆ÷
+		 * \brief å°†ç®¡ç†å™¨åˆå§‹åŒ–æˆå¸ˆé—¨å…³ç³»ç®¡ç†å™¨
 		 * \author fqnewman
-		 * \return ·µ»ØNULL±íÊ¾Ìí¼ÓÍ½µÜÊ§°Ü£¬·ñÔò·µ»ØÍ½µÜµÄ½Úµã¶ÔÏó
+		 * \return è¿”å›NULLè¡¨ç¤ºæ·»åŠ å¾’å¼Ÿå¤±è´¥ï¼Œå¦åˆ™è¿”å›å¾’å¼Ÿçš„èŠ‚ç‚¹å¯¹è±¡
 		 */
 		void initToNoneSchool();
 
 		/**
-		 * \brief ³õÊ¼»¯¹ÜÀíÆ÷£¬¸ù¾İĞÅÏ¢½á¹¹£¬´ÓÊı¾İ¿â³õÊ¼»¯µÄÊ±ºòÓÃ
-		 * \param info ¹ÜÀíÆ÷ĞÅÏ¢½á¹¹
+		 * \brief åˆå§‹åŒ–ç®¡ç†å™¨ï¼Œæ ¹æ®ä¿¡æ¯ç»“æ„ï¼Œä»æ•°æ®åº“åˆå§‹åŒ–çš„æ—¶å€™ç”¨
+		 * \param info ç®¡ç†å™¨ä¿¡æ¯ç»“æ„
 		 * \author fqnewman
 		 */
 		void initSchool(const stSchoolInfo &info);
 
 		/**
-		 * \brief ´ÓÊı¾İ¿â¼ÓÔØ±¾¹ÜÀíÆ÷ÄÚµÄËùÓĞ½ÚµãĞÅÏ¢
+		 * \brief ä»æ•°æ®åº“åŠ è½½æœ¬ç®¡ç†å™¨å†…çš„æ‰€æœ‰èŠ‚ç‚¹ä¿¡æ¯
 		 * \author fqnewman
-		 * \return ·µ»Øtrue ±íÊ¾¼ÓÔØ³É¹¦£¬·µ»Øfalse±íÊ¾¼ÓÔØÊ§°Ü
+		 * \return è¿”å›true è¡¨ç¤ºåŠ è½½æˆåŠŸï¼Œè¿”å›falseè¡¨ç¤ºåŠ è½½å¤±è´¥
 		 */
 		bool loadSchoolMemberFromDB();
 
 		/**
-		 * \brief ¸üĞÂÃÅÅÉµÄĞÅÏ¢µ½Êı¾İ¿â
+		 * \brief æ›´æ–°é—¨æ´¾çš„ä¿¡æ¯åˆ°æ•°æ®åº“
 		 * \author fqnewman
-		 * \return ·µ»Øtrue ±íÊ¾¼ÓÔØ³É¹¦£¬·µ»Øfalse±íÊ¾¼ÓÔØÊ§°Ü
+		 * \return è¿”å›true è¡¨ç¤ºåŠ è½½æˆåŠŸï¼Œè¿”å›falseè¡¨ç¤ºåŠ è½½å¤±è´¥
 		 */
 		bool updateSchoolInDB();
 
 		/**
-		 * \brief Ôö¼ÓÒ»¸ö½Úµã£¬Êı¾İ¿â³õÊ¼»¯µÄÊ±ºòµ÷ÓÃ±¾·½·¨£¬Í¨³£µ÷ÓÃ±¾·½·¨µÄÊ±ºò½ÚµãÊı¾İ¶¼ÊÇÓĞĞòµÄ£¬½ÚµãĞòÁĞºÅÓÉĞ¡µ½´ó
-		 * \param info ½ÚµãĞÅÏ¢
+		 * \brief å¢åŠ ä¸€ä¸ªèŠ‚ç‚¹ï¼Œæ•°æ®åº“åˆå§‹åŒ–çš„æ—¶å€™è°ƒç”¨æœ¬æ–¹æ³•ï¼Œé€šå¸¸è°ƒç”¨æœ¬æ–¹æ³•çš„æ—¶å€™èŠ‚ç‚¹æ•°æ®éƒ½æ˜¯æœ‰åºçš„ï¼ŒèŠ‚ç‚¹åºåˆ—å·ç”±å°åˆ°å¤§
+		 * \param info èŠ‚ç‚¹ä¿¡æ¯
 		 * \author fqnewman
 		 */
 		bool addNode(const stSchoolMemberInfo &info);
 
 		/**
-		 * \brief ·¢ËÍÃüÁîµ½Õû¸öSchoolÀïµÄ½ÇÉ«
-		 * \param ptNullCmd ÏûÏ¢½á¹¹
-		 * \param cmdLen ÏûÏ¢³¤¶È
+		 * \brief å‘é€å‘½ä»¤åˆ°æ•´ä¸ªSchoolé‡Œçš„è§’è‰²
+		 * \param ptNullCmd æ¶ˆæ¯ç»“æ„
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
 		 * \author fqnewman
 		 */
 		void sendCmdToSchool(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ²åÈëÃÅÅÉ¼ÇÂ¼µ½Êı¾İ¿âÖĞ
+		 * \brief æ’å…¥é—¨æ´¾è®°å½•åˆ°æ•°æ®åº“ä¸­
 		 * \author fqnewman
-		 * \return true ²åÈë³É¹¦ false ²åÈëÊ§°Ü
+		 * \return true æ’å…¥æˆåŠŸ false æ’å…¥å¤±è´¥
 		 */
 		bool insertSchoolToDB();
 
 		/**
-		 * \brief ½«±¾½Úµã¹ÜÀíÆ÷´ÓÊı¾İ¿âÖĞÉ¾³ı
+		 * \brief å°†æœ¬èŠ‚ç‚¹ç®¡ç†å™¨ä»æ•°æ®åº“ä¸­åˆ é™¤
 		 * \author fqnewman
-		 * \return true É¾³ı³É¹¦ false É¾³ıÊ§°Ü
+		 * \return true åˆ é™¤æˆåŠŸ false åˆ é™¤å¤±è´¥
 		 */
 		bool deleteSchoolFromDB();
 
 		/**
-		 * \brief userName´´½¨ÁËÒ»¸öĞÂµÄ°ï»ápSchool½«ÃÅÅÉÖĞµÄËùÓĞuserNameµÄÍ½×ÓÍ½Ëï¹éµ½ĞÂSchool¹ÜÀíÆğpSchoolÖĞ£¬Õâ¸ö·½·¨Ö»ÊÊÓÃÓÚÃÅÅÉ¹ÜÀíÆ÷
-		 * \param userName ĞÂµÄÊ¦×ğµÄÃû×Ö
-		 * \param pSchool ĞÂµÄ¹ÜÀíÆ÷¶ÔÏóÖ¸Õë
+		 * \brief userNameåˆ›å»ºäº†ä¸€ä¸ªæ–°çš„å¸®ä¼špSchoolå°†é—¨æ´¾ä¸­çš„æ‰€æœ‰userNameçš„å¾’å­å¾’å­™å½’åˆ°æ–°Schoolç®¡ç†èµ·pSchoolä¸­ï¼Œè¿™ä¸ªæ–¹æ³•åªé€‚ç”¨äºé—¨æ´¾ç®¡ç†å™¨
+		 * \param userName æ–°çš„å¸ˆå°Šçš„åå­—
+		 * \param pSchool æ–°çš„ç®¡ç†å™¨å¯¹è±¡æŒ‡é’ˆ
 		 * \author fqnewman
-		 * \return true ³É¹¦ false Ê§°Ü
+		 * \return true æˆåŠŸ false å¤±è´¥
 		 */
 		bool moveMemberToNewSchool(const char *userName, CSchool *pSchool);
 
 
 		/**
-		 * \brief ÅĞ¶ÏÒ»¸ö½ÇÉ«ÊÇ²»ÊÇ¸ÃÊ¦ÃÅ³ÉÔ±
+		 * \brief åˆ¤æ–­ä¸€ä¸ªè§’è‰²æ˜¯ä¸æ˜¯è¯¥å¸ˆé—¨æˆå‘˜
 		 * 
-		 * \param memberName Íæ¼ÒÃû×Ö
+		 * \param memberName ç©å®¶åå­—
 		 * \author zhongjunwei
 		 *
-		 * \return true ÊÇÊ¦ÃÅ³ÉÔ±£¬FALSE²»ÊÇÊ¦ÃÅ³ÉÔ±
+		 * \return true æ˜¯å¸ˆé—¨æˆå‘˜ï¼ŒFALSEä¸æ˜¯å¸ˆé—¨æˆå‘˜
 		 */
 		bool	isMember(const char* memberName);
 		
 		/**
-		 * \brief ¸øËùÓĞÊ¦ÃÅ³ÉÔ±·¢ËÍ×ª·¢µ½³¡¾°µÄÃüÁî
+		 * \brief ç»™æ‰€æœ‰å¸ˆé—¨æˆå‘˜å‘é€è½¬å‘åˆ°åœºæ™¯çš„å‘½ä»¤
 		 *
-		 * \param ptEnterWarCmd ´ı×ª·¢µÄÃüÁî
-		 * \param cmdLen ÃüÁî³¤¶È
+		 * \param ptEnterWarCmd å¾…è½¬å‘çš„å‘½ä»¤
+		 * \param cmdLen å‘½ä»¤é•¿åº¦
 		 * \author zhongjunwei
 		 *
 		 */
 		void sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptEnterWarCmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief Ö±½ÓÌí¼ÓÒ»¸ö½Úµã£¬¸Ã½ÚµãÒÑ¾­´æÔÚÓÚË÷Òı±íÖ®ÖĞÁË
-		 * \param member ±»Ìí¼ÓµÄ½Úµã
+		 * \brief ç›´æ¥æ·»åŠ ä¸€ä¸ªèŠ‚ç‚¹ï¼Œè¯¥èŠ‚ç‚¹å·²ç»å­˜åœ¨äºç´¢å¼•è¡¨ä¹‹ä¸­äº†
+		 * \param member è¢«æ·»åŠ çš„èŠ‚ç‚¹
 		 * \author fqnewman
 		 */
 		void directAdddMember(CSchoolMember *member);
 
 		/**
-		 * \brief Ö±½ÓÉ¾³ıÒ»¸ö½Úµã£¬²»²»ÔÚË÷Òı±íÖĞÉ¾³ı¸Ã½Úµã
-		 * \param member ±»Ìí¼ÓµÄ½Úµã
+		 * \brief ç›´æ¥åˆ é™¤ä¸€ä¸ªèŠ‚ç‚¹ï¼Œä¸ä¸åœ¨ç´¢å¼•è¡¨ä¸­åˆ é™¤è¯¥èŠ‚ç‚¹
+		 * \param member è¢«æ·»åŠ çš„èŠ‚ç‚¹
 		 * \author fqnewman
 		 */
 		void directRemoveMember(CSchoolMember *member);
 
 		/**
-		 * \brief Ö±½ÓÉ¾³ıÒ»¸ö½Úµã£¬²»²»ÔÚË÷Òı±íÖĞÉ¾³ı¸Ã½Úµã
+		 * \brief ç›´æ¥åˆ é™¤ä¸€ä¸ªèŠ‚ç‚¹ï¼Œä¸ä¸åœ¨ç´¢å¼•è¡¨ä¸­åˆ é™¤è¯¥èŠ‚ç‚¹
 		 * \author fqnewman
-		 * \return Õı³£·µ»ØÃÅÅÉµÄ½Úµã¶ÔÏó£¬Òì³£·µ»ØNULL
+		 * \return æ­£å¸¸è¿”å›é—¨æ´¾çš„èŠ‚ç‚¹å¯¹è±¡ï¼Œå¼‚å¸¸è¿”å›NULL
 		 */
 		CSchoolMember * getMasterNode();
 
 		/**
-		 * \brief ÉèÖÃ¹«¸æ
-		 * \param buf ¹«¸æÄÚÈİ
+		 * \brief è®¾ç½®å…¬å‘Š
+		 * \param buf å…¬å‘Šå†…å®¹
 		 * \author fqnewman
 		 */
 		void setBulletin(const char *buf);
 
 		/**
-		 * \brief »ñµÃ¹«¸æ
+		 * \brief è·å¾—å…¬å‘Š
 		 * \author fqnewman
-		 * \return ¹«¸æÄÚÈİ»òÕßNULL
+		 * \return å…¬å‘Šå†…å®¹æˆ–è€…NULL
 		 */
 		const char * getBulletin();
 
 		/**
-		 * \brief »ñµÃÖ¸¶¨µÄ³ÉÔ±
-		 * \param pName Ö¸¶¨µÄÃû³Æ
+		 * \brief è·å¾—æŒ‡å®šçš„æˆå‘˜
+		 * \param pName æŒ‡å®šçš„åç§°
 		 * \author fqnewman
-		 * \return ÕÒµ½µÄ³ÉÔ±¶ÔÏó»òÕßNULL
+		 * \return æ‰¾åˆ°çš„æˆå‘˜å¯¹è±¡æˆ–è€…NULL
 		 */
 		CSchoolMember *getMember(const char *pName);
 
 		/**
-		 * \brief ´¦ÀíÖ¸¶¨³ÉÔ±µÄ¹ØÏµ¶Ï¾ø£¨ÔÚÃÅÅÉÖĞÊÇÍêÈ«ÍË³ö£¬ÔÚÊ¦ÃÅÖĞÊÇ¶Ï¾øÓëÊ¦¸µµÄ¹ØÏµ
-		 * \param member ÒªÍË³ö³ÉÔ±µÄ½Úµã¶ÔÏó
-		 * \param deleteTeacherÊÇ·ñÉ¾³ıÊ¦¸µ½Úµã£¬´Ë±êÖ¾ÓÃÓÚ·ÀÖ¹ÔÚº¯ÊıÄÚÉ¾³ıµ÷ÓÃ¶ÔÏó£¬´Ë±êÖ¾ÔÚÃÅÅÉÖĞ²»Æğ×÷ÓÃ£¬ÒâË¼ÊÇ²»ÄÜÔÚÃÅÅÉ³ÉÔ±¶ÔÏóÖĞµ÷ÓÃ´Ëº¯Êı
+		 * \brief å¤„ç†æŒ‡å®šæˆå‘˜çš„å…³ç³»æ–­ç»ï¼ˆåœ¨é—¨æ´¾ä¸­æ˜¯å®Œå…¨é€€å‡ºï¼Œåœ¨å¸ˆé—¨ä¸­æ˜¯æ–­ç»ä¸å¸ˆå‚…çš„å…³ç³»
+		 * \param member è¦é€€å‡ºæˆå‘˜çš„èŠ‚ç‚¹å¯¹è±¡
+		 * \param deleteTeacheræ˜¯å¦åˆ é™¤å¸ˆå‚…èŠ‚ç‚¹ï¼Œæ­¤æ ‡å¿—ç”¨äºé˜²æ­¢åœ¨å‡½æ•°å†…åˆ é™¤è°ƒç”¨å¯¹è±¡ï¼Œæ­¤æ ‡å¿—åœ¨é—¨æ´¾ä¸­ä¸èµ·ä½œç”¨ï¼Œæ„æ€æ˜¯ä¸èƒ½åœ¨é—¨æ´¾æˆå‘˜å¯¹è±¡ä¸­è°ƒç”¨æ­¤å‡½æ•°
 		 * \author fqnewman
-		 * \return true Îª³É¹¦ falseÎªÊ§°Ü
+		 * \return true ä¸ºæˆåŠŸ falseä¸ºå¤±è´¥
 		 */
 		bool processLeaveSchool(CSchoolMember * member, bool deleteTeacher = true);
 
 		/**
-		 * \brief ½«±¾ÃÅÅÉ½âÉ¢ËùÓĞ³ÉÔ±¹ØÏµ×ªÒÆµ½Ê¦ÃÅ¹ÜÀíÆ÷¹ÜÀí
+		 * \brief å°†æœ¬é—¨æ´¾è§£æ•£æ‰€æœ‰æˆå‘˜å…³ç³»è½¬ç§»åˆ°å¸ˆé—¨ç®¡ç†å™¨ç®¡ç†
 		 * \author fqnewman
-		 * \return true Îª³É¹¦ falseÎªÊ§°Ü
+		 * \return true ä¸ºæˆåŠŸ falseä¸ºå¤±è´¥
 		 */
 		bool moveMemberToTeacherGroup();
 
@@ -618,37 +618,37 @@ class CSchoolMember : public zEntry
 private:
 
 		/**
-		 * \brief ¶ÔÏóÓĞĞ§±êÖ¾£¬Ò»°ãÅĞ¶ÏÒÀ¾İÊÇÊÇ·ñ»¹´æÔÚÊı¾İ¿âÖĞ
+		 * \brief å¯¹è±¡æœ‰æ•ˆæ ‡å¿—ï¼Œä¸€èˆ¬åˆ¤æ–­ä¾æ®æ˜¯æ˜¯å¦è¿˜å­˜åœ¨æ•°æ®åº“ä¸­
 		 * \author fqnewman
 		 */
 		bool destroy;
 
 		/**
-		 * \brief µ±Ç°½ÇÉ«µÄUserSession¶ÔÏó
+		 * \brief å½“å‰è§’è‰²çš„UserSessionå¯¹è±¡
 		 * \author fqnewman
 		 */
 		DWORD dwCharID;
 
 		/**
-		 * \brief µ±Ç°½ÇÉ«µÄÖ°Òµ
+		 * \brief å½“å‰è§’è‰²çš„èŒä¸š
 		 * \author fqnewman
 		 */
 		DWORD wdOccupation;
 
 		/**
-		 * \brief µ±Ç°½ÇÉ«µÄUserSession¶ÔÏó
+		 * \brief å½“å‰è§’è‰²çš„UserSessionå¯¹è±¡
 		 * \author fqnewman
 		 */
 		UserSession		*user;
 
 		/**
-		 * \brief Ê¦¸µ½Úµã
+		 * \brief å¸ˆå‚…èŠ‚ç‚¹
 		 * \author fqnewman
 		 */
 		CSchoolMember	*preLevelNode;
 
 		/**
-		 * \brief ÅÅĞò
+		 * \brief æ’åº
 		 * \author fqnewman
 		 */
 		struct ltword
@@ -659,617 +659,617 @@ private:
 			}
 		};
 		/**
-		 * \brief Í½µÜÁĞ±í
+		 * \brief å¾’å¼Ÿåˆ—è¡¨
 		 * \author fqnewman
 		 */
 		std::map<DWORD, CSchoolMember*,ltword> prenticeList;
 
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef std::map<DWORD, CSchoolMember*,ltword>::value_type prenticeListValueType;
 
 		/**
-		 * \brief ËùÔÚµÄÃÅÅÉ¹ÜÀíÆ÷£¨ÎŞÃÅÅÉµÄ¹é½áÎªÒ»¸öÃÅÅÉ£©
+		 * \brief æ‰€åœ¨çš„é—¨æ´¾ç®¡ç†å™¨ï¼ˆæ— é—¨æ´¾çš„å½’ç»“ä¸ºä¸€ä¸ªé—¨æ´¾ï¼‰
 		 * \author fqnewman
 		 */
 		CSchool			*school;
 
 		/**
-		 * \brief Ê¦¸µ½ÚµãµÄID
+		 * \brief å¸ˆå‚…èŠ‚ç‚¹çš„ID
 		 * \author fqnewman
 		 */
 		DWORD dwMasterID;
 
 		/**
-		 * \brief Ç°Ò»¸ö½ÚµãµÄĞòÁĞºÅ
+		 * \brief å‰ä¸€ä¸ªèŠ‚ç‚¹çš„åºåˆ—å·
 		 * \author fqnewman
 		 */
 		DWORD dwPreSerialID;
 
 		/**
-		 * \brief ½ÇÉ«µ±Ç°¼¶±ğ
+		 * \brief è§’è‰²å½“å‰çº§åˆ«
 		 * \author fqnewman
 		 */
 		DWORD wdLevel;
 
 		/**
-		 * \brief °İÊ¦Ê±¼ä
+		 * \brief æ‹œå¸ˆæ—¶é—´
 		 * \author fqnewman
 		 */
 		DWORD dwJoinTime;
 
 		/**
-		 * \brief ÓëÊ¦¸µ¼äµÄÓÑºÃ¶È
+		 * \brief ä¸å¸ˆå‚…é—´çš„å‹å¥½åº¦
 		 * \author fqnewman
 		 */
 		WORD  wdDegree;
 
 		/**
-		 * \brief ×îºó×é¶ÓÊ±¼ä
+		 * \brief æœ€åç»„é˜Ÿæ—¶é—´
 		 * \author fqnewman
 		 */
 		DWORD dwLastTime;
 
 		/**
-		 * \brief ËùÊôÃÅÅÉIDÈç¹ûÎŞÃÅÅÉÎª0
+		 * \brief æ‰€å±é—¨æ´¾IDå¦‚æœæ— é—¨æ´¾ä¸º0
 		 * \author fqnewman
 		 */
 		DWORD dwSchoolID;
 
 		/**
-		 * \brief ½ÚµãÓĞĞ§±ê¼Ç£¬1ÎªÓĞĞ§£¬0ÎªÎŞĞ§£¬ÎŞĞ§µÄ½ÚµãÖ»´æÔÚÓÚÃÅÅÉÖ®ÖĞÆğÉÏÏÂÁ¬½ÓÖ®ÓÃ
+		 * \brief èŠ‚ç‚¹æœ‰æ•ˆæ ‡è®°ï¼Œ1ä¸ºæœ‰æ•ˆï¼Œ0ä¸ºæ— æ•ˆï¼Œæ— æ•ˆçš„èŠ‚ç‚¹åªå­˜åœ¨äºé—¨æ´¾ä¹‹ä¸­èµ·ä¸Šä¸‹è¿æ¥ä¹‹ç”¨
 		 * \author fqnewman
 		 */
 		BYTE  byTag;
 		
 	
 		/**
-		 * \brief ±¾½ÚµãµÄ¶ÁĞ´Ëø
+		 * \brief æœ¬èŠ‚ç‚¹çš„è¯»å†™é”
 		 * \author fqnewman
 		 */
 		zRWLock rwlock;
 
 public:
 		/**
-		 * \brief ½«±¾½ÚµãµÄĞÅÏ¢²åÈëÊı¾İ¿â£¬½Úµã³õ´´µÄÊ±ºòÓÃ
+		 * \brief å°†æœ¬èŠ‚ç‚¹çš„ä¿¡æ¯æ’å…¥æ•°æ®åº“ï¼ŒèŠ‚ç‚¹åˆåˆ›çš„æ—¶å€™ç”¨
 		 * \author fqnewman
-		 * \return trueÎª³É¹¦£¬false ÎªÊ§°Ü
+		 * \return trueä¸ºæˆåŠŸï¼Œfalse ä¸ºå¤±è´¥
 		 */
-		bool insertRecord(); // ½«×Ô¼º²åÈëÊı¾İ¿â
+		bool insertRecord(); // å°†è‡ªå·±æ’å…¥æ•°æ®åº“
 
 		/**
-		 * \brief ¸üĞÂÊı¾İ¿âÖĞµÄ½ÚµãĞÅÏ¢
-		 * \param locked ÊÇ·ñÒÑ¾­¼ÓËø Ä¬ÈÏÎª·ñ
+		 * \brief æ›´æ–°æ•°æ®åº“ä¸­çš„èŠ‚ç‚¹ä¿¡æ¯
+		 * \param locked æ˜¯å¦å·²ç»åŠ é” é»˜è®¤ä¸ºå¦
 		 * \author fqnewman
-		 * \return trueÎª³É¹¦£¬false ÎªÊ§°Ü
+		 * \return trueä¸ºæˆåŠŸï¼Œfalse ä¸ºå¤±è´¥
 		 */
-		bool updateRecord(bool locked = false); // ½«×Ô¼º²åÈëÊı¾İ¿â
+		bool updateRecord(bool locked = false); // å°†è‡ªå·±æ’å…¥æ•°æ®åº“
 
 		/**
-		 * \brief ½«×Ô¼ºµÄÊı¾İ¿â¼ÇÂ¼É¾³ı
+		 * \brief å°†è‡ªå·±çš„æ•°æ®åº“è®°å½•åˆ é™¤
 		 * \author fqnewman
-		 * \return trueÎª³É¹¦£¬false ÎªÊ§°Ü
+		 * \return trueä¸ºæˆåŠŸï¼Œfalse ä¸ºå¤±è´¥
 		 */
 		bool deleteRecord();
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬¶Ô½Úµã½øĞĞ²¿·Ö³õÊ¼»¯
-		 * \param pSchool ±¾½ÚµãËùÔÚµÄ¹ÜÀíÆ÷¶ÔÏó
-		 * \param pUser ½ÚµãµÄÓµÓĞÕß
+		 * \brief æ„é€ å‡½æ•°ï¼Œå¯¹èŠ‚ç‚¹è¿›è¡Œéƒ¨åˆ†åˆå§‹åŒ–
+		 * \param pSchool æœ¬èŠ‚ç‚¹æ‰€åœ¨çš„ç®¡ç†å™¨å¯¹è±¡
+		 * \param pUser èŠ‚ç‚¹çš„æ‹¥æœ‰è€…
 		 * \author fqnewman
 		 */
 		CSchoolMember(CSchool *pSchool, UserSession *pUser);
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 * \author fqnewman
 		 */
 		~CSchoolMember();
 
 		/**
-		 * \brief »ñÈ¡½Úµã¶ÔÓ¦µÄ½ÇÉ«ID
+		 * \brief è·å–èŠ‚ç‚¹å¯¹åº”çš„è§’è‰²ID
 		 * \author fqnewman
-		 * \return ½ÇÉ«ID
+		 * \return è§’è‰²ID
 		 */
 		DWORD getCharID();
 
 		/**
-		 * \brief »ñÈ¡½ÚµãĞòÁĞºÅ
+		 * \brief è·å–èŠ‚ç‚¹åºåˆ—å·
 		 * \author fqnewman
-		 * \return ½ÚµãĞòÁĞºÅ
+		 * \return èŠ‚ç‚¹åºåˆ—å·
 		 */
 		DWORD getSerialID();
 
 		/**
-		 * \brief »ñÈ¡½ÚµãËùÔÚÃÅÅÉµÄID
+		 * \brief è·å–èŠ‚ç‚¹æ‰€åœ¨é—¨æ´¾çš„ID
 		 * \author fqnewman
-		 * \return ÃÅÅÉID
+		 * \return é—¨æ´¾ID
 		 */
 		DWORD getSchoolID();
 
 		/**
-		 * \brief »ñÈ¡ÓÑºÃ¶È
+		 * \brief è·å–å‹å¥½åº¦
 		 * \author fqnewman
-		 * \return ÓÑºÃ¶È
+		 * \return å‹å¥½åº¦
 		 */
 		WORD getDegree();
 
 		/**
-		 * \brief ÉèÖÃÓÑºÃ¶È
-		 * \param degree ÓÑºÃ¶È
+		 * \brief è®¾ç½®å‹å¥½åº¦
+		 * \param degree å‹å¥½åº¦
 		 * \author fqnewman
 		 */
 		void setDegree(const WORD &degree);
 
 		/**
-		 * \brief ÉèÖÃ×îºó×é¶ÓÊ±¼ä
-		 * \param lasttime ×îºó×é¶ÓÊ±¼ä
+		 * \brief è®¾ç½®æœ€åç»„é˜Ÿæ—¶é—´
+		 * \param lasttime æœ€åç»„é˜Ÿæ—¶é—´
 		 * \author fqnewman
 		 */
 		void setLastTime(const DWORD &lasttime);
 
 		/**
-		 * \brief »ñÈ¡±¾½ÚµãµÄÃÅÅÉÃû³Æ
+		 * \brief è·å–æœ¬èŠ‚ç‚¹çš„é—¨æ´¾åç§°
 		 * \author fqnewman
-		 * \return ÃÅÅÉÃû³Æ
+		 * \return é—¨æ´¾åç§°
 		 */
 		char *getSchoolName();
 
 		/**
-		 * \brief »ñµÃµ±Ç°½ÚµãµÄÍ½µÜ¼ÇÊı£¨ÓĞĞ§½ÚµãÊı£©
+		 * \brief è·å¾—å½“å‰èŠ‚ç‚¹çš„å¾’å¼Ÿè®°æ•°ï¼ˆæœ‰æ•ˆèŠ‚ç‚¹æ•°ï¼‰
 		 * \author fqnewman
-		 * \return µ±Ç°½ÚµãµÄÍ½µÜ¼ÇÊı
+		 * \return å½“å‰èŠ‚ç‚¹çš„å¾’å¼Ÿè®°æ•°
 		 */
 		BYTE getPrenticeCount();
 
 		/**
-		 * \brief »ñµÃ°İÊ¦Ê±¼ä
+		 * \brief è·å¾—æ‹œå¸ˆæ—¶é—´
 		 * \author fqnewman
-		 * \return °İÊ¦Ê±¼ä
+		 * \return æ‹œå¸ˆæ—¶é—´
 		 */
 		DWORD getJoinTime();
 
 		/**
-		 * \brief »ñµÃ×îºó×é¶ÓÊ±¼ä
+		 * \brief è·å¾—æœ€åç»„é˜Ÿæ—¶é—´
 		 * \author fqnewman
-		 * \return ×îºó×é¶ÓÊ±¼ä
+		 * \return æœ€åç»„é˜Ÿæ—¶é—´
 		 */
 		DWORD getLastTime();
 
 		/**
-		 * \brief »ñµÃ½ÇÉ«¼¶±ğ
+		 * \brief è·å¾—è§’è‰²çº§åˆ«
 		 * \author fqnewman
-		 * \return ½ÇÉ«¼¶±ğ
+		 * \return è§’è‰²çº§åˆ«
 		 */
 		WORD getLevel();
 		
 		/**
-		 * \brief Îª±¾½ÚµãÌí¼ÓÒ»¸öÍ½µÜ
-		 * \param pUser Í½µÜµÄUserSession¶ÔÏó
+		 * \brief ä¸ºæœ¬èŠ‚ç‚¹æ·»åŠ ä¸€ä¸ªå¾’å¼Ÿ
+		 * \param pUser å¾’å¼Ÿçš„UserSessionå¯¹è±¡
 		 * \author fqnewman
-		 * \return ·µ»ØNULL±íÊ¾Ìí¼ÓÍ½µÜÊ§°Ü£¬·ñÔò·µ»ØÍ½µÜµÄ½Úµã¶ÔÏó
+		 * \return è¿”å›NULLè¡¨ç¤ºæ·»åŠ å¾’å¼Ÿå¤±è´¥ï¼Œå¦åˆ™è¿”å›å¾’å¼Ÿçš„èŠ‚ç‚¹å¯¹è±¡
 		 */
 		CSchoolMember *addPrentice(UserSession *pUser);
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸ö´¿´âµÄÊ¦¸µ½Úµã£¬Ö»ÊÊÓÃÓÚÄÇĞ©´ÓÎ´ÕĞÊÕ¹ıÍ½µÜµÄÈËµÚÒ»´ÎÕĞÊÕÍ½µÜÊ±ÔÚ¹ÜÀíÆ÷ÖĞ³õÊ¼»¯×Ô¼º
+		 * \brief æ·»åŠ ä¸€ä¸ªçº¯ç²¹çš„å¸ˆå‚…èŠ‚ç‚¹ï¼Œåªé€‚ç”¨äºé‚£äº›ä»æœªæ‹›æ”¶è¿‡å¾’å¼Ÿçš„äººç¬¬ä¸€æ¬¡æ‹›æ”¶å¾’å¼Ÿæ—¶åœ¨ç®¡ç†å™¨ä¸­åˆå§‹åŒ–è‡ªå·±
 		 * \author fqnewman
 		 */
 		void initRootMember();
 
 		/**
-		 * \brief ¶ÔÍ½µÜ½Úµã½øĞĞ³õÊ¼»¯
-		 * \param master Ê¦¸µ½ÚµãµÄ½Úµã¶ÔÏó
+		 * \brief å¯¹å¾’å¼ŸèŠ‚ç‚¹è¿›è¡Œåˆå§‹åŒ–
+		 * \param master å¸ˆå‚…èŠ‚ç‚¹çš„èŠ‚ç‚¹å¯¹è±¡
 		 * \author fqnewman
 		 */
 		void initGeneralMember(CSchoolMember * master);
 
 		/**
-		 * \brief ½«ÎŞĞ§½Úµã³õÊ¼»¯³ÉÓĞĞ§½Úµã
-		 * \param master Ê¦¸µ½ÚµãµÄ½Úµã¶ÔÏó
+		 * \brief å°†æ— æ•ˆèŠ‚ç‚¹åˆå§‹åŒ–æˆæœ‰æ•ˆèŠ‚ç‚¹
+		 * \param master å¸ˆå‚…èŠ‚ç‚¹çš„èŠ‚ç‚¹å¯¹è±¡
 		 * \author fqnewman
 		 */
 		void initInValidNode(CSchoolMember * master);
 		/**
-		 * \brief ÅĞ¶Ï½ÚµãÊÇ·ñ»¹´æÔÚ¹ØÁªµÄÉÏ¼¶½Úµã»òÕßÏÂ¼¶½Úµã
+		 * \brief åˆ¤æ–­èŠ‚ç‚¹æ˜¯å¦è¿˜å­˜åœ¨å…³è”çš„ä¸Šçº§èŠ‚ç‚¹æˆ–è€…ä¸‹çº§èŠ‚ç‚¹
 		 * \author fqnewman
-		 * \return trueÎª±¾½ÚµãÒÑ¾­ÓëÆäËû½Úµã¶Ï¾øÒ»ÇĞ¹ØÏµ£¬false Îª±¾½ÚµãÓëÆäËû½Úµã»¹´æÔÚ¹ØÏµ
+		 * \return trueä¸ºæœ¬èŠ‚ç‚¹å·²ç»ä¸å…¶ä»–èŠ‚ç‚¹æ–­ç»ä¸€åˆ‡å…³ç³»ï¼Œfalse ä¸ºæœ¬èŠ‚ç‚¹ä¸å…¶ä»–èŠ‚ç‚¹è¿˜å­˜åœ¨å…³ç³»
 		 */
 		bool isClean();
 
 		/**
-		 * \brief »ñµÃ±¾½ÚµãËùÔÚµÄ¹ÜÀíÆ÷¶ÔÏó
+		 * \brief è·å¾—æœ¬èŠ‚ç‚¹æ‰€åœ¨çš„ç®¡ç†å™¨å¯¹è±¡
 		 * \author fqnewman
-		 * \return ³É¹¦·µ»Ø¹ÜÀíÆ÷¶ÔÏó£¬Ê§°Ü·µ»ØNULL
+		 * \return æˆåŠŸè¿”å›ç®¡ç†å™¨å¯¹è±¡ï¼Œå¤±è´¥è¿”å›NULL
 		 */
 		CSchool * getSchool();
 
 		/**
-		 * \brief ½«×Ô¼º´ÓÃÅÅÉÖĞÉ¾³ıµô£¬²¢É¾³ı¶ÔÓ¦µÄÊı¾İ¿â¼ÇÂ¼
+		 * \brief å°†è‡ªå·±ä»é—¨æ´¾ä¸­åˆ é™¤æ‰ï¼Œå¹¶åˆ é™¤å¯¹åº”çš„æ•°æ®åº“è®°å½•
 		 * \author fqnewman
 		 */
 		void deleteMe();
 
 		/**
-		 * \brief ÉÏÏß´¦Àí
+		 * \brief ä¸Šçº¿å¤„ç†
 		 * \author fqnewman
 		 */
 		void online(UserSession *pUser);
 
 		/**
-		 * \brief ÏÂÏß´¦Àí
+		 * \brief ä¸‹çº¿å¤„ç†
 		 * \author fqnewman
 		 */
 		void offline();
 
 
 		/**
-		 * \brief ÕÒµ½ÅÅÎ»ÔÚmemberÖ®Ç°µÄÊ¦ĞÖ
-		 * \param member ±»¼ì²éµÄ½Úµã
-		 * \param name Ê¦ĞÖµÄÃû³Æ
+		 * \brief æ‰¾åˆ°æ’ä½åœ¨memberä¹‹å‰çš„å¸ˆå…„
+		 * \param member è¢«æ£€æŸ¥çš„èŠ‚ç‚¹
+		 * \param name å¸ˆå…„çš„åç§°
 		 * \author fqnewman
 		 */
 		void getMyBigBrother(CSchoolMember *member, char *name);
 
 		/**
-		 * \brief Í¨ÖªÖÜ±é³ÉÔ±ÎÒµÄ¼ÓÈë²¢·¢ËÍ³õÊ¼»¯ÏûÏ¢¸ø×Ô¼º
+		 * \brief é€šçŸ¥å‘¨éæˆå‘˜æˆ‘çš„åŠ å…¥å¹¶å‘é€åˆå§‹åŒ–æ¶ˆæ¯ç»™è‡ªå·±
 		 * \author fqnewman
 		 */
 		void notifyNewMemberAdd();
 
 		/**
-		 * \brief ·¢ËÍ¸öÈËµÄÊ¦Í½ÃÅÅÉĞÅÏ¢¸ø¿Í»§¶Ë½øĞĞ³õÊ¼»¯
-		 * \param callback ÃÅÅÉĞÅÏ¢µÄ»Øµ÷¶ÔÏó£¬¿ÉÒÔÔÚÍâÃæÊÂÏÈ»ñµÃÃÅÅÉĞÅÏ¢ÊÊºÏ¶ÔÃÅÅÉ¶àÊıÈË¹ã²¥ÃÅÅÉĞÅÏ¢Ä¬ÈÏÎª¿Õ
+		 * \brief å‘é€ä¸ªäººçš„å¸ˆå¾’é—¨æ´¾ä¿¡æ¯ç»™å®¢æˆ·ç«¯è¿›è¡Œåˆå§‹åŒ–
+		 * \param callback é—¨æ´¾ä¿¡æ¯çš„å›è°ƒå¯¹è±¡ï¼Œå¯ä»¥åœ¨å¤–é¢äº‹å…ˆè·å¾—é—¨æ´¾ä¿¡æ¯é€‚åˆå¯¹é—¨æ´¾å¤šæ•°äººå¹¿æ’­é—¨æ´¾ä¿¡æ¯é»˜è®¤ä¸ºç©º
 		 * \author fqnewman
 		 */
 		void sendInfomationToMe(CSendSchoolCallback *callback = NULL);
 
 		/**
-		 * \brief Í½µÜÇëÇó·¢ËÍÊ¦¸µºÍĞÖµÜµÄĞÅÏ¢
-		 * \param count ¼ÆÊıÆ÷£¬ÀÛ¼Æµ±Ç°ÒÑ¾­ÓĞ¶àÉÙĞÅÏ¢±»·ÅÈçbuf
-		 * \param point ĞÅÏ¢´æ·ÅbufµÄÖ¸Õë
-		 * \param me ÇëÇóĞÅÏ¢µÄ½ÇÉ«µÄ½Úµã¶ÔÏó
+		 * \brief å¾’å¼Ÿè¯·æ±‚å‘é€å¸ˆå‚…å’Œå…„å¼Ÿçš„ä¿¡æ¯
+		 * \param count è®¡æ•°å™¨ï¼Œç´¯è®¡å½“å‰å·²ç»æœ‰å¤šå°‘ä¿¡æ¯è¢«æ”¾å¦‚buf
+		 * \param point ä¿¡æ¯å­˜æ”¾bufçš„æŒ‡é’ˆ
+		 * \param me è¯·æ±‚ä¿¡æ¯çš„è§’è‰²çš„èŠ‚ç‚¹å¯¹è±¡
 		 * \author fqnewman
-		 * \return trueÎª¸É¾»µÄ£¬false ÎªÒÑ¾­ÓĞÊ¦»òÍ½µÜ¹ØÏµ
+		 * \return trueä¸ºå¹²å‡€çš„ï¼Œfalse ä¸ºå·²ç»æœ‰å¸ˆæˆ–å¾’å¼Ÿå…³ç³»
 		 */
 		void prenticeRequestMemberInfo(unsigned int &count, Cmd::stTeacherMember *point, CSchoolMember *me);
 
 		/**
-		 * \brief ¸ù¾İÊı¾İ¿â¼ÇÂ¼³õÊ¼»¯½Úµã
-		 * \param info Êı¾İ¿â¼ÇÂ¼ĞÅÏ¢½á¹¹
+		 * \brief æ ¹æ®æ•°æ®åº“è®°å½•åˆå§‹åŒ–èŠ‚ç‚¹
+		 * \param info æ•°æ®åº“è®°å½•ä¿¡æ¯ç»“æ„
 		 * \author fqnewman
 		 */
 		void initByDBRecord(const stSchoolMemberInfo &info);
 
 		/**
-		 * \brief ÅĞ¶Ï½ÚµãÊÇ·ñ´æÔÚÊ¦¸µ,¸ù¾İinfoÊôĞÔÄÚÈİÅĞ¶Ï
+		 * \brief åˆ¤æ–­èŠ‚ç‚¹æ˜¯å¦å­˜åœ¨å¸ˆå‚…,æ ¹æ®infoå±æ€§å†…å®¹åˆ¤æ–­
 		 * \author fqnewman
-		 * \return trueÎªÓĞÊ¦¸µ£¬false ÎªÃ»ÓĞÊ¦¸µ
+		 * \return trueä¸ºæœ‰å¸ˆå‚…ï¼Œfalse ä¸ºæ²¡æœ‰å¸ˆå‚…
 		 */
 		bool haveTeacher();
 
 		/**
-		 * \brief ÅĞ¶Ï½ÚµãÊÇ·ñ´æÔÚÇ°Ò»½Úµã,ÔÚÃÅÅÉÖĞÒ»¸öÈË¿ÉÄÜÃ»ÓĞÊ¦¸µµ«ÊÇ»áÓĞÇ°Ò»½Úµã
+		 * \brief åˆ¤æ–­èŠ‚ç‚¹æ˜¯å¦å­˜åœ¨å‰ä¸€èŠ‚ç‚¹,åœ¨é—¨æ´¾ä¸­ä¸€ä¸ªäººå¯èƒ½æ²¡æœ‰å¸ˆå‚…ä½†æ˜¯ä¼šæœ‰å‰ä¸€èŠ‚ç‚¹
 		 * \author fqnewman
-		 * \return trueÎªÓĞ½Úµã£¬false µ±Ç°½ÚµãÎª¸ù½Úµã£¨Ê¦×ğ£©
+		 * \return trueä¸ºæœ‰èŠ‚ç‚¹ï¼Œfalse å½“å‰èŠ‚ç‚¹ä¸ºæ ¹èŠ‚ç‚¹ï¼ˆå¸ˆå°Šï¼‰
 		 */
 		bool havePreNode();
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸öÏÂÒ»¼¶½Úµã£¬²»»áÓĞÍ¨Öª¶¯×÷£¬ÓÃÔÚÊı¾İ¿â³õÊ¼»¯µÄÊ±ºò
-		 * \param member ÏÂÒ»¼¶½Úµã
+		 * \brief æ·»åŠ ä¸€ä¸ªä¸‹ä¸€çº§èŠ‚ç‚¹ï¼Œä¸ä¼šæœ‰é€šçŸ¥åŠ¨ä½œï¼Œç”¨åœ¨æ•°æ®åº“åˆå§‹åŒ–çš„æ—¶å€™
+		 * \param member ä¸‹ä¸€çº§èŠ‚ç‚¹
 		 * \author fqnewman
 		 */
 		bool addNextLevelNode(CSchoolMember *member);
 
 		/**
-		 * \brief ÉèÖÃ±¾½ÚµãµÄÉÏ²ã½Úµã
-		 * \param pPreNode ÉÏ²ã½Úµã
+		 * \brief è®¾ç½®æœ¬èŠ‚ç‚¹çš„ä¸Šå±‚èŠ‚ç‚¹
+		 * \param pPreNode ä¸Šå±‚èŠ‚ç‚¹
 		 * \author fqnewman
 		 */
 		void setPreLevelNode(CSchoolMember *pPreNode);
 
 		/**
-		 * \brief ¿ª³ıÖ¸¶¨Ãû×ÖµÄÍ½µÜ
-		 * \param PrenticeName ±»¿ª³ıÈËµÄÃû×Ö
+		 * \brief å¼€é™¤æŒ‡å®šåå­—çš„å¾’å¼Ÿ
+		 * \param PrenticeName è¢«å¼€é™¤äººçš„åå­—
 		 * \author fqnewman
-		 * \return true Îª¿ª³ı³É¹¦£¬ falseÎªÃ»ÓĞ´ËÈË
+		 * \return true ä¸ºå¼€é™¤æˆåŠŸï¼Œ falseä¸ºæ²¡æœ‰æ­¤äºº
 		 */
 		bool firePrentice(const char *PrenticeName);
 
 		/**
-		  * \brief ¿ª³ıËùÓĞÍ½µÜ
+		  * \brief å¼€é™¤æ‰€æœ‰å¾’å¼Ÿ
 		  *
 		  * \author zhongjunwei
 		  */
 		bool fireAllPrentice();
 
 		/**
-		 * \brief ºË¶Ô±¾½ÚµãÊÇ²»ÊÇÃû³Æ¶ÔÓ¦µÄ½Úµã
-		 * \param pName Ö¸¶¨µÄÃû³Æ
+		 * \brief æ ¸å¯¹æœ¬èŠ‚ç‚¹æ˜¯ä¸æ˜¯åç§°å¯¹åº”çš„èŠ‚ç‚¹
+		 * \param pName æŒ‡å®šçš„åç§°
 		 * \author fqnewman
-		 * \return true Õâ¸ö½Úµã¾ÍÊÇÒªÕÒµÄ½Úµã£¬ false ½Úµã²»½ĞÕâ¸öÃû×Ö
+		 * \return true è¿™ä¸ªèŠ‚ç‚¹å°±æ˜¯è¦æ‰¾çš„èŠ‚ç‚¹ï¼Œ false èŠ‚ç‚¹ä¸å«è¿™ä¸ªåå­—
 		 */
 		bool isMe(const char *pName);
 
 		/**
-		 * \brief ½Úµã¶ÔÓ¦½ÇÉ«ÊÇ·ñÔÚÏß
+		 * \brief èŠ‚ç‚¹å¯¹åº”è§’è‰²æ˜¯å¦åœ¨çº¿
 		 * \author fqnewman
-		 * \return true ½ÇÉ«ÔÚÏß£¬ false ½ÇÉ«²»ÔÚÏß
+		 * \return true è§’è‰²åœ¨çº¿ï¼Œ false è§’è‰²ä¸åœ¨çº¿
 		 */
 		bool isOnline();
 
 		/**
-		 * \brief ÅĞ¶Ï½ÚµãÊÇ·ñÊÇÓĞĞ§µÄ£¬ÅĞ¶ÏÒÀ¾İÎªtagÊÇ·ñÎª1
+		 * \brief åˆ¤æ–­èŠ‚ç‚¹æ˜¯å¦æ˜¯æœ‰æ•ˆçš„ï¼Œåˆ¤æ–­ä¾æ®ä¸ºtagæ˜¯å¦ä¸º1
 		 * \author fqnewman
-		 * \return true ÓĞĞ§µÄ£¬ false ÎŞĞ§µÄ
+		 * \return true æœ‰æ•ˆçš„ï¼Œ false æ— æ•ˆçš„
 		 */
 		bool isValid();
 
 		/**
-		 * \brief »ñµÃ½ÚµãÔÚÊ÷ÖĞµÄ¶È
-		 * \param layer ¶È
+		 * \brief è·å¾—èŠ‚ç‚¹åœ¨æ ‘ä¸­çš„åº¦
+		 * \param layer åº¦
 		 * \author fqnewman
 		 */
 		void getMyLayer(DWORD &layer);
 
 		/**
-		 * \brief Í¨Öª¸Ã½Úµã¼°ÆäËùÓĞÍ½µÜ,¸üĞÂ×Ô¼ºµÄÊ¦ÃÅÁĞ±í
+		 * \brief é€šçŸ¥è¯¥èŠ‚ç‚¹åŠå…¶æ‰€æœ‰å¾’å¼Ÿ,æ›´æ–°è‡ªå·±çš„å¸ˆé—¨åˆ—è¡¨
 		 * \author fqnewman
 		 */
 		void notifyTeacherGroup();
 
 		/**
-		 * \brief ·¢ËÍÃüÁîµ½½Úµã¶ÔÓ¦µÄ½ÇÉ«
-		 * \param ptNullCmd ÏûÏ¢½á¹¹
-		 * \param cmdLen ÏûÏ¢³¤¶È
+		 * \brief å‘é€å‘½ä»¤åˆ°èŠ‚ç‚¹å¯¹åº”çš„è§’è‰²
+		 * \param ptNullCmd æ¶ˆæ¯ç»“æ„
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
 		 * \author fqnewman
 		 */
        void sendCmdToMe(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ·¢ËÍÁÄÌìÏûÏ¢µ½½Úµã¶ÔÓ¦µÄ¶ÔÏó
-		 * \param type ÏµÍ³ÏûÏ¢µÄÀàĞÍ 
-		 * \param pattern ÏûÏ¢
-		 * \param ... ²ÎÊı
+		 * \brief å‘é€èŠå¤©æ¶ˆæ¯åˆ°èŠ‚ç‚¹å¯¹åº”çš„å¯¹è±¡
+		 * \param type ç³»ç»Ÿæ¶ˆæ¯çš„ç±»å‹ 
+		 * \param pattern æ¶ˆæ¯
+		 * \param ... å‚æ•°
 		 * \author fqnewman
 		 */
 		void sendSysChat(int type, const char *pattern, ...);
 
 		/**
-		 * \brief Çå³ıÊ¦Í½¹ØÏµ£¬preLevelNodeÖ¸ÕëÖÃ¿Õ£¬Ê¦¸µĞÅÏ¢Çå0
+		 * \brief æ¸…é™¤å¸ˆå¾’å…³ç³»ï¼ŒpreLevelNodeæŒ‡é’ˆç½®ç©ºï¼Œå¸ˆå‚…ä¿¡æ¯æ¸…0
 		 * \author fqnewman
 		 */
 		void clearTeacherRelation();
 
 		/**
-		 * \brief ¼ì²é´ËÈËµÄÍ½µÜÍ½ËïµÄÊıÄ¿ºÍ¼¶±ğÊÇ·ñ´ïµ½³ÉÁ¢ÃÅÅÉµÄÌõ¼ş
+		 * \brief æ£€æŸ¥æ­¤äººçš„å¾’å¼Ÿå¾’å­™çš„æ•°ç›®å’Œçº§åˆ«æ˜¯å¦è¾¾åˆ°æˆç«‹é—¨æ´¾çš„æ¡ä»¶
 		 * \author fqnewman
-		 * \return true ÎªÌõ¼şÂú×ã false ÎªÌõ¼ş²»Âú×ã
+		 * \return true ä¸ºæ¡ä»¶æ»¡è¶³ false ä¸ºæ¡ä»¶ä¸æ»¡è¶³
 		 */
 		bool checkSchoolCreateCondition();
 
 		/**
-		 * \brief ¼ì²é½Úµã×Ô¼ººÍÍ½µÜµÄÌõ¼şÊÇ·ñ´ïµ½Ê¦¸µ³ÉÁ¢ÃÅÅÉµÄÒªÇó
+		 * \brief æ£€æŸ¥èŠ‚ç‚¹è‡ªå·±å’Œå¾’å¼Ÿçš„æ¡ä»¶æ˜¯å¦è¾¾åˆ°å¸ˆå‚…æˆç«‹é—¨æ´¾çš„è¦æ±‚
 		 * \author fqnewman
-		 * \return true ÎªÌõ¼şÂú×ã false ÎªÌõ¼ş²»Âú×ã
+		 * \return true ä¸ºæ¡ä»¶æ»¡è¶³ false ä¸ºæ¡ä»¶ä¸æ»¡è¶³
 		 */
 		bool checkMeAndPrenticeNumberAndLevel();
 
 		/**
-		 * \brief ½«½Úµã×Ô¼º¼°ÆäËùÓĞµÄÍ½µÜ¶¼Å²µ½¹ÜÀíÆ÷pSchoolÖ®ÖĞ
-		 * \param pSchool ½ÚµãÒÆ¶¯µÄÄ¿±ê¹ÜÀíÆ÷
-		 * \param memberSet ³ÉÔ±´¦Àí»Øµ÷¶ÔÏó£¬Èç¹û²»ĞèÒª¶Ô±»ÒÆ¶¯³ÉÔ±½øĞĞ´¦Àí¿ÉÒÔÉèÖÃÎªNULL£¬Ä¬ÈÏÎªNULL
+		 * \brief å°†èŠ‚ç‚¹è‡ªå·±åŠå…¶æ‰€æœ‰çš„å¾’å¼Ÿéƒ½æŒªåˆ°ç®¡ç†å™¨pSchoolä¹‹ä¸­
+		 * \param pSchool èŠ‚ç‚¹ç§»åŠ¨çš„ç›®æ ‡ç®¡ç†å™¨
+		 * \param memberSet æˆå‘˜å¤„ç†å›è°ƒå¯¹è±¡ï¼Œå¦‚æœä¸éœ€è¦å¯¹è¢«ç§»åŠ¨æˆå‘˜è¿›è¡Œå¤„ç†å¯ä»¥è®¾ç½®ä¸ºNULLï¼Œé»˜è®¤ä¸ºNULL
 		 * \author fqnewman
 		 */
 		void moveAllToSchool(CSchool *pSchool, CSchoolMemberListCallback *memberSet = NULL);
 
 		/**
-		 * \brief Í¨Öª±¾ÅÉÏµËùÓĞµÄ½ÚµãÖØĞÂ·¢ËÍ³õÊ¼»¯ÏûÏ¢¸ø¿Í»§¶Ë
-		 * \param callback ÃÅÅÉĞÅÏ¢»Øµ÷¶ÔÏó£¬ÓÃÀ´·¢ËÍÃÅÅÉµÄ×éÖ¯½á¹¹³õÊ¼»¯ĞÅÏ¢¸ø¿Í»§¶Ë
+		 * \brief é€šçŸ¥æœ¬æ´¾ç³»æ‰€æœ‰çš„èŠ‚ç‚¹é‡æ–°å‘é€åˆå§‹åŒ–æ¶ˆæ¯ç»™å®¢æˆ·ç«¯
+		 * \param callback é—¨æ´¾ä¿¡æ¯å›è°ƒå¯¹è±¡ï¼Œç”¨æ¥å‘é€é—¨æ´¾çš„ç»„ç»‡ç»“æ„åˆå§‹åŒ–ä¿¡æ¯ç»™å®¢æˆ·ç«¯
 		 * \author fqnewman
 		 */
 		void notifyAllReSendInitData(CSendSchoolCallback *callback);
 
 		/**
-		 * \brief »ñµÃÃÅÅÉµÄËùÓĞ³ÉÔ±ÁĞ±í£¨ÓĞĞòµÄ£©
-		 * \param callback »Øµ÷Àà
+		 * \brief è·å¾—é—¨æ´¾çš„æ‰€æœ‰æˆå‘˜åˆ—è¡¨ï¼ˆæœ‰åºçš„ï¼‰
+		 * \param callback å›è°ƒç±»
 		 * \author fqnewman
 		 */
 		void getSchoolTree(CSendSchoolCallback &callback);
 
 		/**
-		 * \brief »ñµÃÃÅÅÉµÄËùÓĞ³ÉÔ±ÁĞ±í£¨ÓĞĞòµÄ£©
-		 * \param level µ±Ç°²ã
-		 * \param tgLevel ´Ë´Îµ÷ÓÃµÄÄ¿±ê²ã
-		 * \param condition µ½µ×±êÖ¾£¬Èç¹ûÒÑ¾­µ½ÁËÊ÷µÄµ×²¿ÄÇÃ´¾Í·µ»Ø false
-		 * \param callback »Øµ÷¶ÔÏó
-		 * \param tag »»ĞĞ»»²ã±êÖ¾ ²Î¼ûenum SCHOOL_LAYER
+		 * \brief è·å¾—é—¨æ´¾çš„æ‰€æœ‰æˆå‘˜åˆ—è¡¨ï¼ˆæœ‰åºçš„ï¼‰
+		 * \param level å½“å‰å±‚
+		 * \param tgLevel æ­¤æ¬¡è°ƒç”¨çš„ç›®æ ‡å±‚
+		 * \param condition åˆ°åº•æ ‡å¿—ï¼Œå¦‚æœå·²ç»åˆ°äº†æ ‘çš„åº•éƒ¨é‚£ä¹ˆå°±è¿”å› false
+		 * \param callback å›è°ƒå¯¹è±¡
+		 * \param tag æ¢è¡Œæ¢å±‚æ ‡å¿— å‚è§enum SCHOOL_LAYER
 		 * \author fqnewman
 		 */
 		void schoolTreeCallback(DWORD level, DWORD tgLevel, bool &condition, CSendSchoolCallback &callback, BYTE &tag);
 
 		/**
-		 * \brief ½«¹«¸æÄÚÈİ·¢ËÍ¸ø½Úµã¶ÔÓ¦µÄ½ÇÉ«
+		 * \brief å°†å…¬å‘Šå†…å®¹å‘é€ç»™èŠ‚ç‚¹å¯¹åº”çš„è§’è‰²
 		 * \author fqnewman
 		 */
 		void sendBulletinToMe();
 
 		/**
-		 * \brief ÉèÖÃ±¾ÃÅÅÉµÄ¹«¸æÄÚÈİ£¬µ±È»½Úµã±ØĞëÊÇÊ¦×ğ²ÅĞĞ
-		 * \param buf ¹«¸æÄÚÈİ
+		 * \brief è®¾ç½®æœ¬é—¨æ´¾çš„å…¬å‘Šå†…å®¹ï¼Œå½“ç„¶èŠ‚ç‚¹å¿…é¡»æ˜¯å¸ˆå°Šæ‰è¡Œ
+		 * \param buf å…¬å‘Šå†…å®¹
 		 * \author fqnewman
 		 */
 		void setBulletin(const char *buf);
 
 		/**
-		 * \brief Ïò½Úµã¼°ÆäÍ½µÜ·¢ËÍÏûÏ¢
-		 * \param ptNullCmd ÏûÏ¢½á¹¹
-		 * \param cmdLen ÏûÏ¢³¤¶È
-		 * \param exceptMe ÊÇ·ñ°üÀ¨±¾½Úµã£¬Ä¬ÈÏÎª°üÀ¨
+		 * \brief å‘èŠ‚ç‚¹åŠå…¶å¾’å¼Ÿå‘é€æ¶ˆæ¯
+		 * \param ptNullCmd æ¶ˆæ¯ç»“æ„
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
+		 * \param exceptMe æ˜¯å¦åŒ…æ‹¬æœ¬èŠ‚ç‚¹ï¼Œé»˜è®¤ä¸ºåŒ…æ‹¬
 		 * \author fqnewman
 		 */
 		void sendCmdToTeacherGroup(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen, bool exceptMe = false);
 
 		/**
-		 * \brief ÏòÍÅÌåÍ¨ÖªÎÒµÄÔÚÏß×´Ì¬
-		 * \param onlineStatus ½Úµã¶ÔÓ¦½ÇÉ«µÄÔÚÏß×´Ì¬
+		 * \brief å‘å›¢ä½“é€šçŸ¥æˆ‘çš„åœ¨çº¿çŠ¶æ€
+		 * \param onlineStatus èŠ‚ç‚¹å¯¹åº”è§’è‰²çš„åœ¨çº¿çŠ¶æ€
 		 * \author fqnewman
 		 */
 		void sendOnlineStatusMessage(BYTE onlineStatus);
 
 		/**
-		 * \brief »ñµÃÉÏ¼¶½Úµã¶ÔÏóÖ¸Õë
+		 * \brief è·å¾—ä¸Šçº§èŠ‚ç‚¹å¯¹è±¡æŒ‡é’ˆ
 		 * \author fqnewman
-		 * \return ÉÏ¼¶½ÚµãµÄ¶ÔÏó£¬ÓĞ¿ÉÄÜÎªNULL
+		 * \return ä¸Šçº§èŠ‚ç‚¹çš„å¯¹è±¡ï¼Œæœ‰å¯èƒ½ä¸ºNULL
 		 */
 		CSchoolMember * getPreLevelNode();
 
 		/**
-		 * \brief »ñµÃÊ¦¸µ½Úµã£¬ÉÏ¼¶½Úµã²»Ò»¶¨ÊÇÊ¦¸µ½Úµã£¬ËûÃÇÖ®¼ä¿ÉÄÜ²¢²»´æÔÚ¹ØÏµËùÒÔ»ñµÃÊ¦¸µ½Úµã²»ÄÜÊ¹ÓÃgetPreLevelNode
+		 * \brief è·å¾—å¸ˆå‚…èŠ‚ç‚¹ï¼Œä¸Šçº§èŠ‚ç‚¹ä¸ä¸€å®šæ˜¯å¸ˆå‚…èŠ‚ç‚¹ï¼Œä»–ä»¬ä¹‹é—´å¯èƒ½å¹¶ä¸å­˜åœ¨å…³ç³»æ‰€ä»¥è·å¾—å¸ˆå‚…èŠ‚ç‚¹ä¸èƒ½ä½¿ç”¨getPreLevelNode
 		 * \author fqnewman
-		 * \return Èç¹ûÓĞÖ±½ÓÊ¦¸µ·µ»ØÊ¦¸µ½ÚµãµÄ¶ÔÏó£¬·ñÔòÎªNULL
+		 * \return å¦‚æœæœ‰ç›´æ¥å¸ˆå‚…è¿”å›å¸ˆå‚…èŠ‚ç‚¹çš„å¯¹è±¡ï¼Œå¦åˆ™ä¸ºNULL
 		 */
 		CSchoolMember * getTeacher();
 
 		/**
-		 * \brief ½«½ÚµãÉèÖÃ³ÉÎŞĞ§µÄ.
+		 * \brief å°†èŠ‚ç‚¹è®¾ç½®æˆæ— æ•ˆçš„.
 		 * \author fqnewman
 		 */
 		void setInValid();
 
 		/**
-		 * \brief ¶Ï¾øºÍÊ¦¸µÖ®¼äµÄ¹ØÏµ
+		 * \brief æ–­ç»å’Œå¸ˆå‚…ä¹‹é—´çš„å…³ç³»
 		 * \author fqnewman
 		 */
 		void clearMaster();
 
 		/**
-		 * \brief ·¢ËÍÍË³öÃÅÅÉµÄÏûÏ¢¸ø¿Í»§¶Ë
+		 * \brief å‘é€é€€å‡ºé—¨æ´¾çš„æ¶ˆæ¯ç»™å®¢æˆ·ç«¯
 		 * \author fqnewman
 		 */
 		void sendDestroyNotifyToMe();
 
 		/**
-		 * \brief Ö±½ÓÔÚ±¾½ÚµãµÄÏÂ²ã½ÚµãÁĞ±íÖĞÉ¾³ıÖ¸¶¨µÄ½Úµã¹ØÏµ
-		 * \param member ¹ØÏµĞèÒªÉ¾³ıµÄ½Úµã¶ÔÏó¡£
+		 * \brief ç›´æ¥åœ¨æœ¬èŠ‚ç‚¹çš„ä¸‹å±‚èŠ‚ç‚¹åˆ—è¡¨ä¸­åˆ é™¤æŒ‡å®šçš„èŠ‚ç‚¹å…³ç³»
+		 * \param member å…³ç³»éœ€è¦åˆ é™¤çš„èŠ‚ç‚¹å¯¹è±¡ã€‚
 		 * \author fqnewman
 		 */
 		void directRemovePrentice(const CSchoolMember *member);
 
 		/**
-		 * \brief Í¨ÖªÕû¸öÃÅÅÉµÄ¿Í»§¶ËÉ¾³ı±¾½Úµã¶ÔÓ¦µÄ½ÇÉ«
+		 * \brief é€šçŸ¥æ•´ä¸ªé—¨æ´¾çš„å®¢æˆ·ç«¯åˆ é™¤æœ¬èŠ‚ç‚¹å¯¹åº”çš„è§’è‰²
 		 * \author fqnewman
 		 */
 		void notifySchoolMemberRemove();
 
 		/**
-		 * \brief »ñµÃµÚÒ»¸öÎŞĞ§µÄÏÂ¼¶½Úµã¶ÔÏó
+		 * \brief è·å¾—ç¬¬ä¸€ä¸ªæ— æ•ˆçš„ä¸‹çº§èŠ‚ç‚¹å¯¹è±¡
 		 * \author fqnewman
-		 * \return ÏÂ¼¶ÎŞĞ§½Úµã¶ÔÏó£¬Èç¹ûÃ»ÓĞºÏÊÊµÄ¶ÔÏó¿ÉÄÜ»á·µ»ØNULL
+		 * \return ä¸‹çº§æ— æ•ˆèŠ‚ç‚¹å¯¹è±¡ï¼Œå¦‚æœæ²¡æœ‰åˆé€‚çš„å¯¹è±¡å¯èƒ½ä¼šè¿”å›NULL
 		 */
 		CSchoolMember* getFirstInValideNode();
 
 		/**
-		 * \brief ÉèÖÃÓĞĞ§½Úµã¹ØÁªµÄUserSession¶ÔÏó
-		 * \param pUser ½ÇÉ«¶ÔÓ¦µÄUserSession¶ÔÏó
+		 * \brief è®¾ç½®æœ‰æ•ˆèŠ‚ç‚¹å…³è”çš„UserSessionå¯¹è±¡
+		 * \param pUser è§’è‰²å¯¹åº”çš„UserSessionå¯¹è±¡
 		 * \author fqnewman
 		 */
 		void setUser(UserSession *pUser);
 
 		/**
-		 * \brief »ñµÃ±¾½ÚµãµÄÖ±½ÓÏÂ¼¶½Úµã×ÜÊı²»Çø·ÖÓĞĞ§ÎŞĞ§
+		 * \brief è·å¾—æœ¬èŠ‚ç‚¹çš„ç›´æ¥ä¸‹çº§èŠ‚ç‚¹æ€»æ•°ä¸åŒºåˆ†æœ‰æ•ˆæ— æ•ˆ
 		 * \author fqnewman
-		 * \return Ö±½ÓÏÂ¼¶½ÚµãÊı
+		 * \return ç›´æ¥ä¸‹çº§èŠ‚ç‚¹æ•°
 		 */
 		BYTE getNextLevelNodeCount();
 
 		/**
-		 * \brief Çåµô±¾½ÚµãÓëÇ°Ò»½ÚµãµÄ¹ØÏµÊôĞÔ£¬½«Ïà¹ØµÄÖ¸ÕëºÍÊôĞÔÖÃ¿Õ»òÖÃ0
+		 * \brief æ¸…æ‰æœ¬èŠ‚ç‚¹ä¸å‰ä¸€èŠ‚ç‚¹çš„å…³ç³»å±æ€§ï¼Œå°†ç›¸å…³çš„æŒ‡é’ˆå’Œå±æ€§ç½®ç©ºæˆ–ç½®0
 		 * \author fqnewman
 		 */
 		void clearPreLevelNode();
 
 		/**
-		 * \brief Çåµô±¾½ÚµãÓëºóÒ»¼¶½ÚµãµÄ¹ØÏµÊôĞÔ£¬½«ºóÒ»¼¶½ÚµãÏà¹ØµÄÖ¸ÕëºÍÊôĞÔÖÃ¿Õ»òÖÃ0²¢½«ºó¼¶½ÚµãÁĞ±íÇå¿Õ
+		 * \brief æ¸…æ‰æœ¬èŠ‚ç‚¹ä¸åä¸€çº§èŠ‚ç‚¹çš„å…³ç³»å±æ€§ï¼Œå°†åä¸€çº§èŠ‚ç‚¹ç›¸å…³çš„æŒ‡é’ˆå’Œå±æ€§ç½®ç©ºæˆ–ç½®0å¹¶å°†åçº§èŠ‚ç‚¹åˆ—è¡¨æ¸…ç©º
 		 * \author fqnewman
 		 */
 		void clearAllNextLevelRelation();
 
 		/**
-		 * \brief ×é¶ÓÍê±Ï¶ÔÓÑºÃ¶È½øĞĞ±£´æ
-		 * \param rev ÓÑºÃ¶È½áËãÏûÏ¢Ìå
+		 * \brief ç»„é˜Ÿå®Œæ¯•å¯¹å‹å¥½åº¦è¿›è¡Œä¿å­˜
+		 * \param rev å‹å¥½åº¦ç»“ç®—æ¶ˆæ¯ä½“
 		 * \author fqnewman
 		 */
 		void setFriendDegree(const Cmd::Session::t_CountFriendDegree_SceneSession *rev);
 
 		/**
-		 * \brief ×ª·¢ÁÄÌìÏûÏ¢
-		 * \param rev ÁÄÌìÏûÏ¢½á¹¹Ìå
-		 * \param cmdLen ÏûÏ¢³¤¶È
+		 * \brief è½¬å‘èŠå¤©æ¶ˆæ¯
+		 * \param rev èŠå¤©æ¶ˆæ¯ç»“æ„ä½“
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
 		 * \author fqnewman
 		 */
 		void sendChatMessages(const Cmd::stChannelChatUserCmd *rev, const unsigned int cmdLen);
 
 		/**
-		 * \brief ×ª·¢ÁÄÌìÏûÏ¢
+		 * \brief è½¬å‘èŠå¤©æ¶ˆæ¯
 		 * \author fqnewman
-		 * \return »ñÈ¡½ÇÉ«¶ÔÓ¦µÄUserSession ¶ÔÏóÈç¹û½ÇÉ«²»ÔÚÏß»á·µ»ØNULL
+		 * \return è·å–è§’è‰²å¯¹åº”çš„UserSession å¯¹è±¡å¦‚æœè§’è‰²ä¸åœ¨çº¿ä¼šè¿”å›NULL
 		 */
 		UserSession *getUser();
 
 		/**
-		 * \brief ÉèÖÃ¼¶±ğ
-		 * \param level ĞÂµÄ½ÇÉ«µÈ¼¶
+		 * \brief è®¾ç½®çº§åˆ«
+		 * \param level æ–°çš„è§’è‰²ç­‰çº§
 		 * \author fqnewman
 		 */
 		void setLevel(const WORD level);
 
 		/**
-		 * \brief »ñÈ¡½ÇÉ«µÄÖ°Òµ
+		 * \brief è·å–è§’è‰²çš„èŒä¸š
 		 * \author fqnewman
-		 * \param Ö°Òµ
+		 * \param èŒä¸š
 		 */
 		WORD getOccupation();
 
 		/**
-		 * \brief ²éÑ¯µ±Ç°¿ÉÒÔ½ø¹±µÄ½ğ¶î
+		 * \brief æŸ¥è¯¢å½“å‰å¯ä»¥è¿›è´¡çš„é‡‘é¢
 		 * \author zjw
-		 * \param ½ğ¶î
+		 * \param é‡‘é¢
 		 */
 		DWORD queryBounty();
 
 		/**
-		 * \brief ½ø¹±
+		 * \brief è¿›è´¡
 		 * \author zjw
 		 */
 		bool putBounty();
 
 		/**
-		 * \brief ·¢ËÍÉç»á¹ØÏµ¸üĞÂÍ¨Öª¸ø³¡¾°
+		 * \brief å‘é€ç¤¾ä¼šå…³ç³»æ›´æ–°é€šçŸ¥ç»™åœºæ™¯
 		 * \author fqnewman
 		 */
 		void sendNotifyToScene();
 
 		/**
-		 * \brief ×öÎªÊ¦¸µÀÛ¼ÆÊÕµ½µÄ½ø¹±,µ¥Î»:ÎÄ
+		 * \brief åšä¸ºå¸ˆå‚…ç´¯è®¡æ”¶åˆ°çš„è¿›è´¡,å•ä½:æ–‡
 		 * \author zjw
 		 */
 		DWORD  master_total;
 		
 		/**
-		 * \brief ×öÎªÊ¦¸µµ±Ç°¿ÉÒÔÁìÈ¡µÄ½ø¹±½ğ¶î,µ¥Î»:ÎÄ
+		 * \brief åšä¸ºå¸ˆå‚…å½“å‰å¯ä»¥é¢†å–çš„è¿›è´¡é‡‘é¢,å•ä½:æ–‡
 		 * \author zjw
 		 */
 		DWORD  master_balance;
 		
 		/**
-		 * \brief ×öÎªÍ½µÜÀÛ¼Æ½ø¹±µÄ½ğ¶î,µ¥Î»:ÎÄ
+		 * \brief åšä¸ºå¾’å¼Ÿç´¯è®¡è¿›è´¡çš„é‡‘é¢,å•ä½:æ–‡
 		 * \author zjw
 		 */
 		DWORD  prentice_total;
 
 		/**
-		 * \brief ×öÎªÍ½µÜÉÏ´Î½ø¹±Ê±µÄµÈ¼¶
+		 * \brief åšä¸ºå¾’å¼Ÿä¸Šæ¬¡è¿›è´¡æ—¶çš„ç­‰çº§
 		 * \author zjw
 		 */
 		DWORD  prentice_lastlevel;

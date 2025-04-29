@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: PingTask.cpp  $
  * \author  
  * \date 
- * \brief ¶¨ÒåPINGÁ¬½ÓÈÎÎñ
+ * \brief å®šä¹‰PINGè¿æ¥ä»»åŠ¡
  *
  */
 
@@ -40,7 +40,7 @@ int PingTask::verifyConn()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
@@ -52,12 +52,12 @@ int PingTask::verifyConn()
 			if (PING_USERCMD == ptCmd->byCmd
 					&& LOGIN_PING_PARA == ptCmd->byParam)	
 			{
-				Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤");
+				Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯");
 				return 1;
 			}
 			else
 			{
-				Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÖ¸ÁîÑéÖ¤Ê§°Ü");
+				Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥æŒ‡ä»¤éªŒè¯å¤±è´¥");
 				return -1;
 			}
 		}	
@@ -80,17 +80,17 @@ int PingTask::recycleConn()
 		{
 			ptCmd->offset += retcode;
 			if (ptCmd->offset < ptCmd->nCmdLen)
-				//Õâ¸ö»º³åÃ»ÓĞ·¢ËÍÍê³É²»ÄÜ·¢ËÍÏÂÒ»¸ö»º³åbreak
+				//è¿™ä¸ªç¼“å†²æ²¡æœ‰å‘é€å®Œæˆä¸èƒ½å‘é€ä¸‹ä¸€ä¸ªç¼“å†²break
 				break;
 			else if (ptCmd->offset == ptCmd->nCmdLen)
 			{
-				//Õâ¸ö»º³å·¢ËÍÍê³ÉÁËcontinue
+				//è¿™ä¸ªç¼“å†²å‘é€å®Œæˆäº†continue
 				cmd_queue.pop();
 				SAFE_DELETE(ptCmd);
 			}
 #if 0
 			else if (ptCmd->offset > ptCmd->nCmdLen)
-				//ÑÏÖØ´íÎó£¬²»¿ÉÄÜ³öÏÖÕâÖÖÇé¿ö
+				//ä¸¥é‡é”™è¯¯ï¼Œä¸å¯èƒ½å‡ºç°è¿™ç§æƒ…å†µ
 				assert(0);
 #endif
 		}

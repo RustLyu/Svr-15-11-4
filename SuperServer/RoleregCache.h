@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleregCache.h  $
  * \author  
  * \date 
- * \brief »º³åÒ»Ğ©½ÇÉ«Ãû³ÆÏà¹ØµÄÖ¸Áî
+ * \brief ç¼“å†²ä¸€äº›è§’è‰²åç§°ç›¸å…³çš„æŒ‡ä»¤
  */
 
 
@@ -24,10 +24,10 @@ class RoleregCache
 
 		struct Data
 		{
-			WORD wdServerID;			/**< ·şÎñÆ÷±àºÅ */
-			DWORD accid;				/**< ÕËºÅ±àºÅ */
-			char name[MAX_NAMESIZE];	/**< ½ÇÉ«Ãû³Æ */
-			WORD state;					/**< ¸÷ÖÖ×´Ì¬µÄÎ»×éºÏ */
+			WORD wdServerID;			/**< æœåŠ¡å™¨ç¼–å· */
+			DWORD accid;				/**< è´¦å·ç¼–å· */
+			char name[MAX_NAMESIZE];	/**< è§’è‰²åç§° */
+			WORD state;					/**< å„ç§çŠ¶æ€çš„ä½ç»„åˆ */
 
 			Data(const Cmd::Super::t_Charname_Gateway &cmd)
 			{

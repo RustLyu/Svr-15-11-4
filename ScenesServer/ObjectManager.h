@@ -1,4 +1,4 @@
-#ifndef _OBJECTMANAGER_H_
+﻿#ifndef _OBJECTMANAGER_H_
 #define _OBJECTMANAGER_H_
 #include <ext/pool_allocator.h>
 #include "zType.h"

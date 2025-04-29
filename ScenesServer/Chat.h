@@ -1,4 +1,4 @@
-#ifndef _CHAT_H_
+ï»¿#ifndef _CHAT_H_
 #define _CHAT_H_
 
 #include "zEntry.h"
@@ -18,7 +18,7 @@
 #define SHELLITEM_IN_ZONE	10
 
 /**
- * \brief ÁÄÌìÆµµÀ
+ * \brief èŠå¤©é¢‘é“
  *
  */
 class Channel:public zEntry
@@ -63,7 +63,7 @@ class Channel:public zEntry
 };
 
 /**
- * \brief ÆµµÀ¹ÜÀíÆ÷
+ * \brief é¢‘é“ç®¡ç†å™¨
  *
  */
 class ChannelM:public zEntryManager< zEntryTempID, zEntryName >
@@ -88,7 +88,7 @@ class ChannelM:public zEntryManager< zEntryTempID, zEntryName >
                 void removeUser(const char *name);
 };
 
-/// ³¬¼¶GMµÄid,Ö»ÓĞ1¸ö³¬¼¶GM
+/// è¶…çº§GMçš„id,åªæœ‰1ä¸ªè¶…çº§GM
 #define SUPER_GM_ID 1
 
 struct Gm
@@ -205,7 +205,7 @@ struct Gm
 	static bool version(SceneUser *pUser, const char * para);
 	
 	/**
-	 * \brief ¼¼ÄÜ²âÊÔÖ¸Áî
+	 * \brief æŠ€èƒ½æµ‹è¯•æŒ‡ä»¤
 	 */
 	static bool skill(SceneUser *pUser,const char *para);
 	static bool lockValue(SceneUser *pUser,const char *para);

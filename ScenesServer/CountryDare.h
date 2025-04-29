@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryDare.h  $
  * \author  
  * \date 
- * \brief ¹úÕ½¹ÜÀíÆ÷
+ * \brief å›½æˆ˜ç®¡ç†å™¨
  *
  * 
  */
@@ -53,38 +53,38 @@ class CountryDareM
 		~CountryDareM(){}
 
 		/**
-		  * \brief Ê±¼ä»Øµ÷º¯Êı
+		  * \brief æ—¶é—´å›è°ƒå‡½æ•°
 		  */
 		void timer();
 
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ¹¥»÷¹úÆì
+		 * \brief åˆ¤æ–­æ˜¯å¦å¯ä»¥æ”»å‡»å›½æ——
 		 *
 		 */
 		bool isAttackMainFlag(Scene* scene, DWORD dwNpcID);
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ¹¥»÷´ó½«¾ü
+		 * \brief åˆ¤æ–­æ˜¯å¦å¯ä»¥æ”»å‡»å¤§å°†å†›
 		 *
 		 */
 		bool isAttackMainGen(Scene* scene);
 
 		
 		/**
-		  * \brief ¸´»î¸±Æì
+		  * \brief å¤æ´»å‰¯æ——
 		  *
 		  */
 		void reliveSecondFlag(Scene* scene, DWORD dwNpcID);
 
 		/**
-		  * \brief ÑÓ³¤¸±Æì¸´»îÊ±¼ä
+		  * \brief å»¶é•¿å‰¯æ——å¤æ´»æ—¶é—´
 		  *
 		  */
 		void delaySecondFlag(Scene* scene);
 
 		/**
-		 * \brief ¸üĞÂÉ§ÈÅ¹úÕ½±»¹¥»÷Ê±¼ä
+		 * \brief æ›´æ–°éªšæ‰°å›½æˆ˜è¢«æ”»å‡»æ—¶é—´
 		 *
 		 */
 		void updateAttackTime(DWORD countryid, time_t uptime);
@@ -100,9 +100,9 @@ class CountryDareM
 		void updateAttGenAttackTime(DWORD countryid, time_t uptime);
 
 		/**
-		 * \brief ³õÊ¼»¯
+		 * \brief åˆå§‹åŒ–
 		 *
-		 * ³õÊ¼»¯¸Ã³¡¾°ËùÓĞ¹ú¼ÒµÄ¹úÕ½ĞÅÏ¢
+		 * åˆå§‹åŒ–è¯¥åœºæ™¯æ‰€æœ‰å›½å®¶çš„å›½æˆ˜ä¿¡æ¯
 		 *
 		 */
 		void init();

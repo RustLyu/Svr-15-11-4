@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GYListManager.h  $
  * \author  
  * \date 
- * \brief Íø¹ØĞÅÏ¢ÁĞ±í
+ * \brief ç½‘å…³ä¿¡æ¯åˆ—è¡¨
  *
- * µÇÂ½·şÎñÆ÷ĞèÒª±£´æ×îĞÂµÄËùÓĞÍø¹ØµÄĞÅÏ¢ÁĞ±í£¬±ãÓÚ·ÖÅäÍø¹Ø
+ * ç™»é™†æœåŠ¡å™¨éœ€è¦ä¿å­˜æœ€æ–°çš„æ‰€æœ‰ç½‘å…³çš„ä¿¡æ¯åˆ—è¡¨ï¼Œä¾¿äºåˆ†é…ç½‘å…³
  * 
  */
 
@@ -22,20 +22,20 @@
 #include "FLCommand.h"
 
 /**
- * \brief Íø¹ØĞÅÏ¢½Úµã
+ * \brief ç½‘å…³ä¿¡æ¯èŠ‚ç‚¹
  *
  */
 struct GYList
 {
-	WORD wdServerID;			/**< ·şÎñÆ÷±àºÅ */
-	BYTE pstrIP[MAX_IP_LENGTH];	/**< ·şÎñÆ÷µØÖ· */
-	WORD wdPort;				/**< ·şÎñÆ÷¶Ë¿Ú */
-	WORD wdNumOnline;			/**< Íø¹ØÔÚÏßÈËÊı */
-	int  state;					/**< ·şÎñÆ÷×´Ì¬ */
+	WORD wdServerID;			/**< æœåŠ¡å™¨ç¼–å· */
+	BYTE pstrIP[MAX_IP_LENGTH];	/**< æœåŠ¡å™¨åœ°å€ */
+	WORD wdPort;				/**< æœåŠ¡å™¨ç«¯å£ */
+	WORD wdNumOnline;			/**< ç½‘å…³åœ¨çº¿äººæ•° */
+	int  state;					/**< æœåŠ¡å™¨çŠ¶æ€ */
 	DWORD zoneGameVersion;
 
 	/**
-	 * \brief È±Ê¡¹¹Ôìº¯Êı
+	 * \brief ç¼ºçœæ„é€ å‡½æ•°
 	 *
 	 */
 	GYList()
@@ -49,7 +49,7 @@ struct GYList
 	}
 
 	/**
-	 * \brief ¿½±´¹¹Ôìº¯Êı
+	 * \brief æ‹·è´æ„é€ å‡½æ•°
 	 *
 	 */
 	GYList(const GYList& gy)
@@ -63,7 +63,7 @@ struct GYList
 	}
 
 	/**
-	 * \brief ¸³Öµº¯Êı
+	 * \brief èµ‹å€¼å‡½æ•°
 	 *
 	 */
 	GYList & operator= (const GYList &gy)
@@ -80,7 +80,7 @@ struct GYList
 };
 
 /**
- * \brief Íø¹ØĞÅÏ¢ÁĞ±í¹ÜÀíÆ÷
+ * \brief ç½‘å…³ä¿¡æ¯åˆ—è¡¨ç®¡ç†å™¨
  *
  */
 class GYListManager
@@ -89,7 +89,7 @@ class GYListManager
 	public:
 
 		/**
-		 * \brief Ä¬ÈÏÎö¹¹º¯Êı
+		 * \brief é»˜è®¤ææ„å‡½æ•°
 		 *
 		 */
 		~GYListManager()
@@ -98,9 +98,9 @@ class GYListManager
 		}
 
 		/**
-		 * \brief ·µ»ØÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è¿”å›ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * ÊµÏÖÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * å®ç°äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 *
 		 */
 		static GYListManager &getInstance()
@@ -112,7 +112,7 @@ class GYListManager
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -129,19 +129,19 @@ class GYListManager
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static GYListManager *instance;
 
 		/**
-		 * \brief Ä¬ÈÏ¹¹Ôìº¯Êı
+		 * \brief é»˜è®¤æ„é€ å‡½æ•°
 		 *
 		 */
 		GYListManager() {};
 
 		/**
-		 * \brief hashº¯Êı
+		 * \brief hashå‡½æ•°
 		 *
 		 */
 		struct GameZone_hash
@@ -153,27 +153,27 @@ class GYListManager
 			}
 		};
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨ç±»å‹
 		 *
 		 */
 		typedef __gnu_cxx::hash_multimap<const GameZone_t, GYList, GameZone_hash> GYListContainer;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷µü´úÆ÷ÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨è¿­ä»£å™¨ç±»å‹
 		 *
 		 */
 		typedef GYListContainer::iterator GYListContainer_iterator;
 		/**
-		 * \brief ¶¨ÒåÈİÆ÷¼üÖµ¶ÔÀàĞÍ
+		 * \brief å®šä¹‰å®¹å™¨é”®å€¼å¯¹ç±»å‹
 		 *
 		 */
 		typedef GYListContainer::value_type GYListContainer_value_type;
 		/**
-		 * \brief ´æ´¢Íø¹ØÁĞ±íĞÅÏ¢µÄÈİÆ÷
+		 * \brief å­˜å‚¨ç½‘å…³åˆ—è¡¨ä¿¡æ¯çš„å®¹å™¨
 		 *
 		 */
 		GYListContainer gyData;
 		/**
-		 * \brief »¥³â±äÁ¿
+		 * \brief äº’æ–¥å˜é‡
 		 *
 		 */
 		zMutex mlock;

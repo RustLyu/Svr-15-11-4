@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zArg.cpp  $
  * \author  
  * \date 
- * \brief ²ÎÊı½âÎöÀàµÄ¶¨Òå¡£
+ * \brief å‚æ•°è§£æç±»çš„å®šä¹‰ã€‚
  *
  * 
  */
@@ -13,27 +13,27 @@
 #include <string.h>
 
 /**
- * \brief ²ÎÊıBUG±¨¸æµØÖ·
+ * \brief å‚æ•°BUGæŠ¥å‘Šåœ°å€
  */
 const char *argp_program_bug_address = "<okyhc@263.sina.com, songsiliang@netease.com>";
 
 /**
- * \brief Ä¬ÈÏ²ÎÊıÃèÊö
+ * \brief é»˜è®¤å‚æ•°æè¿°
  */
 static const char zebra_args_doc[] = "";
 /**
- * \brief Ä¬ÈÏ²ÎÊıÃèÊö
+ * \brief é»˜è®¤å‚æ•°æè¿°
  */
 static const char zebra_doc[] = "this is default argument document.";
 /**
- * \brief Ä¬ÈÏ¿ÉÓÃÑ¡Ïî
+ * \brief é»˜è®¤å¯ç”¨é€‰é¡¹
  */
 static struct argp_option zebra_options[] =
 {
 	{0,	0,	0,	0,	0, 0}
 };
 /**
- * \brief Ä¬ÈÏµÄ·ÖÎöº¯Êı,²Î¼ûinfo argp_parse;
+ * \brief é»˜è®¤çš„åˆ†æå‡½æ•°,å‚è§info argp_parse;
  */
 error_t zparse_opt(int key, char *arg, struct argp_state *state)
 {
@@ -51,7 +51,7 @@ error_t zparse_opt(int key, char *arg, struct argp_state *state)
 zArg *zArg::argInstance(0);
 
 /**
- * \brief ¹¹Ôìº¯Êı£¬³õÊ¼»¯Ä¬ÈÏ²ÎÊı·ÖÎöÊı¾İ
+ * \brief æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–é»˜è®¤å‚æ•°åˆ†ææ•°æ®
  */
 zArg::zArg()
 {
@@ -69,7 +69,7 @@ zArg::zArg()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 zArg::~zArg()
 {
@@ -77,8 +77,8 @@ zArg::~zArg()
 }
 
 /**
- * \brief µÃµ½²ÎÊı·ÖÎöÆ÷
- * \return ²ÎÊı·ÖÎöÆ÷Ö¸Õë
+ * \brief å¾—åˆ°å‚æ•°åˆ†æå™¨
+ * \return å‚æ•°åˆ†æå™¨æŒ‡é’ˆ
  */
 zArg *zArg::getArg()
 {
@@ -88,7 +88,7 @@ zArg *zArg::getArg()
 }
 
 /**
- * \brief É¾³ı²ÎÊı·ÖÎöÆ÷
+ * \brief åˆ é™¤å‚æ•°åˆ†æå™¨
  */
 void zArg::removeArg()
 {
@@ -96,8 +96,8 @@ void zArg::removeArg()
 }
 
 /**
- * \brief Ìí¼Ó²ÎÊıÑ¡Ïî
- * \param options ÒªÌí¼ÓµÄ²ÎÊıÑ¡ÏîÊı×é
+ * \brief æ·»åŠ å‚æ•°é€‰é¡¹
+ * \param options è¦æ·»åŠ çš„å‚æ•°é€‰é¡¹æ•°ç»„
  */
 void zArg::addOptions(const struct argp_option *options)
 {
@@ -132,12 +132,12 @@ void zArg::addOptions(const struct argp_option *options)
 }
 
 /**
- * \brief Ìí¼Ó×Ô¼ºµÄ²ÎÊıÑ¡ÏîºÍ·ÖÎöÆ÷£¬¼°²ÎÊıÎÄµµ£¬Èç¹ûÊ¡ÂÔÓÃÄ¬ÈÏÖµ
- * \param options ×Ô¼ºµÄ²ÎÊıÑ¡Ïî
- * \param func ×Ô¼º²ÎÊıÑ¡ÏîµÄ·ÖÎöº¯Êı
- * \param args_doc ²ÎÊıÑ¡ÏîÏêÏ¸ÎÄµµ
- * \param doc ±ØÒª²ÎÊıÑ¡ÏîÎÄµµ
- * \return Ê¼ÖÕ·µ»Øtrue
+ * \brief æ·»åŠ è‡ªå·±çš„å‚æ•°é€‰é¡¹å’Œåˆ†æå™¨ï¼ŒåŠå‚æ•°æ–‡æ¡£ï¼Œå¦‚æœçœç•¥ç”¨é»˜è®¤å€¼
+ * \param options è‡ªå·±çš„å‚æ•°é€‰é¡¹
+ * \param func è‡ªå·±å‚æ•°é€‰é¡¹çš„åˆ†æå‡½æ•°
+ * \param args_doc å‚æ•°é€‰é¡¹è¯¦ç»†æ–‡æ¡£
+ * \param doc å¿…è¦å‚æ•°é€‰é¡¹æ–‡æ¡£
+ * \return å§‹ç»ˆè¿”å›true
  */
 bool zArg::add(const struct argp_option *options,argsParser func,const char *args_doc,const char *doc)
 {
@@ -153,10 +153,10 @@ bool zArg::add(const struct argp_option *options,argsParser func,const char *arg
 }
 
 /**
- * \brief ²ÎÊı·ÖÎö
- * \param argc ²ÎÊı¸öÊı
- * \param argv ²ÎÊıÁĞ±í
- * \return Ê¼ÖÕ·µ»Øtrue
+ * \brief å‚æ•°åˆ†æ
+ * \param argc å‚æ•°ä¸ªæ•°
+ * \param argv å‚æ•°åˆ—è¡¨
+ * \return å§‹ç»ˆè¿”å›true
  */
 bool zArg::parse(int argc ,char *argv[])
 {

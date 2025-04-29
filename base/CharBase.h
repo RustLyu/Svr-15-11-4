@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CharBase.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåÈËÎï½ÇÉ«Ïà¹ØÐÅÏ¢
+ * \brief å®šä¹‰äººç‰©è§’è‰²ç›¸å…³ä¿¡æ¯
  *
  * 
  */
@@ -16,9 +16,9 @@
 #include "Object.h"
 #pragma pack(1)
 
-#define HAIRTYPE_MASK	0xff000000		/// Í··¢·¢ÐÍ
-#define HAIRRGB_MASK	0x00ffffff		/// Í··¢ÑÕÉ«
-const int exploit_arg = 100;			// ¹¦Ñ«ÖµÍ¬±È·Å´óÏµÊý
+#define HAIRTYPE_MASK	0xff000000		/// å¤´å‘å‘åž‹
+#define HAIRRGB_MASK	0x00ffffff		/// å¤´å‘é¢œè‰²
+const int exploit_arg = 100;			// åŠŸå‹‹å€¼åŒæ¯”æ”¾å¤§ç³»æ•°
 
 //---------------------------------
 #define LEVELUP_HP_N			15
@@ -87,48 +87,48 @@ const int exploit_arg = 100;			// ¹¦Ñ«ÖµÍ¬±È·Å´óÏµÊý
 
 struct CharBase
 {
-	DWORD accid;						/// ÕËºÅ
-	DWORD id;							/// ½ÇÉ«±àºÅ
-	char  name[MAX_NAMESIZE + 1];		/// ½ÇÉ«Ãû³Æ
-	WORD  type;							/// ½ÇÉ«ÀàÐÍ
-	WORD  level;						/// ½ÇÉ«µÈ¼¶
-	WORD  face;							/// ÐÔ±ð
-	DWORD hair;							/// Í··¢£¬·¢ÐÍºÍÑÕÉ«
-	DWORD bodyColor;							/// ¹âÉíÑÕÉ«
-	DWORD goodness;						/// ÉÆ¶ñ¶È
-	DWORD mapid;						/// ½ÇÉ«ËùÔÚµØÍ¼±àºÅ
-	char  mapName[MAX_NAMESIZE + 1];	/// ½ÇÉ«ËùÔÚµØÍ¼Ãû³Æ
-	DWORD x;							/// ½ÇÉ«ËùÔÚ×ø±êx
-	DWORD y;							/// ½ÇÉ«ËùÔÚ×ø±êy
-	DWORD unionid;						/// °ï»áID
-	DWORD schoolid;						/// ÃÅÅÉID
-	DWORD septid;						/// ¼Ò×åID
-	DWORD hp;							/// µ±Ç°ÉúÃüÖµ
-//	DWORD maxhp;						/// ×î´óÉúÃüÖµ *
-//	DWORD resumehp;						/// ÉúÃüÖµ»Ö¸´ *
-	DWORD mp;							/// µ±Ç°·¨ÊõÖµ
-//	DWORD maxmp;						/// ×î´ó·¨ÊõÖµ *
-//	DWORD resumemp;						/// ·¨ÊõÖµ»Ö¸´ *
-	DWORD sp;							/// µ±Ç°ÌåÁ¦Öµ
-//	DWORD maxsp;						/// ×î´óÌåÁ¦Öµ *
-//	DWORD resumesp;						/// ÌåÁ¦Öµ»Ö¸´ *
-//	DWORD pdamage;						/// ×îÐ¡ÎïÀí¹¥»÷Á¦ *
-//	DWORD mdamage;						/// ×îÐ¡·¨Êõ¹¥»÷Á¦ *
-//	DWORD pdefence;						/// ×îÐ¡ÎïÀí·ÀÓùÁ¦ *
-//	DWORD mdefence;						/// ×îÐ¡·¨Êõ·ÀÓùÁ¦ *
-	QWORD exp;							/// µ±Ç°¾­ÑéÖµ
-//	WORD  attackspeed;					/// ¹¥»÷ËÙ¶È *
-//	WORD  movespeed;					/// ÒÆ¶¯ËÙ¶È *
-//	WORD  attackrating;					/// ¹¥»÷ÃüÖÐ *
-//	WORD  attackdodge;					/// ¹¥»÷¶ã±Ü *
-//	WORD  bang;							/// ÖØ»÷ *
-	WORD  lucky;						/// ÐÒÔËÖµ *
-	WORD  skillpoint;					/// ¼¼ÄÜµãÊý
-	WORD  points;						/// Î´·ÖÅäÈËÎïÊôÐÔµãÊý
-	DWORD	country;						/// ¹ú¼Ò
-	DWORD	consort;							/// ÅäÅ¼
+	DWORD accid;						/// è´¦å·
+	DWORD id;							/// è§’è‰²ç¼–å·
+	char  name[MAX_NAMESIZE + 1];		/// è§’è‰²åç§°
+	WORD  type;							/// è§’è‰²ç±»åž‹
+	WORD  level;						/// è§’è‰²ç­‰çº§
+	WORD  face;							/// æ€§åˆ«
+	DWORD hair;							/// å¤´å‘ï¼Œå‘åž‹å’Œé¢œè‰²
+	DWORD bodyColor;							/// å…‰èº«é¢œè‰²
+	DWORD goodness;						/// å–„æ¶åº¦
+	DWORD mapid;						/// è§’è‰²æ‰€åœ¨åœ°å›¾ç¼–å·
+	char  mapName[MAX_NAMESIZE + 1];	/// è§’è‰²æ‰€åœ¨åœ°å›¾åç§°
+	DWORD x;							/// è§’è‰²æ‰€åœ¨åæ ‡x
+	DWORD y;							/// è§’è‰²æ‰€åœ¨åæ ‡y
+	DWORD unionid;						/// å¸®ä¼šID
+	DWORD schoolid;						/// é—¨æ´¾ID
+	DWORD septid;						/// å®¶æ—ID
+	DWORD hp;							/// å½“å‰ç”Ÿå‘½å€¼
+//	DWORD maxhp;						/// æœ€å¤§ç”Ÿå‘½å€¼ *
+//	DWORD resumehp;						/// ç”Ÿå‘½å€¼æ¢å¤ *
+	DWORD mp;							/// å½“å‰æ³•æœ¯å€¼
+//	DWORD maxmp;						/// æœ€å¤§æ³•æœ¯å€¼ *
+//	DWORD resumemp;						/// æ³•æœ¯å€¼æ¢å¤ *
+	DWORD sp;							/// å½“å‰ä½“åŠ›å€¼
+//	DWORD maxsp;						/// æœ€å¤§ä½“åŠ›å€¼ *
+//	DWORD resumesp;						/// ä½“åŠ›å€¼æ¢å¤ *
+//	DWORD pdamage;						/// æœ€å°ç‰©ç†æ”»å‡»åŠ› *
+//	DWORD mdamage;						/// æœ€å°æ³•æœ¯æ”»å‡»åŠ› *
+//	DWORD pdefence;						/// æœ€å°ç‰©ç†é˜²å¾¡åŠ› *
+//	DWORD mdefence;						/// æœ€å°æ³•æœ¯é˜²å¾¡åŠ› *
+	QWORD exp;							/// å½“å‰ç»éªŒå€¼
+//	WORD  attackspeed;					/// æ”»å‡»é€Ÿåº¦ *
+//	WORD  movespeed;					/// ç§»åŠ¨é€Ÿåº¦ *
+//	WORD  attackrating;					/// æ”»å‡»å‘½ä¸­ *
+//	WORD  attackdodge;					/// æ”»å‡»èº²é¿ *
+//	WORD  bang;							/// é‡å‡» *
+	WORD  lucky;						/// å¹¸è¿å€¼ *
+	WORD  skillpoint;					/// æŠ€èƒ½ç‚¹æ•°
+	WORD  points;						/// æœªåˆ†é…äººç‰©å±žæ€§ç‚¹æ•°
+	DWORD	country;						/// å›½å®¶
+	DWORD	consort;							/// é…å¶
 	/*
-	//ÏµÍ³ÉèÖÃ
+	//ç³»ç»Ÿè®¾ç½®
 	union{
 		struct{
 			union{
@@ -142,104 +142,104 @@ struct CharBase
 		DWORD dwSeting;
 	};
 	*/
-	QWORD forbidtalk;					///½ûÑÔ
-	DWORD bitmask;						/// ±êÖ¾ÑÚÂë
-	DWORD onlinetime;					/// ÔÚÏßÊ±¼äÍ³¼Æ
+	QWORD forbidtalk;					///ç¦è¨€
+	DWORD bitmask;						/// æ ‡å¿—æŽ©ç 
+	DWORD onlinetime;					/// åœ¨çº¿æ—¶é—´ç»Ÿè®¡
 	union {
 		struct {
-			WORD wdCon;	//ÌåÖÊ
-			WORD wdStr;	//ÌåÁ¦
-			WORD wdDex;	//Ãô½Ý
-			WORD wdInt;	//ÖÇÁ¦
-			WORD wdMen;	//¾«Éñ
+			WORD wdCon;	//ä½“è´¨
+			WORD wdStr;	//ä½“åŠ›
+			WORD wdDex;	//æ•æ·
+			WORD wdInt;	//æ™ºåŠ›
+			WORD wdMen;	//ç²¾ç¥ž
 		};
 		WORD wdProperty[5];
 	};
-	WORD reliveWeakTime;			/// ¸´»îÐéÈõÊ£ÓàÊ±¼ä
-	DWORD grace;				// ÎÄ²ÉÖµ
-	DWORD exploit;				/// ¹¦Ñ«Öµ
-	char tiretime[36+1];			/// Æ£ÀÍÊ±¼ä±ê¼Ç
-	DWORD offlinetime;				/// ÉÏ´ÎÏÂÏßÊ±¼ä
-	DWORD fivetype;					/// ÎåÐÐÀàÐÍ
-	DWORD fivelevel;				/// ÎåÐÐµãÊý
-	DWORD pkaddition;				/// ÉÆ¶ñ×·¼ÓÖµ
-	DWORD money;				/// µ±Ç°Òø×Ó,Ö»´æ´¢Î¬»¤,²»ÄÜÊ¹ÓÃ
-	DWORD answerCount;			/// µ±Ìì´ðÌâ´ÎÊý
-	DWORD honor;				//ÈÙÓþÖµ
-	DWORD maxhonor;				//×î´óÈÙÓþÖµ
-	DWORD gomaptype;			//ÌøµØÍ¼ÀàÐÍ
-	DWORD msgTime;				//ÏÂ´Î·¢ËÍGMÁôÑÔµÄÊ±¼ä
-	DWORD accPriv;			//ÕÊºÅÈ¨ÏÞ
-	DWORD gold;					/// ½ð±Ò
-	DWORD ticket; 				//µãÈ¯Êý
-	DWORD createtime;			/// ½ÇÉ«´´½¨Ê±¼ä
-	DWORD goldgive;				/// ½ð±Ò³åÖµÔùÆ·ÊýÁ¿
-	BYTE petPack;				/// ³èÎï°ü¹ü´óÐ¡
-	DWORD petPoint;				/// ½±ÀøµÄ³èÎïÐÞÁ¶Ê±¼ä
-	DWORD levelsept;			/// Àë¿ª¼Ò×åµÄÊ±¼ä
-	DWORD punishTime;			/// É±ÈË±»×¥µÄÊ±¼ä£¬·ÖÖÓÎªµ¥Î»
-	DWORD trainTime;			/// ÔÚÁ·¼¶µØÍ¼¶ºÁôµÄÊ±¼ä
-//	char pass[8]; 					//²Ö¿âÃÜÂë
+	WORD reliveWeakTime;			/// å¤æ´»è™šå¼±å‰©ä½™æ—¶é—´
+	DWORD grace;				// æ–‡é‡‡å€¼
+	DWORD exploit;				/// åŠŸå‹‹å€¼
+	char tiretime[36+1];			/// ç–²åŠ³æ—¶é—´æ ‡è®°
+	DWORD offlinetime;				/// ä¸Šæ¬¡ä¸‹çº¿æ—¶é—´
+	DWORD fivetype;					/// äº”è¡Œç±»åž‹
+	DWORD fivelevel;				/// äº”è¡Œç‚¹æ•°
+	DWORD pkaddition;				/// å–„æ¶è¿½åŠ å€¼
+	DWORD money;				/// å½“å‰é“¶å­,åªå­˜å‚¨ç»´æŠ¤,ä¸èƒ½ä½¿ç”¨
+	DWORD answerCount;			/// å½“å¤©ç­”é¢˜æ¬¡æ•°
+	DWORD honor;				//è£èª‰å€¼
+	DWORD maxhonor;				//æœ€å¤§è£èª‰å€¼
+	DWORD gomaptype;			//è·³åœ°å›¾ç±»åž‹
+	DWORD msgTime;				//ä¸‹æ¬¡å‘é€GMç•™è¨€çš„æ—¶é—´
+	DWORD accPriv;			//å¸å·æƒé™
+	DWORD gold;					/// é‡‘å¸
+	DWORD ticket; 				//ç‚¹åˆ¸æ•°
+	DWORD createtime;			/// è§’è‰²åˆ›å»ºæ—¶é—´
+	DWORD goldgive;				/// é‡‘å¸å†²å€¼èµ å“æ•°é‡
+	BYTE petPack;				/// å® ç‰©åŒ…è£¹å¤§å°
+	DWORD petPoint;				/// å¥–åŠ±çš„å® ç‰©ä¿®ç‚¼æ—¶é—´
+	DWORD levelsept;			/// ç¦»å¼€å®¶æ—çš„æ—¶é—´
+	DWORD punishTime;			/// æ€äººè¢«æŠ“çš„æ—¶é—´ï¼Œåˆ†é’Ÿä¸ºå•ä½
+	DWORD trainTime;			/// åœ¨ç»ƒçº§åœ°å›¾é€—ç•™çš„æ—¶é—´
+//	char pass[8]; 					//ä»“åº“å¯†ç 
 };
 
 struct CharState
 {
-	DWORD maxhp;						/// ×î´óÉúÃüÖµ *
-	DWORD resumehp;						/// ÉúÃüÖµ»Ö¸´ *
-	DWORD maxmp;						/// ×î´ó·¨ÊõÖµ *
-	DWORD resumemp;						/// ·¨ÊõÖµ»Ö¸´ *
-	DWORD maxsp;                     /// ×î´óÌåÁ¦Öµ *
-	DWORD resumesp;                  /// ÌåÁ¦»Ö¸´Öµ *
+	DWORD maxhp;						/// æœ€å¤§ç”Ÿå‘½å€¼ *
+	DWORD resumehp;						/// ç”Ÿå‘½å€¼æ¢å¤ *
+	DWORD maxmp;						/// æœ€å¤§æ³•æœ¯å€¼ *
+	DWORD resumemp;						/// æ³•æœ¯å€¼æ¢å¤ *
+	DWORD maxsp;                     /// æœ€å¤§ä½“åŠ›å€¼ *
+	DWORD resumesp;                  /// ä½“åŠ›æ¢å¤å€¼ *
 
-	DWORD pdamage;                   /// ×îÐ¡ÎïÀí¹¥»÷Á¦ *
-	DWORD maxpdamage;					/// ×î´óÎïÀí¹¥»÷Á¦ *
-	DWORD mdamage;						/// ×îÐ¡·¨Êõ¹¥»÷Á¦ *
-	DWORD maxmdamage;					/// ×î´ó·¨Êõ¹¥»÷Á¦ *
-	DWORD pdefence;						/// ÎïÀí·ÀÓùÁ¦ *
-	DWORD mdefence;						/// ·¨Êõ·ÀÓùÁ¦ *
-	QWORD nextexp;						/// Éý¼¶¾­ÑéÖµ *
-	WORD  attackspeed;					/// ¹¥»÷ËÙ¶È *
-	WORD  movespeed;					/// ÒÆ¶¯ËÙ¶È *
-	SWORD  attackrating;				/// ¹¥»÷ÃüÖÐ *
-	SWORD  attackdodge;					/// ¹¥»÷¶ã±Ü *
-	WORD  bang;							/// ÖØ»÷ *
-	WORD  lucky;						/// ÐÒÔËÖµ *
-	WORD  charm;                     /// ÷ÈÁ¦Öµ *
-	BYTE  attackfive;					/// ¹¥»÷ÎåÐÐ *
-	BYTE  defencefive;					/// ·ÀÓùÎåÐÐ *
+	DWORD pdamage;                   /// æœ€å°ç‰©ç†æ”»å‡»åŠ› *
+	DWORD maxpdamage;					/// æœ€å¤§ç‰©ç†æ”»å‡»åŠ› *
+	DWORD mdamage;						/// æœ€å°æ³•æœ¯æ”»å‡»åŠ› *
+	DWORD maxmdamage;					/// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ› *
+	DWORD pdefence;						/// ç‰©ç†é˜²å¾¡åŠ› *
+	DWORD mdefence;						/// æ³•æœ¯é˜²å¾¡åŠ› *
+	QWORD nextexp;						/// å‡çº§ç»éªŒå€¼ *
+	WORD  attackspeed;					/// æ”»å‡»é€Ÿåº¦ *
+	WORD  movespeed;					/// ç§»åŠ¨é€Ÿåº¦ *
+	SWORD  attackrating;				/// æ”»å‡»å‘½ä¸­ *
+	SWORD  attackdodge;					/// æ”»å‡»èº²é¿ *
+	WORD  bang;							/// é‡å‡» *
+	WORD  lucky;						/// å¹¸è¿å€¼ *
+	WORD  charm;                     /// é­…åŠ›å€¼ *
+	BYTE  attackfive;					/// æ”»å‡»äº”è¡Œ *
+	BYTE  defencefive;					/// é˜²å¾¡äº”è¡Œ *
 	union {
 		struct {
-			WORD wdCon;	//ÌåÖÊ
-			WORD wdStr;	//ÌåÁ¦
-			WORD wdDex;	//Ãô½Ý
-			WORD wdInt;	//ÖÇÁ¦
-			WORD wdMen;	//¾«Éñ
+			WORD wdCon;	//ä½“è´¨
+			WORD wdStr;	//ä½“åŠ›
+			WORD wdDex;	//æ•æ·
+			WORD wdInt;	//æ™ºåŠ›
+			WORD wdMen;	//ç²¾ç¥ž
 		};
 		WORD wdProperty[5];
 	};
 
-	DWORD stdpdamage;					/// ±ê×¼ÎïÀí¹¥»÷Á¦
-	DWORD stdmdamage;					/// ±ê×¼·¨Êõ¹¥»÷Á¦
-	DWORD stdpdefence;					/// ±ê×¼ÎïÀí·ÀÓùÁ¦
-	DWORD stdmdefence;					/// ±ê×¼·¨Êõ·ÀÓùÁ¦
-	WORD  stdbang;						/// ±ê×¼ÖØ»÷ÂÊ
+	DWORD stdpdamage;					/// æ ‡å‡†ç‰©ç†æ”»å‡»åŠ›
+	DWORD stdmdamage;					/// æ ‡å‡†æ³•æœ¯æ”»å‡»åŠ›
+	DWORD stdpdefence;					/// æ ‡å‡†ç‰©ç†é˜²å¾¡åŠ›
+	DWORD stdmdefence;					/// æ ‡å‡†æ³•æœ¯é˜²å¾¡åŠ›
+	WORD  stdbang;						/// æ ‡å‡†é‡å‡»çŽ‡
 };
 #ifdef _TEST_DATA_LOG
 struct CharTest
 {
-	DWORD upgrade_time;//Éý¼¶Ê±¼ä
-	DWORD upgrade_usetime;//±¾¼¶Ê¹ÓÃÊ±¼ä
-	DWORD death_times;//ËÀÍö´ÎÊý
-	DWORD hp_leechdom;//Ê¹ÓÃÉúÃüÖµÒ©Æ·¸öÊý
-	DWORD mp_leechdom;//Ê¹ÓÃ·¨ÊõÖµÒ©Æ·¸öÊý
-	DWORD sp_leechdom;//Ê¹ÓÃÌåÁ¦ÖµÒ©Æ·¸öÊý
-	DWORD get_money;//µÃµ½Òø×ÓÊý
-	DWORD get_heigh;//µÃµ½¸ß¼¶×°±¸¸öÊý
-	DWORD get_socket;//µÃµ½´ø¿××°±¸¸öÊý
-	DWORD get_material;//µÃµ½Ô­ÁÏ¸öÊý
-	DWORD get_stone;//µÃµ½±¦Ê¯¸öÊý
-	DWORD get_scroll;//µÃµ½¾íÖá¸öÊý
-	DWORD money;//µ±Ç°Òø×ÓÊý
+	DWORD upgrade_time;//å‡çº§æ—¶é—´
+	DWORD upgrade_usetime;//æœ¬çº§ä½¿ç”¨æ—¶é—´
+	DWORD death_times;//æ­»äº¡æ¬¡æ•°
+	DWORD hp_leechdom;//ä½¿ç”¨ç”Ÿå‘½å€¼è¯å“ä¸ªæ•°
+	DWORD mp_leechdom;//ä½¿ç”¨æ³•æœ¯å€¼è¯å“ä¸ªæ•°
+	DWORD sp_leechdom;//ä½¿ç”¨ä½“åŠ›å€¼è¯å“ä¸ªæ•°
+	DWORD get_money;//å¾—åˆ°é“¶å­æ•°
+	DWORD get_heigh;//å¾—åˆ°é«˜çº§è£…å¤‡ä¸ªæ•°
+	DWORD get_socket;//å¾—åˆ°å¸¦å­”è£…å¤‡ä¸ªæ•°
+	DWORD get_material;//å¾—åˆ°åŽŸæ–™ä¸ªæ•°
+	DWORD get_stone;//å¾—åˆ°å®çŸ³ä¸ªæ•°
+	DWORD get_scroll;//å¾—åˆ°å·è½´ä¸ªæ•°
+	DWORD money;//å½“å‰é“¶å­æ•°
 };
 #endif
 
@@ -260,10 +260,10 @@ struct TempArchiveMember
 };
 enum TempArchiveType
 {
-	TEAM,	//¶ÓÎé
-	ENTRY_STATE,	//¶ÓÎé
-	PET,	//³èÎï
-	SAFETY_STATE,	// ÁÙÊ±¹Ø±ÕÃÜÂë±£»¤
+	TEAM,	//é˜Ÿä¼
+	ENTRY_STATE,	//é˜Ÿä¼
+	PET,	//å® ç‰©
+	SAFETY_STATE,	// ä¸´æ—¶å…³é—­å¯†ç ä¿æŠ¤
 };
 struct BinaryArchiveMember
 {
@@ -273,16 +273,16 @@ struct BinaryArchiveMember
 };
 enum BinaryArchiveType
 {
-	BINARY_DOUBLE_EXP_OBJ,	///Ë«±¶¾­ÑéµÀ¾ß
-	BINARY_TONG_OBJ,		///°ï»áÁîÅÆÀàµÀ¾ß
-	BINARY_KING_OBJ,		///¹úÍõÁîÅÆÀàµÀ¾ß
-	BINARY_FAMILY_OBJ,		///¼Ò×åÁîÅÆÀàµÀ¾ß
-	BINARY_CHANGE_COUNTRY_TIME, /// ×îºóÒ»´ÎÅÑ¹úµÄÊ±¼ä
-	BINARY_SAFETY,			/// ÊÇ·ñ½øÐÐ²Æ²ú±£»¤
-	BINARY_GIVE_MATARIAL_NUM,   //µÀ¾ß¿¨¶Ò»»²ÄÁÏµÄ×éÊý
-	BINARY_CARD_NUM,            //µÀ¾ß¿¨ÕÅÊý
-	BINARY_SAFETY_SETUP,	/// ±£»¤ÉèÖÃ
-	BINARY_MAX,				///×î´óÊýÖµ(Õ¼Î»ÓÃ)
+	BINARY_DOUBLE_EXP_OBJ,	///åŒå€ç»éªŒé“å…·
+	BINARY_TONG_OBJ,		///å¸®ä¼šä»¤ç‰Œç±»é“å…·
+	BINARY_KING_OBJ,		///å›½çŽ‹ä»¤ç‰Œç±»é“å…·
+	BINARY_FAMILY_OBJ,		///å®¶æ—ä»¤ç‰Œç±»é“å…·
+	BINARY_CHANGE_COUNTRY_TIME, /// æœ€åŽä¸€æ¬¡å›å›½çš„æ—¶é—´
+	BINARY_SAFETY,			/// æ˜¯å¦è¿›è¡Œè´¢äº§ä¿æŠ¤
+	BINARY_GIVE_MATARIAL_NUM,   //é“å…·å¡å…‘æ¢ææ–™çš„ç»„æ•°
+	BINARY_CARD_NUM,            //é“å…·å¡å¼ æ•°
+	BINARY_SAFETY_SETUP,	/// ä¿æŠ¤è®¾ç½®
+	BINARY_MAX,				///æœ€å¤§æ•°å€¼(å ä½ç”¨)
 };
 
 #ifndef _SEX_
@@ -298,53 +298,53 @@ enum
 #define _PROFESSION_
 enum
 {
-	PROFESSION_NONE	= 0,	//ÎÞÒµ
-	PROFESSION_1	= 1,	//ÏÀ¿Í
-	PROFESSION_2	= 2,	//ÏÀÅ®
-	PROFESSION_3	= 4,	//¼ýÏÀ
-	PROFESSION_4	= 8,	//¼ýÁé
-	PROFESSION_5	= 16,	//ÌìÊ¦
-	PROFESSION_6	= 32,	//ÃÀÅ®
-	PROFESSION_7	= 64,	//·¨Ê¦
-	PROFESSION_8	= 128	//ÏÉÅ®
+	PROFESSION_NONE	= 0,	//æ— ä¸š
+	PROFESSION_1	= 1,	//ä¾ å®¢
+	PROFESSION_2	= 2,	//ä¾ å¥³
+	PROFESSION_3	= 4,	//ç®­ä¾ 
+	PROFESSION_4	= 8,	//ç®­çµ
+	PROFESSION_5	= 16,	//å¤©å¸ˆ
+	PROFESSION_6	= 32,	//ç¾Žå¥³
+	PROFESSION_7	= 64,	//æ³•å¸ˆ
+	PROFESSION_8	= 128	//ä»™å¥³
 };
 #endif
 
 
-const WORD  MAX_LEVEL			= 150;					/// ×î´ó½ÇÉ«µÈ¼¶
-const DWORD MAX_GOODNESS		= 9999;					/// ×î´óÉÆ¶ñ¶È
-const DWORD MAX_HP			= 999999;				/// ×î´óÉúÃüÖµ
-const DWORD MAX_RESUMEHP		= 1000;					/// ÉúÃüÖµ»Ö¸´
-const DWORD MAX_MP			= 999999;				/// ×î´ó·¨ÊõÖµ
-const DWORD MAX_RESUMEMP		= 1000;					/// ·¨ÊõÖµ»Ö¸´
-const DWORD MAX_SP			= 999999;				/// ×î´óÌåÁ¦Öµ
-const DWORD MAX_RESUMESP		= 1000;					/// ÌåÁ¦Öµ»Ö¸´
-const DWORD MAX_PDAMAGE			= 999999;				/// ×î´óÎïÀí¹¥»÷Á¦
-const DWORD MAX_RDAMAGE			= 999999;				/// ×î´óÔ¶³Ì¹¥»÷Á¦
-const DWORD MAX_TDAMAGE 		= 999999;				/// ×î´óÏÉÊõ¹¥»÷Á¦
-const DWORD MAX_MDAMAGE			= 999999;				/// ×î´ó·¨Êõ¹¥»÷Á¦
-const DWORD MAX_PDEFENCE		= 999999;				/// ×î´óÎïÀí·ÀÓùÁ¦
-const DWORD MAX_MDEFENCE		= 999999;				/// ×î´ó·¨Êõ·ÀÓùÁ¦
-const QWORD MAX_EXP			= 9999999999LL;			/// ×î´ó¾­ÑéÖµ
-const WORD  MAX_ATTACKSPEED		= 100;					/// ¹¥»÷ËÙ¶È
-const WORD  MAX_MAGICSPEED		= 100;					/// Ê©·¨ËÙ¶È
-const WORD  MAX_MOVESPEED		= 100;					/// ÒÆ¶¯ËÙ¶È
-const WORD  MAX_ATTACKRATING		= 999;					/// ¹¥»÷ÃüÖÐ
-const WORD  MAX_ATTACKDODGE		= 999;					/// ¹¥»÷¶ã±Ü
-const WORD  MAX_MAGICRATING		= 999;					/// ·¨ÊõÃüÖÐ
-const WORD  MAX_MAGICDODGE		= 999;					/// ·¨Êõ¶ã±Ü
-const WORD  MAX_LUCKY			= 999;					/// ÐÒÔËÖµ
-const WORD  MAX_METAL			= 999;					/// ½ð
-const WORD  MAX_WOOD			= 999;					/// Ä¾
-const WORD  MAX_WATER			= 999;					/// Ë®
-const WORD  MAX_FIRE			= 999;					/// »ð
-const WORD  MAX_SOIL			= 999;					/// ÍÁ
-const WORD  MAX_METALRESISTANCE		= 10000;				/// ½ðÏµµÖ¿¹
-const WORD  MAX_WOODRESISTANCE		= 10000;				/// Ä¾ÏµµÖ¿¹
-const WORD  MAX_WATERRESISTANCE		= 10000;				/// Ë®ÏµµÖ¿¹
-const WORD  MAX_FIRERESISTANCE		= 10000;				/// »ðÏµµÖ¿¹
-const WORD  MAX_SOILRESISTANCE		= 10000;				/// ÍÁÏµµÖ¿¹
-const WORD  MAX_POINTS			= 1500;					/// µãÊý
+const WORD  MAX_LEVEL			= 150;					/// æœ€å¤§è§’è‰²ç­‰çº§
+const DWORD MAX_GOODNESS		= 9999;					/// æœ€å¤§å–„æ¶åº¦
+const DWORD MAX_HP			= 999999;				/// æœ€å¤§ç”Ÿå‘½å€¼
+const DWORD MAX_RESUMEHP		= 1000;					/// ç”Ÿå‘½å€¼æ¢å¤
+const DWORD MAX_MP			= 999999;				/// æœ€å¤§æ³•æœ¯å€¼
+const DWORD MAX_RESUMEMP		= 1000;					/// æ³•æœ¯å€¼æ¢å¤
+const DWORD MAX_SP			= 999999;				/// æœ€å¤§ä½“åŠ›å€¼
+const DWORD MAX_RESUMESP		= 1000;					/// ä½“åŠ›å€¼æ¢å¤
+const DWORD MAX_PDAMAGE			= 999999;				/// æœ€å¤§ç‰©ç†æ”»å‡»åŠ›
+const DWORD MAX_RDAMAGE			= 999999;				/// æœ€å¤§è¿œç¨‹æ”»å‡»åŠ›
+const DWORD MAX_TDAMAGE 		= 999999;				/// æœ€å¤§ä»™æœ¯æ”»å‡»åŠ›
+const DWORD MAX_MDAMAGE			= 999999;				/// æœ€å¤§æ³•æœ¯æ”»å‡»åŠ›
+const DWORD MAX_PDEFENCE		= 999999;				/// æœ€å¤§ç‰©ç†é˜²å¾¡åŠ›
+const DWORD MAX_MDEFENCE		= 999999;				/// æœ€å¤§æ³•æœ¯é˜²å¾¡åŠ›
+const QWORD MAX_EXP			= 9999999999LL;			/// æœ€å¤§ç»éªŒå€¼
+const WORD  MAX_ATTACKSPEED		= 100;					/// æ”»å‡»é€Ÿåº¦
+const WORD  MAX_MAGICSPEED		= 100;					/// æ–½æ³•é€Ÿåº¦
+const WORD  MAX_MOVESPEED		= 100;					/// ç§»åŠ¨é€Ÿåº¦
+const WORD  MAX_ATTACKRATING		= 999;					/// æ”»å‡»å‘½ä¸­
+const WORD  MAX_ATTACKDODGE		= 999;					/// æ”»å‡»èº²é¿
+const WORD  MAX_MAGICRATING		= 999;					/// æ³•æœ¯å‘½ä¸­
+const WORD  MAX_MAGICDODGE		= 999;					/// æ³•æœ¯èº²é¿
+const WORD  MAX_LUCKY			= 999;					/// å¹¸è¿å€¼
+const WORD  MAX_METAL			= 999;					/// é‡‘
+const WORD  MAX_WOOD			= 999;					/// æœ¨
+const WORD  MAX_WATER			= 999;					/// æ°´
+const WORD  MAX_FIRE			= 999;					/// ç«
+const WORD  MAX_SOIL			= 999;					/// åœŸ
+const WORD  MAX_METALRESISTANCE		= 10000;				/// é‡‘ç³»æŠµæŠ—
+const WORD  MAX_WOODRESISTANCE		= 10000;				/// æœ¨ç³»æŠµæŠ—
+const WORD  MAX_WATERRESISTANCE		= 10000;				/// æ°´ç³»æŠµæŠ—
+const WORD  MAX_FIRERESISTANCE		= 10000;				/// ç«ç³»æŠµæŠ—
+const WORD  MAX_SOILRESISTANCE		= 10000;				/// åœŸç³»æŠµæŠ—
+const WORD  MAX_POINTS			= 1500;					/// ç‚¹æ•°
 
 #pragma pack()
 

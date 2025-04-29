@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestCondition.cpp  $
  * \author	
  * \date	
- * \brief	ÈÎÎñÏµÍ³
+ * \brief	ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
 
@@ -13,13 +13,13 @@
 #include "ScenesServer.h"
 
 /**     
- * \brief  ²ÎÊý¼ì²é
+ * \brief  å‚æ•°æ£€æŸ¥
  *
- * Ìá¹©ÁËÒ»¸öÄ¬ÈÏµÄ²ÎÊýÐèÇó¼ì²â,¼Ì³ÐÀàÐèÒª¸ù¾Ý×Ô¼ºµÄÒªÇóÖØÔØ´Ëº¯Êý
+ * æä¾›äº†ä¸€ä¸ªé»˜è®¤çš„å‚æ•°éœ€æ±‚æ£€æµ‹,ç»§æ‰¿ç±»éœ€è¦æ ¹æ®è‡ªå·±çš„è¦æ±‚é‡è½½æ­¤å‡½æ•°
  *      
- * \param user: ´¥·¢Ìõ¼þÅÐ¶¨µÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return true±íÊ¾²ÎÊýºÏ·¨,false±íÊ¾²ÎÊý·Ç·¨
+ * \param user: è§¦å‘æ¡ä»¶åˆ¤å®šçš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return trueè¡¨ç¤ºå‚æ•°åˆæ³•,falseè¡¨ç¤ºå‚æ•°éžæ³•
  */   
 bool Condition::check_args(const SceneUser* user, const Vars* vars) const
 {
@@ -29,13 +29,13 @@ bool Condition::check_args(const SceneUser* user, const Vars* vars) const
 }
 
 /**     
- * \brief  ½Å±¾Ìõ¼þÅÐ¶¨
+ * \brief  è„šæœ¬æ¡ä»¶åˆ¤å®š
  *
- * template methodÄ£Ê½,½øÐÐ²ÎÊý¼ì²é£¬²¢Ö´ÐÐ½Å±¾¶¨ÒåµÄÌõ¼þÅÐ¶¨
+ * template methodæ¨¡å¼,è¿›è¡Œå‚æ•°æ£€æŸ¥ï¼Œå¹¶æ‰§è¡Œè„šæœ¬å®šä¹‰çš„æ¡ä»¶åˆ¤å®š
  *      
- * \param user: ´¥·¢Ìõ¼þµÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return true±íÊ¾Âú×ãÌõ¼þ,false±íÊ¾²»Âú×ãÌõ¼þ
+ * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
  */    
 bool Condition::is_valid(const SceneUser* user, const Vars* vars) const
 {
@@ -45,13 +45,13 @@ bool Condition::is_valid(const SceneUser* user, const Vars* vars) const
 }
 
 /**     
- * \brief  ½Å±¾Ìõ¼þÅÐ¶¨
+ * \brief  è„šæœ¬æ¡ä»¶åˆ¤å®š
  *
- * template methodÄ£Ê½,½øÐÐ²ÎÊý¼ì²é£¬²¢¶ÔÃ¿Ò»¸öÓÃ»§Ö´ÐÐ½Å±¾¶¨ÒåµÄÌõ¼þÅÐ¶¨
+ * template methodæ¨¡å¼,è¿›è¡Œå‚æ•°æ£€æŸ¥ï¼Œå¹¶å¯¹æ¯ä¸€ä¸ªç”¨æˆ·æ‰§è¡Œè„šæœ¬å®šä¹‰çš„æ¡ä»¶åˆ¤å®š
  *      
- * \param user: ´¥·¢Ìõ¼þµÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return true±íÊ¾ËùÓÐÓÃ»§Âú×ãÌõ¼þ,·ñÔò·µ»Øfalse
+ * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return trueè¡¨ç¤ºæ‰€æœ‰ç”¨æˆ·æ»¡è¶³æ¡ä»¶,å¦åˆ™è¿”å›žfalse
  */    
 bool TeamCondition::is_valid(const SceneUser* user, const Vars* vars) const
 {
@@ -87,13 +87,13 @@ bool TeamCondition::is_valid(const SceneUser* user, const Vars* vars) const
 }
 
 /**     
- * \brief  ×é¶ÓÌõ¼þÅÐ¶¨
+ * \brief  ç»„é˜Ÿæ¡ä»¶åˆ¤å®š
  *
- * ÖØÔØÁËcheck_validº¯Êý,ÅÐ¶¨ÓÃ»§µÄ¶ÓÎéÊÇ·ñÂú×ã½Å±¾ÒªÇó
+ * é‡è½½äº†check_validå‡½æ•°,åˆ¤å®šç”¨æˆ·çš„é˜Ÿä¼æ˜¯å¦æ»¡è¶³è„šæœ¬è¦æ±‚
  *      
- * \param user: ´¥·¢Ìõ¼þµÄÓÃ»§
- * \param vars: ÓÃ»§Ëù´øµÄ¸ÃÈÎÎñÏà¹Ø±äÁ¿
- * \return true±íÊ¾Âú×ãÌõ¼þ,false±íÊ¾²»Âú×ãÌõ¼þ
+ * \param user: è§¦å‘æ¡ä»¶çš„ç”¨æˆ·
+ * \param vars: ç”¨æˆ·æ‰€å¸¦çš„è¯¥ä»»åŠ¡ç›¸å…³å˜é‡
+ * \return trueè¡¨ç¤ºæ»¡è¶³æ¡ä»¶,falseè¡¨ç¤ºä¸æ»¡è¶³æ¡ä»¶
  */    
 bool TeamedCondition::check_valid(const SceneUser* user, const Vars* vars) const
 {
@@ -168,7 +168,7 @@ bool SelfCountryCondition::check_valid(const SceneUser* user, const Vars* vars) 
 bool CountryPowerCondition::check_valid(const SceneUser* user, const Vars* vars) const
 {
 #ifdef _DEBUGLOG
-	Zebra::logger->debug("ÎÒ[%s countryid=%d]ËùÔÚµÄ¹ú¼ÒÊÇ%s", user->name, user->charbase.country, (ScenesService::getInstance().countryPower[user->charbase.country] == 0)?"Èõ¹ú":"Ç¿¹ú");
+	Zebra::logger->debug("æˆ‘[%s countryid=%d]æ‰€åœ¨çš„å›½å®¶æ˜¯%s", user->name, user->charbase.country, (ScenesService::getInstance().countryPower[user->charbase.country] == 0)?"å¼±å›½":"å¼ºå›½");
 #endif
 	return (ScenesService::getInstance().countryPower[user->charbase.country] == 0);
 }
@@ -184,7 +184,7 @@ bool WeekCondition::check_valid(const SceneUser* user, const Vars* vars) const
 
 bool CaptionCondition::check_valid(const SceneUser* user, const Vars* vars) const
 {
-	return strstr(user->caption , "³ÇÖ÷") != NULL;
+	return strstr(user->caption , "åŸŽä¸»") != NULL;
 }
 
 

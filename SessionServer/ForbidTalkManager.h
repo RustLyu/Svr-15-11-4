@@ -1,4 +1,4 @@
-#ifndef _FORBID_TALK_MANAGER_
+﻿#ifndef _FORBID_TALK_MANAGER_
 #define _FORBID_TALK_MANAGER_
 #include "zType.h"
 

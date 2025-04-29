@@ -1,4 +1,4 @@
-/**
+﻿/**
  * \file
  * \version  $Id: loginClient.h  $
  * \author  

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zMTCPServer.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÀàzMTCPServer
+ * \brief å®ç°ç±»zMTCPServer
  *
  * 
  */
@@ -18,8 +18,8 @@
 #include "Zebra.h"
 
 /**
- * \brief ¹¹Ôìº¯Êı£¬ÓÃÓÚ¹¹ÔìÒ»¸ö·şÎñÆ÷zMTCPServer¶ÔÏó
- * \param name ·şÎñÆ÷Ãû³Æ
+ * \brief æ„é€ å‡½æ•°ï¼Œç”¨äºæ„é€ ä¸€ä¸ªæœåŠ¡å™¨zMTCPServerå¯¹è±¡
+ * \param name æœåŠ¡å™¨åç§°
  */
 zMTCPServer::zMTCPServer(const std::string &name) : name(name)
 {
@@ -34,7 +34,7 @@ zMTCPServer::zMTCPServer(const std::string &name) : name(name)
 }
 
 /**
- * \brief Îö¹¹º¯Êı£¬ÓÃÓÚÏú»ÙÒ»¸özMTCPServer¶ÔÏó
+ * \brief ææ„å‡½æ•°ï¼Œç”¨äºé”€æ¯ä¸€ä¸ªzMTCPServerå¯¹è±¡
  */
 zMTCPServer::~zMTCPServer() 
 {
@@ -55,10 +55,10 @@ zMTCPServer::~zMTCPServer()
 }
 
 /**
- * \brief °ó¶¨¼àÌı·şÎñµ½Ä³Ò»¸ö¶Ë¿Ú
- * \param name °ó¶¨¶Ë¿ÚÃû³Æ
- * \param port ¾ßÌå°ó¶¨µÄ¶Ë¿Ú
- * \return °ó¶¨ÊÇ·ñ³É¹¦
+ * \brief ç»‘å®šç›‘å¬æœåŠ¡åˆ°æŸä¸€ä¸ªç«¯å£
+ * \param name ç»‘å®šç«¯å£åç§°
+ * \param port å…·ä½“ç»‘å®šçš„ç«¯å£
+ * \return ç»‘å®šæ˜¯å¦æˆåŠŸ
  */
 bool zMTCPServer::bind(const std::string &name, const unsigned short port) 
 {
@@ -71,7 +71,7 @@ bool zMTCPServer::bind(const std::string &name, const unsigned short port)
 	{
 		if (it->second == port)
 		{
-			Zebra::logger->warn("¶Ë¿Ú %u ÒÑ¾­°ó¶¨·şÎñ");
+			Zebra::logger->warn("ç«¯å£ %u å·²ç»ç»‘å®šæœåŠ¡");
 			return false;
 		}
 	}
@@ -79,20 +79,20 @@ bool zMTCPServer::bind(const std::string &name, const unsigned short port)
 	sock = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (-1 == sock) 
 	{
-		Zebra::logger->error("´´½¨Ì×½Ó¿ÚÊ§°Ü");
+		Zebra::logger->error("åˆ›å»ºå¥—æ¥å£å¤±è´¥");
 		return false;
 	}
 
-	//ÉèÖÃÌ×½Ó¿ÚÎª¿ÉÖØÓÃ×´Ì¬
+	//è®¾ç½®å¥—æ¥å£ä¸ºå¯é‡ç”¨çŠ¶æ€
 	int reuse = 1;
 	if (-1 == ::setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse))) 
 	{
-		Zebra::logger->error("²»ÄÜÉèÖÃÌ×½Ó¿ÚÎª¿ÉÖØÓÃ×´Ì¬");
+		Zebra::logger->error("ä¸èƒ½è®¾ç½®å¥—æ¥å£ä¸ºå¯é‡ç”¨çŠ¶æ€");
 		TEMP_FAILURE_RETRY(::close(sock));
 		return false;
 	}
 
-	//ÉèÖÃÌ×½Ó¿Ú·¢ËÍ½ÓÊÕ»º³å£¬²¢ÇÒ·şÎñÆ÷µÄ±ØĞëÔÚacceptÖ®Ç°ÉèÖÃ
+	//è®¾ç½®å¥—æ¥å£å‘é€æ¥æ”¶ç¼“å†²ï¼Œå¹¶ä¸”æœåŠ¡å™¨çš„å¿…é¡»åœ¨acceptä¹‹å‰è®¾ç½®
 	socklen_t window_size = 128 * 1024;
 	if (-1 == ::setsockopt(sock, SOL_SOCKET, SO_RCVBUF, &window_size, sizeof(window_size)))
 	{
@@ -113,7 +113,7 @@ bool zMTCPServer::bind(const std::string &name, const unsigned short port)
 	int retcode = ::bind(sock, (struct sockaddr *) &addr, sizeof(addr));
 	if (-1 == retcode) 
 	{
-		Zebra::logger->error("²»ÄÜ°ó¶¨·şÎñÆ÷¶Ë¿Ú");
+		Zebra::logger->error("ä¸èƒ½ç»‘å®šæœåŠ¡å™¨ç«¯å£");
 		TEMP_FAILURE_RETRY(::close(sock));
 		return false;
 	}
@@ -121,7 +121,7 @@ bool zMTCPServer::bind(const std::string &name, const unsigned short port)
 	retcode = ::listen(sock, MAX_WAITQUEUE);
 	if (-1 == retcode) 
 	{
-		Zebra::logger->error("¼àÌıÌ×½Ó¿ÚÊ§°Ü");
+		Zebra::logger->error("ç›‘å¬å¥—æ¥å£å¤±è´¥");
 		TEMP_FAILURE_RETRY(::close(sock));
 		return false;
 	}
@@ -150,15 +150,15 @@ bool zMTCPServer::bind(const std::string &name, const unsigned short port)
 	}
 #endif
 
-	Zebra::logger->info("·şÎñÆ÷ %s:%u ¶Ë¿Ú³õÊ¼»¯°ó¶¨³É¹¦", name.c_str(), port);
+	Zebra::logger->info("æœåŠ¡å™¨ %s:%u ç«¯å£åˆå§‹åŒ–ç»‘å®šæˆåŠŸ", name.c_str(), port);
 
 	return true;
 }
 
 /**
- * \brief ½ÓÊÜ¿Í»§¶ËµÄÁ¬½Ó
- * \param res ·µ»ØµÄÁ¬½Ó¼¯ºÏ
- * \return ½ÓÊÕµ½µÄÁ¬½Ó¸öÊı
+ * \brief æ¥å—å®¢æˆ·ç«¯çš„è¿æ¥
+ * \param res è¿”å›çš„è¿æ¥é›†åˆ
+ * \return æ¥æ”¶åˆ°çš„è¿æ¥ä¸ªæ•°
  */
 int zMTCPServer::accept(Sock2Port &res)
 {

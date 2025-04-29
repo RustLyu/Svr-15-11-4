@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zUrl.h  $
  * \author  
  * \date 
- * \brief ·â×°Ò»Ğ©url²Ù×÷º¯Êı
+ * \brief å°è£…ä¸€äº›urlæ“ä½œå‡½æ•°
  */
 
 

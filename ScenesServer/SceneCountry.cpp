@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneCountry.cpp $
  * \author 
  * \date
- * \brief ÊµÏÖ¹ú¼ÒÏà¹ØÖ¸ÁîµÄ´¦Àí
+ * \brief å®ç°å›½å®¶ç›¸å…³æŒ‡ä»¤çš„å¤„ç†
  *
  * 
  */
@@ -18,18 +18,18 @@
 #include "ScenesServer.h"
 
 
-//const unsigned int CHANGE_COUNTRY_NEED_MONEY = 5 * 10000; // ±ä¸ü¹ú¼®£¬ËùĞèÒøÁ½5¶§
-//const unsigned int CANCEL_COUNTRY_NEED_MONEY = 5 *  10000; // È¡Ïû¹ú¼®£¬ËùĞèÒøÁ½5¶§
+//const unsigned int CHANGE_COUNTRY_NEED_MONEY = 5 * 10000; // å˜æ›´å›½ç±ï¼Œæ‰€éœ€é“¶ä¸¤5é”­
+//const unsigned int CANCEL_COUNTRY_NEED_MONEY = 5 *  10000; // å–æ¶ˆå›½ç±ï¼Œæ‰€éœ€é“¶ä¸¤5é”­
 extern unsigned int cancel_country_need_money;
 extern unsigned int is_cancel_country;
 
 /**
- * \brief Ö´ĞĞ¹ú¼ÒÏà¹ØÃüÁî
+ * \brief æ‰§è¡Œå›½å®¶ç›¸å…³å‘½ä»¤
  *
  *
- * \param rev ÌôÕ½Ö¸Áî
- * \param cmdLen ÏûÏ¢³¤¶È
- * \return ÊÇ·ñ³É¹¦
+ * \param rev æŒ‘æˆ˜æŒ‡ä»¤
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLen)
 {
@@ -55,7 +55,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					Cmd::Session::t_changeScene_SceneSession cmd;
 					Scene* pScene= SceneManager::getInstance().
 						getSceneByID(SceneManager::getInstance().
-								buildMapID(this->charbase.country, 137));//±ß¾³
+								buildMapID(this->charbase.country, 137));//è¾¹å¢ƒ
 
 					if (this->scene->getRealMapID() == 137)
 					{
@@ -66,7 +66,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					this->charbase.gomaptype = ZoneTypeDef::ZONE_COUNTRY_WAR;
 
 					if (pScene)            
-					{//±¾·ş                         
+					{//æœ¬æœ                         
 						zPos Pos;
 						Pos.x = 0;
 						Pos.y = 0;     
@@ -82,7 +82,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 						cmd.y = 0;
 						cmd.map_id = SceneManager::getInstance().buildMapID
 							(this->charbase.country, 137);
-						//±ß¾³
+						//è¾¹å¢ƒ
 
 						bzero(cmd.map_file, sizeof(cmd.map_file));
 						bzero(cmd.map_name, sizeof(cmd.map_file));
@@ -100,7 +100,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					zObject * srcobj=this->packs.uom.getObjectByThisID(cmd->itemID);
 					if (!srcobj)
 					{
-						Zebra::logger->trace("%s ¹ú¼Ò¾èÏ×Ê±Î´ÕÒµ½¸ÃÎïÆ· id=%u", 
+						Zebra::logger->trace("%s å›½å®¶æçŒ®æ—¶æœªæ‰¾åˆ°è¯¥ç‰©å“ id=%u", 
 								this->name, cmd->itemID);
 						return true;
 					}
@@ -108,7 +108,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					zCountryMaterialB* country_material = srcobj->canContribute();
 					if (country_material==NULL)
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜ¾èÔùÕâ¼şÎïÆ·");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½æèµ è¿™ä»¶ç‰©å“");
 						return true;
 					}
 						
@@ -118,11 +118,11 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					if (send.byType>0)
 					{
 						if (country_material->dwMaterialKind == 1)	
-						{//´òÔì³öÀ´µÄ¸ßµÈ¼¶²ÄÁÏ
+						{//æ‰“é€ å‡ºæ¥çš„é«˜ç­‰çº§ææ–™
 							send.dwValue = (DWORD)pow(5, srcobj->data.upgrade+1) * srcobj->data.dwNum;	
 						}
 						else
-						{//ÆÕÍ¨²ÄÁÏ
+						{//æ™®é€šææ–™
 							send.dwValue = srcobj->data.dwNum;
 						}
 						send.byType = 1;
@@ -146,7 +146,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 						{
 						DWORD add_exploit = (DWORD)((((float)(send.dwValue)/10)/5) * exploit_arg);
 						
-						Zebra::logger->trace("[¹ú¼Ò¾èÏ×]: µ±Ç°¹¦Ñ«:%d ±¾´Î»ñµÃ¹¦Ñ«:%d µ±Ç°ÈÙÓşÖµ:%d ±¾´Î»ñµÃÈÙÓşÖµ:%d", 
+						Zebra::logger->trace("[å›½å®¶æçŒ®]: å½“å‰åŠŸå‹‹:%d æœ¬æ¬¡è·å¾—åŠŸå‹‹:%d å½“å‰è£èª‰å€¼:%d æœ¬æ¬¡è·å¾—è£èª‰å€¼:%d", 
 								this->charbase.exploit, add_exploit,
 								this->charbase.honor, (send.dwValue/5));
 
@@ -155,7 +155,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 						BUFFER_CMD(Cmd::stAddUserAndPosMapScreenStateUserCmd ,send2 , zSocket::MAX_USERDATASIZE);
 						this->full_t_MapUserDataPosState(send2->data);
 						sendCmdToMe(send2,send2->size());
-						//ÓÖ²»Òª¼ÓÈÙÓşÖµÁË,nb²ß»®
+						//åˆä¸è¦åŠ è£èª‰å€¼äº†,nbç­–åˆ’
 						//this->charbase.honor += send.dwValue/5;
 						//this->charbase.maxhonor += send.dwValue/5;
 						Cmd::stMainUserDataUserCmd send1;
@@ -180,9 +180,9 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					}
 					
 					zObject::logger(srcobj->createid,srcobj->data.qwThisID,srcobj->base->name,
-							srcobj->data.dwNum,srcobj->data.dwNum,0,this->id,this->name,0,"¹ú¼Ò","¾èÏ×µ½¹ú¿â",NULL,0,0);
+							srcobj->data.dwNum,srcobj->data.dwNum,0,this->id,this->name,0,"å›½å®¶","æçŒ®åˆ°å›½åº“",NULL,0,0);
 
-					this->packs.removeObject(srcobj);//ÒÆ³ıÎïÆ·
+					this->packs.removeObject(srcobj);//ç§»é™¤ç‰©å“
 
 					this->save(Cmd::Record::OPERATION_WRITEBACK);
 					return true;
@@ -192,7 +192,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 		case Cmd::CANCEL_COUNTRY_PARA:
 			{
 				//Cmd::stCancelCountryCmd * cmd = (Cmd::stCancelCountryCmd *)rev;
-				Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "¸Ã¹¦ÄÜÔİÊ±Î´¿ª·Å");
+				Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "è¯¥åŠŸèƒ½æš‚æ—¶æœªå¼€æ”¾");
 				return true;
 
 				SceneManager::CountryMap_iter src_pos = SceneManager::getInstance().
@@ -200,7 +200,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 
 				if (this->charbase.country == PUBLIC_COUNTRY)	
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "ÄúÒÑ¾­ÊÇÎŞ¹ú¼®ÈËÊ¿¡£");
+					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "æ‚¨å·²ç»æ˜¯æ— å›½ç±äººå£«ã€‚");
 					return true;
 				}
 
@@ -223,22 +223,22 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					}
 				}             
 
-				// Çå³ıÇ®×¯ËùÓĞÎïÆ·
+				// æ¸…é™¤é’±åº„æ‰€æœ‰ç‰©å“
 //				this->packs.store.removeAll();	
 //				packs.clearPackage(&packs.store);
 				packs.execEvery(&packs.store, Type2Type<ClearPack>());
 
-				// Çå³ıËùÓĞÈÎÎñ
+				// æ¸…é™¤æ‰€æœ‰ä»»åŠ¡
 				this->quest_list.clear(this);
 
-				// Çå³ı¹¦Ñ«ºÍÎÄ²ÉÖµ
+				// æ¸…é™¤åŠŸå‹‹å’Œæ–‡é‡‡å€¼
 				this->charbase.grace = 0;
 				this->charbase.exploit = 0;
 				this->save(Cmd::Record::OPERATION_WRITEBACK);
 				Cmd::Session::t_changeCountry_SceneSession send;
 
 				Channel::sendSys(this, Cmd::INFO_TYPE_GAME, 
-						"ÄúÒÑ¾­Àë¿ª %s£¬³ÉÎªÎŞ¹ú¼®ÈËÊ¿£¬Ô­ÓĞÉç»á¹ØÏµ¡¢Ç®×¯ÎïÆ·¾ùÇå¿Õ£¬Ï£ÍûÄúÔÚÕâ¸ö¹ú¼ÒÄÜÓä¿ìµÄÉú»î",
+						"æ‚¨å·²ç»ç¦»å¼€ %sï¼Œæˆä¸ºæ— å›½ç±äººå£«ï¼ŒåŸæœ‰ç¤¾ä¼šå…³ç³»ã€é’±åº„ç‰©å“å‡æ¸…ç©ºï¼Œå¸Œæœ›æ‚¨åœ¨è¿™ä¸ªå›½å®¶èƒ½æ„‰å¿«çš„ç”Ÿæ´»",
 						src_pos->second.name);
 
 				send.dwUserID = this->id;
@@ -252,25 +252,25 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 			{
 				Cmd::stApplyCountryCmd* cmd = (Cmd::stApplyCountryCmd*)rev;
 				
-				Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "¸Ã¹¦ÄÜÔİÊ±Î´¿ª·Å");
+				Channel::sendSys(this, Cmd::INFO_TYPE_GAME, "è¯¥åŠŸèƒ½æš‚æ—¶æœªå¼€æ”¾");
 				return true;
 
 				if (this->charbase.country != PUBLIC_COUNTRY)	
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äú±ØĞëÊ×ÏÈ³ÉÎªÎŞ¹ú¼®ÈËÊ¿£¬²ÅÄÜÉêÇë¼ÓÈëĞÂµÄ¹ú¼Ò");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨å¿…é¡»é¦–å…ˆæˆä¸ºæ— å›½ç±äººå£«ï¼Œæ‰èƒ½ç”³è¯·åŠ å…¥æ–°çš„å›½å®¶");
 					return true;
 				}
 
 				if (cmd->dwToCountryID == PUBLIC_COUNTRY)
 				{
 					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, 
-							"²»ÄÜÉêÇë³ÉÎªÎŞ¹ú¼®ÈËÊ¿¡£");
+							"ä¸èƒ½ç”³è¯·æˆä¸ºæ— å›½ç±äººå£«ã€‚");
 					return true;
 				}
 
 				if (is_cancel_country)
 				{       
-					if (this->packs.checkMoney(cancel_country_need_money)				                                                && this->packs.removeMoney(cancel_country_need_money, "¸Ä±ä¹ú¼®"))
+					if (this->packs.checkMoney(cancel_country_need_money)				                                                && this->packs.removeMoney(cancel_country_need_money, "æ”¹å˜å›½ç±"))
 					{
 						this->charbase.country = cmd->dwToCountryID;
 
@@ -296,12 +296,12 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 					}
 					else
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "½ğÇ®²»×ã5¶§,²»ÄÜÉêÇë¼ÓÈëĞÂ¹ú¼Ò");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "é‡‘é’±ä¸è¶³5é”­,ä¸èƒ½ç”³è¯·åŠ å…¥æ–°å›½å®¶");
 					}
 				}
 				else
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÔİÊ±Î´¿ª·ÅÅÑ¹ú¹¦ÄÜ¡£");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æš‚æ—¶æœªå¼€æ”¾å›å›½åŠŸèƒ½ã€‚");
 				}
 
 				return true;
@@ -313,20 +313,20 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 
 				if (this->charbase.country == cmd->dwToCountryID)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄúÒÑ¾­ÊÇ¸Ã¹ú¹ú¼®¡£ÎŞĞè±ä¸ü");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨å·²ç»æ˜¯è¯¥å›½å›½ç±ã€‚æ— éœ€å˜æ›´");
 					return true;
 				}
 				time_t cur_time = time(NULL);
 
 				if ((cur_time - this->lastChangeCountryTime)< 24*60*60*3)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÅÑ¹úºóÈıÌìÒÔºó²ÅÄÜÔÙ´ÎÅÑ¹ú");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å›å›½åä¸‰å¤©ä»¥åæ‰èƒ½å†æ¬¡å›å›½");
 					return true;
 				}
 				
 				if (6 == cmd->dwToCountryID)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "²»ÄÜ±ä¸üµ½ÖĞÁ¢Çø");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä¸èƒ½å˜æ›´åˆ°ä¸­ç«‹åŒº");
 					return true;
 				}
 
@@ -339,39 +339,39 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 				if (src_pos == SceneManager::getInstance().country_info.end() 
 						|| cur_pos == SceneManager::getInstance().country_info.end())
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¹ú¼Ò²»´æÔÚ£¬ÎŞ·¨±ä¸ü");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å›½å®¶ä¸å­˜åœ¨ï¼Œæ— æ³•å˜æ›´");
 					return true;
 				}
 
 				if (this->charbase.unionid>0 || this->charbase.septid>0)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÇëÄúÏÈÍË³ö°ï»á»ò¼Ò×åÔÙ±ä¸ü¹ú¼®");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "è¯·æ‚¨å…ˆé€€å‡ºå¸®ä¼šæˆ–å®¶æ—å†å˜æ›´å›½ç±");
 					return true;
 				}
 
 				const DWORD change_country_need_gold = 5000;
 
 				if (packs.checkGold(change_country_need_gold)
-						&& packs.removeGold(change_country_need_gold, "¸Ä±ä¹ú¼®"))
+						&& packs.removeGold(change_country_need_gold, "æ”¹å˜å›½ç±"))
 				{       
 					this->charbase.country = cmd->dwToCountryID;
 					this->deathBackToMapID  = (this->charbase.country << 16 ) + 102;
 
-					// Çå³ıÇ®×¯ËùÓĞÎïÆ·
+					// æ¸…é™¤é’±åº„æ‰€æœ‰ç‰©å“
 					//					this->packs.store.removeAll();	
 					//					packs.clearPackage(&packs.store);
 					packs.execEvery(&packs.store, Type2Type<ClearPack>());					
-					// Çå³ıËùÓĞÈÎÎñ
+					// æ¸…é™¤æ‰€æœ‰ä»»åŠ¡
 					//this->quest_list.clear(this);
 
-					// Çå³ı¹¦Ñ«ºÍÎÄ²ÉÖµ
+					// æ¸…é™¤åŠŸå‹‹å’Œæ–‡é‡‡å€¼
 					this->charbase.grace = 0;
 					this->charbase.exploit = 0;
 					this->save(Cmd::Record::OPERATION_WRITEBACK);
 					Cmd::Session::t_changeCountry_SceneSession send;
 
 					Channel::sendSys(this, Cmd::INFO_TYPE_GAME, 
-							"ÄúÒÑ¾­Àë¿ª %s ¼ÓÈëÁË %s £¬Ô­ÓĞÉç»á¹ØÏµ¡¢Ç®×¯ÎïÆ·¾ùÇå¿Õ£¬Ï£ÍûÄúÔÚÕâ¸ö¹ú¼ÒÄÜÓä¿ìµÄÉú»î",
+							"æ‚¨å·²ç»ç¦»å¼€ %s åŠ å…¥äº† %s ï¼ŒåŸæœ‰ç¤¾ä¼šå…³ç³»ã€é’±åº„ç‰©å“å‡æ¸…ç©ºï¼Œå¸Œæœ›æ‚¨åœ¨è¿™ä¸ªå›½å®¶èƒ½æ„‰å¿«çš„ç”Ÿæ´»",
 							src_pos->second.name, cur_pos->second.name);
 
 					send.dwUserID = this->id;
@@ -381,7 +381,7 @@ bool SceneUser::doCountryCmd(const Cmd::stCountryUserCmd *rev,unsigned int cmdLe
 				}
 				else
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "½ğ±Ò²»×ã50Á½, ²»ÄÜ±ä¸ü¹ú¼®");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "é‡‘å¸ä¸è¶³50ä¸¤, ä¸èƒ½å˜æ›´å›½ç±");
 				}
 
 				return true;

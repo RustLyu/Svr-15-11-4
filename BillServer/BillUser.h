@@ -1,4 +1,4 @@
-#ifndef _BILLUSER_H_
+ï»¿#ifndef _BILLUSER_H_
 #define _BILLUSER_H_
 #include "zNoncopyable.h"
 #include <iostream>
@@ -17,39 +17,39 @@ class BillUser :public zEntry
 	public:
 		enum LoginState
 		{
-			WAIT_LOGIN,			/**< µÈ´ýÍ¨¹ýµÇÂ½ÑéÖ¤µÄ¿Í»§¶ËµÇÂ½Íø¹Ø·þÎñÆ÷ */
-			CONF_LOGIN,			/**< µÇÂ½Íø¹Ø·þÎñÆ÷ÑéÖ¤ÒÑ¾­³É¹¦ */
-			CONF_LOGOUT,		/**< µÈ´ýÍË³ö */
-			WAIT_LOGIN_TIMEOUT, /**< µÈ´ýµÇÂ½³¬Ê± */
+			WAIT_LOGIN,			/**< ç­‰å¾…é€šè¿‡ç™»é™†éªŒè¯çš„å®¢æˆ·ç«¯ç™»é™†ç½‘å…³æœåŠ¡å™¨ */
+			CONF_LOGIN,			/**< ç™»é™†ç½‘å…³æœåŠ¡å™¨éªŒè¯å·²ç»æˆåŠŸ */
+			CONF_LOGOUT,		/**< ç­‰å¾…é€€å‡º */
+			WAIT_LOGIN_TIMEOUT, /**< ç­‰å¾…ç™»é™†è¶…æ—¶ */
 		}
-		state;					/**< »á»°×´Ì¬ */ 
+		state;					/**< ä¼šè¯çŠ¶æ€ */ 
 	private:
 		static const int session_timeout_value = 10;
-		//DWORD loginTempID;		    /**< µÇÂ½ÁÙÊ±±àºÅ */
+		//DWORD loginTempID;		    /**< ç™»é™†ä¸´æ—¶ç¼–å· */
 
 
-		DWORD gold;		/**< ½ð±ÒÊýÁ¿ */
-		DWORD money;		/**< Òø±ÒÊýÁ¿ */
-		DWORD all_in_gold;		/**< ×Ü³åÖµ½ð±ÒÊýÁ¿ */
-		DWORD all_in_money;		/**< ×Ü³åÖµÒø±ÒÊýÁ¿ */
-		DWORD all_out_gold;		/**< ×ÜÌáÈ¡½ð±ÒÊýÁ¿ */
-		DWORD all_out_money;		/**< ×ÜÌáÈ¡Òø±ÒÊýÁ¿ */
-		DWORD all_tax_gold;		/**< ×ÜË°ÊÕ */
-		DWORD all_tax_money;	/**< ×ÜË°ÊÕ */ 
-		DWORD vip_time;		/**< vipµ½ÆÚÊ±¼ä */
-		zTime timestamp;		/**< Ê±¼ä´Á */
+		DWORD gold;		/**< é‡‘å¸æ•°é‡ */
+		DWORD money;		/**< é“¶å¸æ•°é‡ */
+		DWORD all_in_gold;		/**< æ€»å†²å€¼é‡‘å¸æ•°é‡ */
+		DWORD all_in_money;		/**< æ€»å†²å€¼é“¶å¸æ•°é‡ */
+		DWORD all_out_gold;		/**< æ€»æå–é‡‘å¸æ•°é‡ */
+		DWORD all_out_money;		/**< æ€»æå–é“¶å¸æ•°é‡ */
+		DWORD all_tax_gold;		/**< æ€»ç¨Žæ”¶ */
+		DWORD all_tax_money;	/**< æ€»ç¨Žæ”¶ */ 
+		DWORD vip_time;		/**< vipåˆ°æœŸæ—¶é—´ */
+		zTime timestamp;		/**< æ—¶é—´æˆ³ */
 
 
-		/// ½»Ò×
-		char   tid[Cmd::UserServer::SEQ_MAX_LENGTH+1];                     /// ½»Ò×Á÷Ë®ºÅ
+		/// äº¤æ˜“
+		char   tid[Cmd::UserServer::SEQ_MAX_LENGTH+1];                     /// äº¤æ˜“æµæ°´å·
 
-		/// ÃÜÂë
+		/// å¯†ç 
 		char password[MAX_PASSWORD+1];
-		/// ÊÇ·ñÒÑ¾­µÇÂ½
+		/// æ˜¯å¦å·²ç»ç™»é™†
 		bool stock_login;
-		DWORD goldlistNum;	/// ¸öÈË¹ÉÆ±Âôµ¥ÊýÁ¿
-		DWORD moneylistNum;	/// ¸öÈË¹ÉÆ±Âòµ¥ÊýÁ¿
-		char 		client_ip[MAX_IP_LENGTH];              //¿Í»§ÇëÇóip
+		DWORD goldlistNum;	/// ä¸ªäººè‚¡ç¥¨å–å•æ•°é‡
+		DWORD moneylistNum;	/// ä¸ªäººè‚¡ç¥¨ä¹°å•æ•°é‡
+		char 		client_ip[MAX_IP_LENGTH];              //å®¢æˆ·è¯·æ±‚ip
 	public:
 		const char *getIp();
 		char account[Cmd::UserServer::ID_MAX_LENGTH+1];

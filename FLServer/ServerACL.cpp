@@ -1,11 +1,11 @@
-/**
+﻿/**
  * \file
  * \version  $Id: ServerACL.cpp $
  * \author  
  * \date 
- * \brief �洢��Ч���������б�
- * ��Ч�������б��洢��xml�ļ��У�������������ʱ���ȡ��Щ��Ϣ���ڴ棬
- * ��һ�����������������ӹ�����ʱ�򣬿��Ը�����Щ��Ϣ�ж���������Ƿ�Ϸ��ġ�
+ * \brief 存储有效服务器的列表
+ * 有效服务器列表存储在xml文件中，服务器启动的时候读取这些信息到内存，
+ * 当一个服务器管理器连接过来的时候，可以根据这些信息判断这个连接是否合法的。
  */
 
 #include <list>
@@ -38,7 +38,7 @@ bool ServerACL::init()
 	zXMLParser xml;
 	if (!xml.initFile(Zebra::global["zoneInfoFile"]))
 	{
-		Zebra::logger->error("��������Ϣ�б��ļ� %s ʧ��", Zebra::global["zoneInfoFile"].c_str());
+		Zebra::logger->error("加载区信息列表文件 %s 失败", Zebra::global["zoneInfoFile"].c_str());
 		return false;
 	}
 
@@ -67,7 +67,7 @@ bool ServerACL::init()
 		}
 	}
 
-	Zebra::logger->info("��ʼ���Զ���Ϣϵͳ�ɹ�");
+	Zebra::logger->info("初始化自动消息系统成功");
 	return true;
 }
 

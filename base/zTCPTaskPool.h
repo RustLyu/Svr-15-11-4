@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPTaskPool.h  $
  * \author  
  * \date 
- * \brief ·â×°ÊµÏÖÏß³Ì³Ø£¬ÓÃÓÚ´¦Àí¶àÁ¬½Ó·şÎñÆ÷
+ * \brief å°è£…å®ç°çº¿ç¨‹æ± ï¼Œç”¨äºå¤„ç†å¤šè¿æ¥æœåŠ¡å™¨
  *
  * 
  */
@@ -29,7 +29,7 @@ class zSyncThread;
 class zRecycleThread;
 
 /**
- * \brief Á¬½ÓÏß³Ì³ØÀà£¬·â×°ÁËÒ»¸öÏß³Ì´¦Àí¶à¸öÁ¬½ÓµÄÏß³Ì³Ø¿ò¼Ü
+ * \brief è¿æ¥çº¿ç¨‹æ± ç±»ï¼Œå°è£…äº†ä¸€ä¸ªçº¿ç¨‹å¤„ç†å¤šä¸ªè¿æ¥çš„çº¿ç¨‹æ± æ¡†æ¶
  *
  */
 class zTCPTaskPool : private zNoncopyable
@@ -38,9 +38,9 @@ class zTCPTaskPool : private zNoncopyable
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param maxConns Ïß³Ì³Ø²¢ĞĞ´¦ÀíÓĞĞ§Á¬½ÓµÄ×î´óÊıÁ¿
-		 * \param state ³õÊ¼»¯µÄÊ±ºòÁ¬½ÓÏß³Ì³ØµÄ×´Ì¬
+		 * \brief æ„é€ å‡½æ•°
+		 * \param maxConns çº¿ç¨‹æ± å¹¶è¡Œå¤„ç†æœ‰æ•ˆè¿æ¥çš„æœ€å¤§æ•°é‡
+		 * \param state åˆå§‹åŒ–çš„æ—¶å€™è¿æ¥çº¿ç¨‹æ± çš„çŠ¶æ€
 		 */
 		explicit zTCPTaskPool(const int maxConns, const int state,const int us=50000) : maxConns(maxConns), state(state)/*,usleep_time(us)// */
 		{
@@ -51,7 +51,7 @@ class zTCPTaskPool : private zNoncopyable
 		};
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬Ïú»ÙÒ»¸öÏß³Ì³Ø¶ÔÏó
+		 * \brief ææ„å‡½æ•°ï¼Œé”€æ¯ä¸€ä¸ªçº¿ç¨‹æ± å¯¹è±¡
 		 *
 		 */
 		~zTCPTaskPool()
@@ -60,9 +60,9 @@ class zTCPTaskPool : private zNoncopyable
 		}
 
 		/**
-		 * \brief »ñÈ¡Á¬½ÓÏß³Ì³Øµ±Ç°×´Ì¬
+		 * \brief è·å–è¿æ¥çº¿ç¨‹æ± å½“å‰çŠ¶æ€
 		 *
-		 * \return ·µ»ØÁ¬½ÓÏß³Ì³ØµÄµ±Ç°×´Ì¬
+		 * \return è¿”å›è¿æ¥çº¿ç¨‹æ± çš„å½“å‰çŠ¶æ€
 		 */
 		const int getState() const
 		{
@@ -70,9 +70,9 @@ class zTCPTaskPool : private zNoncopyable
 		}
 
 		/**
-		 * \brief ÉèÖÃÁ¬½ÓÏß³Ì³Ø×´Ì¬
+		 * \brief è®¾ç½®è¿æ¥çº¿ç¨‹æ± çŠ¶æ€
 		 *
-		 * \param state ÉèÖÃµÄ×´Ì¬±ê¼ÇÎ»
+		 * \param state è®¾ç½®çš„çŠ¶æ€æ ‡è®°ä½
 		 */
 		void setState(const int state)
 		{
@@ -80,9 +80,9 @@ class zTCPTaskPool : private zNoncopyable
 		}
 
 		/**
-		 * \brief Çå³şÁ¬½ÓÏß³Ì³Ø×´Ì¬
+		 * \brief æ¸…æ¥šè¿æ¥çº¿ç¨‹æ± çŠ¶æ€
 		 *
-		 * \param state Çå³şµÄ×´Ì¬±ê¼ÇÎ»
+		 * \param state æ¸…æ¥šçš„çŠ¶æ€æ ‡è®°ä½
 		 */
 		void clearState(const int state)
 		{
@@ -105,22 +105,22 @@ class zTCPTaskPool : private zNoncopyable
 
 	private:
 
-		const int maxConns;										/**< Ïß³Ì³Ø²¢ĞĞ´¦ÀíÁ¬½ÓµÄ×î´óÊıÁ¿ */
+		const int maxConns;										/**< çº¿ç¨‹æ± å¹¶è¡Œå¤„ç†è¿æ¥çš„æœ€å¤§æ•°é‡ */
 
-		static const int maxVerifyThreads = 4;					/**< ×î´óÑéÖ¤Ïß³ÌÊıÁ¿ */
-		zThreadGroup verifyThreads;								/**< ÑéÖ¤Ïß³Ì£¬¿ÉÒÔÓĞ¶à¸ö */
+		static const int maxVerifyThreads = 4;					/**< æœ€å¤§éªŒè¯çº¿ç¨‹æ•°é‡ */
+		zThreadGroup verifyThreads;								/**< éªŒè¯çº¿ç¨‹ï¼Œå¯ä»¥æœ‰å¤šä¸ª */
 
-		zSyncThread *syncThread;								/**< µÈ´ıÍ¬²½Ïß³Ì */
+		zSyncThread *syncThread;								/**< ç­‰å¾…åŒæ­¥çº¿ç¨‹ */
 
-		static const int minThreadCount = 1;					/**< Ïß³Ì³ØÖĞÍ¬Ê±´æÔÚÖ÷´¦ÀíÏß³ÌµÄ×îÉÙ¸öÊı */
-		int maxThreadCount;										/**< Ïß³Ì³ØÖĞÍ¬Ê±´æÔÚÖ÷´¦ÀíÏß³ÌµÄ×î´ó¸öÊı */
-		zThreadGroup okayThreads;								/**< ´¦ÀíÖ÷Ïß³Ì£¬¶à¸ö */
+		static const int minThreadCount = 1;					/**< çº¿ç¨‹æ± ä¸­åŒæ—¶å­˜åœ¨ä¸»å¤„ç†çº¿ç¨‹çš„æœ€å°‘ä¸ªæ•° */
+		int maxThreadCount;										/**< çº¿ç¨‹æ± ä¸­åŒæ—¶å­˜åœ¨ä¸»å¤„ç†çº¿ç¨‹çš„æœ€å¤§ä¸ªæ•° */
+		zThreadGroup okayThreads;								/**< å¤„ç†ä¸»çº¿ç¨‹ï¼Œå¤šä¸ª */
 
-		zRecycleThread *recycleThread;							/**< Á¬½Ó»ØÊÕÏß³Ì */
+		zRecycleThread *recycleThread;							/**< è¿æ¥å›æ”¶çº¿ç¨‹ */
 
-		int state;												/**< Á¬½Ó³Ø×´Ì¬ */
+		int state;												/**< è¿æ¥æ± çŠ¶æ€ */
 	public:
-		static int usleep_time;										/**< Ñ­»·µÈ´ıÊ±¼ä */
+		static int usleep_time;										/**< å¾ªç¯ç­‰å¾…æ—¶é—´ */
 
 };
 

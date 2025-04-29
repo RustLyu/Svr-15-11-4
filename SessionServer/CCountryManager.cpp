@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CCountryManager.cpp  $
  * \author  
  * \date 
- * \brief ¹ú¼Ò¹ÜÀíÆ÷
+ * \brief å›½å®¶ç®¡ç†å™¨
  *
  * 
  */
@@ -37,8 +37,8 @@ CCountryM::CCountryM()
 }
 
 /**
- * \brief ¹ú¼Ò¹ÜÀíÆ÷³õÊ¼»¯
- * \return true ³õÊ¼»¯³É¹¦ false³õÊ¼»¯Ê§°Ü
+ * \brief å›½å®¶ç®¡ç†å™¨åˆå§‹åŒ–
+ * \return true åˆå§‹åŒ–æˆåŠŸ falseåˆå§‹åŒ–å¤±è´¥
  */
 bool CCountryM::init()
 {
@@ -46,7 +46,7 @@ bool CCountryM::init()
 }
 
 /**
- * \brief Îö¹¹¹ÜÀíÆ÷
+ * \brief ææ„ç®¡ç†å™¨
  */
 void CCountryM::destroyMe()
 {
@@ -57,7 +57,7 @@ void CCountryM::destroyMe()
 }
 
 /**
- * \brief Îö¹¹¹ÜÀíÆ÷
+ * \brief ææ„ç®¡ç†å™¨
  */
 void CCountryM::save()
 {
@@ -66,8 +66,8 @@ void CCountryM::save()
 
 
 /**
- * \brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØ¹ú¼Ò¼ÇÂ¼
- * \return true ¼ÓÔØ³É¹¦
+ * \brief ä»æ•°æ®åº“ä¸­åŠ è½½å›½å®¶è®°å½•
+ * \return true åŠ è½½æˆåŠŸ
  */
 bool CCountryM::load()
 {
@@ -80,7 +80,7 @@ bool CCountryM::load()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 
@@ -106,10 +106,10 @@ bool CCountryM::load()
 					pCountry->loadTechFromDB();
 
 					if (CUnionM::getMe().getUnionByID(pCountry->dwKingUnionID) == NULL)
-					{//Èç¹ûÓµÓĞÕß
+					{//å¦‚æœæ‹¥æœ‰è€…
 						pCountry->dwKingUnionID = 0;
 						bzero(pCountry->kingName, sizeof(pCountry->kingName));
-						Zebra::logger->trace("°ï»áÒÑ²»´æÔÚ£¬%s:¹úÍõÇå¿Õ", pCountry->name);
+						Zebra::logger->trace("å¸®ä¼šå·²ä¸å­˜åœ¨ï¼Œ%s:å›½ç‹æ¸…ç©º", pCountry->name);
 					}
 				}
 					
@@ -121,7 +121,7 @@ bool CCountryM::load()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÊı¾İ¼ÓÔØÊ§°Ü£¬COUNTRY±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶æ•°æ®åŠ è½½å¤±è´¥ï¼ŒCOUNTRYè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -270,7 +270,7 @@ void CCountry::checkWinnerExp()
 }
 void CCountryM::timer()
 {
-	//¼ì²âÕ½Ê¤¹ú¾­Ñé¼Ó³É±êÖ¾
+	//æ£€æµ‹æˆ˜èƒœå›½ç»éªŒåŠ æˆæ ‡å¿—
 	std::vector<CCountry*>::iterator iter;
 	rwlock.rdlock();
 	for(iter = countries.begin(); iter!=countries.end(); iter++)
@@ -302,11 +302,11 @@ void CCountryM::timer()
 					if (pCountry)
 					{
 					SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, (*vIterator)->dwID, 
-							"»¹Ê£ %d ·ÖÖÓ %s¡¡¹ú½«À´¹¥´òÎÒ¹úÍõ³Ç",
+							"è¿˜å‰© %d åˆ†é’Ÿ %sã€€å›½å°†æ¥æ”»æ‰“æˆ‘å›½ç‹åŸ",
 							abs(40-tv1.tm_min), pCountry->name);
 
 					SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, (*vIterator)->dwDareCountryID, 
-							"»¹Ê£ %d ·ÖÖÓ ÎÒ¹ú½«È¥¹¥´ò %s Íõ³Ç",
+							"è¿˜å‰© %d åˆ†é’Ÿ æˆ‘å›½å°†å»æ”»æ‰“ %s ç‹åŸ",
 							abs(40-tv1.tm_min), (*vIterator)->name);
 					}
 				}
@@ -332,11 +332,11 @@ void CCountryM::timer()
 					if (pCountry)
 					{
 					SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, (*vIterator)->dwID, 
-							"»¹Ê£ %d ·ÖÖÓ %s¡¡¹ú½«À´¹¥´òÎÒ¹úÍõ³Ç",
+							"è¿˜å‰© %d åˆ†é’Ÿ %sã€€å›½å°†æ¥æ”»æ‰“æˆ‘å›½ç‹åŸ",
 							abs(40-tv1.tm_min), pCountry->name);
 
 					SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, (*vIterator)->dwDareCountryID, 
-							"»¹Ê£ %d ·ÖÖÓ ÎÒ¹ú½«È¥¹¥´ò %s Íõ³Ç",
+							"è¿˜å‰© %d åˆ†é’Ÿ æˆ‘å›½å°†å»æ”»æ‰“ %s ç‹åŸ",
 							abs(40-tv1.tm_min), (*vIterator)->name);
 					}
 				}
@@ -348,9 +348,9 @@ void CCountryM::timer()
 	}
 	
 	if (tv1.tm_hour==20 && (tv1.tm_min>=40 && tv1.tm_min<43) && !isBeging)
-	{// µ½°Ëµã¿ªÊ¼ĞÂ½¨ÕıÊ½¹úÕ½¶ÔÕ½¶ÔÏó
+	{// åˆ°å…«ç‚¹å¼€å§‹æ–°å»ºæ­£å¼å›½æˆ˜å¯¹æˆ˜å¯¹è±¡
 		this->beginDare();
-		isBeging = true; // ÔÚÍíÉÏÊ®µãÇ¿ÖÆ½áÊø»¹´æÔÚµÄ¶ÔÕ½Ê±£¬ÖØÖÃÎªfalse
+		isBeging = true; // åœ¨æ™šä¸Šåç‚¹å¼ºåˆ¶ç»“æŸè¿˜å­˜åœ¨çš„å¯¹æˆ˜æ—¶ï¼Œé‡ç½®ä¸ºfalse
 	}
 
 	if (tv1.tm_hour>=20 && tv1.tm_hour<=22)
@@ -368,12 +368,12 @@ void CCountryM::timer()
 					if (pCountry)
 					{
 						SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, (*vIterator)->dwID, 
-								"%s ÕıÔÚÎ§¹¥ÎÒ¹úµÄÍõ³Ç£¬Çë»Ø³Ç·ÀÓù»ò·´¹¥½âÎ§",
+								"%s æ­£åœ¨å›´æ”»æˆ‘å›½çš„ç‹åŸï¼Œè¯·å›åŸé˜²å¾¡æˆ–åæ”»è§£å›´",
 								pCountry->name);
 
 						SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, 
 								(*vIterator)->dwDareCountryID, 
-						"ÎÒ¹ú¹¥´ò %s µÄÕ½¶·ÕıÔÚ½øĞĞ£¬¸÷Î»°®¹úÖ¾Ê¿¿ÉÒÔÍ¨¹ı±ß·À¹Ùµ½ %s ²Î¼ÓÕ½¶·",
+						"æˆ‘å›½æ”»æ‰“ %s çš„æˆ˜æ–—æ­£åœ¨è¿›è¡Œï¼Œå„ä½çˆ±å›½å¿—å£«å¯ä»¥é€šè¿‡è¾¹é˜²å®˜åˆ° %s å‚åŠ æˆ˜æ–—",
 								(*vIterator)->name, (*vIterator)->name);
 					}
 				}
@@ -517,20 +517,20 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 			{
 				Cmd::stSelectTransLevelUserCmd* rev = (Cmd::stSelectTransLevelUserCmd*)ptNullCmd;
 
-				// TODO£¬¼ì²éÊÇ·ñÊÇ¹úÍõ£¬²¢¼ì²éÊÇ·ñÔÚ¹úÕ½ÆÚ
+				// TODOï¼Œæ£€æŸ¥æ˜¯å¦æ˜¯å›½ç‹ï¼Œå¹¶æ£€æŸ¥æ˜¯å¦åœ¨å›½æˆ˜æœŸ
 				CUnion* pUnion = CUnionM::getMe().getUnionByID(pUser->unionid);
 
 				if (pUnion)
 				{
 					if (pUnion->master && (pUnion->master->id == pUser->id))
 					{
-						CCity* pCity = CCityM::getMe().find(pUser->country, KING_CITY_ID); // Íõ³Ç
+						CCity* pCity = CCityM::getMe().find(pUser->country, KING_CITY_ID); // ç‹åŸ
 						CCountry* pCountry = this->find(pUser->country);
 
 						if (pCountry && pCity)
 						{
 							if (pCity->dwUnionID == pUser->unionid)
-							{//ÊÇ¹úÍõ
+							{//æ˜¯å›½ç‹
 								 CDare* pDare = CDareM::getMe().findDareRecordByID(
 							Cmd::COUNTRY_FORMAL_DARE, pUser->country);
 
@@ -541,35 +541,35 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 									send.dwLevel = rev->dwLevel;
 									SessionTaskManager::getInstance().broadcastScene(&send, sizeof(send));
 									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, 
-									"ÄúÒÑ¾­³É¹¦µãÈ¼·é»ğÌ¨¡£´Ë¿ÌÄúµÄ¹ú¼ÒµÄ¸÷Â·Ó¢ĞÛºÃººÕıÔÚ±ß¾³´¦µÈ´ı×ÅÄúµÄÒ»ÉùÁîÏÂ¡£");
+									"æ‚¨å·²ç»æˆåŠŸç‚¹ç‡ƒçƒ½ç«å°ã€‚æ­¤åˆ»æ‚¨çš„å›½å®¶çš„å„è·¯è‹±é›„å¥½æ±‰æ­£åœ¨è¾¹å¢ƒå¤„ç­‰å¾…ç€æ‚¨çš„ä¸€å£°ä»¤ä¸‹ã€‚");
 
 								}
 								else
 								{
 									pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-										"Äú²»ÔÚ¹úÕ½×´Ì¬£¬²»ÄÜµãÈ¼·é»ğÌ¨");
+										"æ‚¨ä¸åœ¨å›½æˆ˜çŠ¶æ€ï¼Œä¸èƒ½ç‚¹ç‡ƒçƒ½ç«å°");
 								}
 							}
 							else
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-										"Äú²»ÊÇ¹úÍõ£¬²»ÄÜµãÈ¼·é»ğÌ¨");
+										"æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ç‚¹ç‡ƒçƒ½ç«å°");
 							}
 						}
 						else
 						{
 							pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-									"Äú²»ÊÇ¹úÍõ£¬²»ÄÜµãÈ¼·é»ğÌ¨");
+									"æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ç‚¹ç‡ƒçƒ½ç«å°");
 						}
 					}
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜµãÈ¼·é»ğÌ¨");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ç‚¹ç‡ƒçƒ½ç«å°");
 					}
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜµãÈ¼·é»ğÌ¨");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ç‚¹ç‡ƒçƒ½ç«å°");
 				}
 				return true;
 			}
@@ -585,27 +585,27 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 
 				if (pCountry->sendPrison!=0)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã½ñÌìÒÑ¾­¹ØÑº¹ıÒ»¸öÍæ¼Ò");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä»Šå¤©å·²ç»å…³æŠ¼è¿‡ä¸€ä¸ªç©å®¶");
 					return true;
 				}
 
 				Cmd::stKingPunishCountryCmd * rev = (Cmd::stKingPunishCountryCmd *)ptNullCmd;
 				if (0==strncmp(rev->name, pUser->name, MAX_NAMESIZE))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜ¹ØÑº×Ô¼º");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½å…³æŠ¼è‡ªå·±");
 					return true;
 				}
 
 				UserSession *u = UserSessionManager::getInstance()->getUserSessionByName(rev->name);
 				if (!u)
 				{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s ²»ÔÚÏß", rev->name);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç©å®¶ %s ä¸åœ¨çº¿", rev->name);
 						return true;
 				}
 
 				if (pUser->country!=u->country)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÖ»ÄÜ¹ØÑº×Ô¼ºµÄ¹úÃñ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ åªèƒ½å…³æŠ¼è‡ªå·±çš„å›½æ°‘");
 					return true;
 				}
 
@@ -614,8 +614,8 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 				send.method = 2;
 				u->scene->sendCmd(&send, sizeof(send));
 
-				Zebra::logger->trace("ÓÃ»§%s(%ld)±»¹úÍõ¹Ø½ø¼àÓü",u->name,u->id);
-				SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,pUser->country,"%s ±»¹úÍõ %s ¹ØÑºÒ»Ğ¡Ê±",u->name,pUser->name);
+				Zebra::logger->trace("ç”¨æˆ·%s(%ld)è¢«å›½ç‹å…³è¿›ç›‘ç‹±",u->name,u->id);
+				SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME,pUser->country,"%s è¢«å›½ç‹ %s å…³æŠ¼ä¸€å°æ—¶",u->name,pUser->name);
 				pCountry->sendPrison = 1;
 
 				return true;
@@ -632,27 +632,27 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 
 				if (pCountry->forbidTalk!=0)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã½ñÌìÒÑ¾­½ûÑÔ¹ıÒ»¸öÍæ¼Ò");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä»Šå¤©å·²ç»ç¦è¨€è¿‡ä¸€ä¸ªç©å®¶");
 					return true;
 				}
 
 				Cmd::stForbidTalkCountryUserCmd * rev = (Cmd::stForbidTalkCountryUserCmd *)ptNullCmd;
 				if (0==strncmp(rev->name, pUser->name, MAX_NAMESIZE))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜ½ûÑÔ×Ô¼º");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ç¦è¨€è‡ªå·±");
 					return true;
 				}
 
 				UserSession *u = UserSessionManager::getInstance()->getUserSessionByName(rev->name);
 				if (!u)
 				{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s ²»ÔÚÏß", rev->name);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç©å®¶ %s ä¸åœ¨çº¿", rev->name);
 						return true;
 				}
 
 				if (pUser->country!=u->country)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÖ»ÄÜ½ûÑÔ×Ô¼ºµÄ¹úÃñ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ åªèƒ½ç¦è¨€è‡ªå·±çš„å›½æ°‘");
 					return true;
 				}
 
@@ -661,7 +661,7 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 				send.method = 1;
 				u->scene->sendCmd(&send, sizeof(send));
 
-				SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, pUser->country, "%s ±»¹úÍõ %s ½ûÑÔÒ»Ğ¡Ê±", u->name, pUser->name);
+				SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_GAME, pUser->country, "%s è¢«å›½ç‹ %s ç¦è¨€ä¸€å°æ—¶", u->name, pUser->name);
 				pCountry->forbidTalk = 1;
 
 				return true;
@@ -675,29 +675,29 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 
 				if (EmperorForbid::getMe().count()>=10)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã½ñÌìÒÑ¾­½ûÑÔ¹ı 10 ¸öÍæ¼Ò");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä»Šå¤©å·²ç»ç¦è¨€è¿‡ 10 ä¸ªç©å®¶");
 					return true;
 				}
 
 				Cmd::stEmperorPunishCountryCmd * rev = (Cmd::stEmperorPunishCountryCmd *)ptNullCmd;
 				if (0==strncmp(rev->name, pUser->name, MAX_NAMESIZE))
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜ´¦·£×Ô¼º");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½å¤„ç½šè‡ªå·±");
 					return true;
 				}
 
 				UserSession *u = UserSessionManager::getInstance()->getUserSessionByName(rev->name);
 				if (!u)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s ²»ÔÚÏß", rev->name);
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç©å®¶ %s ä¸åœ¨çº¿", rev->name);
 					return true;
 				}
 
-				if (1==rev->method)//½ûÑÔ
+				if (1==rev->method)//ç¦è¨€
 				{
 					if (!EmperorForbid::getMe().add(u->id))
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã½ñÌìÒÑ¾­½ûÑÔ %s Ò»´ÎÁË", rev->name);
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä»Šå¤©å·²ç»ç¦è¨€ %s ä¸€æ¬¡äº†", rev->name);
 						return true;
 					}
 
@@ -706,14 +706,14 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 					send.method = 1;
 					u->scene->sendCmd(&send, sizeof(send));
 
-					SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, "%s ±»»ÊµÛ %s ½ûÑÔÒ»Ğ¡Ê±", u->name, pUser->name);
+					SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, "%s è¢«çš‡å¸ %s ç¦è¨€ä¸€å°æ—¶", u->name, pUser->name);
 				}
 				return true;
 			}
 			break;
 		case Cmd::TRANS_DARE_COUNTRY_PARA:
 			{
-				//TODO£ºÈ¡³öÒªÈ¥µÄÕ½³¡¹ú¼Ò£¬ÅĞ¶ÏÒªÈ¥µÄ¹ú¼ÒIDºÍÌôÕ½µÄIDÊÇ·ñÓĞÓë¸ÃÍæ¼ÒÏàÍ¬µÄ¡£ÓĞÔòÊÇÈ¥²ÎÕ½¹ú,·ñÔò¾ÍÒªÊÕÈ¡Ò»Á½Òø×Ó¡£Ïò³¡¾°·¢ËÍ×ªËÍÃüÁî
+				//TODOï¼šå–å‡ºè¦å»çš„æˆ˜åœºå›½å®¶ï¼Œåˆ¤æ–­è¦å»çš„å›½å®¶IDå’ŒæŒ‘æˆ˜çš„IDæ˜¯å¦æœ‰ä¸è¯¥ç©å®¶ç›¸åŒçš„ã€‚æœ‰åˆ™æ˜¯å»å‚æˆ˜å›½,å¦åˆ™å°±è¦æ”¶å–ä¸€ä¸¤é“¶å­ã€‚å‘åœºæ™¯å‘é€è½¬é€å‘½ä»¤
 				/*Cmd::stTransDareCountryCmd* rev = (Cmd::stTransDareCountryCmd*)ptNullCmd;
 				CCountry* pCountry = CCountryM::getMe().find(rev->dwCountryID);	
 				Cmd::Session::t_transDareCountry_SceneSession	send;
@@ -727,7 +727,7 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 					}
 					else
 					{
-						send.dwMoney = 100; // 1Á½
+						send.dwMoney = 100; // 1ä¸¤
 					}
 
 					send.dwCountry = rev->dwCountryID;
@@ -735,7 +735,7 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÔÚ¹úÕ½×´Ì¬£¬²»ÔÊĞíÊ¹ÓÃ¸Ã¹¦ÄÜ¡£");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸åœ¨å›½æˆ˜çŠ¶æ€ï¼Œä¸å…è®¸ä½¿ç”¨è¯¥åŠŸèƒ½ã€‚");
 				}*/
 				
 				return true;
@@ -874,7 +874,7 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 						{
 							if (pUnion->master)
 							{
-								if (pUnion->master->id == pUser->id) //ÖÕÓÚÈ·¶¨ËûÊÇ¹úÍõ
+								if (pUnion->master->id == pUser->id) //ç»ˆäºç¡®å®šä»–æ˜¯å›½ç‹
 								{
 									if (rev->byTax>=20)
 									{
@@ -884,7 +884,7 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 									{
 										pCountry->dwTax = rev->byTax;
 									}
-									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Ë°ÂÊÒÑ¾­µ÷Õû³É%d\%", pCountry->dwTax);
+									pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ç¨ç‡å·²ç»è°ƒæ•´æˆ%d\%", pCountry->dwTax);
 									SceneSessionManager::getInstance()->notifyCountryTax(pCountry->dwID,pCountry->dwTax);
 
 									Cmd::stTaxCountryUserCmd send;
@@ -897,7 +897,7 @@ bool CCountryM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *
 						}
 					}
 				}
-				pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Ë°ÂÊÉèÖÃÊ§°Ü!");
+				pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ç¨ç‡è®¾ç½®å¤±è´¥!");
 				return true;
 			}
 			break;
@@ -1046,7 +1046,7 @@ bool CCountryM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 						UserSession* u  = UserSessionManager::getInstance()->getUserByID(rev->dwCheckID);
 						if (u)
 						{
-							u->sendSysChat(Cmd::INFO_TYPE_MSG, "³É¹¦ÈÎÃü %s Îª²¶Í·", pUser->name);
+							u->sendSysChat(Cmd::INFO_TYPE_MSG, "æˆåŠŸä»»å‘½ %s ä¸ºæ•å¤´", pUser->name);
 						}
 					}
 				}
@@ -1179,13 +1179,13 @@ bool CCountryM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 
 						if (pAttCountry)
 						{
-							pUser->sendGmChat(Cmd::INFO_TYPE_GAME, "¹úÕ½¼ÇÂ¼:%s¡¡ÌôÕ½ %s", 
+							pUser->sendGmChat(Cmd::INFO_TYPE_GAME, "å›½æˆ˜è®°å½•:%sã€€æŒ‘æˆ˜ %s", 
 									pAttCountry->name, (*vIterator)->name);
 						}
 					}
 					else
 					{
-						pUser->sendGmChat(Cmd::INFO_TYPE_GAME, "¹úÕ½¼ÇÂ¼: %s ½ñÌìÎŞÌôÕ½", (*vIterator)->name);
+						pUser->sendGmChat(Cmd::INFO_TYPE_GAME, "å›½æˆ˜è®°å½•: %s ä»Šå¤©æ— æŒ‘æˆ˜", (*vIterator)->name);
 					}
 				}
 
@@ -1225,14 +1225,14 @@ bool CCountryM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 					if (pUser)
 					{
 						SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, 
-								" %s %s ¿³µ¹ %s ¹úÆì, %s ³É¹¦ÂÓ¶á %s ¹ú¿â°Ù·ÖÖ®Èı",
+								" %s %s ç å€’ %s å›½æ——, %s æˆåŠŸæ å¤º %s å›½åº“ç™¾åˆ†ä¹‹ä¸‰",
 								pAttCountry->name, pUser->name, pDefCountry->name,
 								pAttCountry->name, pDefCountry->name);
 					}
 					else
 					{
 						SessionChannel::sendAllInfo(Cmd::INFO_TYPE_EXP, 
-								"%s Õ½Ê¤ÁË %s, %s ¹ú¼ÒÎï×Ê±» %s ÂÓ¶á£¬%s 3\%µÄ½ğÇ®ÓëÎï×Ê±»ÔËµ½ %s",
+								"%s æˆ˜èƒœäº† %s, %s å›½å®¶ç‰©èµ„è¢« %s æ å¤ºï¼Œ%s 3\%çš„é‡‘é’±ä¸ç‰©èµ„è¢«è¿åˆ° %s",
 								pAttCountry->name, pDefCountry->name,
 								pDefCountry->name, pAttCountry->name, 
 								pDefCountry->name, pAttCountry->name);
@@ -1242,7 +1242,7 @@ bool CCountryM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 					pAttCountry->writeDatabase();
 					pDefCountry->writeDatabase();
 
-					//SessionChannel::sendAllInfo(Cmd::INFO_TYPE_SYS, "%s Õ½Ê¤ÁË %s", 
+					//SessionChannel::sendAllInfo(Cmd::INFO_TYPE_SYS, "%s æˆ˜èƒœäº† %s", 
 					//		rev->attCountryName, rev->defCountryName);
 
 					CSeptM::getMe().changeAllRepute(pAttCountry->dwID, 4);
@@ -1250,19 +1250,19 @@ bool CCountryM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 				}
 				else if (rev->byType == Cmd::Session::COUNTRY_FORMAL_DARE)
 				{
-					//TODO:´Ó¶ÔÕ½¹ÜÀíÆ÷ÖĞÕÒµ½¶ÔÕ½¶ÔÏó£¬½øĞĞ¶ÔÕ½½á¹û¼ÆËã£¬²¢Ê¹Æä½øÈëREADY_OVER×´Ì¬
+					//TODO:ä»å¯¹æˆ˜ç®¡ç†å™¨ä¸­æ‰¾åˆ°å¯¹æˆ˜å¯¹è±¡ï¼Œè¿›è¡Œå¯¹æˆ˜ç»“æœè®¡ç®—ï¼Œå¹¶ä½¿å…¶è¿›å…¥READY_OVERçŠ¶æ€
 					CDare* pDare = CDareM::getMe().findDareRecord(Cmd::COUNTRY_FORMAL_DARE, 
 							rev->dwAttCountryID, rev->dwDefCountryID);
 
 					if (pDare)
 					{
 						if (pDare->isAtt(rev->dwAttCountryID))
-						{//´òËÀ´ó½«¾üµÄÊÇÌôÕ½¹ú
-							pDare->grade1 += 2; //ÌôÕ½¹úÊ¤£¬ÌôÕ½¹ú¼ÓÁ½¿ÅĞÇ
+						{//æ‰“æ­»å¤§å°†å†›çš„æ˜¯æŒ‘æˆ˜å›½
+							pDare->grade1 += 2; //æŒ‘æˆ˜å›½èƒœï¼ŒæŒ‘æˆ˜å›½åŠ ä¸¤é¢—æ˜Ÿ
 						}
 						else if (pDare->isAtt(rev->dwDefCountryID))
 						{
-							pDare->grade2 +=2; //·´¹¥³É¹¦, ·ÀÊØ¹ú¼ÓÁ½¿ÅĞÇ
+							pDare->grade2 +=2; //åæ”»æˆåŠŸ, é˜²å®ˆå›½åŠ ä¸¤é¢—æ˜Ÿ
 						}
 
 						pDare->setReadyOverState();
@@ -1274,12 +1274,12 @@ bool CCountryM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsig
 
 					if (pDare) {
 						if (pDare->isAtt(rev->dwAttCountryID))
-						{//´òËÀ´ó½«¾üµÄÊÇÌôÕ½¹ú
-							pDare->grade1 += 2; //ÌôÕ½¹úÊ¤£¬ÌôÕ½¹ú¼ÓÁ½¿ÅĞÇ
+						{//æ‰“æ­»å¤§å°†å†›çš„æ˜¯æŒ‘æˆ˜å›½
+							pDare->grade1 += 2; //æŒ‘æˆ˜å›½èƒœï¼ŒæŒ‘æˆ˜å›½åŠ ä¸¤é¢—æ˜Ÿ
 						}
 						else if (pDare->isAtt(rev->dwDefCountryID))
 						{
-							pDare->grade2 +=2; //·´¹¥³É¹¦, ·ÀÊØ¹ú¼ÓÁ½¿ÅĞÇ
+							pDare->grade2 +=2; //åæ”»æˆåŠŸ, é˜²å®ˆå›½åŠ ä¸¤é¢—æ˜Ÿ
 						}
 
 						pDare->setReadyOverState();
@@ -1315,31 +1315,31 @@ void CCountryM::processReqDailyEmperorMoney(UserSession* pUser, Cmd::stReqDailyE
 			{
 				Cmd::Session::t_dareGold_SceneSession send;
 				send.dwUserID = pUser->id;
-				send.dwNum = 50000; // 5¶§
+				send.dwNum = 50000; // 5é”­
 				send.dwType =  Cmd::Session::EMPEROR_GOLD;
 				send.dwWarID = 0;
 
 				if (pUser->scene) 
 				{       
 					pUser->scene->sendCmd(&send, sizeof(Cmd::Session::t_dareGold_SceneSession));
-					Zebra::logger->trace("½ÇÉ« %s ÁìÈ¡ÁË»ÊµÛË°½ğ%uÎÄ", pUser->name, send.dwNum);
+					Zebra::logger->trace("è§’è‰² %s é¢†å–äº†çš‡å¸ç¨é‡‘%uæ–‡", pUser->name, send.dwNum);
 					pEmperor->dwLastDailyMoney = ct;
 					pEmperor->writeDatabase();
 				}       
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Ò»ÌìÖ»ÄÜÁìÈ¡Ò»´Î½±Àø.");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸€å¤©åªèƒ½é¢†å–ä¸€æ¬¡å¥–åŠ±.");
 			}
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ»ÊµÛ²»ÄÜÊ¹ÓÃ¸ÃÏî¹¦ÄÜ.");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯çš‡å¸ä¸èƒ½ä½¿ç”¨è¯¥é¡¹åŠŸèƒ½.");
 		}
 	}
 	else
 	{
-		Zebra::logger->error("[¹ú¼Ò]: ÖĞÁ¢¹úÊı¾İ²»ÍêÕû.");
+		Zebra::logger->error("[å›½å®¶]: ä¸­ç«‹å›½æ•°æ®ä¸å®Œæ•´.");
 	}
 }
 
@@ -1348,13 +1348,13 @@ void CCountryM::processUpTech(UserSession* pUser, Cmd::stUpTechDegreeUserCmd* re
 	CCountry* pCountry = this->find(pUser->country);
 	if (!pCountry)
 	{
-		Zebra::logger->error("[¹ú¼Ò]:¹ú¼ÒĞÅÏ¢»ñÈ¡Ê§°Ü,Çë¼ì²é¹ú¼ÒĞÅÏ¢ÍêÕûĞÔ");
+		Zebra::logger->error("[å›½å®¶]:å›½å®¶ä¿¡æ¯è·å–å¤±è´¥,è¯·æ£€æŸ¥å›½å®¶ä¿¡æ¯å®Œæ•´æ€§");
 	}
 
 	CTech* pTech = pCountry->getTech(rev->dwOption);
 	if (!pTech)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¸ÃÏî¿Æ¼¼²»´æÔÚ£¬ÇëÈ·ÈÏºóÔÙÉı¼¶");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯¥é¡¹ç§‘æŠ€ä¸å­˜åœ¨ï¼Œè¯·ç¡®è®¤åå†å‡çº§");
 	}
 
 	pTech->upLevel(pUser);
@@ -1372,13 +1372,13 @@ void CCountryM::processConfirmSearcher(UserSession* pUser, Cmd::stConfirmSearche
 
 	if (!pCountry)
 	{
-		Zebra::logger->error("[¹ú¼Ò]:¹ú¼ÒĞÅÏ¢»ñÈ¡Ê§°Ü,Çë¼ì²é¹ú¼ÒĞÅÏ¢ÍêÕûĞÔ");
+		Zebra::logger->error("[å›½å®¶]:å›½å®¶ä¿¡æ¯è·å–å¤±è´¥,è¯·æ£€æŸ¥å›½å®¶ä¿¡æ¯å®Œæ•´æ€§");
 	}
 
 	CTech* pTech = pCountry->getTech(rev->dwOption);
 	if (!pTech)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¸ÃÏî¿Æ¼¼²»´æÔÚ£¬ÇëÈ·ÈÏºóÔÙÉı¼¶");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯¥é¡¹ç§‘æŠ€ä¸å­˜åœ¨ï¼Œè¯·ç¡®è®¤åå†å‡çº§");
 	}
 
 	pTech->setSearcher(pUser);
@@ -1390,7 +1390,7 @@ void CCountryM::processReqWaitOfficial(UserSession* pUser, Cmd::stReqWaitOfficia
 
 	if (!pCountry)
 	{
-		Zebra::logger->error("[¹ú¼Ò]:¹ú¼ÒĞÅÏ¢»ñÈ¡Ê§°Ü,Çë¼ì²é¹ú¼ÒĞÅÏ¢ÍêÕûĞÔ");
+		Zebra::logger->error("[å›½å®¶]:å›½å®¶ä¿¡æ¯è·å–å¤±è´¥,è¯·æ£€æŸ¥å›½å®¶ä¿¡æ¯å®Œæ•´æ€§");
 	}
 
 	if (pCountry->isKing(pUser))
@@ -1399,7 +1399,7 @@ void CCountryM::processReqWaitOfficial(UserSession* pUser, Cmd::stReqWaitOfficia
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÊ¹ÓÃ¸ÃÏî¹¦ÄÜ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ä½¿ç”¨è¯¥é¡¹åŠŸèƒ½");
 	}
 }
 
@@ -1409,13 +1409,13 @@ void CCountryM::processCancelDiplomat(UserSession* pUser, Cmd::stCancelDiplomatC
 
 	if (!pCountry)
 	{
-		Zebra::logger->error("[¹ú¼Ò]:¹ú¼ÒĞÅÏ¢»ñÈ¡Ê§°Ü,Çë¼ì²é¹ú¼ÒĞÅÏ¢ÍêÕûĞÔ");
+		Zebra::logger->error("[å›½å®¶]:å›½å®¶ä¿¡æ¯è·å–å¤±è´¥,è¯·æ£€æŸ¥å›½å®¶ä¿¡æ¯å®Œæ•´æ€§");
 	}
 
 	if (pCountry->isKing(pUser))
 	{
 		pCountry->cancelDiplomat();
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "°ÕÃâÍâ½»¹Ù³É¹¦");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç½¢å…å¤–äº¤å®˜æˆåŠŸ");
 	}
 }
 
@@ -1425,13 +1425,13 @@ void CCountryM::processCancelCatcher(UserSession* pUser, Cmd::stCancelCatcherCmd
 
 	if (!pCountry)
 	{
-		Zebra::logger->error("[¹ú¼Ò]:¹ú¼ÒĞÅÏ¢»ñÈ¡Ê§°Ü,Çë¼ì²é¹ú¼ÒĞÅÏ¢ÍêÕûĞÔ");
+		Zebra::logger->error("[å›½å®¶]:å›½å®¶ä¿¡æ¯è·å–å¤±è´¥,è¯·æ£€æŸ¥å›½å®¶ä¿¡æ¯å®Œæ•´æ€§");
 	}
 
 	if (pCountry->isKing(pUser))
 	{
 		pCountry->cancelCatcher();
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "°ÕÃâ²¶Í·³É¹¦");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç½¢å…æ•å¤´æˆåŠŸ");
 	}
 }
 
@@ -1441,7 +1441,7 @@ void CCountryM::processCancelTechSearch(UserSession* pUser, Cmd::stCancelTechSea
 
 	if (!pCountry)
 	{
-		Zebra::logger->error("[¹ú¼Ò]:¹ú¼ÒĞÅÏ¢»ñÈ¡Ê§°Ü,Çë¼ì²é¹ú¼ÒĞÅÏ¢ÍêÕûĞÔ");
+		Zebra::logger->error("[å›½å®¶]:å›½å®¶ä¿¡æ¯è·å–å¤±è´¥,è¯·æ£€æŸ¥å›½å®¶ä¿¡æ¯å®Œæ•´æ€§");
 	}
 
 	if (pCountry->isKing(pUser))
@@ -1449,7 +1449,7 @@ void CCountryM::processCancelTechSearch(UserSession* pUser, Cmd::stCancelTechSea
 		CTech* pTech = pCountry->getTech(rev->dwOption);
 		if (!pTech)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¸ÃÏî¿Æ¼¼²»´æÔÚ£¬ÇëÈ·ÈÏºóÔÙÈ¡Ïû");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯¥é¡¹ç§‘æŠ€ä¸å­˜åœ¨ï¼Œè¯·ç¡®è®¤åå†å–æ¶ˆ");
 			return;
 		}
 
@@ -1462,7 +1462,7 @@ void CCountryM::processCancelTechSearch(UserSession* pUser, Cmd::stCancelTechSea
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÊ¹ÓÃ¸ÃÏî¹¦ÄÜ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ä½¿ç”¨è¯¥é¡¹åŠŸèƒ½");
 	}
 }
 
@@ -1472,7 +1472,7 @@ void CCountryM::processSetTechSearch(UserSession* pUser, Cmd::stSetTechSearchUse
 
 	if (!pCountry)
 	{
-		Zebra::logger->error("[¹ú¼Ò]:¹ú¼ÒĞÅÏ¢»ñÈ¡Ê§°Ü,Çë¼ì²é¹ú¼ÒĞÅÏ¢ÍêÕûĞÔ");
+		Zebra::logger->error("[å›½å®¶]:å›½å®¶ä¿¡æ¯è·å–å¤±è´¥,è¯·æ£€æŸ¥å›½å®¶ä¿¡æ¯å®Œæ•´æ€§");
 	}
 
 	if (pCountry->isKing(pUser))
@@ -1480,31 +1480,31 @@ void CCountryM::processSetTechSearch(UserSession* pUser, Cmd::stSetTechSearchUse
 		CTech* pTech = pCountry->getTech(rev->dwOption);
 		if (!pTech)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¸ÃÏî¿Æ¼¼²»´æÔÚ£¬ÇëÈ·ÈÏºóÔÙÉèÖÃ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯¥é¡¹ç§‘æŠ€ä¸å­˜åœ¨ï¼Œè¯·ç¡®è®¤åå†è®¾ç½®");
 			return;
 		}
 
 		UserSession* pSearcher  = UserSessionManager::getInstance()->getUserByID(rev->dwCharID);
 		if (!pSearcher)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¸ÃÍæ¼ÒÒÑ²»ÔÚÏß£¬ÇëÁíÍâÑ¡Ôñ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯¥ç©å®¶å·²ä¸åœ¨çº¿ï¼Œè¯·å¦å¤–é€‰æ‹©");
 			return;
 		}
 
 		if (this->isOfficial(pSearcher))
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¸ÃÍæ¼ÒÒÑÊÇÑĞ¾¿Ô±£¬ÇëÁíÍâÑ¡Ôñ");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯¥ç©å®¶å·²æ˜¯ç ”ç©¶å‘˜ï¼Œè¯·å¦å¤–é€‰æ‹©");
 			return;
 		}
 
 		Cmd::stConfirmSearcherUserCmd send;
 		send.dwOption = pTech->dwType;
 		pSearcher->sendCmdToMe(&send, sizeof(send));
-		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "ÒÑ·¢ËÍ %s ÑĞ¾¿ÈÎÃüÊé", pTech->szName);
+		pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "å·²å‘é€ %s ç ”ç©¶ä»»å‘½ä¹¦", pTech->szName);
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÊ¹ÓÃ¸ÃÏî¹¦ÄÜ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ä½¿ç”¨è¯¥é¡¹åŠŸèƒ½");
 	}
 }
 
@@ -1515,25 +1515,25 @@ void CCountryM::processSetDiplomat(UserSession* pUser, Cmd::stAppointDiplomatCmd
 		UserSession *u = UserSessionManager::getInstance()->getUserSessionByName(rev->name);
 		if (!u || !u->scene)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s ²»ÔÚÏß", rev->name);
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç©å®¶ %s ä¸åœ¨çº¿", rev->name);
 			return;
 		}
 		
 		if (u->id == pUser->id)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÈÎÃü×Ô¼ºÎªÍâ½»¹Ù");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ä»»å‘½è‡ªå·±ä¸ºå¤–äº¤å®˜");
 			return;
 		}
 
 		if (u->country != pUser->country)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Ö»ÄÜÈÎÃü±¾¹úÈËÎªÍâ½»¹Ù");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "åªèƒ½ä»»å‘½æœ¬å›½äººä¸ºå¤–äº¤å®˜");
 			return;
 		}
 		
 		if (CCityM::getMe().isCastellan(u) || this->isOfficial(u))
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÈÎÃü³ÇÖ÷»òÑĞ¾¿Ô±ÎªÍâ½»¹Ù");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ä»»å‘½åŸä¸»æˆ–ç ”ç©¶å‘˜ä¸ºå¤–äº¤å®˜");
 			return;
 		}
 
@@ -1545,29 +1545,29 @@ void CCountryM::processSetDiplomat(UserSession* pUser, Cmd::stAppointDiplomatCmd
 			if (strncmp(pCountry->diplomatName, rev->name, MAX_NAMESIZE) == 0
 			||  strncmp(pCountry->catcherName, rev->name, MAX_NAMESIZE) == 0)
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s ÒÑÎªÍâ½»¹Ù»ò²¶Í·,²»ÄÜÔÙÈÎÃü", rev->name);
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s å·²ä¸ºå¤–äº¤å®˜æˆ–æ•å¤´,ä¸èƒ½å†ä»»å‘½", rev->name);
 				return;
 			}
 			
 			if (strlen(pCountry->diplomatName)>0)
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÒÑÓĞÍâ½»¹Ù,²»ÄÜÔÙÈÎÃü");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å·²æœ‰å¤–äº¤å®˜,ä¸èƒ½å†ä»»å‘½");
 				return;
 			}
 
 			if (pCountry->changeDiplomat(u))
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "³É¹¦ÈÎÃü %s ÎªÍâ½»¹Ù", rev->name);
+				pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æˆåŠŸä»»å‘½ %s ä¸ºå¤–äº¤å®˜", rev->name);
 			}
 		}
 		else
 		{
-			Zebra::logger->error("%d ¹ú¼ÒÊı¾İ²»´æÔÚ", pUser->country);
+			Zebra::logger->error("%d å›½å®¶æ•°æ®ä¸å­˜åœ¨", pUser->country);
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÊ¹ÓÃ¸ÃÏî¹¦ÄÜ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ä½¿ç”¨è¯¥é¡¹åŠŸèƒ½");
 	}
 }
 
@@ -1578,25 +1578,25 @@ void CCountryM::processSetCatcher(UserSession* pUser, Cmd::stAppointCatcherCmd* 
 		UserSession *u = UserSessionManager::getInstance()->getUserSessionByName(rev->name);
 		if (!u || !u->scene)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s ²»ÔÚÏß", rev->name);
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç©å®¶ %s ä¸åœ¨çº¿", rev->name);
 			return;
 		}
 		
 		if (u->id == pUser->id)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÈÎÃü×Ô¼ºÎª²¶Í·");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ä»»å‘½è‡ªå·±ä¸ºæ•å¤´");
 			return;
 		}
 
 		if (u->country != pUser->country)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Ö»ÄÜÈÎÃü±¾¹úÈËÎª²¶Í·");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "åªèƒ½ä»»å‘½æœ¬å›½äººä¸ºæ•å¤´");
 			return;
 		}
 		
 		if (CCityM::getMe().isCastellan(u) || this->isOfficial(u))
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²»ÄÜÈÎÃü³ÇÖ÷»òÑĞ¾¿Ô±Îª²¶Í·");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä¸èƒ½ä»»å‘½åŸä¸»æˆ–ç ”ç©¶å‘˜ä¸ºæ•å¤´");
 			return;
 		}
 
@@ -1607,13 +1607,13 @@ void CCountryM::processSetCatcher(UserSession* pUser, Cmd::stAppointCatcherCmd* 
 			if (strncmp(pCountry->diplomatName, rev->name, MAX_NAMESIZE) == 0
 			||  strncmp(pCountry->catcherName, rev->name, MAX_NAMESIZE) == 0)
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s ÒÑÎªÍâ½»¹Ù»ò²¶Í·,²»ÄÜÔÙÈÎÃü", rev->name);
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "%s å·²ä¸ºå¤–äº¤å®˜æˆ–æ•å¤´,ä¸èƒ½å†ä»»å‘½", rev->name);
 				return;
 			}
 
 			if (strlen(pCountry->catcherName)>0)
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÒÑÓĞ²¶Í·,²»ÄÜÔÙÈÎÃü");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å·²æœ‰æ•å¤´,ä¸èƒ½å†ä»»å‘½");
 				return;
 			}
 			
@@ -1624,12 +1624,12 @@ void CCountryM::processSetCatcher(UserSession* pUser, Cmd::stAppointCatcherCmd* 
 		}
 		else
 		{
-			Zebra::logger->error("%d ¹ú¼ÒÊı¾İ²»´æÔÚ", pUser->country);
+			Zebra::logger->error("%d å›½å®¶æ•°æ®ä¸å­˜åœ¨", pUser->country);
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÊ¹ÓÃ¸ÃÏî¹¦ÄÜ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½ä½¿ç”¨è¯¥é¡¹åŠŸèƒ½");
 	}
 }
 
@@ -1639,33 +1639,33 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 
 	if (pUser->country == rev->dwCountryID)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÄÜÌôÕ½×Ô¼ºµÄ¹ú¼Ò");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸èƒ½æŒ‘æˆ˜è‡ªå·±çš„å›½å®¶");
 		return;
 	}
 
 	if (!pUnion)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÌôÕ½±ğµÄ¹ú¼Ò");
+		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½æŒ‘æˆ˜åˆ«çš„å›½å®¶");
 		return;
 	}
 
 	if (!pUnion->master)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÌôÕ½±ğµÄ¹ú¼Ò");
+		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½æŒ‘æˆ˜åˆ«çš„å›½å®¶");
 		return;
 	}
 
 	if (pUnion->master->id == pUser->id)
-	{// ÊÇ°ïÖ÷£¬ÅĞ¶ÏÊÇ²»ÊÇ¹úÍõ
-		CCity* pCity = CCityM::getMe().find(pUser->country, KING_CITY_ID); // Íõ³Ç
-		// Íõ³ÇµÄID
+	{// æ˜¯å¸®ä¸»ï¼Œåˆ¤æ–­æ˜¯ä¸æ˜¯å›½ç‹
+		CCity* pCity = CCityM::getMe().find(pUser->country, KING_CITY_ID); // ç‹åŸ
+		// ç‹åŸçš„ID
 		CCountry* pCountry = this->find(pUser->country);
 
 		if (pCountry)
 		{
 			if (pCity && ((pCity->dwUnionID == pUser->unionid) 
 						|| pCountry->dwKingUnionID == pUser->unionid))
-			{// ÊÇ°ïÖ÷£¬ÊÇÍõ³Ç³ÇÖ÷»òÊÇ¹úÍõ£¬ÔÊĞíÌôÕ½,È¡³ö±»Ìô¹ú¼Ò£¬ÅĞ¶ÏÊÇ·ñÔÚ±»ÌôÆÚÏŞ
+			{// æ˜¯å¸®ä¸»ï¼Œæ˜¯ç‹åŸåŸä¸»æˆ–æ˜¯å›½ç‹ï¼Œå…è®¸æŒ‘æˆ˜,å–å‡ºè¢«æŒ‘å›½å®¶ï¼Œåˆ¤æ–­æ˜¯å¦åœ¨è¢«æŒ‘æœŸé™
 				struct tm tv1,tv2,tv3;  
 				time_t timValue = time(NULL);
 				zRTime::getLocalTime(tv1, timValue);
@@ -1679,7 +1679,7 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 				if (tv3.tm_wday == 6)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-							"Ã÷Ìì½«½øĞĞ»Ê³ÇÕù¶áÕ½,²»ÔÊĞíÌôÕ½Ëû¹ú");
+							"æ˜å¤©å°†è¿›è¡Œçš‡åŸäº‰å¤ºæˆ˜,ä¸å…è®¸æŒ‘æˆ˜ä»–å›½");
 					return;
 				}
 
@@ -1690,7 +1690,7 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 
 					SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP,
 							pUser->country,
-							"%dÄê%dÔÂ%dÈÕ20µã40·Ö,ÎÒ¹úÏò¡¡%s¡¡·¢ÆğÁË·´¹¥£¬Çë×öºÃ½ø¹¥×¼±¸", 
+							"%då¹´%dæœˆ%dæ—¥20ç‚¹40åˆ†,æˆ‘å›½å‘ã€€%sã€€å‘èµ·äº†åæ”»ï¼Œè¯·åšå¥½è¿›æ”»å‡†å¤‡", 
 							tv1.tm_year+1900, tv1.tm_mon+1, tv1.tm_mday,
 							this->find(rev->dwCountryID)->name);
 
@@ -1702,13 +1702,13 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 				if (tv1.tm_hour>=18)
 				{
 					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-							"ÇëÔÚ18µãÒÔÇ°À´ÌôÕ½");
+							"è¯·åœ¨18ç‚¹ä»¥å‰æ¥æŒ‘æˆ˜");
 					return;
 				}
 #endif						
 				/*if (pCountry->dwDareCountryID>0)	
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÒÑ½ÓÊÜ±ğ¹úÌôÕ½£¡");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å·²æ¥å—åˆ«å›½æŒ‘æˆ˜ï¼");
 					return;
 				}*/		       
 
@@ -1717,7 +1717,7 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 					if (tv3.tm_wday==6)
 					{
 						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-								"Ã÷Ìì½«½øĞĞ»Ê³ÇÕù¶áÕ½,²»ÔÊĞíÌôÕ½Ëû¹ú");
+								"æ˜å¤©å°†è¿›è¡Œçš‡åŸäº‰å¤ºæˆ˜,ä¸å…è®¸æŒ‘æˆ˜ä»–å›½");
 
 						return;
 					}
@@ -1726,7 +1726,7 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 				CCountry* pDefCountry = this->find(rev->dwCountryID);
 				if (pDefCountry == NULL)
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÌôÕ½µÄ¹ú¼Ò²»´æÔÚ");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨æŒ‘æˆ˜çš„å›½å®¶ä¸å­˜åœ¨");
 					return;
 				}
 
@@ -1740,7 +1740,7 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 					if (pDefCountry->dwDareCountryID>0)
 					{
 						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-								"¸Ã¹úÒÑ½ÓÊÜ±ğ¹úÌôÕ½¡£ÇëÃ÷ÌìÔÙÀ´¡£");
+								"è¯¥å›½å·²æ¥å—åˆ«å›½æŒ‘æˆ˜ã€‚è¯·æ˜å¤©å†æ¥ã€‚");
 						return;
 					}
 					else
@@ -1748,7 +1748,7 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 						/*if (this->findByDare(pDefCountry->dwID, false) != NULL)
 						{
 							pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-									"¸Ã¹úÒÑÌôÕ½ÆäËü¹ú¼Ò£¬²»ÄÜÔÙ¶ÔÆä½øĞĞÌôÕ½¡£");
+									"è¯¥å›½å·²æŒ‘æˆ˜å…¶å®ƒå›½å®¶ï¼Œä¸èƒ½å†å¯¹å…¶è¿›è¡ŒæŒ‘æˆ˜ã€‚");
 							return;
 						}
 						// */
@@ -1758,12 +1758,12 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 							if (tv3.tm_wday == 6)
 							{
 								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-										"Ã÷Ìì½«½øĞĞ»Ê³ÇÕù¶áÕ½,²»ÔÊĞí±»ÌôÕ½");
+										"æ˜å¤©å°†è¿›è¡Œçš‡åŸäº‰å¤ºæˆ˜,ä¸å…è®¸è¢«æŒ‘æˆ˜");
 								return;
 							}
 						}
 
-						//±éÀú¹ÜÀíÆ÷£¬¿´ÊÇ·ñÒÑÌôÕ½±ğ¹ú
+						//éå†ç®¡ç†å™¨ï¼Œçœ‹æ˜¯å¦å·²æŒ‘æˆ˜åˆ«å›½
 						if (this->findByDare(pUser->country) == NULL)
 						{
 							rwlock.wrlock();
@@ -1777,29 +1777,29 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 
 							/*SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP,
 							  pDefCountry->dwID,
-							  "Ò»Ğ¡Ê±ºó,¡¡%s¡¡½«¹¥´òÎÒ¹ú£¬Çë×öºÃ·ÀÓù×¼±¸", 
+							  "ä¸€å°æ—¶å,ã€€%sã€€å°†æ”»æ‰“æˆ‘å›½ï¼Œè¯·åšå¥½é˜²å¾¡å‡†å¤‡", 
 							  pCountry->name);*/
 
 							SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP,
 									pDefCountry->dwID,
-									"%dÄê%dÔÂ%dÈÕ20µã40·Ö,¡¡%s¡¡½«¹¥´òÎÒ¹ú£¬Çë×öºÃ·ÀÓù×¼±¸", 
+									"%då¹´%dæœˆ%dæ—¥20ç‚¹40åˆ†,ã€€%sã€€å°†æ”»æ‰“æˆ‘å›½ï¼Œè¯·åšå¥½é˜²å¾¡å‡†å¤‡", 
 									tv3.tm_year+1900,tv3.tm_mon+1, tv3.tm_mday, pCountry->name);
 
 							SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, 
 									pCountry->dwID,
-									"%dÄê%dÔÂ%dÈÕ20µã40·Ö,¡¡%s¡¡¹úÍõ½«´øÁìÎÒÃÇÈ¥¹¥´ò %s¡£", 
+									"%då¹´%dæœˆ%dæ—¥20ç‚¹40åˆ†,ã€€%sã€€å›½ç‹å°†å¸¦é¢†æˆ‘ä»¬å»æ”»æ‰“ %sã€‚", 
 									tv3.tm_year+1900, tv3.tm_mon+1, tv3.tm_mday,
 									pCountry->name, pDefCountry->name);
 							/*SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, 
 							  pCountry->dwID,
-							  "Ò»Ğ¡Ê±ºó,¡¡%s¡¡¹úÍõ½«´øÁìÎÒÃÇÈ¥¹¥´ò %s¡£", 
+							  "ä¸€å°æ—¶å,ã€€%sã€€å›½ç‹å°†å¸¦é¢†æˆ‘ä»¬å»æ”»æ‰“ %sã€‚", 
 							  pCountry->name, pDefCountry->name);
 							 */
 							pUser->sendSysChat(Cmd::INFO_TYPE_EXP, 
-									"·¢Æğ¹úÕ½ÇëÇó³É¹¦£¡ÇëÔÚÃ÷Ìì°ËµãËÄÊ®·Ö×¼Ê±²Î¼Ó!");
+									"å‘èµ·å›½æˆ˜è¯·æ±‚æˆåŠŸï¼è¯·åœ¨æ˜å¤©å…«ç‚¹å››ååˆ†å‡†æ—¶å‚åŠ !");
 
 							/*pUser->sendSysChat(Cmd::INFO_TYPE_EXP, 
-							  "·¢Æğ¹úÕ½ÇëÇó³É¹¦£¡ÇëÒ»Ğ¡Ê±ºó×¼Ê±²Î¼Ó!");*/
+							  "å‘èµ·å›½æˆ˜è¯·æ±‚æˆåŠŸï¼è¯·ä¸€å°æ—¶åå‡†æ—¶å‚åŠ !");*/
 
 #ifdef _ZJW_DEBUG
 //							pDefCountry->beginDare();
@@ -1808,31 +1808,31 @@ void CCountryM::processDareCountry(UserSession* pUser, Cmd::stDareCountryFormalC
 						else
 						{
 							pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, 
-									"Äú½ñÌìÒÑ·¢ÆğÁËÌôÕ½£¬²»ÄÜÔÙÌôÕ½ÁË");
+									"æ‚¨ä»Šå¤©å·²å‘èµ·äº†æŒ‘æˆ˜ï¼Œä¸èƒ½å†æŒ‘æˆ˜äº†");
 						}
 					}
 				}
 #ifndef _ALL_SUPER_GM
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "²Å±»ÌôÁË£¬¸ÃÈÃ±ğÈËĞªÁ½ÌìÁË");
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‰è¢«æŒ‘äº†ï¼Œè¯¥è®©åˆ«äººæ­‡ä¸¤å¤©äº†");
 				}
 #endif						
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÌôÕ½±ğµÄ¹ú¼Ò");
+				pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½æŒ‘æˆ˜åˆ«çš„å›½å®¶");
 			}
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÌôÕ½±ğµÄ¹ú¼Ò");
+			pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½æŒ‘æˆ˜åˆ«çš„å›½å®¶");
 			return;
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÌôÕ½±ğµÄ¹ú¼Ò");
+		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½æŒ‘æˆ˜åˆ«çš„å›½å®¶");
 	}
 
 	return;
@@ -1842,7 +1842,7 @@ void CCountryM::processAntiDareCountry(UserSession* pUser, Cmd::stAntiDareCountr
 {
 	if (pUser->country == rev->dwCountryID)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÄÜÌôÕ½×Ô¼ºµÄ¹ú¼Ò");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸èƒ½æŒ‘æˆ˜è‡ªå·±çš„å›½å®¶");
 		return;
 	}
 
@@ -1859,13 +1859,13 @@ void CCountryM::processAntiDareCountry(UserSession* pUser, Cmd::stAntiDareCountr
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "²»Âú×ã·´¹¥Ìõ¼ş,²»ÄÜÌôÕ½¸Ã¹ú");
+			pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "ä¸æ»¡è¶³åæ”»æ¡ä»¶,ä¸èƒ½æŒ‘æˆ˜è¯¥å›½");
 			return;
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "Äú²»ÊÇ¹úÍõ£¬²»ÄÜÌôÕ½±ğµÄ¹ú¼Ò");
+		pUser->sendSysChat(Cmd::INFO_TYPE_MSG, "æ‚¨ä¸æ˜¯å›½ç‹ï¼Œä¸èƒ½æŒ‘æˆ˜åˆ«çš„å›½å®¶");
 		return;
 	}
 }
@@ -1974,7 +1974,7 @@ void CCountryM::processRequestDare(UserSession* pUser, Cmd::stRequestDareCountry
 		zRTime::getLocalTime(tv1, timValue);
 		if (tv1.tm_hour <20 || tv1.tm_hour>22)
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "·Ç¹úÕ½Ê±¼ä£¬²»ÄÜÌø×ªµ½Õ½³¡");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "éå›½æˆ˜æ—¶é—´ï¼Œä¸èƒ½è·³è½¬åˆ°æˆ˜åœº");
 		}
 		else
 		{
@@ -2081,7 +2081,7 @@ void CCountryM::userOnline(UserSession *pUser)
 		if (pDare) 
 		{
 #ifdef _ZJW_DEBUG
-			Zebra::logger->debug("[¹úÕ½]:%s ½øÈë¹úÕ½×´Ì¬", pUser->name);
+			Zebra::logger->debug("[å›½æˆ˜]:%s è¿›å…¥å›½æˆ˜çŠ¶æ€", pUser->name);
 #endif		 
 			pDare->sendActiveStateToScene(pUser);
 		}
@@ -2167,7 +2167,7 @@ void CCountryM::execEveryCountry(countryCallback & cb)
 		if (countries[i])
 			cb.exec(countries[i]);
 		else
-			Zebra::logger->error("¹ú¼Ò¹ÜÀíÆ÷°üº¬¿ÕÖ¸Õë");
+			Zebra::logger->error("å›½å®¶ç®¡ç†å™¨åŒ…å«ç©ºæŒ‡é’ˆ");
 	}
 }
 
@@ -2180,7 +2180,7 @@ void CCountryM::refreshTax()
 			SceneSessionManager::getInstance()->notifyCountryTax(countries[i]->dwID, countries[i]->dwTax);
 		}			
 		else
-			Zebra::logger->error("¹ú¼Ò¹ÜÀíÆ÷°üº¬¿ÕÖ¸Õë");
+			Zebra::logger->error("å›½å®¶ç®¡ç†å™¨åŒ…å«ç©ºæŒ‡é’ˆ");
 	}
 }
 
@@ -2206,7 +2206,7 @@ void CCountryM::broadcastTech(DWORD dwCountryID)
 	}
 	else
 	{
-		Zebra::logger->trace("[¹ú¼Ò]: %d ¹ú¼ÒÊı¾İ²»´æÔÚ¡£Çë¼ì²é¹ú¼ÒÊı¾İÍêÕûĞÔ", dwCountryID);
+		Zebra::logger->trace("[å›½å®¶]: %d å›½å®¶æ•°æ®ä¸å­˜åœ¨ã€‚è¯·æ£€æŸ¥å›½å®¶æ•°æ®å®Œæ•´æ€§", dwCountryID);
 	}
 }
 
@@ -2235,9 +2235,9 @@ bool CCountryM::isEmperor(UserSession* pUser)
 			return false;
 		}
 
-		// TODO:ÅĞ¶ÏÊÇ·ñÊÇ³ÇÖ÷»ò¹úÍõ
+		// TODO:åˆ¤æ–­æ˜¯å¦æ˜¯åŸä¸»æˆ–å›½ç‹
 		if (pUnion->master && pUnion->master->id == pUser->id)  
-		{//ÊÇ°ïÖ÷
+		{//æ˜¯å¸®ä¸»
 			if (pUnion->id == pCountry->dwKingUnionID)
 			{
 				return true;
@@ -2283,12 +2283,12 @@ void CCountryM::refreshTech(SessionTask* scene, DWORD dwCountryID)
 	}
 	else
 	{
-		Zebra::logger->trace("[¹ú¼Ò]: %d ¹ú¼ÒÊı¾İ²»´æÔÚ¡£Çë¼ì²é¹ú¼ÒÊı¾İÍêÕûĞÔ", dwCountryID);
+		Zebra::logger->trace("[å›½å®¶]: %d å›½å®¶æ•°æ®ä¸å­˜åœ¨ã€‚è¯·æ£€æŸ¥å›½å®¶æ•°æ®å®Œæ•´æ€§", dwCountryID);
 	}
 }
 
 /*
- * Ã¿Ìì0µãÇå³ı½ûÑÔºÍ¹ØÑºµÄ±ê¼Ç
+ * æ¯å¤©0ç‚¹æ¸…é™¤ç¦è¨€å’Œå…³æŠ¼çš„æ ‡è®°
  *
  */
 void CCountryM::clearForbid()
@@ -2301,7 +2301,7 @@ void CCountryM::clearForbid()
 }
 
 /*
- * Ã¿Ìì0µãÇå³ıÍâ½»¹Ù
+ * æ¯å¤©0ç‚¹æ¸…é™¤å¤–äº¤å®˜
  *
  */
 void CCountryM::clearDiplomat()
@@ -2312,7 +2312,7 @@ void CCountryM::clearDiplomat()
 	}
 }
 /*
- * Ã¿Ìì0µãÇåÁîÅÆÊ¹ÓÃ´ÎÊı
+ * æ¯å¤©0ç‚¹æ¸…ä»¤ç‰Œä½¿ç”¨æ¬¡æ•°
  *
  */
 void CCountryM::resetCallTimes()
@@ -2325,7 +2325,7 @@ void CCountryM::resetCallTimes()
 }
 
 /*
- * Ã¿Ìì0µãÇå³ı²¶Í·
+ * æ¯å¤©0ç‚¹æ¸…é™¤æ•å¤´
  *
  */
 void CCountryM::clearCatcher()
@@ -2337,7 +2337,7 @@ void CCountryM::clearCatcher()
 }
 void CCountryM::refreshGeneral(DWORD country)
 {
-	if (0==country)//0ÔòË¢ĞÂËùÓĞ
+	if (0==country)//0åˆ™åˆ·æ–°æ‰€æœ‰
 	{
 		for (DWORD i=0; i<countries.size(); i++)
 		{
@@ -2368,11 +2368,11 @@ void CCountryM::refreshGeneral(DWORD country)
 
 		pCountry->gen_refreshTime = 0;
 #ifdef _XWL_DEBUG
-		Zebra::logger->trace("Ë¢ĞÂ´ó½«¾ü map=%s level=%u", scene->name, pCountry->gen_level);
+		Zebra::logger->trace("åˆ·æ–°å¤§å°†å†› map=%s level=%u", scene->name, pCountry->gen_level);
 #endif
 	}
 	else
-		Zebra::logger->error("Ë¢ĞÂ´ó½«¾üÊ±Î´ÕÒµ½µØÍ¼ mapID=%u", (country<<16)+KING_CITY_ID);
+		Zebra::logger->error("åˆ·æ–°å¤§å°†å†›æ—¶æœªæ‰¾åˆ°åœ°å›¾ mapID=%u", (country<<16)+KING_CITY_ID);
 		*/
 }
 
@@ -2422,7 +2422,7 @@ void CCountry::init(Record* rec)
 }
 
 /** 
-  * \brief ¸üĞÂÊı¾İ¿â¼ÇÂ¼
+  * \brief æ›´æ–°æ•°æ®åº“è®°å½•
   * \author zjw
   */   
 void CCountry::writeDatabase()
@@ -2475,7 +2475,7 @@ void CCountry::writeDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 
@@ -2488,7 +2488,7 @@ void CCountry::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÊı¾İ±£´æÊ§°Ü£¬COUNTRY±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶æ•°æ®ä¿å­˜å¤±è´¥ï¼ŒCOUNTRYè¡¨ä¸å­˜åœ¨");
 		return;
 	}
 }
@@ -2536,7 +2536,7 @@ bool CCountry::insertDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}
 		else
@@ -2548,7 +2548,7 @@ bool CCountry::insertDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼ÒÊı¾İĞÂ½¨Ê§°Ü£¬COUNTRY±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶æ•°æ®æ–°å»ºå¤±è´¥ï¼ŒCOUNTRYè¡¨ä¸å­˜åœ¨");
 		return false;
 	}
 
@@ -2566,7 +2566,7 @@ void CCountry::loadTechFromDB()
 
 		if ((connHandleID)-1 == handle)
 		{       
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}               
 
@@ -2603,7 +2603,7 @@ void CCountry::loadTechFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("¿Æ¼¼ÏêÏ¸Êı¾İ¼ÓÔØÊ§°Ü£¬TECH±í²»´æÔÚ");
+		Zebra::logger->error("ç§‘æŠ€è¯¦ç»†æ•°æ®åŠ è½½å¤±è´¥ï¼ŒTECHè¡¨ä¸å­˜åœ¨");
 		return;
 	}
 
@@ -2642,7 +2642,7 @@ void CCountry::updateKing(UserSession* pUser)
 bool CCountry::changeKing(UserSession* pUser)
 {
 	if (pUser == NULL)
-	{// Çå¿Õ¹úÍõĞÅÏ¢
+	{// æ¸…ç©ºå›½ç‹ä¿¡æ¯
 		rwlock.wrlock();
 		this->dwKingUnionID = 0;
 		bzero(kingName, sizeof(kingName));
@@ -2665,7 +2665,7 @@ bool CCountry::changeKing(UserSession* pUser)
 			this->kingtime=SessionTimeTick::currentTime.sec();
 			this->writeDatabase();
 			rwlock.unlock();
-			pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "¹§Ï²Äú³ÉÎª %s ¹úÍõ", this->name);
+			pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "æ­å–œæ‚¨æˆä¸º %s å›½ç‹", this->name);
 			if (pUnion->master) pUnion->master->update_data();
 		}
 	}
@@ -2755,7 +2755,7 @@ bool CCountry::changeDiplomat(UserSession* pUser)
 	if (strncmp(pUser->name, this->diplomatName, MAX_NAMESIZE) != 0)
 	{
 #ifdef _ZJW_DEBUG
-		Zebra::logger->debug("[¹ú¼Ò]:%s ±»ÈÎÃüÎªÍâ½»¹Ù", pUser->name);
+		Zebra::logger->debug("[å›½å®¶]:%s è¢«ä»»å‘½ä¸ºå¤–äº¤å®˜", pUser->name);
 #endif		
 		UserSession *u = UserSessionManager::getInstance()->getUserSessionByName(this->diplomatName);
 		if (u && u->scene)
@@ -2777,7 +2777,7 @@ bool CCountry::changeDiplomat(UserSession* pUser)
 			send.dwUserID = pUser->id;
 			pUser->scene->sendCmd(&send, sizeof(send));
 
-			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Äú±»¹úÍõÈÎÃüÎªÍâ½»¹Ù");
+			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ‚¨è¢«å›½ç‹ä»»å‘½ä¸ºå¤–äº¤å®˜");
 		}
 	}
 
@@ -2810,7 +2810,7 @@ bool CCountry::changeCatcher(UserSession* pUser)
 			send.dwUserID = pUser->id;
 			pUser->scene->sendCmd(&send, sizeof(send));
 
-			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "Äú±»¹úÍõÈÎÃüÎª²¶Í·");
+			pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "æ‚¨è¢«å›½ç‹ä»»å‘½ä¸ºæ•å¤´");
 		}
 	}
 
@@ -2826,11 +2826,11 @@ bool CCountry::isKing(UserSession* pUser)
 		return false;
 	}
 	
-	// TODO:ÅĞ¶ÏÊÇ·ñÊÇ³ÇÖ÷»ò¹úÍõ
+	// TODO:åˆ¤æ–­æ˜¯å¦æ˜¯åŸä¸»æˆ–å›½ç‹
 	if (pUnion->master && pUnion->master->id == pUser->id)  
-	{//ÊÇ°ïÖ÷
+	{//æ˜¯å¸®ä¸»
 		if (CCityM::getMe().find(pUser->country, KING_CITY_ID, pUser->unionid) !=NULL)
-		{//ÊÇ¹úÍõ
+		{//æ˜¯å›½ç‹
 			return true;
 		}
 	}
@@ -2885,7 +2885,7 @@ void CCountry::endDare()
 void CCountry::beginDare()
 {
 	if (this->dwID == NEUTRAL_COUNTRY_ID)
-	{//Èç¹ûÊÇÖĞÁ¢¹ú,Ã¿µ½ÖÜÁù,¿ªÊ¼»Ê³ÇÕù¶áÕ½
+	{//å¦‚æœæ˜¯ä¸­ç«‹å›½,æ¯åˆ°å‘¨å…­,å¼€å§‹çš‡åŸäº‰å¤ºæˆ˜
 #ifndef _ZJW_DEBUG	
 		struct tm tv1;
 		time_t timValue = time(NULL);
@@ -2938,18 +2938,18 @@ void CCountry::beginDare()
 		if (pCountry)
 		{
 			SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, this->dwID, 
-					"%s ¹¥´ò ÎÒ¹ú µÄ¹úÕ½ÏÖÔÚ¿ªÊ¼,×¢Òâ·ÀÊØ", 
+					"%s æ”»æ‰“ æˆ‘å›½ çš„å›½æˆ˜ç°åœ¨å¼€å§‹,æ³¨æ„é˜²å®ˆ", 
 					pCountry->name);
 
-			SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, "%s ¹¥´ò %s µÄ¹úÕ½ÏÖÔÚ¿ªÊ¼¡£", 
+			SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, "%s æ”»æ‰“ %s çš„å›½æˆ˜ç°åœ¨å¼€å§‹ã€‚", 
 					pCountry->name,
 					this->name);
 		}
 
 		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, this->dwDareCountryID,
-				"ÎÒ¹ú ¹¥´ò %s µÄ¹úÕ½ÏÖÔÚ¿ªÊ¼", this->name);
+				"æˆ‘å›½ æ”»æ‰“ %s çš„å›½æˆ˜ç°åœ¨å¼€å§‹", this->name);
 
-		// TODO:È¡ÏûµôÍâ½»¹Ù
+		// TODO:å–æ¶ˆæ‰å¤–äº¤å®˜
 		this->cancelDiplomat();
 	}
 	}
@@ -2957,7 +2957,7 @@ void CCountry::beginDare()
 
 
 /**
- * \brief ¿ªÊ¼·´¹¥
+ * \brief å¼€å§‹åæ”»
  *
  */
 void CCountry::beginAntiDare(DWORD dwAttCountry)
@@ -2981,16 +2981,16 @@ void CCountry::beginAntiDare(DWORD dwAttCountry)
 	CCountry* pCountry = CCountryM::getMe().find(dwAttCountry);
 	if (pCountry)
 	{
-		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, this->dwID, "%s ·´¹¥ ÎÒ¹ú µÄ¹úÕ½ÏÖÔÚ¿ªÊ¼,×¢Òâ·ÀÊØ", 
+		SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, this->dwID, "%s åæ”» æˆ‘å›½ çš„å›½æˆ˜ç°åœ¨å¼€å§‹,æ³¨æ„é˜²å®ˆ", 
 				pCountry->name);
 
-		SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, "%s ·´¹¥ %s µÄ¹úÕ½ÏÖÔÚ¿ªÊ¼¡£", 
+		SessionChannel::sendAllInfo(Cmd::INFO_TYPE_GAME, "%s åæ”» %s çš„å›½æˆ˜ç°åœ¨å¼€å§‹ã€‚", 
 				pCountry->name,
 				this->name);
 	}
 
 	SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, dwAttCountry,
-			"ÎÒ¹ú ·´¹¥ %s µÄ¹úÕ½ÏÖÔÚ¿ªÊ¼", this->name);
+			"æˆ‘å›½ åæ”» %s çš„å›½æˆ˜ç°åœ¨å¼€å§‹", this->name);
 }
 
 void CCountry::addTaxMoney(QWORD qwTaxMoney)
@@ -3220,7 +3220,7 @@ void CCountry::beginTechVote()
 
 	if (!CVoteM::getMe().createNewVote(this->dwID, Cmd::TECH_VOTE, vote_tech))
 	{
-		Zebra::logger->error("[¹ú¼Ò]:ĞÂ½¨¿Æ¼¼Í¶Æ±Ê§°Ü");
+		Zebra::logger->error("[å›½å®¶]:æ–°å»ºç§‘æŠ€æŠ•ç¥¨å¤±è´¥");
 	}
 }
 
@@ -3234,8 +3234,8 @@ void CCountry::addGeneralExp(DWORD num)
 		gen_maxexp = (gen_level+1)*500;
 
 		refreshGeneral();
-		SessionChannel::sendCountryInfo(dwID, Cmd::INFO_TYPE_EXP, "ÎÒ¹ú´ó½«¾üÍõ´ïµ½ %u ¼¶", gen_level);
-		Zebra::logger->trace("´ó½«¾üÉı¼¶ country=%u level=%u", dwID, gen_level);
+		SessionChannel::sendCountryInfo(dwID, Cmd::INFO_TYPE_EXP, "æˆ‘å›½å¤§å°†å†›ç‹è¾¾åˆ° %u çº§", gen_level);
+		Zebra::logger->trace("å¤§å°†å†›å‡çº§ country=%u level=%u", dwID, gen_level);
 	}
 	if (gen_exp>gen_maxexp)
 		gen_exp = gen_maxexp;
@@ -3250,8 +3250,8 @@ void CCountry::generalLevelDown()
 	gen_exp = 0;
 
 	//CCountryM::getMe().refreshGeneral(dwID);
-	SessionChannel::sendCountryInfo(dwID, Cmd::INFO_TYPE_EXP, "¹úÕ½Ê§°Ü£¬´ó½«¾üÍõ½µÎª %u ¼¶", gen_level);
-	Zebra::logger->trace("´ó½«¾ü½µ¼¶ country=%u level=%u", dwID, gen_level);
+	SessionChannel::sendCountryInfo(dwID, Cmd::INFO_TYPE_EXP, "å›½æˆ˜å¤±è´¥ï¼Œå¤§å°†å†›ç‹é™ä¸º %u çº§", gen_level);
+	Zebra::logger->trace("å¤§å°†å†›é™çº§ country=%u level=%u", dwID, gen_level);
 }
 
 void CCountry::refreshGeneral()
@@ -3269,11 +3269,11 @@ void CCountry::refreshGeneral()
 
 		gen_refreshTime = 0;
 #ifdef _XWL_DEBUG
-		Zebra::logger->trace("Ë¢ĞÂ´ó½«¾ü map=%s level=%u", scene->name, gen_level);
+		Zebra::logger->trace("åˆ·æ–°å¤§å°†å†› map=%s level=%u", scene->name, gen_level);
 #endif
 	}
 	else
-		Zebra::logger->error("Ë¢ĞÂ´ó½«¾üÊ±Î´ÕÒµ½µØÍ¼ mapID=%u", (dwID<<16)+KING_CITY_ID);
+		Zebra::logger->error("åˆ·æ–°å¤§å°†å†›æ—¶æœªæ‰¾åˆ°åœ°å›¾ mapID=%u", (dwID<<16)+KING_CITY_ID);
 }
 
 //------------------------------------------------------------------------------------------------------------
@@ -3336,7 +3336,7 @@ void CTech::writeDatabase()
 
 		if ((connHandleID)-1 == handle)
 		{
-			Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return;
 		}
 
@@ -3349,7 +3349,7 @@ void CTech::writeDatabase()
 	}
 	else
 	{
-		Zebra::logger->error("¹ú¼Ò¿Æ¼¼Êı¾İ±£´æÊ§°Ü£¬TECH±í²»´æÔÚ");
+		Zebra::logger->error("å›½å®¶ç§‘æŠ€æ•°æ®ä¿å­˜å¤±è´¥ï¼ŒTECHè¡¨ä¸å­˜åœ¨");
 		return;
 	}
 }
@@ -3361,26 +3361,26 @@ void CTech::upLevel(UserSession* pUser)
 	rwlock.rdlock();
 	if (this->dwResearchID != pUser->id)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äú²»ÊÇ¸ÃÏî¿Æ¼¼µÄ¹ÙÔ±£¬²»ÄÜ¶ÔÆäÉı¼¶");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨ä¸æ˜¯è¯¥é¡¹ç§‘æŠ€çš„å®˜å‘˜ï¼Œä¸èƒ½å¯¹å…¶å‡çº§");
 	}
 
 #ifndef _ZJW_DEBUG	
 	if (abs(cur_time.sec()-this->dwLastUpTime)<60*60)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¿Æ¼¼Ö»ÄÜÒ»Ğ¡Ê±Éı¼¶Ò»´Î");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç§‘æŠ€åªèƒ½ä¸€å°æ—¶å‡çº§ä¸€æ¬¡");
 	}
 #endif	
 
 
 	if (this->dwStatus != CTech::ACTIVE_TECH)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¿Æ¼¼»¹Î´Í¨¹ıÍ¶Æ±£¬½øÈë¿ÉÑĞ¾¿½×¶Î");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç§‘æŠ€è¿˜æœªé€šè¿‡æŠ•ç¥¨ï¼Œè¿›å…¥å¯ç ”ç©¶é˜¶æ®µ");
 	}
 
 	rwlock.unlock();
 
 	CCountry* pCountry = CCountryM::getMe().find(pUser->country);
-/**** µ÷µÍ¹ú¼Ò¿Æ¼¼Éı¼¶ËùĞè×Ê½ğÎï×ÊºÍÔ­ÁÏÇ°µÄÇé¿ö
+/**** è°ƒä½å›½å®¶ç§‘æŠ€å‡çº§æ‰€éœ€èµ„é‡‘ç‰©èµ„å’ŒåŸæ–™å‰çš„æƒ…å†µ
 	int up_need_base[] = {160, 160, 640*100};
 //	int up_need_base[] = {2000, 2000, 5000};
 	
@@ -3394,7 +3394,7 @@ void CTech::upLevel(UserSession* pUser)
 		}
 	}
 */
- 	//µ÷µÍ¹ú¼Ò¿Æ¼¼Éı¼¶ËùĞè×Ê½ğÎï×ÊºÍÔ­ÁÏ
+ 	//è°ƒä½å›½å®¶ç§‘æŠ€å‡çº§æ‰€éœ€èµ„é‡‘ç‰©èµ„å’ŒåŸæ–™
 	int up_need_base[] = {2000, 2000, 5000};
 	int up_need_material[8][3] = {{0,0,0}};
 
@@ -3433,7 +3433,7 @@ void CTech::upLevel(UserSession* pUser)
 			this->dwProgress = this->dwProgress + 2;
 			this->dwLastUpTime = cur_time.sec();
 			rwlock.unlock();
-			pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "%s ±¾´ÎÑĞ¾¿³É¹¦", this->szName);
+			pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "%s æœ¬æ¬¡ç ”ç©¶æˆåŠŸ", this->szName);
 		}
 		else
 		{
@@ -3447,12 +3447,12 @@ void CTech::upLevel(UserSession* pUser)
 			rwlock.unlock();
 
 			SessionChannel::sendCountryInfo(Cmd::INFO_TYPE_EXP, 
-					pUser->country, "%s µÚ%d¼¶ÑĞÖÆ³É¹¦", this->szName, this->dwLevel-1);
+					pUser->country, "%s ç¬¬%dçº§ç ”åˆ¶æˆåŠŸ", this->szName, this->dwLevel-1);
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¹ú¼ÒÎï×Ê²»×ã£¬²»ÄÜÉı¼¶¿Æ¼¼");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "å›½å®¶ç‰©èµ„ä¸è¶³ï¼Œä¸èƒ½å‡çº§ç§‘æŠ€");
 	}
 	
 	this->writeDatabase();
@@ -3462,7 +3462,7 @@ void CTech::setSearcher(UserSession* pUser)
 {
 	if (this->dwStatus != CTech::WAIT_TECH)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¿Æ¼¼»¹Î´Í¨¹ıÍ¶Æ±,²»ÄÜÉèÖÃÑĞ¾¿Ô±");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç§‘æŠ€è¿˜æœªé€šè¿‡æŠ•ç¥¨,ä¸èƒ½è®¾ç½®ç ”ç©¶å‘˜");
 		return;
 	}
 
@@ -3471,7 +3471,7 @@ void CTech::setSearcher(UserSession* pUser)
 	strncpy(this->szResearchName, pUser->name, MAX_NAMESIZE);
 	this->dwStatus = CTech::ACTIVE_TECH;
 	rwlock.unlock();
-	pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "¹§Ï²Äú³ÉÎª %s ÑĞ¾¿Ô±", this->szName);
+	pUser->sendSysChat(Cmd::INFO_TYPE_EXP, "æ­å–œæ‚¨æˆä¸º %s ç ”ç©¶å‘˜", this->szName);
 
 	this->writeDatabase();
 
@@ -3481,7 +3481,7 @@ void CTech::clearSearcher(UserSession* pUser)
 {
 	if (this->dwResearchID<=0)
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "¿Æ¼¼²»ÔÚÑĞ¾¿ÆÚ¼ä»òÃ»ÓĞÑĞ¾¿Ô±,²»ÄÜÈ¡ÏûÑĞ¾¿Ô±");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç§‘æŠ€ä¸åœ¨ç ”ç©¶æœŸé—´æˆ–æ²¡æœ‰ç ”ç©¶å‘˜,ä¸èƒ½å–æ¶ˆç ”ç©¶å‘˜");
 		return;
 	}
 

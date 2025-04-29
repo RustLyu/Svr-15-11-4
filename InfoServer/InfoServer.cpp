@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoServer.cpp $
  * \author  
  * \date 
- * \brief ĞÅÏ¢¼¯ÖĞ·şÎñÆ÷
+ * \brief ä¿¡æ¯é›†ä¸­æœåŠ¡å™¨
  */
  
 #include <iostream>
@@ -29,24 +29,24 @@ InfoService * InfoService::instance = NULL;
 CmdThread 	* InfoService::pCmdThread = NULL;
 
 time_t CmdThread::delta = 10;
-static InfoContainer pContainer;//È«¾ÖÈİÆ÷
+static InfoContainer pContainer;//å…¨å±€å®¹å™¨
 void CmdThread::run()
 {
 	using namespace Cmd::Info;
-	time_t st=tm.sec();//CmdThreadÏß³Ì´´½¨µÄÊ±¼ä
+	time_t st=tm.sec();//CmdThreadçº¿ç¨‹åˆ›å»ºçš„æ—¶é—´
 	time_t sp=tn.sec();
 	while(!isFinal())
 	{
 		tm.now();
 		tn.now();
-		if ((tm.sec() - st) == delta)//10ÃëÖÓÒ»´ÎµÄ·şÎñÆ÷ĞÅÏ¢Í³¼Æ
+		if ((tm.sec() - st) == delta)//10ç§’é’Ÿä¸€æ¬¡çš„æœåŠ¡å™¨ä¿¡æ¯ç»Ÿè®¡
 		{
 			t_Request_ServerInfo ptCmd;
 			ptCmd.rTimestamp = time(NULL);
 			pContainer.broadcast(&ptCmd, sizeof(ptCmd));
 			st = tm.sec();
 		}
-		if ((tm.sec() - sp) == delta*6)//Ò»·ÖÖÓÒ»´ÎµÄÔÚÏßÈËÊıÍ³¼Æ
+		if ((tm.sec() - sp) == delta*6)//ä¸€åˆ†é’Ÿä¸€æ¬¡çš„åœ¨çº¿äººæ•°ç»Ÿè®¡
 		{
 			t_Request_OnlineNum psCmd;
 			psCmd.rTimestamp = time(NULL);
@@ -64,11 +64,11 @@ bool InfoService::init()
 	if (NULL == dbConnPool
 			|| !dbConnPool->putURL(0, Zebra::global["mysql"].c_str(), false))
 	{
-		Zebra::logger->error("Á¬½ÓÊı¾İ¿âÊ§°Ü %s", Zebra::global["mysql"].c_str());
+		Zebra::logger->error("è¿æ¥æ•°æ®åº“å¤±è´¥ %s", Zebra::global["mysql"].c_str());
 		return false;
 	}
 	
-	//³õÊ¼»¯Á¬½ÓÏß³Ì³Ø
+	//åˆå§‹åŒ–è¿æ¥çº¿ç¨‹æ± 
 	int state = state_none;
 	Zebra::to_lower(Zebra::global["initThreadPoolState"]);
 	if ("repair" == Zebra::global["initThreadPoolState"]
@@ -97,11 +97,11 @@ void InfoService::newTCPTask(const int sock, const struct sockaddr_in *addr)
 {
 	InfoTask *tcpTask = new InfoTask(taskPool, sock, addr, &pContainer);
 	if (NULL == tcpTask)
-		//ÄÚ´æ²»×ã£¬Ö±½Ó¹Ø±ÕÁ¬½Ó
+		//å†…å­˜ä¸è¶³ï¼Œç›´æ¥å…³é—­è¿æ¥
 		TEMP_FAILURE_RETRY(::close(sock));
 	else if(!taskPool->addVerify(tcpTask))
 	{
-		//µÃµ½ÁËÒ»¸öÕıÈ·Á¬½Ó£¬Ìí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ
+		//å¾—åˆ°äº†ä¸€ä¸ªæ­£ç¡®è¿æ¥ï¼Œæ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­
 		SAFE_DELETE(tcpTask);
 	}
 }
@@ -137,7 +137,7 @@ bool InfoConfile::parseYour(const xmlNodePtr node)
 }
 
 /**
- * \brief ÖØĞÂ¶ÁÈ¡ÅäÖÃÎÄ¼ş,ÎªHUPĞÅºÅµÄ´¦Àíº¯Êı
+ * \brief é‡æ–°è¯»å–é…ç½®æ–‡ä»¶,ä¸ºHUPä¿¡å·çš„å¤„ç†å‡½æ•°
  */
 void InfoService::reloadConfig()
 {

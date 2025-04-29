@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.h $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êý
+ * \brief æ—¶é—´å›žè°ƒå‡½æ•°
  *
  * 
  */
@@ -20,7 +20,7 @@
 #include "zTime.h"
 
 /**
- * \brief Íø¹Ø¶¨Ê±Æ÷Ïß³Ì
+ * \brief ç½‘å…³å®šæ—¶å™¨çº¿ç¨‹
  *
  */
 class GatewayTimeTick : public zThread
@@ -33,10 +33,10 @@ class GatewayTimeTick : public zThread
 		~GatewayTimeTick() {};
 
 		/**
-		 * \brief µÃµ½Î¨Ò»ÊµÀý
+		 * \brief å¾—åˆ°å”¯ä¸€å®žä¾‹
 		 *
 		 *
-		 * \return Î¨Ò»ÊµÀý
+		 * \return å”¯ä¸€å®žä¾‹
 		 */
 		static GatewayTimeTick &getInstance()
 		{
@@ -47,7 +47,7 @@ class GatewayTimeTick : public zThread
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀý
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®žä¾‹
 		 *
 		 */
 		static void delInstance()

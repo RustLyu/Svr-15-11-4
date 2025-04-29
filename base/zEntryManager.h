@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zEntryManager.h  $
  * \author  
  * \date 
- * \brief entry¹ÜÀíÆ÷¶¨ÒåÎÄ¼ş
+ * \brief entryç®¡ç†å™¨å®šä¹‰æ–‡ä»¶
  */
 
 #ifndef _ZENTRYMANAGER_H_
@@ -14,7 +14,7 @@
 #include "Zebra.h"
 
 /**
- * \brief keyÖµµÈÖµ±È½Ï,Ä¿Ç°Ö§³Ö (DWORD , char *)£¬Á½ÖÖÀàĞÍ
+ * \brief keyå€¼ç­‰å€¼æ¯”è¾ƒ,ç›®å‰æ”¯æŒ (DWORD , char *)ï¼Œä¸¤ç§ç±»å‹
  */
 template <class keyT>
 struct my_key_equal : public std::binary_function<keyT, keyT, bool>
@@ -23,8 +23,8 @@ struct my_key_equal : public std::binary_function<keyT, keyT, bool>
 };
 
 /**
- * \brief Ä£°åÆ«ÌØ»¯
- * ¶Ô×Ö·û´®½øĞĞ±È½Ï
+ * \brief æ¨¡æ¿åç‰¹åŒ–
+ * å¯¹å­—ç¬¦ä¸²è¿›è¡Œæ¯”è¾ƒ
  */
 template<>
 inline bool my_key_equal<const char *>::operator()(const char * s1, const char * s2) const
@@ -33,8 +33,8 @@ inline bool my_key_equal<const char *>::operator()(const char * s1, const char *
 }
 
 /**
- * \brief Ä£°åÆ«ÌØ»¯
- * ¶ÔÕûÊı½øĞĞ±È½Ï
+ * \brief æ¨¡æ¿åç‰¹åŒ–
+ * å¯¹æ•´æ•°è¿›è¡Œæ¯”è¾ƒ
  */
 template<>
 inline bool my_key_equal<DWORD>::operator()(const DWORD s1, const DWORD s2) const
@@ -43,11 +43,11 @@ inline bool my_key_equal<DWORD>::operator()(const DWORD s1, const DWORD s2) cons
 }
 
 /**
- * \brief ÓĞÏŞÍ°Hash¹ÜÀíÄ£°å,·ÇÏß³Ì°²È«
+ * \brief æœ‰é™æ¡¶Hashç®¡ç†æ¨¡æ¿,éçº¿ç¨‹å®‰å…¨
  *
- * Ä¿Ç°Ö§³ÖÁ½ÖÖkeyÀàĞÍ(DWORD , char *),valueÀàĞÍ²»×÷ÏŞÖÆ,µ«´ËÀàĞÍÒª¿ÉcopyµÄ¡£
- * \param keyT keyÀàĞÍ(DWORD , char *)
- * \param valueT valueÀàĞÍ
+ * ç›®å‰æ”¯æŒä¸¤ç§keyç±»å‹(DWORD , char *),valueç±»å‹ä¸ä½œé™åˆ¶,ä½†æ­¤ç±»å‹è¦å¯copyçš„ã€‚
+ * \param keyT keyç±»å‹(DWORD , char *)
+ * \param valueT valueç±»å‹
  */
 template <class keyT,class valueT>
 class LimitHash:private zNoncopyable
@@ -55,7 +55,7 @@ class LimitHash:private zNoncopyable
 	protected:
 
 		/**
-		 * \brief hash_mapÈİÆ÷
+		 * \brief hash_mapå®¹å™¨
 		 */
 		typedef __gnu_cxx::hash_map<keyT, valueT, __gnu_cxx::hash<keyT>, my_key_equal<keyT> > hashmap;
 		typedef typename hashmap::iterator iter;
@@ -63,10 +63,10 @@ class LimitHash:private zNoncopyable
 		hashmap ets;
 
 		/**
-		 * \brief ²åÈëÊı¾İ£¬Èç¹ûÔ­À´´æÔÚÏàÍ¬keyÖµµÄÊı¾İ£¬Ô­À´Êı¾İ½«»á±»Ìæ»»
-		 * \param key keyÖµ
-		 * \param value Òª²åÈëµÄÊı¾İ
-		 * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+		 * \brief æ’å…¥æ•°æ®ï¼Œå¦‚æœåŸæ¥å­˜åœ¨ç›¸åŒkeyå€¼çš„æ•°æ®ï¼ŒåŸæ¥æ•°æ®å°†ä¼šè¢«æ›¿æ¢
+		 * \param key keyå€¼
+		 * \param value è¦æ’å…¥çš„æ•°æ®
+		 * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 		 */
 		inline bool insert(const keyT &key,valueT &value)
 		{
@@ -75,10 +75,10 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief ¸ù¾İkeyÖµ²éÕÒ²¢µÃµ½Êı¾İ
-		 * \param key ÒªÑ°ÕÒµÄkeyÖµ
-		 * \param value ·µ»Ø½á¹û½«·ÅÈë´Ë´¦,Î´ÕÒµ½½«²»»á¸Ä±ä´ËÖµ
-		 * \return ²éÕÒµ½·µ»Øtrue£¬Î´ÕÒµ½·µ»Øfalse
+		 * \brief æ ¹æ®keyå€¼æŸ¥æ‰¾å¹¶å¾—åˆ°æ•°æ®
+		 * \param key è¦å¯»æ‰¾çš„keyå€¼
+		 * \param value è¿”å›ç»“æœå°†æ”¾å…¥æ­¤å¤„,æœªæ‰¾åˆ°å°†ä¸ä¼šæ”¹å˜æ­¤å€¼
+		 * \return æŸ¥æ‰¾åˆ°è¿”å›trueï¼Œæœªæ‰¾åˆ°è¿”å›false
 		 */
 		inline bool find(const keyT &key,valueT &value) const
 		{
@@ -93,9 +93,9 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief ²éÕÒ²¢µÃµ½Ò»¸öÊı¾İ
-		 * \param value ·µ»Ø½á¹û½«·ÅÈë´Ë´¦,Î´ÕÒµ½½«²»»á¸Ä±ä´ËÖµ
-		 * \return ²éÕÒµ½·µ»Øtrue£¬Î´ÕÒµ½·µ»Øfalse
+		 * \brief æŸ¥æ‰¾å¹¶å¾—åˆ°ä¸€ä¸ªæ•°æ®
+		 * \param value è¿”å›ç»“æœå°†æ”¾å…¥æ­¤å¤„,æœªæ‰¾åˆ°å°†ä¸ä¼šæ”¹å˜æ­¤å€¼
+		 * \return æŸ¥æ‰¾åˆ°è¿”å›trueï¼Œæœªæ‰¾åˆ°è¿”å›false
 		 */
 		inline bool findOne(valueT &value) const
 		{
@@ -108,7 +108,7 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		LimitHash()
@@ -116,7 +116,7 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı,Çå³ıËùÓĞÊı¾İ
+		 * \brief ææ„å‡½æ•°,æ¸…é™¤æ‰€æœ‰æ•°æ®
 		 */
 		~LimitHash()
 		{
@@ -124,8 +124,8 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief ÒÆ³ıÊı¾İ
-		 * \param key ÒªÒÆ³ıµÄkeyÖµ
+		 * \brief ç§»é™¤æ•°æ®
+		 * \param key è¦ç§»é™¤çš„keyå€¼
 		 */
 		inline void remove(const keyT &key)
 		{
@@ -133,7 +133,7 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief Çå³ıËùÓĞÊı¾İ
+		 * \brief æ¸…é™¤æ‰€æœ‰æ•°æ®
 		 */
 		inline void clear()
 		{
@@ -141,7 +141,7 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief Í³¼ÆÊı¾İ¸öÊı
+		 * \brief ç»Ÿè®¡æ•°æ®ä¸ªæ•°
 		 */
 		inline unsigned int size() const
 		{
@@ -149,7 +149,7 @@ class LimitHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÈİÆ÷ÊÇ·ñÎª¿Õ
+		 * \brief åˆ¤æ–­å®¹å™¨æ˜¯å¦ä¸ºç©º
 		 */
 		inline bool empty() const
 		{
@@ -158,11 +158,11 @@ class LimitHash:private zNoncopyable
 };
 
 /**
- * \brief ÓĞÏŞÍ°MultiHash¹ÜÀíÄ£°å,·ÇÏß³Ì°²È«
+ * \brief æœ‰é™æ¡¶MultiHashç®¡ç†æ¨¡æ¿,éçº¿ç¨‹å®‰å…¨
  *
- * Ä¿Ç°Ö§³ÖÁ½ÖÖkeyÀàĞÍ(DWORD , char *),valueÀàĞÍ²»×÷ÏŞÖÆ,µ«´ËÀàĞÍÒª¿ÉcopyµÄ¡£
- * \param keyT keyÀàĞÍ(DWORD , char *)
- * \param valueT valueÀàĞÍ
+ * ç›®å‰æ”¯æŒä¸¤ç§keyç±»å‹(DWORD , char *),valueç±»å‹ä¸ä½œé™åˆ¶,ä½†æ­¤ç±»å‹è¦å¯copyçš„ã€‚
+ * \param keyT keyç±»å‹(DWORD , char *)
+ * \param valueT valueç±»å‹
  */
 template <class keyT,class valueT>
 class MultiHash:private zNoncopyable
@@ -170,7 +170,7 @@ class MultiHash:private zNoncopyable
 	protected:
 
 		/**
-		 * \brief hash_multimapÈİÆ÷
+		 * \brief hash_multimapå®¹å™¨
 		 */
 		typedef __gnu_cxx::hash_multimap<keyT, valueT, __gnu_cxx::hash<keyT>, my_key_equal<keyT> > hashmap;
 		typedef typename hashmap::iterator iter;
@@ -178,10 +178,10 @@ class MultiHash:private zNoncopyable
 		hashmap ets;
 
 		/**
-		 * \brief ²åÈëÊı¾İ£¬Èç¹ûÔ­À´´æÔÚÏàÍ¬keyÖµµÄÊı¾İ£¬Ô­À´Êı¾İ½«»á±»Ìæ»»
-		 * \param key keyÖµ
-		 * \param value Òª²åÈëµÄÊı¾İ
-		 * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+		 * \brief æ’å…¥æ•°æ®ï¼Œå¦‚æœåŸæ¥å­˜åœ¨ç›¸åŒkeyå€¼çš„æ•°æ®ï¼ŒåŸæ¥æ•°æ®å°†ä¼šè¢«æ›¿æ¢
+		 * \param key keyå€¼
+		 * \param value è¦æ’å…¥çš„æ•°æ®
+		 * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 		 */
 		inline bool insert(const keyT &key,valueT &value)
 		{
@@ -190,7 +190,7 @@ class MultiHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
 		MultiHash()
@@ -198,7 +198,7 @@ class MultiHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı,Çå³ıËùÓĞÊı¾İ
+		 * \brief ææ„å‡½æ•°,æ¸…é™¤æ‰€æœ‰æ•°æ®
 		 */
 		~MultiHash()
 		{
@@ -206,7 +206,7 @@ class MultiHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief Çå³ıËùÓĞÊı¾İ
+		 * \brief æ¸…é™¤æ‰€æœ‰æ•°æ®
 		 */
 		inline void clear()
 		{
@@ -214,7 +214,7 @@ class MultiHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief Í³¼ÆÊı¾İ¸öÊı
+		 * \brief ç»Ÿè®¡æ•°æ®ä¸ªæ•°
 		 */
 		inline unsigned int size() const
 		{
@@ -222,7 +222,7 @@ class MultiHash:private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÈİÆ÷ÊÇ·ñÎª¿Õ
+		 * \brief åˆ¤æ–­å®¹å™¨æ˜¯å¦ä¸ºç©º
 		 */
 		inline bool empty() const
 		{
@@ -231,7 +231,7 @@ class MultiHash:private zNoncopyable
 };
 
 /**
- * \brief EntryÒÔÁÙÊ±IDÎªkeyÖµµÄÖ¸ÕëÈİÆ÷£¬ĞèÒª¼Ì³ĞÊ¹ÓÃ
+ * \brief Entryä»¥ä¸´æ—¶IDä¸ºkeyå€¼çš„æŒ‡é’ˆå®¹å™¨ï¼Œéœ€è¦ç»§æ‰¿ä½¿ç”¨
  */
 class zEntryTempID:public LimitHash<DWORD,zEntry *>
 {
@@ -241,9 +241,9 @@ class zEntryTempID:public LimitHash<DWORD,zEntry *>
 		virtual ~zEntryTempID() {}
 
 		/**
-		 * \brief ½«Entry¼ÓÈëÈİÆ÷ÖĞ,tempidÖØ¸´Ìí¼ÓÊ§°Ü
-		 * \param e Òª¼ÓÈëµÄEntry
-		 * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief å°†EntryåŠ å…¥å®¹å™¨ä¸­,tempidé‡å¤æ·»åŠ å¤±è´¥
+		 * \param e è¦åŠ å…¥çš„Entry
+		 * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		inline bool push(zEntry * e)
 		{
@@ -261,8 +261,8 @@ class zEntryTempID:public LimitHash<DWORD,zEntry *>
 		}
 
 		/**
-		 * \brief ÒÆ³ıEntry
-		 * \param e ÒªÒÆ³ıµÄEntry
+		 * \brief ç§»é™¤Entry
+		 * \param e è¦ç§»é™¤çš„Entry
 		 */
 		inline void remove(zEntry * e)
 		{
@@ -274,9 +274,9 @@ class zEntryTempID:public LimitHash<DWORD,zEntry *>
 		}
 
 		/**
-		 * \brief Í¨¹ıÁÙÊ±IDµÃµ½Entry
-		 * \param tempid ÒªµÃµ½EntryµÄÁÙÊ±ID
-		 * \return ·µ»ØEntryÖ¸Õë,Î´ÕÒµ½·µ»ØNULL
+		 * \brief é€šè¿‡ä¸´æ—¶IDå¾—åˆ°Entry
+		 * \param tempid è¦å¾—åˆ°Entryçš„ä¸´æ—¶ID
+		 * \return è¿”å›EntryæŒ‡é’ˆ,æœªæ‰¾åˆ°è¿”å›NULL
 		 */
 		inline zEntry * getEntryByTempID(const DWORD tempid) const
 		{
@@ -286,28 +286,28 @@ class zEntryTempID:public LimitHash<DWORD,zEntry *>
 		}
 
 		/**
-		 * \brief µÃµ½Ò»¸öÁÙÊ±ID
-		 * \param tempid ´æ·ÅÒªµÃµ½µÄÁÙÊ±ID
-		 * \return µÃµ½·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief å¾—åˆ°ä¸€ä¸ªä¸´æ—¶ID
+		 * \param tempid å­˜æ”¾è¦å¾—åˆ°çš„ä¸´æ—¶ID
+		 * \return å¾—åˆ°è¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		virtual bool getUniqeID(DWORD &tempid) =0;
 		/**
-		 * \brief ·Å»ØÒ»¸öÁÙÊ±ID
-		 * \param tempid Òª·Å»ØµÄÁÙÊ±ID
+		 * \brief æ”¾å›ä¸€ä¸ªä¸´æ—¶ID
+		 * \param tempid è¦æ”¾å›çš„ä¸´æ—¶ID
 		 */
 		virtual void putUniqeID(const DWORD &tempid) =0;
 };
 
 /**
- * \brief EntryÒÔIDÎªkeyÖµµÄÖ¸ÕëÈİÆ÷£¬ĞèÒª¼Ì³ĞÊ¹ÓÃ
+ * \brief Entryä»¥IDä¸ºkeyå€¼çš„æŒ‡é’ˆå®¹å™¨ï¼Œéœ€è¦ç»§æ‰¿ä½¿ç”¨
  */
 class zEntryID:public LimitHash<DWORD,zEntry *>
 {
 	protected:
 		/**
-		 * \brief ½«Entry¼ÓÈëÈİÆ÷ÖĞ
-		 * \param e Òª¼ÓÈëµÄEntry
-		 * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief å°†EntryåŠ å…¥å®¹å™¨ä¸­
+		 * \param e è¦åŠ å…¥çš„Entry
+		 * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		inline bool push(zEntry * &e)
 		{
@@ -319,8 +319,8 @@ class zEntryID:public LimitHash<DWORD,zEntry *>
 		}
 
 		/**
-		 * \brief ÒÆ³ıEntry
-		 * \param e ÒªÒÆ³ıµÄEntry
+		 * \brief ç§»é™¤Entry
+		 * \param e è¦ç§»é™¤çš„Entry
 		 */
 		inline void remove(zEntry * e)
 		{
@@ -331,9 +331,9 @@ class zEntryID:public LimitHash<DWORD,zEntry *>
 		}
 
 		/**
-		 * \brief Í¨¹ıIDµÃµ½Entry
-		 * \param id ÒªµÃµ½EntryµÄID
-		 * \return ·µ»ØEntryÖ¸Õë,Î´ÕÒµ½·µ»ØNULL
+		 * \brief é€šè¿‡IDå¾—åˆ°Entry
+		 * \param id è¦å¾—åˆ°Entryçš„ID
+		 * \return è¿”å›EntryæŒ‡é’ˆ,æœªæ‰¾åˆ°è¿”å›NULL
 		 */
 		inline zEntry * getEntryByID(const DWORD id) const
 		{
@@ -344,15 +344,15 @@ class zEntryID:public LimitHash<DWORD,zEntry *>
 };
 
 /**
- * \brief EntryÒÔÃû×ÖÎªkeyÖµµÄÖ¸ÕëÈİÆ÷£¬ĞèÒª¼Ì³ĞÊ¹ÓÃ
+ * \brief Entryä»¥åå­—ä¸ºkeyå€¼çš„æŒ‡é’ˆå®¹å™¨ï¼Œéœ€è¦ç»§æ‰¿ä½¿ç”¨
  */
 class zEntryName:public LimitHash<const char *,zEntry *>
 {
 	protected:
 		/**
-		 * \brief ½«Entry¼ÓÈëÈİÆ÷ÖĞ,Èç¹ûÈİÆ÷ÖĞÓĞÏàÍ¬keyÖµµÄÌí¼ÓÊ§°Ü
-		 * \param e Òª¼ÓÈëµÄEntry
-		 * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief å°†EntryåŠ å…¥å®¹å™¨ä¸­,å¦‚æœå®¹å™¨ä¸­æœ‰ç›¸åŒkeyå€¼çš„æ·»åŠ å¤±è´¥
+		 * \param e è¦åŠ å…¥çš„Entry
+		 * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		inline bool push(zEntry * &e)
 		{
@@ -364,8 +364,8 @@ class zEntryName:public LimitHash<const char *,zEntry *>
 		}
 
 		/**
-		 * \brief ÒÆ³ıEntry
-		 * \param e ÒªÒÆ³ıµÄEntry
+		 * \brief ç§»é™¤Entry
+		 * \param e è¦ç§»é™¤çš„Entry
 		 */
 		inline void remove(zEntry * e)
 		{
@@ -376,9 +376,9 @@ class zEntryName:public LimitHash<const char *,zEntry *>
 		}
 		
 		/**
-		 * \brief Í¨¹ıÃû×ÖµÃµ½Entry
-		 * \param name ÒªµÃµ½EntryµÄÃû×Ö
-		 * \return ·µ»ØEntryÖ¸Õë,Î´ÕÒµ½·µ»ØNULL
+		 * \brief é€šè¿‡åå­—å¾—åˆ°Entry
+		 * \param name è¦å¾—åˆ°Entryçš„åå­—
+		 * \return è¿”å›EntryæŒ‡é’ˆ,æœªæ‰¾åˆ°è¿”å›NULL
 		 */
 		inline zEntry * getEntryByName( const char * name) const
 		{
@@ -388,9 +388,9 @@ class zEntryName:public LimitHash<const char *,zEntry *>
 		}
 
 		/**
-		 * \brief Í¨¹ıÃû×ÖµÃµ½Entry
-		 * \param name ÒªµÃµ½EntryµÄÃû×Ö
-		 * \return ·µ»ØEntryÖ¸Õë,Î´ÕÒµ½·µ»ØNULL
+		 * \brief é€šè¿‡åå­—å¾—åˆ°Entry
+		 * \param name è¦å¾—åˆ°Entryçš„åå­—
+		 * \return è¿”å›EntryæŒ‡é’ˆ,æœªæ‰¾åˆ°è¿”å›NULL
 		 */
 		inline zEntry * getEntryByName(const std::string  &name) const
 		{
@@ -399,15 +399,15 @@ class zEntryName:public LimitHash<const char *,zEntry *>
 };
 
 /**
- * \brief EntryÒÔÃû×ÖÎªkeyÖµµÄÖ¸ÕëÈİÆ÷£¬ĞèÒª¼Ì³ĞÊ¹ÓÃ
+ * \brief Entryä»¥åå­—ä¸ºkeyå€¼çš„æŒ‡é’ˆå®¹å™¨ï¼Œéœ€è¦ç»§æ‰¿ä½¿ç”¨
  */
 class zMultiEntryName:public MultiHash<const char *,zEntry *>
 {
 	protected:
 		/**
-		 * \brief ½«Entry¼ÓÈëÈİÆ÷ÖĞ,Èç¹ûÈİÆ÷ÖĞÓĞÏàÍ¬keyÖµµÄÌí¼ÓÊ§°Ü
-		 * \param e Òª¼ÓÈëµÄEntry
-		 * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief å°†EntryåŠ å…¥å®¹å™¨ä¸­,å¦‚æœå®¹å™¨ä¸­æœ‰ç›¸åŒkeyå€¼çš„æ·»åŠ å¤±è´¥
+		 * \param e è¦åŠ å…¥çš„Entry
+		 * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		inline bool push(zEntry * &e)
 		{
@@ -415,8 +415,8 @@ class zMultiEntryName:public MultiHash<const char *,zEntry *>
 		}
 
 		/**
-		 * \brief ½«Entry´ÓÈİÆ÷ÖĞÒÆ³ı
-		 * \param e ĞèÒªÒÆ³ıµÄEntry
+		 * \brief å°†Entryä»å®¹å™¨ä¸­ç§»é™¤
+		 * \param e éœ€è¦ç§»é™¤çš„Entry
 		 */
 		inline void remove(zEntry * &e)
 		{
@@ -432,11 +432,11 @@ class zMultiEntryName:public MultiHash<const char *,zEntry *>
 		}
 
 		/**
-		 * \brief ¸ù¾İkeyÖµ²éÕÒ²¢µÃµ½Êı¾İ
-		 * \param name ÒªÑ°ÕÒµÄnameÖµ
-		 * \param e ·µ»Ø½á¹û½«·ÅÈë´Ë´¦,Î´ÕÒµ½½«²»»á¸Ä±ä´ËÖµ
-		 * \param r Èç¹ûÓĞ¶àÏîÆ¥Åä£¬ÊÇ·ñËæ»úÑ¡Ôñ
-		 * \return ²éÕÒµ½·µ»Øtrue£¬Î´ÕÒµ½·µ»Øfalse
+		 * \brief æ ¹æ®keyå€¼æŸ¥æ‰¾å¹¶å¾—åˆ°æ•°æ®
+		 * \param name è¦å¯»æ‰¾çš„nameå€¼
+		 * \param e è¿”å›ç»“æœå°†æ”¾å…¥æ­¤å¤„,æœªæ‰¾åˆ°å°†ä¸ä¼šæ”¹å˜æ­¤å€¼
+		 * \param r å¦‚æœæœ‰å¤šé¡¹åŒ¹é…ï¼Œæ˜¯å¦éšæœºé€‰æ‹©
+		 * \return æŸ¥æ‰¾åˆ°è¿”å›trueï¼Œæœªæ‰¾åˆ°è¿”å›false
 		 */
 		inline bool find(const char * &name,zEntry * &e,const bool r=false) const
 		{
@@ -471,7 +471,7 @@ class zEntryNone
 };
 
 /**
- * \brief Entry´¦Àí½Ó¿Ú,ÓÉ<code>zEntryManager::execEveryEntry</code>Ê¹ÓÃ
+ * \brief Entryå¤„ç†æ¥å£,ç”±<code>zEntryManager::execEveryEntry</code>ä½¿ç”¨
  */
 template <class YourEntry>
 struct execEntry
@@ -481,28 +481,28 @@ struct execEntry
 };
 
 /**
- * \brief EntryÉ¾³ıÌõ¼ş½Ó¿Ú,ÓÉ<code>zEntryManager::removeEntry_if</code>Ê¹ÓÃ
+ * \brief Entryåˆ é™¤æ¡ä»¶æ¥å£,ç”±<code>zEntryManager::removeEntry_if</code>ä½¿ç”¨
  */
 template <class YourEntry>
 struct removeEntry_Pred
 {
 	/**
-	 * \brief ±»É¾³ıµÄentry´æ´¢ÔÚÕâÀï
+	 * \brief è¢«åˆ é™¤çš„entryå­˜å‚¨åœ¨è¿™é‡Œ
 	 */
 	std::vector<YourEntry *> removed;
 	/**
-	 * \brief ²âÊÔÊÇ·ñÒªÉ¾³ıµÄentry,ĞèÒªÊµÏÖ
-	 * \param Òª±»²âÊÔµÄentry
+	 * \brief æµ‹è¯•æ˜¯å¦è¦åˆ é™¤çš„entry,éœ€è¦å®ç°
+	 * \param è¦è¢«æµ‹è¯•çš„entry
 	 */
 	virtual bool isIt(YourEntry *entry) =0;
 	/**
-	 * \brief Îö¹¹º¯Êı
+	 * \brief ææ„å‡½æ•°
 	 */
 	virtual ~removeEntry_Pred(){}
 };
 
 /**
- * \brief Entry¹ÜÀíÆ÷½Ó¿Ú,ÓÃ»§Ó¦¸Ã¸ù¾İ²»Í¬Ê¹ÓÃÇé¿ö¼Ì³ĞËü
+ * \brief Entryç®¡ç†å™¨æ¥å£,ç”¨æˆ·åº”è¯¥æ ¹æ®ä¸åŒä½¿ç”¨æƒ…å†µç»§æ‰¿å®ƒ
  */
 
 template<typename e1,typename e2=zEntryNone<1>, typename e3=zEntryNone<2> >
@@ -511,9 +511,9 @@ class zEntryManager:protected e1,protected e2,protected e3
 	protected:
 
 		/**
-		 * \brief Ìí¼ÓEntry,¶ÔÓÚÖØ¸´Ë÷ÒıµÄEntryÌí¼ÓÊ§°Ü
-		 * \param e ±»Ìí¼ÓµÄ EntryÖ¸Õë
-		 * \return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+		 * \brief æ·»åŠ Entry,å¯¹äºé‡å¤ç´¢å¼•çš„Entryæ·»åŠ å¤±è´¥
+		 * \param e è¢«æ·»åŠ çš„ EntryæŒ‡é’ˆ
+		 * \return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false 
 		 */
 		inline bool addEntry(zEntry * e)
 		{
@@ -536,8 +536,8 @@ class zEntryManager:protected e1,protected e2,protected e3
 		}
 
 		/**
-		 * \brief É¾³ıEntry
-		 * \param e ±»É¾³ıµÄEntryÖ¸Õë
+		 * \brief åˆ é™¤Entry
+		 * \param e è¢«åˆ é™¤çš„EntryæŒ‡é’ˆ
 		 */
 		inline void removeEntry(zEntry * e)
 		{
@@ -547,13 +547,13 @@ class zEntryManager:protected e1,protected e2,protected e3
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 */
 		~zEntryManager() { };
 
 		/**
-		 * \brief Í³¼Æ¹ÜÀíÆ÷ÖĞEntryµÄ¸öÊı
-		 * \return ·µ»ØEntry¸öÊı
+		 * \brief ç»Ÿè®¡ç®¡ç†å™¨ä¸­Entryçš„ä¸ªæ•°
+		 * \return è¿”å›Entryä¸ªæ•°
 		 */
 		inline int size() const
 		{
@@ -561,7 +561,7 @@ class zEntryManager:protected e1,protected e2,protected e3
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÈİÆ÷ÊÇ·ñÎª¿Õ
+		 * \brief åˆ¤æ–­å®¹å™¨æ˜¯å¦ä¸ºç©º
 		 */
 		inline bool empty() const
 		{
@@ -569,7 +569,7 @@ class zEntryManager:protected e1,protected e2,protected e3
 		}
 
 		/**
-		 * \brief Çå³ıËùÓĞEntry
+		 * \brief æ¸…é™¤æ‰€æœ‰Entry
 		 */
 		inline void clear()
 		{
@@ -579,10 +579,10 @@ class zEntryManager:protected e1,protected e2,protected e3
 		}
 
 		/**
-		 * \brief ¶ÔÃ¿¸öEntry½øĞĞ´¦Àí
-		 * µ±´¦ÀíÄ³¸öEntry·µ»ØfalseÊ±Á¢¼´´ò¶Ï´¦Àí·µ»Ø
-		 * \param eee ´¦Àí½Ó¿Ú
-		 * \return Èç¹ûÈ«²¿Ö´ĞĞÍê±Ï·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief å¯¹æ¯ä¸ªEntryè¿›è¡Œå¤„ç†
+		 * å½“å¤„ç†æŸä¸ªEntryè¿”å›falseæ—¶ç«‹å³æ‰“æ–­å¤„ç†è¿”å›
+		 * \param eee å¤„ç†æ¥å£
+		 * \return å¦‚æœå…¨éƒ¨æ‰§è¡Œå®Œæ¯•è¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		template <class YourEntry>
 		inline bool execEveryEntry(execEntry<YourEntry> &eee)
@@ -597,8 +597,8 @@ class zEntryManager:protected e1,protected e2,protected e3
 		}
 
 		/**
-		 * \brief É¾³ıÂú×ãÌõ¼şµÄEntry
-		 * \param pred ²âÊÔÌõ¼ş½Ó¿Ú
+		 * \brief åˆ é™¤æ»¡è¶³æ¡ä»¶çš„Entry
+		 * \param pred æµ‹è¯•æ¡ä»¶æ¥å£
 		 */
 		template <class YourEntry>
 		inline void removeEntry_if(removeEntry_Pred<YourEntry> &pred)

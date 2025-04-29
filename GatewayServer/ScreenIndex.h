@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ScreenIndex.h $
  * \author  
  * \date 
- * \brief ÆÁË÷Òı
+ * \brief å±ç´¢å¼•
  *
  * 
  */
@@ -19,29 +19,29 @@
 
 
 /**
- * \brief Íø¹ØÆÁË÷Òı
+ * \brief ç½‘å…³å±ç´¢å¼•
  *
  */
 class ScreenIndex :private zNoncopyable
 {
 	private:
-		//¶ÁĞ´Ëø
+		//è¯»å†™é”
 		zRWLock wrlock;
 
 		typedef std::set<GateUser *, std::less<GateUser *>, __gnu_cxx::__pool_alloc<GateUser *> > SceneEntry_SET;
 		typedef __gnu_cxx::hash_map<DWORD, SceneEntry_SET> PosIMapIndex;
 		/**
-		 * \brief mapË÷ÒıÈİÆ÷
+		 * \brief mapç´¢å¼•å®¹å™¨
 		 */
 		PosIMapIndex index;
 		SceneEntry_SET all;
 
-		///ºáÏò¶àÉÙÆÁÄ»
+		///æ¨ªå‘å¤šå°‘å±å¹•
 		const DWORD screenx;
-		///×İÏò¶àÉÙÆÁÄ»
+		///çºµå‘å¤šå°‘å±å¹•
 		const DWORD screeny;
 		const DWORD screenMax;
-		//ÔÚ¼ÓÔØµÄÊ±ºò¼ÆËã¾ÅÆÁ¹ØÏµ²¢±£´æ
+		//åœ¨åŠ è½½çš„æ—¶å€™è®¡ç®—ä¹å±å…³ç³»å¹¶ä¿å­˜
 		typedef __gnu_cxx::hash_map<DWORD, zPosIVector> NineScreen_map;
 		typedef NineScreen_map::iterator NineScreen_map_iter;
 		typedef NineScreen_map::value_type NineScreen_map_value_type;
@@ -53,7 +53,7 @@ class ScreenIndex :private zNoncopyable
 		inline const zPosIVector &getReverseDirectScreen(const zPosI &posi, const int direct);
 	public:
 		/**
-		 ** \brief ¹¹Ôìº¯Êı
+		 ** \brief æ„é€ å‡½æ•°
 		 **/
 		ScreenIndex(const DWORD x , const DWORD y);
 		template <class YourNpcEntry>
@@ -67,7 +67,7 @@ class ScreenIndex :private zNoncopyable
 		void removeGateUser(GateUser *e);
 };
 /**
- * \brief Íø¹ØµØÍ¼Ë÷Òı
+ * \brief ç½‘å…³åœ°å›¾ç´¢å¼•
  *
  */
 typedef std::map<DWORD , ScreenIndex*> MapIndex;

@@ -1,4 +1,4 @@
-#include "myidea.h"
+﻿#include "myidea.h"
 
 void idea_set_encrypt_key(const unsigned char *key, IDEA_KEY_SCHEDULE *ks)
 {

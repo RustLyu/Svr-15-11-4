@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RecordTask.h w $
  * \author  
  * \date 
- * \brief ¶¨Òå¶ÁµµÁ¬½ÓÈÎÎñ
+ * \brief å®šä¹‰è¯»æ¡£è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -18,7 +18,7 @@
 #include "zDBConnPool.h"
 
 /**
- * \brief ¶¨Òå¶ÁµµÁ¬½ÓÈÎÎñÀà
+ * \brief å®šä¹‰è¯»æ¡£è¿æ¥ä»»åŠ¡ç±»
  *
  */
 class RecordTask : public zTCPTask
@@ -27,11 +27,11 @@ class RecordTask : public zTCPTask
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * ÒòÎªµµ°¸Êı¾İÒÑ¾­Ñ¹Ëõ¹ı£¬ÔÚÍ¨¹ıµ×²ã´«ËÍµÄÊ±ºò¾Í²»ĞèÒªÑ¹ËõÁË
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
+		 * \brief æ„é€ å‡½æ•°
+		 * å› ä¸ºæ¡£æ¡ˆæ•°æ®å·²ç»å‹ç¼©è¿‡ï¼Œåœ¨é€šè¿‡åº•å±‚ä¼ é€çš„æ—¶å€™å°±ä¸éœ€è¦å‹ç¼©äº†
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
 		 */
 		RecordTask(
 				zTCPTaskPool *pool,
@@ -43,7 +43,7 @@ class RecordTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		virtual ~RecordTask() {};
@@ -53,9 +53,9 @@ class RecordTask : public zTCPTask
 		bool msgParse(const Cmd::t_NullCmd *, const unsigned int);
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷±àºÅ
+		 * \brief è·å–æœåŠ¡å™¨ç¼–å·
 		 *
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getID() const
 		{
@@ -63,9 +63,9 @@ class RecordTask : public zTCPTask
 		}
 
 		/**
-		 * \brief »ñÈ¡·şÎñÆ÷ÀàĞÍ
+		 * \brief è·å–æœåŠ¡å™¨ç±»å‹
 		 *
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getType() const
 		{
@@ -74,8 +74,8 @@ class RecordTask : public zTCPTask
 
 	private:
 
-		WORD wdServerID;					/**< ·şÎñÆ÷±àºÅ£¬Ò»¸öÇøÎ¨Ò»µÄ */
-		WORD wdServerType;					/**< ·şÎñÆ÷ÀàĞÍ */
+		WORD wdServerID;					/**< æœåŠ¡å™¨ç¼–å·ï¼Œä¸€ä¸ªåŒºå”¯ä¸€çš„ */
+		WORD wdServerType;					/**< æœåŠ¡å™¨ç±»å‹ */
 
 		bool verifyLogin(const Cmd::Record::t_LoginRecord *ptCmd);
 		bool msgParse_Gateway(const Cmd::t_NullCmd *, const unsigned int);

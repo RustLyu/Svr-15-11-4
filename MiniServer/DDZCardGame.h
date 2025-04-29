@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "MiniGame.h"
 #include <map>
 #include <vector>
@@ -16,36 +16,36 @@ class DDZCardGame : public MiniGame
 	private:
 		enum DDZ_State
 		{
-			DDZS_POINT,//½Ğ·Ö
-			DDZS_PLAY//¿ªÊ¼
+			DDZS_POINT,//å«åˆ†
+			DDZS_PLAY//å¼€å§‹
 		}ddz_state;
 
 		std::vector<Cmd::Card> allCardList;
 		std::vector<CardList> userCardList;
 
-		BYTE packNum;//¼¸¸±ÅÆ
-		BYTE point;//·ÖÊı
-		BYTE pointTime;//±¶ÂÊ
-		BYTE rCardNum;//±£Áô¼¸ÕÅµ×ÅÆ
-		BYTE lordSeat;//µØÖ÷µÄÎ»ÖÃ
+		BYTE packNum;//å‡ å‰¯ç‰Œ
+		BYTE point;//åˆ†æ•°
+		BYTE pointTime;//å€ç‡
+		BYTE rCardNum;//ä¿ç•™å‡ å¼ åº•ç‰Œ
+		BYTE lordSeat;//åœ°ä¸»çš„ä½ç½®
 
-		BYTE lordPutTime;//µØÖ÷³ö¹ı¼¸´ÎÅÆ
-		BYTE otherPutTime;//ÆäËûÈË³ö¹ı¼¸´ÎÅÆ
+		BYTE lordPutTime;//åœ°ä¸»å‡ºè¿‡å‡ æ¬¡ç‰Œ
+		BYTE otherPutTime;//å…¶ä»–äººå‡ºè¿‡å‡ æ¬¡ç‰Œ
 
-		BYTE curPutSeat;//µ±Ç°³öÅÆµÄÈË
-		BYTE lastPutSeat;//×îºóÒ»¸ö³öÅÆµÄÈË
-		CardPattern lastPattern;//×îºó³öµÄÅÆ
+		BYTE curPutSeat;//å½“å‰å‡ºç‰Œçš„äºº
+		BYTE lastPutSeat;//æœ€åä¸€ä¸ªå‡ºç‰Œçš„äºº
+		CardPattern lastPattern;//æœ€åå‡ºçš„ç‰Œ
 
-		BYTE curPointSeat;//µ±Ç°½ĞÅÆµÄÈË
-		BYTE lastPointSeat;//ÉÏÒ»¾ÖÏÈ½ĞÅÆµÄÈË
+		BYTE curPointSeat;//å½“å‰å«ç‰Œçš„äºº
+		BYTE lastPointSeat;//ä¸Šä¸€å±€å…ˆå«ç‰Œçš„äºº
 
-		DWORD countdown;//¼ÆÊ±
+		DWORD countdown;//è®¡æ—¶
 
 		void clean();
 		void shuffle();
 		void deal();
 		void initCards();
-		void showReserveCards();//ÏÔÊ¾µ×ÅÆ
+		void showReserveCards();//æ˜¾ç¤ºåº•ç‰Œ
 		BYTE nextPointSeat();
 		void nextPutUser(BYTE seat=0);
 		void judge(BYTE seat);
@@ -53,8 +53,8 @@ class DDZCardGame : public MiniGame
 		void auto_put();
 		void auto_point();
 
-		void calcNormalScore(BYTE seat);//¼ÆËãµÃ·Ö
-		void calcFleeScore(BYTE seat);//Íæ¼ÒÌÓÅÜ¼Æ·Ö
+		void calcNormalScore(BYTE seat);//è®¡ç®—å¾—åˆ†
+		void calcFleeScore(BYTE seat);//ç©å®¶é€ƒè·‘è®¡åˆ†
 
 		bool canPut(BYTE seat, const Cmd::stPutCardMiniGameCmd *cmd, DWORD len);
 		//int compare(const std::list<Cmd::Card> &list1, const std::list<Cmd::Card> &list2);

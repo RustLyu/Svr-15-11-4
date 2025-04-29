@@ -1,4 +1,4 @@
-#include "Scene.h"
+ï»¿#include "Scene.h"
 #include "SceneUser.h"
 #include "SceneUserManager.h"
 #include "Chat.h"
@@ -15,19 +15,19 @@ bool SceneUser::doMiniGameCmd(const Cmd::stMiniGameUserCmd *cmd,unsigned int cmd
 
 				if (miniGame)
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "ÇëÏÈ½áÊøÄãÏÖÔÚ½øÐÐµÄÓÎÏ·");
+					Channel::sendSys(this, INFO_TYPE_FAIL, "è¯·å…ˆç»“æŸä½ çŽ°åœ¨è¿›è¡Œçš„æ¸¸æˆ");
 					return true;
 				}
 
 				if (!packs.checkMoney(rev->money))
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "ÄãÃ»ÓÐÄÇÃ´¶àÇ®");
+					Channel::sendSys(this, INFO_TYPE_FAIL, "ä½ æ²¡æœ‰é‚£ä¹ˆå¤šé’±");
 					return true;
 				}
 
 				if (rev->money<100 || rev->money>10000)
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "Ñº½ð±ØÐëÔÚ1Á½µ½1¶§Ö®¼ä");
+					Channel::sendSys(this, INFO_TYPE_FAIL, "æŠ¼é‡‘å¿…é¡»åœ¨1ä¸¤åˆ°1é”­ä¹‹é—´");
 					return true;
 				}
 
@@ -35,19 +35,19 @@ bool SceneUser::doMiniGameCmd(const Cmd::stMiniGameUserCmd *cmd,unsigned int cmd
 
 				if (!pUser || !scene->checkTwoPosIInNine(getPosI(), pUser->getPosI()))
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "¶Ô·½²»ÔÚ¸½½ü£¬²»ÄÜºÍÄãÒ»ÆðÍæ");
+					Channel::sendSys(this, INFO_TYPE_FAIL, "å¯¹æ–¹ä¸åœ¨é™„è¿‘ï¼Œä¸èƒ½å’Œä½ ä¸€èµ·çŽ©");
 					return true;
 				}
 
 				if(!isset_state(pUser->sysSetting , Cmd::USER_SETTING_MINIGAME))
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "%s ²»ºÍÈÎºÎÈËÍæÐ¡ÓÎÏ·", pUser->name);
+					Channel::sendSys(this, INFO_TYPE_FAIL, "%s ä¸å’Œä»»ä½•äººçŽ©å°æ¸¸æˆ", pUser->name);
 					return true;
 				}
 
 				if (pUser->miniGame)
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "%s ÒÑ¾­ºÍ±ðÈËÍæ¿ªÁË", pUser->name);
+					Channel::sendSys(this, INFO_TYPE_FAIL, "%s å·²ç»å’Œåˆ«äººçŽ©å¼€äº†", pUser->name);
 					return true;
 				}
 
@@ -62,36 +62,36 @@ bool SceneUser::doMiniGameCmd(const Cmd::stMiniGameUserCmd *cmd,unsigned int cmd
 				SceneUser * pUser = SceneUserManager::getMe().getUserByTempID(rev->tempid);
 				if (!pUser || !scene->checkTwoPosIInNine(getPosI(), pUser->getPosI()))
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "¶Ô·½ÒÑ¾­×ßÔ¶ÁË£¬²»ÄÜºÍÄãÒ»ÆðÍæ");
+					Channel::sendSys(this, INFO_TYPE_FAIL, "å¯¹æ–¹å·²ç»èµ°è¿œäº†ï¼Œä¸èƒ½å’Œä½ ä¸€èµ·çŽ©");
 					return true;
 				}
 
-				if (0==rev->ret)//²»Í¬ÒâÍæ
+				if (0==rev->ret)//ä¸åŒæ„çŽ©
 				{
-					Channel::sendSys(pUser, INFO_TYPE_FAIL, "%s ²»Í¬ÒâºÍÄãÍæÓÎÏ·", name);
+					Channel::sendSys(pUser, INFO_TYPE_FAIL, "%s ä¸åŒæ„å’Œä½ çŽ©æ¸¸æˆ", name);
 					return true;
 				}
 
 				if (!packs.checkMoney(rev->money))
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "ÄãÃ»ÓÐÄÇÃ´¶àÇ®");
-					Channel::sendSys(pUser, INFO_TYPE_FAIL, "%s Ã»ÓÐÄÇÃ´¶àÇ®", name);
+					Channel::sendSys(this, INFO_TYPE_FAIL, "ä½ æ²¡æœ‰é‚£ä¹ˆå¤šé’±");
+					Channel::sendSys(pUser, INFO_TYPE_FAIL, "%s æ²¡æœ‰é‚£ä¹ˆå¤šé’±", name);
 					return true;
 				}
 
 				if (miniGame)
 				{
-					Channel::sendSys(pUser, INFO_TYPE_FAIL, "%s ÒÑ¾­ºÍ±ðÈËÍæ¿ªÁË", name);
+					Channel::sendSys(pUser, INFO_TYPE_FAIL, "%s å·²ç»å’Œåˆ«äººçŽ©å¼€äº†", name);
 					return true;
 				}
 
 				if (pUser->miniGame)
 				{
-					Channel::sendSys(this, INFO_TYPE_FAIL, "%s ÒÑ¾­ºÍ±ðÈËÍæ¿ªÁË", pUser->name);
+					Channel::sendSys(this, INFO_TYPE_FAIL, "%s å·²ç»å’Œåˆ«äººçŽ©å¼€äº†", pUser->name);
 					return true;
 				}
 
-				//´´½¨ÓÎÏ·
+				//åˆ›å»ºæ¸¸æˆ
 				miniGame = pUser->miniGame = new Dice(this, pUser, rev->money);
 				if (!miniGame) return false;
 

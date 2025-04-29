@@ -1,4 +1,4 @@
-#ifndef _MAILSERVICE_H_
+﻿#ifndef _MAILSERVICE_H_
 #define _MAILSERVICE_H_
 #include "zType.h"
 #include "zMisc.h"

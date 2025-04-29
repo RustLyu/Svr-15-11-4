@@ -1,9 +1,9 @@
-#include "WayPoint.h"
+ï»¿#include "WayPoint.h"
 #include "zMisc.h"
 #include "Zebra.h"
 
 /**
- * \brief ¹¹Ôìº¯Êı£¬Çå¿Õ×Ô¼º
+ * \brief æ„é€ å‡½æ•°ï¼Œæ¸…ç©ºè‡ªå·±
  */
 WayPoint::WayPoint()
 {
@@ -11,11 +11,11 @@ WayPoint::WayPoint()
 }
 
 /**
- * \brief ³õÊ¼»¯¼ÓÔØxmlÌø×ªµãÅäÖÃÎÄ¼ş
- * \param parser ·ÖÎöÆ÷
- * \param node xml½Úµã
- * \param countryid ¹ú¼Òid
- * \return true ¼ÓÔØ³É¹¦ false ¼ÓÔØÊ§°Ü
+ * \brief åˆå§‹åŒ–åŠ è½½xmlè·³è½¬ç‚¹é…ç½®æ–‡ä»¶
+ * \param parser åˆ†æå™¨
+ * \param node xmlèŠ‚ç‚¹
+ * \param countryid å›½å®¶id
+ * \return true åŠ è½½æˆåŠŸ false åŠ è½½å¤±è´¥
  */
 bool WayPoint::init(zXMLParser *parser,const xmlNodePtr node , DWORD countryid)
 {
@@ -48,7 +48,7 @@ bool WayPoint::init(zXMLParser *parser,const xmlNodePtr node , DWORD countryid)
 				bzero(temp , sizeof(temp));
 				DWORD country=0;
 
-				/// ÎªÁËÖ§³Ö¹«¹²¹ú¼ÒµÄ¸ÅÄî^_^
+				/// ä¸ºäº†æ”¯æŒå…¬å…±å›½å®¶çš„æ¦‚å¿µ^_^
 				parser->getNodePropNum(cnode,"country",&country,sizeof(country));
 				if(country)
 				{
@@ -72,7 +72,7 @@ bool WayPoint::init(zXMLParser *parser,const xmlNodePtr node , DWORD countryid)
 		else
 		{
 			//return false;
-			Zebra::logger->warn("xmlÌø×ªµãÅäÖÃÓĞ´íÎóÊı¾İ");
+			Zebra::logger->warn("xmlè·³è½¬ç‚¹é…ç½®æœ‰é”™è¯¯æ•°æ®");
 			cnode=parser->getNextNode(cnode,NULL);
 		}
 	}
@@ -80,8 +80,8 @@ bool WayPoint::init(zXMLParser *parser,const xmlNodePtr node , DWORD countryid)
 }
 
 /**
- * \brief Ëæ±ãÕÒÒ»¸öÌø×ªµã
- * \return Ìø×ªµã
+ * \brief éšä¾¿æ‰¾ä¸€ä¸ªè·³è½¬ç‚¹
+ * \return è·³è½¬ç‚¹
  */
 const zPos *WayPoint::getRandPoint() const
 {
@@ -89,8 +89,8 @@ const zPos *WayPoint::getRandPoint() const
 }
 
 /**
- * \brief »ñµÃÒ»¸öËæ»úµÄÄ¿µÄµã
- * \return Ä¿µÄµã
+ * \brief è·å¾—ä¸€ä¸ªéšæœºçš„ç›®çš„ç‚¹
+ * \return ç›®çš„ç‚¹
  */
 const Point *WayPoint::getRandDest() const
 {
@@ -98,8 +98,8 @@ const Point *WayPoint::getRandDest() const
 }
 
 /**
- * \brief Ôö¼ÓÒ»¸öÌø×ªµã
- * \param wp Ìø×ªµã
+ * \brief å¢åŠ ä¸€ä¸ªè·³è½¬ç‚¹
+ * \param wp è·³è½¬ç‚¹
  * \return true 
  */
 bool WayPointM::addWayPoint(const WayPoint &wp)
@@ -109,8 +109,8 @@ bool WayPointM::addWayPoint(const WayPoint &wp)
 }
 
 /**
- * \brief Ëæ»ú»ñµÃÌø×ªµã
- * \return Èç¹ûÃ»ÓĞÌø×ªµãÔò·µ»ØNULL, ·ñÔò·µ»ØÌø×ªµã¡£
+ * \brief éšæœºè·å¾—è·³è½¬ç‚¹
+ * \return å¦‚æœæ²¡æœ‰è·³è½¬ç‚¹åˆ™è¿”å›NULL, å¦åˆ™è¿”å›è·³è½¬ç‚¹ã€‚
  */
 const WayPoint *WayPointM::getRandWayPoint() const
 {
@@ -121,9 +121,9 @@ const WayPoint *WayPointM::getRandWayPoint() const
 }
 
 /**
- * \brief ¸ù¾İÄ¿µÄµØÃû³Æ»ñÈ¡Ìø×ªµã
- * \param filename Ä¿µÄµØÃû³Æ
- * \return Ìø×ªµã¶ÔÏó
+ * \brief æ ¹æ®ç›®çš„åœ°åç§°è·å–è·³è½¬ç‚¹
+ * \param filename ç›®çš„åœ°åç§°
+ * \return è·³è½¬ç‚¹å¯¹è±¡
  */
 const WayPoint *WayPointM::getWayPoint(const char *filename) const
 {
@@ -139,9 +139,9 @@ const WayPoint *WayPointM::getWayPoint(const char *filename) const
 }
 
 /**
- * \brief »ñµÃÖ¸¶¨Î»ÖÃÉÏµÄÌø×ªµã¶ÔÏó
- * \param pos Î»ÖÃ
- * \return Ìø×ªµã¶ÔÏó
+ * \brief è·å¾—æŒ‡å®šä½ç½®ä¸Šçš„è·³è½¬ç‚¹å¯¹è±¡
+ * \param pos ä½ç½®
+ * \return è·³è½¬ç‚¹å¯¹è±¡
  */
 const WayPoint *WayPointM::getWayPoint(const zPos &pos) const
 {

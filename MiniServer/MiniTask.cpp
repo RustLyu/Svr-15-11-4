@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MiniTask.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ¶ÁµµÁ¬½ÓÀà
+ * \brief å®ç°è¯»æ¡£è¿æ¥ç±»
  *
  * 
  */
@@ -20,12 +20,12 @@
 
 
 /**
- * \brief ÑéÖ¤µÇÂ½µµ°¸·şÎñÆ÷µÄÁ¬½ÓÖ¸Áî
+ * \brief éªŒè¯ç™»é™†æ¡£æ¡ˆæœåŠ¡å™¨çš„è¿æ¥æŒ‡ä»¤
  *
- * Èç¹ûÑéÖ¤²»Í¨¹ıÖ±½Ó¶Ï¿ªÁ¬½Ó
+ * å¦‚æœéªŒè¯ä¸é€šè¿‡ç›´æ¥æ–­å¼€è¿æ¥
  *
- * \param ptCmd µÇÂ½Ö¸Áî
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \param ptCmd ç™»é™†æŒ‡ä»¤
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool MiniTask::verifyLogin(const Cmd::Mini::t_LoginMini *ptCmd)
 {
@@ -51,11 +51,11 @@ bool MiniTask::verifyLogin(const Cmd::Mini::t_LoginMini *ptCmd)
 }
 
 /**
- * \brief µÈ´ı½ÓÊÜÑéÖ¤Ö¸Áî²¢½øĞĞÑéÖ¤
+ * \brief ç­‰å¾…æ¥å—éªŒè¯æŒ‡ä»¤å¹¶è¿›è¡ŒéªŒè¯
  *
- * ÊµÏÖĞéº¯Êı<code>zTCPTask::verifyConn</code>
+ * å®ç°è™šå‡½æ•°<code>zTCPTask::verifyConn</code>
  *
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦£¬»òÕß³¬Ê±
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸï¼Œæˆ–è€…è¶…æ—¶
  */
 int MiniTask::verifyConn()
 {
@@ -65,20 +65,20 @@ int MiniTask::verifyConn()
 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		if (nCmdLen <= 0)
-			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 			return 0;
 		else
 		{
 			using namespace Cmd::Mini;
 			if (verifyLogin((t_LoginMini *)pstrCmd))
 			{
-				Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤");
+				Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯");
 				veriry_ok=true;
 				return 1;
 			}
 			else
 			{
-				Zebra::logger->error("¿Í»§¶ËÁ¬½ÓÑéÖ¤Ê§°Ü");
+				Zebra::logger->error("å®¢æˆ·ç«¯è¿æ¥éªŒè¯å¤±è´¥");
 				return -1;
 			}
 		}
@@ -102,12 +102,12 @@ bool MiniTask::checkRecycle()
 	return true;
 }
 /**
- * \brief È·ÈÏÒ»¸ö·şÎñÆ÷Á¬½ÓµÄ×´Ì¬ÊÇ¿ÉÒÔ»ØÊÕµÄ
+ * \brief ç¡®è®¤ä¸€ä¸ªæœåŠ¡å™¨è¿æ¥çš„çŠ¶æ€æ˜¯å¯ä»¥å›æ”¶çš„
  *
- * µ±Ò»¸öÁ¬½Ó×´Ì¬ÊÇ¿ÉÒÔ»ØÊÕµÄ×´Ì¬£¬ÄÇÃ´ÒâÎ¶×ÅÕâ¸öÁ¬½ÓµÄÕû¸öÉúÃüÖÜÆÚ½áÊø£¬¿ÉÒÔ´ÓÄÚ´æÖĞ°²È«µÄÉ¾³ıÁË£º£©<br>
- * ÊµÏÖÁËĞéº¯Êı<code>zTCPTask::recycleConn</code>
+ * å½“ä¸€ä¸ªè¿æ¥çŠ¶æ€æ˜¯å¯ä»¥å›æ”¶çš„çŠ¶æ€ï¼Œé‚£ä¹ˆæ„å‘³ç€è¿™ä¸ªè¿æ¥çš„æ•´ä¸ªç”Ÿå‘½å‘¨æœŸç»“æŸï¼Œå¯ä»¥ä»å†…å­˜ä¸­å®‰å…¨çš„åˆ é™¤äº†ï¼šï¼‰<br>
+ * å®ç°äº†è™šå‡½æ•°<code>zTCPTask::recycleConn</code>
  *
- * \return ÊÇ·ñ¿ÉÒÔ»ØÊÕ
+ * \return æ˜¯å¦å¯ä»¥å›æ”¶
  */
 int MiniTask::recycleConn()
 {
@@ -154,11 +154,11 @@ bool MiniTask::uniqueRemove()
 }
 
 /**
- * \brief ½âÎöÀ´×Ô¸÷¸ö·şÎñÆ÷Á¬½ÓµÄÖ¸Áî
+ * \brief è§£ææ¥è‡ªå„ä¸ªæœåŠ¡å™¨è¿æ¥çš„æŒ‡ä»¤
  *
- * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
- * \param nCmdLen Ö¸Áî³¤¶È
- * \return ´¦ÀíÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+ * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+ * \return å¤„ç†æ˜¯å¦æˆåŠŸ
  */
 bool MiniTask::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -209,7 +209,7 @@ bool MiniTask::parseGateMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 				MiniUser * user = MiniUserManager::getInstance()->newUser(rev);
 				if (!user)
 				{
-					Zebra::logger->error("ÓÃ»§µÇÂ¼Ê§°Ü£¡id=%u name=%s", rev->userID, rev->name);
+					Zebra::logger->error("ç”¨æˆ·ç™»å½•å¤±è´¥ï¼id=%u name=%s", rev->userID, rev->name);
 					return false;
 				}
 				MiniHall::getMe().userEnter(user);
@@ -236,7 +236,7 @@ bool MiniTask::parseGateMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 
 					if ((connHandleID)-1 == handle)
 					{   
-						Zebra::logger->error("newUser()²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+						Zebra::logger->error("newUser()ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 						return false;
 					}
 
@@ -247,7 +247,7 @@ bool MiniTask::parseGateMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 					where.put("charid", w);
 
 					if (MiniService::dbConnPool->exeDelete(handle, fs, &where))
-						Zebra::logger->trace("Íæ¼ÒÉ¾ºÅ£¬Çå³ıµÃ·Ö¼ÇÂ¼ id=%u", rev->userID);
+						Zebra::logger->trace("ç©å®¶åˆ å·ï¼Œæ¸…é™¤å¾—åˆ†è®°å½• id=%u", rev->userID);
 					MiniService::dbConnPool->putHandle(handle);
 				}
 			}
@@ -308,7 +308,7 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 				MiniUser *u = MiniUserManager::getMe().getUserByID(rev->userID);
 				if (!u) return true;
 
-				Zebra::logger->trace("%s(%u) ÇĞ»»³¡¾°·şÎñÆ÷ %u", u->name, u->id, rev->serverID);
+				Zebra::logger->trace("%s(%u) åˆ‡æ¢åœºæ™¯æœåŠ¡å™¨ %u", u->name, u->id, rev->serverID);
 				MiniTask *t = MiniTaskManager::getInstance().getTaskByID(rev->serverID);
 				if (!t)
 				{
@@ -327,7 +327,7 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 				{
 					if (addDBMoney(rev->userID, rev->num))
 					{
-						Zebra::logger->trace("Íæ¼Ò userID=%u Ö±½ÓĞ´Êı¾İ¿â³äÖµ money=%u ³É¹¦", rev->userID, rev->num);
+						Zebra::logger->trace("ç©å®¶ userID=%u ç›´æ¥å†™æ•°æ®åº“å……å€¼ money=%u æˆåŠŸ", rev->userID, rev->num);
 						return true;
 					}
 					else
@@ -336,8 +336,8 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 
 				u->addMoney(rev->num);
 				u->save();
-				u->sendMiniInfo(Cmd::MCT_POPUP, "¹ºÂò³É¹¦£¡");
-				Zebra::logger->trace("%s(%u) ³äÖµ %u£¬ÏÖÓĞ %u", u->name, u->id, rev->num, u->getMoney());
+				u->sendMiniInfo(Cmd::MCT_POPUP, "è´­ä¹°æˆåŠŸï¼");
+				Zebra::logger->trace("%s(%u) å……å€¼ %uï¼Œç°æœ‰ %u", u->name, u->id, rev->num, u->getMoney());
 			}
 			break;
 		case PARA_SCENE_CHECK_DRAW:
@@ -349,7 +349,7 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 				if (!u->checkMoney(rev->num))
 				{
 					stDrawRetCommonMiniGameCmd send;
-					send.ret = 2;//ÏÉµ¤²»×ã
+					send.ret = 2;//ä»™ä¸¹ä¸è¶³
 					u->sendCmdToMe(&send, sizeof(send));
 					return true;
 				}
@@ -364,7 +364,7 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 				u->removeMoney(rev->num);
 
 				if (u->save())
-					Zebra::logger->trace("%s(%u) ¶Ò»»ÒøÁ½ %u£¬ÏÖÓĞ %u", u->name, u->id, rev->num, u->getMoney());
+					Zebra::logger->trace("%s(%u) å…‘æ¢é“¶ä¸¤ %uï¼Œç°æœ‰ %u", u->name, u->id, rev->num, u->getMoney());
 			}
 			break;
 		case PARA_SCENE_DRAW_RET:
@@ -374,9 +374,9 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 				if (rev->ret==1)
 				{
 					stDrawRetCommonMiniGameCmd send;
-					send.ret = 1;//³É¹¦
+					send.ret = 1;//æˆåŠŸ
 					u->sendCmdToMe(&send, sizeof(send));
-					Zebra::logger->trace("¶Ò»»ÒøÁ½Íê³É userID=%u rev->num=%u", rev->userID, rev->num);
+					Zebra::logger->trace("å…‘æ¢é“¶ä¸¤å®Œæˆ userID=%u rev->num=%u", rev->userID, rev->num);
 					return true;
 				}
 				else
@@ -384,21 +384,21 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 					if (u)
 					{
 						u->addMoney(rev->num);
-						Zebra::logger->trace("%s(%u) ¶Ò»»ÏÉµ¤Ê§°Ü£¬²¹³¥³É¹¦ num=%u ÏÖÓĞ %u", u->name, u->id, rev->num, u->getMoney());
+						Zebra::logger->trace("%s(%u) å…‘æ¢ä»™ä¸¹å¤±è´¥ï¼Œè¡¥å¿æˆåŠŸ num=%u ç°æœ‰ %u", u->name, u->id, rev->num, u->getMoney());
 						return true;
 					}
 					else
 					{
 						if (addDBMoney(rev->userID, rev->num))
 						{
-							Zebra::logger->trace("¶Ò»»ÏÉµ¤Ê§°Ü£¬²¹³¥³É¹¦ userID=%u money=%u ret=%u", rev->userID, rev->num, rev->ret);
+							Zebra::logger->trace("å…‘æ¢ä»™ä¸¹å¤±è´¥ï¼Œè¡¥å¿æˆåŠŸ userID=%u money=%u ret=%u", rev->userID, rev->num, rev->ret);
 							return true;
 						}
 						else
 						{
-							Zebra::logger->error("¶Ò»»ÏÉµ¤Ê§°Ü£¬²¹³¥Ò²Ê§°Ü userID=%u money=%u ret=%u", rev->userID, rev->num, rev->ret);
+							Zebra::logger->error("å…‘æ¢ä»™ä¸¹å¤±è´¥ï¼Œè¡¥å¿ä¹Ÿå¤±è´¥ userID=%u money=%u ret=%u", rev->userID, rev->num, rev->ret);
 							stDrawRetCommonMiniGameCmd send;
-							send.ret = 0;//Ê§°Ü
+							send.ret = 0;//å¤±è´¥
 							u->sendCmdToMe(&send, sizeof(send));
 							return true;
 						}
@@ -414,11 +414,11 @@ bool MiniTask::parseSceneMsg(const Cmd::t_NullCmd * cmd, const unsigned int len)
 }
 
 /**
- * \brief ·¢ËÍÃüÁî¸ø³¡¾°ÓÃ»§
+ * \brief å‘é€å‘½ä»¤ç»™åœºæ™¯ç”¨æˆ·
  *
- * \param id ÓÃ»§id
- * \param pstrCmd ÃüÁîÖ¸Áî
- * \param nCmdLen ÃüÁî³¤¶È
+ * \param id ç”¨æˆ·id
+ * \param pstrCmd å‘½ä»¤æŒ‡ä»¤
+ * \param nCmdLen å‘½ä»¤é•¿åº¦
  */
 bool MiniTask::sendCmdToScene(DWORD id, const void *pstrCmd, const unsigned int nCmdLen)
 {
@@ -439,11 +439,11 @@ bool MiniTask::sendCmdToScene(DWORD id, const void *pstrCmd, const unsigned int 
 }
 
 /**
- * \brief ·¢ËÍÃüÁî¸øÓÃ»§
+ * \brief å‘é€å‘½ä»¤ç»™ç”¨æˆ·
  *
- * \param id ÓÃ»§id
- * \param pstrCmd ÃüÁîÖ¸Áî
- * \param nCmdLen ÃüÁî³¤¶È
+ * \param id ç”¨æˆ·id
+ * \param pstrCmd å‘½ä»¤æŒ‡ä»¤
+ * \param nCmdLen å‘½ä»¤é•¿åº¦
  */
 bool MiniTask::sendCmdToUser(DWORD id, const void *pstrCmd, const unsigned int nCmdLen)
 {
@@ -470,7 +470,7 @@ bool MiniTask::addDBMoney(DWORD userID, DWORD num)
 
 		if ((connHandleID)-1 == handle)
 		{   
-			Zebra::logger->error("addDBMoney()²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+			Zebra::logger->error("addDBMoney()ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 			return false;
 		}   
 
@@ -497,7 +497,7 @@ bool MiniTask::addDBMoney(DWORD userID, DWORD num)
 
 			if ((DWORD)-1==MiniService::dbConnPool->exeUpdate(handle, fs, &r, &where))
 			{
-				Zebra::logger->error("ÍùÊı¾İ¿âÔö¼Ó½ğÇ®Ê±Ğ´Êı¾İ¿âÊ§°Ü! userID=%u money=%u", userID, num);
+				Zebra::logger->error("å¾€æ•°æ®åº“å¢åŠ é‡‘é’±æ—¶å†™æ•°æ®åº“å¤±è´¥! userID=%u money=%u", userID, num);
 				return false;
 			}
 
@@ -506,7 +506,7 @@ bool MiniTask::addDBMoney(DWORD userID, DWORD num)
 			return true;
 		}
 		else
-			Zebra::logger->error("ÍùÊı¾İ¿âÔö¼Ó½ğÇ®Ê±Ã»ÕÒµ½¼ÇÂ¼ userID=%u money=%u", userID, num);
+			Zebra::logger->error("å¾€æ•°æ®åº“å¢åŠ é‡‘é’±æ—¶æ²¡æ‰¾åˆ°è®°å½• userID=%u money=%u", userID, num);
 
 		MiniService::dbConnPool->putHandle(handle);
 	}

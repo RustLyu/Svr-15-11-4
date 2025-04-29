@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: roleRegServer.h  $
  * \author  
  * \date
- * \brief ½ÇÉ«Î¨Ò»ĞÔÑéÖ¤·şÎñÆ÷
+ * \brief è§’è‰²å”¯ä¸€æ€§éªŒè¯æœåŠ¡å™¨
  */
 
 #ifndef _roleRegService_h_
@@ -23,7 +23,7 @@
 #include "RoleTask.h"
 
 /**
- *	\brief ¿Í»§¶Ë·ÃÎÊ·şÎñÆ÷Àà
+ *	\brief å®¢æˆ·ç«¯è®¿é—®æœåŠ¡å™¨ç±»
  */
 class roleRegService : public zNetService
 {
@@ -40,13 +40,13 @@ class roleRegService : public zNetService
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		~roleRegService()
 		{
 			instance = NULL;
 
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -55,9 +55,9 @@ class roleRegService : public zNetService
 		}
 		
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
-		 *	Ê¹ÓÃÁËsingletonÉè¼ÆÄ£Ê½,±£Ö¤ÁË½ø³ÌÖĞÖ»ÓĞÒ»¸öÊµÀı
-		 * \return ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
+		 *	ä½¿ç”¨äº†singletonè®¾è®¡æ¨¡å¼,ä¿è¯äº†è¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªå®ä¾‹
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static roleRegService &getInstance()
 		{
@@ -68,7 +68,7 @@ class roleRegService : public zNetService
 		}
 		
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static void delInstance()
 		{
@@ -78,21 +78,21 @@ class roleRegService : public zNetService
 		void reloadConfig();
 		
 		/**
-		 * \brief Ö¸ÏòÊı¾İ¿âÁ¬½Ó³ØµÄÊµÀıÖ¸Õë
+		 * \brief æŒ‡å‘æ•°æ®åº“è¿æ¥æ± çš„å®ä¾‹æŒ‡é’ˆ
 		 */
 		 static zDBConnPool *dbConnPool;
 		
 	private:
 		
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static roleRegService *instance;
 
-		zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		roleRegService() : zNetService("roleRegService")
 		{

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file	zEventHandler.h
  * \version  	$Id$
  * \author  	
  * \date 	
- * \brief 	¶¨ÒåFSMÊÂ¼ş´¦ÀíµÄ½Ó¿Ú
+ * \brief 	å®šä¹‰FSMäº‹ä»¶å¤„ç†çš„æ¥å£
  *
  * 
  */

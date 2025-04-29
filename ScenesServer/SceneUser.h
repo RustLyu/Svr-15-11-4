@@ -1,4 +1,4 @@
-#ifndef _SCENEUSER_H_
+ï»¿#ifndef _SCENEUSER_H_
 #define _SCENEUSER_H_
 
 #include "zObject.h"
@@ -32,8 +32,8 @@ class Dice;
 
 struct SeptGuard
 {
-	DWORD id; // Íæ¼ÒID
-	DWORD money; // Íæ¼Ò¿ÛµÄÑº½ğ
+	DWORD id; // ç©å®¶ID
+	DWORD money; // ç©å®¶æ‰£çš„æŠ¼é‡‘
 	bool  is_finish;
 
 	SeptGuard()
@@ -46,10 +46,10 @@ struct SeptGuard
 
 struct WarRecord
 {
-	DWORD type;                     // ¶ÔÕ½ÀàĞÍ
-	DWORD relationid;               // ¶Ô·½Éç»á¹ØÏµID
-	bool isAtt;                     // ÊÇ·ñÎª¹¥·½
-	bool isAntiAtt;			// ÊÇ·ñÔÊĞí·´¹¥£¨Ä¿Ç°Ö÷ÒªÊÇ¹úÕ½Ê¹ÓÃ£©
+	DWORD type;                     // å¯¹æˆ˜ç±»å‹
+	DWORD relationid;               // å¯¹æ–¹ç¤¾ä¼šå…³ç³»ID
+	bool isAtt;                     // æ˜¯å¦ä¸ºæ”»æ–¹
+	bool isAntiAtt;			// æ˜¯å¦å…è®¸åæ”»ï¼ˆç›®å‰ä¸»è¦æ˜¯å›½æˆ˜ä½¿ç”¨ï¼‰
 
 	WarRecord()
 	{
@@ -65,9 +65,9 @@ extern DWORD get_sell_price_by_dur(zObject*);
 struct SceneUser:public SceneEntryPk
 {
 	private:
-		char replyText[MAX_CHATINFO];//×Ô¶¯»Ø¸´
+		char replyText[MAX_CHATINFO];//è‡ªåŠ¨å›å¤
 
-		//»ØÊÕÑÓÊ±µÈµ½(ºÁÃë)
+		//å›æ”¶å»¶æ—¶ç­‰åˆ°(æ¯«ç§’)
 		zRTime recycle_delay;
 
 		static DWORD Five_Relation[];
@@ -82,40 +82,40 @@ struct SceneUser:public SceneEntryPk
 		Timer _ten_sec;
 		Timer _one_min;
 		Timer _five_min;
-		//´æµµ¶¨Ê±Æ÷£¬´æµµ¼äÏ¶¾ßÓĞËæ»úĞÔ£¬¿ÉÒÔ´òÂÒ´æµµÆµÂÊ
+		//å­˜æ¡£å®šæ—¶å™¨ï¼Œå­˜æ¡£é—´éš™å…·æœ‰éšæœºæ€§ï¼Œå¯ä»¥æ‰“ä¹±å­˜æ¡£é¢‘ç‡
 		RandTimer _writeback_timer;
 
 
-		///5Ãë¼ÆÊı£¬Ã¿5Ãë+1
+		///5ç§’è®¡æ•°ï¼Œæ¯5ç§’+1
 		DWORD _5_sec_count;
 
-		/// É±ËÀ¹ÖÎï¸öÊı
+		/// æ€æ­»æ€ªç‰©ä¸ªæ•°
 		DWORD killedNpcNum;
 		const zRTime loginTime;
-		/// ÔÚÏßÊ±¼äÍ³¼Æ
+		/// åœ¨çº¿æ—¶é—´ç»Ÿè®¡
 		DWORD lastIncTime;
-		/// ÉÏ´ÎÅÑ¹úÊ±¼ä¼ÇÂ¼
+		/// ä¸Šæ¬¡å›å›½æ—¶é—´è®°å½•
 		DWORD lastChangeCountryTime;
-		/// ÁÙÊ±¹Ø±Õ±£»¤
+		/// ä¸´æ—¶å…³é—­ä¿æŠ¤
 		DWORD temp_unsafety_state;
-		/// ²Æ²ú±£»¤×´Ì¬
+		/// è´¢äº§ä¿æŠ¤çŠ¶æ€
 		BYTE  safety;
-		/// ²Æ²ú±£»¤ÉèÖÃ
+		/// è´¢äº§ä¿æŠ¤è®¾ç½®
 		BYTE safety_setup;
 
-		/// ËÀÍöµÈ´ıÊ±¼ä£¬ËÀÍöºó5·ÖÖÓ£¬ÏµÍ³×Ô¶¯Ê¹½ÇÉ«½øĞĞ»Ø³Ç¸´»î
+		/// æ­»äº¡ç­‰å¾…æ—¶é—´ï¼Œæ­»äº¡å5åˆ†é’Ÿï¼Œç³»ç»Ÿè‡ªåŠ¨ä½¿è§’è‰²è¿›è¡Œå›åŸå¤æ´»
 		int deathWaitTime;
 
-		//ÊÇ·ñÕıÔÚºóÍËÖĞ(ms)
+		//æ˜¯å¦æ­£åœ¨åé€€ä¸­(ms)
 		int backOffing;
 
-		//ÓÃ»§È¨ÏŞµÈ¼¶
+		//ç”¨æˆ·æƒé™ç­‰çº§
 		BYTE priv;
 
-		// ½»Õ½¼ÇÂ¼
+		// äº¤æˆ˜è®°å½•
 		std::vector<WarRecord> vWars;
 		
-		// ÔùËÍ²ÄÁÏÊıÁ¿£¨×é£©
+		// èµ é€ææ–™æ•°é‡ï¼ˆç»„ï¼‰
 	//	DWORD Give_MatarialNum;
 
 		char wg_log[MAX_CHATINFO];
@@ -126,51 +126,51 @@ struct SceneUser:public SceneEntryPk
 		~SceneUser();
 		void destroy();
 
-		// ²ÎÓë¼Ò×åÔËïÚµÄÍæ¼ÒID
+		// å‚ä¸å®¶æ—è¿é•–çš„ç©å®¶ID
 		std::vector<SeptGuard> venterSeptGuard;
-		// ²ÎÓë¼Ò×åÔËïÚµÄÍæ¼ÒID
+		// å‚ä¸å®¶æ—è¿é•–çš„ç©å®¶ID
 		//std::vector<SeptGuard> vfinishSeptGuard;
 
 	public:
-		// ÔùËÍ²ÄÁÏÊıÁ¿£¨×é£©
+		// èµ é€ææ–™æ•°é‡ï¼ˆç»„ï¼‰
 		DWORD Give_MatarialNum;
 		
-		//µÀ¾ß¿¨ÕÅÊı
+		//é“å…·å¡å¼ æ•°
 		DWORD Card_num;
 
-		Dice * miniGame;//ÕıÔÚÍæµÄĞ¡ÓÎÏ·
+		Dice * miniGame;//æ­£åœ¨ç©çš„å°æ¸¸æˆ
 
-		void petAutoRepair(zObject *);//³èÎï×Ô¶¯ĞŞ×°±¸
+		void petAutoRepair(zObject *);//å® ç‰©è‡ªåŠ¨ä¿®è£…å¤‡
 
-		DWORD lastKiller;//×îºóÒ»¸öÉ±ËÀ×Ô¼ºµÄÍæ¼ÒµÄÁÙÊ±ID
-		DWORD dropTime;//¿Í»§¶Ë¾Ù±¨Íâ¹Òºó£¬Ëæ»ú¶ÏÏßµÄÊ±¼ä
+		DWORD lastKiller;//æœ€åä¸€ä¸ªæ€æ­»è‡ªå·±çš„ç©å®¶çš„ä¸´æ—¶ID
+		DWORD dropTime;//å®¢æˆ·ç«¯ä¸¾æŠ¥å¤–æŒ‚åï¼Œéšæœºæ–­çº¿çš„æ—¶é—´
 
 		enum
 		{
-			ACCPRIV_NEWBIE_EQUIP_AT_5_15		= 0x00000001,	//5¡¢15¼¶Ê±¸øÓèĞÂÊÖ×°±¸
-			ACCPRIV_GOLD_EQUIP_AT_5_15			= 0x00000002,	//5¡¢15¼¶Ê±¸øÓè»Æ½ğ×°±¸
-			ACCPRIV_GREEN_EQUIP_AT_5_25_50		= 0x00000004	//5¡¢25¡¢50¼¶Ê±¸øÓèÂÌÉ«×°±¸
+			ACCPRIV_NEWBIE_EQUIP_AT_5_15		= 0x00000001,	//5ã€15çº§æ—¶ç»™äºˆæ–°æ‰‹è£…å¤‡
+			ACCPRIV_GOLD_EQUIP_AT_5_15			= 0x00000002,	//5ã€15çº§æ—¶ç»™äºˆé»„é‡‘è£…å¤‡
+			ACCPRIV_GREEN_EQUIP_AT_5_25_50		= 0x00000004	//5ã€25ã€50çº§æ—¶ç»™äºˆç»¿è‰²è£…å¤‡
 		};
 
-		void sendGiftEquip(WORD level);//ËÍÌåÑé¿¨£¬»Æ½ğ¿¨£¬ÂÌÉ«¿¨µÄ×°±¸
-		void givePetPoint();//30,40,50,60¼¶ËÍ±¦±¦ĞŞÁ¶Ê±¼ä
+		void sendGiftEquip(WORD level);//é€ä½“éªŒå¡ï¼Œé»„é‡‘å¡ï¼Œç»¿è‰²å¡çš„è£…å¤‡
+		void givePetPoint();//30,40,50,60çº§é€å®å®ä¿®ç‚¼æ—¶é—´
 
-		DWORD processCheckTime;//ÏÂ´Î¼ì²âÍâ¹ÒµÄÊ±¼ä
+		DWORD processCheckTime;//ä¸‹æ¬¡æ£€æµ‹å¤–æŒ‚çš„æ—¶é—´
 
 		DWORD refreshPetPackSize();
 
 		bool npcTradeGold(Cmd::stBuyObjectNpcTradeUserCmd *ptCmd, zObjectB *b, BYTE itemlevel);
 		void autoReply(char *) const;
 
-		DWORD adoptedCartoon;   //±»ÊÕÑøµÄ³èÎïID
+		DWORD adoptedCartoon;   //è¢«æ”¶å…»çš„å® ç‰©ID
 		std::map<DWORD, Cmd::t_CartoonData> cartoonList;
-		CartoonPet * cartoon;//·Å³öµÄ¿¨Í¨³èÎï
-		std::map<DWORD, CartoonPet *> adoptList;//ÊÕÑøµÄ¿¨Í¨³èÎï
+		CartoonPet * cartoon;//æ”¾å‡ºçš„å¡é€šå® ç‰©
+		std::map<DWORD, CartoonPet *> adoptList;//æ”¶å…»çš„å¡é€šå® ç‰©
 
 		typedef std::map<DWORD, Cmd::t_CartoonData>::iterator cartoon_it;
 		typedef std::map<DWORD, CartoonPet *>::iterator adopt_it;
 
-		//ÏÂ´Î¿ÉÒÔ²éÑ¯Êı¾İ¿âµÄÊ±¼ä£¬ÅÄÂôÓÃ
+		//ä¸‹æ¬¡å¯ä»¥æŸ¥è¯¢æ•°æ®åº“çš„æ—¶é—´ï¼Œæ‹å–ç”¨
 		DWORD queryTime;
 
 		bool isSendingMail;
@@ -178,18 +178,18 @@ struct SceneUser:public SceneEntryPk
 
 		/*      
 		 ** whj 
-		 ** ÕıÔÚÍË³ö×´Ì¬²»ÔÙ½ÓÊÜÈÎºÎÖ¸Áî
+		 ** æ­£åœ¨é€€å‡ºçŠ¶æ€ä¸å†æ¥å—ä»»ä½•æŒ‡ä»¤
 		 **/
 		bool unReging;
 #ifdef _TEST_DATA_LOG
-		//²âÊÔÊı¾İÍ³¼Æ
+		//æµ‹è¯•æ•°æ®ç»Ÿè®¡
 		CharTest chartest;
 		void readCharTest(Cmd::Record::t_Read_CharTest_SceneRecord *rev);
 		void writeCharTest(Cmd::Record::enumWriteBackTest_Type type);
 #endif
-		// PKÄ£Ê½
+		// PKæ¨¡å¼
 		BYTE pkMode;
-		//ÏµÍ³ÉèÖÃ
+		//ç³»ç»Ÿè®¾ç½®
 		union{
 			struct{
 				BYTE savePkMode;
@@ -201,22 +201,22 @@ struct SceneUser:public SceneEntryPk
 
 		static const unsigned int CALL_PET_REGION = 6;
 
-		///Âí
+		///é©¬
 		Horse horse;
 		ScenePet * ridepet;
 
-		//ÔÚ¹úÍâËÀÍö¸´»îµ½±¾¹ú·ï»Ë³Ç,Ğ´ËÀÁË^_^
+		//åœ¨å›½å¤–æ­»äº¡å¤æ´»åˆ°æœ¬å›½å‡¤å‡°åŸ,å†™æ­»äº†^_^
 		DWORD deathBackToMapID;
 
-		//¿ç·şÌøµØÍ¼ÔÚSessionÎ´·µ»ØÊ±µÄÁÙÊ±¼ÇÂ¼
+		//è·¨æœè·³åœ°å›¾åœ¨Sessionæœªè¿”å›æ—¶çš„ä¸´æ—¶è®°å½•
 		char wait_gomap_name[MAX_NAMESIZE];
 
 		void setDiplomatState(BYTE newstate);
-		int isDiplomatState(); // ·µ»Ø0ÎªÍâ½»¹Ù×´Ì¬,·µ»Ø1Îª·ÇÍâ½»¹Ù×´Ì¬,·µ»Ø2ÎªÊÇÍâ½»¹Ùµ«ÒòÎªÓĞ²É¼¯ÊÖÌ×,ÔİÊ±ÎŞĞ§
+		int isDiplomatState(); // è¿”å›0ä¸ºå¤–äº¤å®˜çŠ¶æ€,è¿”å›1ä¸ºéå¤–äº¤å®˜çŠ¶æ€,è¿”å›2ä¸ºæ˜¯å¤–äº¤å®˜ä½†å› ä¸ºæœ‰é‡‡é›†æ‰‹å¥—,æš‚æ—¶æ— æ•ˆ
 
 		void setCatcherState(BYTE newstate);
 		bool isCatcherState() const; 
-		// ½»Õ½¼ÇÂ¼²Ù×÷
+		// äº¤æˆ˜è®°å½•æ“ä½œ
 		typedef std::vector<WarRecord>::iterator WarIter;
 
 		void addWarRecord(DWORD type, DWORD relationid, bool isAtt=false);
@@ -228,51 +228,51 @@ struct SceneUser:public SceneEntryPk
 		}
 		
 		void setAntiAttState(DWORD type, DWORD relationid);
-		//   type,¶ÔÕ½×´Ì¬£¬relationid¶ÔµĞ·½Éç»á¹ØÏµID
+		//   type,å¯¹æˆ˜çŠ¶æ€ï¼Œrelationidå¯¹æ•Œæ–¹ç¤¾ä¼šå…³ç³»ID
 		bool isWarRecord(DWORD type, DWORD relationid);
 
 
-		/// ÅĞ¶ÏÊÇ·ñÔÚ²Æ²ú±£»¤×´Ì¬
-		// ·µ»ØTRUE,±íÊ¾Ö¸¶¨µÄ¹¦ÄÜ,Õı´¦ÔÚ±£»¤×´Ì¬, ·µ»ØFALSE±íÊ¾Ö¸¶¨µÄ¹¦ÄÜÃ»ÔÚ±£»¤×´Ì¬
+		/// åˆ¤æ–­æ˜¯å¦åœ¨è´¢äº§ä¿æŠ¤çŠ¶æ€
+		// è¿”å›TRUE,è¡¨ç¤ºæŒ‡å®šçš„åŠŸèƒ½,æ­£å¤„åœ¨ä¿æŠ¤çŠ¶æ€, è¿”å›FALSEè¡¨ç¤ºæŒ‡å®šçš„åŠŸèƒ½æ²¡åœ¨ä¿æŠ¤çŠ¶æ€
 		bool isSafety(BYTE byType);
 		
 
-		// ÅĞ¶ÏÊÇ·ñÓëÄ³Î»Íæ¼Ò´¦ÓÚ½»Õ½×´Ì¬
+		// åˆ¤æ–­æ˜¯å¦ä¸æŸä½ç©å®¶å¤„äºäº¤æˆ˜çŠ¶æ€
 		bool isWar(SceneUser* entry);
 
-		// ÅĞ¶ÏÍæ¼Ò×Ô¼ºÊÇ·ñ´¦ÓÚÖ¸¶¨ÀàĞÍµÄ½»Õ½×´Ì¬
+		// åˆ¤æ–­ç©å®¶è‡ªå·±æ˜¯å¦å¤„äºæŒ‡å®šç±»å‹çš„äº¤æˆ˜çŠ¶æ€
 		bool isSpecWar(DWORD dwType);
 
-		// ÅĞ¶ÏÊÇ·ñÊÇ¹¥·½
+		// åˆ¤æ–­æ˜¯å¦æ˜¯æ”»æ–¹
 		bool isAtt(DWORD dwType, DWORD relationid=0);
 
-		// ÅĞ¶ÏÊÇ·ñÔÊĞí·´¹¥
+		// åˆ¤æ–­æ˜¯å¦å…è®¸åæ”»
 		bool isAntiAtt(DWORD dwType, DWORD relationid=0);
 
-		// µ±Ç°¶ÔÕ½¼ÇÂ¼´óĞ¡
+		// å½“å‰å¯¹æˆ˜è®°å½•å¤§å°
 		size_t warSize()
 		{
 			return vWars.size();
 		}
 
-		DWORD updateNotify; //hp,mp,sp ¸üĞÂÍ¨Öª
-		BYTE updateCount;  //¸üĞÂ¼ÇÊı
+		DWORD updateNotify; //hp,mp,sp æ›´æ–°é€šçŸ¥
+		BYTE updateCount;  //æ›´æ–°è®°æ•°
 		
-		// ´ğÌâ×´Ì¬
-		bool isQuiz;			// ÊÇ·ñ´¦ÓÚ´ğÌâ×´Ì¬
+		// ç­”é¢˜çŠ¶æ€
+		bool isQuiz;			// æ˜¯å¦å¤„äºç­”é¢˜çŠ¶æ€
 
-		// Íâ½»¹Ù×´Ì¬
+		// å¤–äº¤å®˜çŠ¶æ€
 		bool isDiplomat;
 
-		// ²¶Í·×´Ì¬
+		// æ•å¤´çŠ¶æ€
 		bool isCatcher;
 
 
-		// ÅĞ¶ÏÊÇ·ñÓëÄ³Î»Íæ¼Ò´¦ÓÚ½»Õ½×´Ì¬
+		// åˆ¤æ–­æ˜¯å¦ä¸æŸä½ç©å®¶å¤„äºäº¤æˆ˜çŠ¶æ€
 
-		//ÕÙ»½³èÎï
+		//å¬å”¤å® ç‰©
 		ScenePet * summonPet(DWORD id, Cmd::petType type, DWORD standTime=0, DWORD sid=0, const char * petName = "", DWORD anpcid = 0, zPos pos=zPos(0,0), BYTE dir=4);
-		//ÕÙ»½Ö¸¶¨³ÖĞøÊ±¼äµÄ³èÎï
+		//å¬å”¤æŒ‡å®šæŒç»­æ—¶é—´çš„å® ç‰©
 		//SceneNpc * summonPet(DWORD id, DWORD standTime, DWORD anpcid = 0);
 		bool killOnePet(ScenePet *);
 		void killAllPets();
@@ -280,21 +280,21 @@ struct SceneUser:public SceneEntryPk
 		void collectPets();
 		void clearGuardNpc();
 
-		Cmd::t_PetData petData;//¹­ÊÖ×¥µÄ³èÎïÊı¾İ
+		Cmd::t_PetData petData;//å¼“æ‰‹æŠ“çš„å® ç‰©æ•°æ®
 		DWORD savePetState(unsigned char *data);
 		DWORD loadPetState(unsigned char *data, int size);
-		bool saveGuard;///ÊÇ·ñ±£´æïÚ³µµÄÁÙÊ±µµ°¸
-		bool saveAdopt;///ÊÇ·ñ±£´æ
+		bool saveGuard;///æ˜¯å¦ä¿å­˜é•–è½¦çš„ä¸´æ—¶æ¡£æ¡ˆ
+		bool saveAdopt;///æ˜¯å¦ä¿å­˜
 		DWORD saveTempPetState(unsigned char *data, DWORD maxSize);
 		DWORD loadTempPetState(unsigned char *data);
 		void saveCartoonState();
 
-		DWORD dwChangeFaceID;				//Ò×ÈİºóµÄNPCµÄÀàĞÍID
+		DWORD dwChangeFaceID;				//æ˜“å®¹åçš„NPCçš„ç±»å‹ID
 
 		enum {
-			REST_RESTITUTE_SP = 3, //×Ô¶¯ÌåÁ¦»Ö¸´
-			WALK_RESTITUTE_SP = 1, //×ßÂ·ÌåÁ¦ÏûºÄ
-			RUN_CONSUME_SP = 1, //ÅÜ²½ÌåÁ¦ÏûºÄ
+			REST_RESTITUTE_SP = 3, //è‡ªåŠ¨ä½“åŠ›æ¢å¤
+			WALK_RESTITUTE_SP = 1, //èµ°è·¯ä½“åŠ›æ¶ˆè€—
+			RUN_CONSUME_SP = 1, //è·‘æ­¥ä½“åŠ›æ¶ˆè€—
 		};
 		WORD step_state; 
 
@@ -313,8 +313,8 @@ struct SceneUser:public SceneEntryPk
 		DWORD npcdareMapID;
 		bool npcdareNotify;
 
-		WORD  lastUseSkill; // ×îºóÒ»´ÎÊ¹ÓÃµÄ¼¼ÄÜ
-		bool  farAttack; // ¼ıÁé¼ıÏÀ×¨ÓÃ
+		WORD  lastUseSkill; // æœ€åä¸€æ¬¡ä½¿ç”¨çš„æŠ€èƒ½
+		bool  farAttack; // ç®­çµç®­ä¾ ä¸“ç”¨
 
 		//DWORD dwHorseID;
 		DWORD dwBodyID;
@@ -323,66 +323,66 @@ struct SceneUser:public SceneEntryPk
 		DWORD dwBodyColorSystem;
 		DWORD dwBodyColorCustom;
 
-		char  unionName[MAX_NAMESIZE];          // °ï»áÃû³Æ
-		char  septName[MAX_NAMESIZE];           // ¼Ò×åÃû³Æ
-		char  caption[MAX_NAMESIZE];		// ¹úÍõ»ò³ÇÖ÷Í·ÏÎ
-		char  armyName[MAX_NAMESIZE];		// ËùÔÚ¾ü¶ÓÃû³Æ
+		char  unionName[MAX_NAMESIZE];          // å¸®ä¼šåç§°
+		char  septName[MAX_NAMESIZE];           // å®¶æ—åç§°
+		char  caption[MAX_NAMESIZE];		// å›½ç‹æˆ–åŸä¸»å¤´è¡”
+		char  armyName[MAX_NAMESIZE];		// æ‰€åœ¨å†›é˜Ÿåç§°
 
 
-		bool  king; // ÊÇ·ñÎª¹úÍõ
-		bool  unionMaster; // ÊÇ·ñÎª°ïÖ÷
-		bool  septMaster;  // ÊÇ·ñÎª×å³¤
-		bool  emperor;	// ÊÇ·ñÎª»ÊµÛ
-		BYTE  kingConsort; // 0²»ÊÇ¹úÍõºÍ»ÊµÛµÄÅäÅ¼, 1Îª¹úÍõµÄÅäÅ¼, 2Îª»ÊµÛµÄÅäÅ¼
+		bool  king; // æ˜¯å¦ä¸ºå›½ç‹
+		bool  unionMaster; // æ˜¯å¦ä¸ºå¸®ä¸»
+		bool  septMaster;  // æ˜¯å¦ä¸ºæ—é•¿
+		bool  emperor;	// æ˜¯å¦ä¸ºçš‡å¸
+		BYTE  kingConsort; // 0ä¸æ˜¯å›½ç‹å’Œçš‡å¸çš„é…å¶, 1ä¸ºå›½ç‹çš„é…å¶, 2ä¸ºçš‡å¸çš„é…å¶
 		
-		DWORD dwSeptRepute;	// ¼Ò×åÉùÍû
-		DWORD dwSeptLevel;	// ¼Ò×åµÈ¼¶
-		DWORD dwUnionActionPoint;	// °ï»áĞĞ¶¯Á¦
-		DWORD dwArmyState; // ÔÚ¾ü¶ÓÖĞµÄÖ°Î»
+		DWORD dwSeptRepute;	// å®¶æ—å£°æœ›
+		DWORD dwSeptLevel;	// å®¶æ—ç­‰çº§
+		DWORD dwUnionActionPoint;	// å¸®ä¼šè¡ŒåŠ¨åŠ›
+		DWORD dwArmyState; // åœ¨å†›é˜Ÿä¸­çš„èŒä½
 
 
-		bool answerMarry; ///Í¬ÒâÅäÅ¼½á»éÇëÇó±êÖ¾
-		DWORD friendID;   ///½á»éÊ±Î´À´ÅäÅ¼µÄID
+		bool answerMarry; ///åŒæ„é…å¶ç»“å©šè¯·æ±‚æ ‡å¿—
+		DWORD friendID;   ///ç»“å©šæ—¶æœªæ¥é…å¶çš„ID
 
-		//ÎïÆ·
+		//ç‰©å“
 		Packages packs;
 
-		//Ò©Æ·
+		//è¯å“
 		Leechdom leechdom;
 
 		QuestList quest_list;
 		Mask mask;
 
-		//×é¶Ó
+		//ç»„é˜Ÿ
 		TeamManager team;
-		DWORD team_mode;//×é¶ÓÄ£Ê½
+		DWORD team_mode;//ç»„é˜Ÿæ¨¡å¼
 
-		//½»Ò×µ¥
+		//äº¤æ˜“å•
 		TradeOrder tradeorder;
 		PrivateStore privatestore;
 
-		int messageOrder;					///ÓÃ»§ÉÏÒ»´ÎÊÕµ½µÄMessageË³Ğò
-		zRTime lastCheckMessage;			///×îºóÒ»´Î¼ì²éMessageÊ±¼ä
+		int messageOrder;					///ç”¨æˆ·ä¸Šä¸€æ¬¡æ”¶åˆ°çš„Messageé¡ºåº
+		zRTime lastCheckMessage;			///æœ€åä¸€æ¬¡æ£€æŸ¥Messageæ—¶é—´
 		DWORD	lastMoveTime;
 		DWORD   moveFastCount;
 
-		//·ÃÎÊNpcµÄĞÅÏ¢
-		DWORD npc_dwNpcDataID;				///NpcÊı¾İ±àºÅ
-		DWORD npc_dwNpcTempID;				///NpcÁÙÊ±±àºÅ
+		//è®¿é—®Npcçš„ä¿¡æ¯
+		DWORD npc_dwNpcDataID;				///Npcæ•°æ®ç¼–å·
+		DWORD npc_dwNpcTempID;				///Npcä¸´æ—¶ç¼–å·
 
-		ScenePet* guard; //»¤ïÚ
+		ScenePet* guard; //æŠ¤é•–
 
 		struct{
 			DWORD dwMapID;
 			DWORD dwPosX;
 			DWORD dwPosY;
-		} npcHoldData;		/// ¼Ò×å¿ØÖÆµÄNPCÏà¹ØÊı¾İ
+		} npcHoldData;		/// å®¶æ—æ§åˆ¶çš„NPCç›¸å…³æ•°æ®
 
-		//¿ì½İ¼üÊı¾İ
+		//å¿«æ·é”®æ•°æ®
 		char accelData[1024];
 
 		DWORD myOverMan;
-		//ÕÒµ½×Ô¼ºµÄÊ¦¸¸id,Ã»ÓĞ·µ»Ø0
+		//æ‰¾åˆ°è‡ªå·±çš„å¸ˆçˆ¶id,æ²¡æœ‰è¿”å›0
 		DWORD getOverMan()
 		{
 			return myOverMan;
@@ -572,28 +572,28 @@ struct SceneUser:public SceneEntryPk
 		void addPetExp(DWORD, bool=true, bool=false);
 		//void petLevelUp(ScenePet *);
 		/**
-		 * \brief ÉèÖÃÕ½¶·Àà³èÎïµÄ¸ú×Ù¹¥»÷Ä¿±ê
+		 * \brief è®¾ç½®æˆ˜æ–—ç±»å® ç‰©çš„è·Ÿè¸ªæ”»å‡»ç›®æ ‡
 		 */
 		void setPetsChaseTarget(SceneEntryPk *entry);
 
 		/**
-		 * \brief ¸ù¾İ¼ıÖ§µÄ±ä»¯ÖØËã¹¥»÷ÊôĞÔ
-		 * \calcflag ±êÖ¾ÊÇ·ñÔÚº¯ÊıÄÚ×ÔĞĞ¼ÆËã²¢Í¨Öª
+		 * \brief æ ¹æ®ç®­æ”¯çš„å˜åŒ–é‡ç®—æ”»å‡»å±æ€§
+		 * \calcflag æ ‡å¿—æ˜¯å¦åœ¨å‡½æ•°å†…è‡ªè¡Œè®¡ç®—å¹¶é€šçŸ¥
 		 * \author fqnewman
-		 * \return trueÎªĞèÒªÖØËã£¬ falseÎª²»ĞèÒªÖØËã
+		 * \return trueä¸ºéœ€è¦é‡ç®—ï¼Œ falseä¸ºä¸éœ€è¦é‡ç®—
 		 */
 		//bool recalcBySword(bool calcflag = true);
 
 		bool isAllied(SceneUser *pUser);
 
 		/**
-		 * \brief ¼ÆËã×é¶ÓÖĞ¸÷ÖÖÉç»á¹ØÏµµÄÓÑºÃ¶È
+		 * \brief è®¡ç®—ç»„é˜Ÿä¸­å„ç§ç¤¾ä¼šå…³ç³»çš„å‹å¥½åº¦
 		 * \author fqnewman
 		 */
 		inline void countFriendDegree();
 
 		/**
-		 * \brief ½«¿Í»§¶ËÏûÏ¢×ª·¢µ½»á»°·şÎñÆ÷
+		 * \brief å°†å®¢æˆ·ç«¯æ¶ˆæ¯è½¬å‘åˆ°ä¼šè¯æœåŠ¡å™¨
 		 * \author fqnewman
 		 */
 		bool forwardSession(const Cmd::stNullUserCmd *ptNullCmd, const unsigned int nCmdLen);
@@ -608,207 +608,207 @@ struct SceneUser:public SceneEntryPk
 		}
 
 		/**
-		 * \brief Ïò°ü¹üÖĞÌí¼ÓÎïÆ·
+		 * \brief å‘åŒ…è£¹ä¸­æ·»åŠ ç‰©å“
 		 *
-		 * \param srcObj Ä¿±êÎïÆ·
-		 * \param needFind ĞèÒª²éÕÒÎ»ÖÃ
+		 * \param srcObj ç›®æ ‡ç‰©å“
+		 * \param needFind éœ€è¦æŸ¥æ‰¾ä½ç½®
 		 * \param from_record 
 		 * \param calcflag
 		 *
 		 * \author fqnewman
-		 * \return Ê§°Ü·µ»Øfalse, ·ñÔò·µ»Øtrue
+		 * \return å¤±è´¥è¿”å›false, å¦åˆ™è¿”å›true
 		 */
 		//bool packsaddObject(zObject *srcObj,bool needFind , bool from_record = false, bool calcflag = true);
 
 		/**
-		 * \brief ¸ù¾İÎïÆ·idµ÷ÕûÎïÆ·ÔÚ°ü¹üÖĞµÄÊıÁ¿
+		 * \brief æ ¹æ®ç‰©å“idè°ƒæ•´ç‰©å“åœ¨åŒ…è£¹ä¸­çš„æ•°é‡
 		 *
-		 * \param id ÎïÆ·µÄobjectid
-		 * \param num ¼õÉÙµÄÊıÁ¿
-		 * \param upgrade Éı¼¶
+		 * \param id ç‰©å“çš„objectid
+		 * \param num å‡å°‘çš„æ•°é‡
+		 * \param upgrade å‡çº§
 		 *
 		 * \author liqingyu 
 		 *
-		 * \return Ê§°Ü·µ»Ø-1, ·ñÔò·µ»Ø0
+		 * \return å¤±è´¥è¿”å›-1, å¦åˆ™è¿”å›0
 		 */
 		int reduceObjectNum(DWORD id, DWORD num, BYTE upgrade = 0);
 
 		/**
-		 * \brief ¸ù¾İÎïÆ·idµ÷ÕûÎïÆ·ÔÚ°ü¹üÖĞµÄÊıÁ¿,Èç¹û´óÓÚ¸ÃÎïÆ·×î´óÊıÁ¿Ôò´´½¨Ò»¸öĞÂÎïÆ·
+		 * \brief æ ¹æ®ç‰©å“idè°ƒæ•´ç‰©å“åœ¨åŒ…è£¹ä¸­çš„æ•°é‡,å¦‚æœå¤§äºè¯¥ç‰©å“æœ€å¤§æ•°é‡åˆ™åˆ›å»ºä¸€ä¸ªæ–°ç‰©å“
 		 *
-		 * \param id ÎïÆ·µÄobjectid
-		 * \param num Ôö¼ÓµÄÊıÁ¿
-		 * \param upgrade Éı¼¶
-		 * \param notify Í¨Öª
-		 * \param bindit ÊÇ·ñ°ó¶¨
+		 * \param id ç‰©å“çš„objectid
+		 * \param num å¢åŠ çš„æ•°é‡
+		 * \param upgrade å‡çº§
+		 * \param notify é€šçŸ¥
+		 * \param bindit æ˜¯å¦ç»‘å®š
 		 *
 		 * \author liqingyu 
 		 *
-		 * \return Ê§°Ü·µ»Ø-1, Ã»ÓĞÎïÆ·±»´´½¨·µ»Ø0, °ü¹üÂú·µ»Ø1, ³É¹¦Ìí¼ÓËùÓĞ´´½¨µÄÎïÆ··µ»Ø2
+		 * \return å¤±è´¥è¿”å›-1, æ²¡æœ‰ç‰©å“è¢«åˆ›å»ºè¿”å›0, åŒ…è£¹æ»¡è¿”å›1, æˆåŠŸæ·»åŠ æ‰€æœ‰åˆ›å»ºçš„ç‰©å“è¿”å›2
 		 */
 		int addObjectNum(DWORD id, DWORD num, BYTE upgrade = 0, int notify = 0, bool bindit = false);
 
 
 		/**
-		 * \brief ¸ù¾İÎïÆ·idµ÷ÕûÎïÆ·ÔÚ°ü¹üÖĞµÄÊıÁ¿,Èç¹û´óÓÚ¸ÃÎïÆ·×î´óÊıÁ¿Ôò´´½¨Ò»¸öĞÂÎïÆ·£¨ÈÎÎñ½Ó¿Ú£©¼ÓÂÌ×°°ó¶¨×°±¸
+		 * \brief æ ¹æ®ç‰©å“idè°ƒæ•´ç‰©å“åœ¨åŒ…è£¹ä¸­çš„æ•°é‡,å¦‚æœå¤§äºè¯¥ç‰©å“æœ€å¤§æ•°é‡åˆ™åˆ›å»ºä¸€ä¸ªæ–°ç‰©å“ï¼ˆä»»åŠ¡æ¥å£ï¼‰åŠ ç»¿è£…ç»‘å®šè£…å¤‡
 		 *
-		 * \param id ÎïÆ·µÄobjectid
-		 * \param num Ôö¼ÓµÄÊıÁ¿
-		 * \param upgrade Éı¼¶
-		 * \param notify Í¨Öª
-		 * \param bindit ÊÇ·ñ°ó¶¨
+		 * \param id ç‰©å“çš„objectid
+		 * \param num å¢åŠ çš„æ•°é‡
+		 * \param upgrade å‡çº§
+		 * \param notify é€šçŸ¥
+		 * \param bindit æ˜¯å¦ç»‘å®š
 		 *
 		 * \author liqingyu 
 		 *
-		 * \return Ê§°Ü·µ»Ø-1, Ã»ÓĞÎïÆ·±»´´½¨·µ»Ø0, °ü¹üÂú·µ»Ø1, ³É¹¦Ìí¼ÓËùÓĞ´´½¨µÄÎïÆ··µ»Ø2
+		 * \return å¤±è´¥è¿”å›-1, æ²¡æœ‰ç‰©å“è¢«åˆ›å»ºè¿”å›0, åŒ…è£¹æ»¡è¿”å›1, æˆåŠŸæ·»åŠ æ‰€æœ‰åˆ›å»ºçš„ç‰©å“è¿”å›2
 		 */
 		int addGreenObjectNum(DWORD id, DWORD num, BYTE upgrade = 0, int notify = 0, bool bindit = true);
 
 
 		/**
-		 * \brief ×Ô¶¯»Ö¸´ÓÃ»§Ïà¹ØÊôĞÔ£¬°üÀ¨ÉúÃü£¬Ä§·¨£¬ÌåÁ¦µÈ£¬¸Ãº¯ÊıÔÚUpdateSceneUserCallBackÖĞ±»µ÷ÓÃ
+		 * \brief è‡ªåŠ¨æ¢å¤ç”¨æˆ·ç›¸å…³å±æ€§ï¼ŒåŒ…æ‹¬ç”Ÿå‘½ï¼Œé­”æ³•ï¼Œä½“åŠ›ç­‰ï¼Œè¯¥å‡½æ•°åœ¨UpdateSceneUserCallBackä¸­è¢«è°ƒç”¨
 		 * \author liqingyu
 		 */
 		inline void restitute();
 		DWORD autoRestitute(DWORD &updated);
 
 		/**
-		 * \brief ¸üĞÂÓÃ»§Êı¾İµ½»á»°
+		 * \brief æ›´æ–°ç”¨æˆ·æ•°æ®åˆ°ä¼šè¯
 		 * \author zjw
 		 */
 		void updateUserData();
 
 		/**
-		 * \brief ¸Ä±ä½ÇÉ«µÄhp
+		 * \brief æ”¹å˜è§’è‰²çš„hp
 		 *
-		 * \param hp ±ä¸üµÄHP
+		 * \param hp å˜æ›´çš„HP
 		 *
 		 * \author fqnewman
 		 */
 		void changeHP(const SDWORD &hp);
 
 		/**
-		 * \brief Ö±½ÓÉËº¦
+		 * \brief ç›´æ¥ä¼¤å®³
 		 *
-		 * \param pAtt ¹¥»÷Õß
-		 * \param dam ÉËº¦Öµ
-		 * \param notify Í¨ÖªÉËº¦ÏÔÊ¾
+		 * \param pAtt æ”»å‡»è€…
+		 * \param dam ä¼¤å®³å€¼
+		 * \param notify é€šçŸ¥ä¼¤å®³æ˜¾ç¤º
 		 * \author fqnewman
 		 */
 		SWORD directDamage(SceneEntryPk *pAtt, const SDWORD &dam, bool notify=false);
 
 		/**
-		 * \brief ¸Ä±ä½ÇÉ«µÄsp
-		 * \param sp ±ä¸üµÄSP
+		 * \brief æ”¹å˜è§’è‰²çš„sp
+		 * \param sp å˜æ›´çš„SP
 		 * \author fqnewman
 		 */
 		void changeSP(const SDWORD &sp);
 
 		/**
-		 * \brief ¸Ä±ä½ÇÉ«µÄmp
-		 * \param mp ±ä¸üµÄMP
+		 * \brief æ”¹å˜è§’è‰²çš„mp
+		 * \param mp å˜æ›´çš„MP
 		 * \author fqnewman
 		 */
 		void changeMP(const SDWORD &mp);
 
 		/**
-		 * \brief »ñµÃ×î´óµÄhp
+		 * \brief è·å¾—æœ€å¤§çš„hp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		DWORD getMaxHP();
 
 		/**
-		 * \brief »ñµÃ×î´óµÄhp
+		 * \brief è·å¾—æœ€å¤§çš„hp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		DWORD getBaseMaxHP();
 
 		/**
-		 * \brief »ñµÃ×î´óµÄmp
+		 * \brief è·å¾—æœ€å¤§çš„mp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		DWORD getMaxMP();
 
 		/**
-		 * \brief »ñµÃ×î´óµÄmp
+		 * \brief è·å¾—æœ€å¤§çš„mp
 		 * \author fqnewman
-		 * \return ·µ»Ø×î´óÖµ
+		 * \return è¿”å›æœ€å¤§å€¼
 		 */
 		DWORD getBaseMaxMP();
 		/**
-		 * \brief ÖØËã²¢Í¨Öª
+		 * \brief é‡ç®—å¹¶é€šçŸ¥
 		 * \author fqnewman
 		 */
 		void changeAndRefreshHMS(bool lock=true, bool sendData=true);
 		/**
-		 * \brief »ñµÃµ±Ç°Ä§·¨¹¥»÷Á¦
+		 * \brief è·å¾—å½“å‰é­”æ³•æ”»å‡»åŠ›
 		 * \author fqnewman
-		 * \return Ä§·¨¹¥»÷Á¦
+		 * \return é­”æ³•æ”»å‡»åŠ›
 		 */
 		virtual DWORD getMaxMDamage();
 
 		/**
-		 * \brief »ñµÃµ±Ç°ÎïÀí¹¥»÷Á¦
+		 * \brief è·å¾—å½“å‰ç‰©ç†æ”»å‡»åŠ›
 		 * \author fqnewman
-		 * \return ÎïÀí¹¥»÷Á¦
+		 * \return ç‰©ç†æ”»å‡»åŠ›
 		 */
 		virtual DWORD getMaxPDamage();
 
 		/**
-		 * \brief »ñµÃµ±Ç°ÎïÀí·ÀÓùÁ¦
+		 * \brief è·å¾—å½“å‰ç‰©ç†é˜²å¾¡åŠ›
 		 * \author fqnewman
-		 * \return ÎïÀí·ÀÓùÁ¦
+		 * \return ç‰©ç†é˜²å¾¡åŠ›
 		 */
 		virtual DWORD getPDefence();
 
 		/**
-		 * \brief »ñµÃµ±Ç°Ä§·¨·ÀÓùÁ¦
+		 * \brief è·å¾—å½“å‰é­”æ³•é˜²å¾¡åŠ›
 		 * \author fqnewman
-		 * \return Ä§·¨·ÀÓùÁ¦
+		 * \return é­”æ³•é˜²å¾¡åŠ›
 		 */
 		virtual DWORD getMDefence();
 
 		/**
-		 * \brief ÔÚ±»×Ô¼º¹¥»÷Ö®Ç°µÄ´¦Àí£¬°üÀ¨£¬×°±¸ËğºÄ´¦Àí£¬¹¥»÷ÓĞĞ§¼¸ÂÊÅĞ¶ÏµÈ
-		 * \param pUser ¹¥»÷Õß
-		 * \param rev ±¾´Î¹¥»÷µÄ´¥·¢Ö¸Áî
+		 * \brief åœ¨è¢«è‡ªå·±æ”»å‡»ä¹‹å‰çš„å¤„ç†ï¼ŒåŒ…æ‹¬ï¼Œè£…å¤‡æŸè€—å¤„ç†ï¼Œæ”»å‡»æœ‰æ•ˆå‡ ç‡åˆ¤æ–­ç­‰
+		 * \param pUser æ”»å‡»è€…
+		 * \param rev æœ¬æ¬¡æ”»å‡»çš„è§¦å‘æŒ‡ä»¤
 		 * \param physics
 		 * \param good
 		 * \author fqnewman
-		 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+		 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 		 */
 		bool preAttackMe(SceneEntryPk *pUser, const Cmd::stAttackMagicUserCmd *rev, bool physics=true, const bool good = false);
 
 		/**
-		 * \brief ½ÇÉ«±»¹¥»÷
-		 * \param pEntry ¹¥»÷Õß
-		 * \param rev ±¾´Î¹¥»÷µÄ´¥·¢ÏûÏ¢
+		 * \brief è§’è‰²è¢«æ”»å‡»
+		 * \param pEntry æ”»å‡»è€…
+		 * \param rev æœ¬æ¬¡æ”»å‡»çš„è§¦å‘æ¶ˆæ¯
 		 * \author fqnewman
-		 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+		 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 		 */
 		//		virtual bool AttackMe(SceneEntryPk *pEntry, const Cmd::stAttackMagicUserCmd *rev, bool physics=true);
 
 		/**
-		 * \brief ÈÃ½ÇÉ«ÖØÉú
+		 * \brief è®©è§’è‰²é‡ç”Ÿ
 		 * \author fqnewman
 		 */
 		virtual void relive();
 
 		/**
-		 * \brief ½ÇÉ«±»»÷ÍËN¸ñ
-		 * \param dwAttTempID ¹¥»÷ÕßµÄÁÙÊ±ID
+		 * \brief è§’è‰²è¢«å‡»é€€Næ ¼
+		 * \param dwAttTempID æ”»å‡»è€…çš„ä¸´æ—¶ID
 		 * \param grids
 		 * \author fqnewman
 		 */
 		void standBack(const DWORD dwAttTempID, DWORD grids);
 
 		/**
-		 * \brief ¶ÁÈ¡ÁÙÊ±´æµµÊı¾İ
-		 * \param revData µÃµ½µÄÁÙÊ±Êı¾İ
-		 * \param dwSize ÁÙÊ±Êı¾İµÄ´óĞ¡
+		 * \brief è¯»å–ä¸´æ—¶å­˜æ¡£æ•°æ®
+		 * \param revData å¾—åˆ°çš„ä¸´æ—¶æ•°æ®
+		 * \param dwSize ä¸´æ—¶æ•°æ®çš„å¤§å°
 		 */
 		void setupTempArchive(const char *revData , const DWORD dwSize);
 
@@ -817,149 +817,149 @@ struct SceneUser:public SceneEntryPk
 		DWORD addBinaryArchiveMember(DWORD type , char *out , DWORD maxSize);
 		DWORD saveBinaryArchive(unsigned char *out , const int maxsize);
 		/**
-		 * \brief ÈÃ½ÇÉ«ËÀÍö
+		 * \brief è®©è§’è‰²æ­»äº¡
 		 * \author fqnewman
 		 */
 		void toDie(const DWORD &dwTempID);
 
 		/**
-		 * \brief ÆÁÄ»ÄÚËæ»úÒÆ¶¯
+		 * \brief å±å¹•å†…éšæœºç§»åŠ¨
 		 * \author fqnewman
 		 */
 		void goToRandomScreen();
 
 		/**
-		 * \brief Í¨Öª¿Í»§¶ËÉúÃüÖµµÄ±ä»¯
+		 * \brief é€šçŸ¥å®¢æˆ·ç«¯ç”Ÿå‘½å€¼çš„å˜åŒ–
 		 * \author fqnewman
 		 */
 		void attackRTHpAndMp();
 
 		/**
-		 * \brief ÅĞ¶Ï½ÇÉ«ÊÇ·ñËÀÍö
+		 * \brief åˆ¤æ–­è§’è‰²æ˜¯å¦æ­»äº¡
 		 * \author fqnewman
-		 * \return trueÎªËÀÍö
+		 * \return trueä¸ºæ­»äº¡
 		 */
 		bool isDie();
 
 		/**
-		 * \brief »ñÈ¡½ÇÉ«µÄ¼¶±ğ
+		 * \brief è·å–è§’è‰²çš„çº§åˆ«
 		 * \author fqnewman
 		 */
 		DWORD getLevel() const;
 
 		/**
-		 * \brief »ñÈ¡½ÇÉ«µÄÎåĞĞÀàĞÍ
+		 * \brief è·å–è§’è‰²çš„äº”è¡Œç±»å‹
 		 * \author fqnewman
-		 * \return ÎåĞĞÀàĞÍ
+		 * \return äº”è¡Œç±»å‹
 		 */
 		DWORD getFiveType() const;
 
 		/**
-		 * \brief »ñÈ¡½ÇÉ«µÄÎåĞĞµãÊı
+		 * \brief è·å–è§’è‰²çš„äº”è¡Œç‚¹æ•°
 		 * \author fqnewman
-		 * \return ÎåĞĞµãÊı
+		 * \return äº”è¡Œç‚¹æ•°
 		 */
 		DWORD getFivePoint() const;
 
 		/**
-		 * \brief »ñÈ¡½ÇÉ«µÄÎåĞĞ¼¶±ğ
+		 * \brief è·å–è§’è‰²çš„äº”è¡Œçº§åˆ«
 		 * \author fqnewman
-		 * \return ÎåĞĞ¼¶±ğ
+		 * \return äº”è¡Œçº§åˆ«
 		 */
 		DWORD getFiveLevel() const;
 
 		/**
-		 * \brief ĞèÒªµÄÖ°ÒµÀàĞÍ£¬¾ö¶¨¿ÉÒÔÊ¹ÓÃµÄ¼¼ÄÜÀàĞÍ
+		 * \brief éœ€è¦çš„èŒä¸šç±»å‹ï¼Œå†³å®šå¯ä»¥ä½¿ç”¨çš„æŠ€èƒ½ç±»å‹
 		 * \author fqnewman
 		 */
 		bool addSkillToMe(zSkill *skill);
 
 		/**
-		 * \brief ĞèÒªµÄÖ°ÒµÀàĞÍ£¬¾ö¶¨¿ÉÒÔÊ¹ÓÃµÄ¼¼ÄÜÀàĞÍ
+		 * \brief éœ€è¦çš„èŒä¸šç±»å‹ï¼Œå†³å®šå¯ä»¥ä½¿ç”¨çš„æŠ€èƒ½ç±»å‹
 		 * \author fqnewman
 		 */
 		bool needType(const DWORD &needtype);
 
 		/**
-		 * \brief ÊÇ·ñÓĞ¸Ã¼¼ÄÜĞèÒªµÄÎäÆ÷
+		 * \brief æ˜¯å¦æœ‰è¯¥æŠ€èƒ½éœ€è¦çš„æ­¦å™¨
 		 * \author fqnewman
-		 * \return true ÓĞ false Ã»ÓĞ
+		 * \return true æœ‰ false æ²¡æœ‰
 		 */
 		bool needWeapon(DWORD skillid);
 
 		/**
-		 * \brief »ñÈ¡µ±Ç°ÊÖ³ÖµÄÎäÆ÷ÀàĞÍ
+		 * \brief è·å–å½“å‰æ‰‹æŒçš„æ­¦å™¨ç±»å‹
 		 * \author fqnewman
-		 * \return ÎäÆ÷ÀàĞÍ
+		 * \return æ­¦å™¨ç±»å‹
 		 */
 		BYTE getWeaponType();
 
 		/**
-		 * \brief ÊÇ·ñPkÇøÓò
-		 * \param other Ïà¹ØÈË
+		 * \brief æ˜¯å¦PkåŒºåŸŸ
+		 * \param other ç›¸å…³äºº
 		 * \author fqnewman
-		 * \return true ÊÇ false ·ñ
+		 * \return true æ˜¯ false å¦
 		 */
 		bool isPkZone(SceneEntryPk *other=NULL);
 
 		/**
-		 * \brief ÒÀÀµÎïÆ·ÏûºÄĞÍ·¨Êõ
-		 * \param object ÏûºÄÎïÆ·µÄÀàĞÍ
-		 * \param num ÏûºÄÎïÆ·µÄÊıÁ¿
+		 * \brief ä¾èµ–ç‰©å“æ¶ˆè€—å‹æ³•æœ¯
+		 * \param object æ¶ˆè€—ç‰©å“çš„ç±»å‹
+		 * \param num æ¶ˆè€—ç‰©å“çš„æ•°é‡
 		 * \author fqnewman
-		 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+		 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 		 */
 		bool reduce(const DWORD &object, const BYTE num);
 
 		bool checkReduce(const DWORD &object, const BYTE num);
 
 		/**
-		 * \brief Ê©·Å¼¼ÄÜËùµ¼ÖÂµÄÏûºÄMP,HP,SP
-		 * \param base ¼¼ÄÜ»ù±¾ÊôĞÔ¶ÔÏó
+		 * \brief æ–½æ”¾æŠ€èƒ½æ‰€å¯¼è‡´çš„æ¶ˆè€—MP,HP,SP
+		 * \param base æŠ€èƒ½åŸºæœ¬å±æ€§å¯¹è±¡
 		 * \author fqnewman
-		 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+		 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 		 */
 		bool doSkillCost(const zSkillB *base);
 
 		/**
-		 * \brief ¼ì²éÊ©·Å¼¼ÄÜËùµ¼ÖÂµÄÏûºÄMP,HP,SPÊÇ·ñ×ã¹»
-		 * \param base ¼¼ÄÜ»ù±¾ÊôĞÔ¶ÔÏó
+		 * \brief æ£€æŸ¥æ–½æ”¾æŠ€èƒ½æ‰€å¯¼è‡´çš„æ¶ˆè€—MP,HP,SPæ˜¯å¦è¶³å¤Ÿ
+		 * \param base æŠ€èƒ½åŸºæœ¬å±æ€§å¯¹è±¡
 		 * \author fqnewman
-		 * \return true ÏûºÄ³É¹¦ false Ê§°Ü
+		 * \return true æ¶ˆè€—æˆåŠŸ false å¤±è´¥
 		 */
 		bool checkSkillCost(const zSkillB *base);
 
 		/**
-		 * \brief ¼ì²é×ÔÉíµÄÊ©·Å³É¹¦¼¸ÂÊ£¬¾ö¶¨Õâ´Î¼¼ÄÜÊÇ·ñ¿ÉÒÔÊ©·Å
+		 * \brief æ£€æŸ¥è‡ªèº«çš„æ–½æ”¾æˆåŠŸå‡ ç‡ï¼Œå†³å®šè¿™æ¬¡æŠ€èƒ½æ˜¯å¦å¯ä»¥æ–½æ”¾
 		 * \author fqnewman
-		 * \return true ³É¹¦ false Ê§°Ü
+		 * \return true æˆåŠŸ false å¤±è´¥
 		 */
 		bool checkPercent();
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñÊÇµĞÈË
+		 * \brief åˆ¤æ–­æ˜¯å¦æ˜¯æ•Œäºº
 		 * \author fqnewman
-		 * \return true ÊÇ false ²»ÊÇ
+		 * \return true æ˜¯ false ä¸æ˜¯
 		 */
 		int isEnemy(SceneEntryPk *entry, bool notify = false, bool good = false);
 
 		/**
-		 * \brief »ñÈ¡×Ô¼ºµÄÖ÷ÈË£¬Ò»°ãÕë¶ÔNPC¶øÑÔ£¬PlayerµÄÖ÷ÈËÊÇ×Ô¼º
+		 * \brief è·å–è‡ªå·±çš„ä¸»äººï¼Œä¸€èˆ¬é’ˆå¯¹NPCè€Œè¨€ï¼ŒPlayerçš„ä¸»äººæ˜¯è‡ªå·±
 		 * \author fqnewman
-		 * \return NULL»òÕßÖ÷ÈËµÄ¶ÔÏóÖ¸Õë
+		 * \return NULLæˆ–è€…ä¸»äººçš„å¯¹è±¡æŒ‡é’ˆ
 		 */
 		SceneEntryPk *getMaster();
 		/**
-		 * \brief µÃµ½×îÉÏ²ãµÄÖ÷ÈË
-		 * ·µ»Ø×Ô¼º
-		 * \return  ×Ô¼º
+		 * \brief å¾—åˆ°æœ€ä¸Šå±‚çš„ä¸»äºº
+		 * è¿”å›è‡ªå·±
+		 * \return  è‡ªå·±
 		 */
 		SceneEntryPk *getTopMaster();// const;
 
 		/**
-		 * \brief ¼ì²éÊÇ·ñÔÚ½ûÑÔÆÚ
+		 * \brief æ£€æŸ¥æ˜¯å¦åœ¨ç¦è¨€æœŸ
 		 * 
-		 * \return Èç¹ûÔÚ½ûÑÔÆÚ·µ»Øtrue,·ñÔòfalse
+		 * \return å¦‚æœåœ¨ç¦è¨€æœŸè¿”å›true,å¦åˆ™false
 		 */ 
 		bool isForbidTalk()
 		{
@@ -967,9 +967,9 @@ struct SceneUser:public SceneEntryPk
 			return ctv.sec() < charbase.forbidtalk;
 		}
 		/** 
-		 * \brief ÉèÖÃ½ûÑÔÊ±¼ä
-		 * \param delay ÑÓ³ÙµÄÃëÊı
-		 * \return ½ûÑÔµ½ÆÚµÄÊ±¼ä()
+		 * \brief è®¾ç½®ç¦è¨€æ—¶é—´
+		 * \param delay å»¶è¿Ÿçš„ç§’æ•°
+		 * \return ç¦è¨€åˆ°æœŸçš„æ—¶é—´()
 		 */
 		zRTime delayForbidTalk(int delay)
 		{
@@ -979,8 +979,8 @@ struct SceneUser:public SceneEntryPk
 		}
 
 		/**
-		 * \brief ÉèÖÃÍæ¼ÒµÄÈ¨ÏŞ
-		 * \param lv µÈ¼¶
+		 * \brief è®¾ç½®ç©å®¶çš„æƒé™
+		 * \param lv ç­‰çº§
 		 */
 		void setPriv(BYTE lv)
 		{
@@ -988,8 +988,8 @@ struct SceneUser:public SceneEntryPk
 		}
 
 		/**
-		 * \brief µÃµ½Íæ¼ÒµÄÈ¨ÏŞµÈ¼¶
-		 * \return Íæ¼ÒµÄÈ¨ÏŞµÈ¼¶
+		 * \brief å¾—åˆ°ç©å®¶çš„æƒé™ç­‰çº§
+		 * \return ç©å®¶çš„æƒé™ç­‰çº§
 		 */
 		BYTE getPriv()
 		{
@@ -997,12 +997,12 @@ struct SceneUser:public SceneEntryPk
 		}
 
 		/**
-		 * \brief ÖØĞÂ·¢ËÍ±¾½ÇÉ«µÄµØÍ¼Êı¾İ
+		 * \brief é‡æ–°å‘é€æœ¬è§’è‰²çš„åœ°å›¾æ•°æ®
 		 */
 		void reSendMyMapData();
 
 		/**
-		 * \brief Í¨ÖªÑ¡ÖĞ×Ô¼ºµÄÓÃ»§µÄhpºÍmp·¢Éú±ä»¯
+		 * \brief é€šçŸ¥é€‰ä¸­è‡ªå·±çš„ç”¨æˆ·çš„hpå’Œmpå‘ç”Ÿå˜åŒ–
 		 */
 		void sendtoSelectedHpAndMp();
 		void sendtoSelectedPkAdditionState();
@@ -1014,161 +1014,161 @@ struct SceneUser:public SceneEntryPk
 
 
 		/**
-		 * \brief »ñÈ¡¿¹¶¾Ôö¼Ó  
+		 * \brief è·å–æŠ—æ¯’å¢åŠ   
 		 */
 		SWORD getPoisondef();
 
 		/**
-		 * \brief »ñÈ¡¿¹Âé±ÔÔö¼Ó        
+		 * \brief è·å–æŠ—éº»ç—¹å¢åŠ         
 		 */
 		SWORD getLulldef();
 
 		/**
-		 * \brief »ñÈ¡¿¹Ñ£ÔÎÔö¼Ó        
+		 * \brief è·å–æŠ—çœ©æ™•å¢åŠ         
 		 */
 		SWORD getReeldef();
 
 		/**
-		 * \brief »ñÈ¡¿¹ÊÉÄ§Ôö¼Ó        
+		 * \brief è·å–æŠ—å™¬é­”å¢åŠ         
 		 */
 		SWORD getEvildef();
 
 		/**
-		 * \brief »ñÈ¡¿¹ÊÉÁ¦Ôö¼Ó        
+		 * \brief è·å–æŠ—å™¬åŠ›å¢åŠ         
 		 */
 		SWORD getBitedef();
 
 		/**
-		 * \brief »ñÈ¡¿¹»ìÂÒÔö¼Ó        
+		 * \brief è·å–æŠ—æ··ä¹±å¢åŠ         
 		 */
 		SWORD getChaosdef();
 
 		/**
-		 * \brief »ñÈ¡¿¹±ù¶³Ôö¼Ó        
+		 * \brief è·å–æŠ—å†°å†»å¢åŠ         
 		 */
 		SWORD getColddef();
 
 		/**
-		 * \brief »ñÈ¡¿¹Ê¯»¯Ôö¼Ó        
+		 * \brief è·å–æŠ—çŸ³åŒ–å¢åŠ         
 		 */
 		SWORD getPetrifydef();
 
 		/**
-		 * \brief »ñÈ¡¿¹Ê§Ã÷Ôö¼Ó        
+		 * \brief è·å–æŠ—å¤±æ˜å¢åŠ         
 		 */
 		SWORD getBlinddef();
 
 		/**
-		 * \brief »ñÈ¡¿¹¶¨ÉíÔö¼Ó        
+		 * \brief è·å–æŠ—å®šèº«å¢åŠ         
 		 */
 		SWORD getStabledef();
 
 		/**
-		 * \brief »ñÈ¡¿¹¼õËÙÔö¼Ó        
+		 * \brief è·å–æŠ—å‡é€Ÿå¢åŠ         
 		 */
 		SWORD getSlowdef();
 
 		/**
-		 * \brief »ñÈ¡¿¹ÓÕ»óÔö¼Ó
+		 * \brief è·å–æŠ—è¯±æƒ‘å¢åŠ 
 		 */
 		SWORD getLuredef();
 
 
 		/**
-		 * \brief »ñÈ¡¶¾Ôö¼Ó  
+		 * \brief è·å–æ¯’å¢åŠ   
 		 */
 		SWORD getPoison();
 
 		/**
-		 * \brief »ñÈ¡Âé±ÔÔö¼Ó        
+		 * \brief è·å–éº»ç—¹å¢åŠ         
 		 */
 		SWORD getLull();
 
 		/**
-		 * \brief »ñÈ¡Ñ£ÔÎÔö¼Ó        
+		 * \brief è·å–çœ©æ™•å¢åŠ         
 		 */
 		SWORD getReel();
 
 		/**
-		 * \brief »ñÈ¡ÊÉÄ§Ôö¼Ó        
+		 * \brief è·å–å™¬é­”å¢åŠ         
 		 */
 		SWORD getEvil();
 
 		/**
-		 * \brief »ñÈ¡ÊÉÁ¦Ôö¼Ó        
+		 * \brief è·å–å™¬åŠ›å¢åŠ         
 		 */
 		SWORD getBite();
 
 		/**
-		 * \brief »ñÈ¡»ìÂÒÔö¼Ó        
+		 * \brief è·å–æ··ä¹±å¢åŠ         
 		 */
 		SWORD getChaos();
 
 		/**
-		 * \brief »ñÈ¡±ù¶³Ôö¼Ó        
+		 * \brief è·å–å†°å†»å¢åŠ         
 		 */
 		SWORD getCold();
 
 		/**
-		 * \brief »ñÈ¡Ê¯»¯Ôö¼Ó        
+		 * \brief è·å–çŸ³åŒ–å¢åŠ         
 		 */
 		SWORD getPetrify();
 
 		/**
-		 * \brief »ñÈ¡Ê§Ã÷Ôö¼Ó        
+		 * \brief è·å–å¤±æ˜å¢åŠ         
 		 */
 		SWORD getBlind();
 
 		/**
-		 * \brief »ñÈ¡¶¨ÉíÔö¼Ó        
+		 * \brief è·å–å®šèº«å¢åŠ         
 		 */
 		SWORD getStable();
 
 		/**
-		 * \brief »ñÈ¡¼õËÙÔö¼Ó        
+		 * \brief è·å–å‡é€Ÿå¢åŠ         
 		 */
 		SWORD getSlow();
 
 		/**
-		 * \brief »ñÈ¡ÓÕ»óÔö¼Ó
+		 * \brief è·å–è¯±æƒ‘å¢åŠ 
 		 */
 		SWORD getLure();
 
 
 
 		/**
-		 * \brief ·¢ËÍÑ¡ÖĞÍæ¼ÒµÄ×´Ì¬
-		 * \param state ×´Ì¬
-		 * \param value Öµ
-		 * \param time ³ÖĞøÊ±¼ä
+		 * \brief å‘é€é€‰ä¸­ç©å®¶çš„çŠ¶æ€
+		 * \param state çŠ¶æ€
+		 * \param value å€¼
+		 * \param time æŒç»­æ—¶é—´
 		 * */
 		void sendtoSelectedState(DWORD state , WORD value , WORD time);
 		/**
-		 * \brief ·¢ËÍÍæ¼ÒµÄ×´Ì¬¸ø×Ô¼º
-		 * \param state ×´Ì¬
-		 * \param value Öµ
-		 * \param time ³ÖĞøÊ±¼ä
+		 * \brief å‘é€ç©å®¶çš„çŠ¶æ€ç»™è‡ªå·±
+		 * \param state çŠ¶æ€
+		 * \param value å€¼
+		 * \param time æŒç»­æ—¶é—´
 		 * */
 		void sendSevenStateToMe(DWORD state , WORD value , WORD time);
 
 		/**
-		 * \brief »ñÈ¡×°±¸ÉËº¦¼Ó³É
+		 * \brief è·å–è£…å¤‡ä¼¤å®³åŠ æˆ
 		 * \author fqnewman
-		 * \return ÉËº¦¼Ó³É
+		 * \return ä¼¤å®³åŠ æˆ
 		 */
 		WORD getDamageBonus();
 
 		/**
-		 * \brief ÉèÖÃÕ½¶·Àà³èÎïµÄ¸ú×Ù¹¥»÷Ä¿±ê
-		 * \param weaponType ÎäÆ÷ÀàĞÍ
-		 * \return trueÎäÆ÷ÀàĞÍ·ûºÏ£¬falseÎäÆ÷ÀàĞÍ²»·ûºÏ
+		 * \brief è®¾ç½®æˆ˜æ–—ç±»å® ç‰©çš„è·Ÿè¸ªæ”»å‡»ç›®æ ‡
+		 * \param weaponType æ­¦å™¨ç±»å‹
+		 * \return trueæ­¦å™¨ç±»å‹ç¬¦åˆï¼Œfalseæ­¦å™¨ç±»å‹ä¸ç¬¦åˆ
 		 */
 		bool checkWeapon(BYTE weaponType);
 
 		/*
-		///ÍÑÀëÕ½¶·×´Ì¬µÄÊ±¼ä
+		///è„±ç¦»æˆ˜æ–—çŠ¶æ€çš„æ—¶é—´
 		zRTime endBattleTime;
-		///µ±Ç°µÄ¶ÔÊÖ
+		///å½“å‰çš„å¯¹æ‰‹
 		SceneEntryPk * curTarget;
 
 		void setEndBattleTime(const zRTime &, int);
@@ -1177,13 +1177,13 @@ struct SceneUser:public SceneEntryPk
 		 */
 
 
-		// ÍÑÀë¶ÓÎé
+		// è„±ç¦»é˜Ÿä¼
 		void leaveTeam();
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ»ØÊÕÓÃ»§ÄÚ´æ
-		 * \param cur: µ±Ç°Ê±¼ä
-		 * \return ÊÇ·ñ¿ÉÒÔ»ØÊÕÄÚ´æ
+		 * \brief åˆ¤æ–­æ˜¯å¦å¯ä»¥å›æ”¶ç”¨æˆ·å†…å­˜
+		 * \param cur: å½“å‰æ—¶é—´
+		 * \return æ˜¯å¦å¯ä»¥å›æ”¶å†…å­˜
 		 * */
 		bool canRecycle(const zRTime &cur)
 		{
@@ -1191,25 +1191,25 @@ struct SceneUser:public SceneEntryPk
 		}
 
 		/**
-		 * \brief Ò×Èİ´¦Àí
-		 * \param cmd Ò×ÈİÏûÏ¢
-		 * \param cmdLen ÏûÏ¢³¤¶È
-		 * \return true ´¦Àí³É¹¦ false Ê§°Ü
+		 * \brief æ˜“å®¹å¤„ç†
+		 * \param cmd æ˜“å®¹æ¶ˆæ¯
+		 * \param cmdLen æ¶ˆæ¯é•¿åº¦
+		 * \return true å¤„ç†æˆåŠŸ false å¤±è´¥
 		 **/
 		bool changeFace(const Cmd::stChangeFaceMapScreenUserCmd *cmd, const unsigned int cmdLen);
 
 		/**
-		 * \brief ÎäÆ÷ÌáÉı¶ÔÓ¦¼¼ÄÜµÈ¼¶
-		 * \param skilltype ¼¼ÄÜµÄÀàĞÍ
-		 * \param skillkind ¼¼ÄÜµÄÏµ±ğ
-		 * \return ÌáÉıµÄ¼¼ÄÜµÇ¼ÇÊı
+		 * \brief æ­¦å™¨æå‡å¯¹åº”æŠ€èƒ½ç­‰çº§
+		 * \param skilltype æŠ€èƒ½çš„ç±»å‹
+		 * \param skillkind æŠ€èƒ½çš„ç³»åˆ«
+		 * \return æå‡çš„æŠ€èƒ½ç™»è®°æ•°
 		 **/
 		WORD skillUpLevel(WORD skilltype, WORD skillkind);
 
 		/**
-		 * \brief ¼ì²éÊÇ·ñÆïÂí
+		 * \brief æ£€æŸ¥æ˜¯å¦éª‘é©¬
 		 * \author fqnewman
-		 * \return true ÆïÂí false Ã»Æï
+		 * \return true éª‘é©¬ false æ²¡éª‘
 		 */
 		bool checkMountHorse();
 		inline void initTire();
@@ -1238,85 +1238,85 @@ struct SceneUser:public SceneEntryPk
 		void relivePet();
 		void sendSkill(WORD wdSkillID, BYTE level=1, DWORD target=0, BYTE attackType=Cmd::ATTACKTYPE_U2U, BYTE action=Cmd::Ani_Null);
 		/**
-		 * \brief ÉèÖÃ½ÇÉ«µÄµ±Ç°×´Ì¬£¬²¢¸ù¾İµ±Ç°×´Ì¬³ÊÏÖ½ÇÉ«µÄÌØĞ§»òÕß¹Ø±ÕÌØĞ§
-		 * \param state ×´Ì¬ID ¸ù¾İenum SceneEntryStateÈ¡Öµ
+		 * \brief è®¾ç½®è§’è‰²çš„å½“å‰çŠ¶æ€ï¼Œå¹¶æ ¹æ®å½“å‰çŠ¶æ€å‘ˆç°è§’è‰²çš„ç‰¹æ•ˆæˆ–è€…å…³é—­ç‰¹æ•ˆ
+		 * \param state çŠ¶æ€ID æ ¹æ®enum SceneEntryStateå–å€¼
 		 * \author fqnewman
-		 * \return trueÎªÕâ´Î¹¥»÷ÊÇÓĞĞ§µÄ£¬falseÎªÒ»´ÎÎŞĞ§µÄ¹¥»÷
+		 * \return trueä¸ºè¿™æ¬¡æ”»å‡»æ˜¯æœ‰æ•ˆçš„ï¼Œfalseä¸ºä¸€æ¬¡æ— æ•ˆçš„æ”»å‡»
 		 */
 		void showCurrentEffect(const WORD &state, bool isShow,bool notify=true);
 
 	private:
 		/**
-		 * \brief ´¦ÓÚÃÉÃæ×´Ì¬Ê±¹¥»÷±ğÈË·¢³öÏµÍ³ÌáÊ¾
-		 * \param entry ¹¥»÷¶ÔÏó
+		 * \brief å¤„äºè’™é¢çŠ¶æ€æ—¶æ”»å‡»åˆ«äººå‘å‡ºç³»ç»Ÿæç¤º
+		 * \param entry æ”»å‡»å¯¹è±¡
 		 * */
 		void processMaskOnAttack(SceneEntryPk *entry);
 		/**
-		 * \brief ´¦ÓÚÃÉÃæ×´Ì¬Ê±±»¹¥»÷
+		 * \brief å¤„äºè’™é¢çŠ¶æ€æ—¶è¢«æ”»å‡»
 		 * */
 		void processMaskOnDefence();
 		/**
-		 * \brief ¼ÆËãÉËº¦ÀÛ¼ÓÖµ
+		 * \brief è®¡ç®—ä¼¤å®³ç´¯åŠ å€¼
 		 * 
-		 * \param dwDam Êä³ö£¬ÉËº¦Öµ
-		 * \param dwDamDef ·ÀÓùÁ¦
-		 * \param physics ÊÇ·ñÎïÀí¹¥»÷
+		 * \param dwDam è¾“å‡ºï¼Œä¼¤å®³å€¼
+		 * \param dwDamDef é˜²å¾¡åŠ›
+		 * \param physics æ˜¯å¦ç‰©ç†æ”»å‡»
 		 * \return
 		 * */
 		void processAddDam(int &dwDam, int &dwDamDef, bool physics);
 		/**
-		 * \brief ¼ÆËã¼õÉÙÉËº¦
-		 * \param dwDam ÉËº¦Öµ
-		 * \param dwDamDef ·ÀÓùÁ¦
-		 * \param ÊÇ·ñÎïÀí¹¥»÷
+		 * \brief è®¡ç®—å‡å°‘ä¼¤å®³
+		 * \param dwDam ä¼¤å®³å€¼
+		 * \param dwDamDef é˜²å¾¡åŠ›
+		 * \param æ˜¯å¦ç‰©ç†æ”»å‡»
 		 * 
 		 * */
 		void reduceDam(int &dwDam, int &dwDamDef, bool physics);
 		/**
-		 * \brief ¼ÆËãÉËº¦·´µ¯
-		 * \param dwDam ÉËº¦Öµ
-		 * \param dwDamDef ·ÀÓùÁ¦
-		 * \param ÊÇ·ñÎïÀí¹¥»÷
+		 * \brief è®¡ç®—ä¼¤å®³åå¼¹
+		 * \param dwDam ä¼¤å®³å€¼
+		 * \param dwDamDef é˜²å¾¡åŠ›
+		 * \param æ˜¯å¦ç‰©ç†æ”»å‡»
 		 * */
 		void reflectDam(int &dwDamDef, int &dwDamSelf, bool physics);
 		/**
-		 * \brief ´¦ÀíÍæ¼ÒËÀÍö
+		 * \brief å¤„ç†ç©å®¶æ­»äº¡
 		 * */
 		bool processDeath(SceneEntryPk *pAtt);
 		/**
-		 * \brief hpµ½mp×ª»»
-		 * \param dwDamDef ·ÀÓùÁ¦
+		 * \brief hpåˆ°mpè½¬æ¢
+		 * \param dwDamDef é˜²å¾¡åŠ›
 		 * 
 		 * */
 		void hp2mp(int &dwDamDef);
 
 		/**
-		 * \brief ¼ÆËãÔ¤´¦ÀíÖµ
+		 * \brief è®¡ç®—é¢„å¤„ç†å€¼
 		 * 
 		 * */
 		void calPreValue();
 		/**
-		 * \brief ÉèÖÃ÷ÈÁ¦Öµ
+		 * \brief è®¾ç½®é­…åŠ›å€¼
 		 * 
 		 * */
 		void setupCharm();
 		/**
-		 * \brief ±£´æÍæ¼ÒÁÙÊ±Êı¾İ
+		 * \brief ä¿å­˜ç©å®¶ä¸´æ—¶æ•°æ®
 		 * 
 		 * */
 		void saveTempArchive();
 		/**
-		 * \brief ´æ´¢Íæ¼ÒÁÙÊ±ÎÄµµ
-		 * \param type ÁÙÊ±Êı¾İÀàĞÍ
-		 * \param out ±£´æÊı¾İ¿ªÊ¼µÄÎ»ÖÃ
-		 * \param maxSize ×î´óÈİÁ¿
-		 * \return Ôö¼ÓµÄ×Ö½Ú
+		 * \brief å­˜å‚¨ç©å®¶ä¸´æ—¶æ–‡æ¡£
+		 * \param type ä¸´æ—¶æ•°æ®ç±»å‹
+		 * \param out ä¿å­˜æ•°æ®å¼€å§‹çš„ä½ç½®
+		 * \param maxSize æœ€å¤§å®¹é‡
+		 * \return å¢åŠ çš„å­—èŠ‚
 		 * */
 		DWORD addTempArchiveMember(DWORD type , char *out , DWORD maxSize);
 		/**
-		 * \brief ¼ì²éÄ³ÀàĞÍÊı¾İÊÇ·ñĞèÒª±£´æµ½ÁÙÊ±ÎÄµµ
-		 * \param Òª±£´æµÄÊı¾İÀàĞÍ
-		 * \return ÊÇ·ñĞèÒª±£´æ
+		 * \brief æ£€æŸ¥æŸç±»å‹æ•°æ®æ˜¯å¦éœ€è¦ä¿å­˜åˆ°ä¸´æ—¶æ–‡æ¡£
+		 * \param è¦ä¿å­˜çš„æ•°æ®ç±»å‹
+		 * \return æ˜¯å¦éœ€è¦ä¿å­˜
 		 * */
 		bool needSaveTempArchive(TempArchiveType type);
 

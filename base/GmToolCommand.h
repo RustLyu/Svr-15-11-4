@@ -1,4 +1,4 @@
-#ifndef _GM_TOOL_COMMAND_
+ï»¿#ifndef _GM_TOOL_COMMAND_
 #define _GM_TOOL_COMMAND_
 
 #include "zNullCmd.h"
@@ -10,7 +10,7 @@ namespace Cmd
 	{
 		const BYTE CMD_GMTOOL = 128;
 
-		//ÁÄÌìÏûÏ¢,Gateway->Super->Info->GmTool
+		//èŠå¤©æ¶ˆæ¯,Gateway->Super->Info->GmTool
 		const BYTE PARA_CHAT_GMTOOL = 1;
 		struct t_Chat_GmTool : t_NullCmd
 		{
@@ -19,11 +19,11 @@ namespace Cmd
 			char gmName[MAX_NAMESIZE];
 			DWORD countryID;
 			DWORD sceneID;
-			DWORD dwType;                   /**< ÏûÏ¢ÀàĞÍ */
-			char content[256];    /**< ¶Ô»°ÄÚÈİ */
+			DWORD dwType;                   /**< æ¶ˆæ¯ç±»å‹ */
+			char content[256];    /**< å¯¹è¯å†…å®¹ */
 			char server[MAX_NAMESIZE];
-			BYTE size;                              // ÎïÆ·ÊıÁ¿
-			stTradeObject tobject_array[0]; // ½»Ò×ÎïÆ·ÁĞ±í
+			BYTE size;                              // ç‰©å“æ•°é‡
+			stTradeObject tobject_array[0]; // äº¤æ˜“ç‰©å“åˆ—è¡¨
 			t_Chat_GmTool() : t_NullCmd(CMD_GMTOOL, PARA_CHAT_GMTOOL)
 			{
 				bzero(userName, sizeof(userName));
@@ -33,7 +33,7 @@ namespace Cmd
 			}       
 		};
 
-		//GM¶¨µ¥,Scene->Super->Info
+		//GMå®šå•,Scene->Super->Info
 		const BYTE PARA_MSG_GMTOOL = 2;
 		struct t_Msg_GmTool : t_NullCmd
 		{
@@ -60,7 +60,7 @@ namespace Cmd
 			}
 		};
 
-		//GM¶¨µ¥»Ø¸´,GmTool->Info->Super->Session
+		//GMå®šå•å›å¤,GmTool->Info->Super->Session
 		const BYTE PARA_MSG_REPLY_GMTOOL = 3;
 		struct t_Msg_Reply_GmTool : t_NullCmd
 		{
@@ -80,7 +80,7 @@ namespace Cmd
 			}
 		};
 
-		//GM´¦·££¬GmTool->Info->Super->Scene->Super->Info
+		//GMå¤„ç½šï¼ŒGmTool->Info->Super->Scene->Super->Info
 		const BYTE PARA_PUNISH_GMTOOL = 4;
 		struct t_Punish_GmTool : t_NullCmd
 		{
@@ -109,7 +109,7 @@ namespace Cmd
 			}
 		};
 
-		//¹«¸æ
+		//å…¬å‘Š
 		const BYTE PARA_BROADCAST_GMTOOL = 5;
 		struct t_Broadcast_GmTool : t_NullCmd
 		{
@@ -133,26 +133,26 @@ namespace Cmd
 			}
 		};
 
-		//ĞÂGM¶¨µ¥,Scene->Super->Info
+		//æ–°GMå®šå•,Scene->Super->Info
 		const BYTE PARA_NEW_MSG_GMTOOL = 6;
 		struct t_NewMsg_GmTool : t_NullCmd
 		{
-			GameZone_t zone;//Çø
-			char userName[MAX_NAMESIZE];//¾Ù±¨Õß
-			DWORD accid;//¾Ù±¨Õßaccid
-			char userCountry[MAX_NAMESIZE];//¾Ù±¨Õß¹ú¼Ò
-			DWORD type;//¶¨µ¥ÀàĞÍ
-			char content[512];//Ö÷ÒªÄÚÈİ
-			BYTE contact;//ÁªÏµ·½Ê½
-			char tele[101];//µØÖ·¡¢µç»°
-			char hisName[MAX_NAMESIZE];//±»¾Ù±¨Õß
-			char bugCountry[8];//bug·¢Éú¹ú¼Ò
-			char bugMap[16];//bug·¢ÉúµØÍ¼
-			char bugPos[8];//bug·¢ÉúÎ»ÖÃ
-			char bugTime[64];//·¢ÉúÊ±¼ä
-			char progName[64];//ÒËËÆÍâ¹ÒÃû³Æ
-			BYTE behavior;//²»Á¼ÓÎÏ·ÏÖÏó
-			DWORD userID;//¾Ù±¨ÕßID
+			GameZone_t zone;//åŒº
+			char userName[MAX_NAMESIZE];//ä¸¾æŠ¥è€…
+			DWORD accid;//ä¸¾æŠ¥è€…accid
+			char userCountry[MAX_NAMESIZE];//ä¸¾æŠ¥è€…å›½å®¶
+			DWORD type;//å®šå•ç±»å‹
+			char content[512];//ä¸»è¦å†…å®¹
+			BYTE contact;//è”ç³»æ–¹å¼
+			char tele[101];//åœ°å€ã€ç”µè¯
+			char hisName[MAX_NAMESIZE];//è¢«ä¸¾æŠ¥è€…
+			char bugCountry[8];//bugå‘ç”Ÿå›½å®¶
+			char bugMap[16];//bugå‘ç”Ÿåœ°å›¾
+			char bugPos[8];//bugå‘ç”Ÿä½ç½®
+			char bugTime[64];//å‘ç”Ÿæ—¶é—´
+			char progName[64];//å®œä¼¼å¤–æŒ‚åç§°
+			BYTE behavior;//ä¸è‰¯æ¸¸æˆç°è±¡
+			DWORD userID;//ä¸¾æŠ¥è€…ID
 			t_NewMsg_GmTool() : t_NullCmd(CMD_GMTOOL, PARA_NEW_MSG_GMTOOL)
 			{
 				bzero(userName, sizeof(userName));
@@ -170,18 +170,18 @@ namespace Cmd
 			}
 		};
 
-		//ÈÕÖ¾
+		//æ—¥å¿—
 		const BYTE PARA_LOG_GMTOOL = 7;
 		struct t_Log_GmTool : t_NullCmd
 		{
-			GameZone_t zone;//Çø
-			DWORD time;//Ê±¼ä
+			GameZone_t zone;//åŒº
+			DWORD time;//æ—¶é—´
 			DWORD charID;
 			DWORD accID;
-			char GM[MAX_NAMESIZE];//GMÃû×Ö
-			char pos[MAX_NAMESIZE];//µØÍ¼Ãû
-			char cmd[MAX_NAMESIZE];//Ö¸ÁîÃû
-			char content[256];//ÄÚÈİ
+			char GM[MAX_NAMESIZE];//GMåå­—
+			char pos[MAX_NAMESIZE];//åœ°å›¾å
+			char cmd[MAX_NAMESIZE];//æŒ‡ä»¤å
+			char content[256];//å†…å®¹
 			t_Log_GmTool() : t_NullCmd(CMD_GMTOOL, PARA_LOG_GMTOOL)
 			{
 				bzero(pos, sizeof(pos));
@@ -241,8 +241,8 @@ struct stTradeObject
 	DWORD dwObjectID;
 	DWORD dwObjectTempID;
 	char strName[MAX_NAMESIZE];
-	BYTE upgrade;                         // µÈ¼¶
-	BYTE kind;      //ÎïÆ·ÀàĞÍ, 0ÆÕÍ¨, 1À¶É«, 2½ğÉ«, 4ÉñÊ¥, 8Ì××°
+	BYTE upgrade;                         // ç­‰çº§
+	BYTE kind;      //ç‰©å“ç±»å‹, 0æ™®é€š, 1è“è‰², 2é‡‘è‰², 4ç¥åœ£, 8å¥—è£…
 };
 
 */

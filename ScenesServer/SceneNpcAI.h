@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file
  * \version  $Id: SceneNpcAI.h  $
  * \author  
  * \date 
- * \brief ����NPCAI�������ص����ݽṹ����
+ * \brief 处理NPCAI的类和相关的数据结构定义
  * 
  * 
  */
@@ -17,113 +17,113 @@
 #include "zTime.h"
 
 /**
- * \brief AI���ͣ�npc�����Ļ�������
- * �ߡ�������Ѳ�ߡ���ת��
+ * \brief AI类型，npc会做的基本动作
+ * 走、攻击、巡逻、跳转等
  *
  */
 enum SceneNpcAIType
 {
-	NPC_AI_NORMAL,///��ͨAI
-	NPC_AI_SAY,///˵��
-	NPC_AI_MOVETO,///�ƶ���ĳλ��
-	NPC_AI_ATTACK,///��ĳ��Χ�ڹ���
-	NPC_AI_FLEE,///�������
-	NPC_AI_RETURN_TO_REGION,///�ص����Χ
-	NPC_AI_GO_ON_PATH,///����һ��·���ƶ�
-	NPC_AI_CHANGE_MAP,///�л���ͼ��ͬһ�������ڣ�
-	NPC_AI_WARP,///ͬһ��ͼ��˲���ƶ�
-	NPC_AI_PATROL,///Ѳ��
-	NPC_AI_CLEAR,///�����npc
-	NPC_AI_WAIT,///�ȴ���ʲôҲ����
-	NPC_AI_GUARD_DOOR,///����
-	NPC_AI_GUARD_ARCHER,///����
-	NPC_AI_GUARD_GUARD,///����
-	NPC_AI_GUARD_PATROL,///Ѳ����ʿ
-	NPC_AI_DROP_ITEM,///������
-	NPC_AI_CALL_PET,///�г���
-	NPC_AI_RANDOM_CHAT///���˵��
+	NPC_AI_NORMAL,///普通AI
+	NPC_AI_SAY,///说话
+	NPC_AI_MOVETO,///移动到某位置
+	NPC_AI_ATTACK,///在某范围内攻击
+	NPC_AI_FLEE,///逃离玩家
+	NPC_AI_RETURN_TO_REGION,///回到活动范围
+	NPC_AI_GO_ON_PATH,///按照一定路线移动
+	NPC_AI_CHANGE_MAP,///切换地图（同一服务器内）
+	NPC_AI_WARP,///同一地图内瞬间移动
+	NPC_AI_PATROL,///巡逻
+	NPC_AI_CLEAR,///清除该npc
+	NPC_AI_WAIT,///等待，什么也不做
+	NPC_AI_GUARD_DOOR,///门卫
+	NPC_AI_GUARD_ARCHER,///弓卫
+	NPC_AI_GUARD_GUARD,///侍卫
+	NPC_AI_GUARD_PATROL,///巡逻卫士
+	NPC_AI_DROP_ITEM,///丢东西
+	NPC_AI_CALL_PET,///招宠物
+	NPC_AI_RANDOM_CHAT///随机说话
 };
 
-///npcAI��־����
+///npcAI标志定义
 enum NpcAIFlag
 {
-	AIF_ATK_PDEF            = 0x00000001,   ///���ȹ��������͵ĵ���
-	AIF_ATK_MDEF            = 0x00000002,   ///���ȹ���ħ����͵ĵ���
-	AIF_ATK_HP              = 0x00000004,   ///���ȹ�������ֵ��͵ĵ���
-	AIF_GIVEUP_10_SEC       = 0x00000008,   ///׷��10�����Ŀ��
-	AIF_GIVEUP_6_SEC        = 0x00000010,   ///6��δ�ܵ��˺�����Ŀ��
-	AIF_GIVEUP_3_SEC        = 0x00000020,   ///3��δ�ܵ��˺�����Ŀ��
-	AIF_FLEE_30_HP		= 0x00000040,   ///HP30%��������4��
-	AIF_FLEE_3_ENEMY_4	= 0x00000080,   ///��3�����ϵ���Χ������4��
-	AIF_NO_BATTLE		= 0x00000100,	///��ս��npc
-	AIF_NO_MOVE		= 0x00000200,   ///���ƶ���������������·��ȣ�
-	AIF_WARP_MOVE		= 0x00000400,   ///˲�Ʒ�ʽ�ƶ�
-	AIF_CALL_FELLOW_7       = 0x00000800,   ///�ٻ�7*7��Χ��δ����npc(����50%)
-	AIF_CALL_FELLOW_9       = 0x00001000,   ///�ٻ�9*9��Χ��δ����npc������50%��
-	AIF_CALL_BY_ATYPE       = 0x00002000,   ///�ٻ�ͬ�ֹ������͵�ͬ�飨����������־������
-	AIF_HEAL_FELLOW_5       = 0x00004000,   ///����5*5��Χ�ڵ�HP50%���µ�ͬ��
-	AIF_BUFF_FELLOW_5	= 0x00008000,   ///��5*5��Χ�ڵ�ͬ��buff
-	AIF_HELP_FELLOW_5	= 0x00010000,	///����5*5��Χ�ڵ�ͬ�鹥�������ڱ���npc��
-	AIF_ATK_MASTER		= 0x00020000,	///ֱ�ӹ������������
-	AIF_ATK_REDNAME		= 0x00040000,	///�������������
-	AIF_DOUBLE_REGION	= 0x00080000,	///������Χ�ӱ�
-	AIF_SPD_UP_HP20		= 0x00100000,	///hp20%�����ƶ��ٶȼӱ�
-	AIF_ASPD_UP_HP50	= 0x00200000,	///hp50%���¹����ٶȼӱ�
-	AIF_ACTIVE_MODE		= 0x00400000,	///��������
-	AIF_RUN_AWAY		= 0x00800000,	///�������
-	AIF_LOCK_TARGET		= 0x01000000,	///���л�����Ŀ��ֱ����
-	AIF_RCV_UNDER_30	= 0x02000000,	///hp30%���³�����Ѫ1%
-	AIF_RCV_REST		= 0x04000000,	///����ս��30����Ѫһ��5%
-	AIF_SUMMON_UNDER_60	= 0x08000000,	///hp60%�����ٻ�����
-	AIF_LIMIT_REGION	= 0x10000000	///���ƻ��Χ
+	AIF_ATK_PDEF            = 0x00000001,   ///优先攻击物防最低的敌人
+	AIF_ATK_MDEF            = 0x00000002,   ///优先攻击魔防最低的敌人
+	AIF_ATK_HP              = 0x00000004,   ///优先攻击生命值最低的敌人
+	AIF_GIVEUP_10_SEC       = 0x00000008,   ///追逐10秒放弃目标
+	AIF_GIVEUP_6_SEC        = 0x00000010,   ///6秒未受到伤害放弃目标
+	AIF_GIVEUP_3_SEC        = 0x00000020,   ///3秒未受到伤害放弃目标
+	AIF_FLEE_30_HP		= 0x00000040,   ///HP30%以下逃跑4格
+	AIF_FLEE_3_ENEMY_4	= 0x00000080,   ///被3个以上敌人围攻逃跑4格
+	AIF_NO_BATTLE		= 0x00000100,	///非战斗npc
+	AIF_NO_MOVE		= 0x00000200,   ///不移动（弓卫、买卖、路标等）
+	AIF_WARP_MOVE		= 0x00000400,   ///瞬移方式移动
+	AIF_CALL_FELLOW_7       = 0x00000800,   ///召唤7*7范围的未激活npc(几率50%)
+	AIF_CALL_FELLOW_9       = 0x00001000,   ///召唤9*9范围的未激活npc（几率50%）
+	AIF_CALL_BY_ATYPE       = 0x00002000,   ///召唤同种攻击类型的同伴（与上两个标志合作）
+	AIF_HEAL_FELLOW_5       = 0x00004000,   ///治愈5*5范围内的HP50%以下的同伴
+	AIF_BUFF_FELLOW_5	= 0x00008000,   ///给5*5范围内的同伴buff
+	AIF_HELP_FELLOW_5	= 0x00010000,	///帮助5*5范围内的同伴攻击（用于被动npc）
+	AIF_ATK_MASTER		= 0x00020000,	///直接攻击宠物的主人
+	AIF_ATK_REDNAME		= 0x00040000,	///攻击红名的玩家
+	AIF_DOUBLE_REGION	= 0x00080000,	///搜索范围加倍
+	AIF_SPD_UP_HP20		= 0x00100000,	///hp20%以下移动速度加倍
+	AIF_ASPD_UP_HP50	= 0x00200000,	///hp50%以下攻击速度加倍
+	AIF_ACTIVE_MODE		= 0x00400000,	///主动攻击
+	AIF_RUN_AWAY		= 0x00800000,	///逃离敌人
+	AIF_LOCK_TARGET		= 0x01000000,	///不切换攻击目标直到死
+	AIF_RCV_UNDER_30	= 0x02000000,	///hp30%以下持续回血1%
+	AIF_RCV_REST		= 0x04000000,	///脱离战斗30秒后回血一次5%
+	AIF_SUMMON_UNDER_60	= 0x08000000,	///hp60%以下召唤宠物
+	AIF_LIMIT_REGION	= 0x10000000	///限制活动范围
 };
 
-///npc˵��������
+///npc说话的类型
 enum NpcChatType
 {
-	NPC_CHAT_ON_FIND_ENEMY = 1,	///���ֵ���
-	NPC_CHAT_ON_ATTACK,	///����ʱ˵�Ļ�
-	NPC_CHAT_ON_RETURN,	///׷�𷵻�ʱ˵�Ļ�
-	NPC_CHAT_ON_DIE,	///����ʱ��˵�Ļ�
-	NPC_CHAT_ON_FLEE,	///����ʱ˵�Ļ�
-	NPC_CHAT_ON_HIT,	///����ʱ˵�Ļ�
-	NPC_CHAT_ON_HELP,	///����ͬ��ʱ˵�Ļ�
-	NPC_CHAT_ON_BE_HELP,	///ͬ��������ʱ˵�Ļ�
-	NPC_CHAT_RANDOM		///���˵��
+	NPC_CHAT_ON_FIND_ENEMY = 1,	///发现敌人
+	NPC_CHAT_ON_ATTACK,	///攻击时说的话
+	NPC_CHAT_ON_RETURN,	///追逐返回时说的话
+	NPC_CHAT_ON_DIE,	///死的时候说的话
+	NPC_CHAT_ON_FLEE,	///逃跑时说的话
+	NPC_CHAT_ON_HIT,	///被打时说的话
+	NPC_CHAT_ON_HELP,	///帮助同伴时说的话
+	NPC_CHAT_ON_BE_HELP,	///同伴来帮助时说的话
+	NPC_CHAT_RANDOM		///随机说话
 };
 
 /**
- * \brief һ��AI�Ķ���
+ * \brief 一个AI的定义
  *
  */
 struct t_NpcAIDefine
 {
-	///���ͣ�NPC�ڸý׶ε���Ҫ����
+	///类型，NPC在该阶段的主要动作
 	SceneNpcAIType type;
-	///λ�� ���ݲ�ͬ����λ�õ�����Ҳ�Բ���ͬ
-	///�ƶ�ʱ��ʾĿ�ĵأ�������ʾ���Χ����
+	///位置 根据不同动作位置的意义也略不相同
+	///移动时表示目的地，其他表示活动范围中心
 	zPos pos;
-	///��Χ 
-	///�ƶ�ʱ��ʾ����Ŀ�ĵص��ж���Χ��������ʾ���Χ
+	///范围 
+	///移动时表示到达目的地的判定范围，其他表示活动范围
 	int regionX, regionY;
 	//zRTime endTime;
-	///��AI�ĳ���ʱ��
+	///该AI的持续时间
 	int lasttime;
 
-	///�Ƿ���������
+	///是否正在逃跑
 	bool flee;
-	///���ܵķ���
+	///逃跑的方向
 	int fleeDir;
-	///���ܼ���
+	///逃跑计数
 	int fleeCount;
 
-	///�л���ͼʱ��Ҫȥ�ĵ�ͼ
-	///˵��ʱ��Ҫ˵�Ļ�
+	///切换地图时，要去的地图
+	///说话时，要说的话
 	char str[MAX_CHATINFO];
 
 
 	/**
-	 * \brief Ĭ�Ϲ��캯��
+	 * \brief 默认构造函数
 	 *
 	 */
 	t_NpcAIDefine()
@@ -133,14 +133,14 @@ struct t_NpcAIDefine
 		}
 	
 	/**
-	 * \brief ���캯��
+	 * \brief 构造函数
 	 *
 	 *
-	 * \param type AI����
-	 * \param pos λ��
-	 * \param regionX ��Χ��
-	 * \param regionY ��Χ��
-	 * \param lasttime ����ʱ��
+	 * \param type AI类型
+	 * \param pos 位置
+	 * \param regionX 范围宽
+	 * \param regionY 范围高
+	 * \param lasttime 持续时间
 	 * \return 
 	 */
 	t_NpcAIDefine(SceneNpcAIType type, const zPos &pos, int regionX, int regionY, int lasttime)
@@ -151,9 +151,9 @@ struct t_NpcAIDefine
 
 
 	/**
-	 * \brief �������캯��
+	 * \brief 拷贝构造函数
 	 *
-	 * \param ad Ҫ���ƵĶ���
+	 * \param ad 要复制的对象
 	 */
 	t_NpcAIDefine(const t_NpcAIDefine &ad)
 	{
@@ -169,10 +169,10 @@ struct t_NpcAIDefine
 	}
 
 	/**
-	 * \brief ��ֵ
+	 * \brief 赋值
 	 *
-	 * \param ad Ҫ�����Ķ���
-	 * \return ����������ַ
+	 * \param ad 要拷贝的对象
+	 * \return 返回自身地址
 	 */
 	t_NpcAIDefine & operator = (const t_NpcAIDefine &ad)
 	{
@@ -193,59 +193,59 @@ struct t_NpcAIDefine
 class SceneNpc;
 
 /**
- * \brief AI������
- * ���������Զ�ȡNPC�ű���ʹNPC���սű�������
+ * \brief AI控制器
+ * 控制器可以读取NPC脚本，使NPC按照脚本来动作
  * 
- * ���������������¼���ʱ�䡢��������������
- * ���ݲ�ͬ������ΪNPC���ò�ͬ��AI
+ * 控制器处理各种事件，时间、被攻击、死亡等
+ * 根据不同的条件为NPC设置不同的AI
  *
  */
 class NpcAIController
 {
-	static const int npc_call_fellow_rate;///NPC�ٻ�ͬ��ļ���
-	static const int npc_one_checkpoint_time;///NPC����·���ƶ�ʱ����һ��·����ʱ��
-	static const int npc_checkpoint_region;///NPC�ƶ�������һ��·����ж���Χ
-	static const int npc_onhit_stop_time;///����NPC�ƶ��б�����ʱ��ֹͣ��ʱ��
-	static const int npc_flee_distance;///NPC���빥���ߵľ���
-	static const int npc_min_act_region;///NPC��С���Χ
+	static const int npc_call_fellow_rate;///NPC召唤同伴的几率
+	static const int npc_one_checkpoint_time;///NPC按照路线移动时，走一个路点的最长时间
+	static const int npc_checkpoint_region;///NPC移动，到达一个路点的判定范围
+	static const int npc_onhit_stop_time;///任务NPC移动中被攻击时，停止的时间
+	static const int npc_flee_distance;///NPC逃离攻击者的距离
+	static const int npc_min_act_region;///NPC最小活动范围
 	
-	///AI������AI�����������е�˳������ִ��
+	///AI容器，AI按照在容器中的顺序依次执行
 	std::vector<t_NpcAIDefine> phaseVector;
-	///��ǰ��AI����
+	///当前的AI索引
 	unsigned int curPhase;
-	///��ǰAI�Ľ���ʱ��
+	///当前AI的结束时间
 	zRTime phaseEndTime;
 
-	///�ű��ظ�����
-	///-1������ѭ��  0��ֹͣ  >0��ѭ������
+	///脚本重复次数
+	///-1：无限循环  0：停止  >0：循环次数
 	int repeat;
 
-	///�Ƿ������˽ű�
+	///是否起用了脚本
 	bool active;
 	void nextPhase(int index);
 	void on_phaseEnd();
 	SceneNpcAIType parseAction(char *);
 	
-	///�����������Ƶ�npc
+	///本控制器控制的npc
 	SceneNpc * npc;
 
-	///��ǰ��AI�ͱ����ǰһ��AI
+	///当前的AI和保存的前一个AI
 	t_NpcAIDefine curAI,oldAI;
-	///���Χ������
+	///活动范围的中心
 	zPos actPos;
-	///���Χ�Ŀ��͸�
+	///活动范围的宽和高
 	int actRegionX,actRegionY;
 	bool outOfRegion() const;
 	void returnToRegion();
 
 	bool arrived(zPos pos = zPos(0,0), int x = -1, int y = -1);
 	bool dstReached();
-	///�Ƿ񵽴�Ŀ�ĵ�
+	///是否到达目的地
 	bool reached;
 
-	///Ŀ�ĵ�ͼ
+	///目的地图
 	char dstMap[32];
-	///Ŀ��λ��
+	///目的位置
 	zPos dstPos;
 
 public:

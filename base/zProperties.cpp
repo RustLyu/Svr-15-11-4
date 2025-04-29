@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zProperties.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖzPropertiesÊôĞÔ¹ØÁªÀà
+ * \brief å®ç°zPropertieså±æ€§å…³è”ç±»
  *
  * 
  */

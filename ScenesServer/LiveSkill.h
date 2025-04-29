@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: LiveSkill.h  $
  * \author	
  * \date	2005-03-09
- * \brief	ÊµÏÖÉú»î¼¼ÄÜ
+ * \brief	å®ç°ç”Ÿæ´»æŠ€èƒ½
  * 
  */
  
@@ -26,17 +26,17 @@ class zObject;
 struct LiveSkill
 {
 public:
-	WORD id; //¼¼ÄÜ±êÊ¶
-	WORD level; //µÈ¼¶
-	DWORD point; //µÈ¼¶ºóÖµ£¬Ğ¡µã
+	WORD id; //æŠ€èƒ½æ ‡è¯†
+	WORD level; //ç­‰çº§
+	DWORD point; //ç­‰çº§åå€¼ï¼Œå°ç‚¹
 
 	enum {
-		DEFAULT_START_LEVEL	= 1, //Éú»î¼¼ÄÜÄ¬ÈÏ¿ªÊ¼µÈ¼¶
-		WORKING_TIME = 5, //¹¤×÷Ê±¼ä
-		ADVANCE_WORK_BONUS = 500, //»ñµÃÎïÆ·¸ÅÂÊ¼Ó³É
+		DEFAULT_START_LEVEL	= 1, //ç”Ÿæ´»æŠ€èƒ½é»˜è®¤å¼€å§‹ç­‰çº§
+		WORKING_TIME = 5, //å·¥ä½œæ—¶é—´
+		ADVANCE_WORK_BONUS = 500, //è·å¾—ç‰©å“æ¦‚ç‡åŠ æˆ
 		MIN_NEED_SP = 4, 
 		MAX_NEED_SP = 8, 
-		ADVANCE_LEVEL = 22, //½ø½×¼¼ÄÜĞèÒªµÈ¼¶
+		ADVANCE_LEVEL = 22, //è¿›é˜¶æŠ€èƒ½éœ€è¦ç­‰çº§
 		ODDS_BENCHMARK = 10000, 
 	};
 
@@ -128,22 +128,22 @@ public:
 		while (it != skills.end()) {
 			switch (it->second.id) 
 			{
-				case 323: //·ìÈÒ
+				case 323: //ç¼çº«
 					buf[0] = (BYTE) it->second.level;
 					break;					
-				case 326: //Ìú½³
+				case 326: //é“åŒ 
 					buf[1] = (BYTE) it->second.level;
 					break;					
-				case 329: //Ê×ÊÎ
+				case 329: //é¦–é¥°
 					buf[2] = (BYTE) it->second.level;
 					break;					
-				case 331: //Ä¾½³
+				case 331: //æœ¨åŒ 
 					buf[3] = (BYTE) it->second.level;
 					break;					
-				case 335: //Á¶Ò©
+				case 335: //ç‚¼è¯
 					buf[4] = (BYTE) it->second.level;
 					break;					
-				case 338: //Åëâ¿
+				case 338: //çƒ¹é¥ª
 					buf[5] = (BYTE) it->second.level;
 					break;					
 			}			
@@ -182,13 +182,13 @@ private:
 	typedef skill_t::iterator iterator;
 	typedef skill_t::const_iterator const_iterator;
 	
-	skill_t skills; //ÓÃ»§µ±Ç°»ñµÃ¼¼ÄÜ
-	unsigned long working_time; //ÓÃ»§ÉÏ´Î¹¤×÷Ê±¼ä
-	WORD skill_id; //ÓÃ»§ÉÏ´Î¹¤×÷Àà±ğ
-	zObject* tool; //ÀÍ¶¯¹¤¾ß
+	skill_t skills; //ç”¨æˆ·å½“å‰è·å¾—æŠ€èƒ½
+	unsigned long working_time; //ç”¨æˆ·ä¸Šæ¬¡å·¥ä½œæ—¶é—´
+	WORD skill_id; //ç”¨æˆ·ä¸Šæ¬¡å·¥ä½œç±»åˆ«
+	zObject* tool; //åŠ³åŠ¨å·¥å…·
 	/**
-	 * \brief ÒÀ¾İ¼¼ÄÜid²éÕÒÓÃ»§ÊÇ·ñ¾ßÓĞ¸Ã¼¼ÄÜ
-	 * \return ÕÒµ½µÄ¼¼ÄÜ£¬Ã»ÓĞ·µ»ØNULL
+	 * \brief ä¾æ®æŠ€èƒ½idæŸ¥æ‰¾ç”¨æˆ·æ˜¯å¦å…·æœ‰è¯¥æŠ€èƒ½
+	 * \return æ‰¾åˆ°çš„æŠ€èƒ½ï¼Œæ²¡æœ‰è¿”å›NULL
 	 */
 	LiveSkill* skill(WORD id);
 	
@@ -204,52 +204,52 @@ class LiveSkillsManager
 public:
 
 	/**
-	 * \brief Éú»î¼¼ÄÜÏà¹ØµÄÏûÏ¢´¦Àíº¯Êı
+	 * \brief ç”Ÿæ´»æŠ€èƒ½ç›¸å…³çš„æ¶ˆæ¯å¤„ç†å‡½æ•°
 	 * 
 	 */
 	//static int execute(SceneUser* user, const Cmd::t_NullCmd *command, unsigned int len);
 
 	/**
-	 * \brief ÀÍ¶¯×´Ì¬Ö¸Áî¹ıÂË
+	 * \brief åŠ³åŠ¨çŠ¶æ€æŒ‡ä»¤è¿‡æ»¤
 	 * 
 	 */
 	static bool command_filter(SceneUser* user, const Cmd::t_NullCmd *ptNullCmd, const unsigned int cmdLen);
 
 
 	/**
-	 * \brief ¿ªÊ¼ÀÍ¶¯´¦Àíº¯Êı
+	 * \brief å¼€å§‹åŠ³åŠ¨å¤„ç†å‡½æ•°
 	 * 
 	 */	
 	int execute(SceneUser* user, zObject* ob);
 
 	/**
-	 * \brief ¸üĞÂÓÃ»§ÀÍ¶¯×´Ì¬
+	 * \brief æ›´æ–°ç”¨æˆ·åŠ³åŠ¨çŠ¶æ€
 	 * 
 	 */
 	static bool update(SceneUser* user);
 	
 	/**
-	 * \brief ¶ÁÈëÄ³ÓÃ»§µÄÉú»î¼¼ÄÜĞÅÏ¢
+	 * \brief è¯»å…¥æŸç”¨æˆ·çš„ç”Ÿæ´»æŠ€èƒ½ä¿¡æ¯
 	 * 
 	 */
 	static int load(SceneUser* user, const LiveSkill& live_skill);
 
 	/**
-	 * \brief °´ÕÕÌØ¶¨¸ñÊ½´æ´¢ÓÃ»§Éú»î¼¼ÄÜĞÅÏ¢
-	 * \param user:Òª´æµµµÄÓÃ»§
-	 * \param dest:Ä¿±êµØÖ·
-	 * \return ·â°üºóµÄ»º³åÇø³¤¶È
+	 * \brief æŒ‰ç…§ç‰¹å®šæ ¼å¼å­˜å‚¨ç”¨æˆ·ç”Ÿæ´»æŠ€èƒ½ä¿¡æ¯
+	 * \param user:è¦å­˜æ¡£çš„ç”¨æˆ·
+	 * \param dest:ç›®æ ‡åœ°å€
+	 * \return å°åŒ…åçš„ç¼“å†²åŒºé•¿åº¦
 	 */
 	static int save(SceneUser* user, unsigned char* dest);	
 	
 	/**
-	 * \brief Í¨Öª¿Í»§¶ËÄ³ÓÃ»§µÄÉú»î¼¼ÄÜĞÅÏ¢£¬ÔÚSceneUser::sendInitToMe±»µ÷ÓÃ
+	 * \brief é€šçŸ¥å®¢æˆ·ç«¯æŸç”¨æˆ·çš„ç”Ÿæ´»æŠ€èƒ½ä¿¡æ¯ï¼Œåœ¨SceneUser::sendInitToMeè¢«è°ƒç”¨
 	 * 
 	 */
 	static void notify(SceneUser* user);
 
 	/**
-	 * \brief ÊµÏÖsigletonÄ£Ê½
+	 * \brief å®ç°sigletonæ¨¡å¼
 	 * 
 	 */	
 	static LiveSkillsManager& instance();

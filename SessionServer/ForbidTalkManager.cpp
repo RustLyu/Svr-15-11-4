@@ -1,4 +1,4 @@
-#include "ForbidTalkManager.h"
+ï»¿#include "ForbidTalkManager.h"
 #include "SessionServer.h"
 #include "zDBConnPool.h"
 
@@ -37,7 +37,7 @@ void ForbidTalkManager::checkDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("checkDB: µÃµ½Êý¾Ý¿â¾ä±úÊ§°Ü");
+		Zebra::logger->error("checkDB: å¾—åˆ°æ•°æ®åº“å¥æŸ„å¤±è´¥");
 		return;
 	}
 	char where[128];
@@ -68,7 +68,7 @@ void ForbidTalkManager::checkDB()
 					tempPoint->isValid = 0;
 					unsigned int retcode = SessionService::dbConnPool->exeUpdate(handle, "`FORBIDTALK`", forbid_define, (BYTE *)(tempPoint), where);
 					if (1 != retcode)
-						Zebra::logger->error("ÐÞ¸Ä´¦·£¼ÇÂ¼Ê§°Ü name=%s , retcode=%d", tempPoint->name, retcode);
+						Zebra::logger->error("ä¿®æ”¹å¤„ç½šè®°å½•å¤±è´¥ name=%s , retcode=%d", tempPoint->name, retcode);
 
 					Cmd::Session::t_forbidTalk_SceneSession forbid;
 					strncpy(forbid.name, tempPoint->name, sizeof(forbid.name));

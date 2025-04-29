@@ -1,4 +1,4 @@
-//#include "../../engine/include/engine.h"
+﻿//#include "../../engine/include/engine.h"
 #include "EncDec.h"
 #include <string.h>
 

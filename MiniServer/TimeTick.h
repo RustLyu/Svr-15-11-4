@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.h  $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êı
+ * \brief æ—¶é—´å›è°ƒå‡½æ•°
  *
  * 
  */
@@ -26,7 +26,7 @@ class MiniTimeTick : public zThread
 
 		~MiniTimeTick() {};
 
-		/// µ±Ç°Ê±¼ä
+		/// å½“å‰æ—¶é—´
 		static zRTime currentTime;
 		static Timer _1_min;
 		static MiniTimeTick &getInstance()
@@ -38,7 +38,7 @@ class MiniTimeTick : public zThread
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()

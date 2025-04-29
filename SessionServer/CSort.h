@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CSort.h $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÈ¼¶ÅÅĞò¶ÔÏó
+ * \brief å®šä¹‰ç­‰çº§æ’åºå¯¹è±¡
  *
  */
 
@@ -30,7 +30,7 @@ class CSortM
 		//WORD leveltable[MAX_LEVEL+10];
 
 		/**
-		 * \brief ÅÅĞò
+		 * \brief æ’åº
 		 * \author fqnewman
 		 */
 		struct ltqword

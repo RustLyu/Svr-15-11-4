@@ -1,10 +1,10 @@
-#include "zTimer.h"
+ï»¿#include "zTimer.h"
 #include <algorithm>
 
 /**
- * \brief ¼ÆÊ±Æ÷¹¹Ôìº¯Êı
+ * \brief è®¡æ—¶å™¨æ„é€ å‡½æ•°
  *
- * \param name ¼ÆÊ±Æ÷Ãû×Ö£¬Èç¹û²»Ìí£¬Ä¬ÈÏÎª"Timer"
+ * \param name è®¡æ—¶å™¨åå­—ï¼Œå¦‚æœä¸æ·»ï¼Œé»˜è®¤ä¸º"Timer"
  */
 zTimer::zTimer(const std::string &name): taskqueue(),thread(name,&taskqueue)
 {
@@ -13,7 +13,7 @@ zTimer::zTimer(const std::string &name): taskqueue(),thread(name,&taskqueue)
 }
 
 /**
- * \brief ¼ÆÊ±Æ÷Îö¹¹º¯Êı
+ * \brief è®¡æ—¶å™¨ææ„å‡½æ•°
  *
  */
 zTimer::~zTimer()
@@ -24,7 +24,7 @@ zTimer::~zTimer()
 int zTimer::id(0);
 
 /**
- * \brief µÃµ½Ò»¸öÊı×ÖID ,ÓÃÓÚ×Ô¶¯·ÖÅä¼ÆÊ±Æ÷Ãû×Ö 
+ * \brief å¾—åˆ°ä¸€ä¸ªæ•°å­—ID ,ç”¨äºè‡ªåŠ¨åˆ†é…è®¡æ—¶å™¨åå­— 
  *
  * \return ID 
  */
@@ -34,7 +34,7 @@ int zTimer::getID()
 }
 
 /**
- * \brief Í£µôÕâ¸ö¼ÆÊ±Æ÷ËùÓĞµÄÈÎÎñ
+ * \brief åœæ‰è¿™ä¸ªè®¡æ—¶å™¨æ‰€æœ‰çš„ä»»åŠ¡
  *
  */
 void zTimer::cancel()
@@ -49,10 +49,10 @@ void zTimer::cancel()
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÒ»´ÎĞÔÈÎÎñ
- * \param task ÒªÖ´ĞĞµÄÈÎÎñ 
- * \param tv ÈÎÎñµÄÖ´ĞĞÊ±¼ä 
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \brief æ·»åŠ ä¸€ä¸ªä¸€æ¬¡æ€§ä»»åŠ¡
+ * \param task è¦æ‰§è¡Œçš„ä»»åŠ¡ 
+ * \param tv ä»»åŠ¡çš„æ‰§è¡Œæ—¶é—´ 
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTimer::schedule(zTimerTask *task, zRTime &tv)
 {
@@ -60,10 +60,10 @@ bool zTimer::schedule(zTimerTask *task, zRTime &tv)
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÒ»´ÎĞÔÈÎÎñ
- * \param task ÒªÖ´ĞĞµÄÈÎÎñ 
- * \param delay delayºÁÃëºóÖ´ĞĞÈÎÎñ 
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \brief æ·»åŠ ä¸€ä¸ªä¸€æ¬¡æ€§ä»»åŠ¡
+ * \param task è¦æ‰§è¡Œçš„ä»»åŠ¡ 
+ * \param delay delayæ¯«ç§’åæ‰§è¡Œä»»åŠ¡ 
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTimer::schedule(zTimerTask *task, int delay)
 {
@@ -72,15 +72,15 @@ bool zTimer::schedule(zTimerTask *task, int delay)
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÖÜÆÚÈÎÎñ,ÑÓ³ÙÄ£Ê½
+ * \brief æ·»åŠ ä¸€ä¸ªå‘¨æœŸä»»åŠ¡,å»¶è¿Ÿæ¨¡å¼
  *
- * ¹ØÓÚÑÓ³ÙÄ£Ê½£º
+ * å…³äºå»¶è¿Ÿæ¨¡å¼ï¼š
  *
- * ÑÓ³ÙÄ£Ê½Ö¸µÚÒ»´ÎÖ´ĞĞÈÎÎñ¿ªÊ¼µ½µÚ¶ş´ÎÖ´ĞĞÈÎÎñ¿ªÊ¼Ê±µÄ¼ä¸ôÊÇ¹Ì¶¨µÄ£¬Îªperiod
- * \param task ÒªÖ´ĞĞµÄÈÎÎñ 
- * \param delay delayºÁÃëºó¿ªÊ¼Ö´ĞĞÈÎÎñ 
- * \param period ÈÎÎñÖÜÆÚ,µ¥Î»ºÁÃë
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * å»¶è¿Ÿæ¨¡å¼æŒ‡ç¬¬ä¸€æ¬¡æ‰§è¡Œä»»åŠ¡å¼€å§‹åˆ°ç¬¬äºŒæ¬¡æ‰§è¡Œä»»åŠ¡å¼€å§‹æ—¶çš„é—´éš”æ˜¯å›ºå®šçš„ï¼Œä¸ºperiod
+ * \param task è¦æ‰§è¡Œçš„ä»»åŠ¡ 
+ * \param delay delayæ¯«ç§’åå¼€å§‹æ‰§è¡Œä»»åŠ¡ 
+ * \param period ä»»åŠ¡å‘¨æœŸ,å•ä½æ¯«ç§’
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTimer::scheduleAtDelay(zTimerTask *task, int delay ,int period)
 {
@@ -90,15 +90,15 @@ bool zTimer::scheduleAtDelay(zTimerTask *task, int delay ,int period)
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÖÜÆÚÈÎÎñ,ÑÓ³ÙÄ£Ê½
+ * \brief æ·»åŠ ä¸€ä¸ªå‘¨æœŸä»»åŠ¡,å»¶è¿Ÿæ¨¡å¼
  *
- * ¹ØÓÚÑÓ³ÙÄ£Ê½£º
+ * å…³äºå»¶è¿Ÿæ¨¡å¼ï¼š
  *
- * ÑÓ³ÙÄ£Ê½Ö¸µÚÒ»´ÎÖ´ĞĞÈÎÎñ¿ªÊ¼µ½µÚ¶ş´ÎÖ´ĞĞÈÎÎñ¿ªÊ¼Ê±µÄ¼ä¸ôÊÇ¹Ì¶¨µÄ£¬Îªperiod
- * \param task ÒªÖ´ĞĞµÄÈÎÎñ 
- * \param tv ÈÎÎñ¿ªÊ¼Ö´ĞĞµÄÊ±¼ä 
- * \param period ÈÎÎñÖÜÆÚ,µ¥Î»ºÁÃë
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * å»¶è¿Ÿæ¨¡å¼æŒ‡ç¬¬ä¸€æ¬¡æ‰§è¡Œä»»åŠ¡å¼€å§‹åˆ°ç¬¬äºŒæ¬¡æ‰§è¡Œä»»åŠ¡å¼€å§‹æ—¶çš„é—´éš”æ˜¯å›ºå®šçš„ï¼Œä¸ºperiod
+ * \param task è¦æ‰§è¡Œçš„ä»»åŠ¡ 
+ * \param tv ä»»åŠ¡å¼€å§‹æ‰§è¡Œçš„æ—¶é—´ 
+ * \param period ä»»åŠ¡å‘¨æœŸ,å•ä½æ¯«ç§’
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTimer::scheduleAtDelay(zTimerTask *task, zRTime &tv,int period)
 {
@@ -107,15 +107,15 @@ bool zTimer::scheduleAtDelay(zTimerTask *task, zRTime &tv,int period)
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÖÜÆÚÈÎÎñ,ÆµÂÊÄ£Ê½
+ * \brief æ·»åŠ ä¸€ä¸ªå‘¨æœŸä»»åŠ¡,é¢‘ç‡æ¨¡å¼
  *
- * ¹ØÓÚÆµÂÊÄ£Ê½£º
+ * å…³äºé¢‘ç‡æ¨¡å¼ï¼š
  *
- * ÆµÂÊÄ£Ê½Ö¸Ã¿´ÎÖ´ĞĞÈÎÎñµÄÊ±¼äÆµÂÊÊÇ¹Ì¶¨µÄ£¬Îªperiod
- * \param task ÒªÖ´ĞĞµÄÈÎÎñ 
- * \param delay delayºÁÃëºó¿ªÊ¼Ö´ĞĞÈÎÎñ 
- * \param period ÈÎÎñÖÜÆÚ,µ¥Î»ºÁÃë
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * é¢‘ç‡æ¨¡å¼æŒ‡æ¯æ¬¡æ‰§è¡Œä»»åŠ¡çš„æ—¶é—´é¢‘ç‡æ˜¯å›ºå®šçš„ï¼Œä¸ºperiod
+ * \param task è¦æ‰§è¡Œçš„ä»»åŠ¡ 
+ * \param delay delayæ¯«ç§’åå¼€å§‹æ‰§è¡Œä»»åŠ¡ 
+ * \param period ä»»åŠ¡å‘¨æœŸ,å•ä½æ¯«ç§’
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTimer::scheduleAtRate(zTimerTask *task, int delay ,int period)
 {
@@ -125,15 +125,15 @@ bool zTimer::scheduleAtRate(zTimerTask *task, int delay ,int period)
 }
 
 /**
- * \brief Ìí¼ÓÒ»¸öÖÜÆÚÈÎÎñ,ÆµÂÊÄ£Ê½
+ * \brief æ·»åŠ ä¸€ä¸ªå‘¨æœŸä»»åŠ¡,é¢‘ç‡æ¨¡å¼
  *
- * ¹ØÓÚÆµÂÊÄ£Ê½£º
+ * å…³äºé¢‘ç‡æ¨¡å¼ï¼š
  *
- * ÆµÂÊÄ£Ê½Ö¸Ã¿´ÎÖ´ĞĞÈÎÎñµÄÊ±¼äÆµÂÊÊÇ¹Ì¶¨µÄ£¬Îªperiod
- * \param task ÒªÖ´ĞĞµÄÈÎÎñ 
- * \param tv ÈÎÎñ¿ªÊ¼Ö´ĞĞµÄÊ±¼ä 
- * \param period ÈÎÎñÖÜÆÚ,µ¥Î»ºÁÃë
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * é¢‘ç‡æ¨¡å¼æŒ‡æ¯æ¬¡æ‰§è¡Œä»»åŠ¡çš„æ—¶é—´é¢‘ç‡æ˜¯å›ºå®šçš„ï¼Œä¸ºperiod
+ * \param task è¦æ‰§è¡Œçš„ä»»åŠ¡ 
+ * \param tv ä»»åŠ¡å¼€å§‹æ‰§è¡Œçš„æ—¶é—´ 
+ * \param period ä»»åŠ¡å‘¨æœŸ,å•ä½æ¯«ç§’
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTimer::scheduleAtRate(zTimerTask *task, zRTime &tv,int period)
 {
@@ -142,12 +142,12 @@ bool zTimer::scheduleAtRate(zTimerTask *task, zRTime &tv,int period)
 }
 
 /**
- * \brief Ìí¼ÓÈÎÎñ
+ * \brief æ·»åŠ ä»»åŠ¡
  *
- * \param task ÈÎÎñÖ¸Õë 
- * \param tv ´ÓºÎÊ±¿ªÊ¼Ö´ĞĞÈÎÎñ 
- * \param period Ö´ĞĞÖÜÆÚ£¬Èç¹ûÎª0±íÊ¾Ò»´ÎĞÔÈÎÎñ
- * \return  ÊÇ·ñÌí¼Ó³É¹¦
+ * \param task ä»»åŠ¡æŒ‡é’ˆ 
+ * \param tv ä»ä½•æ—¶å¼€å§‹æ‰§è¡Œä»»åŠ¡ 
+ * \param period æ‰§è¡Œå‘¨æœŸï¼Œå¦‚æœä¸º0è¡¨ç¤ºä¸€æ¬¡æ€§ä»»åŠ¡
+ * \return  æ˜¯å¦æ·»åŠ æˆåŠŸ
  */
 bool zTimer::addTask(zTimerTask *task, zRTime &tv,int period)
 {
@@ -164,12 +164,12 @@ bool zTimer::addTask(zTimerTask *task, zRTime &tv,int period)
 		return false;
 	}
 
-	//³õÊ¼»¯timerTask
+	//åˆå§‹åŒ–timerTask
 	task->nextExecTime=tv;
 	task->period=period;
 	task->state=zTimerTask::SCHEDULED;
 
-	//Ìí¼Ó
+	//æ·»åŠ 
 	taskqueue.push(task);
 	taskqueue.qmutex.unlock();
 	return true;
@@ -177,7 +177,7 @@ bool zTimer::addTask(zTimerTask *task, zRTime &tv,int period)
 
 
 /**
- * \brief ÈÎÎñÏß³ÌÎö¹¹º¯Êı
+ * \brief ä»»åŠ¡çº¿ç¨‹ææ„å‡½æ•°
  *
  */
 zTimer::zTimerThread::~zTimerThread()
@@ -185,10 +185,10 @@ zTimer::zTimerThread::~zTimerThread()
 }
 
 /**
- * \brief ÈÎÎñÏß³ÌÎö¹¹º¯Êı
+ * \brief ä»»åŠ¡çº¿ç¨‹ææ„å‡½æ•°
  *
- * \param name Ïß³ÌÃû×Ö 
- * \param queue ÈÎÎñ¶ÓÁĞ 
+ * \param name çº¿ç¨‹åå­— 
+ * \param queue ä»»åŠ¡é˜Ÿåˆ— 
  */
 zTimer::zTimerThread::zTimerThread(const std::string & name,zTimerQueue *queue)
 :zThread(name,false)
@@ -197,9 +197,9 @@ zTimer::zTimerThread::zTimerThread(const std::string & name,zTimerQueue *queue)
 }
 
 /**
- * \brief ²Î¼û <code>zThread::run</code>
+ * \brief å‚è§ <code>zThread::run</code>
  *
- * ¼ÆÊ±Æ÷Ö´ĞĞº¯Êı£¬Èç¹ûÈÎÎñÖ´ĞĞÍê±Ï£¬»á°ÑËû´Ó¶ÓÁĞÖĞÉ¾³ı
+ * è®¡æ—¶å™¨æ‰§è¡Œå‡½æ•°ï¼Œå¦‚æœä»»åŠ¡æ‰§è¡Œå®Œæ¯•ï¼Œä¼šæŠŠä»–ä»é˜Ÿåˆ—ä¸­åˆ é™¤
  */
 void zTimer::zTimerThread::run()
 {
@@ -220,7 +220,7 @@ void zTimer::zTimerThread::run()
 		}
 		else
 		{
-			// µÃµ½×îÏÈÖ´ĞĞµÄtask
+			// å¾—åˆ°æœ€å…ˆæ‰§è¡Œçš„task
 			zTimerTask *task=taskQueue->top();
 			if(task==NULL)
 			{
@@ -240,7 +240,7 @@ void zTimer::zTimerThread::run()
 			zRTime ctv;
 			zRTime etv(task->nextExecTime);
 			bool taskFired=(ctv>etv);
-			if(taskFired)//Èç¹ûÈÎÎñ¿ÉÒÔÖ´ĞĞÁË
+			if(taskFired)//å¦‚æœä»»åŠ¡å¯ä»¥æ‰§è¡Œäº†
 			{
 				if(task->period==0)
 				{
@@ -249,7 +249,7 @@ void zTimer::zTimerThread::run()
 				}
 				else
 				{
-					//ÖØĞÂÅÅÁĞ´ËÈÎÎñ
+					//é‡æ–°æ’åˆ—æ­¤ä»»åŠ¡
 					taskQueue->pop();
 					//Zebra::logger->debug("%lu", task->period);
 					task->schedExecTime(task->period>0?ctv:etv);
@@ -273,7 +273,7 @@ void zTimer::zTimerThread::run()
 }
 
 /**
- * \brief ¼ÆÊ±Æ÷ÈÎÎñ¹¹Ôìº¯Êı
+ * \brief è®¡æ—¶å™¨ä»»åŠ¡æ„é€ å‡½æ•°
  *
  */
 zTimer::zTimerTask::zTimerTask():nextExecTime()
@@ -283,7 +283,7 @@ zTimer::zTimerTask::zTimerTask():nextExecTime()
 }
 
 /**
- * \brief ¼ÆÊ±Æ÷ÈÎÎñÎö¹¹º¯Êı
+ * \brief è®¡æ—¶å™¨ä»»åŠ¡ææ„å‡½æ•°
  *
  */
 zTimer::zTimerTask::~zTimerTask()
@@ -291,7 +291,7 @@ zTimer::zTimerTask::~zTimerTask()
 }
 
 /**
- * \brief ÖØÔØ²Ù×÷·û > £¬±È½ÏÁ½¸ö#zTimerTask´óĞ¡
+ * \brief é‡è½½æ“ä½œç¬¦ > ï¼Œæ¯”è¾ƒä¸¤ä¸ª#zTimerTaskå¤§å°
  *
  */
 bool zTimer::zTimerTask::operator > (const zTimerTask &right) const
@@ -300,8 +300,8 @@ bool zTimer::zTimerTask::operator > (const zTimerTask &right) const
 }
 
 /**
- * \brief È¡ÏûÕâ¸öÈÎÎñ
- * \return ¼Æ»®ÈÎÎñ±»³É¹¦È¡Ïû
+ * \brief å–æ¶ˆè¿™ä¸ªä»»åŠ¡
+ * \return è®¡åˆ’ä»»åŠ¡è¢«æˆåŠŸå–æ¶ˆ
  */
 bool zTimer::zTimerTask::cancel()
 {
@@ -313,9 +313,9 @@ bool zTimer::zTimerTask::cancel()
 }
 
 /**
- * \brief ÖØĞÂÉè¶¨ÈÎÎñÖ´ĞĞÊ±¼ä
+ * \brief é‡æ–°è®¾å®šä»»åŠ¡æ‰§è¡Œæ—¶é—´
  *
- * \param tv ÈÎÎñ±»Ö´ĞĞµÄÊ±¼ä= tv + period 
+ * \param tv ä»»åŠ¡è¢«æ‰§è¡Œçš„æ—¶é—´= tv + period 
  */
 void zTimer::zTimerTask::schedExecTime(const zRTime &tv)
 {

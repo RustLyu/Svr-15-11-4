@@ -1,4 +1,4 @@
-#ifndef _MINI_GAME_H_
+ï»¿#ifndef _MINI_GAME_H_
 #define _MINI_GAME_H_
 
 #include "MiniUserCommand.h"
@@ -56,20 +56,20 @@ class MiniGame
 		void setHost(BYTE seat);
 
 		void enableAllSeats();
-		BYTE nextUserSeat(BYTE from);//µÃµ½ÏÂÒ»¸öÓĞÈËµÄ×ùÎ»
+		BYTE nextUserSeat(BYTE from);//å¾—åˆ°ä¸‹ä¸€ä¸ªæœ‰äººçš„åº§ä½
 	public:
 		Cmd::MiniGameID id;
 
 	protected:
 		Cmd::MiniGameState state;
 
-		BYTE minUserNum;//×îÉÙÈËÊı
-		BYTE maxUserNum;//×î¶àÈËÊı
-		BYTE curUserNum;//µ±Ç°ÈËÊı
-		//BYTE hostSeat;//·¿Ö÷µÄ×ùÎ»ID
+		BYTE minUserNum;//æœ€å°‘äººæ•°
+		BYTE maxUserNum;//æœ€å¤šäººæ•°
+		BYTE curUserNum;//å½“å‰äººæ•°
+		//BYTE hostSeat;//æˆ¿ä¸»çš„åº§ä½ID
 		std::vector<Seat> seatList;
 
-		DWORD money;//ÓÎÏ·±Ò»ùÊı
+		DWORD money;//æ¸¸æˆå¸åŸºæ•°
 };
 
 #endif

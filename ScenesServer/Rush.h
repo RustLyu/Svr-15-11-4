@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file 
  * \version  $Id: Rush.h  $
  * \author  
  * \date 
- * \brief �������﹥�ǵ��࣬�����ű������ݽű����ƹ���boss
+ * \brief 处理怪物攻城的类，解析脚本并根据脚本控制攻城boss
  *
  * 
  */
@@ -15,7 +15,7 @@
 #include <vector>
 
 /**
- * \brief �������﹥�ǵ��࣬�����ű������ݽű����ƹ���boss
+ * \brief 处理怪物攻城的类，解析脚本并根据脚本控制攻城boss
  *
  */
 class Rush
@@ -24,137 +24,137 @@ class Rush
 		//DWORD summonCount;
 
 		/**
-		 * \brief boss �Ķ��壬�����ٻ�boss
-		 * ���Զ�����boss���ٻ�ʱ���ѡһ��
+		 * \brief boss 的定义，用于召唤boss
+		 * 可以定义多个boss，召唤时随机选一个
 		 *
 		 */
 		struct bossDefine
 		{
-			///boss��ţ���Ӧnpc��
+			///boss编号，对应npc表
 			DWORD id;
-			///����λ��
+			///出生位置
 			zPos pos;
-			///������Χ
+			///出生范围
 			int region;
-			///����
+			///数量
 			int num;
-			///�ű�ID
+			///脚本ID
 			DWORD script;
 		};
 		/**
-		 * \brief ���˶���
-		 *  ������boss�ٻ�������С�֣�Э��bos����
-		 *  ���˲���Rush����ƣ���Ϊ��ʽ����ͨ������ͬ
-		 *  Rush��ֻ�������ǵ�ָ���Ա��ڹ��ǽ�����ɾ��
+		 * \brief 仆人定义
+		 *  仆人是boss召唤出来的小怪，协助bos攻城
+		 *  仆人不受Rush类控制，行为方式与普通怪物相同
+		 *  Rush类只保存它们的指针以便在攻城结束后删除
 		 *
 		 */
 		struct servantDefine
 		{
-			///����id����Ӧnpc��
+			///仆人id，对应npc表
 			DWORD id;
-			///һ���ٻ�������
+			///一次召唤的数量
 			int num;
-			///�ٻ��ļ���
+			///召唤的几率
 			int rate;
-			///�ٻ����
+			///召唤间隔
 			int interval;
 		};
-		///��Ŷ��boss������ֻ�ٻ�һ��
+		///存放多个boss，但是只召唤一个
 		std::vector<bossDefine> bossVector;
-		///��Ŷ�����˶���
+		///存放多个仆人定义
 		std::vector<servantDefine> servantVector;
-		///�ٻ��������˵�ָ�룬����ɾ��
+		///召唤出来仆人的指针，用于删除
 		std::list<SceneNpc *> servants;
 
 		/**
-		 * \brief �������壬ÿ���׶���һ������
+		 * \brief 动作定义，每个阶段有一个动作
 		 *
 		 */
 		enum rushAction
 		{
-			///��ͨ
+			///普通
 			RUSH_NORMAL,
-			///����֮ǰ�ĸ���׶�
+			///攻城之前的复活阶段
 			RUSH_RELIVE,
-			///�ƶ�
+			///移动
 			RUSH_MOVETO,
-			///����
+			///攻击
 			RUSH_ATTACK,
-			///�ٻ�����
+			///召唤仆人
 			RUSH_SUMMON,
-			///�ٻ�����boss������������
+			///召唤跟随boss往城里冲的仆人
 			RUSH_SUMMON_RUSH,
-			///���ٻ�
+			///打开召唤
 			RUSH_SUMMON_ON,
-			///�ر��ٻ����رպ󲻻����ٻ�����
+			///关闭召唤，关闭后不会再召唤仆人
 			RUSH_SUMMON_OFF,
-			///������ǹ������boss������
+			///清除攻城怪物，包括boss和仆人
 			RUSH_CLEAR,
-			///��boss����hp/sp/mp
+			///给boss加满hp/sp/mp
 			RUSH_RECOVER,
-			///�ٻ�����boss�ĳ���
+			///召唤跟随boss的宠物
 			RUSH_SUMMON_PET,
-			///����㲥
+			///世界广播
 			RUSH_BROADCAST,
-			///���ǽ���
+			///攻城结束
 			RUSH_END
 		};
 		/**
-		 * \brief �׶ζ��壬���ǵĽ׶�
-		 * Rush���Ŀ�ľ��ǿ���boss���չ��ǽ׶�һ��������
+		 * \brief 阶段定义，攻城的阶段
+		 * Rush类的目的就是控制boss按照攻城阶段一步步进行
 		 *
 		 */
 		struct phaseDefine
 		{
-			///�׶ζ���
+			///阶段动作
 			rushAction action;
-			///λ�ã���ÿ���׶������Բ���ͬ
-			///�ƶ�ʱ��ʾĿ�ģ�����ʱ��ʾ���Χ����λ��
+			///位置，在每个阶段意义略不相同
+			///移动时表示目的，攻击时表示活动范围中心位置
 			zPos pos;
-			///��Χ �ƶ�ʱ��ʾ����Ŀ����ж����룬����ʱ��ʾ���Χ��С
+			///范围 移动时表示到达目标的判定距离，攻击时表示活动范围大小
 			int region;
-			///����ʱ�� һ���׶εĳ���ʱ�䣬��ʱ�ᴥ��onPhaseEnd�¼�
+			///持续时间 一个阶段的持续时间，到时会触发onPhaseEnd事件
 			int lasttime;
-			///boss��˵����ÿ�׶ο�ͷ˵��
+			///boss的说话，每阶段开头说话
 			char say[MAX_CHATINFO];
-			///3������
+			///3个参数
 			DWORD x,y,z;
 		};
-		///��Ž׶��б�
+		///存放阶段列表
 		std::vector<phaseDefine> phaseVector;
-		///��ǰ�Ľ׶�����
+		///当前的阶段索引
 		unsigned int curPhase;
-		///�׶ν���ʱ��
+		///阶段结束时间
 		zRTime nextPhaseTime;
-		///���ǽ�����ʱ��
+		///攻城结束的时间
 		zRTime endTime;
 		
-		///���ǽű��ı��
+		///攻城脚本的编号
 		DWORD id;
-		///Ŀ����ҵı��
+		///目标国家的编号
 		DWORD countryID;
 
-		///����boss��id
+		///攻城boss的id
 		DWORD bossID;
-		///bossָ��
+		///boss指针
 		SceneNpc * boss;
 
-		///�´ο��ٻ���ʱ��
+		///下次可召唤的时间
 		zRTime summonTime;
-		///�ϴ�ѭ��ʱboss��hp
+		///上次循环时boss的hp
 		DWORD lastBossHp;
-		///�ٻ����˵Ŀ���
+		///召唤仆人的开关
 		bool canSummon;
-		///����ʱ���������boss����������������й���npc
+		///攻城时间结束或者boss死亡后过多久清除所有攻城npc
 		int clearDelay;
-		///�Ƿ����
+		///是否结束
 		bool end;
-		///����ʱ����ʾ��
+		///发起时的提示语
 		char text[128];
 		std::string startText;
 		std::string endText;
 
-		///�ٻ����˵ķ�Χ��λ������boss�ĵ�ǰλ��Ϊ����
+		///召唤仆人的范围，位置是以boss的当前位置为中心
 		static const int summon_servant_region = 4;
 		bool checkSummonTime();
 		
@@ -175,15 +175,15 @@ class Rush
 
 		rushAction parseAction(const char *);
 	public:
-		///�����ܳ���ʱ��
+		///攻城总持续时间
 		int lasttime;
-		///�೤ʱ���ʼ���ǣ�Ҳ����boss�ĸ���ʱ��
+		///多长时间后开始攻城，也就是boss的复活时间
 		DWORD rushDelay;
-		///���ι��ǵ�����
+		///本次攻城的名字
 		char rushName[MAX_NAMESIZE];
-		///Ŀ���ͼ����
+		///目标地图名字
 		char mapName[MAX_NAMESIZE];
-		///boss������
+		///boss的名字
 		char bossName[MAX_NAMESIZE];
 
 		Rush(DWORD rushID, DWORD rushDelay, DWORD countryID);

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version   $
  * \author  
  * \date 
- * \brief ÊµÏÖ¼Ò×åÃüÁîµÄ´¦Àí
+ * \brief å®ç°å®¶æ—å‘½ä»¤çš„å¤„ç†
  *
  */
 #include "SceneUser.h"
@@ -18,9 +18,9 @@
 using namespace SeptDef;
 
 /**
-  * \brief Ò»¸ö±È½ÏÆ÷
+  * \brief ä¸€ä¸ªæ¯”è¾ƒå™¨
   *
-  *  ÓÃÓÚ²éÕÒ½¨Á¢¼Ò×åËùĞèÒªµÄµÀ¾ßÊÇ·ñ´æÔÚ
+  *  ç”¨äºæŸ¥æ‰¾å»ºç«‹å®¶æ—æ‰€éœ€è¦çš„é“å…·æ˜¯å¦å­˜åœ¨
   *  
   *
   */
@@ -37,9 +37,9 @@ class SeptObjectCompare:public UserObjectCompare
 };
 
 /**
-  * \brief ´¦ÀíÓÃ»§¼Ò×åÃüÁî
+  * \brief å¤„ç†ç”¨æˆ·å®¶æ—å‘½ä»¤
   *
-  * ´¦ÀíµÄ¹ØÏµÃüÁîÈçÏÂ:
+  * å¤„ç†çš„å…³ç³»å‘½ä»¤å¦‚ä¸‹:
   *
   * Cmd::SEPT_STATUS_CHECK_PARA
   *
@@ -47,10 +47,10 @@ class SeptObjectCompare:public UserObjectCompare
   *
   *	Cmd::ADD_MEMBER_TO_SEPT_PARA
   *
-  * \param rev: ¼Ò×åÃüÁî
-  * \param cmdLen: ÃüÁî³¤¶È
+  * \param rev: å®¶æ—å‘½ä»¤
+  * \param cmdLen: å‘½ä»¤é•¿åº¦
   *
-  * \return ÃüÁî±»´¦Àí·µ»ØTRUE,·ñÔòÎªFALSE
+  * \return å‘½ä»¤è¢«å¤„ç†è¿”å›TRUE,å¦åˆ™ä¸ºFALSE
   *
   *
   */
@@ -64,12 +64,12 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 				
 				if (ptCmd->dwHonor>this->charbase.honor)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄúµÄÈÙÓşµã²»¹»!");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨çš„è£èª‰ç‚¹ä¸å¤Ÿ!");
 				}
 
 				if (ptCmd->dwHonor%10!=0)
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄúµÄÈÙÓşµã²»ÊÇ5µÄ±¶Êı");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨çš„è£èª‰ç‚¹ä¸æ˜¯5çš„å€æ•°");
 				}
 
 				if (this->charbase.honor>ptCmd->dwHonor)
@@ -81,7 +81,7 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 					this->charbase.honor = 0;
 				}
 
-				//Í¨Öª¿Í»§¶Ë
+				//é€šçŸ¥å®¢æˆ·ç«¯
 				Cmd::stMainUserDataUserCmd send;
 				this->full_t_MainUserData(send.data);
 				this->sendCmdToMe(&send,sizeof(send));
@@ -97,16 +97,16 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 		case Cmd::SEPT_STATUS_CHECK_PARA:
 		case Cmd::CREATE_SEPT_PARA:
 			{
-				BYTE bState = 1; //ÏÈ³õÊ¼»¯³É³É¹¦×´Ì¬
-				if (charbase.septid == 0)  // ¼Ò×åID´óÓÚ0±íÊ¾¼ÓÈë¼Ò×å
+				BYTE bState = 1; //å…ˆåˆå§‹åŒ–æˆæˆåŠŸçŠ¶æ€
+				if (charbase.septid == 0)  // å®¶æ—IDå¤§äº0è¡¨ç¤ºåŠ å…¥å®¶æ—
 				{
 					time_t cur_time = time(NULL);
 					if ((cur_time - charbase.levelsept) < 24*60*60)
 					{
-						//Àë¿ªÊ±¼ä²»×ã24Ğ¡Ê±
+						//ç¦»å¼€æ—¶é—´ä¸è¶³24å°æ—¶
 						bState = 0;
 						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, 
-								"Àë¿ª¼Ò×åºó24Ğ¡Ê±, ²ÅÄÜÔÙ½¨Á¢¼Ò×å");
+								"ç¦»å¼€å®¶æ—å24å°æ—¶, æ‰èƒ½å†å»ºç«‹å®¶æ—");
 					}
 					else {
 						if (charbase.level >= CREATE_SEPT_NEED_LEVEL)
@@ -114,53 +114,53 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 #ifdef CREATE_SEPT_NEED_ITEM_ID
 							SeptObjectCompare found;
 							found.dwObjectID = CREATE_SEPT_NEED_ITEM_ID;
-							zObject *itemobj = packs.uom.getObject(found);// ²éÕÒµÀ¾ß
+							zObject *itemobj = packs.uom.getObject(found);// æŸ¥æ‰¾é“å…·
 							if (itemobj)
 							{
 #endif
 								/*
 								   zObject *gold=packs.getGold();
-								   if (gold&&gold->data.dwNum >= CREATE_SEPT_NEED_PRICE_GOLD)  // ½¨Á¢¼Ò×åĞèÒª½ğÇ®100Íò
+								   if (gold&&gold->data.dwNum >= CREATE_SEPT_NEED_PRICE_GOLD)  // å»ºç«‹å®¶æ—éœ€è¦é‡‘é’±100ä¸‡
 								   {
-								//±¨¸æ³É¹¦×´Ì¬
+								//æŠ¥å‘ŠæˆåŠŸçŠ¶æ€
 								bState = 1;
 								}
 								 */
 								if (packs.checkMoney(CREATE_SEPT_NEED_PRICE_GOLD) /*&& packs.removeMoney(CREATE_SEPT_NEED_PRICE_GOLD)*/) {
-									//±¨¸æ³É¹¦×´Ì¬
+									//æŠ¥å‘ŠæˆåŠŸçŠ¶æ€
 									bState = 1;
 								}
 								else
 								{
-									//±¨¸æÃ»ÓĞ×ã¹»µÄÇ®
+									//æŠ¥å‘Šæ²¡æœ‰è¶³å¤Ÿçš„é’±
 									bState = 0;
-									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãĞèÒª%uÎÄÇ®À´´´½¨¼Ò×å£¬ÄãÃ»ÓĞ×ã¹»µÄÇ®",CREATE_SEPT_NEED_PRICE_GOLD);
+									Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ éœ€è¦%uæ–‡é’±æ¥åˆ›å»ºå®¶æ—ï¼Œä½ æ²¡æœ‰è¶³å¤Ÿçš„é’±",CREATE_SEPT_NEED_PRICE_GOLD);
 								}//dwItemID = itemobj->data.qwThisID;  // test
 #ifdef CREATE_SEPT_NEED_ITEM_ID
 							}
 							else 
 							{
-								//±¨¸æÃ»ÓĞµÀ¾ß
+								//æŠ¥å‘Šæ²¡æœ‰é“å…·
 								bState = 0;
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "È±ÉÙÈÎÎñµÀ¾ßÎŞ·¨´´½¨¼Ò×å");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç¼ºå°‘ä»»åŠ¡é“å…·æ— æ³•åˆ›å»ºå®¶æ—");
 							}
 #endif
 						}
 						else
 						{
-							//±¨¸æµÈ¼¶²»¹»
+							//æŠ¥å‘Šç­‰çº§ä¸å¤Ÿ
 							bState = 0;
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "µÈ¼¶Ã»ÓĞ´ïµ½%u¼¶ÎŞ·¨´´½¨¼Ò×å",CREATE_SEPT_NEED_LEVEL);
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç­‰çº§æ²¡æœ‰è¾¾åˆ°%uçº§æ— æ³•åˆ›å»ºå®¶æ—",CREATE_SEPT_NEED_LEVEL);
 						}
 					}
 				}
 				else
 				{
 					bState = 0;
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÒÑ¾­¼ÓÈë¼Ò×åÎŞ·¨ÔÙ´´½¨¼Ò×å");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å·²ç»åŠ å…¥å®¶æ—æ— æ³•å†åˆ›å»ºå®¶æ—");
 				}
 
-				//·µ»Ø¼Ò×å½¨Á¢×´Ì¬
+				//è¿”å›å®¶æ—å»ºç«‹çŠ¶æ€
 				if (Cmd::CREATE_SEPT_PARA == rev->byParam)
 				{
 					Cmd::stCreateSeptCmd *ptCmd=(Cmd::stCreateSeptCmd *)rev;
@@ -169,10 +169,10 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 						Cmd::Session::t_addSept_SceneSession send;
 						
 						send.dwMapTempID = scene->tempid;
-						send.info.dwSeptID = 0;				// ¼Ò×åµÄID
-						strncpy(send.info.name,ptCmd->SeptName,MAX_NAMESIZE); 		// ¼Ò×åÃû³Æ
-						send.info.dwCharID = charbase.id;		// »á³¤µÄ½ÇÉ«ID
-						send.info.byVote = 0;			// Ä¬ÈÏ²»½øÈëÍ¶Æ±ÆÚ¼ä
+						send.info.dwSeptID = 0;				// å®¶æ—çš„ID
+						strncpy(send.info.name,ptCmd->SeptName,MAX_NAMESIZE); 		// å®¶æ—åç§°
+						send.info.dwCharID = charbase.id;		// ä¼šé•¿çš„è§’è‰²ID
+						send.info.byVote = 0;			// é»˜è®¤ä¸è¿›å…¥æŠ•ç¥¨æœŸé—´
 						send.info.dwRepute = 0;
 						send.info.dwUnionID = 0;
 						send.info.dwLevel = 1;
@@ -181,7 +181,7 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 						send.info.calltimes = 0;
 						send.info.calldaytime = 0;
 						send.info.normalexptime = 0;
-						strncpy(send.info.masterName,charbase.name,MAX_NAMESIZE);	// »á³¤µÄÃû×Ö
+						strncpy(send.info.masterName,charbase.name,MAX_NAMESIZE);	// ä¼šé•¿çš„åå­—
 						bzero(send.info.note, sizeof(send.info.note));
 						sessionClient->sendCmd(&send, sizeof(send));
 						return true;
@@ -207,7 +207,7 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 						{
 							if (0 == charbase.septid)
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äã±ØĞëÏÈ´´Á¢¼Ò×å²ÅÄÜÕĞÊÕ³ÉÔ±");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ å¿…é¡»å…ˆåˆ›ç«‹å®¶æ—æ‰èƒ½æ‹›æ”¶æˆå‘˜");
 								return true;
 							}
 							SceneUser *pUser=scene->getUserByName(ptCmd->memberName);
@@ -217,12 +217,12 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 								//{
 									if (!isset_state(pUser->sysSetting , Cmd::USER_SETTING_FAMILY))                                                            
 									{
-										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s¼ÓÈë¼Ò×åÎ´¿ªÆô", pUser->name);                                                   
+										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç©å®¶ %såŠ å…¥å®¶æ—æœªå¼€å¯", pUser->name);                                                   
 											return true;
 									}  
 									if (pUser->charbase.level >=JOIN_SEPT_NEED_LEVEL)
 									{
-										// Îª0±íÊ¾Î´¼ÓÈë¼Ò×å
+										// ä¸º0è¡¨ç¤ºæœªåŠ å…¥å®¶æ—
 										if (0==pUser->charbase.septid 
 										&& pUser->charbase.unionid==0) 
 										{
@@ -230,7 +230,7 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 										if ((cur_time - pUser->charbase.levelsept) < 24*60*60)                                                                       
 											{
 												Channel::sendSys(this,
-				Cmd::INFO_TYPE_FAIL, "ÏÖÔÚ»¹²»ÄÜÑûÇë¸ÃÍæ¼Ò, ¸ÃÍæ¼Ò»¹Ê£ %d Ãë²ÅÄÜÔÙ´Î¼ÓÈë¼Ò×å", 
+				Cmd::INFO_TYPE_FAIL, "ç°åœ¨è¿˜ä¸èƒ½é‚€è¯·è¯¥ç©å®¶, è¯¥ç©å®¶è¿˜å‰© %d ç§’æ‰èƒ½å†æ¬¡åŠ å…¥å®¶æ—", 
 				24*60*60-(cur_time-pUser->charbase.levelsept));
 												return true;
 
@@ -238,7 +238,7 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 											if ((cur_time - (int)pUser->charbase.levelsept) < 24*60*60)
 											{
 												Channel::sendSys(this, 
-														Cmd::INFO_TYPE_FAIL, "ÏÖÔÚ»¹²»ÄÜÑûÇë¸ÃÍæ¼Ò");
+														Cmd::INFO_TYPE_FAIL, "ç°åœ¨è¿˜ä¸èƒ½é‚€è¯·è¯¥ç©å®¶");
 												return true;
 
 											}
@@ -252,30 +252,30 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 											}
 											else
 											{
-												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Ëû¸úÄã²»ÊÇÒ»¸ö¹ú¼Ò²»ÄÜÑûÇëËû");
+												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä»–è·Ÿä½ ä¸æ˜¯ä¸€ä¸ªå›½å®¶ä¸èƒ½é‚€è¯·ä»–");
 											}
 										}
 										else
 										{
 											if (pUser->charbase.septid == charbase.septid)
-												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ËûÒÑ¾­¼ÓÈë±¾×åÁË£¬ÎŞĞèÔÙ´ÎÑûÇë");
+												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä»–å·²ç»åŠ å…¥æœ¬æ—äº†ï¼Œæ— éœ€å†æ¬¡é‚€è¯·");
 											else
-												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ËûÒÑ¾­Èë»áĞèÒªËûÍË»á²ÅÄÜ¼ÓÈëÄãµÄ¼Ò×å");
+												Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä»–å·²ç»å…¥ä¼šéœ€è¦ä»–é€€ä¼šæ‰èƒ½åŠ å…¥ä½ çš„å®¶æ—");
 										}
 									}
 									else
 									{
-										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "µÈ¼¶²»¹»%d²»ÄÜÑûÇëËû½øÈë¼Ò×å£¡",JOIN_SEPT_NEED_LEVEL);
+										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç­‰çº§ä¸å¤Ÿ%dä¸èƒ½é‚€è¯·ä»–è¿›å…¥å®¶æ—ï¼",JOIN_SEPT_NEED_LEVEL);
 									}
 								//}
 								//else
 								//{
-								//	Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¾àÀëÌ«Ô¶ÎŞ·¨ÑûÇë");
+								//	Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "è·ç¦»å¤ªè¿œæ— æ³•é‚€è¯·");
 								//}
 							}
 							else
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Íæ¼Ò²»ÔÚ¸úÇ°£¬ÎŞ·¨»ØÓ¦ÑûÇë");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç©å®¶ä¸åœ¨è·Ÿå‰ï¼Œæ— æ³•å›åº”é‚€è¯·");
 							}
 							return true;
 						}
@@ -286,7 +286,7 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 							if (pUser)
 							{
 								//charbase.septid = pUser->charbase.septid;
-								//Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "%s½ÓÊÜÁËÄãµÄÑûÇë¼ÓÈëÁË¼Ò×å",name);
+								//Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "%sæ¥å—äº†ä½ çš„é‚€è¯·åŠ å…¥äº†å®¶æ—",name);
 								pUser->removeWarRecord(Cmd::SEPT_DARE);
 								pUser->removeWarRecord(Cmd::SEPT_NPC_DARE);
 								//pUser->sendNineToMe();
@@ -294,15 +294,15 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 								
 								Cmd::Session::t_addSeptMember_SceneSession send;
 								send.dwSeptID = pUser->charbase.septid;
-								send.member.dwCharID = charbase.id;						// »áÔ±½ÇÉ«ID
+								send.member.dwCharID = charbase.id;						// ä¼šå‘˜è§’è‰²ID
 								send.member.wdOccupation = charbase.face;
 								bzero(send.member.aliasname, sizeof(send.member.aliasname));
-								strncpy(send.member.name,charbase.name,MAX_NAMESIZE);  	// »áÔ±½ÇÉ«Ãû³Æ	
+								strncpy(send.member.name,charbase.name,MAX_NAMESIZE);  	// ä¼šå‘˜è§’è‰²åç§°	
 								sessionClient->sendCmd(&send, sizeof(send));
 							}
 							else
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑ¾­Àë¿ª£¬Ëû·ÅÆúÁËÕâ´ÎÑûÇë");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²ç»ç¦»å¼€ï¼Œä»–æ”¾å¼ƒäº†è¿™æ¬¡é‚€è¯·");
 							}
 							return true;
 						}
@@ -312,7 +312,7 @@ bool SceneUser::doSeptCmd(const Cmd::stSeptUserCmd *rev,unsigned int cmdLen)
 							SceneUser *pUser=scene->getUserByID(ptCmd->memberID);
 							if (pUser)
 							{
-								Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "%s²»Ô¸Òâ¼ÓÈë¼Ò×å, ¾Ü¾øÁËÄãµÄÑûÇë",name);
+								Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "%sä¸æ„¿æ„åŠ å…¥å®¶æ—, æ‹’ç»äº†ä½ çš„é‚€è¯·",name);
 							}
 							return true;
 						}

@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file
  * \version  $Id: zUniqueID.h  $
  * \author  
  * \date 
- * \brief Ψһ���������ģ�嶨��
+ * \brief 唯一编号生成器模板定义
  *
  * 
  */
@@ -18,9 +18,9 @@
 #include "zMutex.h"
 #include "zNoncopyable.h"
 /**
- * \brief zUniqueIDģ��
- * ��ģ��ʵ����ΨһID������������֤�̰߳�ȫ��
- * �����ø��ֳ��ȵ��޷���������ΪID��
+ * \brief zUniqueID模板
+ * 本模板实现了唯一ID生成器，并保证线程安全。
+ * 可以用各种长度的无符号整数作为ID。
  */
 template <class T>
 class zUniqueID:private zNoncopyable
@@ -40,8 +40,8 @@ class zUniqueID:private zNoncopyable
 
 	public:
 		/**
-		 * \brief Ĭ�Ϲ��캯�� 
-		 * ��ʼIDΪ1�������ЧIDΪ(T)-2,��ЧIDΪ(T)-1
+		 * \brief 默认构造函数 
+		 * 开始ID为1，最大有效ID为(T)-2,无效ID为(T)-1
 		 */
 		zUniqueID()
 		{
@@ -49,9 +49,9 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief ���캯�� 
-		 * �û��Զ�����ʼID�������ЧIDΪ(T)-2,��ЧIDΪ(T)-1
-		 * \param startID �û��Զ������ʼID
+		 * \brief 构造函数 
+		 * 用户自定义起始ID，最大有效ID为(T)-2,无效ID为(T)-1
+		 * \param startID 用户自定义的起始ID
 		 */
 		zUniqueID(T startID)
 		{
@@ -59,10 +59,10 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief ���캯�� 
-		 * �û��Զ�����ʼID���������ЧID,�����ЧIDΪ�����ЧID-1
-		 * \param startID �û��Զ������ʼID
-		 * \param endID �û��Զ���������ЧID
+		 * \brief 构造函数 
+		 * 用户自定义起始ID，及最大无效ID,最大有效ID为最大无效ID-1
+		 * \param startID 用户自定义的起始ID
+		 * \param endID 用户自定义的最大无效ID
 		 */
 		zUniqueID(T startID,T endID)
 		{
@@ -70,8 +70,8 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief �������� 
-		 * �����ѷ����ID�ڴ档
+		 * \brief 析构函数 
+		 * 回收已分配的ID内存。
 		 */
 		~zUniqueID()
 		{
@@ -81,8 +81,8 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief �õ������ЧID 
-		 * \return ���������ЧID
+		 * \brief 得到最大无效ID 
+		 * \return 返回最大无效ID
 		 */
 		T invalid()
 		{
@@ -90,8 +90,8 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief �������ID�Ƿ񱻷����ȥ
-		 * \return �������ȥ����true,��ЧID��δ����ID����false
+		 * \brief 测试这个ID是否被分配出去
+		 * \return 被分配出去返回true,无效ID和未分配ID返回false
 		 */
 		bool hasAssigned(T testid)
 		{
@@ -125,8 +125,8 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief �õ�һ��ΨһID 
-		 * \return ����һ��ΨһID��������������ЧID���ȱ�ʾ����ID���ѱ��ã��޿���ID��
+		 * \brief 得到一个唯一ID 
+		 * \return 返回一个唯一ID，如果返回最大无效ID，比表示所有ID都已被用，无可用ID。
 		 */
 		T get()
 		{
@@ -149,10 +149,10 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief һ�εõ����ID����ЩID�������ڵ�,���Ҳ��ر��Ż�ȥ 
-		 * \param size Ҫ�����ID����
-		 * \param count ʵ�ʷ���ID�ĸ���
-		 * \return ���ص�һ��ID��������������ЧID���ȱ�ʾ����ID���ѱ��ã��޿���ID��
+		 * \brief 一次得到多个ID，这些ID都是相邻的,并且不回被放回去 
+		 * \param size 要分配的ID个数
+		 * \param count 实际分配ID的个数
+		 * \return 返回第一个ID，如果返回最大无效ID，比表示所有ID都已被用，无可用ID。
 		 */
 		T get(int size,int & count)
 		{
@@ -174,11 +174,11 @@ class zUniqueID:private zNoncopyable
 		}
 
 		/**
-		 * \brief ��ID�Ż�ID�أ��Ա��´�ʹ�á� 
+		 * \brief 将ID放回ID池，以便下次使用。 
 		 * 
-		 * �Żص�ID��������get�����õ��ġ����Ҳ��ܱ�֤�Żص�ID,û�б������߳�ʹ�á�
-		 * �����û�Ҫ�Լ���֤����ʹ�õ�ID���ᱻ�Ż�ȥ���������ID�ظ�����
-		 * \param id ��get�õ���ID.
+		 * 放回的ID必须是由get函数得到的。并且不能保证放回的ID,没有被其他线程使用。
+		 * 所以用户要自己保证还在使用的ID不会被放回去。以免出现ID重复现象。
+		 * \param id 由get得到的ID.
 		 */
 		void put(T id)
 		{

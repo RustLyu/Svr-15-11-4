@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoServer.h  $
  * \author  
  * \date 
- * \brief ĞÅÏ¢¼¯ÖĞ·şÎñÆ÷
+ * \brief ä¿¡æ¯é›†ä¸­æœåŠ¡å™¨
  */
  
 #ifndef _InfoServer_h_
@@ -22,7 +22,7 @@
 #include "zMisc.h"
 
 /**
- * \brief ¶¨ÒåÒ»¸ö¹ã²¥ÏûÏ¢µÄÏß³Ì
+ * \brief å®šä¹‰ä¸€ä¸ªå¹¿æ’­æ¶ˆæ¯çš„çº¿ç¨‹
  */
 class CmdThread : public zThread
 {
@@ -31,24 +31,24 @@ class CmdThread : public zThread
 		void run();
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		CmdThread() : zThread(),tm(),tn() {}
 		
 		/**
-		 * \brief ÎöÔìº¯Êı
+		 * \brief æé€ å‡½æ•°
 		 */
 		~CmdThread() {}
 		
 	private:
 
 		zTime tm, tn;
-		static time_t delta;//¹ã²¥ÏûÏ¢µÄÊ±¼ä¼ä¸ô(µ¥Î»:Ãë)
+		static time_t delta;//å¹¿æ’­æ¶ˆæ¯çš„æ—¶é—´é—´éš”(å•ä½:ç§’)
 		
 };
 
 /**
- * \brief ¶¨ÒåÒ»¸öĞÅÏ¢¼¯ÖĞ·şÎñÆ÷Àà
+ * \brief å®šä¹‰ä¸€ä¸ªä¿¡æ¯é›†ä¸­æœåŠ¡å™¨ç±»
  */
 class InfoService : public zNetService
 {
@@ -66,11 +66,11 @@ class InfoService : public zNetService
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		~InfoService()
 		{
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -79,9 +79,9 @@ class InfoService : public zNetService
 		}
 
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
-		 *	Ê¹ÓÃÁËsingletonÉè¼ÆÄ£Ê½,±£Ö¤ÁË½ø³ÌÖĞÖ»ÓĞÒ»¸öÊµÀı
-		 * \return ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
+		 *	ä½¿ç”¨äº†singletonè®¾è®¡æ¨¡å¼,ä¿è¯äº†è¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªå®ä¾‹
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static InfoService &getInstance()
 		{
@@ -94,7 +94,7 @@ class InfoService : public zNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static void delInstance()
 		{
@@ -102,31 +102,31 @@ class InfoService : public zNetService
 		}
 
 		/**
-		 * \brief ÖØ¶ÁÅäÖÃÎÄ¼şº¯Êı
+		 * \brief é‡è¯»é…ç½®æ–‡ä»¶å‡½æ•°
 		 */
 		void reloadConfig();
 
 		/**
-		 * \brief Ö¸ÏòÊı¾İ¿âÁ¬½Ó³ØÊµÀıÖ¸Õë
+		 * \brief æŒ‡å‘æ•°æ®åº“è¿æ¥æ± å®ä¾‹æŒ‡é’ˆ
 		 */
 		static zDBConnPool *dbConnPool;
 
 		/**
-		 * \brief Ö¸ÏòÏûÏ¢¹ã²¥Ïß³ÌµÄÖ¸Õë
+		 * \brief æŒ‡å‘æ¶ˆæ¯å¹¿æ’­çº¿ç¨‹çš„æŒ‡é’ˆ
 		 */
 		static CmdThread *pCmdThread;
 		
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static InfoService *instance;
 
-		zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		InfoService() : zNetService("InfoService")
 		{
@@ -139,7 +139,7 @@ class InfoService : public zNetService
 		void final();
 
 		/**
-		 * \brief Çø·şÎñÆ÷¶Ë¿Ú
+		 * \brief åŒºæœåŠ¡å™¨ç«¯å£
 		 */
 		unsigned short bindport;
 };

@@ -1,4 +1,4 @@
-#ifndef _LOADMAP_H_
+ï»¿#ifndef _LOADMAP_H_
 #define _LOADMAP_H_
 
 #include <vector>
@@ -14,34 +14,34 @@
 #define MAP_VERSION 6 
 
 /**
- * \brief µØÍ¼ÎÄ¼þÍ·½á¹¹¶¨Òå
+ * \brief åœ°å›¾æ–‡ä»¶å¤´ç»“æž„å®šä¹‰
  */
 struct stMapFileHeader
 {
-	DWORD magic;			/**< ÎÄ¼þ±êÊ¶  MAP_MAGIC */
-	DWORD ver;				/**< °æ±¾ MAP_VERSION */
-	DWORD width;			/**< ¿í¶È */
-	DWORD height;			/**< ¸ß¶È */
+	DWORD magic;			/**< æ–‡ä»¶æ ‡è¯†  MAP_MAGIC */
+	DWORD ver;				/**< ç‰ˆæœ¬ MAP_VERSION */
+	DWORD width;			/**< å®½åº¦ */
+	DWORD height;			/**< é«˜åº¦ */
 };
 
 /**
- * \brief ¸ñ×Ó¶¨Òå
+ * \brief æ ¼å­å®šä¹‰
  */
-#define TILE_BLOCK			0x01	// ×èµ²µã
-#define TILE_MAGIC_BLOCK	0x02	// Ä§·¨×èµ²µã
-#define TILE_NOCREATE		0x04	// ²»ÄÜ½¨Ôìµã
-#define TILE_DOOR			0x08	// ÃÅ
-#define TILE_ENTRY_BLOCK	0x10	// ÈËÎï»òÕßNpc×èµ²
-#define TILE_OBJECT_BLOCK	0x20	// ÎïÆ·×èµ²
+#define TILE_BLOCK			0x01	// é˜»æŒ¡ç‚¹
+#define TILE_MAGIC_BLOCK	0x02	// é­”æ³•é˜»æŒ¡ç‚¹
+#define TILE_NOCREATE		0x04	// ä¸èƒ½å»ºé€ ç‚¹
+#define TILE_DOOR			0x08	// é—¨
+#define TILE_ENTRY_BLOCK	0x10	// äººç‰©æˆ–è€…Npcé˜»æŒ¡
+#define TILE_OBJECT_BLOCK	0x20	// ç‰©å“é˜»æŒ¡
 #pragma  pack(1)
 /**
- * \brief ¸ñ×ÖÊý¾Ý½á¹¹
+ * \brief æ ¼å­—æ•°æ®ç»“æž„
  *
  */
 struct stSrvMapTile
 {
-	BYTE	flags;	// ¸ñ×ÓÊôÐÔ
-	BYTE	type;	// ¸ñ×ÓÀàÐÍ
+	BYTE	flags;	// æ ¼å­å±žæ€§
+	BYTE	type;	// æ ¼å­ç±»åž‹
 };
 #pragma pack()
 

@@ -1,4 +1,4 @@
-#include <stdarg.h>
+ï»¿#include <stdarg.h>
 #include "SessionChat.h"
 #include "SessionManager.h"
 #include "SessionTaskManager.h"
@@ -7,7 +7,7 @@ SessionChannel::SessionChannel(UserSession * creator):zEntry()
 {
 	if (!creator)
 	{
-		Zebra::logger->debug("´´½¨ÁÄÌìÆµµÀÊ§°Ü");
+		Zebra::logger->debug("åˆ›å»ºèŠå¤©é¢‘é“å¤±è´¥");
 		return;
 	}
 	strncpy(name,creator->name,MAX_NAMESIZE);
@@ -125,7 +125,7 @@ bool SessionChannel::sendCountry(DWORD countryID, const void *cmd,unsigned int l
 	return true;
 }
 /**
- * \brief ´¦Àí¸ñÊ½½âÎöµÄºê
+ * \brief å¤„ç†æ ¼å¼è§£æžçš„å®
  */
 
 #define getMessage(msg,msglen,pat)      \
@@ -293,7 +293,7 @@ void SessionChannelManager::removeUser(DWORD id)
 	for(zEntryTempID::hashmap::iterator it=zEntryTempID::ets.begin();it!=zEntryTempID::ets.end();it++)
 	{
 		SessionChannel *temp=(SessionChannel *)it->second;
-		if (!temp->remove(id) || temp->tempid==id)//´´½¨ÈËÍË³öÉ¾³ýÆµµÀ
+		if (!temp->remove(id) || temp->tempid==id)//åˆ›å»ºäººé€€å‡ºåˆ é™¤é¢‘é“
 				rmList.push_back(temp->tempid);
 	}
 
@@ -310,7 +310,7 @@ void SessionChannelManager::removeUser(UserSession * user)
 	for(zEntryTempID::hashmap::iterator it=zEntryTempID::ets.begin();it!=zEntryTempID::ets.end();it++)
 	{
 		SessionChannel *temp=(SessionChannel *)it->second;
-		if (!temp->remove(user) || 0==strncmp(temp->name, user->name, MAX_NAMESIZE))//´´½¨ÈËÍË³öÉ¾³ýÆµµÀ
+		if (!temp->remove(user) || 0==strncmp(temp->name, user->name, MAX_NAMESIZE))//åˆ›å»ºäººé€€å‡ºåˆ é™¤é¢‘é“
 				rmList.push_back(temp->tempid);
 				//remove(temp->tempid);
 	}

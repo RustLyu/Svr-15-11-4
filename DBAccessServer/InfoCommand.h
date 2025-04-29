@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoCommand.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå·şÎñÆ÷ĞÅÏ¢²É¼¯Ö¸Áî
+ * \brief å®šä¹‰æœåŠ¡å™¨ä¿¡æ¯é‡‡é›†æŒ‡ä»¤
  */
 
 #ifndef _InfoCommand_h
@@ -21,7 +21,7 @@ namespace Cmd
 		const BYTE CMD_INFO = 2;
 
 		///////////////////////////////////////
-		///µÇÈë·şÎñÆ÷Ö¸Áî
+		///ç™»å…¥æœåŠ¡å™¨æŒ‡ä»¤
 		//////////////////////////////////////
 		const BYTE PARA_LOGIN = 1;
 		struct t_LoginCmd : t_NullCmd
@@ -29,30 +29,30 @@ namespace Cmd
 			t_LoginCmd() : t_NullCmd(CMD_LOGIN, PARA_LOGIN) { }
 		};
 		///////////////////////////////////////
-		///µÇÈë·şÎñÆ÷Ö¸Áî
+		///ç™»å…¥æœåŠ¡å™¨æŒ‡ä»¤
 		///////////////////////////////////////
 
 		//////////////////////////////////////
-		///·şÎñÆ÷ĞÅÏ¢Ö¸Áî
+		///æœåŠ¡å™¨ä¿¡æ¯æŒ‡ä»¤
 		//////////////////////////////////////
-		//ÇëÇó·şÎñÆ÷ĞÅÏ¢
+		//è¯·æ±‚æœåŠ¡å™¨ä¿¡æ¯
 		const BYTE PARA_REQUEST_SERVERINFO = 1;
 		struct t_Request_ServerInfo : t_NullCmd
 		{
-			QWORD 		rTimestamp;							//ÇëÇóÊ±¼ä´Á
+			QWORD 		rTimestamp;							//è¯·æ±‚æ—¶é—´æˆ³
 
 			t_Request_ServerInfo() : t_NullCmd(CMD_INFO, PARA_REQUEST_SERVERINFO) { }
 		};
-		//·şÎñÆ÷ĞÅÏ¢
+		//æœåŠ¡å™¨ä¿¡æ¯
 		const BYTE PARA_SERVERINFO = 2;
 		struct t_ServerInfo : t_NullCmd
 		{
-			QWORD 		rTimestamp;							//ÇëÇóÊ±¼ä´Á
-			WORD 			ServerID;							//·şÎñÆ÷±àºÅ
-			WORD 			ServerType;							//·şÎñÆ÷ÀàĞÍ
-			GameZone_t	GameZone;							//ÓÎÏ·Çø±àºÅ
-			char 			ZoneName[MAX_NAMESIZE];			//ÓÎÏ·ÇøÃû×Ö
-			DWORD 		ConnNum;								//Á¬½ÓÊı
+			QWORD 		rTimestamp;							//è¯·æ±‚æ—¶é—´æˆ³
+			WORD 			ServerID;							//æœåŠ¡å™¨ç¼–å·
+			WORD 			ServerType;							//æœåŠ¡å™¨ç±»å‹
+			GameZone_t	GameZone;							//æ¸¸æˆåŒºç¼–å·
+			char 			ZoneName[MAX_NAMESIZE];			//æ¸¸æˆåŒºåå­—
+			DWORD 		ConnNum;								//è¿æ¥æ•°
 			char 			xml[1];
 
 			t_ServerInfo() : t_NullCmd(CMD_INFO, PARA_SERVERINFO)
@@ -61,13 +61,13 @@ namespace Cmd
 			}
 		};
 		//////////////////////////////////////
-		///·şÎñÆ÷ĞÅÏ¢Ö¸Áî
+		///æœåŠ¡å™¨ä¿¡æ¯æŒ‡ä»¤
 		//////////////////////////////////////
 		
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////		
 		
-		//ÇëÇóÔÚÏßÈËÊıĞÅÏ¢
+		//è¯·æ±‚åœ¨çº¿äººæ•°ä¿¡æ¯
 		const BYTE PARA_REQUEST_ONLINENUM = 3;
 		struct t_Request_OnlineNum : t_NullCmd
 		{

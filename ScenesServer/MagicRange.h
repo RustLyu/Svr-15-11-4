@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MagicRange.h  $
  * \author  
  * \date 
- * \brief Èº¹¥¼¼ÄÜ·¶Î§¶¨Òå
+ * \brief ç¾¤æ”»æŠ€èƒ½èŒƒå›´å®šä¹‰
  *
  * 
  */
@@ -21,12 +21,12 @@
 #define magicrange_hash(type , dir) ((type * 2) + dir)
 #define MAX_RELATIVE_POS 20
 /**
- * \brief Ïà¶Ô×ø±êÊı¾İ½á¹¹
+ * \brief ç›¸å¯¹åæ ‡æ•°æ®ç»“æ„
  *
  */
 struct RelativePos : public zPos
 {
-	DWORD w; /// ÉËº¦ËğºÄ
+	DWORD w; /// ä¼¤å®³æŸè€—
 	RelativePos()
 	{
 	}
@@ -38,7 +38,7 @@ typedef struct {
 	DWORD num;
 } SMagicRange;
 /**
- * \brief ¼¼ÄÜ¸ñ×Ö»Øµ÷
+ * \brief æŠ€èƒ½æ ¼å­—å›è°ƒ
  *
  */
 struct MagicPosExec
@@ -47,7 +47,7 @@ struct MagicPosExec
 	virtual bool exec(zPos &pos) = 0;
 };
 /**
- * \brief ¼¼ÄÜ×÷ÓÃµã
+ * \brief æŠ€èƒ½ä½œç”¨ç‚¹
  *
  */
 struct MagicPos
@@ -59,7 +59,7 @@ struct MagicPos
 };
 
 /**
- * \brief ³õÊ¼»¯¼¼ÄÜÈº¹¥ÀàĞÍ·¶Î§
+ * \brief åˆå§‹åŒ–æŠ€èƒ½ç¾¤æ”»ç±»å‹èŒƒå›´
  *
  */
 class MagicRangeInit

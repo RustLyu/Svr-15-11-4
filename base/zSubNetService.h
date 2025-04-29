@@ -1,11 +1,11 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zSubNetService.h  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍøÂç·şÎñÆ÷µÄ¿ò¼Ü´úÂë
+ * \brief å®ç°ç½‘ç»œæœåŠ¡å™¨çš„æ¡†æ¶ä»£ç 
  *
- * Õâ¸öÖ÷ÒªÊÇÊ¹ÓÃÓëĞèÒªÁ¬½Ó·şÎñÆ÷¹ÜÀíÆ÷µÄÍøÂç·şÎñÆ÷
+ * è¿™ä¸ªä¸»è¦æ˜¯ä½¿ç”¨ä¸éœ€è¦è¿æ¥æœåŠ¡å™¨ç®¡ç†å™¨çš„ç½‘ç»œæœåŠ¡å™¨
  * 
  */
 
@@ -31,9 +31,9 @@
 class SuperClient;
 
 /**
- * \brief ÍøÂç·şÎñÆ÷¿ò¼Ü´úÂë
+ * \brief ç½‘ç»œæœåŠ¡å™¨æ¡†æ¶ä»£ç 
  *
- * ÔÚĞèÒªÓë·şÎñÆ÷¹ÜÀíÆ÷½¨Á¢Á¬½ÓµÄÍøÂç·şÎñÆ÷ÖĞÊ¹ÓÃ
+ * åœ¨éœ€è¦ä¸æœåŠ¡å™¨ç®¡ç†å™¨å»ºç«‹è¿æ¥çš„ç½‘ç»œæœåŠ¡å™¨ä¸­ä½¿ç”¨
  *
  */
 class zSubNetService : public zNetService
@@ -44,9 +44,9 @@ class zSubNetService : public zNetService
 		virtual ~zSubNetService();
 
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
-		 * Õâ¸öÀàÊµÏÖÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+		 * è¿™ä¸ªç±»å®ç°äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
 		 *
 		 */
 		static zSubNetService *subNetServiceInstance()
@@ -55,13 +55,13 @@ class zSubNetService : public zNetService
 		}
 
 		/**
-		 * \brief ½âÎöÀ´×Ô·şÎñÆ÷¹ÜÀíÆ÷µÄÖ¸Áî
+		 * \brief è§£ææ¥è‡ªæœåŠ¡å™¨ç®¡ç†å™¨çš„æŒ‡ä»¤
 		 *
-		 * ÕâĞ©Ö¸ÁîÊÇÓë¾ßÌåµÄ·şÎñÆ÷ÓĞ¹ØµÄ£¬ÒòÎªÍ¨ÓÃµÄÖ¸Áî¶¼ÒÑ¾­´¦ÀíÁË
+		 * è¿™äº›æŒ‡ä»¤æ˜¯ä¸å…·ä½“çš„æœåŠ¡å™¨æœ‰å…³çš„ï¼Œå› ä¸ºé€šç”¨çš„æŒ‡ä»¤éƒ½å·²ç»å¤„ç†äº†
 		 *
-		 * \param ptNullCmd ´ı´¦ÀíµÄÖ¸Áî
-		 * \param nCmdLen Ö¸Áî³¤¶È
-		 * \return ½âÎöÊÇ·ñ³É¹¦
+		 * \param ptNullCmd å¾…å¤„ç†çš„æŒ‡ä»¤
+		 * \param nCmdLen æŒ‡ä»¤é•¿åº¦
+		 * \return è§£ææ˜¯å¦æˆåŠŸ
 		 */
 		virtual bool msgParse_SuperService(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen) = 0;
 
@@ -73,9 +73,9 @@ class zSubNetService : public zNetService
 		const Cmd::Super::ServerEntry *getNextServerEntryByType(const WORD wdServerType, const Cmd::Super::ServerEntry **prev);
 
 		/**
-		 * \brief ·µ»Ø·şÎñÆ÷±àºÅ
+		 * \brief è¿”å›æœåŠ¡å™¨ç¼–å·
 		 *
-		 * \return ·şÎñÆ÷±àºÅ
+		 * \return æœåŠ¡å™¨ç¼–å·
 		 */
 		const WORD getServerID() const
 		{
@@ -83,9 +83,9 @@ class zSubNetService : public zNetService
 		}
 
 		/**
-		 * \brief ·µ»Ø·şÎñÆ÷ÀàĞÍ
+		 * \brief è¿”å›æœåŠ¡å™¨ç±»å‹
 		 *
-		 * \return ·şÎñÆ÷ÀàĞÍ
+		 * \return æœåŠ¡å™¨ç±»å‹
 		 */
 		const WORD getServerType() const
 		{
@@ -100,24 +100,24 @@ class zSubNetService : public zNetService
 		bool validate();
 		void final();
 
-		WORD wdServerID;					/**< ·şÎñÆ÷±àºÅ£¬Ò»¸öÇøÎ¨Ò»µÄ */
-		WORD wdServerType;					/**< ·şÎñÆ÷ÀàĞÍ£¬´´½¨ÀàÊµÀıµÄÊ±ºòÒÑ¾­È·¶¨ */
-		char pstrName[MAX_NAMESIZE];		/**< ·şÎñÆ÷Ãû³Æ */
-		char pstrIP[MAX_IP_LENGTH];			/**< ·şÎñÆ÷ÄÚÍøµØÖ· */
-		WORD wdPort;						/**< ·şÎñÆ÷ÄÚÍø¶Ë¿Ú£¬Ò²¾ÍÊÇ°î¶¨¶Ë¿Ú */
-		char pstrExtIP[MAX_IP_LENGTH];		/**< ·şÎñÆ÷ÍâÍøµØÖ·£¬Ò²¾ÍÊÇ·À»ğÇ½µØÖ· */
-		WORD wdExtPort;						/**< ·şÎñÆ÷ÍâÍø¶Ë¿Ú£¬Ò²¾ÍÊÇÓ³Éäµ½·À»ğÇ½µÄ¶Ë¿Ú */
+		WORD wdServerID;					/**< æœåŠ¡å™¨ç¼–å·ï¼Œä¸€ä¸ªåŒºå”¯ä¸€çš„ */
+		WORD wdServerType;					/**< æœåŠ¡å™¨ç±»å‹ï¼Œåˆ›å»ºç±»å®ä¾‹çš„æ—¶å€™å·²ç»ç¡®å®š */
+		char pstrName[MAX_NAMESIZE];		/**< æœåŠ¡å™¨åç§° */
+		char pstrIP[MAX_IP_LENGTH];			/**< æœåŠ¡å™¨å†…ç½‘åœ°å€ */
+		WORD wdPort;						/**< æœåŠ¡å™¨å†…ç½‘ç«¯å£ï¼Œä¹Ÿå°±æ˜¯é‚¦å®šç«¯å£ */
+		char pstrExtIP[MAX_IP_LENGTH];		/**< æœåŠ¡å™¨å¤–ç½‘åœ°å€ï¼Œä¹Ÿå°±æ˜¯é˜²ç«å¢™åœ°å€ */
+		WORD wdExtPort;						/**< æœåŠ¡å™¨å¤–ç½‘ç«¯å£ï¼Œä¹Ÿå°±æ˜¯æ˜ å°„åˆ°é˜²ç«å¢™çš„ç«¯å£ */
 
 	private:
 
-		unsigned short superPort;		/**< ·şÎñÆ÷¹ÜÀíÆ÷µÄ¶Ë¿Ú */
-		char superIP[MAX_IP_LENGTH];	/**< ·şÎñÆ÷¹ÜÀíÆ÷µÄµØÖ· */
+		unsigned short superPort;		/**< æœåŠ¡å™¨ç®¡ç†å™¨çš„ç«¯å£ */
+		char superIP[MAX_IP_LENGTH];	/**< æœåŠ¡å™¨ç®¡ç†å™¨çš„åœ°å€ */
 
-		SuperClient *superClient;		/**< ·şÎñÆ÷¹ÜÀíÆ÷µÄ¿Í»§¶ËÊµÀı */
+		SuperClient *superClient;		/**< æœåŠ¡å™¨ç®¡ç†å™¨çš„å®¢æˆ·ç«¯å®ä¾‹ */
 
-		static zSubNetService *subNetServiceInst;			/**< ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë£¬°üÀ¨ÅÉÉúÀà£¬³õÊ¼»¯Îª¿ÕÖ¸Õë */
-		zMutex mlock;										/**< ¹ØÁª·şÎñÆ÷ĞÅÏ¢ÁĞ±í·ÃÎÊ»¥³âÌå */
-		std::deque<Cmd::Super::ServerEntry> serverList;		/**< ¹ØÁª·şÎñÆ÷ĞÅÏ¢ÁĞ±í£¬±£Ö¤·şÎñÆ÷Ö®¼äµÄÑéÖ¤¹ØÏµ */
+		static zSubNetService *subNetServiceInst;			/**< ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆï¼ŒåŒ…æ‹¬æ´¾ç”Ÿç±»ï¼Œåˆå§‹åŒ–ä¸ºç©ºæŒ‡é’ˆ */
+		zMutex mlock;										/**< å…³è”æœåŠ¡å™¨ä¿¡æ¯åˆ—è¡¨è®¿é—®äº’æ–¥ä½“ */
+		std::deque<Cmd::Super::ServerEntry> serverList;		/**< å…³è”æœåŠ¡å™¨ä¿¡æ¯åˆ—è¡¨ï¼Œä¿è¯æœåŠ¡å™¨ä¹‹é—´çš„éªŒè¯å…³ç³» */
 
 };
 

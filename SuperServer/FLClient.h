@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: FLClient.h g $
  * \author  
  * \date 
- * \brief ¶¨ÒåµÇÂ½·şÎñÆ÷¿Í»§¶Ë
+ * \brief å®šä¹‰ç™»é™†æœåŠ¡å™¨å®¢æˆ·ç«¯
  *
  * 
  */
@@ -16,7 +16,7 @@
 #include "NetType.h"
 
 /**
- * \brief Í³Ò»ÓÃ»§Æ½Ì¨µÇÂ½·şÎñÆ÷µÄ¿Í»§¶ËÁ¬½ÓÀà
+ * \brief ç»Ÿä¸€ç”¨æˆ·å¹³å°ç™»é™†æœåŠ¡å™¨çš„å®¢æˆ·ç«¯è¿æ¥ç±»
  */
 class FLClient : public zTCPClientTask
 {
@@ -35,8 +35,8 @@ class FLClient : public zTCPClientTask
 		bool msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 
 		/**
-		 * \brief »ñÈ¡ÁÙÊ±±àºÅ
-		 * \return ÁÙÊ±±àºÅ
+		 * \brief è·å–ä¸´æ—¶ç¼–å·
+		 * \return ä¸´æ—¶ç¼–å·
 		 */
 		const WORD getTempID() const
 		{
@@ -52,7 +52,7 @@ class FLClient : public zTCPClientTask
 	private:
 
 		/**
-		 * \brief ÁÙÊ±±àºÅ
+		 * \brief ä¸´æ—¶ç¼–å·
 		 *
 		 */
 		const WORD tempid;

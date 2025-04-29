@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CountryInfo.h  $
  * \author 
  * \date 
- * \brief ¹ú¼ÒĞÅÏ¢
+ * \brief å›½å®¶ä¿¡æ¯
  *
  * 
  */
@@ -20,7 +20,7 @@
 #include "SceneCommand.h"
 #include "GateUser.h"
 /**
- * \brief ¹ú¼ÒÅäÖÃÎÄ¼şĞÅÏ¢
+ * \brief å›½å®¶é…ç½®æ–‡ä»¶ä¿¡æ¯
  *
  */
 class CountryInfo
@@ -42,7 +42,7 @@ class CountryInfo
 		typedef std::vector<Info> StrVec;
 		typedef StrVec::iterator StrVec_iterator;
 		StrVec country_info;
-		// ¹ú¼ÒÅÅĞòËø
+		// å›½å®¶æ’åºé”
 		zMutex mutex;
 		DWORD country_order[100];
 

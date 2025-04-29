@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: ScenesServer.h  $
  * \author  
  * \date 
- * \brief zebraÏîÄ¿³¡¾°·şÎñÆ÷£¬ÓÎÏ·¾ø´ó²¿·ÖÄÚÈİ¶¼ÔÚ±¾ÊµÏÖ
+ * \brief zebraé¡¹ç›®åœºæ™¯æœåŠ¡å™¨ï¼Œæ¸¸æˆç»å¤§éƒ¨åˆ†å†…å®¹éƒ½åœ¨æœ¬å®ç°
  */
 
 #ifndef _ScenesServer_h_
@@ -15,10 +15,10 @@
 #include "zMisc.h"
 
 /**
- * \brief ¶¨Òå³¡¾°·şÎñÀà
+ * \brief å®šä¹‰åœºæ™¯æœåŠ¡ç±»
  *
- * ³¡¾°·şÎñÆ÷£¬ÓÎÏ·¾ø´ó²¿·ÖÄÚÈİ¶¼ÔÚ±¾ÊµÏÖ<br>
- * Õâ¸öÀàÊ¹ÓÃÁËSingletonÉè¼ÆÄ£Ê½£¬±£Ö¤ÁËÒ»¸ö½ø³ÌÖĞÖ»ÓĞÒ»¸öÀàµÄÊµÀı
+ * åœºæ™¯æœåŠ¡å™¨ï¼Œæ¸¸æˆç»å¤§éƒ¨åˆ†å†…å®¹éƒ½åœ¨æœ¬å®ç°<br>
+ * è¿™ä¸ªç±»ä½¿ç”¨äº†Singletonè®¾è®¡æ¨¡å¼ï¼Œä¿è¯äº†ä¸€ä¸ªè¿›ç¨‹ä¸­åªæœ‰ä¸€ä¸ªç±»çš„å®ä¾‹
  *
  */
 class ScenesService : public zSubNetService
@@ -33,14 +33,14 @@ class ScenesService : public zSubNetService
 		BYTE countryPower[13];
 
 		/**
-		 * \brief ĞéÎö¹¹º¯Êı
+		 * \brief è™šææ„å‡½æ•°
 		 *
 		 */
 		virtual ~ScenesService()
 		{
 			instance = NULL;
 
-			//¹Ø±ÕÏß³Ì³Ø
+			//å…³é—­çº¿ç¨‹æ± 
 			if (taskPool)
 			{
 				taskPool->final();
@@ -61,9 +61,9 @@ class ScenesService : public zSubNetService
 		}
 
 		/**
-		 * \brief ·µ»ØÎ¨Ò»µÄÀàÊµÀı
+		 * \brief è¿”å›å”¯ä¸€çš„ç±»å®ä¾‹
 		 *
-		 * \return Î¨Ò»µÄÀàÊµÀı
+		 * \return å”¯ä¸€çš„ç±»å®ä¾‹
 		 */
 		static ScenesService &getInstance()
 		{
@@ -74,7 +74,7 @@ class ScenesService : public zSubNetService
 		}
 
 		/**
-		 * \brief ÊÍ·ÅÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é‡Šæ”¾ç±»çš„å”¯ä¸€å®ä¾‹
 		 *
 		 */
 		static void delInstance()
@@ -91,9 +91,9 @@ class ScenesService : public zSubNetService
 
 		//GM_logger
 		static zLogger* gm_logger;
-		//ÎïÆ·log
+		//ç‰©å“log
 		static zLogger* objlogger;
-		//Íâ¹Ò_logger
+		//å¤–æŒ‚_logger
 		static zLogger* wg_logger;
 
 		static Cmd::stChannelChatUserCmd * pStampData;
@@ -101,23 +101,23 @@ class ScenesService : public zSubNetService
 	private:
 
 		/**
-		 * \brief ÀàµÄÎ¨Ò»ÊµÀıÖ¸Õë
+		 * \brief ç±»çš„å”¯ä¸€å®ä¾‹æŒ‡é’ˆ
 		 *
 		 */
 		static ScenesService *instance;
 		/**
-		 * \brief ÉèÖÃÖØĞÂ¶ÁÈ¡ÅäÖÃ±êÖ¾
+		 * \brief è®¾ç½®é‡æ–°è¯»å–é…ç½®æ ‡å¿—
 		 *
 		 */
 		static bool reload;
 
-		zTCPTaskPool *taskPool;				/**< TCPÁ¬½Ó³ØµÄÖ¸Õë */
+		zTCPTaskPool *taskPool;				/**< TCPè¿æ¥æ± çš„æŒ‡é’ˆ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 *
 		 */
-		ScenesService() : zSubNetService("³¡¾°·şÎñÆ÷", SCENESSERVER)
+		ScenesService() : zSubNetService("åœºæ™¯æœåŠ¡å™¨", SCENESSERVER)
 		{
 			writeBackTimer = 0;
 			taskPool = NULL;

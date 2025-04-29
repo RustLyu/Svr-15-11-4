@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zebraclientService.cpp  $
  * \author  
@@ -21,7 +21,7 @@ bool zebraclientService::loopRun()
 {
 	if(strcmp(ArrayTable::getInstance()->global["loop_run"].c_str() , "true") == 0)
 	{
-		//³õÊ¼»¯³ÌĞò
+		//åˆå§‹åŒ–ç¨‹åº
 		if (!zebraclientService::getInstance().init())
 			return false;
 		return true;
@@ -37,17 +37,17 @@ bool zebraclientService::init()
 	{
 		if (!LoadMap((ArrayTable::getInstance()->global["mapfile"] + ".mps").c_str(),zebraClient::allTiles,zebraClient::sceneWH.x,zebraClient::sceneWH.y))
 		{
-			Zebra::logger->error("¼ÓÔØ %s Ê§°Ü",(ArrayTable::getInstance()->global["mapfile"] + ".mps").c_str());
+			Zebra::logger->error("åŠ è½½ %s å¤±è´¥",(ArrayTable::getInstance()->global["mapfile"] + ".mps").c_str());
 			return false;
 		}
 	}
 	else if (!LoadMap((Zebra::global["mapfile"] + ".mps").c_str(),zebraClient::allTiles,zebraClient::sceneWH.x,zebraClient::sceneWH.y))
 	{
-		Zebra::logger->error("¼ÓÔØ %s Ê§°Ü",(Zebra::global["mapfile"] + ".mps").c_str());
+		Zebra::logger->error("åŠ è½½ %s å¤±è´¥",(Zebra::global["mapfile"] + ".mps").c_str());
 		return false;
 	}
 	// */
-	Zebra::logger->info("¼ÓÔØµØÍ¼ %s ³É¹¦",(Zebra::global["mapfile"] + ".mps").c_str());
+	Zebra::logger->info("åŠ è½½åœ°å›¾ %s æˆåŠŸ",(Zebra::global["mapfile"] + ".mps").c_str());
 
 	if(!ZebraClientManager::getInstance()->init())
 	{
@@ -58,7 +58,7 @@ bool zebraclientService::init()
 	ZebraClientTimeTick::getInstance().start();
 	if (!zService::init())
 		return false;
-	loginClient = new LoginClient("µÇÂ½·şÎñÆ÷", Zebra::global["server"].c_str(), atoi(Zebra::global["port"].c_str()));
+	loginClient = new LoginClient("ç™»é™†æœåŠ¡å™¨", Zebra::global["server"].c_str(), atoi(Zebra::global["port"].c_str()));
 	if(!loginClient)
 	{
 		return false;
@@ -88,13 +88,13 @@ bool zebraclientService::init()
 		loginClient->get_key_des((char*)key_des);
 		
 		/*
-		zebraClient *client = new zebraClient("²âÊÔ¿Í»§¶Ë",pstrIP , wdPort , temp);
+		zebraClient *client = new zebraClient("æµ‹è¯•å®¢æˆ·ç«¯",pstrIP , wdPort , temp);
 		client->connect();
 		client->init(accid , loginTempID);
 		*/
-		ZebraClientManager::getInstance()->addClientTask(new zebraClient("²âÊÔ¿Í»§¶Ë",
+		ZebraClientManager::getInstance()->addClientTask(new zebraClient("æµ‹è¯•å®¢æˆ·ç«¯",
 					pstrIP , wdPort , temp) , accid , loginTempID , key_des); 
-		Zebra::logger->debug("µÇÂ½ÊıÁ¿:%d/%d",i-first_user+1,max_user-first_user);
+		Zebra::logger->debug("ç™»é™†æ•°é‡:%d/%d",i-first_user+1,max_user-first_user);
 	}
 	return true;
 }
@@ -112,7 +112,7 @@ void zebraclientService::final()
 bool zebraclientService::test()
 {
 	using namespace Cmd;
-	tcpClient = new zebraClient("²âÊÔ¿Í»§¶Ë", Zebra::global["server"].c_str(), atoi(Zebra::global["port"].c_str()));
+	tcpClient = new zebraClient("æµ‹è¯•å®¢æˆ·ç«¯", Zebra::global["server"].c_str(), atoi(Zebra::global["port"].c_str()));
 	if(!tcpClient->init())
 		return false;
 	if (NULL == tcpClient)
@@ -185,11 +185,11 @@ bool zebraclientService::createAcc()
 
 	if (!tcpClient->createAcc(Zebra::global["user"].c_str(), Zebra::global["passwd"].c_str()))
 	{
-		Zebra::logger->error("´´½¨ÕËºÅÊ§°Ü");
+		Zebra::logger->error("åˆ›å»ºè´¦å·å¤±è´¥");
 		return false;
 	}
 
-	Zebra::logger->debug("´´½¨ÕËºÅ³É¹¦");
+	Zebra::logger->debug("åˆ›å»ºè´¦å·æˆåŠŸ");
 	return true;
 }
 
@@ -207,11 +207,11 @@ bool zebraclientService::changePasswd()
 
 	if (!tcpClient->changePasswd(Zebra::global["user"].c_str(), Zebra::global["passwd"].c_str(), Zebra::global["newPasswd"].c_str()))
 	{
-		Zebra::logger->error("ĞŞ¸ÄÃÜÂëÊ§°Ü");
+		Zebra::logger->error("ä¿®æ”¹å¯†ç å¤±è´¥");
 		return false;
 	}
 
-	Zebra::logger->debug("ĞŞ¸ÄÃÜÂë³É¹¦");
+	Zebra::logger->debug("ä¿®æ”¹å¯†ç æˆåŠŸ");
 	return true;
 }
 */
@@ -298,13 +298,13 @@ static error_t zebraclient_parse_opt(int key, char *arg, struct argp_state *stat
 }
 
 /**
- * \brief ¼ò¶ÌÃèÊöĞÅÏ¢
+ * \brief ç®€çŸ­æè¿°ä¿¡æ¯
  *
  */
-static char zebraclient_doc[] = "\nzebraclient\n" "\t²âÊÔ¿Í»§¶Ë³ÌĞò¡£";
+static char zebraclient_doc[] = "\nzebraclient\n" "\tæµ‹è¯•å®¢æˆ·ç«¯ç¨‹åºã€‚";
 
 /**
- * \brief ³ÌĞòµÄ°æ±¾ĞÅÏ¢
+ * \brief ç¨‹åºçš„ç‰ˆæœ¬ä¿¡æ¯
  *
  */
 const char *argp_program_version = "Program version :\t" VERSION_STRING\
@@ -329,14 +329,14 @@ int main(int argc, char *argv[])
 	Zebra::global["rc5_key"]="_zhengtu_rc5_key";
 	ArrayTable::getInstance()->init(0);
 
-	//½âÎöÃüÁîĞĞ²ÎÊı
+	//è§£æå‘½ä»¤è¡Œå‚æ•°
 	zArg::getArg()->add(zebraclient_options, zebraclient_parse_opt, 0, zebraclient_doc);
 	zArg::getArg()->parse(argc, argv);
 	//Zebra::global.dump(std::cout);
-	//ÉèÖÃÈÕÖ¾¼¶±ğ
+	//è®¾ç½®æ—¥å¿—çº§åˆ«
 	Zebra::logger->setLevel(Zebra::global["log"]);
 
-	LoginClient *loginClient = new LoginClient("µÇÂ½·şÎñÆ÷", Zebra::global["server"].c_str(), atoi(Zebra::global["port"].c_str()));
+	LoginClient *loginClient = new LoginClient("ç™»é™†æœåŠ¡å™¨", Zebra::global["server"].c_str(), atoi(Zebra::global["port"].c_str()));
 	
 	if (loginClient->connect())
 	{
@@ -352,7 +352,7 @@ int main(int argc, char *argv[])
 	}
 	
 	/*
-	//³õÊ¼»¯³ÌĞò
+	//åˆå§‹åŒ–ç¨‹åº
 	if (!zebraclientService::getInstance().init())
 		return false;
 		
@@ -377,8 +377,8 @@ int main(int argc, char *argv[])
 		{
 		if(zebraclientService::getInstance().validate())
 		{
-		//È·ÈÏ·şÎñÆ÷Æô¶¯³É¹¦
-		//ÔËĞĞÖ÷»Øµ÷Ïß³Ì
+		//ç¡®è®¤æœåŠ¡å™¨å¯åŠ¨æˆåŠŸ
+		//è¿è¡Œä¸»å›è°ƒçº¿ç¨‹
 		while(!zebraclientService::getInstance().isTerminate())
 		{
 		if (!zebraclientService::getInstance().serviceCallback())
@@ -388,7 +388,7 @@ int main(int argc, char *argv[])
 		}
 		}
 		//sleep(2);
-		//½áÊø³ÌĞò£¬ÊÍ·ÅÏàÓ¦µÄ×ÊÔ´
+		//ç»“æŸç¨‹åºï¼Œé‡Šæ”¾ç›¸åº”çš„èµ„æº
 		zebraclientService::getInstance().final();
 		zebraclientService::delInstance();
 		sleep(3);
@@ -396,7 +396,7 @@ int main(int argc, char *argv[])
 	}
 		 */
 	
-	//½áÊø³ÌĞò£¬ÊÍ·ÅÏàÓ¦µÄ×ÊÔ´
+	//ç»“æŸç¨‹åºï¼Œé‡Šæ”¾ç›¸åº”çš„èµ„æº
 	//zebraclientService::getInstance().final();
 	//zebraclientService::delInstance();
 

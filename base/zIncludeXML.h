@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zIncludeXML.h  $
  * \author  
  * \date 
- * \brief includeÄ£Ê½XMLÀ©Õ¹ÉùÃ÷ 
+ * \brief includeæ¨¡å¼XMLæ‰©å±•å£°æ˜ 
  */
 
 #ifndef _ZINCLUDEXML_H_
@@ -14,31 +14,31 @@
 #include "zNoncopyable.h"
 
 /**
- * \brief zIncludeXMLÊÇÓÃÀ´À©Õ¹×Ô¶¨ÒåXMLµÄ¹¤¾ß
+ * \brief zIncludeXMLæ˜¯ç”¨æ¥æ‰©å±•è‡ªå®šä¹‰XMLçš„å·¥å…·
  *
- * include½Úµã¸ñÊ½Îª<include filename="xxx.xml" /> xxx.xmlÊÇÄãÒª°üÀ¨µÄXMLÎÄ¼şÂ·¾¶.
+ * includeèŠ‚ç‚¹æ ¼å¼ä¸º<include filename="xxx.xml" /> xxx.xmlæ˜¯ä½ è¦åŒ…æ‹¬çš„XMLæ–‡ä»¶è·¯å¾„.
  *
- * include½Úµã²»ÄÜ°üº¬×Ó½Úµã£¬ÒòÎªµ±À©Õ¹ºó½«É¾³ı´Ë½Úµã.
+ * includeèŠ‚ç‚¹ä¸èƒ½åŒ…å«å­èŠ‚ç‚¹ï¼Œå› ä¸ºå½“æ‰©å±•åå°†åˆ é™¤æ­¤èŠ‚ç‚¹.
  *
- * ´ËÀà·ÇÏß³Ì°²È«
+ * æ­¤ç±»éçº¿ç¨‹å®‰å…¨
  */
 class zIncludeXML:private zNoncopyable
 {
 	private:
 		/**
-		 * \brief ¹¹Ôìº¯Êı 
+		 * \brief æ„é€ å‡½æ•° 
 		 */
 		zIncludeXML(){};
 		/**
-		 * \brief Îö¹¹º¯Êı 
+		 * \brief ææ„å‡½æ•° 
 		 */
 		~zIncludeXML(){};
 		/**
-		 * \brief ÒªÀ©Õ¹XMLµÄ½âÎöÆ÷ 
+		 * \brief è¦æ‰©å±•XMLçš„è§£æå™¨ 
 		 */
 		static zXMLParser parser; 
 		/**
-		 * \brief Òª°üº¬XMLÎÄ¼şµÄ½âÎöÆ÷ 
+		 * \brief è¦åŒ…å«XMLæ–‡ä»¶çš„è§£æå™¨ 
 		 */
 		static zXMLParser childparser; 
 		static bool expand(zXMLParser *parser,xmlNodePtr parent);

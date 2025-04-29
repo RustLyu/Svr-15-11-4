@@ -1,4 +1,4 @@
-#ifndef _MINI_HALL_H_
+﻿#ifndef _MINI_HALL_H_
 #define _MINI_HALL_H_
 
 #include "zSingleton.h"

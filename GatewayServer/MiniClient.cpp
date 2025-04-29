@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: MiniClient.cpp  $
  * \author  
  * \date 
- * \brief ¶¨Òå¼Æ·Ñ·þÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief å®šä¹‰è®¡è´¹æœåŠ¡å™¨è¿žæŽ¥å®¢æˆ·ç«¯
  *
  */
 
@@ -21,23 +21,23 @@
 #include "GatewayTaskManager.h"
 
 /**
- * \brief ¼Æ·Ñ·þÎñÆ÷Á¬½Ó¿Í»§¶Ë
+ * \brief è®¡è´¹æœåŠ¡å™¨è¿žæŽ¥å®¢æˆ·ç«¯
  *
- * Ò»¸öÇøÖÐÖ»ÓÐÒ»¸ö¼Æ·Ñ·þÎñÆ÷£¬ËùÒÔÕâÀïÖ»ÐèÒª±£ÁôÒ»¸öÖ¸Õë£¬²»ÐèÒªÁ¬½Ó¹ÜÀíÆ÷Ö®ÀàµÄ¶«¶«
+ * ä¸€ä¸ªåŒºä¸­åªæœ‰ä¸€ä¸ªè®¡è´¹æœåŠ¡å™¨ï¼Œæ‰€ä»¥è¿™é‡Œåªéœ€è¦ä¿ç•™ä¸€ä¸ªæŒ‡é’ˆï¼Œä¸éœ€è¦è¿žæŽ¥ç®¡ç†å™¨ä¹‹ç±»çš„ä¸œä¸œ
  *
  */
 MiniClient *miniClient = NULL;
 
 /**
- * \brief ½¨Á¢µ½Mini·þÎñÆ÷µÄÁ¬½Ó
+ * \brief å»ºç«‹åˆ°MiniæœåŠ¡å™¨çš„è¿žæŽ¥
  *
- * \return Á¬½ÓÊÇ·ñ³É¹¦
+ * \return è¿žæŽ¥æ˜¯å¦æˆåŠŸ
  */
 bool MiniClient::connectToMiniServer()
 {
 	if (!connect())
 	{
-		Zebra::logger->error("Á¬½ÓMini·þÎñÆ÷Ê§°Ü");
+		Zebra::logger->error("è¿žæŽ¥MiniæœåŠ¡å™¨å¤±è´¥");
 		return false;
 	}
 
@@ -50,7 +50,7 @@ bool MiniClient::connectToMiniServer()
 }
 
 /**
- * \brief ÖØÔØzThreadÖÐµÄ´¿Ðéº¯Êý£¬ÊÇÏß³ÌµÄÖ÷»Øµ÷º¯Êý£¬ÓÃÓÚ´¦Àí½ÓÊÕµ½µÄÖ¸Áî
+ * \brief é‡è½½zThreadä¸­çš„çº¯è™šå‡½æ•°ï¼Œæ˜¯çº¿ç¨‹çš„ä¸»å›žè°ƒå‡½æ•°ï¼Œç”¨äºŽå¤„ç†æŽ¥æ”¶åˆ°çš„æŒ‡ä»¤
  *
  */
 void MiniClient::run()
@@ -61,7 +61,7 @@ void MiniClient::run()
 	{
 		while(!connect())
 		{
-			Zebra::logger->error("Á¬½ÓÐ¡ÓÎÏ··þÎñÆ÷Ê§°Ü");
+			Zebra::logger->error("è¿žæŽ¥å°æ¸¸æˆæœåŠ¡å™¨å¤±è´¥");
 			zThread::msleep(1000);
 		}
 		Cmd::Super::t_restart_ServerEntry_NotifyOther notify;
@@ -82,16 +82,16 @@ void MiniClient::run()
 			// */
 		zThread::msleep(1000);
 	}
-	//ÓëMiniÖ®¼äµÄÁ¬½Ó¶Ï¿ª£¬²»ÐèÒª¹Ø±Õ·þÎñÆ÷
+	//ä¸ŽMiniä¹‹é—´çš„è¿žæŽ¥æ–­å¼€ï¼Œä¸éœ€è¦å…³é—­æœåŠ¡å™¨
 	//GatewayService::getInstance().Terminate();
 }
 
 /**
- * \brief ½âÎöÀ´×ÔMini·þÎñÆ÷µÄËùÓÐÖ¸Áî
+ * \brief è§£æžæ¥è‡ªMiniæœåŠ¡å™¨çš„æ‰€æœ‰æŒ‡ä»¤
  *
- * \param ptNullCmd ´ý½âÎöµÄÖ¸Áî
- * \param nCmdLen ´ý½âÎöµÄÖ¸Áî³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æžçš„æŒ‡ä»¤
+ * \param nCmdLen å¾…è§£æžçš„æŒ‡ä»¤é•¿åº¦
+ * \return è§£æžæ˜¯å¦æˆåŠŸ
  */
 bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen)
 {
@@ -117,7 +117,7 @@ bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 					t_Mini_ForwardUser *rev = (t_Mini_ForwardUser *)ptNullCmd;
 					GateUser *pUser=(GateUser *)GateUserManager::getInstance()->getUserByID(rev->id);
 					if(!pUser || !pUser->sendCmd(rev->data, rev->size))
-						Zebra::logger->debug("×ª·¢MINI·þÎñÆ÷ %uµÄ%u %uÏûÏ¢Ê§°Ü", rev->id, ((Cmd::stNullUserCmd *)rev->data)->byCmd, ((Cmd::stNullUserCmd *)rev->data)->byParam);
+						Zebra::logger->debug("è½¬å‘MINIæœåŠ¡å™¨ %uçš„%u %uæ¶ˆæ¯å¤±è´¥", rev->id, ((Cmd::stNullUserCmd *)rev->data)->byCmd, ((Cmd::stNullUserCmd *)rev->data)->byParam);
 					return true;
 				}
 				break;
@@ -128,7 +128,7 @@ bool MiniClient::msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nC
 				   GateUser *pUser=(GateUser *)GateUserManager::getInstance()->getUserByAccID(rev->id);
 				   if(!pUser || !pUser->forwardSceneMini((const Cmd::stNullUserCmd*)rev->data,(unsigned int)rev->size))
 				   {
-				   Zebra::logger->debug("×ª·¢MINI·þÎñÆ÷ÕÊºÅ%ldµÄ³¡¾°%u %uÏûÏ¢Ê§°Ü",rev->id,
+				   Zebra::logger->debug("è½¬å‘MINIæœåŠ¡å™¨å¸å·%ldçš„åœºæ™¯%u %uæ¶ˆæ¯å¤±è´¥",rev->id,
 				   ((Cmd::stNullUserCmd *)rev->data)->byCmd,((Cmd::stNullUserCmd *)rev->data)->byParam);
 				   }
 				   }

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CUnion.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå°ï»áÀà£¬°ï»á¹ÜÀíÆ÷
+ * \brief å®šä¹‰å¸®ä¼šç±»ï¼Œå¸®ä¼šç®¡ç†å™¨
  *
  */
 
@@ -35,13 +35,13 @@ class CUnionM:public zEntryManager<zEntryID,zEntryName>,
 {
 	friend class SingletonFactory<CUnionM>;
 	private:
-		/// ³ÉÔ±Ë÷Òı
+		/// æˆå‘˜ç´¢å¼•
 		std::map<std::string, CUnionMember*> memberIndex;
 
-		/// ÀàĞÍ¶¨Òå
+		/// ç±»å‹å®šä¹‰
 		typedef std::map<std::string, CUnionMember*>::value_type memberIndexValueType;
 
-		/// ¶ÁĞ´Ëø
+		/// è¯»å†™é”
 		zRWLock rwlock;
 
 		CUnion *	createUnionAndAddMaster(const stUnionInfo&);
@@ -80,16 +80,16 @@ class CUnionM:public zEntryManager<zEntryID,zEntryName>,
 		void fireUnionMember(UserSession*, const char *);
 
 		/**
-		  * \brief É¾³ı°ï»á³ÉÔ±
+		  * \brief åˆ é™¤å¸®ä¼šæˆå‘˜
 		  *
-		  * Èç¹û¸Ã½ÇÉ«²»ÊÇ°ï»á»á³¤£¬ÔòÌß³ıËû£¬Èç¹ûÊÇ£¬Ôò±£Áô£¬²»×ö´¦Àí
+		  * å¦‚æœè¯¥è§’è‰²ä¸æ˜¯å¸®ä¼šä¼šé•¿ï¼Œåˆ™è¸¢é™¤ä»–ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™ä¿ç•™ï¼Œä¸åšå¤„ç†
 		  *
-		  * \param dwUserID ½ÇÉ«ID
-		  * \param find     ÊÇ·ñÎª²éÕÒ
+		  * \param dwUserID è§’è‰²ID
+		  * \param find     æ˜¯å¦ä¸ºæŸ¥æ‰¾
 		  *
-		  * \return Èç¹û¸Ã½ÇÉ«²»ÔÚÈÎºÎ°ï»áÖĞ£¬Ôò·µ»Ø2
-		  *         Èç¹û¸Ã½ÇÉ«ÊÇ°ïÖ÷£¬Ôò·µ»Ø0
-		  *         Èç¹û¸Ã½ÇÉ«ÊÇ°ïÖÚ£¬²¢É¾³ı³É¹¦£¬Ôò·µ»Ø1
+		  * \return å¦‚æœè¯¥è§’è‰²ä¸åœ¨ä»»ä½•å¸®ä¼šä¸­ï¼Œåˆ™è¿”å›2
+		  *         å¦‚æœè¯¥è§’è‰²æ˜¯å¸®ä¸»ï¼Œåˆ™è¿”å›0
+		  *         å¦‚æœè¯¥è§’è‰²æ˜¯å¸®ä¼—ï¼Œå¹¶åˆ é™¤æˆåŠŸï¼Œåˆ™è¿”å›1
 		  *
 		  */
 		int  fireUnionMember(DWORD dwUserID, bool find);
@@ -131,11 +131,11 @@ class CUnionM:public zEntryManager<zEntryID,zEntryName>,
 
 
 		/**
-		 * \brief ¸ü¸Ä±ğÃû
+		 * \brief æ›´æ”¹åˆ«å
 		 *
-		 * \param pUser ÇëÇó¸üÃûÕß(Ä¿Ç°Ö»ÄÜÊÇ°ïÖ÷)
+		 * \param pUser è¯·æ±‚æ›´åè€…(ç›®å‰åªèƒ½æ˜¯å¸®ä¸»)
 		 *
-		 * \param pCmd ¸üÃûÃüÁî
+		 * \param pCmd æ›´åå‘½ä»¤
 		 *
 		 * \return 
 		 */
@@ -144,7 +144,7 @@ class CUnionM:public zEntryManager<zEntryID,zEntryName>,
 
 
 		/**
-		 * \brief Ê±¼ä»Øµ÷º¯Êı
+		 * \brief æ—¶é—´å›è°ƒå‡½æ•°
 		 */
 		void timer();
 		char * getUnionNameByUserName(char *Name);
@@ -154,48 +154,48 @@ class CUnionM:public zEntryManager<zEntryID,zEntryName>,
 class CUnion:public zEntryManager<zEntryID, zEntryName>, public zEntry
 {
 	private:
-		/// °ï»á¼¶±ğ
+		/// å¸®ä¼šçº§åˆ«
 		WORD                  level;
 
-		/// °ï»á¾­Ñé
+		/// å¸®ä¼šç»éªŒ
 		DWORD                 exp;
 
-		/// »ÙÃğ×´Ì¬²»ÔÙÖ´ĞĞĞ´¿âµÈ²Ù×÷
+		/// æ¯ç­çŠ¶æ€ä¸å†æ‰§è¡Œå†™åº“ç­‰æ“ä½œ
 		bool					destroy;
 
-		/// ÊÇ·ñ»¹´¦ÓÚÍ¶Æ±ÆÚ¼ä£¬1ÎªÊÇ0Îª·ñ
+		/// æ˜¯å¦è¿˜å¤„äºæŠ•ç¥¨æœŸé—´ï¼Œ1ä¸ºæ˜¯0ä¸ºå¦
 		BYTE					byVote;
 
 	
-       /// ¶ÁĞ´Ëø
+       /// è¯»å†™é”
 		zRWLock rwlock;
 
 	public:
-		/// °ï»á»á³¤
+		/// å¸®ä¼šä¼šé•¿
 		CUnionMember          *master;
-		/// ´´Á¢Ê±¼ä
+		/// åˆ›ç«‹æ—¶é—´
 		DWORD					dwCreateTime;
-		/// ½éÉÜ
+		/// ä»‹ç»
 		char		note[255];
 
-		/// °ï»áËùÊô¹ú¼ÒID
+		/// å¸®ä¼šæ‰€å±å›½å®¶ID
 		DWORD dwCountryID;
 
-		/// °ï»áÍşÍû
+		/// å¸®ä¼šå¨æœ›
 		DWORD dwMana;
 
-		// µ±Ç°ĞĞ¶¯Á¦
+		// å½“å‰è¡ŒåŠ¨åŠ›
 		DWORD dwActionPoint;
 
-		// °ï»á×Ê½ğ£¨ÒøÁ½£©
+		// å¸®ä¼šèµ„é‡‘ï¼ˆé“¶ä¸¤ï¼‰
 		DWORD dwMoney;
 		DWORD calltimes;
 
-		DWORD getActionPoint();//µÃµ½ĞĞ¶¯Á¦
-		bool  changeActionPoint(int repute);//¸Ä±äĞĞ¶¯Á¦
+		DWORD getActionPoint();//å¾—åˆ°è¡ŒåŠ¨åŠ›
+		bool  changeActionPoint(int repute);//æ”¹å˜è¡ŒåŠ¨åŠ›
 		
-		DWORD getMoney();//µÃµ½°ï»á×Ê½ğ
-		bool  changeMoney(int money);//¸Ä±ä°ï»á×Ê½ğ
+		DWORD getMoney();//å¾—åˆ°å¸®ä¼šèµ„é‡‘
+		bool  changeMoney(int money);//æ”¹å˜å¸®ä¼šèµ„é‡‘
 
 		void sendUnionDare(UserSession* pUser, const char* fromName, DWORD dwWarID);
 
@@ -252,25 +252,25 @@ class CUnion:public zEntryManager<zEntryID, zEntryName>, public zEntry
 	
 		void			sendUnionInfoToAll();
 		void			sendUnionManaToAll();
-		// ÅĞ¶ÏÄÜ·ñ½âÉ¢°ï»á
+		// åˆ¤æ–­èƒ½å¦è§£æ•£å¸®ä¼š
 		bool			isDel();
 
-		// Í³¼Æ±¾°ïÓĞ¼¸¸ö¼Ò×å
+		// ç»Ÿè®¡æœ¬å¸®æœ‰å‡ ä¸ªå®¶æ—
 		DWORD 			septSize();
 
 		void 			changeAllSeptRepute(int repute);
 	
-		// Ë¢ĞÂ¸Ã°ï»áËùÓĞ¼Ò×å¾­ÑéÁìÈ¡±êÖ¾	
+		// åˆ·æ–°è¯¥å¸®ä¼šæ‰€æœ‰å®¶æ—ç»éªŒé¢†å–æ ‡å¿—	
 		void 			refreshSeptExp();
 
 
-		// »ñµÃ°ï»áÍşÍû
+		// è·å¾—å¸®ä¼šå¨æœ›
 		DWORD			getMana();
 		
-		// ¸üĞÂËùÓĞ³ÉÔ±Êı¾İµ½³¡¾°	
+		// æ›´æ–°æ‰€æœ‰æˆå‘˜æ•°æ®åˆ°åœºæ™¯	
 		void 			update_all_data();
 
-		// ´¦ÀíÒ»¸ö³ÉÔ±µÄÖ±½ÓÀë¿ª
+		// å¤„ç†ä¸€ä¸ªæˆå‘˜çš„ç›´æ¥ç¦»å¼€
 		void		fireUnionMemberLeave(DWORD dwUserID);	
 };
 
@@ -278,33 +278,33 @@ struct CUnionMember:public zEntry
 {
 public:
 
-		/// »áÔ±±ğÃû
+		/// ä¼šå‘˜åˆ«å
 		char  aliasname[MAX_NAMESIZE+1];
-		/// »áÔ±È¨ÏŞ
+		/// ä¼šå‘˜æƒé™
 		BYTE  byPower[2];
 
-		/// »áÔ±×´Ì¬
+		/// ä¼šå‘˜çŠ¶æ€
 		BYTE  byStatus;
 
-		/// »áÔ±Ö°Òµ
+		/// ä¼šå‘˜èŒä¸š
 		WORD  wdOccupation;
 
-		/// »áÔ±ËùÊô¼Ò×å
+		/// ä¼šå‘˜æ‰€å±å®¶æ—
 		DWORD septid;
 
-		/// ÓÃ»§µÄ»á»°¶ÔÏó
+		/// ç”¨æˆ·çš„ä¼šè¯å¯¹è±¡
 		//UserSession * user;
 
-		/// °ï»á¹ÜÀíÆ÷¶ÔÏóÖ¸Õë
+		/// å¸®ä¼šç®¡ç†å™¨å¯¹è±¡æŒ‡é’ˆ
 		CUnion *myUnion;
 
-		/// »ÙÃğ×´Ì¬²»ÔÙÖ´ĞĞĞ´¿âµÈ²Ù×÷
+		/// æ¯ç­çŠ¶æ€ä¸å†æ‰§è¡Œå†™åº“ç­‰æ“ä½œ
 		bool  destroy;
 		
-		/// »¥³âËø
+		/// äº’æ–¥é”
 		zRWLock rwlock;
 
-		/// ÔÚÏß±êÖ¾Ã¶¾Ù
+		/// åœ¨çº¿æ ‡å¿—æšä¸¾
 		enum {
 					Offline,
 					Online

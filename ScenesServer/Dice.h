@@ -1,4 +1,4 @@
-#ifndef _DICE_H_
+О╩©#ifndef _DICE_H_
 #define _DICE_H_
 
 #include "SceneUser.h"
@@ -12,10 +12,10 @@ class Dice
 
 		enum DiceState
 		{
-			DICE_STATE_CREATE,//н╢ЁУй╪╩╞ё╛©иртадлЛ
-			DICE_STATE_ROLLING,//и╚встзв╙ё╛╣х╢Щмёж╧оШо╒
-			DICE_STATE_END,//р╩╬ж©╙й╪ж╝г╟╣х╢Щк╚╥╫в╪╠╦
-			DICE_STATE_DEL//╣х╢Щи╬ЁЩ
+			DICE_STATE_CREATE,//Ф°╙Е┬²Е╖▀Е▄√О╪▄Е▐╞Д╩╔Х│┼Е╓╘
+			DICE_STATE_ROLLING,//Х┴╡Е╜░Е°╗Х╫╛О╪▄Г╜┴Е╬┘Е│°Ф╜╒Ф╤┬Ф│╞
+			DICE_STATE_END,//Д╦─Е╠─Е╪─Е╖▀Д╧▀Е┴█Г╜┴Е╬┘Е▐▄Ф√╧Е┤├Е╓┤
+			DICE_STATE_DEL//Г╜┴Е╬┘Е┬═И≥╓
 		};
 
 		bool init();
@@ -36,7 +36,7 @@ class Dice
 	private:
 		DWORD startTime;
 
-		DWORD round;//nжэд©
+		DWORD round;//nЕ▒╗Г⌡╝
 		DWORD money;
 		DiceState gameState;
 

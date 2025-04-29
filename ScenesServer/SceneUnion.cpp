@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SceneUnion.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖ°ï»áÃüÁîµÄ´¦Àí
+ * \brief å®ç°å¸®ä¼šå‘½ä»¤çš„å¤„ç†
  *
  */
 #include "SceneUser.h"
@@ -16,9 +16,9 @@
 
 using namespace UnionDef;
 /**
-  * \brief Ò»¸ö±È½ÏÆ÷
+  * \brief ä¸€ä¸ªæ¯”è¾ƒå™¨
   *
-  *  ÓÃÓÚ²éÕÒ½¨Á¢°ï»áËùĞèÒªµÄµÀ¾ßÊÇ·ñ´æÔÚ
+  *  ç”¨äºæŸ¥æ‰¾å»ºç«‹å¸®ä¼šæ‰€éœ€è¦çš„é“å…·æ˜¯å¦å­˜åœ¨
   *  
   *
   */
@@ -35,9 +35,9 @@ class UnionObjectCompare:public UserObjectCompare
 };
 
 /**
-  * \brief ´¦ÀíÓÃ»§°ï»áÃüÁî
+  * \brief å¤„ç†ç”¨æˆ·å¸®ä¼šå‘½ä»¤
   *
-  * ´¦ÀíµÄ°ï»áÃüÁîÈçÏÂ:
+  * å¤„ç†çš„å¸®ä¼šå‘½ä»¤å¦‚ä¸‹:
   *
   * Cmd::UNION_STATUS_CHECK_PARA
   *
@@ -45,10 +45,10 @@ class UnionObjectCompare:public UserObjectCompare
   *
   * Cmd::ADD_MEMBER_TO_UNION_PARA
   *
-  * \param rev: °ï»áÃüÁî
-  * \param cmdLen: ÃüÁî³¤¶È
+  * \param rev: å¸®ä¼šå‘½ä»¤
+  * \param cmdLen: å‘½ä»¤é•¿åº¦
   *
-  * \return ÃüÁî±»´¦Àí·µ»ØTRUE,·ñÔòÎªFALSE
+  * \return å‘½ä»¤è¢«å¤„ç†è¿”å›TRUE,å¦åˆ™ä¸ºFALSE
   *
   *
   */
@@ -62,7 +62,7 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 
 				if (ptCmd->dwMoney>0 && this->charbase.unionid>0) {
 					if (packs.checkMoney(ptCmd->dwMoney) 
-							&& packs.removeMoney(ptCmd->dwMoney, "°ï»á¾èÏ×")) {	
+							&& packs.removeMoney(ptCmd->dwMoney, "å¸®ä¼šæçŒ®")) {	
 						Cmd::Session::t_OpUnionMoney_SceneSession send;
 						send.dwUnionID = this->charbase.unionid;
 						send.dwMoney = ptCmd->dwMoney;
@@ -76,7 +76,7 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 					}
 					else
 					{
-						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Ê£ÓàÒøÁ½²»×ã£¬²»ÄÜ¾èÏ×");
+						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å‰©ä½™é“¶ä¸¤ä¸è¶³ï¼Œä¸èƒ½æçŒ®");
 					}
 				}
 								
@@ -109,7 +109,7 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 				}
 				else
 				{
-					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äú»¹Î´¼ÓÈë°ï»á¡£²»ÄÜ½øÈë°ï»áÁìµØ");
+					Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "æ‚¨è¿˜æœªåŠ å…¥å¸®ä¼šã€‚ä¸èƒ½è¿›å…¥å¸®ä¼šé¢†åœ°");
 					return true;
 				}
 				
@@ -119,54 +119,54 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 		case Cmd::UNION_STATUS_CHECK_PARA:
 		case Cmd::CREATE_UNION_PARA:
 			{
-				DWORD dwItemID = 0; // ÓÃÓÚ±£´æµÀ¾ß¶ÔÏóid
-				bool bState = true; //ÏÈ³õÊ¼»¯³É³É¹¦×´Ì¬
+				DWORD dwItemID = 0; // ç”¨äºä¿å­˜é“å…·å¯¹è±¡id
+				bool bState = true; //å…ˆåˆå§‹åŒ–æˆæˆåŠŸçŠ¶æ€
 
-				// Ã»ÓĞ°ï»á£¬²¢ÇÒÊÇ×å³¤
+				// æ²¡æœ‰å¸®ä¼šï¼Œå¹¶ä¸”æ˜¯æ—é•¿
 				if (charbase.unionid == 0 && charbase.septid>0 && this->septMaster) 
 				{
 						if (charbase.level >= CREATE_UNION_NEED_LEVEL)
 						{
 								UnionObjectCompare found;
 								found.dwObjectID = CREATE_UNION_NEED_ITEM_ID;
-								zObject *itemobj = packs.uom.getObject(found);// ²éÕÒÌìÓğÁî
+								zObject *itemobj = packs.uom.getObject(found);// æŸ¥æ‰¾å¤©ç¾½ä»¤
 								
 								if (itemobj)
 								{
 										if (packs.checkMoney(CREATE_UNION_NEED_PRICE_GOLD) /*&& packs.removeMoney(CREATE_UNION_NEED_PRICE_GOLD)*/) {
-											//±¨¸æ³É¹¦×´Ì¬
+											//æŠ¥å‘ŠæˆåŠŸçŠ¶æ€
 											bState = true;
-											dwItemID = itemobj->data.qwThisID;  // ¼ÇÂ¼ÈÎÎñµÀ¾ßµÄ¶ÔÏóid
+											dwItemID = itemobj->data.qwThisID;  // è®°å½•ä»»åŠ¡é“å…·çš„å¯¹è±¡id
 										}
 										else
 										{
-											//±¨¸æÃ»ÓĞ×ã¹»µÄÇ®
+											//æŠ¥å‘Šæ²¡æœ‰è¶³å¤Ÿçš„é’±
 											bState = false;
-											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ÄãĞèÒª%uÎÄÇ®À´´´½¨°ï»á£¬ÄãÃ»ÓĞ×ã¹»µÄÇ®",CREATE_UNION_NEED_PRICE_GOLD);
+											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ éœ€è¦%uæ–‡é’±æ¥åˆ›å»ºå¸®ä¼šï¼Œä½ æ²¡æœ‰è¶³å¤Ÿçš„é’±",CREATE_UNION_NEED_PRICE_GOLD);
 										}//dwItemID = itemobj->data.qwThisID;  // test
 									}
 									else 
 									{
-										//±¨¸æÃ»ÓĞµÀ¾ß
+										//æŠ¥å‘Šæ²¡æœ‰é“å…·
 										bState = false;
-										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "È±ÉÙÈÎÎñµÀ¾ß %s ÎŞ·¨´´½¨°ï»á", "ÌìÓğÁî");
+										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç¼ºå°‘ä»»åŠ¡é“å…· %s æ— æ³•åˆ›å»ºå¸®ä¼š", "å¤©ç¾½ä»¤");
 									}
 						}
 						else
 						{
-							//±¨¸æµÈ¼¶²»¹»
+							//æŠ¥å‘Šç­‰çº§ä¸å¤Ÿ
 							bState = false;
-							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "µÈ¼¶²»×ã%u¼¶ÎŞ·¨´´½¨°ï»á",CREATE_UNION_NEED_LEVEL);
+							Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç­‰çº§ä¸è¶³%uçº§æ— æ³•åˆ›å»ºå¸®ä¼š",CREATE_UNION_NEED_LEVEL);
 						}
 				}
 				else
 				{
 						bState = false;
 						Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, 
-							"ÒÑ¾­¼ÓÈë°ï»áÎŞ·¨ÔÙ´´½¨°ï»á»ò²»ÊÇ×å³¤");
+							"å·²ç»åŠ å…¥å¸®ä¼šæ— æ³•å†åˆ›å»ºå¸®ä¼šæˆ–ä¸æ˜¯æ—é•¿");
 				}
 				
-				//·µ»Ø°ï»á½¨Á¢×´Ì¬
+				//è¿”å›å¸®ä¼šå»ºç«‹çŠ¶æ€
 				if (Cmd::CREATE_UNION_PARA == rev->byParam)
 				{
 					Cmd::stCreateUnionCmd *ptCmd=(Cmd::stCreateUnionCmd *)rev;
@@ -177,14 +177,14 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 						send.dwMapTempID = scene->tempid;
 						send.dwItemID 	 = dwItemID;
 						send.info.dwCountryID = this->charbase.country;
-						send.info.dwUnionID = 0;					// °ï»áµÄID
+						send.info.dwUnionID = 0;					// å¸®ä¼šçš„ID
 						send.info.dwMana = 0;
-						strncpy(send.info.name,ptCmd->UnionName,MAX_NAMESIZE); 			// °ï»áÃû³Æ
-						send.info.dwCharID = charbase.id;	                    		  // »á³¤µÄ½ÇÉ«ID
-						strncpy(send.info.masterName,charbase.name,MAX_NAMESIZE);		// »á³¤µÄÃû×Ö
-						send.info.wdLevel = 1;     		    	       	                // °ï»á¼¶±ğ
-						send.info.qwExp = 0;                              		      // °ï»á¾­Ñé
-						send.info.byVote = 0; //°ï»áÍ¶Æ±±êÖ¾
+						strncpy(send.info.name,ptCmd->UnionName,MAX_NAMESIZE); 			// å¸®ä¼šåç§°
+						send.info.dwCharID = charbase.id;	                    		  // ä¼šé•¿çš„è§’è‰²ID
+						strncpy(send.info.masterName,charbase.name,MAX_NAMESIZE);		// ä¼šé•¿çš„åå­—
+						send.info.wdLevel = 1;     		    	       	                // å¸®ä¼šçº§åˆ«
+						send.info.qwExp = 0;                              		      // å¸®ä¼šç»éªŒ
+						send.info.byVote = 0; //å¸®ä¼šæŠ•ç¥¨æ ‡å¿—
 						send.info.dwActionPoint = 0;
 						send.info.dwMoney = 0;
 						send.info.calltimes = 0;
@@ -212,7 +212,7 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 						{
 							if (0 == charbase.unionid)
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Äã±ØĞëÏÈ´´Á¢°ï»á²ÅÄÜÕĞÊÕ³ÉÔ±");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä½ å¿…é¡»å…ˆåˆ›ç«‹å¸®ä¼šæ‰èƒ½æ‹›æ”¶æˆå‘˜");
 								return true;
 							}
 
@@ -223,14 +223,14 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 								//{
 									if (!isset_state(pUser->sysSetting , Cmd::USER_SETTING_UNION))                                                            
 									{
-										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Íæ¼Ò %s¼ÓÈë°ï»áÎ´¿ªÆô", pUser->name);                                                   
+										Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç©å®¶ %såŠ å…¥å¸®ä¼šæœªå¼€å¯", pUser->name);                                                   
 											return true;
 									}  
 									
 									if (0==pUser->charbase.unionid
 									   && pUser->charbase.septid>0
 									   && pUser->septMaster
-											) // Îª0±íÊ¾Î´¼ÓÈë°ï»á£¬±ØĞëÊÇ×å³¤
+											) // ä¸º0è¡¨ç¤ºæœªåŠ å…¥å¸®ä¼šï¼Œå¿…é¡»æ˜¯æ—é•¿
 									{
 										if(pUser->charbase.country == charbase.country)
 										{
@@ -241,7 +241,7 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 										}
 										else
 										{
-											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Ëû¸úÄã²»ÊÇÒ»¸ö¹ú¼Ò²»ÄÜÑûÇëËû");
+											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä»–è·Ÿä½ ä¸æ˜¯ä¸€ä¸ªå›½å®¶ä¸èƒ½é‚€è¯·ä»–");
 										}
 									}
 									else
@@ -249,25 +249,25 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 										if (!pUser->septMaster)
 										{
 											Channel::sendSys(this, 
-											Cmd::INFO_TYPE_FAIL, "Ö»ÄÜÕĞÊÕ×å³¤");
+											Cmd::INFO_TYPE_FAIL, "åªèƒ½æ‹›æ”¶æ—é•¿");
 										}
 										else
 										{
 										if (pUser->charbase.unionid == charbase.unionid)
-											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ËûÒÑ¾­¼ÓÈë±¾°ïÁË£¬ÎŞĞèÔÙ´ÎÑûÇë");
+											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä»–å·²ç»åŠ å…¥æœ¬å¸®äº†ï¼Œæ— éœ€å†æ¬¡é‚€è¯·");
 										else
-											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ËûÒÑ¾­Èë»áĞèÒªËûÍË»á²ÅÄÜ¼ÓÈëÄãµÄ°ï»á");
+											Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ä»–å·²ç»å…¥ä¼šéœ€è¦ä»–é€€ä¼šæ‰èƒ½åŠ å…¥ä½ çš„å¸®ä¼š");
 										}
 									}
 								//}
 								//else
 								//{
-								//	Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¾àÀëÌ«Ô¶ÎŞ·¨ÑûÇë");
+								//	Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "è·ç¦»å¤ªè¿œæ— æ³•é‚€è¯·");
 								//}
 							}
 							else
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "Íæ¼Ò²»ÔÚ¸úÇ°£¬ÎŞ·¨»ØÓ¦ÑûÇë");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "ç©å®¶ä¸åœ¨è·Ÿå‰ï¼Œæ— æ³•å›åº”é‚€è¯·");
 							}
 							return true;
 						}
@@ -280,7 +280,7 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 								//FunctionTimes times(28,"ANSWER_YES");
 								//charbase.unionid = pUser->charbase.unionid;
 								
-							//	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "%s½ÓÊÜÁËÄãµÄÑûÇë¼ÓÈëÁË°ï»á",name);
+							//	Channel::sendSys(pUser, Cmd::INFO_TYPE_GAME, "%sæ¥å—äº†ä½ çš„é‚€è¯·åŠ å…¥äº†å¸®ä¼š",name);
 								pUser->removeWarRecord(Cmd::UNION_DARE);
 								pUser->removeWarRecord(Cmd::UNION_CITY_DARE);
 								pUser->sendNineToMe();
@@ -289,17 +289,17 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 								Cmd::Session::t_addUnionMember_SceneSession send;
 								send.member.dwSeptID = pUser->charbase.septid;
 								send.dwUnionID = pUser->charbase.unionid;
-								send.member.dwCharID = charbase.id;																// »áÔ±½ÇÉ«ID
+								send.member.dwCharID = charbase.id;																// ä¼šå‘˜è§’è‰²ID
 								send.member.wdOccupation = charbase.face;
 								send.member.wdPower = 0;
-								strncpy(send.member.name,charbase.name,MAX_NAMESIZE);   					// »áÔ±½ÇÉ«Ãû³Æ	
-								strncpy(send.member.aliasname,DEFAULTMEMBERALIAS,MAX_NAMESIZE); 	// »áÔ±±ğÃû
-								SETMEMBERPOWER_WD(send.member.wdPower);                    				// »áÔ±È¨ÏŞ
+								strncpy(send.member.name,charbase.name,MAX_NAMESIZE);   					// ä¼šå‘˜è§’è‰²åç§°	
+								strncpy(send.member.aliasname,DEFAULTMEMBERALIAS,MAX_NAMESIZE); 	// ä¼šå‘˜åˆ«å
+								SETMEMBERPOWER_WD(send.member.wdPower);                    				// ä¼šå‘˜æƒé™
 								sessionClient->sendCmd(&send, sizeof(send));
 							}
 							else
 							{
-								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "¶Ô·½ÒÑ¾­Àë¿ª£¬Ëû·ÅÆúÁËÕâ´ÎÑûÇë");
+								Channel::sendSys(this, Cmd::INFO_TYPE_FAIL, "å¯¹æ–¹å·²ç»ç¦»å¼€ï¼Œä»–æ”¾å¼ƒäº†è¿™æ¬¡é‚€è¯·");
 							}
 							return true;
 						}
@@ -309,7 +309,7 @@ bool SceneUser::doUnionCmd(const Cmd::stUnionUserCmd *rev,unsigned int cmdLen)
 							SceneUser *pUser=scene->getUserByID(ptCmd->memberID);
 							if (pUser)
 							{
-								Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "%s²»Ô¸Òâ¼ÓÈë°ï»á, ¾Ü¾øÁËÄãµÄÑûÇë",name);
+								Channel::sendSys(pUser, Cmd::INFO_TYPE_FAIL, "%sä¸æ„¿æ„åŠ å…¥å¸®ä¼š, æ‹’ç»äº†ä½ çš„é‚€è¯·",name);
 							}
 							return true;
 						}

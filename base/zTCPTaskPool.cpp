@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPTaskPool.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÏß³Ì³ØÀà£¬ÓÃÓÚ´¦Àí¶àÁ¬½Ó·şÎñÆ÷
+ * \brief å®ç°çº¿ç¨‹æ± ç±»ï¼Œç”¨äºå¤„ç†å¤šè¿æ¥æœåŠ¡å™¨
  *
  * 
  */
@@ -22,15 +22,15 @@
 #include "Zebra.h"
 #include "zTime.h"
 
-int zTCPTaskPool::usleep_time=50000;										/**< Ñ­»·µÈ´ıÊ±¼ä */
+int zTCPTaskPool::usleep_time=50000;										/**< å¾ªç¯ç­‰å¾…æ—¶é—´ */
 /**
- * \brief Á¬½ÓÈÎÎñÁ´±í
+ * \brief è¿æ¥ä»»åŠ¡é“¾è¡¨
  *
  */
 typedef std::list<zTCPTask *, __gnu_cxx::__pool_alloc<zTCPTask *> > zTCPTaskContainer;
 
 /**
- * \brief Á¬½ÓÈÎÎñÁ´±íµş´úÆ÷
+ * \brief è¿æ¥ä»»åŠ¡é“¾è¡¨å ä»£å™¨
  *
  */
 typedef zTCPTaskContainer::iterator zTCPTask_IT;
@@ -74,7 +74,7 @@ class zTCPTaskQueue
 };
 
 /**
- * \brief ´¦ÀíTCPÁ¬½ÓµÄÑéÖ¤£¬Èç¹ûÑéÖ¤²»Í¨¹ı£¬ĞèÒª»ØÊÕÕâ¸öÁ¬½Ó
+ * \brief å¤„ç†TCPè¿æ¥çš„éªŒè¯ï¼Œå¦‚æœéªŒè¯ä¸é€šè¿‡ï¼Œéœ€è¦å›æ”¶è¿™ä¸ªè¿æ¥
  *
  */
 class zVerifyThread : public zThread, public zTCPTaskQueue
@@ -83,8 +83,8 @@ class zVerifyThread : public zThread, public zTCPTaskQueue
 	private:
 
 		zTCPTaskPool *pool;
-		zTCPTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
-		zTCPTaskContainer::size_type task_count;			/**< tasks¼ÆÊı(±£Ö¤Ïß³Ì°²È«*/
+		zTCPTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
+		zTCPTaskContainer::size_type task_count;			/**< tasksè®¡æ•°(ä¿è¯çº¿ç¨‹å®‰å…¨*/
 #ifdef _USE_EPOLL_
 		int kdpfd;
 		epollfdContainer epfds;
@@ -93,8 +93,8 @@ class zVerifyThread : public zThread, public zTCPTaskQueue
 #endif
 
 		/**
-		 * \brief Ìí¼ÓÒ»¸öÁ¬½ÓÈÎÎñ
-		 * \param task Á¬½ÓÈÎÎñ
+		 * \brief æ·»åŠ ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+		 * \param task è¿æ¥ä»»åŠ¡
 		 */
 		void _add(zTCPTask *task)
 		{
@@ -151,9 +151,9 @@ class zVerifyThread : public zThread, public zTCPTaskQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param name Ïß³ÌÃû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param name çº¿ç¨‹åç§°
 		 */
 		zVerifyThread(
 				zTCPTaskPool *pool,
@@ -169,7 +169,7 @@ class zVerifyThread : public zThread, public zTCPTaskQueue
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~zVerifyThread()
@@ -184,7 +184,7 @@ class zVerifyThread : public zThread, public zTCPTaskQueue
 };
 
 /**
- * \brief µÈ´ı½ÓÊÜÑéÖ¤Ö¸Áî£¬²¢½øĞĞÑéÖ¤
+ * \brief ç­‰å¾…æ¥å—éªŒè¯æŒ‡ä»¤ï¼Œå¹¶è¿›è¡ŒéªŒè¯
  *
  */
 void zVerifyThread::run()
@@ -206,7 +206,7 @@ void zVerifyThread::run()
 				zTCPTask *task = *it;
 				if (task->checkVerifyTimeout(currentTime))
 				{
-					//³¬¹ıÖ¸¶¨Ê±¼äÑéÖ¤»¹Ã»ÓĞÍ¨¹ı£¬ĞèÒª»ØÊÕÁ¬½Ó
+					//è¶…è¿‡æŒ‡å®šæ—¶é—´éªŒè¯è¿˜æ²¡æœ‰é€šè¿‡ï¼Œéœ€è¦å›æ”¶è¿æ¥
 					remove(it);
 					task->resetState();
 					pool->addRecycle(task);
@@ -221,8 +221,8 @@ void zVerifyThread::run()
 					zTCPTask *task = (zTCPTask *)epfds[i].data.ptr;
 					if (epfds[i].events & (EPOLLERR | EPOLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
-						Zebra::logger->error("Ì×½Ó¿Ú´íÎó");
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
+						Zebra::logger->error("å¥—æ¥å£é”™è¯¯");
 						remove(task);
 						task->resetState();
 						pool->addRecycle(task);
@@ -232,30 +232,30 @@ void zVerifyThread::run()
 						switch(task->verifyConn())
 						{
 							case 1:
-								//ÑéÖ¤³É¹¦
+								//éªŒè¯æˆåŠŸ
 								remove(task);
-								//ÔÙ×öÎ¨Ò»ĞÔÑéÖ¤
+								//å†åšå”¯ä¸€æ€§éªŒè¯
 								if (task->uniqueAdd())
 								{
-									//Î¨Ò»ĞÔÑéÖ¤³É¹¦£¬»ñÈ¡ÏÂÒ»¸ö×´Ì¬
-									Zebra::logger->debug("¿Í»§¶ËÎ¨Ò»ĞÔÑéÖ¤³É¹¦(%s:%u)",task->getIP(),task->getPort());
+									//å”¯ä¸€æ€§éªŒè¯æˆåŠŸï¼Œè·å–ä¸‹ä¸€ä¸ªçŠ¶æ€
+									Zebra::logger->debug("å®¢æˆ·ç«¯å”¯ä¸€æ€§éªŒè¯æˆåŠŸ(%s:%u)",task->getIP(),task->getPort());
 									task->setUnique();
 									pool->addSync(task);
 								}
 								else
 								{
-									//Î¨Ò»ĞÔÑéÖ¤Ê§°Ü£¬»ØÊÕÁ¬½ÓÈÎÎñ
-									Zebra::logger->debug("¿Í»§¶ËÎ¨Ò»ĞÔÑéÖ¤Ê§°Ü(%s:%u)",task->getIP(),task->getPort());
+									//å”¯ä¸€æ€§éªŒè¯å¤±è´¥ï¼Œå›æ”¶è¿æ¥ä»»åŠ¡
+									Zebra::logger->debug("å®¢æˆ·ç«¯å”¯ä¸€æ€§éªŒè¯å¤±è´¥(%s:%u)",task->getIP(),task->getPort());
 									task->resetState();
 									pool->addRecycle(task);
 								}
 								break;
 							case 0:
-								//³¬Ê±£¬ÏÂÃæ»á´¦Àí
+								//è¶…æ—¶ï¼Œä¸‹é¢ä¼šå¤„ç†
 								break;
 							case -1:
-								//ÑéÖ¤Ê§°Ü£¬»ØÊÕÈÎÎñ
-								Zebra::logger->debug("¿Í»§¶ËÁ¬½ÓÑéÖ¤Ê§°Ü(%s:%u)",task->getIP(),task->getPort());
+								//éªŒè¯å¤±è´¥ï¼Œå›æ”¶ä»»åŠ¡
+								Zebra::logger->debug("å®¢æˆ·ç«¯è¿æ¥éªŒè¯å¤±è´¥(%s:%u)",task->getIP(),task->getPort());
 								remove(task);
 								task->resetState();
 								pool->addRecycle(task);
@@ -269,7 +269,7 @@ void zVerifyThread::run()
 		zThread::msleep(50);
 	}
 
-	//°ÑËùÓĞµÈ´ıÑéÖ¤¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ç­‰å¾…éªŒè¯é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++)
 	{
 		zTCPTask *task = *it;
@@ -294,7 +294,7 @@ void zVerifyThread::run()
 				zTCPTask *task = *it;
 				if (task->checkVerifyTimeout(currentTime))
 				{
-					//³¬¹ıÖ¸¶¨Ê±¼äÑéÖ¤»¹Ã»ÓĞÍ¨¹ı£¬ĞèÒª»ØÊÕÁ¬½Ó
+					//è¶…è¿‡æŒ‡å®šæ—¶é—´éªŒè¯è¿˜æ²¡æœ‰é€šè¿‡ï¼Œéœ€è¦å›æ”¶è¿æ¥
 					remove(it, i--);
 					task->resetState();
 					pool->addRecycle(task);
@@ -313,7 +313,7 @@ void zVerifyThread::run()
 					zTCPTask *task = *it;
 					if (pfds[i].revents & (POLLERR | POLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
 						remove(it, i--);
 						task->resetState();
 						pool->addRecycle(task);
@@ -323,29 +323,29 @@ void zVerifyThread::run()
 						switch(task->verifyConn())
 						{
 							case 1:
-								//ÑéÖ¤³É¹¦
+								//éªŒè¯æˆåŠŸ
 								remove(it, i--);
-								//ÔÙ×öÎ¨Ò»ĞÔÑéÖ¤
+								//å†åšå”¯ä¸€æ€§éªŒè¯
 								if (task->uniqueAdd())
 								{
-									//Î¨Ò»ĞÔÑéÖ¤³É¹¦£¬»ñÈ¡ÏÂÒ»¸ö×´Ì¬
-									Zebra::logger->debug("¿Í»§¶ËÎ¨Ò»ĞÔÑéÖ¤³É¹¦");
+									//å”¯ä¸€æ€§éªŒè¯æˆåŠŸï¼Œè·å–ä¸‹ä¸€ä¸ªçŠ¶æ€
+									Zebra::logger->debug("å®¢æˆ·ç«¯å”¯ä¸€æ€§éªŒè¯æˆåŠŸ");
 									task->setUnique();
 									pool->addSync(task);
 								}
 								else
 								{
-									//Î¨Ò»ĞÔÑéÖ¤Ê§°Ü£¬»ØÊÕÁ¬½ÓÈÎÎñ
-									Zebra::logger->debug("¿Í»§¶ËÎ¨Ò»ĞÔÑéÖ¤Ê§°Ü");
+									//å”¯ä¸€æ€§éªŒè¯å¤±è´¥ï¼Œå›æ”¶è¿æ¥ä»»åŠ¡
+									Zebra::logger->debug("å®¢æˆ·ç«¯å”¯ä¸€æ€§éªŒè¯å¤±è´¥");
 									task->resetState();
 									pool->addRecycle(task);
 								}
 								break;
 							case 0:
-								//³¬Ê±£¬ÏÂÃæ»á´¦Àí
+								//è¶…æ—¶ï¼Œä¸‹é¢ä¼šå¤„ç†
 								break;
 							case -1:
-								//ÑéÖ¤Ê§°Ü£¬»ØÊÕÈÎÎñ
+								//éªŒè¯å¤±è´¥ï¼Œå›æ”¶ä»»åŠ¡
 								remove(it, i--);
 								task->resetState();
 								pool->addRecycle(task);
@@ -359,7 +359,7 @@ void zVerifyThread::run()
 		zThread::msleep(50);
 	}
 
-	//°ÑËùÓĞµÈ´ıÑéÖ¤¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ç­‰å¾…éªŒè¯é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(i = 0, it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++, i++)
 	{
 		zTCPTask *task = *it;
@@ -371,7 +371,7 @@ void zVerifyThread::run()
 }
 
 /**
- * \brief µÈ´ıÆäËüÏß³ÌÍ¬²½ÑéÖ¤Õâ¸öÁ¬½Ó£¬Èç¹ûÊ§°Ü»òÕß³¬Ê±£¬¶¼ĞèÒª»ØÊÕÁ¬½Ó
+ * \brief ç­‰å¾…å…¶å®ƒçº¿ç¨‹åŒæ­¥éªŒè¯è¿™ä¸ªè¿æ¥ï¼Œå¦‚æœå¤±è´¥æˆ–è€…è¶…æ—¶ï¼Œéƒ½éœ€è¦å›æ”¶è¿æ¥
  *
  */
 class zSyncThread : public zThread, public zTCPTaskQueue
@@ -380,7 +380,7 @@ class zSyncThread : public zThread, public zTCPTaskQueue
 	private:
 
 		zTCPTaskPool *pool;
-		zTCPTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
+		zTCPTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
 
 		void _add(zTCPTask *task)
 		{
@@ -390,9 +390,9 @@ class zSyncThread : public zThread, public zTCPTaskQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param name Ïß³ÌÃû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param name çº¿ç¨‹åç§°
 		 */
 		zSyncThread(
 				zTCPTaskPool *pool,
@@ -401,7 +401,7 @@ class zSyncThread : public zThread, public zTCPTaskQueue
 			{}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~zSyncThread() {};
@@ -411,7 +411,7 @@ class zSyncThread : public zThread, public zTCPTaskQueue
 };
 
 /**
- * \brief µÈ´ıÆäËüÏß³ÌÍ¬²½ÑéÖ¤Õâ¸öÁ¬½Ó
+ * \brief ç­‰å¾…å…¶å®ƒçº¿ç¨‹åŒæ­¥éªŒè¯è¿™ä¸ªè¿æ¥
  *
  */
 void zSyncThread::run()
@@ -431,7 +431,7 @@ void zSyncThread::run()
 				switch(task->waitSync())
 				{
 					case 1:
-						//µÈ´ıÆäËüÏß³ÌÍ¬²½ÑéÖ¤³É¹¦
+						//ç­‰å¾…å…¶å®ƒçº¿ç¨‹åŒæ­¥éªŒè¯æˆåŠŸ
 						it = tasks.erase(it);
 						if (!pool->addOkay(task))
 						{
@@ -443,7 +443,7 @@ void zSyncThread::run()
 						it++;
 						break;
 					case -1:
-						//µÈ´ıÆäËüÏß³ÌÍ¬²½ÑéÖ¤Ê§°Ü£¬ĞèÒª»ØÊÕÁ¬½Ó
+						//ç­‰å¾…å…¶å®ƒçº¿ç¨‹åŒæ­¥éªŒè¯å¤±è´¥ï¼Œéœ€è¦å›æ”¶è¿æ¥
 						it = tasks.erase(it);
 						task->resetState();
 						pool->addRecycle(task);
@@ -455,7 +455,7 @@ void zSyncThread::run()
 		zThread::msleep(200);
 	}
 
-	//°ÑËùÓĞµÈ´ıÍ¬²½ÑéÖ¤¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ç­‰å¾…åŒæ­¥éªŒè¯é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(it = tasks.begin(); it != tasks.end();)
 	{
 		zTCPTask *task = *it;
@@ -466,7 +466,7 @@ void zSyncThread::run()
 }
 
 /**
- * \brief TCPÁ¬½ÓµÄÖ÷´¦ÀíÏß³Ì£¬Ò»°ãÒ»¸öÏß³Ì´ø¼¸¸öTCPÁ¬½Ó£¬ÕâÑù¿ÉÒÔÏÔÖøÌá¸ßĞ§ÂÊ
+ * \brief TCPè¿æ¥çš„ä¸»å¤„ç†çº¿ç¨‹ï¼Œä¸€èˆ¬ä¸€ä¸ªçº¿ç¨‹å¸¦å‡ ä¸ªTCPè¿æ¥ï¼Œè¿™æ ·å¯ä»¥æ˜¾è‘—æé«˜æ•ˆç‡
  *
  */
 class zOkayThread : public zThread, public zTCPTaskQueue
@@ -475,8 +475,8 @@ class zOkayThread : public zThread, public zTCPTaskQueue
 	private:
 
 		zTCPTaskPool *pool;
-		zTCPTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
-		zTCPTaskContainer::size_type task_count;			/**< tasks¼ÆÊı(±£Ö¤Ïß³Ì°²È«*/
+		zTCPTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
+		zTCPTaskContainer::size_type task_count;			/**< tasksè®¡æ•°(ä¿è¯çº¿ç¨‹å®‰å…¨*/
 #ifdef _USE_EPOLL_
 		int kdpfd;
 		epollfdContainer epfds;
@@ -531,12 +531,12 @@ class zOkayThread : public zThread, public zTCPTaskQueue
 
 	public:
 
-		static const zTCPTaskContainer::size_type connPerThread = 512;	/**< Ã¿¸öÏß³Ì´øµÄÁ¬½ÓÊıÁ¿ */
+		static const zTCPTaskContainer::size_type connPerThread = 512;	/**< æ¯ä¸ªçº¿ç¨‹å¸¦çš„è¿æ¥æ•°é‡ */
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param name Ïß³ÌÃû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param name çº¿ç¨‹åç§°
 		 */
 		zOkayThread(
 				zTCPTaskPool *pool,
@@ -552,7 +552,7 @@ class zOkayThread : public zThread, public zTCPTaskQueue
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~zOkayThread()
@@ -565,8 +565,8 @@ class zOkayThread : public zThread, public zTCPTaskQueue
 		void run();
 
 		/**
-		 * \brief ·µ»ØÁ¬½ÓÈÎÎñµÄ¸öÊı
-		 * \return Õâ¸öÏß³Ì´¦ÀíµÄÁ¬½ÓÈÎÎñÊı
+		 * \brief è¿”å›è¿æ¥ä»»åŠ¡çš„ä¸ªæ•°
+		 * \return è¿™ä¸ªçº¿ç¨‹å¤„ç†çš„è¿æ¥ä»»åŠ¡æ•°
 		 */
 		const zTCPTaskContainer::size_type size() const
 		{
@@ -576,7 +576,7 @@ class zOkayThread : public zThread, public zTCPTaskQueue
 };
 
 /**
- * \brief Ö÷´¦ÀíÏß³Ì£¬»Øµ÷´¦ÀíÁ¬½ÓµÄÊäÈëÊä³öÖ¸Áî
+ * \brief ä¸»å¤„ç†çº¿ç¨‹ï¼Œå›è°ƒå¤„ç†è¿æ¥çš„è¾“å…¥è¾“å‡ºæŒ‡ä»¤
  *
  */
 void zOkayThread::run()
@@ -607,7 +607,7 @@ void zOkayThread::run()
 				{
 					zTCPTask *task = *it;
 
-					//¼ì²é²âÊÔĞÅºÅÖ¸Áî
+					//æ£€æŸ¥æµ‹è¯•ä¿¡å·æŒ‡ä»¤
 					task->checkSignal(currentTime);
 
 					if (task->isTerminateWait())
@@ -625,8 +625,8 @@ void zOkayThread::run()
 						// state_sync -> state_okay
 						/*
 						 * whj
-						 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-						 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+						 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+						 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 						 */
 						task->getNextState();
 						pool->addRecycle(task);
@@ -662,8 +662,8 @@ void zOkayThread::run()
 					zTCPTask *task = (zTCPTask *)epfds_r[i].data.ptr;
 					if (epfds_r[i].events & (EPOLLERR | EPOLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
-						Zebra::logger->debug("%s: Ì×½Ó¿ÚÒì³£´íÎó", __PRETTY_FUNCTION__);
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
+						Zebra::logger->debug("%s: å¥—æ¥å£å¼‚å¸¸é”™è¯¯", __PRETTY_FUNCTION__);
 						task->Terminate(zTCPTask::terminate_active);
 						check=true;
 					}
@@ -671,10 +671,10 @@ void zOkayThread::run()
 					{
 						if (epfds_r[i].events & EPOLLIN)
 						{
-							//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+							//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 							if (!task->ListeningRecv(true))
 							{
-								Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+								Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 								task->Terminate(zTCPTask::terminate_active);
 								check=true;
 							}
@@ -713,27 +713,27 @@ void zOkayThread::run()
 						zTCPTask *task = (zTCPTask *)epfds[i].data.ptr;
 						if (epfds[i].events & (EPOLLERR | EPOLLPRI))
 						{
-							//Ì×½Ó¿Ú³öÏÖ´íÎó
-							Zebra::logger->debug("%s: Ì×½Ó¿ÚÒì³£´íÎó", __PRETTY_FUNCTION__);
+							//å¥—æ¥å£å‡ºç°é”™è¯¯
+							Zebra::logger->debug("%s: å¥—æ¥å£å¼‚å¸¸é”™è¯¯", __PRETTY_FUNCTION__);
 							task->Terminate(zTCPTask::terminate_active);
 						}
 						else
 						{
 							if (epfds[i].events & EPOLLIN)
 							{
-								//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+								//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 								if (!task->ListeningRecv(true))
 								{
-									Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+									Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 									task->Terminate(zTCPTask::terminate_active);
 								}
 							}
 							if (epfds[i].events & EPOLLOUT)
 							{
-								//Ì×½Ó¿Ú×¼±¸ºÃÁËĞ´Èë²Ù×÷
+								//å¥—æ¥å£å‡†å¤‡å¥½äº†å†™å…¥æ“ä½œ
 								if (!task->ListeningSend())
 								{
-									Zebra::logger->debug("%s: Ì×½Ó¿ÚĞ´²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+									Zebra::logger->debug("%s: å¥—æ¥å£å†™æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 									task->Terminate(zTCPTask::terminate_active);
 								}
 							}
@@ -749,7 +749,7 @@ void zOkayThread::run()
 		//zThread::usleep(pool->usleep_time);
 	}
 
-	//°ÑËùÓĞÈÎÎñ¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ä»»åŠ¡é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++)
 	{
 		zTCPTask *task = *it;
@@ -757,8 +757,8 @@ void zOkayThread::run()
 		// state_sync -> state_okay
 		/*
 		 * whj
-		 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-		 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+		 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+		 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 		 */
 		task->getNextState();
 		pool->addRecycle(task);
@@ -786,7 +786,7 @@ void zOkayThread::run()
 				for(i = 0, it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++, i++)
 				{
 					zTCPTask *task = *it;
-					//¼ì²é²âÊÔĞÅºÅÖ¸Áî
+					//æ£€æŸ¥æµ‹è¯•ä¿¡å·æŒ‡ä»¤
 					task->checkSignal(currentTime);
 
 					if (task->isTerminateWait())
@@ -812,8 +812,8 @@ void zOkayThread::run()
 						// state_sync -> state_okay
 						/*
 						 * whj
-						 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-						 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+						 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+						 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 						 */
 						task->getNextState();
 						pool->addRecycle(task);
@@ -840,8 +840,8 @@ void zOkayThread::run()
 					zTCPTask *task = *it;
 					if (pfds_r[i].revents & (POLLERR | POLLPRI))
 					{
-						//Ì×½Ó¿Ú³öÏÖ´íÎó
-						Zebra::logger->debug("%s: Ì×½Ó¿ÚÒì³£´íÎó", __PRETTY_FUNCTION__);
+						//å¥—æ¥å£å‡ºç°é”™è¯¯
+						Zebra::logger->debug("%s: å¥—æ¥å£å¼‚å¸¸é”™è¯¯", __PRETTY_FUNCTION__);
 						task->Terminate(zTCPTask::terminate_active);
 						check=true;
 					}
@@ -849,10 +849,10 @@ void zOkayThread::run()
 					{
 						if (pfds_r[i].revents & POLLIN)
 						{
-							//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+							//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 							if (!task->ListeningRecv(true))
 							{
-								Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+								Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 								task->Terminate(zTCPTask::terminate_active);
 								check=true;
 							}
@@ -890,27 +890,27 @@ void zOkayThread::run()
 						zTCPTask *task = *it;
 						if (pfds[i].revents & (POLLERR | POLLPRI))
 						{
-							//Ì×½Ó¿Ú³öÏÖ´íÎó
-							Zebra::logger->debug("%s: Ì×½Ó¿ÚÒì³£´íÎó", __PRETTY_FUNCTION__);
+							//å¥—æ¥å£å‡ºç°é”™è¯¯
+							Zebra::logger->debug("%s: å¥—æ¥å£å¼‚å¸¸é”™è¯¯", __PRETTY_FUNCTION__);
 							task->Terminate(zTCPTask::terminate_active);
 						}
 						else
 						{
 							if (pfds[i].revents & POLLIN)
 							{
-								//Ì×½Ó¿Ú×¼±¸ºÃÁË¶ÁÈ¡²Ù×÷
+								//å¥—æ¥å£å‡†å¤‡å¥½äº†è¯»å–æ“ä½œ
 								if (!task->ListeningRecv(true))
 								{
-									Zebra::logger->debug("%s: Ì×½Ó¿Ú¶Á²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+									Zebra::logger->debug("%s: å¥—æ¥å£è¯»æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 									task->Terminate(zTCPTask::terminate_active);
 								}
 							}
 							if (pfds[i].revents & POLLOUT)
 							{
-								//Ì×½Ó¿Ú×¼±¸ºÃÁËĞ´Èë²Ù×÷
+								//å¥—æ¥å£å‡†å¤‡å¥½äº†å†™å…¥æ“ä½œ
 								if (!task->ListeningSend())
 								{
-									Zebra::logger->debug("%s: Ì×½Ó¿ÚĞ´²Ù×÷´íÎó", __PRETTY_FUNCTION__);
+									Zebra::logger->debug("%s: å¥—æ¥å£å†™æ“ä½œé”™è¯¯", __PRETTY_FUNCTION__);
 									task->Terminate(zTCPTask::terminate_active);
 								}
 							}
@@ -926,7 +926,7 @@ void zOkayThread::run()
 		//zThread::usleep(pool->usleep_time);
 	}
 
-	//°ÑËùÓĞÈÎÎñ¶ÓÁĞÖĞµÄÁ¬½Ó¼ÓÈëµ½»ØÊÕ¶ÓÁĞÖĞ£¬»ØÊÕÕâĞ©Á¬½Ó
+	//æŠŠæ‰€æœ‰ä»»åŠ¡é˜Ÿåˆ—ä¸­çš„è¿æ¥åŠ å…¥åˆ°å›æ”¶é˜Ÿåˆ—ä¸­ï¼Œå›æ”¶è¿™äº›è¿æ¥
 	for(i = 0, it = tasks.begin(), next = it, next++; it != tasks.end(); it = next, next++, i++)
 	{
 		zTCPTask *task = *it;
@@ -934,8 +934,8 @@ void zOkayThread::run()
 		// state_sync -> state_okay
 		/*
 		 * whj
-		 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-		 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+		 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+		 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 		 */
 		task->getNextState();
 		pool->addRecycle(task);
@@ -944,7 +944,7 @@ void zOkayThread::run()
 }
 
 /**
- * \brief Á¬½Ó»ØÊÕÏß³Ì£¬»ØÊÕËùÓĞÎŞÓÃµÄTCPÁ¬½Ó£¬ÊÍ·ÅÏàÓ¦µÄ×ÊÔ´
+ * \brief è¿æ¥å›æ”¶çº¿ç¨‹ï¼Œå›æ”¶æ‰€æœ‰æ— ç”¨çš„TCPè¿æ¥ï¼Œé‡Šæ”¾ç›¸åº”çš„èµ„æº
  *
  */
 class zRecycleThread : public zThread, public zTCPTaskQueue
@@ -953,7 +953,7 @@ class zRecycleThread : public zThread, public zTCPTaskQueue
 	private:
 
 		zTCPTaskPool *pool;
-		zTCPTaskContainer tasks;	/**< ÈÎÎñÁĞ±í */
+		zTCPTaskContainer tasks;	/**< ä»»åŠ¡åˆ—è¡¨ */
 
 		void _add(zTCPTask *task)
 		{
@@ -963,9 +963,9 @@ class zRecycleThread : public zThread, public zTCPTaskQueue
 	public:
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôµÄÁ¬½Ó³Ø
-		 * \param name Ïß³ÌÃû³Æ
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±çš„è¿æ¥æ± 
+		 * \param name çº¿ç¨‹åç§°
 		 */
 		zRecycleThread(
 				zTCPTaskPool *pool,
@@ -974,7 +974,7 @@ class zRecycleThread : public zThread, public zTCPTaskQueue
 			{}
 
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 *
 		 */
 		~zRecycleThread() {};
@@ -984,7 +984,7 @@ class zRecycleThread : public zThread, public zTCPTaskQueue
 };
 
 /**
- * \brief Á¬½Ó»ØÊÕ´¦ÀíÏß³Ì£¬ÔÚÉ¾³ıÄÚ´æ¿Õ¼äÖ®Ç°ĞèÒª±£Ö¤recycleConn·µ»Ø1
+ * \brief è¿æ¥å›æ”¶å¤„ç†çº¿ç¨‹ï¼Œåœ¨åˆ é™¤å†…å­˜ç©ºé—´ä¹‹å‰éœ€è¦ä¿è¯recycleConnè¿”å›1
  *
  */
 void zRecycleThread::run()
@@ -1004,16 +1004,16 @@ void zRecycleThread::run()
 				switch(task->recycleConn())
 				{
 					case 1:
-						//»ØÊÕ´¦ÀíÍê³É¿ÉÒÔÊÍ·ÅÏàÓ¦µÄ×ÊÔ´
+						//å›æ”¶å¤„ç†å®Œæˆå¯ä»¥é‡Šæ”¾ç›¸åº”çš„èµ„æº
 						it = tasks.erase(it);
 						if (task->isUnique())
-							//Èç¹ûÒÑ¾­Í¨¹ıÁËÎ¨Ò»ĞÔÑéÖ¤£¬´ÓÈ«¾ÖÎ¨Ò»ÈİÆ÷ÖĞÉ¾³ı
+							//å¦‚æœå·²ç»é€šè¿‡äº†å”¯ä¸€æ€§éªŒè¯ï¼Œä»å…¨å±€å”¯ä¸€å®¹å™¨ä¸­åˆ é™¤
 							task->uniqueRemove();
 						task->getNextState();
 						SAFE_DELETE(task);
 						break;
 					case 0:
-						//»ØÊÕ³¬Ê±£¬ÏÂ´ÎÔÙ´¦Àí
+						//å›æ”¶è¶…æ—¶ï¼Œä¸‹æ¬¡å†å¤„ç†
 						it++;
 						break;
 				}
@@ -1023,14 +1023,14 @@ void zRecycleThread::run()
 		zThread::msleep(200);
 	}
 
-	//»ØÊÕËùÓĞµÄÁ¬½Ó
+	//å›æ”¶æ‰€æœ‰çš„è¿æ¥
 	for(it = tasks.begin(); it != tasks.end();)
 	{
-		//»ØÊÕ´¦ÀíÍê³É¿ÉÒÔÊÍ·ÅÏàÓ¦µÄ×ÊÔ´
+		//å›æ”¶å¤„ç†å®Œæˆå¯ä»¥é‡Šæ”¾ç›¸åº”çš„èµ„æº
 		zTCPTask *task = *it;
 		it = tasks.erase(it);
 		if (task->isUnique())
-			//Èç¹ûÒÑ¾­Í¨¹ıÁËÎ¨Ò»ĞÔÑéÖ¤£¬´ÓÈ«¾ÖÎ¨Ò»ÈİÆ÷ÖĞÉ¾³ı
+			//å¦‚æœå·²ç»é€šè¿‡äº†å”¯ä¸€æ€§éªŒè¯ï¼Œä»å…¨å±€å”¯ä¸€å®¹å™¨ä¸­åˆ é™¤
 			task->uniqueRemove();
 		task->getNextState();
 		SAFE_DELETE(task);
@@ -1039,7 +1039,7 @@ void zRecycleThread::run()
 
 
 /**
- * \brief ·µ»ØÁ¬½Ó³ØÖĞ×ÓÁ¬½Ó¸öÊı
+ * \brief è¿”å›è¿æ¥æ± ä¸­å­è¿æ¥ä¸ªæ•°
  *
  */
 const int zTCPTaskPool::getSize()
@@ -1061,15 +1061,15 @@ const int zTCPTaskPool::getSize()
 }
 
 /**
- * \brief °ÑÒ»¸öTCPÁ¬½ÓÌí¼Óµ½ÑéÖ¤¶ÓÁĞÖĞ£¬ÒòÎª´æÔÚ¶à¸öÑéÖ¤¶ÓÁĞ£¬ĞèÒª°´ÕÕÒ»¶¨µÄËã·¨Ìí¼Óµ½²»Í¬µÄÑéÖ¤´¦Àí¶ÓÁĞÖĞ
+ * \brief æŠŠä¸€ä¸ªTCPè¿æ¥æ·»åŠ åˆ°éªŒè¯é˜Ÿåˆ—ä¸­ï¼Œå› ä¸ºå­˜åœ¨å¤šä¸ªéªŒè¯é˜Ÿåˆ—ï¼Œéœ€è¦æŒ‰ç…§ä¸€å®šçš„ç®—æ³•æ·»åŠ åˆ°ä¸åŒçš„éªŒè¯å¤„ç†é˜Ÿåˆ—ä¸­
  *
- * \param task Ò»¸öÁ¬½ÓÈÎÎñ
+ * \param task ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  */
 bool zTCPTaskPool::addVerify(zTCPTask *task)
 {
 
 	Zebra::logger->trace("zTCPTaskPool::addVerify");
-	//ÒòÎª´æÔÚ¶à¸öÑéÖ¤¶ÓÁĞ£¬ĞèÒª°´ÕÕÒ»¶¨µÄËã·¨Ìí¼Óµ½²»Í¬µÄÑéÖ¤´¦Àí¶ÓÁĞÖĞ
+	//å› ä¸ºå­˜åœ¨å¤šä¸ªéªŒè¯é˜Ÿåˆ—ï¼Œéœ€è¦æŒ‰ç…§ä¸€å®šçš„ç®—æ³•æ·»åŠ åˆ°ä¸åŒçš„éªŒè¯å¤„ç†é˜Ÿåˆ—ä¸­
 	static unsigned int hashcode = 0;
 	zVerifyThread *pVerifyThread = (zVerifyThread *)verifyThreads.getByIndex(hashcode++ % maxVerifyThreads);
 	if (pVerifyThread)
@@ -1077,8 +1077,8 @@ bool zTCPTaskPool::addVerify(zTCPTask *task)
 		// state_sync -> state_okay
 		/*
 		 * whj
-		 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-		 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+		 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+		 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 		 */
 		task->getNextState();
 		pVerifyThread->add(task);
@@ -1087,9 +1087,9 @@ bool zTCPTaskPool::addVerify(zTCPTask *task)
 }
 
 /**
- * \brief °ÑÒ»¸öÍ¨¹ıÑéÖ¤µÄTCPÁ¬½ÓÌí¼Óµ½µÈ´ıÍ¬²½ÑéÖ¤¶ÓÁĞÖĞ
+ * \brief æŠŠä¸€ä¸ªé€šè¿‡éªŒè¯çš„TCPè¿æ¥æ·»åŠ åˆ°ç­‰å¾…åŒæ­¥éªŒè¯é˜Ÿåˆ—ä¸­
  *
- * \param task Ò»¸öÁ¬½ÓÈÎÎñ
+ * \param task ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  */
 void zTCPTaskPool::addSync(zTCPTask *task)
 {
@@ -1097,23 +1097,23 @@ void zTCPTaskPool::addSync(zTCPTask *task)
 	// state_sync -> state_okay
 	/*
 	 * whj
-	 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-	 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+	 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+	 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 	 */
 	task->getNextState();
 	syncThread->add(task);
 }
 
 /**
- * \brief °ÑÒ»¸öÍ¨¹ıÑéÖ¤µÄTCP´¦Àí¶ÓÁĞÖĞ
+ * \brief æŠŠä¸€ä¸ªé€šè¿‡éªŒè¯çš„TCPå¤„ç†é˜Ÿåˆ—ä¸­
  *
- * \param task Ò»¸öÁ¬½ÓÈÎÎñ
- * \return Ìí¼ÓÊÇ·ñ³É¹¦
+ * \param task ä¸€ä¸ªè¿æ¥ä»»åŠ¡
+ * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
  */
 bool zTCPTaskPool::addOkay(zTCPTask *task)
 {
 	Zebra::logger->trace("zTCPTaskPool::addOkay");
-	//Ê×ÏÈ±ãÀûËùÓĞµÄÏß³Ì£¬ÕÒ³öÔËĞĞµÄ²¢ÇÒÁ¬½ÓÊı×îÉÙµÄÏß³Ì£¬ÔÙÕÒ³öÃ»ÓĞÆô¶¯µÄÏß³Ì
+	//é¦–å…ˆä¾¿åˆ©æ‰€æœ‰çš„çº¿ç¨‹ï¼Œæ‰¾å‡ºè¿è¡Œçš„å¹¶ä¸”è¿æ¥æ•°æœ€å°‘çš„çº¿ç¨‹ï¼Œå†æ‰¾å‡ºæ²¡æœ‰å¯åŠ¨çš„çº¿ç¨‹
 	zOkayThread *min = NULL, *nostart = NULL;
 	for(int i = 0; i < maxThreadCount; i++)
 	{
@@ -1137,44 +1137,44 @@ bool zTCPTaskPool::addOkay(zTCPTask *task)
 		// state_sync -> state_okay
 		/*
 		 * whj
-		 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-		 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+		 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+		 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 		 */
 		task->getNextState();
-		//Õâ¸öÏß³ÌÍ¬Ê±´¦ÀíµÄÁ¬½ÓÊı»¹Ã»ÓĞµ½´ïÉÏÏŞ
+		//è¿™ä¸ªçº¿ç¨‹åŒæ—¶å¤„ç†çš„è¿æ¥æ•°è¿˜æ²¡æœ‰åˆ°è¾¾ä¸Šé™
 		min->add(task);
 		return true;
 	}
 	if (nostart)
 	{
-		//Ïß³Ì»¹Ã»ÓĞÔËĞĞ£¬ĞèÒª´´½¨Ïß³Ì£¬ÔÙ°ÑÌí¼Óµ½Õâ¸öÏß³ÌµÄ´¦Àí¶ÓÁĞÖĞ
+		//çº¿ç¨‹è¿˜æ²¡æœ‰è¿è¡Œï¼Œéœ€è¦åˆ›å»ºçº¿ç¨‹ï¼Œå†æŠŠæ·»åŠ åˆ°è¿™ä¸ªçº¿ç¨‹çš„å¤„ç†é˜Ÿåˆ—ä¸­
 		if (nostart->start())
 		{
-			Zebra::logger->debug("zTCPTaskPool´´½¨¹¤×÷Ïß³Ì");
+			Zebra::logger->debug("zTCPTaskPoolåˆ›å»ºå·¥ä½œçº¿ç¨‹");
 			// state_sync -> state_okay
 			/*
 			 * whj
-			 * ÏÈÉèÖÃ×´Ì¬ÔÙÌí¼ÓÈİÆ÷,
-			 * ·ñÔò»áµ¼ÖÂÒ»¸ötaskÍ¬Ê±ÔÚÁ½¸öÏß³ÌÖĞµÄÎ£ÏÕÇé¿ö
+			 * å…ˆè®¾ç½®çŠ¶æ€å†æ·»åŠ å®¹å™¨,
+			 * å¦åˆ™ä¼šå¯¼è‡´ä¸€ä¸ªtaskåŒæ—¶åœ¨ä¸¤ä¸ªçº¿ç¨‹ä¸­çš„å±é™©æƒ…å†µ
 			 */
 			task->getNextState();
-			//Õâ¸öÏß³ÌÍ¬Ê±´¦ÀíµÄÁ¬½ÓÊı»¹Ã»ÓĞµ½´ïÉÏÏŞ
+			//è¿™ä¸ªçº¿ç¨‹åŒæ—¶å¤„ç†çš„è¿æ¥æ•°è¿˜æ²¡æœ‰åˆ°è¾¾ä¸Šé™
 			nostart->add(task);
 			return true;
 		}
 		else
-			Zebra::logger->fatal("zTCPTaskPool²»ÄÜ´´½¨¹¤×÷Ïß³Ì");
+			Zebra::logger->fatal("zTCPTaskPoolä¸èƒ½åˆ›å»ºå·¥ä½œçº¿ç¨‹");
 	}
 
-	Zebra::logger->fatal("zTCPTaskPoolÃ»ÓĞÕÒµ½ºÏÊÊµÄÏß³ÌÀ´´¦ÀíÁ¬½Ó");
-	//Ã»ÓĞÕÒµ½Ïß³ÌÀ´´¦ÀíÕâ¸öÁ¬½Ó£¬ĞèÒª»ØÊÕ¹Ø±ÕÁ¬½Ó
+	Zebra::logger->fatal("zTCPTaskPoolæ²¡æœ‰æ‰¾åˆ°åˆé€‚çš„çº¿ç¨‹æ¥å¤„ç†è¿æ¥");
+	//æ²¡æœ‰æ‰¾åˆ°çº¿ç¨‹æ¥å¤„ç†è¿™ä¸ªè¿æ¥ï¼Œéœ€è¦å›æ”¶å…³é—­è¿æ¥
 	return false;
 }
 
 /**
- * \brief °ÑÒ»¸öTCPÁ¬½ÓÌí¼Óµ½»ØÊÕ´¦Àí¶ÓÁĞÖĞ
+ * \brief æŠŠä¸€ä¸ªTCPè¿æ¥æ·»åŠ åˆ°å›æ”¶å¤„ç†é˜Ÿåˆ—ä¸­
  *
- * \param task Ò»¸öÁ¬½ÓÈÎÎñ
+ * \param task ä¸€ä¸ªè¿æ¥ä»»åŠ¡
  */
 void zTCPTaskPool::addRecycle(zTCPTask *task)
 {
@@ -1184,14 +1184,14 @@ void zTCPTaskPool::addRecycle(zTCPTask *task)
 
 
 /**
- * \brief ³õÊ¼»¯Ïß³Ì³Ø£¬Ô¤ÏÈ´´½¨¸÷ÖÖÏß³Ì
+ * \brief åˆå§‹åŒ–çº¿ç¨‹æ± ï¼Œé¢„å…ˆåˆ›å»ºå„ç§çº¿ç¨‹
  *
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool zTCPTaskPool::init()
 {
 	Zebra::logger->trace("zTCPTaskPool::init");
-	//´´½¨³õÊ¼»¯ÑéÖ¤Ïß³Ì
+	//åˆ›å»ºåˆå§‹åŒ–éªŒè¯çº¿ç¨‹
 	for(int i = 0; i < maxVerifyThreads; i++)
 	{
 		std::ostringstream name;
@@ -1204,14 +1204,14 @@ bool zTCPTaskPool::init()
 		verifyThreads.add(pVerifyThread);
 	}
 
-	//´´½¨³õÊ¼»¯µÈ´ıÍ¬²½ÑéÖ¤ÏÖ³Ì
+	//åˆ›å»ºåˆå§‹åŒ–ç­‰å¾…åŒæ­¥éªŒè¯ç°ç¨‹
 	syncThread = new zSyncThread(this);
 	if (syncThread && !syncThread->start())
 		return false;
 
-	//´´½¨³õÊ¼»¯Ö÷ÔËĞĞÏß³Ì³Ø
+	//åˆ›å»ºåˆå§‹åŒ–ä¸»è¿è¡Œçº¿ç¨‹æ± 
 	maxThreadCount = (maxConns + zOkayThread::connPerThread - 1) / zOkayThread::connPerThread;
-	Zebra::logger->debug("Ïß³Ì×î´óÁ¬½ÓÊıÈİÁ¿%d,Ã¿Ïß³ÌÁ¬½ÓÊıÁ¿%d,Ïß³Ì¸öÊı%d",maxConns,zOkayThread::connPerThread,maxThreadCount);
+	Zebra::logger->debug("çº¿ç¨‹æœ€å¤§è¿æ¥æ•°å®¹é‡%d,æ¯çº¿ç¨‹è¿æ¥æ•°é‡%d,çº¿ç¨‹ä¸ªæ•°%d",maxConns,zOkayThread::connPerThread,maxThreadCount);
 	for(int i = 0; i < maxThreadCount; i++)
 	{
 		std::ostringstream name;
@@ -1224,7 +1224,7 @@ bool zTCPTaskPool::init()
 		okayThreads.add(pOkayThread);
 	}
 
-	//´´½¨³õÊ¼»¯»ØÊÕÏß³Ì³Ø
+	//åˆ›å»ºåˆå§‹åŒ–å›æ”¶çº¿ç¨‹æ± 
 	recycleThread = new zRecycleThread(this);
 	if (recycleThread && !recycleThread->start())
 		return false;
@@ -1233,7 +1233,7 @@ bool zTCPTaskPool::init()
 }
 
 /**
- * \brief ÊÍ·ÅÏß³Ì³Ø£¬ÊÍ·Å¸÷ÖÖ×ÊÔ´£¬µÈ´ı¸÷ÖÖÏß³ÌÍË³ö
+ * \brief é‡Šæ”¾çº¿ç¨‹æ± ï¼Œé‡Šæ”¾å„ç§èµ„æºï¼Œç­‰å¾…å„ç§çº¿ç¨‹é€€å‡º
  *
  */
 void zTCPTaskPool::final()

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zTCPTask.h  $
  * \author  
  * \date 
- * \brief ·â×°ÊµÏÖÏß³Ì³Ø£¬ÓÃÓÚ´¦Àí¶àÁ¬½Ó·şÎñÆ÷
+ * \brief å°è£…å®ç°çº¿ç¨‹æ± ï¼Œç”¨äºå¤„ç†å¤šè¿æ¥æœåŠ¡å™¨
  *
  * 
  */
@@ -26,7 +26,7 @@
 class zTCPTaskPool;
 
 /**
- * \brief ¶¨ÒåÒ»¸öÈÎÎñÀà£¬ÊÇÏß³Ì³ØµÄ¹¤×÷µ¥Ôª
+ * \brief å®šä¹‰ä¸€ä¸ªä»»åŠ¡ç±»ï¼Œæ˜¯çº¿ç¨‹æ± çš„å·¥ä½œå•å…ƒ
  *
  */
 class zTCPTask : public zProcessor, private zNoncopyable
@@ -35,25 +35,25 @@ class zTCPTask : public zProcessor, private zNoncopyable
 	public:
 
 		/**
-		 * \brief Á¬½Ó¶Ï¿ª·½Ê½
+		 * \brief è¿æ¥æ–­å¼€æ–¹å¼
 		 *
 		 */
 		enum TerminateMethod
 		{
-			terminate_no,								/**< Ã»ÓĞ½áÊøÈÎÎñ */
-			terminate_active,							/**< ¿Í»§¶ËÖ÷¶¯¶Ï¿ªÁ¬½Ó£¬Ö÷ÒªÊÇÓÉÓÚ·şÎñÆ÷¶Ë¼ì²âµ½Ì×½Ó¿Ú¹Ø±Õ»òÕßÌ×½Ó¿ÚÒì³£ */
-			terminate_passive,							/**< ·şÎñÆ÷¶ËÖ÷¶¯¶Ï¿ªÁ¬½Ó */
+			terminate_no,								/**< æ²¡æœ‰ç»“æŸä»»åŠ¡ */
+			terminate_active,							/**< å®¢æˆ·ç«¯ä¸»åŠ¨æ–­å¼€è¿æ¥ï¼Œä¸»è¦æ˜¯ç”±äºæœåŠ¡å™¨ç«¯æ£€æµ‹åˆ°å¥—æ¥å£å…³é—­æˆ–è€…å¥—æ¥å£å¼‚å¸¸ */
+			terminate_passive,							/**< æœåŠ¡å™¨ç«¯ä¸»åŠ¨æ–­å¼€è¿æ¥ */
 		};
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı£¬ÓÃÓÚ´´½¨Ò»¸ö¶ÔÏó
+		 * \brief æ„é€ å‡½æ•°ï¼Œç”¨äºåˆ›å»ºä¸€ä¸ªå¯¹è±¡
 		 *
 		 *
-		 * \param pool ËùÊôÁ¬½Ó³ØÖ¸Õë
-		 * \param sock Ì×½Ó¿Ú
-		 * \param addr µØÖ·
-		 * \param compress µ×²ãÊı¾İ´«ÊäÊÇ·ñÖ§³ÖÑ¹Ëõ
-		 * \param checkSignal ÊÇ·ñ·¢ËÍÍøÂçÁ´Â·²âÊÔĞÅºÅ
+		 * \param pool æ‰€å±è¿æ¥æ± æŒ‡é’ˆ
+		 * \param sock å¥—æ¥å£
+		 * \param addr åœ°å€
+		 * \param compress åº•å±‚æ•°æ®ä¼ è¾“æ˜¯å¦æ”¯æŒå‹ç¼©
+		 * \param checkSignal æ˜¯å¦å‘é€ç½‘ç»œé“¾è·¯æµ‹è¯•ä¿¡å·
 		 */
 		zTCPTask(
 				zTCPTaskPool *pool,
@@ -70,26 +70,26 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief Îö¹¹º¯Êı£¬ÓÃÓÚÏú»ÙÒ»¸ö¶ÔÏó
+		 * \brief ææ„å‡½æ•°ï¼Œç”¨äºé”€æ¯ä¸€ä¸ªå¯¹è±¡
 		 *
 		 */
 		virtual ~zTCPTask() {}
 
 #ifdef _USE_EPOLL_
 		/**
-		 * \brief Ìí¼Ó¼ì²âÊÂ¼şµ½epollÃèÊö·û
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
-		 * \param ptr ¶îÍâ²ÎÊı
+		 * \brief æ·»åŠ æ£€æµ‹äº‹ä»¶åˆ°epollæè¿°ç¬¦
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
+		 * \param ptr é¢å¤–å‚æ•°
 		 */
 		void addEpoll(int kdpfd, __uint32_t events, void *ptr)
 		{
 			mSocket.addEpoll(kdpfd, events, ptr);
 		}
 		/**
-		 * \brief ´ÓepollÃèÊö·ûÖĞÉ¾³ı¼ì²âÊÂ¼ş
-		 * \param kdpfd epollÃèÊö·û
-		 * \param events ´ıÌí¼ÓµÄÊÂ¼ş
+		 * \brief ä»epollæè¿°ç¬¦ä¸­åˆ é™¤æ£€æµ‹äº‹ä»¶
+		 * \param kdpfd epollæè¿°ç¬¦
+		 * \param events å¾…æ·»åŠ çš„äº‹ä»¶
 		 */
 		void delEpoll(int kdpfd, __uint32_t events)
 		{
@@ -97,9 +97,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 #else
 		/**
-		 * \brief Ìî³äpollfd½á¹¹
-		 * \param pfd ´ıÌî³äµÄ½á¹¹
-		 * \param events µÈ´ıµÄÊÂ¼ş²ÎÊı
+		 * \brief å¡«å……pollfdç»“æ„
+		 * \param pfd å¾…å¡«å……çš„ç»“æ„
+		 * \param events ç­‰å¾…çš„äº‹ä»¶å‚æ•°
 		 */
 		void fillPollFD(struct pollfd &pfd, short events)
 		{
@@ -108,12 +108,12 @@ class zTCPTask : public zProcessor, private zNoncopyable
 #endif
 
 		/**
-		 * \brief ¼ì²âÊÇ·ñÑéÖ¤³¬Ê±
+		 * \brief æ£€æµ‹æ˜¯å¦éªŒè¯è¶…æ—¶
 		 *
 		 *
-		 * \param ct µ±Ç°ÏµÍ³Ê±¼ä
-		 * \param interval ³¬Ê±Ê±¼ä£¬ºÁÃë
-		 * \return ¼ì²âÊÇ·ñ³É¹¦
+		 * \param ct å½“å‰ç³»ç»Ÿæ—¶é—´
+		 * \param interval è¶…æ—¶æ—¶é—´ï¼Œæ¯«ç§’
+		 * \return æ£€æµ‹æ˜¯å¦æˆåŠŸ
 		 */
 		bool checkVerifyTimeout(const zRTime &ct, const unsigned long long interval = 2000) const
 		{
@@ -121,18 +121,18 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ¼ì²éÊÇ·ñÒÑ¾­¼ÓÈë¶ÁÊÂ¼ş
+		 * \brief æ£€æŸ¥æ˜¯å¦å·²ç»åŠ å…¥è¯»äº‹ä»¶
 		 *
-		 * \return ÊÇ·ñ¼ÓÈë
+		 * \return æ˜¯å¦åŠ å…¥
 		 */
 		bool isFdsrAdd()
 		{
 			return fdsradd;
 		}
 		/**
-		 * \brief ÉèÖÃ¼ÓÈë¶ÁÊÂ¼ş±êÖ¾
+		 * \brief è®¾ç½®åŠ å…¥è¯»äº‹ä»¶æ ‡å¿—
 		 *
-		 * \return ÊÇ·ñ¼ÓÈë
+		 * \return æ˜¯å¦åŠ å…¥
 		 */
 		bool fdsrAdd()
 		{
@@ -142,9 +142,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 
 
 		/**
-		 * \brief Á¬½ÓÑéÖ¤º¯Êı
+		 * \brief è¿æ¥éªŒè¯å‡½æ•°
 		 *
-		 * ×ÓÀàĞèÒªÖØÔØÕâ¸öº¯ÊıÓÃÓÚÑéÖ¤Ò»¸öTCPÁ¬½Ó£¬Ã¿¸öTCPÁ¬½Ó±ØĞëÍ¨¹ıÑéÖ¤²ÅÄÜ½øÈëÏÂÒ»²½´¦Àí½×¶Î£¬È±Ê¡Ê¹ÓÃÒ»Ìõ¿ÕµÄÖ¸Áî×÷ÎªÑéÖ¤Ö¸Áî
+		 * å­ç±»éœ€è¦é‡è½½è¿™ä¸ªå‡½æ•°ç”¨äºéªŒè¯ä¸€ä¸ªTCPè¿æ¥ï¼Œæ¯ä¸ªTCPè¿æ¥å¿…é¡»é€šè¿‡éªŒè¯æ‰èƒ½è¿›å…¥ä¸‹ä¸€æ­¥å¤„ç†é˜¶æ®µï¼Œç¼ºçœä½¿ç”¨ä¸€æ¡ç©ºçš„æŒ‡ä»¤ä½œä¸ºéªŒè¯æŒ‡ä»¤
 		 * <pre>
 		 * int retcode = mSocket.recvToBuf_NoPoll();
 		 * if (retcode > 0)
@@ -152,14 +152,14 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		 * 		unsigned char pstrCmd[zSocket::MAX_DATASIZE];
 		 * 		int nCmdLen = mSocket.recvToCmd_NoPoll(pstrCmd, sizeof(pstrCmd));
 		 * 		if (nCmdLen <= 0)
-		 * 			//ÕâÀïÖ»ÊÇ´Ó»º³åÈ¡Êı¾İ°ü£¬ËùÒÔ²»»á³ö´í£¬Ã»ÓĞÊı¾İÖ±½Ó·µ»Ø
+		 * 			//è¿™é‡Œåªæ˜¯ä»ç¼“å†²å–æ•°æ®åŒ…ï¼Œæ‰€ä»¥ä¸ä¼šå‡ºé”™ï¼Œæ²¡æœ‰æ•°æ®ç›´æ¥è¿”å›
 		 * 			return 0;
 		 * 		else
 		 * 		{
 		 * 			zSocket::t_NullCmd *ptNullCmd = (zSocket::t_NullCmd *)pstrCmd;
 		 * 			if (zSocket::null_opcode == ptNullCmd->opcode)
 		 * 			{
-		 * 				std::cout << "¿Í»§¶ËÁ¬½ÓÍ¨¹ıÑéÖ¤" << std::endl;
+		 * 				std::cout << "å®¢æˆ·ç«¯è¿æ¥é€šè¿‡éªŒè¯" << std::endl;
 		 * 				return 1;
 		 * 			}
 		 * 			else
@@ -172,7 +172,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		 * 		return retcode;
 		 * </pre>
 		 *
-		 * \return ÑéÖ¤ÊÇ·ñ³É¹¦£¬1±íÊ¾³É¹¦£¬¿ÉÒÔ½øÈëÏÂÒ»²½²Ù×÷£¬0£¬±íÊ¾»¹Òª¼ÌĞøµÈ´ıÑéÖ¤£¬-1±íÊ¾µÈ´ıÑéÖ¤Ê§°Ü£¬ĞèÒª¶Ï¿ªÁ¬½Ó
+		 * \return éªŒè¯æ˜¯å¦æˆåŠŸï¼Œ1è¡¨ç¤ºæˆåŠŸï¼Œå¯ä»¥è¿›å…¥ä¸‹ä¸€æ­¥æ“ä½œï¼Œ0ï¼Œè¡¨ç¤ºè¿˜è¦ç»§ç»­ç­‰å¾…éªŒè¯ï¼Œ-1è¡¨ç¤ºç­‰å¾…éªŒè¯å¤±è´¥ï¼Œéœ€è¦æ–­å¼€è¿æ¥
 		 */
 		virtual int verifyConn()
 		{
@@ -180,9 +180,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief µÈ´ıÆäËüÏß³ÌÍ¬²½ÑéÖ¤Õâ¸öÁ¬½Ó£¬ÓĞĞ©Ïß³Ì³Ø²»ĞèÒªÕâ²½£¬ËùÒÔ²»ÓÃÖØÔØÕâ¸öº¯Êı£¬È±Ê¡Ê¼ÖÕ·µ»Ø³É¹¦
+		 * \brief ç­‰å¾…å…¶å®ƒçº¿ç¨‹åŒæ­¥éªŒè¯è¿™ä¸ªè¿æ¥ï¼Œæœ‰äº›çº¿ç¨‹æ± ä¸éœ€è¦è¿™æ­¥ï¼Œæ‰€ä»¥ä¸ç”¨é‡è½½è¿™ä¸ªå‡½æ•°ï¼Œç¼ºçœå§‹ç»ˆè¿”å›æˆåŠŸ
 		 *
-		 * \return µÈ´ıÊÇ·ñ³É¹¦£¬1±íÊ¾³É¹¦£¬¿ÉÒÔ½øÈëÏÂÒ»²½²Ù×÷£¬0£¬±íÊ¾»¹Òª¼ÌĞøµÈ´ı£¬-1±íÊ¾µÈ´ıÊ§°Ü»òÕßµÈ´ı³¬Ê±£¬ĞèÒª¶Ï¿ªÁ¬½Ó
+		 * \return ç­‰å¾…æ˜¯å¦æˆåŠŸï¼Œ1è¡¨ç¤ºæˆåŠŸï¼Œå¯ä»¥è¿›å…¥ä¸‹ä¸€æ­¥æ“ä½œï¼Œ0ï¼Œè¡¨ç¤ºè¿˜è¦ç»§ç»­ç­‰å¾…ï¼Œ-1è¡¨ç¤ºç­‰å¾…å¤±è´¥æˆ–è€…ç­‰å¾…è¶…æ—¶ï¼Œéœ€è¦æ–­å¼€è¿æ¥
 		 */
 		virtual int waitSync()
 		{
@@ -190,9 +190,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief »ØÊÕÊÇ·ñ³É¹¦£¬»ØÊÕ³É¹¦ÒÔºó£¬ĞèÒªÉ¾³ıÕâ¸öTCPÁ¬½ÓÏà¹Ø×ÊÔ´
+		 * \brief å›æ”¶æ˜¯å¦æˆåŠŸï¼Œå›æ”¶æˆåŠŸä»¥åï¼Œéœ€è¦åˆ é™¤è¿™ä¸ªTCPè¿æ¥ç›¸å…³èµ„æº
 		 *
-		 * \return »ØÊÕÊÇ·ñ³É¹¦£¬1±íÊ¾»ØÊÕ³É¹¦£¬0±íÊ¾»ØÊÕ²»³É¹¦
+		 * \return å›æ”¶æ˜¯å¦æˆåŠŸï¼Œ1è¡¨ç¤ºå›æ”¶æˆåŠŸï¼Œ0è¡¨ç¤ºå›æ”¶ä¸æˆåŠŸ
 		 */
 		virtual int recycleConn()
 		{
@@ -200,25 +200,25 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief Ò»¸öÁ¬½ÓÈÎÎñÑéÖ¤µÈ²½ÖèÍê³ÉÒÔºó£¬ĞèÒªÌí¼Óµ½È«¾ÖÈİÆ÷ÖĞ
+		 * \brief ä¸€ä¸ªè¿æ¥ä»»åŠ¡éªŒè¯ç­‰æ­¥éª¤å®Œæˆä»¥åï¼Œéœ€è¦æ·»åŠ åˆ°å…¨å±€å®¹å™¨ä¸­
 		 *
-		 * Õâ¸öÈ«¾ÖÈİÆ÷ÊÇÍâ²¿ÈİÆ÷
+		 * è¿™ä¸ªå…¨å±€å®¹å™¨æ˜¯å¤–éƒ¨å®¹å™¨
 		 *
 		 */
 		virtual void addToContainer() {}
 
 		/**
-		 * \brief Á¬½ÓÈÎÎñÍË³öµÄÊ±ºò£¬ĞèÒª´ÓÈ«¾ÖÈİÆ÷ÖĞÉ¾³ı
+		 * \brief è¿æ¥ä»»åŠ¡é€€å‡ºçš„æ—¶å€™ï¼Œéœ€è¦ä»å…¨å±€å®¹å™¨ä¸­åˆ é™¤
 		 *
-		 * Õâ¸öÈ«¾ÖÈİÆ÷ÊÇÍâ²¿ÈİÆ÷
+		 * è¿™ä¸ªå…¨å±€å®¹å™¨æ˜¯å¤–éƒ¨å®¹å™¨
 		 *
 		 */
 		virtual void removeFromContainer() {}
 
 		/**
-		 * \brief Ìí¼Óµ½Íâ²¿ÈİÆ÷£¬Õâ¸öÈİÆ÷ĞèÒª±£Ö¤Õâ¸öÁ¬½ÓµÄÎ¨Ò»ĞÔ
+		 * \brief æ·»åŠ åˆ°å¤–éƒ¨å®¹å™¨ï¼Œè¿™ä¸ªå®¹å™¨éœ€è¦ä¿è¯è¿™ä¸ªè¿æ¥çš„å”¯ä¸€æ€§
 		 *
-		 * \return Ìí¼ÓÊÇ·ñ³É¹¦
+		 * \return æ·»åŠ æ˜¯å¦æˆåŠŸ
 		 */
 		virtual bool uniqueAdd()
 		{
@@ -226,9 +226,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ´ÓÍâ²¿ÈİÆ÷É¾³ı£¬Õâ¸öÈİÆ÷ĞèÒª±£Ö¤Õâ¸öÁ¬½ÓµÄÎ¨Ò»ĞÔ
+		 * \brief ä»å¤–éƒ¨å®¹å™¨åˆ é™¤ï¼Œè¿™ä¸ªå®¹å™¨éœ€è¦ä¿è¯è¿™ä¸ªè¿æ¥çš„å”¯ä¸€æ€§
 		 *
-		 * \return É¾³ıÊÇ·ñ³É¹¦
+		 * \return åˆ é™¤æ˜¯å¦æˆåŠŸ
 		 */
 		virtual bool uniqueRemove()
 		{
@@ -236,7 +236,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÉèÖÃÎ¨Ò»ĞÔÑéÖ¤Í¨¹ı±ê¼Ç
+		 * \brief è®¾ç½®å”¯ä¸€æ€§éªŒè¯é€šè¿‡æ ‡è®°
 		 *
 		 */
 		void setUnique()
@@ -245,9 +245,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñÒÑ¾­Í¨¹ıÁËÎ¨Ò»ĞÔÑéÖ¤
+		 * \brief åˆ¤æ–­æ˜¯å¦å·²ç»é€šè¿‡äº†å”¯ä¸€æ€§éªŒè¯
 		 *
-		 * \return ÊÇ·ñÒÑ¾­Í¨¹ıÁËÎ¨Ò»ĞÔ±ê¼Ç
+		 * \return æ˜¯å¦å·²ç»é€šè¿‡äº†å”¯ä¸€æ€§æ ‡è®°
 		 */
 		bool isUnique() const
 		{
@@ -255,7 +255,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñ±»ÆäËüÏß³ÌÉèÖÃÎªµÈ´ı¶Ï¿ªÁ¬½Ó×´Ì¬
+		 * \brief åˆ¤æ–­æ˜¯å¦è¢«å…¶å®ƒçº¿ç¨‹è®¾ç½®ä¸ºç­‰å¾…æ–­å¼€è¿æ¥çŠ¶æ€
 		 *
 		 * \return true or false
 		 */
@@ -266,7 +266,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñ±»ÆäËüÏß³ÌÉèÖÃÎªµÈ´ı¶Ï¿ªÁ¬½Ó×´Ì¬
+		 * \brief åˆ¤æ–­æ˜¯å¦è¢«å…¶å®ƒçº¿ç¨‹è®¾ç½®ä¸ºç­‰å¾…æ–­å¼€è¿æ¥çŠ¶æ€
 		 *
 		 * \return true or false
 		 */
@@ -276,7 +276,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÅĞ¶ÏÊÇ·ñĞèÒª¹Ø±ÕÁ¬½Ó
+		 * \brief åˆ¤æ–­æ˜¯å¦éœ€è¦å…³é—­è¿æ¥
 		 *
 		 * \return true or false
 		 */
@@ -286,9 +286,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ĞèÒªÖ÷¶¯¶Ï¿ª¿Í»§¶ËµÄÁ¬½Ó
+		 * \brief éœ€è¦ä¸»åŠ¨æ–­å¼€å®¢æˆ·ç«¯çš„è¿æ¥
 		 *
-		 * \param method Á¬½Ó¶Ï¿ª·½Ê½
+		 * \param method è¿æ¥æ–­å¼€æ–¹å¼
 		 */
 		virtual void Terminate(const TerminateMethod method = terminate_passive)
 		{
@@ -301,21 +301,21 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		virtual bool ListeningSend();
 
 		/**
-		 * \brief Á¬½ÓÈÎÎñ×´Ì¬
+		 * \brief è¿æ¥ä»»åŠ¡çŠ¶æ€
 		 *
 		 */
 		enum zTCPTask_State
 		{
-			notuse		=	0,							/**< Á¬½Ó¹Ø±Õ×´Ì¬ */
-			verify		=	1,							/**< Á¬½ÓÑéÖ¤×´Ì¬ */
-			sync		=	2,							/**< µÈ´ıÀ´×ÔÆäËü·şÎñÆ÷µÄÑéÖ¤ĞÅÏ¢Í¬²½ */
-			okay		=	3,							/**< Á¬½Ó´¦Àí½×¶Î£¬ÑéÖ¤Í¨¹ıÁË£¬½øÈëÖ÷Ñ­»· */
-			recycle		=	4							/**< Á¬½ÓÍË³ö×´Ì¬£¬»ØÊÕ */
+			notuse		=	0,							/**< è¿æ¥å…³é—­çŠ¶æ€ */
+			verify		=	1,							/**< è¿æ¥éªŒè¯çŠ¶æ€ */
+			sync		=	2,							/**< ç­‰å¾…æ¥è‡ªå…¶å®ƒæœåŠ¡å™¨çš„éªŒè¯ä¿¡æ¯åŒæ­¥ */
+			okay		=	3,							/**< è¿æ¥å¤„ç†é˜¶æ®µï¼ŒéªŒè¯é€šè¿‡äº†ï¼Œè¿›å…¥ä¸»å¾ªç¯ */
+			recycle		=	4							/**< è¿æ¥é€€å‡ºçŠ¶æ€ï¼Œå›æ”¶ */
 		};
 
 		/**
-		 * \brief »ñÈ¡Á¬½ÓÈÎÎñµ±Ç°×´Ì¬
-		 * \return ×´Ì¬
+		 * \brief è·å–è¿æ¥ä»»åŠ¡å½“å‰çŠ¶æ€
+		 * \return çŠ¶æ€
 		 */
 		const zTCPTask_State getState() const
 		{
@@ -323,8 +323,8 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÉèÖÃÁ¬½ÓÈÎÎñ×´Ì¬
-		 * \param state ĞèÒªÉèÖÃµÄ×´Ì¬
+		 * \brief è®¾ç½®è¿æ¥ä»»åŠ¡çŠ¶æ€
+		 * \param state éœ€è¦è®¾ç½®çš„çŠ¶æ€
 		 */
 		void setState(const zTCPTask_State state)
 		{
@@ -335,11 +335,11 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		void resetState();
 
 		/**
-		 * \brief »ñµÃ×´Ì¬µÄ×Ö·û´®ÃèÊö
+		 * \brief è·å¾—çŠ¶æ€çš„å­—ç¬¦ä¸²æè¿°
 		 *
 		 *
-		 * \param state ×´Ì¬
-		 * \return ·µ»Ø×´Ì¬µÄ×Ö·û´®ÃèÊö
+		 * \param state çŠ¶æ€
+		 * \return è¿”å›çŠ¶æ€çš„å­—ç¬¦ä¸²æè¿°
 		 */
 		const char *getStateString(const zTCPTask_State state) const
 		{
@@ -371,8 +371,8 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ·µ»ØÁ¬½ÓµÄIPµØÖ·
-		 * \return Á¬½ÓµÄIPµØÖ·
+		 * \brief è¿”å›è¿æ¥çš„IPåœ°å€
+		 * \return è¿æ¥çš„IPåœ°å€
 		 */
 		const char *getIP() const
 		{
@@ -389,7 +389,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ÊÇ·ñ·¢ËÍÍøÂçÁ¬½ÓÁ´Â·²âÊÔĞÅºÅ
+		 * \brief æ˜¯å¦å‘é€ç½‘ç»œè¿æ¥é“¾è·¯æµ‹è¯•ä¿¡å·
 		 * \return true or false
 		 */
 		const bool ifCheckSignal() const
@@ -398,9 +398,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ¼ì²â²âÊÔĞÅºÅ·¢ËÍ¼ä¸ô
+		 * \brief æ£€æµ‹æµ‹è¯•ä¿¡å·å‘é€é—´éš”
 		 *
-		 * \return ¼ì²âÊÇ·ñ³É¹¦
+		 * \return æ£€æµ‹æ˜¯å¦æˆåŠŸ
 		 */
 		bool checkInterval(const zRTime &ct)
 		{
@@ -408,9 +408,9 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ¼ì²é²âÊÔĞÅºÅ£¬Èç¹û²âÊÔĞÅºÅÔÚ¹æ¶¨Ê±¼äÄÚ·µ»Ø£¬ÄÇÃ´ÖØĞÂ·¢ËÍ²âÊÔĞÅºÅ£¬Ã»ÓĞ·µ»ØµÄ»°¿ÉÄÜTCPÁ¬½ÓÒÑ¾­³ö´íÁË
+		 * \brief æ£€æŸ¥æµ‹è¯•ä¿¡å·ï¼Œå¦‚æœæµ‹è¯•ä¿¡å·åœ¨è§„å®šæ—¶é—´å†…è¿”å›ï¼Œé‚£ä¹ˆé‡æ–°å‘é€æµ‹è¯•ä¿¡å·ï¼Œæ²¡æœ‰è¿”å›çš„è¯å¯èƒ½TCPè¿æ¥å·²ç»å‡ºé”™äº†
 		 *
-		 * \return true£¬±íÊ¾¼ì²â³É¹¦£»false£¬±íÊ¾¼ì²âÊ§°Ü 
+		 * \return trueï¼Œè¡¨ç¤ºæ£€æµ‹æˆåŠŸï¼›falseï¼Œè¡¨ç¤ºæ£€æµ‹å¤±è´¥ 
 		 */
 		bool checkTick() const
 		{
@@ -418,7 +418,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ²âÊÔĞÅºÅÒÑ¾­·µ»ØÁË
+		 * \brief æµ‹è¯•ä¿¡å·å·²ç»è¿”å›äº†
 		 *
 		 */
 		void clearTick()
@@ -427,7 +427,7 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		}
 
 		/**
-		 * \brief ·¢ËÍ²âÊÔĞÅºÅ³É¹¦
+		 * \brief å‘é€æµ‹è¯•ä¿¡å·æˆåŠŸ
 		 *
 		 */
 		void setTick()
@@ -444,21 +444,21 @@ class zTCPTask : public zProcessor, private zNoncopyable
 		static CmdAnalysis analysis;
 	protected:
 
-		bool buffered;									/**< ·¢ËÍÖ¸ÁîÊÇ·ñ»º³å */
-		zSocket mSocket;								/**< µ×²ãÌ×½Ó¿Ú */
+		bool buffered;									/**< å‘é€æŒ‡ä»¤æ˜¯å¦ç¼“å†² */
+		zSocket mSocket;								/**< åº•å±‚å¥—æ¥å£ */
 
-		zTCPTask_State state;							/**< Á¬½Ó×´Ì¬ */
+		zTCPTask_State state;							/**< è¿æ¥çŠ¶æ€ */
 
 	private:
 
-		zTCPTaskPool *pool;								/**< ÈÎÎñËùÊôµÄ³Ø */
-		TerminateMethod terminate;						/**< ÊÇ·ñ½áÊøÈÎÎñ */
-		bool terminate_wait;							/**< ÆäËüÏß³ÌÉèÖÃµÈ´ı¶Ï¿ªÁ¬½Ó×´Ì¬,ÓÉpoolÏß³ÌÉèÖÃ¶Ï¿ªÁ¬½Ó×´Ì¬ */
-		bool fdsradd;									/**< ¶ÁÊÂ¼şÌí¼Ó±êÖ¾ */
-		zRTime lifeTime;								/**< Á¬½Ó´´½¨Ê±¼ä¼ÇÂ¼ */
+		zTCPTaskPool *pool;								/**< ä»»åŠ¡æ‰€å±çš„æ±  */
+		TerminateMethod terminate;						/**< æ˜¯å¦ç»“æŸä»»åŠ¡ */
+		bool terminate_wait;							/**< å…¶å®ƒçº¿ç¨‹è®¾ç½®ç­‰å¾…æ–­å¼€è¿æ¥çŠ¶æ€,ç”±poolçº¿ç¨‹è®¾ç½®æ–­å¼€è¿æ¥çŠ¶æ€ */
+		bool fdsradd;									/**< è¯»äº‹ä»¶æ·»åŠ æ ‡å¿— */
+		zRTime lifeTime;								/**< è¿æ¥åˆ›å»ºæ—¶é—´è®°å½• */
 
-		bool uniqueVerified;							/**< ÊÇ·ñÍ¨¹ıÁËÎ¨Ò»ĞÔÑéÖ¤ */
-		const bool _checkSignal;						/**< ÊÇ·ñ·¢ËÍÁ´Â·¼ì²âĞÅºÅ */
+		bool uniqueVerified;							/**< æ˜¯å¦é€šè¿‡äº†å”¯ä¸€æ€§éªŒè¯ */
+		const bool _checkSignal;						/**< æ˜¯å¦å‘é€é“¾è·¯æ£€æµ‹ä¿¡å· */
 		Timer _ten_min;
 		bool tick;
 

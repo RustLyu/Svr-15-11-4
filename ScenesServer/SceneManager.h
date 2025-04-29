@@ -1,4 +1,4 @@
-#ifndef _SCENEMANAGER_H_
+ï»¿#ifndef _SCENEMANAGER_H_
 #define _SCENEMANAGER_H_
 
 #include "Scene.h"
@@ -6,7 +6,7 @@
 #include "zUniqueID.h"
 
 /**
- * \brief ¶ÔÃ¿¸ösceneÖ´ĞĞµÄ»Øµ÷»ùÀà
+ * \brief å¯¹æ¯ä¸ªsceneæ‰§è¡Œçš„å›è°ƒåŸºç±»
  *
  */
 struct SceneCallBack
@@ -16,7 +16,7 @@ struct SceneCallBack
 };
 
 /**
- * \brief ³¡¾°¹ÜÀíÆ÷
+ * \brief åœºæ™¯ç®¡ç†å™¨
  *
  */
 class SceneManager:public zSceneManager
@@ -25,11 +25,11 @@ class SceneManager:public zSceneManager
 		typedef std::vector<std::pair<DWORD,DWORD> > NewZoneVec;
 		typedef NewZoneVec::iterator newZoneVec_iter;
 	private:
-		///Î¨Ò»ÊµÀı
+		///å”¯ä¸€å®ä¾‹
 		static SceneManager * sm;
-		///Î¨Ò»ID·ÖÅäÆ÷
+		///å”¯ä¸€IDåˆ†é…å™¨
 		zUniqueDWORDID *sceneUniqeID;
-		///ÊÇ·ñÒÑ³õÊ¼»¯
+		///æ˜¯å¦å·²åˆå§‹åŒ–
 		bool inited;
 
 		SceneManager();
@@ -89,61 +89,61 @@ class SceneManager:public zSceneManager
 		void checkUnloadOneScene();
 
 		/**
-		 * \brief ¹ú¼ÒĞÅÏ¢
+		 * \brief å›½å®¶ä¿¡æ¯
 		 *
 		 */
 		struct CountryInfo
 		{
-			///±àºÅ
+			///ç¼–å·
 			DWORD id;
-			///Ãû×Ö
+			///åå­—
 			char name[MAX_NAMESIZE];
-			///ËùÔÚµÄµØÍ¼Ãû×Ö
+			///æ‰€åœ¨çš„åœ°å›¾åå­—
 			DWORD mapid;
-			///¹ú¼Ò¹¦ÄÜ±êÊ¶×Ö¶Î
+			///å›½å®¶åŠŸèƒ½æ ‡è¯†å­—æ®µ
 			DWORD function;
 		};
 		/**
-		 * \brief µØÍ¼ĞÅÏ¢
+		 * \brief åœ°å›¾ä¿¡æ¯
 		 *
 		 */
 		struct MapInfo
 		{
-			///±àºÅ
+			///ç¼–å·
 			DWORD id;
-			///Ãû×Ö
+			///åå­—
 			char name[MAX_NAMESIZE];
-			///¶ÔÓ¦µÄµØÍ¼ÎÄ¼şÃû
+			///å¯¹åº”çš„åœ°å›¾æ–‡ä»¶å
 			char filename[MAX_NAMESIZE];
-			///Íæ¼ÒÔÚ¸ÃµØÍ¼ËÀºó»Øµ½µÄµØÍ¼
+			///ç©å®¶åœ¨è¯¥åœ°å›¾æ­»åå›åˆ°çš„åœ°å›¾
 			DWORD backto;
-			///Íæ¼ÒÔÚ¸ÃµØÍ¼ËÀºó»Øµ½µÄ³ÇÊĞ
+			///ç©å®¶åœ¨è¯¥åœ°å›¾æ­»åå›åˆ°çš„åŸå¸‚
 			DWORD backtoCity;
-			///Íæ¼ÒÔÚÍâ¹úµØÍ¼ËÀºó»Øµ½µÄ³ÇÊĞ
+			///ç©å®¶åœ¨å¤–å›½åœ°å›¾æ­»åå›åˆ°çš„åŸå¸‚
 			DWORD foreignbackto;
-			///Íæ¼ÒÔÚ¹«¹²¹úµØÍ¼ËÀºó»Øµ½µÄ³ÇÊĞ
+			///ç©å®¶åœ¨å…¬å…±å›½åœ°å›¾æ­»åå›åˆ°çš„åŸå¸‚
 			DWORD commoncountrybackto;
-			///ÎŞ¹ú¼ÒÈËÔÚÍâ¹úµØÍ¼ËÀºó»Øµ½µÄ³ÇÊĞ
+			///æ— å›½å®¶äººåœ¨å¤–å›½åœ°å›¾æ­»åå›åˆ°çš„åŸå¸‚
 			DWORD commonuserbackto;
-			///¹úÕ½Ä¿µÄµØ
+			///å›½æˆ˜ç›®çš„åœ°
 			DWORD backtodare;
-			///¹úÕ½ÆÚ¼ä£¬ÔÚ¹úÕ½Õ½³¡£¨Ä¿Ç°ÔÚÍõ³Ç£©ËÀÍöºó£¬¹¥·½¸´»î³ÇÊĞ
+			///å›½æˆ˜æœŸé—´ï¼Œåœ¨å›½æˆ˜æˆ˜åœºï¼ˆç›®å‰åœ¨ç‹åŸï¼‰æ­»äº¡åï¼Œæ”»æ–¹å¤æ´»åŸå¸‚
 			DWORD countrydarebackto;
-			///¹úÕ½ÆÚ¼ä£¬ÔÚ¹úÕ½Õ½³¡£¨Ä¿Ç°ÔÚÍõ³Ç£©ËÀÍöºó, ÊØ·½¸´»î³ÇÊĞ
+			///å›½æˆ˜æœŸé—´ï¼Œåœ¨å›½æˆ˜æˆ˜åœºï¼ˆç›®å‰åœ¨ç‹åŸï¼‰æ­»äº¡å, å®ˆæ–¹å¤æ´»åŸå¸‚
 			DWORD countrydefbackto;
-			///¿ÉÏà»¥pkµÄµÈ¼¶
+			///å¯ç›¸äº’pkçš„ç­‰çº§
 			DWORD pklevel;
-			///±íÊ¾¸ÃµØÍ¼Ä³Ğ©¹¦ÄÜÊÇ·ñ¿ÉÓÃ£¬ÆïÂíµÈ
+			///è¡¨ç¤ºè¯¥åœ°å›¾æŸäº›åŠŸèƒ½æ˜¯å¦å¯ç”¨ï¼Œéª‘é©¬ç­‰
 			DWORD function;
-			///±íÊ¾¸ÃµØÍ¼ÔÊĞíµÄlevel¼¶±ğµÄÍæ¼Ò½øÈë
+			///è¡¨ç¤ºè¯¥åœ°å›¾å…è®¸çš„levelçº§åˆ«çš„ç©å®¶è¿›å…¥
 			BYTE level;
-			///±íÊ¾¸ÃµØÍ¼µÄ¾­Ñé¼Ó³É(Ê¹ÓÃÊ±/100Çó³ö±ÈÂÊ)
+			///è¡¨ç¤ºè¯¥åœ°å›¾çš„ç»éªŒåŠ æˆ(ä½¿ç”¨æ—¶/100æ±‚å‡ºæ¯”ç‡)
 			BYTE exprate;
 		};
 		typedef std::map<DWORD , CountryInfo> CountryMap;
 		typedef CountryMap::iterator CountryMap_iter;
 		typedef CountryMap::value_type CountryMap_value_type;
-		///¹ú¼ÒĞÅÏ¢ºÍIDµÄÓ³Éä
+		///å›½å®¶ä¿¡æ¯å’ŒIDçš„æ˜ å°„
 		CountryMap country_info;
 		DWORD getCountryIDByCountryName(const char *name);
 		const char * getCountryNameByCountryID(DWORD);
@@ -155,7 +155,7 @@ class SceneManager:public zSceneManager
 		typedef std::map<DWORD , MapInfo> MapMap;
 		typedef MapMap::value_type MapMap_value_type;
 		typedef MapMap::iterator MapMap_iter;
-		///µØÍ¼ĞÅÏ¢ºÍIDµÄÓ³Éä
+		///åœ°å›¾ä¿¡æ¯å’ŒIDçš„æ˜ å°„
 		MapMap map_info;
 };
 #endif

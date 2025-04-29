@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zProperties.h  $
  * \author  
  * \date 
- * \brief ¶¨ÒåzPropertiesÊôĞÔ¹ØÁªÀà
+ * \brief å®šä¹‰zPropertieså±æ€§å…³è”ç±»
  *
  * 
  */
@@ -22,7 +22,7 @@
 #include <strings.h>
 
 /**
- * \brief ÊôĞÔ¹ØÁªÀàÈİÆ÷£¬ËùÓĞÊôĞÔ¹Ø¼ü×ÖºÍÖµ¶¼Ê¹ÓÃ×Ö·û´®´ú±í£¬¹Ø¼ü×Ö²»Çø·Ö´óĞ¡Ğ´
+ * \brief å±æ€§å…³è”ç±»å®¹å™¨ï¼Œæ‰€æœ‰å±æ€§å…³é”®å­—å’Œå€¼éƒ½ä½¿ç”¨å­—ç¬¦ä¸²ä»£è¡¨ï¼Œå…³é”®å­—ä¸åŒºåˆ†å¤§å°å†™
  *
  */
 class zProperties
@@ -31,10 +31,10 @@ class zProperties
 	public:
 
 		/**
-		 * \brief »ñÈ¡Ò»¸öÊôĞÔÖµ
+		 * \brief è·å–ä¸€ä¸ªå±æ€§å€¼
 		 *
-		 * \param key ¹Ø¼ü×Ö
-		 * \return ·µ»ØÓë¹Ø¼ü×Ö¶ÔÓ¦µÄÊôĞÔÖµ
+		 * \param key å…³é”®å­—
+		 * \return è¿”å›ä¸å…³é”®å­—å¯¹åº”çš„å±æ€§å€¼
 		 */
 		const std::string &getProperty(const std::string &key)
 		{
@@ -42,10 +42,10 @@ class zProperties
 		}
 
 		/**
-		 * \brief ÉèÖÃÒ»¸öÊôĞÔ
+		 * \brief è®¾ç½®ä¸€ä¸ªå±æ€§
 		 *
-		 * \param key ¹Ø¼ü×Ö
-		 * \param value ¹Ø¼ü×Ö¶ÔÓ¦µÄÊôĞÔ
+		 * \param key å…³é”®å­—
+		 * \param value å…³é”®å­—å¯¹åº”çš„å±æ€§
 		 */
 		void setProperty(const std::string &key, const std::string &value)
 		{
@@ -53,10 +53,10 @@ class zProperties
 		}
 
 		/**
-		 * \brief ÖØÔØ²Ù×÷·û£¬·µ»ØÓë¹Ø¼ü×Ö¶ÔÓ¦µÄÊôĞÔÖµ
+		 * \brief é‡è½½æ“ä½œç¬¦ï¼Œè¿”å›ä¸å…³é”®å­—å¯¹åº”çš„å±æ€§å€¼
 		 *
-		 * \param key ¹Ø¼ü×Ö
-		 * \return ÊôĞÔÖµ
+		 * \param key å…³é”®å­—
+		 * \return å±æ€§å€¼
 		 */
 		std::string & operator[] (const std::string &key)
 		{
@@ -64,7 +64,7 @@ class zProperties
 		}
 
 		/**
-		 * \brief Êä³ö´æ´¢µÄËùÓĞÊôĞÔÖµ
+		 * \brief è¾“å‡ºå­˜å‚¨çš„æ‰€æœ‰å±æ€§å€¼
 		 *
 		 */
 		void dump(std::ostream &out)
@@ -80,7 +80,7 @@ class zProperties
 	protected:
 
 		/**
-		 * \brief hashº¯Êı
+		 * \brief hashå‡½æ•°
 		 *
 		 */
 		struct key_hash : public std::unary_function<const std::string, size_t>
@@ -90,7 +90,7 @@ class zProperties
 				std::string s = x;
 				__gnu_cxx::hash<const char *> H;
 				//std::cout << __PRETTY_FUNCTION__ << "    " << s << std::endl;
-				//×ª»¯×Ö·û´®ÎªĞ¡Ğ´
+				//è½¬åŒ–å­—ç¬¦ä¸²ä¸ºå°å†™
 				Zebra::to_lower(s);
 				//std::cout << __PRETTY_FUNCTION__ << "    " << s << std::endl;
 				return H(s.c_str());
@@ -98,7 +98,7 @@ class zProperties
 		};
 
 		/**
-		 * \brief ÅĞ¶ÏÁ½¸ö×Ö·û´®ÊÇ·ñÏàµÈ
+		 * \brief åˆ¤æ–­ä¸¤ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ç›¸ç­‰
 		 *
 		 */
 		struct key_equal : public std::binary_function<const std::string, const std::string, bool>
@@ -111,12 +111,12 @@ class zProperties
 		};
 
 		/**
-		 * \brief ×Ö·û´®µÄhash_map
+		 * \brief å­—ç¬¦ä¸²çš„hash_map
 		 *
 		 */
 		typedef __gnu_cxx::hash_map<std::string, std::string, key_hash, key_equal> property_hashtype;
 
-		property_hashtype properties;			/**< ±£´æÊôĞÔµÄ¼üÖµ¶Ô */
+		property_hashtype properties;			/**< ä¿å­˜å±æ€§çš„é”®å€¼å¯¹ */
 
 };
 

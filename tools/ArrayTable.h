@@ -1,4 +1,4 @@
-#ifndef _ARRAYTABLE_H_
+﻿#ifndef _ARRAYTABLE_H_
 #define _ARRAYTABLE_H_
 #include "zType.h"
 #include "zRWLock.h"

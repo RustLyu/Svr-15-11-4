@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GateUserManager.h  $
  * \author  
  * \date
- * \brief ¶¨ÒåÍø¹ØÓÃ»§¹ÜÀíÀà
+ * \brief å®šä¹‰ç½‘å…³ç”¨æˆ·ç®¡ç†ç±»
  */
 
 #ifndef _GATEUSERMANAGER_H_
@@ -12,16 +12,16 @@
 #include "zUserManager.h"
 #include "zUniqueID.h"
 /**
- * \brief GateUserÒÔÕÊºÅIDÎªkeyÖµµÄÖ¸ÕëÈİÆ÷£¬ĞèÒª¼Ì³ĞÊ¹ÓÃ
+ * \brief GateUserä»¥å¸å·IDä¸ºkeyå€¼çš„æŒ‡é’ˆå®¹å™¨ï¼Œéœ€è¦ç»§æ‰¿ä½¿ç”¨
  */
 class GateUserAccountID:protected LimitHash<DWORD,GateUser *>
 {
 	protected:
 
 		/**
-		 * \brief ½«GateUser¼ÓÈëÈİÆ÷ÖĞ
-		 * \param e Òª¼ÓÈëµÄGateUser
-		 * \return ³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+		 * \brief å°†GateUseråŠ å…¥å®¹å™¨ä¸­
+		 * \param e è¦åŠ å…¥çš„GateUser
+		 * \return æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
 		 */
 		bool push(GateUser * &e)
 		{
@@ -33,25 +33,25 @@ class GateUserAccountID:protected LimitHash<DWORD,GateUser *>
 		GateUserAccountID() {}
 		virtual ~GateUserAccountID() {}
 		/**
-		 * \brief Í¨¹ıÕÊºÅIDµÃµ½GateUser
-		 * \param accid ÒªµÃµ½GateUserµÄÕÊºÅID
-		 * \return ·µ»ØGateUserÖ¸Õë,Î´ÕÒµ½·µ»ØNULL
+		 * \brief é€šè¿‡å¸å·IDå¾—åˆ°GateUser
+		 * \param accid è¦å¾—åˆ°GateUserçš„å¸å·ID
+		 * \return è¿”å›GateUseræŒ‡é’ˆ,æœªæ‰¾åˆ°è¿”å›NULL
 		 */
 		virtual GateUser * getUserByAccID(DWORD accid) =0;
 		/**
-		 * \brief Í¨¹ıÕÊºÅIDÉ¾³ıGateUser£¬½ö´ÓÕÊºÅÈİÆ÷ÖĞÒÆ³ı
-		 * \param accid ÒªÉ¾³ıµÄGateUserµÄÕÊºÅID
+		 * \brief é€šè¿‡å¸å·IDåˆ é™¤GateUserï¼Œä»…ä»å¸å·å®¹å™¨ä¸­ç§»é™¤
+		 * \param accid è¦åˆ é™¤çš„GateUserçš„å¸å·ID
 		 */
 		virtual void removeUserOnlyByAccID(DWORD accid) =0;
 		/**
-		 * \brief Í¨¹ıÕÊºÅIDÌí¼ÓGateUser£¬½öÌí¼Óµ½ÕÊºÅÈİÆ÷ÖĞ
-		 * \param user ÒªÌí¼ÓµÄGateUser
+		 * \brief é€šè¿‡å¸å·IDæ·»åŠ GateUserï¼Œä»…æ·»åŠ åˆ°å¸å·å®¹å™¨ä¸­
+		 * \param user è¦æ·»åŠ çš„GateUser
 		 */
 		virtual bool addUserOnlyByAccID(GateUser *user) =0;
 };
 
 /**
- * \brief Íø¹ØÓÃ»§¹ÜÀíÆ÷
+ * \brief ç½‘å…³ç”¨æˆ·ç®¡ç†å™¨
  *
  */
 class GateUserManager:public zUserManager,protected GateUserAccountID

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: TimeTick.cpp  $
  * \author  
  * \date 
- * \brief Ê±¼ä»Øµ÷º¯Êý
+ * \brief æ—¶é—´å›žè°ƒå‡½æ•°
  */
 
 
@@ -33,7 +33,7 @@ zRTime SceneTimeTick::currentTime;
 SceneTimeTick *SceneTimeTick::instance = NULL;
 
 /**
- * \brief µØÍ¼»Øµ÷º¯Êý
+ * \brief åœ°å›¾å›žè°ƒå‡½æ•°
  */
 struct EverySceneEntryAction : public SceneCallBack
 {
@@ -46,8 +46,8 @@ struct EverySceneEntryAction : public SceneCallBack
 			if(scene->SceneEntryAction(SceneTimeTick::currentTime, group))
 			{
 				/**
-				 * ÕâÀïÈç¹ûÐèÒª¶¯Ì¬¼ÓÔØÐ¶ÔØµØÍ¼»áËÀËøÅ¶
-				 * ^-^ ²»»áËÀËø£¬ÏÖÔÚµ¥Ïß³Ì£¬³¡¾°¹ÜÀíÆ÷Ã»ÓÐËø£¬Ö»ÊÇÒª×¢Òâ±éÀúµÄÈÝÆ÷µÄµü´úÆ÷
+				 * è¿™é‡Œå¦‚æžœéœ€è¦åŠ¨æ€åŠ è½½å¸è½½åœ°å›¾ä¼šæ­»é”å“¦
+				 * ^-^ ä¸ä¼šæ­»é”ï¼ŒçŽ°åœ¨å•çº¿ç¨‹ï¼Œåœºæ™¯ç®¡ç†å™¨æ²¡æœ‰é”ï¼Œåªæ˜¯è¦æ³¨æ„éåŽ†çš„å®¹å™¨çš„è¿­ä»£å™¨
 				 */
 				SceneTaskManager::getInstance().execEvery();
 			}
@@ -57,7 +57,7 @@ struct EverySceneEntryAction : public SceneCallBack
 };
 
 /**
- * \brief °ÑÌØÊânpc¼Óµ½ai´¦ÀíÁÐ±íÖÐ
+ * \brief æŠŠç‰¹æ®ŠnpcåŠ åˆ°aiå¤„ç†åˆ—è¡¨ä¸­
  */
 /*class AddSpecialNpcCallBack : public specialNpcCallBack
 {
@@ -78,7 +78,7 @@ struct EverySceneEntryAction : public SceneCallBack
 };*/
 
 /**
- * \brief Ê±¼äÑ­»·£¬·¢ËÍ¶¨Ê±ÊÂ¼þ£¬´¦ÀíÊÜÓ°Ïìnpc aiµÈ
+ * \brief æ—¶é—´å¾ªçŽ¯ï¼Œå‘é€å®šæ—¶äº‹ä»¶ï¼Œå¤„ç†å—å½±å“npc aiç­‰
  */
 void SceneTimeTick::run()
 {
@@ -90,13 +90,13 @@ void SceneTimeTick::run()
 	{
 		zThread::msleep((10-t)>0?(10-t):1);
 #ifdef _DEBUGLOG
-		//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"Õû¸öTimeTick´¦ÀíÐèÒªµÄÊ±¼ä" , 32);
+		//FunctionTime func_alltime(0,__PRETTY_FUNCTION__,"æ•´ä¸ªTimeTickå¤„ç†éœ€è¦çš„æ—¶é—´" , 32);
 #endif
-		//»ñÈ¡µ±Ç°Ê±¼ä
+		//èŽ·å–å½“å‰æ—¶é—´
 		currentTime.now();
 
 		if (_five_sec(currentTime)) {
-			//FunctionTime func_time(0,__PRETTY_FUNCTION__,"Õû¸öÈÎÎñ±éÀúÐèÒªµÄÊ±¼ä" , 32);
+			//FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ•´ä¸ªä»»åŠ¡éåŽ†éœ€è¦çš„æ—¶é—´" , 32);
 			OnTimer event(1);
 			EventTable::instance().execute(event);
 			ScenesService::getInstance().checkAndReloadConfig();
@@ -114,7 +114,7 @@ void SceneTimeTick::run()
 
 		//250 usec
 		EverySceneEntryAction esea(step);
-		//¶ÔËùÓÐµØÍ¼µ÷ÓÃ»Øµ÷º¯Êý
+		//å¯¹æ‰€æœ‰åœ°å›¾è°ƒç”¨å›žè°ƒå‡½æ•°
 		SceneManager::getInstance().execEveryScene(esea);
 
 #if 0
@@ -128,8 +128,8 @@ void SceneTimeTick::run()
 #endif
 
 		if (_one_min(currentTime))
-		{//¾ºÈü´¦Àí,Ò»·ÖÖÓÅÐ¶ÏÒ»´ÎÈ«¹ú¾ºÈü
-			//FunctionTime func_time(0,__PRETTY_FUNCTION__,"Õû¸ö¾ºÈü±éÀúÐèÒªµÄÊ±¼ä" , 32);
+		{//ç«žèµ›å¤„ç†,ä¸€åˆ†é’Ÿåˆ¤æ–­ä¸€æ¬¡å…¨å›½ç«žèµ›
+			//FunctionTime func_time(0,__PRETTY_FUNCTION__,"æ•´ä¸ªç«žèµ›éåŽ†éœ€è¦çš„æ—¶é—´" , 32);
 			CountryDareM::getMe().timer();
 
 			if (Zebra::global["world_quiz"] == "true")
@@ -148,7 +148,7 @@ void SceneTimeTick::run()
 						{       
 							Cmd::Session::t_countryNotify_SceneSession send;
 							bzero(send.info, sizeof(send.info));
-							sprintf(send.info, "%d ·ÖÖÓºó¾Ù°ìÖÇÁ¦¾ºÈü", abs(20-tv1.tm_min));
+							sprintf(send.info, "%d åˆ†é’ŸåŽä¸¾åŠžæ™ºåŠ›ç«žèµ›", abs(20-tv1.tm_min));
 							send.dwCountryID = iter->second.id;
 							sessionClient->sendCmd(&send, sizeof(send));	
 						}
@@ -177,7 +177,7 @@ void SceneTimeTick::run()
 						{       
 							Cmd::Session::t_countryNotify_SceneSession send;
 							bzero(send.info, sizeof(send.info));
-							sprintf(send.info, "%d ·ÖÖÓºó¾Ù°ìÖÇÁ¦¾ºÈü", abs(20-tv1.tm_min));
+							sprintf(send.info, "%d åˆ†é’ŸåŽä¸¾åŠžæ™ºåŠ›ç«žèµ›", abs(20-tv1.tm_min));
 							send.dwCountryID = iter->second.id;
 							sessionClient->sendCmd(&send, sizeof(send));	
 						}
@@ -207,7 +207,7 @@ void SceneTimeTick::run()
 						{       
 							Cmd::Session::t_countryNotify_SceneSession send;
 							bzero(send.info, sizeof(send.info));
-							sprintf(send.info, "%d ·ÖÖÓºó¾Ù°ìÖÇÁ¦¾ºÈü", abs(50-tv1.tm_min));
+							sprintf(send.info, "%d åˆ†é’ŸåŽä¸¾åŠžæ™ºåŠ›ç«žèµ›", abs(50-tv1.tm_min));
 							send.dwCountryID = iter->second.id;
 							sessionClient->sendCmd(&send, sizeof(send));	
 						}
@@ -233,7 +233,7 @@ void SceneTimeTick::run()
 				}
 			}
 
-			//Ë¢ÐÂËùÓÐÈ«¾Ö±äÁ¿
+			//åˆ·æ–°æ‰€æœ‰å…¨å±€å˜é‡
 			if (GlobalVar::server_id()) { //ugly, TO BE FIXED
 
 				ALLVARS(update);
@@ -249,7 +249,7 @@ void SceneTimeTick::run()
 		t = currentTime.elapse(e);
 		if (t > timeout_value)
 		{
-			Zebra::logger->debug("---------- 1´ÎÑ­»·ÓÃÊ± %u ºÁÃë----------", t);
+			Zebra::logger->debug("---------- 1æ¬¡å¾ªçŽ¯ç”¨æ—¶ %u æ¯«ç§’----------", t);
 		}
 #ifdef __MY_FUNCTIONTIME_WRAPPER__
 		My_FunctionTime_wrapper::my_func.reset(currentTime, t > timeout_value);

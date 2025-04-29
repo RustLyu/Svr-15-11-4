@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GateUserManager.cpp  $
  * \author  
  * \date 
- * \brief ÊµÏÖÍø¹ØÓÃ»§¹ÜÀíÀà
+ * \brief å®ç°ç½‘å…³ç”¨æˆ·ç®¡ç†ç±»
  */
 
 #include "GateUserManager.h"
@@ -14,10 +14,10 @@ GateUserManager *GateUserManager::gum(NULL);
 //RecycleUserManager *RecycleUserManager::instance=NULL;
 
 /**
- * \brief µÃµ½Î¨Ò»ÊµÀı
+ * \brief å¾—åˆ°å”¯ä¸€å®ä¾‹
  *
  *
- * \return Î¨Ò»ÊµÀı
+ * \return å”¯ä¸€å®ä¾‹
  */
 GateUserManager * GateUserManager::getInstance()
 {
@@ -27,7 +27,7 @@ GateUserManager * GateUserManager::getInstance()
 }
 
 /**
- * \brief É¾³ıÎ¨Ò»ÊµÀı
+ * \brief åˆ é™¤å”¯ä¸€å®ä¾‹
  *
  *
  */
@@ -48,7 +48,7 @@ GateUserManager::~GateUserManager()
 }
 
 /**
- * \brief Ğ¶ÔØËùÓĞÓÃ»§
+ * \brief å¸è½½æ‰€æœ‰ç”¨æˆ·
  *
  *
  * \return 
@@ -74,18 +74,18 @@ void GateUserManager::removeAllUser()
 		GateUser *pUser=(GateUser *)GateUserManager::getInstance()->getUserByID(*iter);
 		if(pUser)
 		{
-			//Zebra::logger->trace("ÓÃ»§%s(%ld)ÒòĞ¶ÔØ³¡¾°×¢Ïú",pUser->name,pUser->id);
+			//Zebra::logger->trace("ç”¨æˆ·%s(%ld)å› å¸è½½åœºæ™¯æ³¨é”€",pUser->name,pUser->id);
 			pUser->Terminate();
 		}
 	}
 
 }
 /**
- * \brief µÃµ½Ò»¸ötempid
+ * \brief å¾—åˆ°ä¸€ä¸ªtempid
  *
  *
- * \param tempid: µÃµ½µÄtempid(Êä³ö)
- * \return µÃµ½ÊÇ·ñ³É¹¦
+ * \param tempid: å¾—åˆ°çš„tempid(è¾“å‡º)
+ * \return å¾—åˆ°æ˜¯å¦æˆåŠŸ
  */
 void GateUserManager::removeUserBySceneClient(SceneClient *scene)
 {
@@ -112,7 +112,7 @@ void GateUserManager::removeUserBySceneClient(SceneClient *scene)
 		GateUser *pUser=(GateUser *)GateUserManager::getInstance()->getUserByID(*iter);
 		if(pUser)
 		{
-			Zebra::logger->trace("ÓÃ»§%s(%ld)ÒòĞ¶ÔØ³¡¾°×¢Ïú",pUser->name,pUser->id);
+			Zebra::logger->trace("ç”¨æˆ·%s(%ld)å› å¸è½½åœºæ™¯æ³¨é”€",pUser->name,pUser->id);
 			pUser->Terminate();
 		}
 	}
@@ -120,18 +120,18 @@ void GateUserManager::removeUserBySceneClient(SceneClient *scene)
 }
 
 /**
- * \brief µÃµ½Ò»¸ötempid
+ * \brief å¾—åˆ°ä¸€ä¸ªtempid
  *
  *
- * \param tempid: µÃµ½µÄtempid(Êä³ö)
- * \return µÃµ½ÊÇ·ñ³É¹¦
+ * \param tempid: å¾—åˆ°çš„tempid(è¾“å‡º)
+ * \return å¾—åˆ°æ˜¯å¦æˆåŠŸ
  */
 bool GateUserManager::getUniqeID(DWORD &tempid)
 {
 	if(userUniqeID)
 	{
 		tempid=userUniqeID->get();
-		//Zebra::logger->debug("µÃµ½usertempid = %ld",tempid);
+		//Zebra::logger->debug("å¾—åˆ°usertempid = %ld",tempid);
 		return (tempid!=userUniqeID->invalid());
 	}
 	else
@@ -139,22 +139,22 @@ bool GateUserManager::getUniqeID(DWORD &tempid)
 }
 
 /**
- * \brief ÊÕ»ØÒ»¸ötempid
+ * \brief æ”¶å›ä¸€ä¸ªtempid
  *
  *
- * \param tempid: ÒªÊÕ»ØµÄtempid
+ * \param tempid: è¦æ”¶å›çš„tempid
  */
 void GateUserManager::putUniqeID(const DWORD &tempid)
 {
 	if(userUniqeID)
 	{
 		userUniqeID->put(tempid);
-		//Zebra::logger->debug("»ØÊÕusertempid = %ld",tempid);
+		//Zebra::logger->debug("å›æ”¶usertempid = %ld",tempid);
 	}
 }
 
 /**
- * \brief ¸ù¾İ³õÊ¼»¯·ÖÅätempidµÄ·¶Î§
+ * \brief æ ¹æ®åˆå§‹åŒ–åˆ†é…tempidçš„èŒƒå›´
  *
  *
  * \return true
@@ -163,7 +163,7 @@ bool GateUserManager::init()
 {
 	if(!inited)
 	{
-		//ÎªÃ¿¸öÍø¹Ø·şÎñÆ÷Éú³É²»Ïà½»²æµÄÓÃ»§ÁÙÊ±ID·ÖÅäÆ÷,×îĞ¡µÄ´Ó1000¿ªÊ¼,Ã¿¸öÓĞ4998¸öID¿ÉÓÃ
+		//ä¸ºæ¯ä¸ªç½‘å…³æœåŠ¡å™¨ç”Ÿæˆä¸ç›¸äº¤å‰çš„ç”¨æˆ·ä¸´æ—¶IDåˆ†é…å™¨,æœ€å°çš„ä»1000å¼€å§‹,æ¯ä¸ªæœ‰4998ä¸ªIDå¯ç”¨
 		DWORD firstTempID=1000+(GatewayService::getInstance().getServerID()%100)*5000;
 		userUniqeID=new zUniqueDWORDID(firstTempID,firstTempID+4998);
 		inited=true;
@@ -172,7 +172,7 @@ bool GateUserManager::init()
 }
 
 /**
- * \brief Ğ¶ÔØÍø¹ØÓÃ»§¹ÜÀíÆ÷
+ * \brief å¸è½½ç½‘å…³ç”¨æˆ·ç®¡ç†å™¨
  *
  */
 void GateUserManager::final()
@@ -182,11 +182,11 @@ void GateUserManager::final()
 }
 
 /**
- * \brief ¸ù¾İaccidµÃµ½Ò»¸öÓÃ»§
+ * \brief æ ¹æ®accidå¾—åˆ°ä¸€ä¸ªç”¨æˆ·
  *
  *
- * \param accid: ½ÇÉ«µÄaccid
- * \return ÓÃ»§
+ * \param accid: è§’è‰²çš„accid
+ * \return ç”¨æˆ·
  */
 GateUser * GateUserManager::getUserByAccID(DWORD accid)
 {
@@ -198,10 +198,10 @@ GateUser * GateUserManager::getUserByAccID(DWORD accid)
 }
 
 /**
- * \brief ´ÓÍø¹Ø¹ÜÀíÆ÷ÖĞÉ¾³ıÒ»¸öÓÃ»§
+ * \brief ä»ç½‘å…³ç®¡ç†å™¨ä¸­åˆ é™¤ä¸€ä¸ªç”¨æˆ·
  *
  *
- * \param accid: ºÃÉ¾³ıÓÃ»§µÄaccid
+ * \param accid: å¥½åˆ é™¤ç”¨æˆ·çš„accid
  */
 void GateUserManager::removeUserOnlyByAccID(DWORD accid)
 {
@@ -211,11 +211,11 @@ void GateUserManager::removeUserOnlyByAccID(DWORD accid)
 }
 
 /**
- * \brief ½«Ò»¸öÓÃ»§Ìí¼Óµ½µ½Íø¹ØÓÃ»§¹ÜÀíÆ÷ÖĞ
+ * \brief å°†ä¸€ä¸ªç”¨æˆ·æ·»åŠ åˆ°åˆ°ç½‘å…³ç”¨æˆ·ç®¡ç†å™¨ä¸­
  *
  *
- * \param user: ĞèÒªÌí¼Óµ½¹ÜÀíÆ÷ÖĞµÄÓÃ»§
- * \return Ìí¼Ó³É¹¦·µ»ØÍ¼Èô,·ñÔò·µ»Øfalse 
+ * \param user: éœ€è¦æ·»åŠ åˆ°ç®¡ç†å™¨ä¸­çš„ç”¨æˆ·
+ * \return æ·»åŠ æˆåŠŸè¿”å›å›¾è‹¥,å¦åˆ™è¿”å›false 
  */
 bool GateUserManager::addUserOnlyByAccID(GateUser *user)
 {

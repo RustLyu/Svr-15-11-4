@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: InfoTask.h  $
  * \author 
  * \date 
- * \brief ¶¨ÒåÊı¾İ¿â·ÃÎÊ·şÎñÆ÷µÄÈÎÎñ
+ * \brief å®šä¹‰æ•°æ®åº“è®¿é—®æœåŠ¡å™¨çš„ä»»åŠ¡
  */
 
 #ifndef _InfoTask_h_
@@ -32,11 +32,11 @@ class InfoTask : public zTCPTask
 		bool msgParse(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 
 		/**
-		 * \brief ¹¹Ôìº¯Êı
-		 * \param pool ËùÊôÁ¬½Ó³Ø
-		 * \param sock TCP/IPÌ×½Ó¿Ú
-		 * \param addr µØÖ·
-		 * \param pCon INFOÈİÆ÷
+		 * \brief æ„é€ å‡½æ•°
+		 * \param pool æ‰€å±è¿æ¥æ± 
+		 * \param sock TCP/IPå¥—æ¥å£
+		 * \param addr åœ°å€
+		 * \param pCon INFOå®¹å™¨
 		 */
 		InfoTask(zTCPTaskPool *pool, const int sock, 
 				const struct sockaddr_in *addr,
@@ -46,7 +46,7 @@ class InfoTask : public zTCPTask
 		}
 
 	 	/**
-	 	 * \brief Îö¹¹º¯Êı
+	 	 * \brief ææ„å‡½æ•°
 	 	 */
 		~InfoTask() { }
 
@@ -54,7 +54,7 @@ class InfoTask : public zTCPTask
 	
 		bool msgParse_loginServer(const Cmd::t_NullCmd *ptNullCmd, const unsigned int nCmdLen);
 		/**
-		 * \brief Ö¸ÏòÈ«¾ÖÏòÁ¿µÄÖ¸Õë
+		 * \brief æŒ‡å‘å…¨å±€å‘é‡çš„æŒ‡é’ˆ
 		 */
 		InfoContainer  * pContainer;
 };
@@ -64,17 +64,17 @@ class InfoContainer : private zNoncopyable
 	public:
 		
 		/**
-		 * \brief ¹¹Ôìº¯Êı
+		 * \brief æ„é€ å‡½æ•°
 		 */
 		InfoContainer() { }
 		
 		/**
-		 * \brief Îö¹¹º¯Êı
+		 * \brief ææ„å‡½æ•°
 		 */
 		~InfoContainer(){ }
 		
 		/**
-		 * \brief ´ÓÏòÁ¿ÖĞÌí¼ÓÒ»¸öÔªËØ
+		 * \brief ä»å‘é‡ä¸­æ·»åŠ ä¸€ä¸ªå…ƒç´ 
 		 * \param iTask
 		 */
 		void add(InfoTask *iTask)
@@ -85,7 +85,7 @@ class InfoContainer : private zNoncopyable
 		}
 		
 		/**
-		 * \brief ´ÓÏòÁ¿ÖĞÉ¾³ıÒ»¸öÔªËØ
+		 * \brief ä»å‘é‡ä¸­åˆ é™¤ä¸€ä¸ªå…ƒç´ 
 		 * \param iTask
 		 */
 		void remove(InfoTask *iTask)
@@ -97,9 +97,9 @@ class InfoContainer : private zNoncopyable
 		}
 
 		/**
-		 * \brief ÏòËùÓĞÁ¬½ÓµÄ·şÎñÆ÷¹ã²¥Ö¸Áî
-		 * \param pCmd ĞèÒª¹ã²¥µÄÖ¸Áî
-		 * \param nCmdLen Ö¸ÁîµÄ³¤¶È
+		 * \brief å‘æ‰€æœ‰è¿æ¥çš„æœåŠ¡å™¨å¹¿æ’­æŒ‡ä»¤
+		 * \param pCmd éœ€è¦å¹¿æ’­çš„æŒ‡ä»¤
+		 * \param nCmdLen æŒ‡ä»¤çš„é•¿åº¦
 		 */
 		void broadcast(Cmd::t_NullCmd *pCmd, unsigned int nCmdLen)
 		{
@@ -114,11 +114,11 @@ class InfoContainer : private zNoncopyable
 	private:
 		
 		/**
-		 * \brief InfoTaskÖ¸ÕëÏòÁ¿
+		 * \brief InfoTaskæŒ‡é’ˆå‘é‡
 		 */
 		std::vector <InfoTask *>	vecInfo;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ»¥³â±äÁ¿
+		 * \brief å®¹å™¨è®¿é—®äº’æ–¥å˜é‡
 		 */
 		zMutex mlock;
 };

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: BillManager.cpp  $
  * \author  
  * \date 
- * \brief ÕËºÅ¹ÜÀí£¬¼ÇÂ¼Ò»¸öÇøÖÐËùÓÐÒÑ¾­µÇÂ½µÄÕËºÅ
+ * \brief è´¦å·ç®¡ç†ï¼Œè®°å½•ä¸€ä¸ªåŒºä¸­æ‰€æœ‰å·²ç»ç™»é™†çš„è´¦å·
  *
  * 
  */
@@ -17,10 +17,10 @@
 BillManager *BillManager::instance = NULL;
 
 /**
- * \brief ÑéÖ¤ÕÊºÅÊÇ·ñÒÑ¾­µÇÂ½
- * Èç¹ûÒÑ¾­µÇÂ½ÐèÒª·µ»Ø´íÎóÐÅÏ¢µ½µÇÂ½·þÎñÆ÷
- * \param session ´ýÑéÖ¤µÄ»á»°ÐÅÏ¢
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \brief éªŒè¯å¸å·æ˜¯å¦å·²ç»ç™»é™†
+ * å¦‚æžœå·²ç»ç™»é™†éœ€è¦è¿”å›žé”™è¯¯ä¿¡æ¯åˆ°ç™»é™†æœåŠ¡å™¨
+ * \param session å¾…éªŒè¯çš„ä¼šè¯ä¿¡æ¯
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool BillManager::verify(const t_NewLoginSession &session)
 {
@@ -44,8 +44,8 @@ bool BillManager::verify(const t_NewLoginSession &session)
 }
 
 /**
- * \brief ¸üÐÂµÇÂ½³¬Ê±ÐÅÏ¢
- * µÇÂ½·þÎñÆ÷ÑéÖ¤Í¨¹ýÒÔºó£¬Èç¹ûÔÚÒ»¶¨Ê±¼äÃ»ÓÐµÇÂ½Íø¹Ø£¬ÄÇÃ´½«É¾³ýÕâ¸ö»á»°¹ý³Ì
+ * \brief æ›´æ–°ç™»é™†è¶…æ—¶ä¿¡æ¯
+ * ç™»é™†æœåŠ¡å™¨éªŒè¯é€šè¿‡ä»¥åŽï¼Œå¦‚æžœåœ¨ä¸€å®šæ—¶é—´æ²¡æœ‰ç™»é™†ç½‘å…³ï¼Œé‚£ä¹ˆå°†åˆ é™¤è¿™ä¸ªä¼šè¯è¿‡ç¨‹
  */
 void BillManager::update()
 {
@@ -55,11 +55,11 @@ void BillManager::update()
 		zTime current;
 		for(BillInfoMap_iterator it = infoMap.begin(); it != infoMap.end();)
 		{
-			//µÇÂ½³¬Ê±£¬É¾³ý
+			//ç™»é™†è¶…æ—¶ï¼Œåˆ é™¤
 			if (BillInfo::WAIT_LOGIN == it->second.state
 					&& it->second.timestamp.elapse(current) >= session_timeout_value)
 			{
-				Zebra::logger->debug("µÈ´ýÍø¹ØµÇÂ½ÐÅÏ¢³¬Ê±£º%u, %u, %u", it->second.accid, it->second.loginTempID, it->second.wdGatewayID);
+				Zebra::logger->debug("ç­‰å¾…ç½‘å…³ç™»é™†ä¿¡æ¯è¶…æ—¶ï¼š%u, %u, %u", it->second.accid, it->second.loginTempID, it->second.wdGatewayID);
 				BillInfoMap_iterator tmp = it;
 				it++;
 				infoMap.erase(tmp);
@@ -72,8 +72,8 @@ void BillManager::update()
 }
 
 /**
- * \brief µ±Íø¹Ø¹Ø±ÕµÄÊ±ºò£¬ÐèÒªÇå³ýÔÚÕâ¸öÍø¹ØÉÏÃæµÇÂ½µÄËùÓÐ»á»°ÐÅÏ¢
- * \param wdGatewayID Íø¹Ø±àºÅ
+ * \brief å½“ç½‘å…³å…³é—­çš„æ—¶å€™ï¼Œéœ€è¦æ¸…é™¤åœ¨è¿™ä¸ªç½‘å…³ä¸Šé¢ç™»é™†çš„æ‰€æœ‰ä¼šè¯ä¿¡æ¯
+ * \param wdGatewayID ç½‘å…³ç¼–å·
  */
 void BillManager::updateByGatewayID(const WORD wdGatewayID)
 {
@@ -84,7 +84,7 @@ void BillManager::updateByGatewayID(const WORD wdGatewayID)
 		{
 			if (wdGatewayID == it->second.wdGatewayID)
 			{
-				Zebra::logger->debug("Íø¹Ø¹Ø±Õ£¬Çå³ýµÇÂ½Êý¾Ý£º%u, %u, %u", it->second.accid, it->second.loginTempID, it->second.wdGatewayID);
+				Zebra::logger->debug("ç½‘å…³å…³é—­ï¼Œæ¸…é™¤ç™»é™†æ•°æ®ï¼š%u, %u, %u", it->second.accid, it->second.loginTempID, it->second.wdGatewayID);
 				BillInfoMap_iterator tmp = it;
 				it++;
 				infoMap.erase(tmp);
@@ -97,11 +97,11 @@ void BillManager::updateByGatewayID(const WORD wdGatewayID)
 }
 
 /**
- * \brief ÑéÖ¤¿Í»§¶ËµÇÂ½Íø¹ØµÄÐÅÏ¢
- * µ±¿Í»§¶ËµÇÂ½Íø¹ØµÄÊÇ·ñ£¬ÐèÒªÑéÖ¤Õâ¸öµÇÂ½ÊÇ·ñÊÇºÏ·¨µÄ
- * \param accid ÕÊºÅ±àºÅ
- * \param loginTempID µÇÂ½ÁÙÊ±±àºÅ
- * \return ÑéÖ¤ÊÇ·ñ³É¹¦
+ * \brief éªŒè¯å®¢æˆ·ç«¯ç™»é™†ç½‘å…³çš„ä¿¡æ¯
+ * å½“å®¢æˆ·ç«¯ç™»é™†ç½‘å…³çš„æ˜¯å¦ï¼Œéœ€è¦éªŒè¯è¿™ä¸ªç™»é™†æ˜¯å¦æ˜¯åˆæ³•çš„
+ * \param accid å¸å·ç¼–å·
+ * \param loginTempID ç™»é™†ä¸´æ—¶ç¼–å·
+ * \return éªŒè¯æ˜¯å¦æˆåŠŸ
  */
 bool BillManager::login(const DWORD accid, const DWORD loginTempID)
 {
@@ -120,11 +120,11 @@ bool BillManager::login(const DWORD accid, const DWORD loginTempID)
 }
 
 /**
- * \brief µ±ÍË³öµÄÊ±ºò£¬ÐèÒªÇå³ýÍæ¼ÒµÄµÇÂ½»á»°¹ý³Ì
- * ²¢²»ÊÇÂíÉÏÉ¾³ý¼ÇÂ¼£¬¶øÊÇÈÃÕâ¸öÕËºÅËø¶¨Ò»¶ÎÊ±¼ä£¬¿ÉÒÔÓÐÐ§±ÜÃâÖØ¸´µÇÂ½
- * \param accid ÕÊºÅ±àºÅ
- * \param loginTempID µÇÂ½ÁÙÊ±±àºÅ
- * \return ÍË³öµÇÂ½ÊÇ·ñ³É¹¦
+ * \brief å½“é€€å‡ºçš„æ—¶å€™ï¼Œéœ€è¦æ¸…é™¤çŽ©å®¶çš„ç™»é™†ä¼šè¯è¿‡ç¨‹
+ * å¹¶ä¸æ˜¯é©¬ä¸Šåˆ é™¤è®°å½•ï¼Œè€Œæ˜¯è®©è¿™ä¸ªè´¦å·é”å®šä¸€æ®µæ—¶é—´ï¼Œå¯ä»¥æœ‰æ•ˆé¿å…é‡å¤ç™»é™†
+ * \param accid å¸å·ç¼–å·
+ * \param loginTempID ç™»é™†ä¸´æ—¶ç¼–å·
+ * \return é€€å‡ºç™»é™†æ˜¯å¦æˆåŠŸ
  */
 bool BillManager::logout(const DWORD accid, const DWORD loginTempID)
 {
@@ -134,7 +134,7 @@ bool BillManager::logout(const DWORD accid, const DWORD loginTempID)
 			&& loginTempID == it->second.loginTempID
 			&& BillInfo::CONF_LOGIN == it->second.state)
 	{
-		//ÍË³öµÇÂ½µÄÊ±ºò£¬ÐèÒªµÈ´ý2ÃëÖÓµÄÊ±¼ä£¬²ÅÄÜÔÊÐíÏÂÒ»´ÎµÇÂ½
+		//é€€å‡ºç™»é™†çš„æ—¶å€™ï¼Œéœ€è¦ç­‰å¾…2ç§’é’Ÿçš„æ—¶é—´ï¼Œæ‰èƒ½å…è®¸ä¸‹ä¸€æ¬¡ç™»é™†
 		it->second.state = BillInfo::WAIT_LOGIN;
 		it->second.timestamp.now();
 		it->second.timestamp -= (session_timeout_value - 2);

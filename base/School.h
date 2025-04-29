@@ -1,9 +1,9 @@
-/**
+﻿/**
  * \file
  * \version  $Id: School.h $
  * \author  
  * \date 
- * \brief ������Ļ����ṹ
+ * \brief 定义帮会的基本结构
  *
  */
 
@@ -18,14 +18,14 @@
 namespace School
 {
 
-#define MAX_BULLETIN_CHAR_NUMBER 1000          // ������������������ַ���
-#define MAX_PRENTICE 20							// һ�������������յ�ͽ����Ŀ
-#define TEACHER_LEVEL 30						// ����ͽ����Ҫ�ȼ�
-#define CREATE_SCHOOL_REQUEST_LEVEL 60			// �������ɵȼ���Ҫ 60
-#define CREATE_SCHOOL_REQUEST_ITEM_ID 684      // ����������Ҫ����ĿǰΪ������
-#define CREATE_SCHOOL_REQUEST_PRICE_GOLD 100000 // ����������Ҫ�Ľ�Ǯ��Ŀ
-#define FIRST_LAYER_PRENTICE_REQUEST_LEVEL 50   // ���������ߵĵ�һ��ͽ����Ҫ�Ľ�ɫ����
-#define SECOND_LAYER_PRENTICE_REQUEST_LEVEL 40  // ���������ߵĵڶ���ͽ����Ҫ�Ľ�ɫ����
+#define MAX_BULLETIN_CHAR_NUMBER 1000          // 公告牌上允许的最大字符数
+#define MAX_PRENTICE 20							// 一个人最多可以招收的徒弟数目
+#define TEACHER_LEVEL 30						// 招收徒弟需要等级
+#define CREATE_SCHOOL_REQUEST_LEVEL 60			// 创建门派等级需要 60
+#define CREATE_SCHOOL_REQUEST_ITEM_ID 684      // 创建门派需要道具目前为天羽令
+#define CREATE_SCHOOL_REQUEST_PRICE_GOLD 100000 // 创建门派需要的金钱数目
+#define FIRST_LAYER_PRENTICE_REQUEST_LEVEL 50   // 创建门派者的第一层徒弟需要的角色级别
+#define SECOND_LAYER_PRENTICE_REQUEST_LEVEL 40  // 创建门派者的第二层徒孙需要的角色级别
 
 struct stSchoolInfo
 {

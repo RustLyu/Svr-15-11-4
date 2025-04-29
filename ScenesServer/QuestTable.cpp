@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version	$Id: QuestTable.cpp  $
  * \author	
  * \date	2005-03-30
- * \brief	ÈÎÎñÏµÍ³
+ * \brief	ä»»åŠ¡ç³»ç»Ÿ
  * 
  */
  
@@ -20,7 +20,7 @@
 EventTable* EventTable::_instance = NULL;
 
 /**     
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */     
 EventTable::EventTable()
@@ -29,7 +29,7 @@ EventTable::EventTable()
 }
 
 /**     
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */     
 EventTable::~EventTable()
@@ -38,11 +38,11 @@ EventTable::~EventTable()
 }
 
 /**     
- * \brief  µ¥¼şÄ£Ê½,±£Ö¤ÊÂ¼şÇı¶¯±í¸ñµÄÎ¨Ò»ÊµÀı
+ * \brief  å•ä»¶æ¨¡å¼,ä¿è¯äº‹ä»¶é©±åŠ¨è¡¨æ ¼çš„å”¯ä¸€å®ä¾‹
  *
- * ×¢²á´¥·¢Ìõ¼şºÍ¶¯×÷,Éú³É ÊÂ¼şÇı¶¯±í¸ñµÄÎ¨Ò»ÊµÀı
+ * æ³¨å†Œè§¦å‘æ¡ä»¶å’ŒåŠ¨ä½œ,ç”Ÿæˆ äº‹ä»¶é©±åŠ¨è¡¨æ ¼çš„å”¯ä¸€å®ä¾‹
  *      
- * \return ÊÂ¼şÇı¶¯±í¸ñµÄÎ¨Ò»ÊµÀı
+ * \return äº‹ä»¶é©±åŠ¨è¡¨æ ¼çš„å”¯ä¸€å®ä¾‹
  */	
 EventTable& EventTable::instance()
 {
@@ -344,13 +344,13 @@ EventTable& EventTable::instance()
 }
 
 /**     
- * \brief ³õÊ¼»¯Çı¶¯±í¸ñ
+ * \brief åˆå§‹åŒ–é©±åŠ¨è¡¨æ ¼
  *      
- * °´ÕÕ´¥·¢ÊÂ¼şÀàĞÍ³õÊ¼»¯ÏàÓ¦µÄÇı¶¯ÊÂ¼ş½á¹¹
+ * æŒ‰ç…§è§¦å‘äº‹ä»¶ç±»å‹åˆå§‹åŒ–ç›¸åº”çš„é©±åŠ¨äº‹ä»¶ç»“æ„
  
- * \param type: ´¥·¢ÊÂ¼şÀàĞÍ
- * \param file: ´¥·¢ÊÂ¼ş¶¨Òå½Å±¾
- * \return ³õÊ¼»¯³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \param type: è§¦å‘äº‹ä»¶ç±»å‹
+ * \param file: è§¦å‘äº‹ä»¶å®šä¹‰è„šæœ¬
+ * \return åˆå§‹åŒ–æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool EventTable::init(const std::string& type, const std::string& file)
 {
@@ -409,7 +409,7 @@ QuestTable* QuestTable::_instance = NULL;
 const std::string QuestTable::_quest_file = "quests.xml";
 
 /**     
- * \brief ¹¹Ôìº¯Êı
+ * \brief æ„é€ å‡½æ•°
  *
  */    
 QuestTable::QuestTable()
@@ -418,7 +418,7 @@ QuestTable::QuestTable()
 }
 
 /**     
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  *
  */     
 QuestTable::~QuestTable()
@@ -427,10 +427,10 @@ QuestTable::~QuestTable()
 }
 
 /**     
- * \brief  µ¥¼şÄ£Ê½,±£Ö¤ÈÎÎñ±í¸ñµÄÎ¨Ò»ÊµÀı
+ * \brief  å•ä»¶æ¨¡å¼,ä¿è¯ä»»åŠ¡è¡¨æ ¼çš„å”¯ä¸€å®ä¾‹
  *
  *      
- * \return ÈÎÎñ±í¸ñµÄÎ¨Ò»ÊµÀı
+ * \return ä»»åŠ¡è¡¨æ ¼çš„å”¯ä¸€å®ä¾‹
  */	
 QuestTable& QuestTable::instance()
 {
@@ -443,11 +443,11 @@ QuestTable& QuestTable::instance()
 }
 
 /**     
- * \brief ³õÊ¼»¯ÈÎÎñ±í¸ñ
+ * \brief åˆå§‹åŒ–ä»»åŠ¡è¡¨æ ¼
  *      
- * ½âÎöÈÎÎñ½Å±¾,Éú³ÉÈÎÎñ±í¸ñºÍÏàÓ¦µÄÊÂ¼şÇı¶¯±í¸ñ
+ * è§£æä»»åŠ¡è„šæœ¬,ç”Ÿæˆä»»åŠ¡è¡¨æ ¼å’Œç›¸åº”çš„äº‹ä»¶é©±åŠ¨è¡¨æ ¼
  *
- * \return ³õÊ¼»¯³É¹¦·µ»Øtrue,·ñÔò·µ»Øfalse
+ * \return åˆå§‹åŒ–æˆåŠŸè¿”å›true,å¦åˆ™è¿”å›false
  */
 bool QuestTable::init()
 {
@@ -456,7 +456,7 @@ bool QuestTable::init()
 	
 	if (!xml.initFile(Zebra::global["questfile"]))
 	{
-		Zebra::logger->error("¼ÓÔØÈÎÎñÎÄ¼ş %s Ê§°Ü", Zebra::global["questfile"].c_str());
+		Zebra::logger->error("åŠ è½½ä»»åŠ¡æ–‡ä»¶ %s å¤±è´¥", Zebra::global["questfile"].c_str());
 		return false;
 	}
 
@@ -470,7 +470,7 @@ bool QuestTable::init()
 				
 				Quest quest;
 				if (!xml.getNodePropNum(node, "id", &quest._id, sizeof(quest._id))) {
-					Zebra::logger->error("¼ÓÔØÈÎÎñÎÄ¼ş %s Ê§°Ü£¬ÈÎÎñÈ±ÉÙid", Zebra::global["questfile"].c_str());					
+					Zebra::logger->error("åŠ è½½ä»»åŠ¡æ–‡ä»¶ %s å¤±è´¥ï¼Œä»»åŠ¡ç¼ºå°‘id", Zebra::global["questfile"].c_str());					
 					return false;
 				}
 				xml.getNodePropStr(node, "name", quest._title);
@@ -480,10 +480,10 @@ bool QuestTable::init()
 					if (!strcmp((char *)d_e_node->name, "description")) {
 						xmlNodePtr description_node = xml.getChildNode(d_e_node, NULL);
 						if (xml.getNodeContentStr(description_node, quest._description,true))
-							Zebra::logger->debug("ÈÎÎñ(id=%d title=%s)\n", quest._id, quest._title.c_str());
+							Zebra::logger->debug("ä»»åŠ¡(id=%d title=%s)\n", quest._id, quest._title.c_str());
 					}					
 					_quests[quest._id] = quest;
-					Zebra::logger->debug("ÈÎÎñ(id=%d ) descr=%s\n", quest._id, quest._description.c_str());
+					Zebra::logger->debug("ä»»åŠ¡(id=%d ) descr=%s\n", quest._id, quest._description.c_str());
 					if (!strcmp((char *)d_e_node->name, "events")) {	
 
 						xmlNodePtr event_node = xml.getChildNode(d_e_node, NULL);
@@ -515,7 +515,7 @@ bool QuestTable::init()
 			node = xml.getNextNode(node, NULL);
 		}
 		
-		Zebra::logger->info("³õÊ¼»¯ÈÎÎñÏµÍ³³É¹¦");
+		Zebra::logger->info("åˆå§‹åŒ–ä»»åŠ¡ç³»ç»ŸæˆåŠŸ");
 		return true;
 	}
 	
@@ -524,12 +524,12 @@ bool QuestTable::init()
 }
 
 /**     
- * \brief ²éÕÒÈÎÎñĞÅÏ¢
+ * \brief æŸ¥æ‰¾ä»»åŠ¡ä¿¡æ¯
  *      
- * ÔÚÈÎÎñ±í¸ñÖĞ²éÕÒÌØ¶¨idµÄÈÎÎñĞÅÏ¢
+ * åœ¨ä»»åŠ¡è¡¨æ ¼ä¸­æŸ¥æ‰¾ç‰¹å®šidçš„ä»»åŠ¡ä¿¡æ¯
  
- * \param id:ÈÎÎñid
- * \return ²éÕÒµ½µÄÈÎÎñĞÅÏ¢,Ã»ÕÒµ½·µ»ØNULL
+ * \param id:ä»»åŠ¡id
+ * \return æŸ¥æ‰¾åˆ°çš„ä»»åŠ¡ä¿¡æ¯,æ²¡æ‰¾åˆ°è¿”å›NULL
  */
 const Quest* QuestTable::quest(DWORD id) const
 {

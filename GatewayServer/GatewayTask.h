@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: GatewayTask.h  $
  * \author 
  * \date 
- * \brief ¶¨ÒåÍø¹ØÁ¬½ÓÈÎÎñ
+ * \brief å®šä¹‰ç½‘å…³è¿æ¥ä»»åŠ¡
  *
  */
 
@@ -20,7 +20,7 @@
 #include "zTime.h"
 
 /**
- * \brief ·şÎñÆ÷Á¬½ÓÈÎÎñ
+ * \brief æœåŠ¡å™¨è¿æ¥ä»»åŠ¡
  *
  */
 class GatewayTask : public zTCPTask
@@ -42,9 +42,9 @@ class GatewayTask : public zTCPTask
 		bool checkTime(const zRTime &ct);
 
 		/**
-		 * \brief µÃµ½¸ÃÍæ¼ÒµÄÕÊºÅid
+		 * \brief å¾—åˆ°è¯¥ç©å®¶çš„å¸å·id
 		 *
-		 * \return µÃµ½µÄid
+		 * \return å¾—åˆ°çš„id
 		 */
 		DWORD getACCID() const
 		{
@@ -52,10 +52,10 @@ class GatewayTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ÉèÖÃ¸ÃÕÊºÅÊÇ·ñÑéÖ¤Í¨¹ı
+		 * \brief è®¾ç½®è¯¥å¸å·æ˜¯å¦éªŒè¯é€šè¿‡
 		 *
 		 *
-		 * \param ok ÊÇ·ñÍ¨¹ı
+		 * \param ok æ˜¯å¦é€šè¿‡
 		 */
 		void accountVerifyOK(const bool ok)
 		{
@@ -66,7 +66,7 @@ class GatewayTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ÉèÖÃÊÇ·ñÎ´vipÓÃ»§
+		 * \brief è®¾ç½®æ˜¯å¦æœªvipç”¨æˆ·
 		 *
 		 */
 		void setVip(bool vip)
@@ -75,7 +75,7 @@ class GatewayTask : public zTCPTask
 		}
 
 		/**
-		 * \brief ÊÇ·ñÊÇvipÓÃ»§
+		 * \brief æ˜¯å¦æ˜¯vipç”¨æˆ·
 		 *
 		 */
 		bool isVip()
@@ -84,57 +84,57 @@ class GatewayTask : public zTCPTask
 		}
 
 	private:
-		///Êı×ÖÃÜÂë
+		///æ•°å­—å¯†ç 
 		char numPassword[MAX_NUMPASSWORD];
-		/// Êı×ÖÃÜÂëDWORD°æ
+		/// æ•°å­—å¯†ç DWORDç‰ˆ
 		DWORD numPwd;
-		///vipÓÃ»§
+		///vipç”¨æˆ·
 		bool vip_user;
-		///Ê±¼äĞ£¶Ô¶¨Ê±Æ÷
+		///æ—¶é—´æ ¡å¯¹å®šæ—¶å™¨
 		Timer _retset_gametime;
-		///»ØÊÕÑÓÊ±µÈµ½(ºÁÃë)
+		///å›æ”¶å»¶æ—¶ç­‰åˆ°(æ¯«ç§’)
 		DWORD recycle_wait;
-		///Ğ£Ñé¿Í»§¶ËÊ±¼äµÄ¼ä¸ô
+		///æ ¡éªŒå®¢æˆ·ç«¯æ—¶é—´çš„é—´éš”
 		static const unsigned int sampleInterval = 20000;
 		static const unsigned int sampleInterval_sec = sampleInterval/1000;
 		static const unsigned int sampleInterval_error_sec = sampleInterval/1000;
 		static const unsigned int sampleInterval_error_msecs = sampleInterval;
 
-		///ÁÄÌìÏûÏ¢×ª·¢µÄ¼ä¸ô
+		///èŠå¤©æ¶ˆæ¯è½¬å‘çš„é—´éš”
 		static const unsigned int chatInterval = 1000;
-		///ÏÂ´ÎÁÄÌìµÄÊ±¼ä
+		///ä¸‹æ¬¡èŠå¤©çš„æ—¶é—´
 		zRTime nextChatTime;
-		///ÏÂ´Î¹ú¼ÒÁÄÌìµÄÊ±¼ä
+		///ä¸‹æ¬¡å›½å®¶èŠå¤©çš„æ—¶é—´
 		zRTime nextCountryChatTime;
 
-		///¿Í»§¶ËÔÚsampleIntervalÊ±¼äÄÚ·¢ËÍ³¬¹ımaxSamplePPS¸öÊı¾İ°üÔò±»ÅĞ¶ÏÎªÊ¹ÓÃÁËÍâ¹Ò
+		///å®¢æˆ·ç«¯åœ¨sampleIntervalæ—¶é—´å†…å‘é€è¶…è¿‡maxSamplePPSä¸ªæ•°æ®åŒ…åˆ™è¢«åˆ¤æ–­ä¸ºä½¿ç”¨äº†å¤–æŒ‚
 		static const unsigned int maxSamplePPS = 145;
-		///ÉÏ´ÎÇç¿Õv_samplePacketsµÄÊ±¼ä
+		///ä¸Šæ¬¡æ™´ç©ºv_samplePacketsçš„æ—¶é—´
 		DWORD v_lastSampleTime;
-		///Í³¼ÆÊı¾İ°ü¸öÊı
+		///ç»Ÿè®¡æ•°æ®åŒ…ä¸ªæ•°
 		unsigned int v_samplePackets;
 
-		///¸Ãtask³õÊ¼»¯µÄÊ±¼ä
+		///è¯¥taskåˆå§‹åŒ–çš„æ—¶é—´
 		zRTime initTime;
-		///ÉÏ´Î¼ì²é¿Í»§¶ËÊÇ·ñÒÑ¾­Ğ£ÑéÁËÊ±¼äµÄÊ±¼ä
+		///ä¸Šæ¬¡æ£€æŸ¥å®¢æˆ·ç«¯æ˜¯å¦å·²ç»æ ¡éªŒäº†æ—¶é—´çš„æ—¶é—´
 		zRTime lastCheckTime;
-		///ÊÇ·ñÒÑ¾­Ğ£ÑéÁËÊ±¼ä
+		///æ˜¯å¦å·²ç»æ ¡éªŒäº†æ—¶é—´
 		volatile bool haveCheckTime;
 
 		friend class GateUser;
-		///Ê¹ÓÃ¸ÃÁ¬½ÓµÄÍæ¼Ò
+		///ä½¿ç”¨è¯¥è¿æ¥çš„ç©å®¶
 		GateUser *pUser;
 
-		///ÏûÏ¢¼ì²é¹¤¾ß
+		///æ¶ˆæ¯æ£€æŸ¥å·¥å…·
 		//CheckerTable checker;
 		/**
-		 * \brief ÕËºÅ±àºÅ
+		 * \brief è´¦å·ç¼–å·
 		 *
 		 */
 		DWORD accid;
 
 		/**     
-		 ** \brief ÓÎÏ·Ê±¼ä
+		 ** \brief æ¸¸æˆæ—¶é—´
 		 **
 		 **/
 		QWORD qwGameTime;
@@ -142,17 +142,17 @@ class GatewayTask : public zTCPTask
 		QWORD dwTimestampServer;
 
 		/**
-		  * \brief ÓÃ»§ÕÊºÅ
+		  * \brief ç”¨æˆ·å¸å·
 		  *
 		  *
 		  */
 		char account[MAX_ACCNAMESIZE+1];
 
-		///µÇÂ¼Ê±·ÖÅäµÄÁÙÊ±id
+		///ç™»å½•æ—¶åˆ†é…çš„ä¸´æ—¶id
 		DWORD loginTempID;
-		///ÊÇ·ñÑéÖ¤ÁË°æ±¾
+		///æ˜¯å¦éªŒè¯äº†ç‰ˆæœ¬
 		bool versionVerified;
-		///ÕÊºÅÑéÖ¤µÄ×´Ì¬
+		///å¸å·éªŒè¯çš„çŠ¶æ€
 		enum
 		{
 			ACCOUNTVERIFY_NONE,

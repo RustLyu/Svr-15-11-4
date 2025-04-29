@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleregClientManager.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå½ÇÉ«Ãû³ÆÎ¨Ò»ĞÔÑéÖ¤·şÎñÁ¬½ÓµÄ¿Í»§¶Ë¹ÜÀíÈİÆ÷
+ * \brief å®šä¹‰è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡è¿æ¥çš„å®¢æˆ·ç«¯ç®¡ç†å®¹å™¨
  */
 
 
@@ -19,7 +19,7 @@
 #include "zRWLock.h"
 
 /**
- * \brief ¶¨Òå½ÇÉ«Ãû³ÆÎ¨Ò»ĞÔÑéÖ¤·şÎñÁ¬½ÓµÄ¿Í»§¶Ë¹ÜÀíÈİÆ÷
+ * \brief å®šä¹‰è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡è¿æ¥çš„å®¢æˆ·ç«¯ç®¡ç†å®¹å™¨
  */
 class RoleregClientManager
 {
@@ -29,8 +29,8 @@ class RoleregClientManager
 		~RoleregClientManager();
 
 		/**
-		 * \brief »ñÈ¡ÀàµÄÎ¨Ò»ÊµÀı
-		 * \return ÀàµÄÎ¨Ò»ÊµÀıÒıÓÃ
+		 * \brief è·å–ç±»çš„å”¯ä¸€å®ä¾‹
+		 * \return ç±»çš„å”¯ä¸€å®ä¾‹å¼•ç”¨
 		 */
 		static RoleregClientManager &getInstance()
 		{
@@ -41,7 +41,7 @@ class RoleregClientManager
 		}
 
 		/**
-		 * \brief Ïú»ÙÀàµÄÎ¨Ò»ÊµÀı
+		 * \brief é”€æ¯ç±»çš„å”¯ä¸€å®ä¾‹
 		 */
 		static void delInstance()
 		{
@@ -60,11 +60,11 @@ class RoleregClientManager
 		static RoleregClientManager *instance;
 
 		/**
-		 * \brief ¿Í»§¶ËÁ¬½Ó¹ÜÀí³Ø
+		 * \brief å®¢æˆ·ç«¯è¿æ¥ç®¡ç†æ± 
 		 */
 		zTCPClientTaskPool *roleregClientPool;
 		/**
-		 * \brief ½øĞĞ¶ÏÏßÖØÁ¬¼ì²âµÄÊ±¼ä¼ÇÂ¼
+		 * \brief è¿›è¡Œæ–­çº¿é‡è¿æ£€æµ‹çš„æ—¶é—´è®°å½•
 		 */
 		zTime actionTimer;
 
@@ -76,17 +76,17 @@ class RoleregClientManager
 			}
 		};
 		/**
-		 * \brief ´æ·ÅÁ¬½ÓÒÑ¾­³É¹¦µÄÁ¬½ÓÈİÆ÷ÀàĞÍ
+		 * \brief å­˜æ”¾è¿æ¥å·²ç»æˆåŠŸçš„è¿æ¥å®¹å™¨ç±»å‹
 		 */
 		typedef std::multiset<RoleregClient *, lt_client> RoleregClient_set;
 		typedef RoleregClient_set::iterator iter;
 		typedef RoleregClient_set::const_iterator const_iter;
 		/**
-		 * \brief ´æ·ÅÁ¬½ÓÒÑ¾­³É¹¦µÄÁ¬½ÓÈİÆ÷
+		 * \brief å­˜æ”¾è¿æ¥å·²ç»æˆåŠŸçš„è¿æ¥å®¹å™¨
 		 */
 		RoleregClient_set allClients;
 		/**
-		 * \brief ÈİÆ÷·ÃÎÊ¶ÁĞ´Ëø
+		 * \brief å®¹å™¨è®¿é—®è¯»å†™é”
 		 */
 		zRWLock rwlock;
 

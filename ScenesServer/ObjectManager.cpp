@@ -1,4 +1,4 @@
-#include "ObjectManager.h"
+ï»¿#include "ObjectManager.h"
 #include "Zebra.h"
 #include "zMisc.h"
 #include "zObject.h"
@@ -35,38 +35,38 @@ bool GlobalObjectIndex::addObject(zObject * o)
 	{
 		mlock.lock();
 		zObject *ret =(zObject *)getEntryByID(o->id);
-		if(ret)//ÎïÆ·ÖØ¸´´¦Àí
+		if(ret)//ç‰©å“é‡å¤å¤„ç†
 		{
 			if(ret==o)
 			{
 				bret=true;
-				Zebra::logger->debug("È«¾ÖÎïÆ·¹ÜÀíÆ÷ÖĞ·¢ÏÖÓĞÖØ¸´Ìí¼ÓÎïÆ·(%s,%d)",ret->data.strName,ret->data.qwThisID);
+				Zebra::logger->debug("å…¨å±€ç‰©å“ç®¡ç†å™¨ä¸­å‘ç°æœ‰é‡å¤æ·»åŠ ç‰©å“(%s,%d)",ret->data.strName,ret->data.qwThisID);
 			}
 			else if(ret->createtime==o->createtime && ret->data.dwObjectID==o->data.dwObjectID && ret->data.qwThisID == o->data.qwThisID)
 			{
-				Zebra::logger->debug("¸´ÖÆÎïÆ·:%s ´´½¨Ê±¼ä:%llu",
+				Zebra::logger->debug("å¤åˆ¶ç‰©å“:%s åˆ›å»ºæ—¶é—´:%llu",
 						ret->name,ret->createid);
 				ret=false;
 			}
 			else
 			{
-				Zebra::logger->debug("id³åÍ»%s(%d)", ret->name, ret->id);
+				Zebra::logger->debug("idå†²çª%s(%d)", ret->name, ret->id);
 				do {
-					//ÖØĞÂÉú³ÉID
+					//é‡æ–°ç”ŸæˆID
 					o->generateThisID();
 					bret = addEntry((zEntry *)o);
 				} while (!bret);
-				//if (!bret) Zebra::logger->fatal("Ìí¼ÓÎïÆ·µ½ÎïÆ·±íÊ§°Ü1");
+				//if (!bret) Zebra::logger->fatal("æ·»åŠ ç‰©å“åˆ°ç‰©å“è¡¨å¤±è´¥1");
 			}
 		}
 		else
 		{
 			bret=addEntry((zEntry *)o);
-			if(!bret) Zebra::logger->fatal("Ìí¼ÓÎïÆ·µ½ÎïÆ·±íÊ§°Ü");
+			if(!bret) Zebra::logger->fatal("æ·»åŠ ç‰©å“åˆ°ç‰©å“è¡¨å¤±è´¥");
 		}
 		mlock.unlock();
 	}else {
-		Zebra::logger->fatal("Ìí¼Ó·Ç·¨ÎïÆ·");
+		Zebra::logger->fatal("æ·»åŠ éæ³•ç‰©å“");
 	}
 	
 	return bret;
@@ -150,7 +150,7 @@ void UserObjectM::execEvery(UserObjectExec &exec)
 	{
 
 		zObject* tmp = (zObject *)it->second;
-		//			Zebra::logger->debug("ÎïÆ·%s(%d, %d, %d, %d)", tmp->name, tmp->data.pos.dwLocation, tmp->data.pos.dwTableID, tmp->data.pos.x, tmp->data.pos.y);
+		//			Zebra::logger->debug("ç‰©å“%s(%d, %d, %d, %d)", tmp->name, tmp->data.pos.dwLocation, tmp->data.pos.dwTableID, tmp->data.pos.x, tmp->data.pos.y);
 		if (tmp->data.pos.tab()) {
 			/*
 			   if (a.empty() || a[0]->data.pos.dwTableID == tmp->data.pos.dwTableID) {
@@ -169,13 +169,13 @@ void UserObjectM::execEvery(UserObjectExec &exec)
 	
 	Obj_vec::iterator it;
 	for (it=a.begin(); it!=a.end(); ++it) {
-//		Zebra::logger->debug("ÎïÆ·%s(%d, %d, %d)", (*it)->name, (*it)->data.pos.dwLocation, (*it)->data.pos.dwTableID, (*it)->data.pos.x, (*it)->data.pos.y);		
+//		Zebra::logger->debug("ç‰©å“%s(%d, %d, %d)", (*it)->name, (*it)->data.pos.dwLocation, (*it)->data.pos.dwTableID, (*it)->data.pos.x, (*it)->data.pos.y);		
 		if(!exec.exec(*it))
 			return;
 	}
 /*
 	for (it=b.begin(); it!=b.end(); ++it) {
-//		Zebra::logger->debug("ÎïÆ·%s(%d, %d, %d)", (*it)->name, (*it)->data.pos.dwLocation, (*it)->data.pos.dwTableID, (*it)->data.pos.x, (*it)->data.pos.y);		
+//		Zebra::logger->debug("ç‰©å“%s(%d, %d, %d)", (*it)->name, (*it)->data.pos.dwLocation, (*it)->data.pos.dwTableID, (*it)->data.pos.x, (*it)->data.pos.y);		
 		if(!exec.exec(*it))
 			return;
 	}
@@ -184,14 +184,14 @@ void UserObjectM::execEvery(UserObjectExec &exec)
 }
 
 /**
- * \brief ÅĞ¶Ï°ü¹üÖĞÄ³ÎïÆ·ÊÇ·ñ¾ßÓĞÖ¸¶¨µÄÊıÁ¿
+ * \brief åˆ¤æ–­åŒ…è£¹ä¸­æŸç‰©å“æ˜¯å¦å…·æœ‰æŒ‡å®šçš„æ•°é‡
  * moved from MainPack for support multi packages
- * \param id: ÎïÆ·µÄobjectid
- * \param number: ÒªÇóµÄÊıÁ¿
- * \param upgrade: ÎïÆ·µÈ¼¶ £¬»òÎïÆ·ÀàĞÍ£¬¸ù¾İtype²ÎÊıÅĞ¶Ï
- * \param type: ±È½ÏÀàĞÍ0ÎªÎïÆ·Æ·µÈ¼¶£¬1ÎªÎïÆ·ÀàĞÍ
+ * \param id: ç‰©å“çš„objectid
+ * \param number: è¦æ±‚çš„æ•°é‡
+ * \param upgrade: ç‰©å“ç­‰çº§ ï¼Œæˆ–ç‰©å“ç±»å‹ï¼Œæ ¹æ®typeå‚æ•°åˆ¤æ–­
+ * \param type: æ¯”è¾ƒç±»å‹0ä¸ºç‰©å“å“ç­‰çº§ï¼Œ1ä¸ºç‰©å“ç±»å‹
  * \author lqy
- * \return °ü¹üÖĞÎïÆ·ÊıÁ¿´óÓÚµÈÓÚ¸ø¶¨µÄÊıÁ¿·µ»ØÄ³Ò»¸öÎïÆ·µÄthisid£¬·ñÔò·µ»Ø0
+ * \return åŒ…è£¹ä¸­ç‰©å“æ•°é‡å¤§äºç­‰äºç»™å®šçš„æ•°é‡è¿”å›æŸä¸€ä¸ªç‰©å“çš„thisidï¼Œå¦åˆ™è¿”å›0
  */
 DWORD UserObjectM::exist(DWORD id, DWORD number, BYTE upgrade , BYTE type) const
 {
@@ -250,12 +250,12 @@ int UserObjectM::space(const SceneUser* user) const
 }
 
 /**
- * \brief ¸ù¾İÎïÆ·idÔÚ°ü¹üÖĞ²éÕÒÃ»ÓĞµ½´ï×î´óÊıÁ¿µÄÎïÆ·,Èç¹û°ü¹üÖĞÓĞ¶à¸öÏàÍ¬IDÎïÆ·,Ôò°´ÔÚ°ü¹üÖĞµÄË³Ğò·µ»Ø
- * \param id: ÎïÆ·µÄobjectid
- * \param upgrade: ÎïÆ·µÈ¼¶
- * \param not_need_space: ÊÇ·ñĞèÒªÓĞÊ£Óà¿Õ¼ä
+ * \brief æ ¹æ®ç‰©å“idåœ¨åŒ…è£¹ä¸­æŸ¥æ‰¾æ²¡æœ‰åˆ°è¾¾æœ€å¤§æ•°é‡çš„ç‰©å“,å¦‚æœåŒ…è£¹ä¸­æœ‰å¤šä¸ªç›¸åŒIDç‰©å“,åˆ™æŒ‰åœ¨åŒ…è£¹ä¸­çš„é¡ºåºè¿”å›
+ * \param id: ç‰©å“çš„objectid
+ * \param upgrade: ç‰©å“ç­‰çº§
+ * \param not_need_space: æ˜¯å¦éœ€è¦æœ‰å‰©ä½™ç©ºé—´
  * \author lqy
- * \return ÕÒµ½Ôò·µ»Ø¸ÃÎïÆ·ÊµÀı,·ñÔò·µ»ØNULL
+ * \return æ‰¾åˆ°åˆ™è¿”å›è¯¥ç‰©å“å®ä¾‹,å¦åˆ™è¿”å›NULL
  */
 zObject* UserObjectM::getObjectByID(DWORD id, BYTE upgrade, bool not_need_space) const
 {
@@ -274,15 +274,15 @@ zObject* UserObjectM::getObjectByID(DWORD id, BYTE upgrade, bool not_need_space)
 
 #include "RebuildObject.h"
 /**
- * \brief ¸ù¾İÎïÆ·idµ÷ÕûÎïÆ·ÔÚ°ü¹üÖĞµÄÊıÁ¿,Èç¹û´óÓÚ¸ÃÎïÆ·×î´óÊıÁ¿Ôò´´½¨Ò»¸öĞÂÎïÆ·
- * \param user: Òª¸Ä±ä°ü¹üµÄÓÃ»§
- * \param id: ÎïÆ·µÄobjectid
- * \param number: Ôö¼ÓµÄÊıÁ¿
- * \param orig_ob: ÊıÁ¿±»¸Ä±äµÄÎïÆ·,Èç¹ûÃ»ÓĞÎïÆ·ÊıÁ¿±»¸Ä±ä,¸Ã²ÎÊı±»ºöÂÔ
- * \param new_obs: ĞÂ´´½¨µÄÎïÆ·µÄÁĞ±í,Èç¹ûÃ»ÓĞÎïÆ·±»´´½¨,¸Ã²ÎÊı±»ºöÂÔ
- * \param upgrade: ÎïÆ·µÈ¼¶
+ * \brief æ ¹æ®ç‰©å“idè°ƒæ•´ç‰©å“åœ¨åŒ…è£¹ä¸­çš„æ•°é‡,å¦‚æœå¤§äºè¯¥ç‰©å“æœ€å¤§æ•°é‡åˆ™åˆ›å»ºä¸€ä¸ªæ–°ç‰©å“
+ * \param user: è¦æ”¹å˜åŒ…è£¹çš„ç”¨æˆ·
+ * \param id: ç‰©å“çš„objectid
+ * \param number: å¢åŠ çš„æ•°é‡
+ * \param orig_ob: æ•°é‡è¢«æ”¹å˜çš„ç‰©å“,å¦‚æœæ²¡æœ‰ç‰©å“æ•°é‡è¢«æ”¹å˜,è¯¥å‚æ•°è¢«å¿½ç•¥
+ * \param new_obs: æ–°åˆ›å»ºçš„ç‰©å“çš„åˆ—è¡¨,å¦‚æœæ²¡æœ‰ç‰©å“è¢«åˆ›å»º,è¯¥å‚æ•°è¢«å¿½ç•¥
+ * \param upgrade: ç‰©å“ç­‰çº§
  * \author lqy
- * \return Ê§°Ü·µ»Ø-1, Ã»ÓĞÎïÆ·±»´´½¨·µ»Ø0, °ü¹üÂú·µ»Ø1, ³É¹¦Ìí¼ÓËùÓĞ´´½¨µÄÎïÆ··µ»Ø2
+ * \return å¤±è´¥è¿”å›-1, æ²¡æœ‰ç‰©å“è¢«åˆ›å»ºè¿”å›0, åŒ…è£¹æ»¡è¿”å›1, æˆåŠŸæ·»åŠ æ‰€æœ‰åˆ›å»ºçš„ç‰©å“è¿”å›2
  */
 int UserObjectM::addObjectNum(SceneUser* user, DWORD id, DWORD number, zObject* & orig_ob, Obj_vec& new_obs, BYTE upgrade)
 {
@@ -316,12 +316,12 @@ int UserObjectM::addObjectNum(SceneUser* user, DWORD id, DWORD number, zObject* 
 			maker.assign(NULL, tmp, tmp->base);
 			
 			if (user->packs.addObject(tmp, true, AUTO_PACK)) {
-				//Èç¹ûÊÇË«±¶¾­ÑéµÀ¾ßºÍÈÙÓşµÀ¾ßĞèÒª°ó¶¨
+				//å¦‚æœæ˜¯åŒå€ç»éªŒé“å…·å’Œè£èª‰é“å…·éœ€è¦ç»‘å®š
 				if(tmp->base->kind == ItemType_DoubleExp || tmp->base->kind == ItemType_Honor || tmp->base->kind == ItemType_ClearProperty)
 				{
 					tmp->data.bind=1;
 				}
-			zObject::logger(tmp->createid,tmp->data.qwThisID,tmp->data.strName,tmp->data.dwNum,tmp->data.dwNum,1,0,NULL,user->id,user->name,"ĞÂÔö",tmp->base,tmp->data.kind,tmp->data.upgrade);
+			zObject::logger(tmp->createid,tmp->data.qwThisID,tmp->data.strName,tmp->data.dwNum,tmp->data.dwNum,1,0,NULL,user->id,user->name,"æ–°å¢",tmp->base,tmp->data.kind,tmp->data.upgrade);
 				new_obs.push_back(tmp);		
 			}else {
 				//maybe package is full, stop process, but still return true
@@ -336,15 +336,15 @@ int UserObjectM::addObjectNum(SceneUser* user, DWORD id, DWORD number, zObject* 
 }
 
 /**
- * \brief ¸ù¾İÎïÆ·idµ÷ÕûÎïÆ·ÔÚ°ü¹üÖĞµÄÊıÁ¿,Èç¹û´óÓÚ¸ÃÎïÆ·×î´óÊıÁ¿Ôò´´½¨Ò»¸öĞÂÎïÆ·²¢ÇÒ°ó¶¨(Ö»ÓÃÓÚÈÎÎñ½Ó¿ÚÇëÎğËæ±ãµ÷ÓÃ)
- * \param user: Òª¸Ä±ä°ü¹üµÄÓÃ»§
- * \param id: ÎïÆ·µÄobjectid
- * \param number: Ôö¼ÓµÄÊıÁ¿
- * \param orig_ob: ÊıÁ¿±»¸Ä±äµÄÎïÆ·,Èç¹ûÃ»ÓĞÎïÆ·ÊıÁ¿±»¸Ä±ä,¸Ã²ÎÊı±»ºöÂÔ
- * \param new_obs: ĞÂ´´½¨µÄÎïÆ·µÄÁĞ±í,Èç¹ûÃ»ÓĞÎïÆ·±»´´½¨,¸Ã²ÎÊı±»ºöÂÔ
- * \param upgrade: ÎïÆ·µÈ¼¶
+ * \brief æ ¹æ®ç‰©å“idè°ƒæ•´ç‰©å“åœ¨åŒ…è£¹ä¸­çš„æ•°é‡,å¦‚æœå¤§äºè¯¥ç‰©å“æœ€å¤§æ•°é‡åˆ™åˆ›å»ºä¸€ä¸ªæ–°ç‰©å“å¹¶ä¸”ç»‘å®š(åªç”¨äºä»»åŠ¡æ¥å£è¯·å‹¿éšä¾¿è°ƒç”¨)
+ * \param user: è¦æ”¹å˜åŒ…è£¹çš„ç”¨æˆ·
+ * \param id: ç‰©å“çš„objectid
+ * \param number: å¢åŠ çš„æ•°é‡
+ * \param orig_ob: æ•°é‡è¢«æ”¹å˜çš„ç‰©å“,å¦‚æœæ²¡æœ‰ç‰©å“æ•°é‡è¢«æ”¹å˜,è¯¥å‚æ•°è¢«å¿½ç•¥
+ * \param new_obs: æ–°åˆ›å»ºçš„ç‰©å“çš„åˆ—è¡¨,å¦‚æœæ²¡æœ‰ç‰©å“è¢«åˆ›å»º,è¯¥å‚æ•°è¢«å¿½ç•¥
+ * \param upgrade: ç‰©å“ç­‰çº§
  * \author lqy
- * \return Ê§°Ü·µ»Ø-1, Ã»ÓĞÎïÆ·±»´´½¨·µ»Ø0, °ü¹üÂú·µ»Ø1, ³É¹¦Ìí¼ÓËùÓĞ´´½¨µÄÎïÆ··µ»Ø2
+ * \return å¤±è´¥è¿”å›-1, æ²¡æœ‰ç‰©å“è¢«åˆ›å»ºè¿”å›0, åŒ…è£¹æ»¡è¿”å›1, æˆåŠŸæ·»åŠ æ‰€æœ‰åˆ›å»ºçš„ç‰©å“è¿”å›2
  */
 int UserObjectM::addGreenObjectNum(SceneUser* user, DWORD id, DWORD number, zObject* & orig_ob, Obj_vec& new_obs, BYTE upgrade)
 {
@@ -379,7 +379,7 @@ int UserObjectM::addGreenObjectNum(SceneUser* user, DWORD id, DWORD number, zObj
 			maker.assign(NULL, tmp, tmp->base, true, 6);
 			
 			if (user->packs.addObject(tmp, true, AUTO_PACK)) {
-				zObject::logger(tmp->createid,tmp->data.qwThisID,tmp->data.strName,tmp->data.dwNum,tmp->data.dwNum,1,0,NULL,user->id,user->name,"ĞÂÔö",tmp->base,tmp->data.kind,tmp->data.upgrade);
+				zObject::logger(tmp->createid,tmp->data.qwThisID,tmp->data.strName,tmp->data.dwNum,tmp->data.dwNum,1,0,NULL,user->id,user->name,"æ–°å¢",tmp->base,tmp->data.kind,tmp->data.upgrade);
 				new_obs.push_back(tmp);		
 			}else {
 				//maybe package is full, stop process, but still return true
@@ -394,15 +394,15 @@ int UserObjectM::addGreenObjectNum(SceneUser* user, DWORD id, DWORD number, zObj
 }
 
 /**
- * \brief ¸ù¾İÎïÆ·idµ÷ÕûÎïÆ·ÔÚ°ü¹üÖĞµÄÊıÁ¿
- * \param user: Òª¸Ä±ä°ü¹üµÄÓÃ»§
- * \param id: ÎïÆ·µÄobjectid
- * \param number: ¼õÉÙµÄÊıÁ¿
- * \param update_ob: ÊıÁ¿±»¸Ä±äµÄÎïÆ·,Èç¹ûÃ»ÓĞÎïÆ·ÊıÁ¿±»¸Ä±ä,¸Ã²ÎÊı±»ºöÂÔ
- * \param del_obs: ±»É¾³ıµÄÎïÆ·ÁĞ±í
- * \param upgrade: ÎïÆ·µÈ¼¶
+ * \brief æ ¹æ®ç‰©å“idè°ƒæ•´ç‰©å“åœ¨åŒ…è£¹ä¸­çš„æ•°é‡
+ * \param user: è¦æ”¹å˜åŒ…è£¹çš„ç”¨æˆ·
+ * \param id: ç‰©å“çš„objectid
+ * \param number: å‡å°‘çš„æ•°é‡
+ * \param update_ob: æ•°é‡è¢«æ”¹å˜çš„ç‰©å“,å¦‚æœæ²¡æœ‰ç‰©å“æ•°é‡è¢«æ”¹å˜,è¯¥å‚æ•°è¢«å¿½ç•¥
+ * \param del_obs: è¢«åˆ é™¤çš„ç‰©å“åˆ—è¡¨
+ * \param upgrade: ç‰©å“ç­‰çº§
  * \author lqy
- * \return Ê§°Ü·µ»Ø-1, ·ñÔò·µ»Ø0
+ * \return å¤±è´¥è¿”å›-1, å¦åˆ™è¿”å›0
  */
 int UserObjectM::reduceObjectNum(SceneUser* user, DWORD id, DWORD number, zObject*& update_ob, ObjID_vec& del_obs, BYTE upgrade)
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: OfflineMessage.h  $
  * \author  
  * \date 
- * \brief ÀëÏßÏûÏ¢¹ÜÀíÀà
+ * \brief ç¦»çº¿æ¶ˆæ¯ç®¡ç†ç±»
  *
  */
 
@@ -19,9 +19,9 @@ class UserSession;
 
 
 /**
- * \brief ÀëÏßÏûÏ¢¹ÜÀíÆ÷
+ * \brief ç¦»çº¿æ¶ˆæ¯ç®¡ç†å™¨
  *
- * Ìá¹©ÁË¶ÔÀëÏßÏûÏ¢µÄ¹ÜÀí
+ * æä¾›äº†å¯¹ç¦»çº¿æ¶ˆæ¯çš„ç®¡ç†
  *
  */
 class COfflineMessage

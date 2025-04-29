@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: RoleregClient.h  $
  * \author  
  * \date 
- * \brief ¶¨Òå½ÇÉ«Ãû³ÆÎ¨Ò»ĞÔÑéÖ¤·şÎñÁ¬½ÓµÄ¿Í»§¶Ë
+ * \brief å®šä¹‰è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯æœåŠ¡è¿æ¥çš„å®¢æˆ·ç«¯
  */
 
 #ifndef _RoleregClient_h_
@@ -14,7 +14,7 @@
 #include "NetType.h"
 
 /**
- * \brief ½ÇÉ«Ãû³ÆÎ¨Ò»ĞÔÑéÖ¤¿Í»§¶ËÁ¬½ÓÀà
+ * \brief è§’è‰²åç§°å”¯ä¸€æ€§éªŒè¯å®¢æˆ·ç«¯è¿æ¥ç±»
  */
 class RoleregClient : public zTCPClientTask
 {

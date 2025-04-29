@@ -1,4 +1,4 @@
-#include "myrc5.h"
+﻿#include "myrc5.h"
 
 void RC5_32_set_key(RC5_32_KEY *key, int len, const unsigned char *data,
 		    int rounds)

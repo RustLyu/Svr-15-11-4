@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zScene.h  $
  * \author  
  * \date 
- * \brief ³¡¾°¶¨Òå
+ * \brief åœºæ™¯å®šä¹‰
  */
 
 #ifndef _ZSCENE_H_
@@ -12,12 +12,12 @@
 #include "zEntry.h"
 
 enum enumSceneRunningState{
-	SCENE_RUNNINGSTATE_NORMAL,//Õı³£ÔËĞĞ
-	SCENE_RUNNINGSTATE_UNLOAD,//ÕıÔÚĞ¶ÔØ
-	SCENE_RUNNINGSTATE_REMOVE,//ÕıÔÚĞ¶ÔØ
+	SCENE_RUNNINGSTATE_NORMAL,//æ­£å¸¸è¿è¡Œ
+	SCENE_RUNNINGSTATE_UNLOAD,//æ­£åœ¨å¸è½½
+	SCENE_RUNNINGSTATE_REMOVE,//æ­£åœ¨å¸è½½
 };
 /**
- * \brief ³¡¾°»ù±¾ĞÅÏ¢¶¨Òå
+ * \brief åœºæ™¯åŸºæœ¬ä¿¡æ¯å®šä¹‰
  */
 struct zScene:public zEntry
 {

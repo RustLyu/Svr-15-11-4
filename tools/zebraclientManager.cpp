@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: zebraclientManager.cpp  $
  * \author   
  * \date
- * \brief »úÆ÷ÈË¹ÜÀíÆ÷
+ * \brief æœºå™¨äººç®¡ç†å™¨
  *
  * 
  */

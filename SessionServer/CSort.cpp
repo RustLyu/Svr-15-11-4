@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: CSort.cpp $
  * \author  
  * \date 
- * \brief ÊµÏÖµÈ¼¶ÅÅĞò¹¦ÄÜ
+ * \brief å®ç°ç­‰çº§æ’åºåŠŸèƒ½
  *
  */
 
@@ -16,7 +16,7 @@
 CSortM *CSortM::csm(NULL);
 
 /*
-* \brief ¹ÜÀíÆ÷¹¹Ôìº¯Êı
+* \brief ç®¡ç†å™¨æ„é€ å‡½æ•°
 * \author fqnewman
 */
 CSortM::CSortM()
@@ -24,7 +24,7 @@ CSortM::CSortM()
 }
 
 /**
-* \brief ¹ÜÀíÆ÷Îö¹¹º¯Êı
+* \brief ç®¡ç†å™¨ææ„å‡½æ•°
 * \author fqnewman
 */
 CSortM::~CSortM()
@@ -34,7 +34,7 @@ CSortM::~CSortM()
 }
 
 /**
-* \brief Ö÷¶¯ÊÍ·Å¹ÜÀíÆ÷
+* \brief ä¸»åŠ¨é‡Šæ”¾ç®¡ç†å™¨
 * \author fqnewman
 */
 void CSortM::destroyMe()
@@ -43,7 +43,7 @@ void CSortM::destroyMe()
 }
 
 /**
-* \brief »ñÈ¡Î¨Ò»¶ÔÏóÊµÀı
+* \brief è·å–å”¯ä¸€å¯¹è±¡å®ä¾‹
 * \author fqnewman
 */
 CSortM& CSortM::getMe()
@@ -54,7 +54,7 @@ CSortM& CSortM::getMe()
 }
 
 /**
-* \brief ³õÊ¼»¯ÅÅ¶ÓÏµÍ³
+* \brief åˆå§‹åŒ–æ’é˜Ÿç³»ç»Ÿ
 * \author fqnewman
 */
 bool CSortM::init()
@@ -68,18 +68,18 @@ bool CSortM::init()
 		{ NULL, 0, 0}
 	};
 
-	struct 											// Êı¾İ¿â¶ÁÈ¡½á¹¹£¬Çë²»ÒªËæÒâĞŞ¸Ä£¬ĞŞ¸Ä×¢Òâ¸üĞÂËùÓĞ´úÂë
+	struct 											// æ•°æ®åº“è¯»å–ç»“æ„ï¼Œè¯·ä¸è¦éšæ„ä¿®æ”¹ï¼Œä¿®æ”¹æ³¨æ„æ›´æ–°æ‰€æœ‰ä»£ç 
 	{
-		DWORD		dwCharID;  			// ½ÇÉ«ID
-		WORD		wdLevel;   			// ÈËÎïµÈ¼¶
-		QWORD 		qwExp;				// ÈËÎï¾­Ñé
+		DWORD		dwCharID;  			// è§’è‰²ID
+		WORD		wdLevel;   			// äººç‰©ç­‰çº§
+		QWORD 		qwExp;				// äººç‰©ç»éªŒ
 	}__attribute__ ((packed))	*recordList,*tempPoint;
 
 	recordList = NULL;
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -103,15 +103,15 @@ bool CSortM::init()
 	}
 	else
 	{
-		Zebra::logger->error("½ÇÉ«ÅÅĞòÊı¾İ³õÊ¼»¯Ê§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("è§’è‰²æ’åºæ•°æ®åˆå§‹åŒ–å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 	}
 	return false;
 }
 
 /**
-* \brief Çå¿Õ½ÇÉ«ÅÅĞò±í¼ÇÂ¼
+* \brief æ¸…ç©ºè§’è‰²æ’åºè¡¨è®°å½•
 * \author fqnewman
-* \return true ³É¹¦  false Ê§°Ü
+* \return true æˆåŠŸ  false å¤±è´¥
 */
 bool CSortM::clearDBTable()
 {
@@ -119,26 +119,26 @@ bool CSortM::clearDBTable()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 	unsigned int retcode = SessionService::dbConnPool->exeDelete(handle, "`SORTLIST`", NULL);
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("Çå³ı½ÇÉ«ÅÅĞò±í´íÎó");
+		Zebra::logger->error("æ¸…é™¤è§’è‰²æ’åºè¡¨é”™è¯¯");
 		return false;
 	}
 	return true;
 }
 
 /**
-* \brief ½¨Á¢ÅÅ¶Ó¼ÇÂ¼
-* \param dwCharID ½ÇÉ«ID
-* \param wdLevel  ½ÇÉ«µÈ¼¶
-* \param qwExp    ½ÇÉ«¾­Ñé
+* \brief å»ºç«‹æ’é˜Ÿè®°å½•
+* \param dwCharID è§’è‰²ID
+* \param wdLevel  è§’è‰²ç­‰çº§
+* \param qwExp    è§’è‰²ç»éªŒ
 * \author fqnewman
-* \return true ³É¹¦  false Ê§°Ü
+* \return true æˆåŠŸ  false å¤±è´¥
 */
 bool CSortM::createDBRecord()
 {
@@ -159,7 +159,7 @@ bool CSortM::createDBRecord()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -177,8 +177,8 @@ bool CSortM::createDBRecord()
 
 
 /**
-* \brief ½ÇÉ«ÉÏÏß´¦Àí
-* \param pUser µ±Ç°½ÇÉ«
+* \brief è§’è‰²ä¸Šçº¿å¤„ç†
+* \param pUser å½“å‰è§’è‰²
 * \author fqnewman
 */
 void CSortM::onlineCount(UserSession *pUser)
@@ -188,10 +188,10 @@ void CSortM::onlineCount(UserSession *pUser)
 }
 
 /**
-* \brief ½ÇÉ«ÉÏÏß´¦Àí
-* \param dwCharID ½ÇÉ«ID
-* \param wdLevel  ½ÇÉ«µÈ¼¶
-* \param qwExp    ½ÇÉ«¾­Ñé
+* \brief è§’è‰²ä¸Šçº¿å¤„ç†
+* \param dwCharID è§’è‰²ID
+* \param wdLevel  è§’è‰²ç­‰çº§
+* \param qwExp    è§’è‰²ç»éªŒ
 * \author fqnewman
 */
 void CSortM::onlineCount(DWORD dwCharID, WORD wdLevel, QWORD qwExp)
@@ -207,7 +207,7 @@ void CSortM::onlineCount(DWORD dwCharID, WORD wdLevel, QWORD qwExp)
 	std::map<QWORD,DWORD>::iterator sIterator;
 
 	tIterator = _sortMap.find(dwCharID);
-	if (tIterator == _sortMap.end()) // Ö®Ç°²»´¦ÓÚÅÅÃûÏµÍ³ÖĞ²Å´¦Àí
+	if (tIterator == _sortMap.end()) // ä¹‹å‰ä¸å¤„äºæ’åç³»ç»Ÿä¸­æ‰å¤„ç†
 	{
 		QWORD key = (WORD)(wdLevel*(WORD)100000000) + qwExp;
 
@@ -236,8 +236,8 @@ void CSortM::onlineCount(DWORD dwCharID, WORD wdLevel, QWORD qwExp)
 }
 
 /**
-* \brief ½ÇÉ«ÀëÏß´¦Àí
-* \param pUser µ±Ç°½ÇÉ«
+* \brief è§’è‰²ç¦»çº¿å¤„ç†
+* \param pUser å½“å‰è§’è‰²
 * \author fqnewman
 */
 void CSortM::offlineCount(UserSession *pUser)
@@ -250,8 +250,8 @@ void CSortM::offlineCount(UserSession *pUser)
 }
 
 /**
-* \brief ½ÇÉ«Éı¼¶´¦Àí
-* \param pUser µ±Ç°½ÇÉ«
+* \brief è§’è‰²å‡çº§å¤„ç†
+* \param pUser å½“å‰è§’è‰²
 * \author fqnewman
 */
 void CSortM::upLevel(UserSession *pUser)
@@ -281,10 +281,10 @@ void CSortM::upLevel(UserSession *pUser)
 }
 
 /**
-* \brief »ñµÃµ±Ç°ÅÅÃû
-* \param pUser µ±Ç°½ÇÉ«
+* \brief è·å¾—å½“å‰æ’å
+* \param pUser å½“å‰è§’è‰²
 * \author fqnewman
-* \return µ±Ç°ÅÅÃû
+* \return å½“å‰æ’å
 */
 WORD CSortM::getLevelDegree(UserSession *pUser)
 {

@@ -1,9 +1,9 @@
-/**
+ï»¿/**
  * \file
  * \version  $Id: SchoolManager.cpp  $
  * \author
  * \date 
- * \brief ÊµÏÖÊ¦ÃÅÃÅÅÉ¹ÜÀíÆ÷
+ * \brief å®ç°å¸ˆé—¨é—¨æ´¾ç®¡ç†å™¨
  *
  * 
  */
@@ -22,8 +22,8 @@
 #include "CSept.h"
 
 /**
- * \brief È¡µÃÊ¦ÃÅ³ÉÔ±µÄ»Øµ÷º¯Êı
- * \param member ³ÉÔ±Ö¸Õë
+ * \brief å–å¾—å¸ˆé—¨æˆå‘˜çš„å›è°ƒå‡½æ•°
+ * \param member æˆå‘˜æŒ‡é’ˆ
  */
 void CSchoolMemberListCallback::exec(CSchoolMember *member)
 {
@@ -31,7 +31,7 @@ void CSchoolMemberListCallback::exec(CSchoolMember *member)
 }
 
 /**
- * \brief É¾³ı³ÉÔ±²¢Çå³ıËûºÍÆäËû³ÉÔ±µÄ¹ØÏµ
+ * \brief åˆ é™¤æˆå‘˜å¹¶æ¸…é™¤ä»–å’Œå…¶ä»–æˆå‘˜çš„å…³ç³»
  */
 void CSchoolMemberListCallback::clearInValidNodeRelation()
 {
@@ -53,7 +53,7 @@ void CSchoolMemberListCallback::clearInValidNodeRelation()
 }
 
 /**
- * \brief ÏòÒ»¸ö³ÉÔ±·¢ËÍÆäËû³ÉÔ±µÄĞÅÏ¢
+ * \brief å‘ä¸€ä¸ªæˆå‘˜å‘é€å…¶ä»–æˆå‘˜çš„ä¿¡æ¯
  */
 void CSchoolMemberListCallback::sendNotifyToMember()
 {
@@ -79,10 +79,10 @@ void CSchoolMemberListCallback::sendNotifyToMember()
 }
 
 /**
- * \brief °ÑÒª´¦ÀíµÄ³ÉÔ±Ìí¼Ó½øÁĞ±í
- * sendNotifyToMemberºÍclearInValidNodeRelation´¦ÀíÁĞ±íÀïµÄ³ÉÔ±
- * \param member ³ÉÔ±Ö¸Õë
- * \param tag ±êÖ¾
+ * \brief æŠŠè¦å¤„ç†çš„æˆå‘˜æ·»åŠ è¿›åˆ—è¡¨
+ * sendNotifyToMemberå’ŒclearInValidNodeRelationå¤„ç†åˆ—è¡¨é‡Œçš„æˆå‘˜
+ * \param member æˆå‘˜æŒ‡é’ˆ
+ * \param tag æ ‡å¿—
  */
 void CSendSchoolCallback::exec(CSchoolMember *member, const BYTE tag)
 {
@@ -98,9 +98,9 @@ void CSendSchoolCallback::exec(CSchoolMember *member, const BYTE tag)
 }
 
 /**
- * \brief Ïò³ÉÔ±·¢ËÍ³ÉÔ±ÁĞ±í
+ * \brief å‘æˆå‘˜å‘é€æˆå‘˜åˆ—è¡¨
  *
- * \param member ³ÉÔ±Ö¸Õë
+ * \param member æˆå‘˜æŒ‡é’ˆ
  */
 void CSendSchoolCallback::sendListToMember(CSchoolMember *member)
 {
@@ -173,12 +173,12 @@ void CSendSchoolCallback::sendListToMember(CSchoolMember *member)
 //---------------------------------------------------------------------
 
 /**
- * \brief ÃÅÅÉ¹ÜÀíÆ÷¹¹Ôìº¯Êı
+ * \brief é—¨æ´¾ç®¡ç†å™¨æ„é€ å‡½æ•°
  */
 CSchoolM *CSchoolM::sm(NULL);
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 CSchoolM::~CSchoolM()
 {
@@ -193,8 +193,8 @@ CSchoolM::~CSchoolM()
 }
 
 /**
- * \brief ³õÊ¼»¯¹ÜÀíÆ÷
- * \return ³õÊ¼»¯ÊÇ·ñ³É¹¦
+ * \brief åˆå§‹åŒ–ç®¡ç†å™¨
+ * \return åˆå§‹åŒ–æ˜¯å¦æˆåŠŸ
  */
 bool CSchoolM::init()
 {
@@ -208,7 +208,7 @@ bool CSchoolM::init()
 	}
 	else
 	{
-		Zebra::logger->error("²»ÄÜÉú³ÉÊ¦ÃÅ¹ÜÀíÆ÷¶ÔÏó£¡");
+		Zebra::logger->error("ä¸èƒ½ç”Ÿæˆå¸ˆé—¨ç®¡ç†å™¨å¯¹è±¡ï¼");
 		return false;
 	}
 
@@ -221,8 +221,8 @@ bool CSchoolM::init()
 }
 
 /**
- * \brief µÃµ½¹ÜÀíÆ÷ÊµÀı
- * \return ÃÅÅÉ¹ÜÀíÆ÷ÊµÀı
+ * \brief å¾—åˆ°ç®¡ç†å™¨å®ä¾‹
+ * \return é—¨æ´¾ç®¡ç†å™¨å®ä¾‹
  */
 CSchoolM &CSchoolM::getMe()
 {
@@ -234,7 +234,7 @@ CSchoolM &CSchoolM::getMe()
 }
 
 /**
- * \brief É¾³ı¹ÜÀíÆ÷ÊµÀı
+ * \brief åˆ é™¤ç®¡ç†å™¨å®ä¾‹
  */
 void CSchoolM::destroyMe()
 {
@@ -242,8 +242,8 @@ void CSchoolM::destroyMe()
 }
 
 /**
-* \brief ÔÚ³ÉÔ±Ë÷ÒıÀïÃæ²éÕÒ³ÉÔ±µü´ú
-* return µü´úÖ¸Õë
+* \brief åœ¨æˆå‘˜ç´¢å¼•é‡Œé¢æŸ¥æ‰¾æˆå‘˜è¿­ä»£
+* return è¿­ä»£æŒ‡é’ˆ
 */
 std::map<std::string, CSchoolMember *>::iterator  CSchoolM::findMemberIndex(const char *pName)
 {
@@ -255,9 +255,9 @@ std::map<std::string, CSchoolMember *>::iterator  CSchoolM::findMemberIndex(cons
 
 
 /**
- * \brief ¸ù¾İÃû×ÖµÃµ½ÃÅÅÉÖ¸Õë
- * \param name ÃÅÅÉÃû×Ö
- * \return ÃÅÅÉÖ¸Õë
+ * \brief æ ¹æ®åå­—å¾—åˆ°é—¨æ´¾æŒ‡é’ˆ
+ * \param name é—¨æ´¾åå­—
+ * \return é—¨æ´¾æŒ‡é’ˆ
  */
 CSchool * CSchoolM::getSchoolByName( const char * name)
 {
@@ -268,8 +268,8 @@ CSchool * CSchoolM::getSchoolByName( const char * name)
 }
 
 /**
- * \brief ´ÓÊı¾İ¿â¶ÁÈ¡ÃÅÅÉĞÅÏ¢
- * \return ÊÇ·ñ¶ÁÈ¡³É¹¦
+ * \brief ä»æ•°æ®åº“è¯»å–é—¨æ´¾ä¿¡æ¯
+ * \return æ˜¯å¦è¯»å–æˆåŠŸ
  */
 bool CSchoolM::loadSchoolFromDB()
 {
@@ -288,7 +288,7 @@ bool CSchoolM::loadSchoolFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -308,7 +308,7 @@ bool CSchoolM::loadSchoolFromDB()
 		{
 			if (!createSchoolFromDB(*tempPoint))
 			{
-				Zebra::logger->error("ÎŞ·¨¸ù¾İÃÅÅÉ¼ÇÂ¼´´½¨ÃÅÅÉ¹ÜÀíÆ÷");
+				Zebra::logger->error("æ— æ³•æ ¹æ®é—¨æ´¾è®°å½•åˆ›å»ºé—¨æ´¾ç®¡ç†å™¨");
 				SAFE_DELETE_VEC(schoolList);
 				return false;
 			}
@@ -320,14 +320,14 @@ bool CSchoolM::loadSchoolFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("ÃÅÅÉÊı¾İ³õÊ¼»¯Ê§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("é—¨æ´¾æ•°æ®åˆå§‹åŒ–å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 	}
 	return false;
 }
 
 /**
- * \brief ´ÓÊı¾İ¿â¶ÁÈ¡ÃÅÅÉ³ÉÔ±
- * \return ÊÇ·ñ³É¹¦
+ * \brief ä»æ•°æ®åº“è¯»å–é—¨æ´¾æˆå‘˜
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool CSchoolM::loadSchoolMemberFromDB()
 {
@@ -342,16 +342,16 @@ bool CSchoolM::loadSchoolMemberFromDB()
 }
 
 /**
- * \brief ¸ù¾İÊı¾İ¿âÀïµÄĞÅÏ¢´´½¨ÃÅÅÉ¶ÔÏó
- * \param info ÃÅÅÉĞÅÏ¢
- * \return  ÊÇ·ñ³É¹¦
+ * \brief æ ¹æ®æ•°æ®åº“é‡Œçš„ä¿¡æ¯åˆ›å»ºé—¨æ´¾å¯¹è±¡
+ * \param info é—¨æ´¾ä¿¡æ¯
+ * \return  æ˜¯å¦æˆåŠŸ
  */
 bool CSchoolM::createSchoolFromDB(const stSchoolInfo &info)
 {
 	CSchool *pSchool = new CSchool();
 	if (pSchool)
 	{
-		//		Zebra::logger->debug("´´½¨ÃÅÅÉ¶ÔÏóid=[%u]name=[%s]",info.dwSchoolID, info.name);
+		//		Zebra::logger->debug("åˆ›å»ºé—¨æ´¾å¯¹è±¡id=[%u]name=[%s]",info.dwSchoolID, info.name);
 		pSchool->initSchool(info);
 		rwlock.wrlock();
 		addEntry(pSchool);
@@ -360,15 +360,15 @@ bool CSchoolM::createSchoolFromDB(const stSchoolInfo &info)
 	}
 	else
 	{
-		Zebra::logger->error("½¨Á¢ÃÅÅÉ¶ÔÏóµÄÊ±ºòÎŞ·¨·ÖÅäÄÚ´æ");
+		Zebra::logger->error("å»ºç«‹é—¨æ´¾å¯¹è±¡çš„æ—¶å€™æ— æ³•åˆ†é…å†…å­˜");
 		return false;
 	}
 }
 
 /**
- * \brief ´¦Àí³ÉÔ±ÉÏÏß
+ * \brief å¤„ç†æˆå‘˜ä¸Šçº¿
  *
- * \param pUser ÉÏÏßµÄ³ÉÔ±
+ * \param pUser ä¸Šçº¿çš„æˆå‘˜
  */
 void CSchoolM::userOnline(UserSession *pUser)
 {
@@ -400,9 +400,9 @@ void CSchoolM::userOnline(UserSession *pUser)
 }
 
 /**
- * \brief ´¦Àí½ÇÉ«ÀëÏß£¬ÏòÆäËû³É·¢ËÍĞÅÏ¢
+ * \brief å¤„ç†è§’è‰²ç¦»çº¿ï¼Œå‘å…¶ä»–æˆå‘é€ä¿¡æ¯
  *
- * \param pUser ÏÂÏßµÄ³ÉÔ±
+ * \param pUser ä¸‹çº¿çš„æˆå‘˜
  */
 void CSchoolM::userOffline(UserSession *pUser)
 {
@@ -418,10 +418,10 @@ void CSchoolM::userOffline(UserSession *pUser)
 }
 
 /**
- * \brief Ìí¼ÓÒ»ÌõÃÅÅÉ³ÉÔ±Ë÷Òı
- * \param pName ÃÅÅÉÃû×Ö
- * \param pSchoolMember ³ÉÔ±Ö¸Õë
- * \return ÊÇ·ñ³É¹¦
+ * \brief æ·»åŠ ä¸€æ¡é—¨æ´¾æˆå‘˜ç´¢å¼•
+ * \param pName é—¨æ´¾åå­—
+ * \param pSchoolMember æˆå‘˜æŒ‡é’ˆ
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool CSchoolM::addMemberIndex(const char *pName, CSchoolMember *pSchoolMember)
 {
@@ -437,9 +437,9 @@ bool CSchoolM::addMemberIndex(const char *pName, CSchoolMember *pSchoolMember)
 }
 
 /**
- * \brief ´ÓÓ³ÉäÖĞÉ¾³ıÒ»¸ö³ÉÔ± 
- * \param pName ÒªÉ¾³ıµÄÃû×Ö
- * \return É¾³ıÊÇ·ñ³É¹¦ 
+ * \brief ä»æ˜ å°„ä¸­åˆ é™¤ä¸€ä¸ªæˆå‘˜ 
+ * \param pName è¦åˆ é™¤çš„åå­—
+ * \return åˆ é™¤æ˜¯å¦æˆåŠŸ 
  */
 bool CSchoolM::removeMemberIndex(const char *pName)
 {
@@ -455,12 +455,12 @@ bool CSchoolM::removeMemberIndex(const char *pName)
 }
 
 /**
- * \brief ½âÎöÃÅÅÉÏà¹ØµÄÏûÏ¢
+ * \brief è§£æé—¨æ´¾ç›¸å…³çš„æ¶ˆæ¯
  *
- * \param pUser Íæ¼Ò»á»°¶ÔÏóÖ¸Õë 
- * \param ptNullCmd ´ı½âÎöµÄÏûÏ¢
- * \param cmdLen ÏûÏ¢³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param pUser ç©å®¶ä¼šè¯å¯¹è±¡æŒ‡é’ˆ 
+ * \param ptNullCmd å¾…è§£æçš„æ¶ˆæ¯
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -526,14 +526,14 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 							{
 								if (member->putBounty())
 								{
-									pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "½ø¹±³É¹¦");
+									pUser->sendSysChat(Cmd::INFO_TYPE_GAME, "è¿›è´¡æˆåŠŸ");
 								}
 							}
 							
 							return true;
 						}
 						break;
-					case Cmd::ADD_MEMBER_TO_SCHOOL_PARA: // ÕĞÊÕÍ½µÜ
+					case Cmd::ADD_MEMBER_TO_SCHOOL_PARA: // æ‹›æ”¶å¾’å¼Ÿ
 						{
 							Cmd::stAddMemberToSchoolCmd *ptCmd=(Cmd::stAddMemberToSchoolCmd *)ptNullCmd;
 							switch(ptCmd->byState)
@@ -548,7 +548,7 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 											{
 												if (!isset_state(otherUser->sysSetting , Cmd::USER_SETTING_SCHOOL))
 												{
-													pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,"¶Ô·½¼ÓÈëÊ¦ÃÅÎ´¿ªÆô");
+													pUser->sendSysChat(Cmd::INFO_TYPE_FAIL,"å¯¹æ–¹åŠ å…¥å¸ˆé—¨æœªå¼€å¯");
 													return true;
 												}
 												if (otherUser->level >=10)
@@ -561,22 +561,22 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 													}
 													else
 													{
-														pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÕĞËûÎªÍ½£¬´ËÈËÒÑ¾­´æÔÚÊ¦Í½¹ØÏµ");
+														pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½æ‹›ä»–ä¸ºå¾’ï¼Œæ­¤äººå·²ç»å­˜åœ¨å¸ˆå¾’å…³ç³»");
 													}
 												}
 												else
 												{
-													pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÕĞËûÎªÍ½£¬Ëû»¹Ã»µ½10¼¶£¡");
+													pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½æ‹›ä»–ä¸ºå¾’ï¼Œä»–è¿˜æ²¡åˆ°10çº§ï¼");
 												}
 											}
 											else
 											{
-												pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Íæ¼Ò²»ÔÚÏß£¬ÎŞ·¨»ØÓ¦ÑûÇë");
+												pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ç©å®¶ä¸åœ¨çº¿ï¼Œæ— æ³•å›åº”é‚€è¯·");
 											}
 										}
 										else
 										{
-											pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÈËÊıÒÑÂú£¬²»ÄÜÔÙÕĞÊÕÁË");
+											pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "äººæ•°å·²æ»¡ï¼Œä¸èƒ½å†æ‹›æ”¶äº†");
 										}
 										return true;
 									}
@@ -589,13 +589,13 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 										{
 											if (master)
 											{
-												Zebra::logger->trace("[Ê¦Í½]ÊÕµ½%sÕĞÊÕ%sµÄÖ¸Áî",master->name, pUser->name);
+												Zebra::logger->trace("[å¸ˆå¾’]æ”¶åˆ°%sæ‹›æ”¶%sçš„æŒ‡ä»¤",master->name, pUser->name);
 												addMember(master,pUser);
 											}
 										}
 										else
 										{
-											if (master) master->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÕĞËûÎªÍ½£¬´ËÈËÒÑ¾­´æÔÚÊ¦Í½¹ØÏµ");
+											if (master) master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½æ‹›ä»–ä¸ºå¾’ï¼Œæ­¤äººå·²ç»å­˜åœ¨å¸ˆå¾’å…³ç³»");
 										}
 										return true;
 									}
@@ -604,7 +604,7 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 									{
 										UserSession *master = NULL;
 										master = UserSessionManager::getInstance()->getUserByTempID(ptCmd->memberID);
-										if (master) master->sendSysChat(Cmd::INFO_TYPE_FAIL, "Ëû¾Ü¾øÁËÄãµÄÌáÒé£¡");
+										if (master) master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä»–æ‹’ç»äº†ä½ çš„æè®®ï¼");
 										return true;
 									}
 									break;
@@ -614,15 +614,15 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 							return true;
 						}
 						break;
-					case Cmd::FIRE_MEMBER_FROM_SCHOOL_PARA: //¿ª³ıÄ³ÈË
+					case Cmd::FIRE_MEMBER_FROM_SCHOOL_PARA: //å¼€é™¤æŸäºº
 						{
 							Cmd::stFireMemberFromSchoolCmd *ptCmd=(Cmd::stFireMemberFromSchoolCmd *)ptNullCmd;
-							Zebra::logger->trace("[Ê¦Í½]ÊÕµ½%s¿ª³ı%sµÄÖ¸Áî",pUser->name, ptCmd->memberName);
+							Zebra::logger->trace("[å¸ˆå¾’]æ”¶åˆ°%så¼€é™¤%sçš„æŒ‡ä»¤",pUser->name, ptCmd->memberName);
 							frieMember(pUser, ptCmd->memberName);
 							return true;
 						}
 						break;
-					case Cmd::SCHOOL_STATUS_CHECK_PARA: //ÃÅÅÉ´´½¨Ç°µÄÌõ¼ş¼ì²é
+					case Cmd::SCHOOL_STATUS_CHECK_PARA: //é—¨æ´¾åˆ›å»ºå‰çš„æ¡ä»¶æ£€æŸ¥
 						{
 							if (checkSchoolCreateCondition(pUser))
 							{
@@ -632,7 +632,7 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 							return true;
 						}
 						break;
-					case Cmd::CREATE_SCHOOL_PARA: // ÃÅÅÉ´´½¨
+					case Cmd::CREATE_SCHOOL_PARA: // é—¨æ´¾åˆ›å»º
 						{
 							Cmd::stCreateSchoolCmd *ptCmd=(Cmd::stCreateSchoolCmd *)ptNullCmd;
 							if (checkSchoolCreateCondition(pUser))
@@ -647,30 +647,30 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 								}
 								else
 								{
-									pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÒÅº¶µÄÍ¨ÖªÄãÃÅÅÉÃû³ÆÒÑ±»Õ¼ÓÃ£¬Çë»»¸öÃû×ÖÔÙÊÔÊÔ!");
+									pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "é—æ†¾çš„é€šçŸ¥ä½ é—¨æ´¾åç§°å·²è¢«å ç”¨ï¼Œè¯·æ¢ä¸ªåå­—å†è¯•è¯•!");
 								}
 							}
 							return true;
 						}
 						break;
-					case Cmd::SCHOOL_BULLETIN__PARA: // ÃÅÅÉ¹«¸æ
+					case Cmd::SCHOOL_BULLETIN__PARA: // é—¨æ´¾å…¬å‘Š
 						{
 							Cmd::stSchoolBulletinCmd *ptCmd=(Cmd::stSchoolBulletinCmd *)ptNullCmd;
 							processBulletin(pUser, ptCmd);
 							return true;
 						}
 						break;
-					case Cmd::SCHOOLMEMBER_LEAVE_SCHOOL_PARA: // ³ÉÔ±ÉêÇëÍÑÀë¹ØÏµ
+					case Cmd::SCHOOLMEMBER_LEAVE_SCHOOL_PARA: // æˆå‘˜ç”³è¯·è„±ç¦»å…³ç³»
 						{
 							processLeaveGroup(pUser);
 							return true;
 						}
 						break;
-					case Cmd::DESTROY_SCHOOL_PARA: // ½âÉ¢ÃÅÅÉ
+					case Cmd::DESTROY_SCHOOL_PARA: // è§£æ•£é—¨æ´¾
 						{
 							if (!destroySchool(pUser->name))
 							{
-								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "½âÉ¢ÎŞĞ§!");
+								pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è§£æ•£æ— æ•ˆ!");
 							}
 							return true;
 						}
@@ -687,12 +687,12 @@ bool CSchoolM::processUserMessage(UserSession *pUser,const Cmd::stNullUserCmd *p
 }
 
 /**
- * \brief ½âÎö³¡¾°µÄÏûÏ¢
- * Ò»¶¨Ê§°Ü
+ * \brief è§£æåœºæ™¯çš„æ¶ˆæ¯
+ * ä¸€å®šå¤±è´¥
  *
- * \param ptNullCmd ´ı½âÎöµÄÏûÏ¢
- * \param cmdLen ÏûÏ¢³¤¶È
- * \return ½âÎöÊÇ·ñ³É¹¦
+ * \param ptNullCmd å¾…è§£æçš„æ¶ˆæ¯
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
+ * \return è§£ææ˜¯å¦æˆåŠŸ
  */
 bool CSchoolM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsigned int cmdLen)
 {
@@ -700,11 +700,11 @@ bool CSchoolM::processSceneMessage(const Cmd::t_NullCmd *ptNullCmd, const unsign
 }
 
 /**
- * \brief ÎªÍæ¼Ò·¢ËÍÊ¦ÃÅÁÄÌìÏûÏ¢
+ * \brief ä¸ºç©å®¶å‘é€å¸ˆé—¨èŠå¤©æ¶ˆæ¯
  *
- * \param pUser ·¢ÏûÏ¢µÄÍæ¼Ò
- * \param rev ÏûÏ¢
- * \param cmdLen ÏûÏ¢³¤¶È
+ * \param pUser å‘æ¶ˆæ¯çš„ç©å®¶
+ * \param rev æ¶ˆæ¯
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
  * \return 
  */
 void CSchoolM::sendSchoolChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *rev, const unsigned int cmdLen)
@@ -713,15 +713,15 @@ void CSchoolM::sendSchoolChatMessages(const UserSession *pUser, const Cmd::stCha
 	if (member) 
 		member->sendChatMessages(rev, cmdLen);
 	else
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Ã»ÓĞ¼ÓÈëÊ¦ÃÅ»òÕßÃÅÅÉ²»ÄÜÊ¹ÓÃ´ËÆµµÀ");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ²¡æœ‰åŠ å…¥å¸ˆé—¨æˆ–è€…é—¨æ´¾ä¸èƒ½ä½¿ç”¨æ­¤é¢‘é“");
 }
 
 /**
- * \brief ÎªÍæ¼Ò·¢ËÍÊ¦ÃÅË½ÁÄÏûÏ¢
+ * \brief ä¸ºç©å®¶å‘é€å¸ˆé—¨ç§èŠæ¶ˆæ¯
  *
- * \param pUser ·¢ÏûÏ¢µÄÍæ¼Ò
- * \param rev ÏûÏ¢
- * \param cmdLen ÏûÏ¢³¤¶È
+ * \param pUser å‘æ¶ˆæ¯çš„ç©å®¶
+ * \param rev æ¶ˆæ¯
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
  */
 void CSchoolM::sendSchoolPrivateChatMessages(const UserSession *pUser, const Cmd::stChannelChatUserCmd *rev, const unsigned int cmdLen)
 {
@@ -750,9 +750,9 @@ void CSchoolM::sendSchoolPrivateChatMessages(const UserSession *pUser, const Cmd
 }
 
 /**
- * \brief ´¦ÀíÍæ¼ÒÀë¿ªÃÅÅÉ
+ * \brief å¤„ç†ç©å®¶ç¦»å¼€é—¨æ´¾
  *
- * \param pUser ÍÑÀëÃÅÅÉµÄÍæ¼Ò
+ * \param pUser è„±ç¦»é—¨æ´¾çš„ç©å®¶
  */
 void CSchoolM::processLeaveGroup(UserSession *pUser)
 {
@@ -773,10 +773,10 @@ void CSchoolM::processLeaveGroup(UserSession *pUser)
 					send.dwType = Cmd::CHAT_TYPE_SYSTEM;
 					send.dwChannelID = 0;
 					strncpy(send.pstrName,pUser->name,MAX_NAMESIZE);
-					snprintf(send.pstrChat, sizeof(send.pstrChat) - 1, "%sÑ¡ÔñÁËÀë¿ªÃÅÅÉ", pUser->name);
+					snprintf(send.pstrChat, sizeof(send.pstrChat) - 1, "%sé€‰æ‹©äº†ç¦»å¼€é—¨æ´¾", pUser->name);
 					school->sendCmdToSchool(&send, sizeof(send));
 
-					/// ¿ªÊ¼Çå³şÏà¹Ø¹ØÏµID
+					/// å¼€å§‹æ¸…æ¥šç›¸å…³å…³ç³»ID
 					pUser->schoolid = 0;
 					Cmd::Session::t_sendUserRelationID sendrl;
 					sendrl.dwUserID = pUser->id;
@@ -787,30 +787,30 @@ void CSchoolM::processLeaveGroup(UserSession *pUser)
 				}
 				else
 				{
-					if(teacher) teacher->sendSysChat(Cmd::INFO_TYPE_FAIL, "%sÑ¡ÔñÁËÀë¿ªÊ¦ÃÅ!",pUser->name);
+					if(teacher) teacher->sendSysChat(Cmd::INFO_TYPE_FAIL, "%sé€‰æ‹©äº†ç¦»å¼€å¸ˆé—¨!",pUser->name);
 				}
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÄÜÊ¹ÓÃ´Ë¹¦ÄÜ£¬±§Ç¸£¡");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸èƒ½ä½¿ç”¨æ­¤åŠŸèƒ½ï¼ŒæŠ±æ­‰ï¼");
 			}
 		}
 		else
 		{
-			Zebra::logger->error("CSchoolM::processLeaveGroup(): %s¶ÔÓ¦½ÚµãÎŞ·¨È¡µ½½Úµã¹ÜÀíÆ÷µÄ¶ÔÏó", member->name);
+			Zebra::logger->error("CSchoolM::processLeaveGroup(): %så¯¹åº”èŠ‚ç‚¹æ— æ³•å–åˆ°èŠ‚ç‚¹ç®¡ç†å™¨çš„å¯¹è±¡", member->name);
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²¢Ã»ÓĞ¼ÓÈëÈÎºÎµÄÊ¦ÃÅ»òÕßÃÅÅÉ°¡£¿£¡");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å¹¶æ²¡æœ‰åŠ å…¥ä»»ä½•çš„å¸ˆé—¨æˆ–è€…é—¨æ´¾å•Šï¼Ÿï¼");
 	}
 
 }
 
 /**
- * \brief ´¦ÀíÍæ¼ÒÀë¿ªÃÅÅÉ
+ * \brief å¤„ç†ç©å®¶ç¦»å¼€é—¨æ´¾
  *
- * \param roleName Àë¿ªÃÅÅÉµÄÍæ¼ÒĞÕÃû
+ * \param roleName ç¦»å¼€é—¨æ´¾çš„ç©å®¶å§“å
  */
 void CSchoolM::processLeaveGroupDirect(const char* roleName)
 {
@@ -832,27 +832,27 @@ void CSchoolM::processLeaveGroupDirect(const char* roleName)
 					send.dwType = Cmd::CHAT_TYPE_SYSTEM;
 					send.dwChannelID = 0;
 					strncpy(send.pstrName, roleName,MAX_NAMESIZE);
-					snprintf(send.pstrChat, sizeof(send.pstrChat) - 1, "%sÑ¡ÔñÁËÀë¿ªÃÅÅÉ", roleName);
+					snprintf(send.pstrChat, sizeof(send.pstrChat) - 1, "%sé€‰æ‹©äº†ç¦»å¼€é—¨æ´¾", roleName);
 					school->sendCmdToSchool(&send, sizeof(send));
 				}
 				else
 				{
-					if(teacher) teacher->sendSysChat(Cmd::INFO_TYPE_FAIL, "%sÑ¡ÔñÁËÀë¿ªÊ¦ÃÅ!", roleName);
+					if(teacher) teacher->sendSysChat(Cmd::INFO_TYPE_FAIL, "%sé€‰æ‹©äº†ç¦»å¼€å¸ˆé—¨!", roleName);
 				}
 			}
 		}
 		else
 		{
-			Zebra::logger->error("CSchoolM::processLeaveGroup(): %s¶ÔÓ¦½ÚµãÎŞ·¨È¡µ½½Úµã¹ÜÀíÆ÷µÄ¶ÔÏó", member->name);
+			Zebra::logger->error("CSchoolM::processLeaveGroup(): %så¯¹åº”èŠ‚ç‚¹æ— æ³•å–åˆ°èŠ‚ç‚¹ç®¡ç†å™¨çš„å¯¹è±¡", member->name);
 		}
 	}
 }
 /**
- * \brief ´´½¨ÃÅÅÉ
+ * \brief åˆ›å»ºé—¨æ´¾
  *
- * \param  userName ´´½¨ÕßÃû×Ö
- * \param schoolName ÃÅÅÉÃû×Ö
- * \return ÊÇ·ñ´´½¨³É¹¦
+ * \param  userName åˆ›å»ºè€…åå­—
+ * \param schoolName é—¨æ´¾åå­—
+ * \return æ˜¯å¦åˆ›å»ºæˆåŠŸ
  */
 bool CSchoolM::createNewSchool(const char *userName, const char *schoolName)
 {
@@ -870,13 +870,13 @@ bool CSchoolM::createNewSchool(const char *userName, const char *schoolName)
 			if (pSchool->insertSchoolToDB())
 			{
 				rwlock.rdlock();
-				CSchool *nonSchool = (CSchool *)getEntryByID(0); //»ñµÃÊ¦ÃÅ¹ÜÀíÆ÷
+				CSchool *nonSchool = (CSchool *)getEntryByID(0); //è·å¾—å¸ˆé—¨ç®¡ç†å™¨
 				rwlock.unlock();
 				if (nonSchool)
 				{
 					if (nonSchool->moveMemberToNewSchool(userName,pSchool))
 					{
-						pSchool->getMasterNode()->getUser()->schoolid = pSchool->id; // ³õÊ¼»¯±¾µØSessionµÄschoolid
+						pSchool->getMasterNode()->getUser()->schoolid = pSchool->id; // åˆå§‹åŒ–æœ¬åœ°Sessionçš„schoolid
 						rwlock.wrlock();
 						addEntry(pSchool);
 						rwlock.unlock();
@@ -885,25 +885,25 @@ bool CSchoolM::createNewSchool(const char *userName, const char *schoolName)
 				}
 				else
 				{
-					Zebra::logger->error("CSchoolM::createNewSchool ÎŞ·¨È¡µÃÃÅÅÉ¹ÜÀíÆ÷");
+					Zebra::logger->error("CSchoolM::createNewSchool æ— æ³•å–å¾—é—¨æ´¾ç®¡ç†å™¨");
 				}
 			}
 			SAFE_DELETE(pSchool);
 		}
 		else
 		{
-			Zebra::logger->error("½¨Á¢ÃÅÅÉ¶ÔÏóµÄÊ±ºòÎŞ·¨·ÖÅäÄÚ´æ");
+			Zebra::logger->error("å»ºç«‹é—¨æ´¾å¯¹è±¡çš„æ—¶å€™æ— æ³•åˆ†é…å†…å­˜");
 		}
 	}
 	return false;
 }
 
 /**
- * \brief ½âÉ¢ÃÅÅÉ
+ * \brief è§£æ•£é—¨æ´¾
  *
  *
- * \param pName Òª½âÉ¢µÄÃÅÅÉÃû×Ö
- * \return ÊÇ·ñ³É¹¦
+ * \param pName è¦è§£æ•£çš„é—¨æ´¾åå­—
+ * \return æ˜¯å¦æˆåŠŸ
  */
 bool CSchoolM::destroySchool(const char *pName)
 {
@@ -937,7 +937,7 @@ bool CSchoolM::destroySchool(const char *pName)
 								if (pUser)
 								{
 									pUser->sendSysChat(Cmd::INFO_TYPE_GAME,
-											"Ê¦ÃÅÒÑ½âÉ¢");
+											"å¸ˆé—¨å·²è§£æ•£");
 								}
 
 								return true;
@@ -948,7 +948,7 @@ bool CSchoolM::destroySchool(const char *pName)
 							if (school->getMasterNode() && school->getMasterNode()->getUser())	
 							{
 								school->getMasterNode()->getUser()->sendSysChat(Cmd::INFO_TYPE_FAIL,
-										"Ê¦ÃÅ¶ÔÕ½×´Ì¬£¬²»ÔÊĞí½âÉ¢Ê¦ÃÅ");
+										"å¸ˆé—¨å¯¹æˆ˜çŠ¶æ€ï¼Œä¸å…è®¸è§£æ•£å¸ˆé—¨");
 							}
 
 						}
@@ -961,10 +961,10 @@ bool CSchoolM::destroySchool(const char *pName)
 }
 
 /**
- * \brief ¼ì²é½ÇÉ«ÊÇ·ñ¿ÉÒÔ´´½¨ÃÅÅÉ
+ * \brief æ£€æŸ¥è§’è‰²æ˜¯å¦å¯ä»¥åˆ›å»ºé—¨æ´¾
  *
- * \param pUser Ïë´´½¨µÄÈË
- * \return ÊÇ·ñ¿ÉÒÔ´´½¨
+ * \param pUser æƒ³åˆ›å»ºçš„äºº
+ * \return æ˜¯å¦å¯ä»¥åˆ›å»º
  */
 bool CSchoolM::checkSchoolCreateCondition(const UserSession *pUser)
 {
@@ -985,7 +985,7 @@ bool CSchoolM::checkSchoolCreateCondition(const UserSession *pUser)
 				}
 				else
 				{
-					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Òª³ÉÁ¢ÃÅÅÉÄãÍ½µÜºÍÍ½µÜµÄÍ½µÜ¶¼±ØĞëÊÕÂú%uÈË£¬²¢ÇÒÍ½µÜµÈ¼¶ÒªÈ«²¿´ïµ½%u¼¶, Í½ËïµÈ¼¶ÒªÈ«²¿´ïµ½%u¼¶, ÄãÈ¥¼ì²éÒ»ÏÂÔÙÀ´°É",
+					pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¦æˆç«‹é—¨æ´¾ä½ å¾’å¼Ÿå’Œå¾’å¼Ÿçš„å¾’å¼Ÿéƒ½å¿…é¡»æ”¶æ»¡%uäººï¼Œå¹¶ä¸”å¾’å¼Ÿç­‰çº§è¦å…¨éƒ¨è¾¾åˆ°%uçº§, å¾’å­™ç­‰çº§è¦å…¨éƒ¨è¾¾åˆ°%uçº§, ä½ å»æ£€æŸ¥ä¸€ä¸‹å†æ¥å§",
 							MAX_PRENTICE, 
 							FIRST_LAYER_PRENTICE_REQUEST_LEVEL, 
 							SECOND_LAYER_PRENTICE_REQUEST_LEVEL);
@@ -993,27 +993,27 @@ bool CSchoolM::checkSchoolCreateCondition(const UserSession *pUser)
 			}
 			else
 			{
-				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÒÑ¾­ÊÇÊ¦×ğÁË£¬Èç¹ûÄãÔ¸Òâ¾Í°ÑÃÅÅÉ½âÉ¢ÁËÖØĞÂÀ´¹ı°É!");
+				pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ å·²ç»æ˜¯å¸ˆå°Šäº†ï¼Œå¦‚æœä½ æ„¿æ„å°±æŠŠé—¨æ´¾è§£æ•£äº†é‡æ–°æ¥è¿‡å§!");
 			}
 		}
 		else
 		{
-			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÓĞÊ¦¸µ²»ÄÜ³ÉÁ¢ÃÅÅÉ£¬ÏÈºÍÄãµÄÊ¦¸µ½â³ı¹ØÏµÔÙÀ´°É!");
+			pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æœ‰å¸ˆå‚…ä¸èƒ½æˆç«‹é—¨æ´¾ï¼Œå…ˆå’Œä½ çš„å¸ˆå‚…è§£é™¤å…³ç³»å†æ¥å§!");
 		}
 	}
 	else
 	{
-		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã»¹Ã»ÓĞÍ½µÜ£¬µÈÄãÓĞÁËÍ½ËïÔÙÀ´°É!");
+		pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ è¿˜æ²¡æœ‰å¾’å¼Ÿï¼Œç­‰ä½ æœ‰äº†å¾’å­™å†æ¥å§!");
 	}
 	return false;
 }
 
 /**
- * \brief ÅĞ¶ÏÓÃ»§µÄÍ½µÜÊÇ·ñÂú
+ * \brief åˆ¤æ–­ç”¨æˆ·çš„å¾’å¼Ÿæ˜¯å¦æ»¡
  *
- * \param master ±»¼ì²éµÄ½ÇÉ«Ãû³Æ
- * param schoolName ÃÅÅÉÃû³Æ£¬Èç¹û´ËÈËµÄÍ½µÜÎ´ÂúÇÒ´ËÈËÊÇÓĞÃÅÅÉµÄÄÇÃ´ÃÅÅÉÃû³ÆÍ¨¹ıÕâÀï·µ»Ø
- * \return ·µ»Øtrue±íÊ¾masterµÄÍ½µÜÃ»ÊÕÂú£¬ ·µ»Øfalse±íÊ¾masterµÄÍ½µÜÒÑ¾­ÕĞÊÕÂúÁË
+ * \param master è¢«æ£€æŸ¥çš„è§’è‰²åç§°
+ * param schoolName é—¨æ´¾åç§°ï¼Œå¦‚æœæ­¤äººçš„å¾’å¼Ÿæœªæ»¡ä¸”æ­¤äººæ˜¯æœ‰é—¨æ´¾çš„é‚£ä¹ˆé—¨æ´¾åç§°é€šè¿‡è¿™é‡Œè¿”å›
+ * \return è¿”å›trueè¡¨ç¤ºmasterçš„å¾’å¼Ÿæ²¡æ”¶æ»¡ï¼Œ è¿”å›falseè¡¨ç¤ºmasterçš„å¾’å¼Ÿå·²ç»æ‹›æ”¶æ»¡äº†
  */
 bool CSchoolM::getUserPrenticeInfo(const char *master,char *schoolName)
 {
@@ -1045,10 +1045,10 @@ bool CSchoolM::getUserPrenticeInfo(const char *master,char *schoolName)
 }
 
 /**
- * \brief ÅĞ¶ÏÄ³¸öÈËÊÇ·ñÎª¸É¾»µÄ£¬ÒâË¼ÊÇËûÃ»ÓĞÊ¦¸µºÍÍ½µÜµÄ¹ØÏµ£¬¼´Ëû²»ÔÚ´Ë¹ÜÀíÆ÷ÖĞ
+ * \brief åˆ¤æ–­æŸä¸ªäººæ˜¯å¦ä¸ºå¹²å‡€çš„ï¼Œæ„æ€æ˜¯ä»–æ²¡æœ‰å¸ˆå‚…å’Œå¾’å¼Ÿçš„å…³ç³»ï¼Œå³ä»–ä¸åœ¨æ­¤ç®¡ç†å™¨ä¸­
  *
- * \param name ±»¼ì²éµÄ½ÇÉ«µÄÃû³Æ
- * \return trueÎª¸É¾»µÄ£¬false ÎªÒÑ¾­ÓĞÊ¦»òÍ½µÜ¹ØÏµ
+ * \param name è¢«æ£€æŸ¥çš„è§’è‰²çš„åç§°
+ * \return trueä¸ºå¹²å‡€çš„ï¼Œfalse ä¸ºå·²ç»æœ‰å¸ˆæˆ–å¾’å¼Ÿå…³ç³»
  */
 bool CSchoolM::isClean(const char *name)
 {
@@ -1067,11 +1067,11 @@ bool CSchoolM::isClean(const char *name)
 }
 
 /**
- * \brief Îª master Ôö¼ÓÒ»¸öÍ½µÜ prentice
- * ÔÚº¯ÊıÖĞ»á¸ù¾İÁ½ÈËµÄÇé¿ö½øĞĞ¾ßÌåµÄ²Ù×÷£¬Èç¹û²»³É¹¦»á¸ø¶ÔÓ¦½ÇÉ«·¢ËÍÏûÏ¢
+ * \brief ä¸º master å¢åŠ ä¸€ä¸ªå¾’å¼Ÿ prentice
+ * åœ¨å‡½æ•°ä¸­ä¼šæ ¹æ®ä¸¤äººçš„æƒ…å†µè¿›è¡Œå…·ä½“çš„æ“ä½œï¼Œå¦‚æœä¸æˆåŠŸä¼šç»™å¯¹åº”è§’è‰²å‘é€æ¶ˆæ¯
  *
- * \param master Ê¦¸µ
- * \param prentice Í½µÜ
+ * \param master å¸ˆå‚…
+ * \param prentice å¾’å¼Ÿ
  */
 void CSchoolM::addMember(UserSession *master, UserSession *prentice)
 {
@@ -1085,7 +1085,7 @@ void CSchoolM::addMember(UserSession *master, UserSession *prentice)
 		CSchoolMember *pMember = tIterator->second;
 		if (NULL != (pPrentice = pMember->addPrentice(prentice)))
 		{
-			pPrentice->notifyNewMemberAdd(); // Í¨ÖªÖÜ±ßĞÂ³ÉÔ±¼ÓÈë
+			pPrentice->notifyNewMemberAdd(); // é€šçŸ¥å‘¨è¾¹æ–°æˆå‘˜åŠ å…¥
 			if (prentice)
 			{
 				prentice->schoolid = master->schoolid;
@@ -1099,19 +1099,19 @@ void CSchoolM::addMember(UserSession *master, UserSession *prentice)
 		}
 		else
 		{
-			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÇëÍ¨ÖªGM²éÖ¤£¬ÔİÊ±ÎŞ·¨ÎªÄã°ìÀíÍ½µÜÕĞÊÕÊÂÒË");
+			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯·é€šçŸ¥GMæŸ¥è¯ï¼Œæš‚æ—¶æ— æ³•ä¸ºä½ åŠç†å¾’å¼Ÿæ‹›æ”¶äº‹å®œ");
 		}
 	}
 	else
 	{
-		CSchool *noneSchool = (CSchool *)getEntryByID(0); // È¡µÃÊ¦ÃÅ¹ØÏµ¹ÜÀíÆ÷
+		CSchool *noneSchool = (CSchool *)getEntryByID(0); // å–å¾—å¸ˆé—¨å…³ç³»ç®¡ç†å™¨
 		CSchoolMember *masterMember = NULL;
 		masterMember = noneSchool->addTeacher(master);
 		if (masterMember)
 		{
 			if (NULL == (pPrentice = masterMember->addPrentice(prentice)))
 			{
-				Zebra::logger->trace("[Ê¦Í½]Ôö¼ÓÍ½µÜ½Úµã[%s]Ê§°ÜÉ¾³ıÊ¦¸µ½Úµã[%s]", master->name, prentice->name);
+				Zebra::logger->trace("[å¸ˆå¾’]å¢åŠ å¾’å¼ŸèŠ‚ç‚¹[%s]å¤±è´¥åˆ é™¤å¸ˆå‚…èŠ‚ç‚¹[%s]", master->name, prentice->name);
 				masterMember->deleteMe();
 				SAFE_DELETE(masterMember);
 				return;
@@ -1128,19 +1128,19 @@ void CSchoolM::addMember(UserSession *master, UserSession *prentice)
 		}
 		else
 		{
-			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÇëÍ¨ÖªGM²éÖ¤£¬ÔİÊ±ÎŞ·¨ÎªÄã°ìÀíÍ½µÜÕĞÊÕÊÂÒË");
-			Zebra::logger->error("ÎŞ·¨ÔÚSchoolÄ£¿éÖĞÔÙÌí¼Ó½ÚµãaddMember·½·¨Ê§°Ü");
+			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "è¯·é€šçŸ¥GMæŸ¥è¯ï¼Œæš‚æ—¶æ— æ³•ä¸ºä½ åŠç†å¾’å¼Ÿæ‹›æ”¶äº‹å®œ");
+			Zebra::logger->error("æ— æ³•åœ¨Schoolæ¨¡å—ä¸­å†æ·»åŠ èŠ‚ç‚¹addMemberæ–¹æ³•å¤±è´¥");
 			return;
 		}
 	}
 }
 /**
- * \brief ¿ª³ıÃÅÅÉ³ÉÔ±
+ * \brief å¼€é™¤é—¨æ´¾æˆå‘˜
  *
  *
- * \param roleName ³ÉÔ±Ãû×Ö
- * \param find Èç¹ûÖ»ÊÇ²éÕÒ£¬Ôò²»¿ª³ı³ÉÔ±
- * \return 1:³É¹¦ 0£º²»¿ÉÒÔ½â³ıÉç»á¹ØÏµ -1£ºÃ»ÕÒµ½ÃÅÅÉ 2£º²»ÊÇ¸ÃÃÅÅÉµÄ³ÉÔ±
+ * \param roleName æˆå‘˜åå­—
+ * \param find å¦‚æœåªæ˜¯æŸ¥æ‰¾ï¼Œåˆ™ä¸å¼€é™¤æˆå‘˜
+ * \return 1:æˆåŠŸ 0ï¼šä¸å¯ä»¥è§£é™¤ç¤¾ä¼šå…³ç³» -1ï¼šæ²¡æ‰¾åˆ°é—¨æ´¾ 2ï¼šä¸æ˜¯è¯¥é—¨æ´¾çš„æˆå‘˜
  */
 int CSchoolM::fireSchoolMember(const char* roleName, bool find)
 {
@@ -1162,7 +1162,7 @@ int CSchoolM::fireSchoolMember(const char* roleName, bool find)
 		{
 			if (_status == 1)
 			{
-				Zebra::logger->trace("%s ÊÇÊ¦ÃÅ³ÉÔ±£¬½â³ıÆäÉç»á¹ØÏµ", _roleName);
+				Zebra::logger->trace("%s æ˜¯å¸ˆé—¨æˆå‘˜ï¼Œè§£é™¤å…¶ç¤¾ä¼šå…³ç³»", _roleName);
 
 				if (_pSchool)
 				{
@@ -1205,7 +1205,7 @@ int CSchoolM::fireSchoolMember(const char* roleName, bool find)
 
 			if (_status == 3)
 			{
-				Zebra::logger->debug("%s ÊÇÊ¦×ğ£¬½â³ıÆäÉç»á¹ØÏµ", _roleName);
+				Zebra::logger->debug("%s æ˜¯å¸ˆå°Šï¼Œè§£é™¤å…¶ç¤¾ä¼šå…³ç³»", _roleName);
 
 				if (_pSchool)
 				{
@@ -1231,7 +1231,7 @@ int CSchoolM::fireSchoolMember(const char* roleName, bool find)
 				if (pSchool->getMasterNode() && pSchool->getMasterNode()->isMe(_roleName))
 				{
 #ifdef _ZJW_DEBUG
-					Zebra::logger->debug("%sÊÇÊ¦×ğ£¬½â³ıÉç»á¹ØÏµ", _roleName);
+					Zebra::logger->debug("%sæ˜¯å¸ˆå°Šï¼Œè§£é™¤ç¤¾ä¼šå…³ç³»", _roleName);
 #endif
 					_pSchool = pSchool;
 					_status = 3;
@@ -1242,7 +1242,7 @@ int CSchoolM::fireSchoolMember(const char* roleName, bool find)
 					if (pSchool->isMember(_roleName))
 					{
 #ifdef _ZJW_DEBUG
-						Zebra::logger->debug("%s ÊÇ %s Ê¦ÃÅ³ÉÔ±£¬ÄÜ½â³ıÉç»á¹ØÏµ", _roleName, pSchool->getSchoolName());
+						Zebra::logger->debug("%s æ˜¯ %s å¸ˆé—¨æˆå‘˜ï¼Œèƒ½è§£é™¤ç¤¾ä¼šå…³ç³»", _roleName, pSchool->getSchoolName());
 #endif
 						_pSchool = pSchool;
 						_status = 1;
@@ -1251,7 +1251,7 @@ int CSchoolM::fireSchoolMember(const char* roleName, bool find)
 					else
 					{
 #ifdef _ZJW_DEBUG
-						Zebra::logger->debug("%s ²»ÊÇ %s µÄÊ¦ÃÅ³ÉÔ±", _roleName, pSchool->getSchoolName());
+						Zebra::logger->debug("%s ä¸æ˜¯ %s çš„å¸ˆé—¨æˆå‘˜", _roleName, pSchool->getSchoolName());
 #endif
 						_status = 2;
 					}
@@ -1274,11 +1274,11 @@ int CSchoolM::fireSchoolMember(const char* roleName, bool find)
 }
 
 /**
- * \brief master ¿ª³ıÒ»¸öÍ½µÜ prentice
- * ÔÚº¯ÊıÖĞ»á¸ù¾İÁ½ÈËµÄÇé¿ö½øĞĞ¾ßÌåµÄ²Ù×÷£¬Èç¹û²»³É¹¦»á¸ø¶ÔÓ¦½ÇÉ«·¢ËÍÏûÏ¢
+ * \brief master å¼€é™¤ä¸€ä¸ªå¾’å¼Ÿ prentice
+ * åœ¨å‡½æ•°ä¸­ä¼šæ ¹æ®ä¸¤äººçš„æƒ…å†µè¿›è¡Œå…·ä½“çš„æ“ä½œï¼Œå¦‚æœä¸æˆåŠŸä¼šç»™å¯¹åº”è§’è‰²å‘é€æ¶ˆæ¯
  *
- * \param master Ê¦¸µ
- * \param prentice Í½µÜ
+ * \param master å¸ˆå‚…
+ * \param prentice å¾’å¼Ÿ
  * \return 
  */
 void CSchoolM::frieMember(UserSession *master,  const char *prentice)
@@ -1313,12 +1313,12 @@ void CSchoolM::frieMember(UserSession *master,  const char *prentice)
 		}
 		else
 		{
-			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÎŞ·¨¿ª³ıÕâ¸öÈË");
+			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ— æ³•å¼€é™¤è¿™ä¸ªäºº");
 		}
 	}
 	else
 	{
-		master->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÊÇÊ¦¸µÄã²»ÄÜ¿ª³ıÈÎºÎÈË!");
+		master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸æ˜¯å¸ˆå‚…ä½ ä¸èƒ½å¼€é™¤ä»»ä½•äºº!");
 	}
 }
 
@@ -1334,9 +1334,9 @@ do      \
 
 
 /**
- * \brief ÏòËùÓĞ³ÉÔ±·¢ËÍÕ½Õù½á¹û
+ * \brief å‘æ‰€æœ‰æˆå‘˜å‘é€æˆ˜äº‰ç»“æœ
  *
- * \param msg Òª·¢µÄÏûÏ¢
+ * \param msg è¦å‘çš„æ¶ˆæ¯
  */
 void CSchool::notifyWarResult(const char* msg, ...)
 {
@@ -1376,10 +1376,10 @@ void CSchool::notifyWarResult(const char* msg, ...)
 }
 
 /**
- * \brief ÏòËùÓĞ³ÉÔ±·¢ËÍ¶ÔÕ½×´Ì¬ÏûÏ¢
+ * \brief å‘æ‰€æœ‰æˆå‘˜å‘é€å¯¹æˆ˜çŠ¶æ€æ¶ˆæ¯
  *
- * \param ptEnterWarCmd ¶ÔÕ½×´Ì¬ÏûÏ¢
- * \param cmdLen ÏûÏ¢³¤¶È
+ * \param ptEnterWarCmd å¯¹æˆ˜çŠ¶æ€æ¶ˆæ¯
+ * \param cmdLen æ¶ˆæ¯é•¿åº¦
  */
 void CSchool::sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptEnterWarCmd, const unsigned int cmdLen)
 {
@@ -1408,11 +1408,11 @@ void CSchool::sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptE
 					cmd->dwSceneTempID = pUser->scene->tempid;
 					if (cmd->dwStatus)
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÒÑ½øÈëÊ¦ÃÅ¶ÔÕ½×´Ì¬¡£");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨å·²è¿›å…¥å¸ˆé—¨å¯¹æˆ˜çŠ¶æ€ã€‚");
 					}
 					else
 					{
-						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄúÒÑÍË³öÊ¦ÃÅ¶ÔÕ½×´Ì¬¡£");
+						pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "æ‚¨å·²é€€å‡ºå¸ˆé—¨å¯¹æˆ˜çŠ¶æ€ã€‚");
 					}
 					pUser->scene->sendCmd(cmd, cmdLen);
 				}
@@ -1428,10 +1428,10 @@ void CSchool::sendCmdToAllMemberScene(Cmd::Session::t_enterWar_SceneSession* ptE
 }
 
 /**
- * \brief ÏìÓ¦¹«¸æ¹¦ÄÜÉèÖÃ¹«¸æ»òÕß¶ÁÈ¡¹«¸æ
+ * \brief å“åº”å…¬å‘ŠåŠŸèƒ½è®¾ç½®å…¬å‘Šæˆ–è€…è¯»å–å…¬å‘Š
  *
- * \param pUser ¹«¸æÕß
- * \param rev ¹«¸æÏûÏ¢
+ * \param pUser å…¬å‘Šè€…
+ * \param rev å…¬å‘Šæ¶ˆæ¯
  */
 void CSchoolM::processBulletin(const UserSession *pUser, const Cmd::stSchoolBulletinCmd *rev)
 {
@@ -1469,15 +1469,15 @@ void CSchoolM::processBulletin(const UserSession *pUser, const Cmd::stSchoolBull
 		}
 	}
 
-	pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÄãÃ»ÓĞ¼ÓÈëÃÅÅÉ£¡ÎŞÈ¨Ê¹ÓÃ¹«¸æÏà¹Ø¹¦ÄÜ£¡");
+	pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ æ²¡æœ‰åŠ å…¥é—¨æ´¾ï¼æ— æƒä½¿ç”¨å…¬å‘Šç›¸å…³åŠŸèƒ½ï¼");
 }
 
 /**
- * \brief ¸ù¾İÃû×ÖµÃµ½Íæ¼Ò¶ÔÏó
+ * \brief æ ¹æ®åå­—å¾—åˆ°ç©å®¶å¯¹è±¡
  *
  *
- * \param pName Íæ¼ÒÃû×Ö
- * \return ÕÒµ½µÄ¶ÔÏó£¬Ê§°Ü·µ»Ø0
+ * \param pName ç©å®¶åå­—
+ * \return æ‰¾åˆ°çš„å¯¹è±¡ï¼Œå¤±è´¥è¿”å›0
  */
 CSchoolMember *CSchoolM::getMember(const char *pName)
 {
@@ -1491,10 +1491,10 @@ CSchoolMember *CSchoolM::getMember(const char *pName)
 }
 
 /**
- * \brief ¸ù¾İidµÃµ½ÃÅÅÉ¶ÔÏó
+ * \brief æ ¹æ®idå¾—åˆ°é—¨æ´¾å¯¹è±¡
  *
- * \param id ÃÅÅÉid
- * \return ÕÒµ½µÄ¶ÔÏó£¬Ê§°Ü·µ»Ø0
+ * \param id é—¨æ´¾id
+ * \return æ‰¾åˆ°çš„å¯¹è±¡ï¼Œå¤±è´¥è¿”å›0
  */
 CSchool * CSchoolM::getSchool(DWORD id)
 {
@@ -1507,10 +1507,10 @@ CSchool * CSchoolM::getSchool(DWORD id)
 
 
 /**
- * \brief ÉèÖÃÍæ¼ÒµÄ¼¶±ğ
+ * \brief è®¾ç½®ç©å®¶çš„çº§åˆ«
  *
- * \param pName Íæ¼ÒÃû×Ö
- * \param level ¼¶±ğ
+ * \param pName ç©å®¶åå­—
+ * \param level çº§åˆ«
  */
 void CSchoolM::setUserLevel(const char *pName, const WORD &level)
 {
@@ -1527,7 +1527,7 @@ void CSchoolM::setUserLevel(const char *pName, const WORD &level)
 	if (member->getTeacher()!=NULL)
 	{
 		if ((abs((int)member->getTeacher()->getLevel() - (int)member->getLevel()) >= 20)  || (member->getLevel()>=80))
-		{//Ê¦¸µºÍÍ½µÜµÈ¼¶Ïà²î20¼¶, »òÍ½µÜ×Ô¼ºÉÏÉıµ½80¼¶,Ôò½â³ıÊ¦Í½¹ØÏµ
+		{//å¸ˆå‚…å’Œå¾’å¼Ÿç­‰çº§ç›¸å·®20çº§, æˆ–å¾’å¼Ÿè‡ªå·±ä¸Šå‡åˆ°80çº§,åˆ™è§£é™¤å¸ˆå¾’å…³ç³»
 			CSchoolMember* pTeacher = member->getTeacher();
 			if (pTeacher->firePrentice(pName))
 			{
@@ -1557,7 +1557,7 @@ void CSchoolM::setUserLevel(const char *pName, const WORD &level)
 //--[CSchool]----------------------------------------------------------
 
 /**
- * \brief ÃÅÅÉ¹¹Ôìº¯Êı
+ * \brief é—¨æ´¾æ„é€ å‡½æ•°
  */
 CSchool::CSchool()
 {
@@ -1565,7 +1565,7 @@ CSchool::CSchool()
 }
 
 /**
- * \brief Îö¹¹º¯Êı
+ * \brief ææ„å‡½æ•°
  */
 CSchool::~CSchool()
 {
@@ -1584,9 +1584,9 @@ CSchool::~CSchool()
 }
 
 /**
- * \brief ÉèÖÃÃÅÅÉÃû×Ö
+ * \brief è®¾ç½®é—¨æ´¾åå­—
  *
- * \param pName Ãû×Ö
+ * \param pName åå­—
  */
 void CSchool::setSchoolName(const char *pName)
 {
@@ -1594,9 +1594,9 @@ void CSchool::setSchoolName(const char *pName)
 }
 
 /**
- * \brief µÃµ½ÃÅÅÉÃû×Ö
+ * \brief å¾—åˆ°é—¨æ´¾åå­—
  *
- * \return ÃÅÅÉÃû×Ö
+ * \return é—¨æ´¾åå­—
  */
 char *CSchool::getSchoolName()
 {
@@ -1604,9 +1604,9 @@ char *CSchool::getSchoolName()
 }
 
 /**
- * \brief ÉèÖÃÊ¦×ğµÄ½Úµãid
+ * \brief è®¾ç½®å¸ˆå°Šçš„èŠ‚ç‚¹id
  *
- * \param id Ê¦×ğµÄ½ÚµãID
+ * \param id å¸ˆå°Šçš„èŠ‚ç‚¹ID
  */
 void CSchool::setMasterSerialID(const DWORD &id)
 {
@@ -1614,9 +1614,9 @@ void CSchool::setMasterSerialID(const DWORD &id)
 }
 
 /**
- * \brief ½«¹ÜÀíÆ÷³õÊ¼»¯³ÉÊ¦ÃÅ¹ØÏµ¹ÜÀíÆ÷
+ * \brief å°†ç®¡ç†å™¨åˆå§‹åŒ–æˆå¸ˆé—¨å…³ç³»ç®¡ç†å™¨
  *
- * \return ·µ»ØNULL±íÊ¾Ìí¼ÓÍ½µÜÊ§°Ü£¬·ñÔò·µ»ØÍ½µÜµÄ½Úµã¶ÔÏó
+ * \return è¿”å›NULLè¡¨ç¤ºæ·»åŠ å¾’å¼Ÿå¤±è´¥ï¼Œå¦åˆ™è¿”å›å¾’å¼Ÿçš„èŠ‚ç‚¹å¯¹è±¡
  */
 void CSchool::initToNoneSchool()
 {
@@ -1625,9 +1625,9 @@ void CSchool::initToNoneSchool()
 }
 
 /**
- * \brief ³õÊ¼»¯¹ÜÀíÆ÷£¬¸ù¾İĞÅÏ¢½á¹¹£¬´ÓÊı¾İ¿â³õÊ¼»¯µÄÊ±ºòÓÃ
+ * \brief åˆå§‹åŒ–ç®¡ç†å™¨ï¼Œæ ¹æ®ä¿¡æ¯ç»“æ„ï¼Œä»æ•°æ®åº“åˆå§‹åŒ–çš„æ—¶å€™ç”¨
  *
- * \param info ¹ÜÀíÆ÷ĞÅÏ¢½á¹¹
+ * \param info ç®¡ç†å™¨ä¿¡æ¯ç»“æ„
  */
 void CSchool::initSchool(const stSchoolInfo &info)
 {
@@ -1667,13 +1667,13 @@ bool CSchool::addNode(const stSchoolMemberInfo &info)
 				else
 				{
 					SAFE_DELETE(member);
-					Zebra::logger->error("%s½Úµã¹ÜÀíÆ÷¼ÓÈë%s½ÚµãÊ§°ÜidÎª%u",name, info.name, info.dwSerialID);
+					Zebra::logger->error("%sèŠ‚ç‚¹ç®¡ç†å™¨åŠ å…¥%sèŠ‚ç‚¹å¤±è´¥idä¸º%u",name, info.name, info.dwSerialID);
 				}
 			}
 			else
 			{
 				SAFE_DELETE(member);
-				Zebra::logger->error("%s½Úµã¹ÜÀíÆ÷ÖĞ%s½ÚµãÑ°ÕÒÊ¦¸µ½Úµã%uÊ§°Ü",name, info.name, info.dwMasterID);
+				Zebra::logger->error("%sèŠ‚ç‚¹ç®¡ç†å™¨ä¸­%sèŠ‚ç‚¹å¯»æ‰¾å¸ˆå‚…èŠ‚ç‚¹%uå¤±è´¥",name, info.name, info.dwMasterID);
 			}
 		}
 		else
@@ -1685,13 +1685,13 @@ bool CSchool::addNode(const stSchoolMemberInfo &info)
 			else
 			{
 				SAFE_DELETE(member);
-				Zebra::logger->error("%s½Úµã¹ÜÀíÆ÷¼ÓÈë%s½ÚµãÊ§°ÜidÎª%u",name, info.name, info.dwSerialID);
+				Zebra::logger->error("%sèŠ‚ç‚¹ç®¡ç†å™¨åŠ å…¥%sèŠ‚ç‚¹å¤±è´¥idä¸º%u",name, info.name, info.dwSerialID);
 			}
 		}
 	}
 	else
 	{
-		Zebra::logger->error("³õÊ¼»¯µÄÊ±ºòÄÚ´æ·ÖÅäÊ§°Ü CSchool::addNode");
+		Zebra::logger->error("åˆå§‹åŒ–çš„æ—¶å€™å†…å­˜åˆ†é…å¤±è´¥ CSchool::addNode");
 	}
 	return false;
 }
@@ -1718,7 +1718,7 @@ bool CSchool::updateSchoolInDB()
 	 connHandleID handle = SessionService::dbConnPool->getHandle();
 	 if ((connHandleID)-1 == handle)
 	 {
-	 Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+	 Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 	 return false;
 	 }
 
@@ -1768,11 +1768,11 @@ bool CSchool::insertSchoolToDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
-	//Ê×ÏÈÑéÖ¤Ãû³ÆÊÇ·ñÖØ¸´
+	//é¦–å…ˆéªŒè¯åç§°æ˜¯å¦é‡å¤
 	std::string escapeName;
 	bzero(where, sizeof(where));
 	snprintf(where, sizeof(where) - 1, "NAME = '%s'", SessionService::dbConnPool->escapeString(handle,name,escapeName).c_str());
@@ -1796,7 +1796,7 @@ bool CSchool::insertSchoolToDB()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("²åÈëSCHOOL±íÊı¾İ¿â³ö´í name = %s",schooldata.name);
+		Zebra::logger->error("æ’å…¥SCHOOLè¡¨æ•°æ®åº“å‡ºé”™ name = %s",schooldata.name);
 		return false;
 	}
 	else
@@ -1814,7 +1814,7 @@ bool CSchool::deleteSchoolFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -1824,7 +1824,7 @@ bool CSchool::deleteSchoolFromDB()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("É¾³ıSCHOOL¼ÇÂ¼Ê§°Ü SCHOOLID=%u", id);
+		Zebra::logger->error("åˆ é™¤SCHOOLè®°å½•å¤±è´¥ SCHOOLID=%u", id);
 		return false;
 	}
 	destroy = true;
@@ -1861,7 +1861,7 @@ bool CSchool::loadSchoolMemberFromDB()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -1887,16 +1887,16 @@ bool CSchool::loadSchoolMemberFromDB()
 	}
 	else
 	{
-		Zebra::logger->error("ÃÅÅÉÊı¾İ³õÊ¼»¯Ê§°Ü£¬exeSelect ·µ»ØÎŞĞ§bufÖ¸Õë");
+		Zebra::logger->error("é—¨æ´¾æ•°æ®åˆå§‹åŒ–å¤±è´¥ï¼ŒexeSelect è¿”å›æ— æ•ˆbufæŒ‡é’ˆ");
 		ret = false;
 	}
-	return true; //²»´¦Àí·µ»ØÖµÁË
+	return true; //ä¸å¤„ç†è¿”å›å€¼äº†
 }
 
-// ¼ÓÒ»¸öÊ¦¸µ½Úµã£¬´ËÈËÒÔÇ°´ÓÀ´Ã»ÓĞÕĞÊÕ¹ıÍ½µÜ£¬Ò²Ã»ÓĞ±»ÈËÊÕÎªÍ½µÜ£¬¼ÓÒ»¸öÊ¦¸µ½Úµã£¬ÆäÊÇ·ÇÃÅÅÉ½Úµã
+// åŠ ä¸€ä¸ªå¸ˆå‚…èŠ‚ç‚¹ï¼Œæ­¤äººä»¥å‰ä»æ¥æ²¡æœ‰æ‹›æ”¶è¿‡å¾’å¼Ÿï¼Œä¹Ÿæ²¡æœ‰è¢«äººæ”¶ä¸ºå¾’å¼Ÿï¼ŒåŠ ä¸€ä¸ªå¸ˆå‚…èŠ‚ç‚¹ï¼Œå…¶æ˜¯éé—¨æ´¾èŠ‚ç‚¹
 CSchoolMember * CSchool::addTeacher(UserSession *master)
 {
-	if (id != 0) return NULL; // Èç¹ûÕâÊÇÒ»¸öÃÅÅÉ¹ÜÀíÆ÷Ôò²»ÄÜÊ¹ÓÃ´Ë·½·¨
+	if (id != 0) return NULL; // å¦‚æœè¿™æ˜¯ä¸€ä¸ªé—¨æ´¾ç®¡ç†å™¨åˆ™ä¸èƒ½ä½¿ç”¨æ­¤æ–¹æ³•
 	CSchoolMember *member = new CSchoolMember(this, master);
 	if (member)
 	{
@@ -1911,12 +1911,12 @@ CSchoolMember * CSchool::addTeacher(UserSession *master)
 		else
 		{
 			SAFE_DELETE(member);
-			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "ÔİÊ±ÎŞ·¨ÎªÄãÕĞÊÕÍ½µÜ£¬ÇëÍ¨ÖªGM²éÖ¤");
+			master->sendSysChat(Cmd::INFO_TYPE_FAIL, "æš‚æ—¶æ— æ³•ä¸ºä½ æ‹›æ”¶å¾’å¼Ÿï¼Œè¯·é€šçŸ¥GMæŸ¥è¯");
 		}
 	}
 	else
 	{
-		Zebra::logger->error("CSchool::addTeacher():ÄÚ´æ·ÖÅäÊ§°Ü£¬ÎŞ·¨´´½¨ĞÂµÄ³ÉÔ±½Úµã");
+		Zebra::logger->error("CSchool::addTeacher():å†…å­˜åˆ†é…å¤±è´¥ï¼Œæ— æ³•åˆ›å»ºæ–°çš„æˆå‘˜èŠ‚ç‚¹");
 	}
 	return member;
 }
@@ -1967,7 +1967,7 @@ void CSchool::sendCmdToSchool(const Cmd::stNullUserCmd *ptNullCmd, const unsigne
 bool CSchool::moveMemberToNewSchool(const char *userName, CSchool *pSchool)
 {
 	bool ret = true;
-	if (id != 0) return false; // ÃÅÅÉ¹ÜÀíÆ÷²»ÄÜÊ¹ÓÃ´Ë·½·¨
+	if (id != 0) return false; // é—¨æ´¾ç®¡ç†å™¨ä¸èƒ½ä½¿ç”¨æ­¤æ–¹æ³•
 	rwlock.wrlock();
 	CSchoolMember *master = getMember(userName);
 	rwlock.unlock();
@@ -2057,7 +2057,7 @@ bool CSchool::processLeaveSchool(CSchoolMember * member, bool deleteTeacher)
 		if (member->getSchool() != this) return false;
 		if (member->getSchoolID() == 0)
 		{
-			Zebra::logger->trace("[Ê¦Í½]processLeaveSchool(%s)", member->name);
+			Zebra::logger->trace("[å¸ˆå¾’]processLeaveSchool(%s)", member->name);
 			CSchoolMember *teacher = NULL;
 			teacher = member->getTeacher();
 			if (teacher)
@@ -2114,7 +2114,7 @@ bool CSchool::processLeaveSchool(CSchoolMember * member, bool deleteTeacher)
 				member->deleteMe();
 				SAFE_DELETE(member);
 
-				// ÏÂÃæµÄ²¿·ÖÇå³ı±»É¾³ı½ÚµãÒÔÉÏÎŞĞ§½ÚµãÖ±µ½Óöµ½ÓĞĞ§½ÚµãÎªÖ¹
+				// ä¸‹é¢çš„éƒ¨åˆ†æ¸…é™¤è¢«åˆ é™¤èŠ‚ç‚¹ä»¥ä¸Šæ— æ•ˆèŠ‚ç‚¹ç›´åˆ°é‡åˆ°æœ‰æ•ˆèŠ‚ç‚¹ä¸ºæ­¢
 				CSchoolMember *curMember = master;  
 				CSchoolMember *preMember = NULL;
 
@@ -2152,7 +2152,7 @@ CSchoolMember::CSchoolMember(CSchool *pSchool, UserSession *pUser)
 {
 	school = pSchool;
 	user = pUser;
-	preLevelNode = NULL;		// Ê¦¸µ
+	preLevelNode = NULL;		// å¸ˆå‚…
 	id				= 0;
 	dwMasterID		= 0;
 	dwPreSerialID	= 0;
@@ -2266,7 +2266,7 @@ CSchoolMember *CSchoolMember::addPrentice(UserSession *pUser)
 				rwlock.unlock();
 				if (retval.second == false)
 				{
-					Zebra::logger->error("[Ê¦Í½]: %s Ìí¼Ó %s Í½µÜ½ÚµãÊ§°Ü(%u)--A", this->name, member->name, member->getJoinTime());
+					Zebra::logger->error("[å¸ˆå¾’]: %s æ·»åŠ  %s å¾’å¼ŸèŠ‚ç‚¹å¤±è´¥(%u)--A", this->name, member->name, member->getJoinTime());
 				}
 				CSchoolM::getMe().addMemberIndex(member->name,member);
 				returnMember = member;
@@ -2278,7 +2278,7 @@ CSchoolMember *CSchoolMember::addPrentice(UserSession *pUser)
 		}
 		else
 		{
-			Zebra::logger->error("CSchoolMember::addPrentice():%sµÄÎŞĞ§ÏÂ¼¶½Úµã´æÔÚÎÊÌâ£¬Çë²éÖ¤",name);
+			Zebra::logger->error("CSchoolMember::addPrentice():%sçš„æ— æ•ˆä¸‹çº§èŠ‚ç‚¹å­˜åœ¨é—®é¢˜ï¼Œè¯·æŸ¥è¯",name);
 		}
 	}
 	else
@@ -2295,7 +2295,7 @@ CSchoolMember *CSchoolMember::addPrentice(UserSession *pUser)
 				rwlock.unlock();
 				if (retval.second == false)
 				{
-					Zebra::logger->error("[Ê¦Í½]: %s Ìí¼Ó %s Í½µÜ½ÚµãÊ§°Ü(%u)--B", this->name, member->name, member->getJoinTime());
+					Zebra::logger->error("[å¸ˆå¾’]: %s æ·»åŠ  %s å¾’å¼ŸèŠ‚ç‚¹å¤±è´¥(%u)--B", this->name, member->name, member->getJoinTime());
 					member->deleteRecord();
 					SAFE_DELETE(member);
 				}
@@ -2313,7 +2313,7 @@ CSchoolMember *CSchoolMember::addPrentice(UserSession *pUser)
 		}
 		else
 		{
-			Zebra::logger->error("CSchoolMember::addPrentice():ÄÚ´æ·ÖÅäÊ§°Ü£¬ÎŞ·¨´´½¨ĞÂµÄ³ÉÔ±½Úµã");
+			Zebra::logger->error("CSchoolMember::addPrentice():å†…å­˜åˆ†é…å¤±è´¥ï¼Œæ— æ³•åˆ›å»ºæ–°çš„æˆå‘˜èŠ‚ç‚¹");
 		}
 	}
 	if (returnMember) updateRecord();
@@ -2331,7 +2331,7 @@ bool CSchoolMember::isClean()
 
 void CSchoolMember::deleteMe()
 {
-	Zebra::logger->trace("[Ê¦Í½]½Úµã±»ÒÆ³ıÊı¾İ¿â¼ÇÂ¼±»É¾µô Name=[%s] CharID=[%u] MasterID=[%u] PreSerialID=[%u]",this->name, this->dwCharID, this->dwMasterID, this->dwPreSerialID);
+	Zebra::logger->trace("[å¸ˆå¾’]èŠ‚ç‚¹è¢«ç§»é™¤æ•°æ®åº“è®°å½•è¢«åˆ æ‰ Name=[%s] CharID=[%u] MasterID=[%u] PreSerialID=[%u]",this->name, this->dwCharID, this->dwMasterID, this->dwPreSerialID);
 	school->removeMember(this);
 	deleteRecord();
 	destroy = true;
@@ -2386,11 +2386,11 @@ void CSchoolMember::sendOnlineStatusMessage(BYTE onlineStatus)
 
 	char *tempStr = CUnionM::getMe().getUnionNameByUserName(name);
 	if (tempStr) strncpy(send.unionName, tempStr, MAX_NAMESIZE);
-	else strncpy(send.unionName, "ÎŞ", MAX_NAMESIZE);
+	else strncpy(send.unionName, "æ— ", MAX_NAMESIZE);
 	tempStr = NULL;
 	tempStr = CSeptM::getMe().getSeptNameByUserName(name);
 	if (tempStr) strncpy(send.septName, tempStr, MAX_NAMESIZE);
-	else strncpy(send.septName, "ÎŞ", MAX_NAMESIZE);
+	else strncpy(send.septName, "æ— ", MAX_NAMESIZE);
 	send.country = CUnionM::getMe().getCountryIDByUserName(name);
 	if (send.country == 0)
 	{
@@ -2420,11 +2420,11 @@ void CSchoolMember::prenticeRequestMemberInfo(unsigned int &count, Cmd::stTeache
 
 		char *tempStr = CUnionM::getMe().getUnionNameByUserName(name);
 		if (tempStr) strncpy(point->unionName, tempStr, MAX_NAMESIZE);
-		else strncpy(point->unionName, "ÎŞ", MAX_NAMESIZE);
+		else strncpy(point->unionName, "æ— ", MAX_NAMESIZE);
 		tempStr = NULL;
 		tempStr = CSeptM::getMe().getSeptNameByUserName(name);
 		if (tempStr) strncpy(point->septName, tempStr, MAX_NAMESIZE);
-		else strncpy(point->septName, "ÎŞ", MAX_NAMESIZE);
+		else strncpy(point->septName, "æ— ", MAX_NAMESIZE);
 		point->country = CUnionM::getMe().getCountryIDByUserName(name);
 		if (point->country == 0)
 		{
@@ -2450,11 +2450,11 @@ void CSchoolMember::prenticeRequestMemberInfo(unsigned int &count, Cmd::stTeache
 
 		char *tempStr = CUnionM::getMe().getUnionNameByUserName(tIterator->second->name);
 		if (tempStr) strncpy(point->unionName, tempStr, MAX_NAMESIZE);
-		else strncpy(point->unionName, "ÎŞ", MAX_NAMESIZE);
+		else strncpy(point->unionName, "æ— ", MAX_NAMESIZE);
 		tempStr = NULL;
 		tempStr = CSeptM::getMe().getSeptNameByUserName(tIterator->second->name);
 		if (tempStr) strncpy(point->septName, tempStr, MAX_NAMESIZE);
-		else strncpy(point->septName, "ÎŞ", MAX_NAMESIZE);
+		else strncpy(point->septName, "æ— ", MAX_NAMESIZE);
 		point->country = CUnionM::getMe().getCountryIDByUserName(tIterator->second->name);
 		if (point->country == 0)
 		{
@@ -2480,7 +2480,7 @@ void CSchoolMember::sendInfomationToMe(CSendSchoolCallback *callback)
 	Cmd::stMemberStatusSchool ret;
 
 	if (NULL == user && byTag) return;
-	//--[Ïò¿Í»§¶Ë·¢ËÍÀàĞÍ³õÊ¼»¯ÏûÏ¢]------------------------
+	//--[å‘å®¢æˆ·ç«¯å‘é€ç±»å‹åˆå§‹åŒ–æ¶ˆæ¯]------------------------
 	if (0 == dwSchoolID)
 	{
 		ret.byStatus = Cmd::SCHOOL_STATUS_TEACHER;
@@ -2514,11 +2514,11 @@ void CSchoolMember::sendInfomationToMe(CSendSchoolCallback *callback)
 
 		char *tempStr = CUnionM::getMe().getUnionNameByUserName(tIterator->second->name);
 		if (tempStr) strncpy(tempPoint->unionName, tempStr, MAX_NAMESIZE);
-		else strncpy(tempPoint->unionName, "ÎŞ", MAX_NAMESIZE);
+		else strncpy(tempPoint->unionName, "æ— ", MAX_NAMESIZE);
 		tempStr = NULL;
 		tempStr = CSeptM::getMe().getSeptNameByUserName(tIterator->second->name);
 		if (tempStr) strncpy(tempPoint->septName, tempStr, MAX_NAMESIZE);
-		else strncpy(tempPoint->septName, "ÎŞ", MAX_NAMESIZE);
+		else strncpy(tempPoint->septName, "æ— ", MAX_NAMESIZE);
 		tempPoint->country = CUnionM::getMe().getCountryIDByUserName(tIterator->second->name);
 		if (tempPoint->country == 0)
 		{
@@ -2595,7 +2595,7 @@ void CSchoolMember::getMyBigBrother(CSchoolMember *member, char *pName)
 void CSchoolMember::notifyNewMemberAdd()
 {
 	if (dwSchoolID == 0)
-	{// ÔÚÊ¦ÃÅÖĞµÄ´¦Àí·½·¨
+	{// åœ¨å¸ˆé—¨ä¸­çš„å¤„ç†æ–¹æ³•
 		if (preLevelNode) preLevelNode->notifyTeacherGroup();
 
 		CSchoolMember *myTeacher = getTeacher();
@@ -2607,17 +2607,17 @@ void CSchoolMember::notifyNewMemberAdd()
 			send.dwSysInfoType = Cmd::INFO_TYPE_GAME;
 			bzero(send.pstrName, sizeof(send.pstrName));
 			bzero(send.pstrChat, sizeof(send.pstrChat));
-			strncpy(send.pstrName,"¹«¸æ",MAX_NAMESIZE);
-			sprintf(buf, "Äã³É¹¦ÕĞÊÕ%sÎªÍ½µÜ", this->name);
+			strncpy(send.pstrName,"å…¬å‘Š",MAX_NAMESIZE);
+			sprintf(buf, "ä½ æˆåŠŸæ‹›æ”¶%sä¸ºå¾’å¼Ÿ", this->name);
 			strncpy((char *)send.pstrChat,buf,MAX_CHATINFO-1);
 			myTeacher->sendCmdToMe(&send, sizeof(send));
-			sprintf(buf, "Äã³ÉÎªÁË%sµÄÍ½µÜ", myTeacher->name);
+			sprintf(buf, "ä½ æˆä¸ºäº†%sçš„å¾’å¼Ÿ", myTeacher->name);
 			strncpy((char *)send.pstrChat,buf,MAX_CHATINFO-1);
 			sendCmdToMe(&send, sizeof(send));
 		}
 	}
 	else
-	{// ÔÚÃÅÅÉÖĞµÄ´¦Àí·½·¨
+	{// åœ¨é—¨æ´¾ä¸­çš„å¤„ç†æ–¹æ³•
 		Cmd::stAddMemberToSchoolCmd ret;
 		strncpy(ret.memberName, name, MAX_NAMESIZE);
 		ret.byState = Cmd::TEACHER_ANSWER_YES;
@@ -2646,17 +2646,17 @@ void CSchoolMember::initInValidNode(CSchoolMember * master)
 {
 	zRTime ctv;
 	rwlock.wrlock();
-	dwMasterID = master->getCharID();			// Ê¦¸µµÄID
-	dwPreSerialID = master->getSerialID();		// Ç°Ò»¸ö½ÚµãµÄID
-	dwCharID = user->id;						// ×Ô¼ºµÄ½ÇÉ«ID
-	strncpy(name, user->name, MAX_NAMESIZE);	// ×Ô¼ºµÄ½ÇÉ«Ãû×Ö
-	wdLevel = user->level;						// ½ÇÉ«µÄµ±Ç°¼¶±ğ
-	dwJoinTime = ctv.sec();						// ½Úµã´´½¨Ê±¼ä£¬¸úÈç¹ûÓĞÊ¦ĞÖµÜÕâ¸ö¾ÍÊÇÅÅÎ»µÄ¹Ø¼ü
-	wdDegree = 0;								// ÓÑºÃ¶ÈÎªÁã£¬ÕâÀïÓÑºÃ¶ÈÊÇÖ¸±¾ÈËÓë×Ô¼ºÊ¦¸µµÄÓÑºÃ¶È
-	dwLastTime = 0;								// ×îºó×é¶ÓÊ±¼ä£¬Ä¬ÈÏÉèÖÃÎª0
-	dwSchoolID = master->getSchoolID();			// ÄÃÈ¡Ê¦¸µµÄÃÅÅÉĞÅÏ¢
-	byTag = 1;									// ½ÚµãÊÇÓĞĞ§µÄ£¬Õâ¸ö±êÖ¾Ö»ÓĞÔÚÃÅÅÉÖĞ²ÅÓĞÒâÒå
-	wdOccupation = 0;							// ½ÇÉ«µÄÖ°Òµ
+	dwMasterID = master->getCharID();			// å¸ˆå‚…çš„ID
+	dwPreSerialID = master->getSerialID();		// å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ID
+	dwCharID = user->id;						// è‡ªå·±çš„è§’è‰²ID
+	strncpy(name, user->name, MAX_NAMESIZE);	// è‡ªå·±çš„è§’è‰²åå­—
+	wdLevel = user->level;						// è§’è‰²çš„å½“å‰çº§åˆ«
+	dwJoinTime = ctv.sec();						// èŠ‚ç‚¹åˆ›å»ºæ—¶é—´ï¼Œè·Ÿå¦‚æœæœ‰å¸ˆå…„å¼Ÿè¿™ä¸ªå°±æ˜¯æ’ä½çš„å…³é”®
+	wdDegree = 0;								// å‹å¥½åº¦ä¸ºé›¶ï¼Œè¿™é‡Œå‹å¥½åº¦æ˜¯æŒ‡æœ¬äººä¸è‡ªå·±å¸ˆå‚…çš„å‹å¥½åº¦
+	dwLastTime = 0;								// æœ€åç»„é˜Ÿæ—¶é—´ï¼Œé»˜è®¤è®¾ç½®ä¸º0
+	dwSchoolID = master->getSchoolID();			// æ‹¿å–å¸ˆå‚…çš„é—¨æ´¾ä¿¡æ¯
+	byTag = 1;									// èŠ‚ç‚¹æ˜¯æœ‰æ•ˆçš„ï¼Œè¿™ä¸ªæ ‡å¿—åªæœ‰åœ¨é—¨æ´¾ä¸­æ‰æœ‰æ„ä¹‰
+	wdOccupation = 0;							// è§’è‰²çš„èŒä¸š
 	rwlock.unlock();
 }
 
@@ -2664,18 +2664,18 @@ void CSchoolMember::initGeneralMember(CSchoolMember * master)
 {
 	zRTime ctv;
 	rwlock.wrlock();
-	id = 0;										// ±¾½ÚµãµÄID
-	dwMasterID = master->getCharID();			// Ê¦¸µµÄID
-	dwPreSerialID = master->getSerialID();		// Ç°Ò»¸ö½ÚµãµÄID
-	dwCharID = user->id;						// ×Ô¼ºµÄ½ÇÉ«ID
-	strncpy(name, user->name, MAX_NAMESIZE);	// ×Ô¼ºµÄ½ÇÉ«Ãû×Ö
-	wdLevel = user->level;						// ½ÇÉ«µÄµ±Ç°¼¶±ğ
-	dwJoinTime = ctv.sec();						// ½Úµã´´½¨Ê±¼ä£¬¸úÈç¹ûÓĞÊ¦ĞÖµÜÕâ¸ö¾ÍÊÇÅÅÎ»µÄ¹Ø¼ü
-	wdDegree = 0;								// ÓÑºÃ¶ÈÎªÁã£¬ÕâÀïÓÑºÃ¶ÈÊÇÖ¸±¾ÈËÓë×Ô¼ºÊ¦¸µµÄÓÑºÃ¶È
-	dwLastTime = 0;								// ×îºó×é¶ÓÊ±¼ä£¬Ä¬ÈÏÉèÖÃÎª0
-	dwSchoolID = master->getSchoolID();			// ÄÃÈ¡Ê¦¸µµÄÃÅÅÉĞÅÏ¢
-	byTag = 1;									// ½ÚµãÊÇÓĞĞ§µÄ£¬Õâ¸ö±êÖ¾Ö»ÓĞÔÚÃÅÅÉÖĞ²ÅÓĞÒâÒå
-	wdOccupation = user->occupation;			// ½ÇÉ«µÄÖ°Òµ
+	id = 0;										// æœ¬èŠ‚ç‚¹çš„ID
+	dwMasterID = master->getCharID();			// å¸ˆå‚…çš„ID
+	dwPreSerialID = master->getSerialID();		// å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ID
+	dwCharID = user->id;						// è‡ªå·±çš„è§’è‰²ID
+	strncpy(name, user->name, MAX_NAMESIZE);	// è‡ªå·±çš„è§’è‰²åå­—
+	wdLevel = user->level;						// è§’è‰²çš„å½“å‰çº§åˆ«
+	dwJoinTime = ctv.sec();						// èŠ‚ç‚¹åˆ›å»ºæ—¶é—´ï¼Œè·Ÿå¦‚æœæœ‰å¸ˆå…„å¼Ÿè¿™ä¸ªå°±æ˜¯æ’ä½çš„å…³é”®
+	wdDegree = 0;								// å‹å¥½åº¦ä¸ºé›¶ï¼Œè¿™é‡Œå‹å¥½åº¦æ˜¯æŒ‡æœ¬äººä¸è‡ªå·±å¸ˆå‚…çš„å‹å¥½åº¦
+	dwLastTime = 0;								// æœ€åç»„é˜Ÿæ—¶é—´ï¼Œé»˜è®¤è®¾ç½®ä¸º0
+	dwSchoolID = master->getSchoolID();			// æ‹¿å–å¸ˆå‚…çš„é—¨æ´¾ä¿¡æ¯
+	byTag = 1;									// èŠ‚ç‚¹æ˜¯æœ‰æ•ˆçš„ï¼Œè¿™ä¸ªæ ‡å¿—åªæœ‰åœ¨é—¨æ´¾ä¸­æ‰æœ‰æ„ä¹‰
+	wdOccupation = user->occupation;			// è§’è‰²çš„èŒä¸š
 	rwlock.unlock();
 }
 
@@ -2683,18 +2683,18 @@ void CSchoolMember::initRootMember()
 {
 	zRTime ctv;
 	rwlock.wrlock();
-	id = 0;											// ±¾½ÚµãµÄID
-	dwMasterID = 0;									// Ê¦¸µµÄID
-	dwPreSerialID = 0;								// Ç°Ò»¸ö½ÚµãµÄID
-	dwCharID = user->id;							// ×Ô¼ºµÄ½ÇÉ«ID
-	strncpy(name, user->name, MAX_NAMESIZE);		// ×Ô¼ºµÄ½ÇÉ«Ãû×Ö
-	wdLevel = user->level;							// ½ÇÉ«µÄµ±Ç°¼¶±ğ
-	dwJoinTime = ctv.sec();							// ½Úµã´´½¨Ê±¼ä£¬¸úÈç¹ûÓĞÊ¦ĞÖµÜÕâ¸ö¾ÍÊÇÅÅÎ»µÄ¹Ø¼ü
-	wdDegree = 0;									// ÓÑºÃ¶ÈÎªÁã£¬ÕâÀïÓÑºÃ¶ÈÊÇÖ¸±¾ÈËÓë×Ô¼ºÊ¦¸µµÄÓÑºÃ¶È£¬¸ù½ÚµãµÄÓÑºÃ¶ÈÎŞÓÃ´¦
-	dwLastTime = 0;									// ×îºó×é¶ÓÊ±¼ä£¬Ä¬ÈÏÉèÖÃÎª0
-	dwSchoolID = 0;									// ±íÊ¾ÎŞÃÅÅÉ
-	byTag = 1;										// ½ÚµãÊÇÓĞĞ§µÄ£¬Õâ¸ö±êÖ¾Ö»ÓĞÔÚÃÅÅÉÖĞ²ÅÓĞÒâÒå
-	wdOccupation = user->occupation;				// ½ÇÉ«µÄÖ°Òµ
+	id = 0;											// æœ¬èŠ‚ç‚¹çš„ID
+	dwMasterID = 0;									// å¸ˆå‚…çš„ID
+	dwPreSerialID = 0;								// å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ID
+	dwCharID = user->id;							// è‡ªå·±çš„è§’è‰²ID
+	strncpy(name, user->name, MAX_NAMESIZE);		// è‡ªå·±çš„è§’è‰²åå­—
+	wdLevel = user->level;							// è§’è‰²çš„å½“å‰çº§åˆ«
+	dwJoinTime = ctv.sec();							// èŠ‚ç‚¹åˆ›å»ºæ—¶é—´ï¼Œè·Ÿå¦‚æœæœ‰å¸ˆå…„å¼Ÿè¿™ä¸ªå°±æ˜¯æ’ä½çš„å…³é”®
+	wdDegree = 0;									// å‹å¥½åº¦ä¸ºé›¶ï¼Œè¿™é‡Œå‹å¥½åº¦æ˜¯æŒ‡æœ¬äººä¸è‡ªå·±å¸ˆå‚…çš„å‹å¥½åº¦ï¼Œæ ¹èŠ‚ç‚¹çš„å‹å¥½åº¦æ— ç”¨å¤„
+	dwLastTime = 0;									// æœ€åç»„é˜Ÿæ—¶é—´ï¼Œé»˜è®¤è®¾ç½®ä¸º0
+	dwSchoolID = 0;									// è¡¨ç¤ºæ— é—¨æ´¾
+	byTag = 1;										// èŠ‚ç‚¹æ˜¯æœ‰æ•ˆçš„ï¼Œè¿™ä¸ªæ ‡å¿—åªæœ‰åœ¨é—¨æ´¾ä¸­æ‰æœ‰æ„ä¹‰
+	wdOccupation = user->occupation;				// è§’è‰²çš„èŒä¸š
 	rwlock.unlock();
 }
 
@@ -2741,10 +2741,10 @@ bool CSchoolMember::insertRecord()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
-	//²åÈëÊı¾İ¿â½ÇÉ«ĞÅÏ¢
+	//æ’å…¥æ•°æ®åº“è§’è‰²ä¿¡æ¯
 	bzero(&createschoolmember_data, sizeof(createschoolmember_data));
 
 	rwlock.wrlock();
@@ -2770,7 +2770,7 @@ bool CSchoolMember::insertRecord()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("²åÈëSCHOOLMEMBERÊı¾İ¿â³ö´í %u, %s", dwCharID, name);
+		Zebra::logger->error("æ’å…¥SCHOOLMEMBERæ•°æ®åº“å‡ºé”™ %u, %s", dwCharID, name);
 		return false;
 	}
 
@@ -2822,7 +2822,7 @@ bool CSchoolMember::updateRecord(bool locked)
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -2857,7 +2857,7 @@ bool CSchoolMember::updateRecord(bool locked)
 
 	if (retcode > 1)
 	{
-		Zebra::logger->error("ĞŞ¸ÄÃÅÅÉ³ÉÔ±µµ°¸Ê§°Ü£ºserialid = %u, retcode = %u", id, retcode);
+		Zebra::logger->error("ä¿®æ”¹é—¨æ´¾æˆå‘˜æ¡£æ¡ˆå¤±è´¥ï¼šserialid = %u, retcode = %u", id, retcode);
 		return false;
 	}
 	return true;
@@ -2871,7 +2871,7 @@ bool CSchoolMember::deleteRecord()
 	connHandleID handle = SessionService::dbConnPool->getHandle();
 	if ((connHandleID)-1 == handle)
 	{
-		Zebra::logger->error("²»ÄÜ»ñÈ¡Êı¾İ¿â¾ä±ú");
+		Zebra::logger->error("ä¸èƒ½è·å–æ•°æ®åº“å¥æŸ„");
 		return false;
 	}
 
@@ -2881,7 +2881,7 @@ bool CSchoolMember::deleteRecord()
 	SessionService::dbConnPool->putHandle(handle);
 	if ((unsigned int)-1 == retcode)
 	{
-		Zebra::logger->error("É¾³ıÃÅÅÉSCHOOLMEMBER¼ÇÂ¼Ê§°Ü SERIALID=%u", id);
+		Zebra::logger->error("åˆ é™¤é—¨æ´¾SCHOOLMEMBERè®°å½•å¤±è´¥ SERIALID=%u", id);
 		return false;
 	}
 	return true;
@@ -2920,7 +2920,7 @@ bool CSchoolMember::addNextLevelNode(CSchoolMember *member)
 
 	if (retval.second == false)
 	{
-		Zebra::logger->error("[Ê¦Í½]: %s Ìí¼Ó %s Í½µÜ½ÚµãÊ§°Ü(%u)", this->name, member->name, member->getJoinTime());
+		Zebra::logger->error("[å¸ˆå¾’]: %s æ·»åŠ  %s å¾’å¼ŸèŠ‚ç‚¹å¤±è´¥(%u)", this->name, member->name, member->getJoinTime());
 	}
 	
 	return retval.second;
@@ -2956,25 +2956,25 @@ bool CSchoolMember::firePrentice(const char *prenticeName)
 		if (member)
 		{
 			UserSession * pUser = member->getUser();
-			if (member->getTeacher() == this) // Èç¹û´ËÈËµÄÊ¦¸µÊÇ±¾½Úµã
+			if (member->getTeacher() == this) // å¦‚æœæ­¤äººçš„å¸ˆå‚…æ˜¯æœ¬èŠ‚ç‚¹
 			{
 				if(school->processLeaveSchool(member, false))
 				{
-					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã±»ÄãµÄÊ¦¸µ%sÖğ³öÊ¦ÃÅ!",name);
+					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ è¢«ä½ çš„å¸ˆå‚…%sé€å‡ºå¸ˆé—¨!",name);
 					Cmd::stChannelChatUserCmd send;
 					send.dwType = Cmd::CHAT_TYPE_SYSTEM;
 					send.dwChannelID = 0;
 					strncpy(send.pstrName,name,MAX_NAMESIZE);
-					snprintf(send.pstrChat, sizeof(send.pstrChat) - 1, "%s±»Öğ³öÁËÊ¦ÃÅ", prenticeName);
+					snprintf(send.pstrChat, sizeof(send.pstrChat) - 1, "%sè¢«é€å‡ºäº†å¸ˆé—¨", prenticeName);
 					this->sendCmdToTeacherGroup(&send,sizeof(send));
 					//school->sendCmdToSchool(&send, sizeof(send));
-					Zebra::logger->trace("[Ê¦Í½]%s±»%sÖğ³öÊ¦ÃÅ,Ê£ÓàÍ½µÜÊıCount=[%u] Size=[%u]", prenticeName,name,
+					Zebra::logger->trace("[å¸ˆå¾’]%sè¢«%sé€å‡ºå¸ˆé—¨,å‰©ä½™å¾’å¼Ÿæ•°Count=[%u] Size=[%u]", prenticeName,name,
 								this->getPrenticeCount(), prenticeList.size());
 				}
 			}
 			else
 			{
-				if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÊÇËûÊ¦¸µ²»ÄÜ¿ª³ıËû£¡");
+				if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸æ˜¯ä»–å¸ˆå‚…ä¸èƒ½å¼€é™¤ä»–ï¼");
 			}
 
 			ret = true;
@@ -2986,19 +2986,19 @@ bool CSchoolMember::firePrentice(const char *prenticeName)
 		if (prentice)
 		{
 			UserSession * pUser = prentice->getUser();
-			if (prentice->getTeacher() == this) // Èç¹û´ËÈËµÄÊ¦¸µÊÇ±¾½Úµã
+			if (prentice->getTeacher() == this) // å¦‚æœæ­¤äººçš„å¸ˆå‚…æ˜¯æœ¬èŠ‚ç‚¹
 			{
 				if (school->processLeaveSchool(prentice))
 				{
-					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã±»ÄãµÄÊ¦¸µ%sÖğ³öÃÅÅÉ!",name);
+					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ è¢«ä½ çš„å¸ˆå‚…%sé€å‡ºé—¨æ´¾!",name);
 				}
 				ret = true;
 			}
-			else if (school->getMasterNode() == this) // Èç¹û±¾½ÚµãÊÇÊ¦×ğ
+			else if (school->getMasterNode() == this) // å¦‚æœæœ¬èŠ‚ç‚¹æ˜¯å¸ˆå°Š
 			{
 				if (school->processLeaveSchool(prentice))
 				{
-					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã±»ÄãµÄÊ¦×ğ%sÖğ³öÃÅÅÉ!",name);
+					if (pUser) pUser->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ è¢«ä½ çš„å¸ˆå°Š%sé€å‡ºé—¨æ´¾!",name);
 				}
 				ret = true;
 			}
@@ -3267,7 +3267,7 @@ void CSchoolMember::setBulletin(const char *buf)
 		}
 		else
 		{
-			if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "Äã²»ÊÇÊ¦×ğ²»ÄÜÊéĞ´¹«¸æ!");
+			if (user) user->sendSysChat(Cmd::INFO_TYPE_FAIL, "ä½ ä¸æ˜¯å¸ˆå°Šä¸èƒ½ä¹¦å†™å…¬å‘Š!");
 		}
 	}
 }
@@ -3302,7 +3302,7 @@ void CSchoolMember::setInValid()
 		dwCharID = 0;
 		user = NULL;
 		byTag = 0;
-		//		dwJoinTime = (DWORD)-1;  ÔÚĞÂµÄÈËÔ±±»ÕĞÊÕ½øÀ´Ö®Ç°²»¸Ä±äÆäÎ»ÖÃ¡£
+		//		dwJoinTime = (DWORD)-1;  åœ¨æ–°çš„äººå‘˜è¢«æ‹›æ”¶è¿›æ¥ä¹‹å‰ä¸æ”¹å˜å…¶ä½ç½®ã€‚
 		bzero(name, MAX_NAMESIZE);
 		wdLevel = 0;
 		wdDegree = 0;
@@ -3461,7 +3461,7 @@ void CSchoolMember::sendChatMessages(const Cmd::stChannelChatUserCmd *rev, const
 		{
 			if (myTeacher)
 			{
-				//myTeacher->sendCmdToTeacherGroup(rev, cmdLen);  ĞÂ°æ±¾ÁÄÌìÏûÏ¢²»·¢¸ø×Ô¼ºµÄÊ¦ĞÖµÜÖ»·¢¸ø×Ô¼ºµÄÊ¦¸µ×Ô¼ºµÄÍ½µÜ
+				//myTeacher->sendCmdToTeacherGroup(rev, cmdLen);  æ–°ç‰ˆæœ¬èŠå¤©æ¶ˆæ¯ä¸å‘ç»™è‡ªå·±çš„å¸ˆå…„å¼Ÿåªå‘ç»™è‡ªå·±çš„å¸ˆå‚…è‡ªå·±çš„å¾’å¼Ÿ
 				//sendCmdToTeacherGroup(rev, cmdLen,true);
 				myTeacher->sendCmdToMe(rev, cmdLen);
 				sendCmdToTeacherGroup(rev, cmdLen);
